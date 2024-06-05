@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Measuring Vibration &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setting Hover Throttle" href="ac_throttlemid.html" />
+    <link rel="prev" title="Tuning" href="common-tuning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-prearm-safety-checks.html">Pre-arm Safety Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arming_the_motors.html">Arming and Disarming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklist.html">Pre-Flight Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_tipsfornewpilots.html">Getting Off the Ground – Tips for New Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Measuring Vibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#real-time-view-in-ground-station">Real-Time view in Ground Station</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vibe-dataflash-log-message">Vibe Dataflash Log message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looking-for-the-leans">Looking for “The Leans”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-analysis-with-fft">Advanced Analysis with FFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imu-dataflash-log-message">IMU Dataflash Log message</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ac_throttlemid.html">Setting Hover Throttle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotrim.html">Save Trim &amp; Auto Trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thrust_loss_yaw_imbalance.html">Thrust Loss and Yaw Imbalance Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-flying.html">Indoor Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="flying-arducopter.html">First Flight with Copter</a></li>
+      <li class="breadcrumb-item active">Measuring Vibration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="measuring-vibration">
+<span id="common-measuring-vibration"></span><h1>Measuring Vibration<a class="headerlink" href="#measuring-vibration" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,plane,rover,dev,planner”]</p>
+<p>Autopilots have accelerometers that are sensitive to vibrations.
+These accelerometer values are combined with barometer and
+GPS data to estimate the vehicle’s position. With excessive
+vibrations, the estimate can be thrown off and lead to very bad
+performance in modes that rely on accurate positioning (e.g. on Copter:
+AltHold, Loiter, RTL, Guided, Position and Auto flight modes).</p>
+<p>These instructions explain how to measure the vibration levels. If you
+find they are out-of-tolerance then follow the advice found on the <a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">Vibration Damping</span></a> page.</p>
+<section id="real-time-view-in-ground-station">
+<h2>Real-Time view in Ground Station<a class="headerlink" href="#real-time-view-in-ground-station" title="Permalink to this heading">¶</a></h2>
+<p>Ground Stations can display a real-time view of vibration and clipping.  If using the Mission Planner click on “Vibe” on the HUD to display the current vibration levels.</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/vibration-realtime-mp.png"><img alt="../_images/vibration-realtime-mp.png" src="../_images/vibration-realtime-mp.png" style="width: 450px;" /></a>
+</div></blockquote>
+<p>Vibration levels below 30m/s/s are normally acceptable.  Levels above 30m/s/s <em>may</em> have problems and levels above 60m/s/s nearly always have problems with position or altitude hold.</p>
+</section>
+<section id="vibe-dataflash-log-message">
+<h2>Vibe Dataflash Log message<a class="headerlink" href="#vibe-dataflash-log-message" title="Permalink to this heading">¶</a></h2>
+<p>Check the recorded Vibe levels are mostly below 30m/s/s</p>
+<ul>
+<li><p>Perform a regular flight (i.e. not just a gentle hover) of at least a
+few minutes and <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner-downloading-logs-via-mavlink"><span class="std std-ref">download the dataflash logs</span></a>.</p></li>
+<li><p>Using the Mission Planner or other ground station graph the VIBE message’s
+VibeX, VibeY and VibeZ values.  These show the standard deviation of
+the primary accelerometer’s output in m/s/s.  The image below, taken
+from a 3DR IRIS, shows normal levels which are below 15m/s/s but
+occasionally peak to 30m/s/s.  Maximum acceptable values appear to be
+below 30m/s/s (see second picture below).</p></li>
+<li><p>Graph the Clip0, Clip1 and Clip2 values which increase each time one
+of the accelerometers reaches its maximum limit (16G).  Ideally
+these should be zero for the whole flight but low numbers (&lt;100) are
+likely ok especially if they occur during hard landings.  A regularly
+increasing number through the log indicates a serious vibration
+problem that <a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">should be fixed</span></a>.</p>
+<a class="reference external image-reference" href="../_images/mp_vibe_dataflash_msg.png"><img alt="../_images/mp_vibe_dataflash_msg.png" src="../_images/mp_vibe_dataflash_msg.png" style="width: 450px;" /></a>
+</li>
+</ul>
+<p>This is an example of a vehicle that had position estimate problems due
+to high vibrations.</p>
+<a class="reference external image-reference" href="../_images/mp_measuring_vibration_bad_vibes.png"><img alt="../_images/mp_measuring_vibration_bad_vibes.png" src="../_images/mp_measuring_vibration_bad_vibes.png" style="width: 450px;" /></a>
+<p>The algorithm for calculating the vibration levels can be seen in the
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_InertialSensor/AP_InertialSensor.cpp#L1609">AP_InertialSensor.cpp’s calc_vibration_and_clipping()</a>
+method but in short it involves calculating the standard deviation of
+the accelerometer readings like this:</p>
+<ul class="simple">
+<li><p>Capture the raw x, y and z accelerometer values from the primary IMU</p></li>
+<li><p>High-pass filter the raw values at 5hz to remove the vehicle’s
+movement and create a “accel_vibe_floor” for x,y and z axis.</p></li>
+<li><p>Calculate the difference between the latest accel values and the
+accel_vibe_floor.</p></li>
+<li><p>Square the above differences, filter at 2hz and then calculate the
+square root (for x, y and z).  These final three values are what
+appear in the VIBE msg’s VibeX, Y and Z fields.</p></li>
+</ul>
+<p>When looking at vibrations in a log the first thing to look at is the clipping. If the clipping is 0 that’s good. That means the vibrations that are being detected aren’t overwhelming the IMU.</p>
+<p>When troubleshooting the vibration, consider the axis of the vibration as a staring point to find the problem:</p>
+<blockquote>
+<div><p>If X AND Y are both high, then you may have an issue with a motor bearing or prop balance. Or you may need more/better overall vibration damping for your FC.
+If X OR Y is high then you may have an issue with your FC mounting. Maybe a wire is bouncing on the FC or restraining it. Or maybe your vibration damping works better in one axis than the other.
+If you have a Z vibration then you may have a track issue with propeller (bent blade) or vertical play in a motor.</p>
+</div></blockquote>
+<p>Also consider that some flight conditions/airframes will have different natural vibrations. If the vibrations look good in a hover, but they increase with speed, perhaps there is an aerodynamic issue with the airframe, or in wind,</p>
+</section>
+<section id="looking-for-the-leans">
+<h2>Looking for “The Leans”<a class="headerlink" href="#looking-for-the-leans" title="Permalink to this heading">¶</a></h2>
+<p><strong>The Leans</strong> occurs when the vehicle’s attitude estimate becomes incorrect causing it to lean significantly even though the pilot is commanding level flight.  The cause of the problem is often accelerometer aliasing which can be confirmed by comparing the Roll and Pitch attitude estimates from each of the estimation systems (i.e. each AHRSs or EKFs).  The attitude estimates should be within a few degrees of each other</p>
+<ul class="simple">
+<li><p>Download the dataflash log and open in the ground station’s log viewer</p></li>
+<li><p>Compare the AHRS2.Roll, NKF1[0].Roll and NKF1[1].Roll if using EKF2, or AHRS2.Roll, XKF1[0].Roll and XKF1[1].Roll, if using EKF3</p></li>
+</ul>
+<p>The image below shows a typical log in which the attitudes match well</p>
+<a class="reference external image-reference" href="../_images/vibration-measuring-leans.png"><img alt="../_images/vibration-measuring-leans.png" src="../_images/vibration-measuring-leans.png" style="width: 450px;" /></a>
+</section>
+<section id="advanced-analysis-with-fft">
+<h2>Advanced Analysis with FFT<a class="headerlink" href="#advanced-analysis-with-fft" title="Permalink to this heading">¶</a></h2>
+<p>Refer to the <a class="reference internal" href="common-imu-batchsampling.html#common-imu-batchsampling"><span class="std std-ref">Measuring Vibration with IMU Batch Sampler</span></a> page for instructions on how to collect large amounts of IMU data and perform an FFT analysis to determine the frequencies with the most vibration.</p>
+</section>
+<section id="imu-dataflash-log-message">
+<h2>IMU Dataflash Log message<a class="headerlink" href="#imu-dataflash-log-message" title="Permalink to this heading">¶</a></h2>
+<p>For very old versions of ArduPilot that do not include the Vibe message the IMU values can be checked directly</p>
+<ul>
+<li><p>Ensure the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-bitmask" title="(in Rover)"><span class="xref std std-ref">LOG_BITMASK</span></a> parameter is set to include IMU data so accelerometer values are recorded to the dataflash logs</p></li>
+<li><p>Fly your copter in Stabilize mode and try to maintain a level hover (it doesn’t need to be perfectly stable or level)</p></li>
+<li><p><a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner-downloading-logs-via-mavlink"><span class="std std-ref">Download the dataflash logs and</span></a>
+after the download has completed, use the Mission Planner’s “Review a
+Log” button to open the latest file in the log directory (it’s last
+digit will be the Log number you downloaded so in the example above
+we downloaded Log #1 so the filename will end in 1.log)</p></li>
+<li><p>When the Log Browser appears, scroll down until you find any IMU
+message.  Click on the row’s AccX and push <strong>Graph this data</strong> Left
+button.  Repeat for the AccY and AccZ columns to produce a graph like
+below.</p>
+<p><a class="reference external" href="../_images/DiagnosingWithLogs_Vibes.png"><img alt="DiagnosingWithLogs_Vibes" src="../_images/DiagnosingWithLogs_Vibes.png" /></a></p>
+</li>
+<li><p>Check the scale on the left and ensure that your vibration levels for
+the AccX and AccY are between -3 and +3.  For AccZ the acceptable
+range is -15 to -5.  If it is very close or over these limits you
+should refer back to the <a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">Vibration Damping</span></a> page for possible solutions.</p></li>
+<li><p>After all the above is complete, go to the Mission Planner’s standard
+parameters page (you may need to press the <strong>Connect</strong> button again)
+and set the Log Bitmask back to “Default”.  This is important because
+especially on the APM logging requires significant CPU resources and
+it’s a waste to log these if they’re not really needed.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-tuning.html" class="btn btn-neutral float-left" title="Tuning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ac_throttlemid.html" class="btn btn-neutral float-right" title="Setting Hover Throttle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

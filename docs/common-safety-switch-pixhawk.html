@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safety Switch &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sounds (Pixhawk)" href="common-sounds-pixhawkpx4.html" />
+    <link rel="prev" title="LEDs Meaning" href="common-leds-pixhawk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://arkelectron.com/product/arkv6x/">ARKV6X DS-10 Pixhawk6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pixhawkv6X.html">CUAV Pixhawk v6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-x7-family-overview.html">CUAV X7/X7Pro/X7+/X7+ Pro</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecube-overview.html">CubePilot Cube Black</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeorange-overview.html">CubePilot Cube Orange/+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubepurple-overview.html">CubePilot Cube Purple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeyellow-overview.html">CubePilot Cube Yellow</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">CubePilot Cube Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-durandal-overview.html">Holybro Durandal H7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6X.html">Holybro Pixhawk6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6C.html">Holybro Pixhawk6C/ 6C Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v6.html">Holybro Pix32v6(Pixhawk6C variant)</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRo X2.1</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/m10022a.htm">mRo X2.1-777</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+          <li class="breadcrumb-item"><a href="common-pixhawk-overview.html">Pixhawk Overview</a></li>
+      <li class="breadcrumb-item active">Safety Switch</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="safety-switch">
+<span id="common-safety-switch-pixhawk"></span><h1>Safety Switch<a class="headerlink" href="#safety-switch" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/pixhawk_safetyswitch.jpg"><img alt="../_images/pixhawk_safetyswitch.jpg" src="../_images/pixhawk_safetyswitch.jpg" /></a>
+<p>A safety switch can be used to enable/disable the outputs to motors and servos. The switch controls the “Safety” state of the vehicle. When in this state, motors are prevented from operating (except in Plane’s MANUAL mode if force armed and the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safety-mask" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETY_MASK</span></a> enables outputs controlling the motors), a pre-arm error condition is generated to prevent accidental arming, and servo outputs have their PWM disabled.</p>
+<section id="led-meaning">
+<h2>LED meaning<a class="headerlink" href="#led-meaning" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Constant blinking - system is initialising</p></li>
+<li><p>Intermittent blinking - system is ready but in the “Safety” state.  press the safety switch to enable output to the motors and control surfaces if already armed, or to cancel the pre-arm error condition that prevents arming.</p></li>
+<li><p>Solid - safety switch has been pressed, motors and servos are able to move once the vehicle is armed.</p></li>
+</ul>
+</section>
+<section id="configuring-the-safety-switch">
+<h2>Configuring the Safety Switch<a class="headerlink" href="#configuring-the-safety-switch" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safety-deflt" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETY_DEFLT</span></a> = 0 to disable the switch for systems not equipped.(<code class="docutils literal notranslate"><span class="pre">BRD_SAFETYENABLE</span></code> in older firmware versions)</p></li>
+<li><ul>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safetyoption" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETYOPTION</span></a>. This bitmask controls the behavior of the safety button. It allows you to control if the safety button can be used to enable the safety safety state and/or disable it, and whether the button is only active when disarmed, and to force entry back to the safety on state when you disarm. The default behaviour is for the button to enter or exit the safety state, only when disarmed.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safety-mask" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETY_MASK</span></a> can be used to set which individual channels remain enabled with the safety switch. This allows limited control surface movements to check correct operation on the ground. Motor outputs will remain disabled in all stabilized flight modes.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Being in the “Safety” state</p>
+</div>
+<a class="reference external image-reference" href="../_images/safetyswitch-bitmask.png"><img alt="../_images/safetyswitch-bitmask.png" src="../_images/safetyswitch-bitmask.png" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safetyoption" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETYOPTION</span></a> This bitmask controls the operational limits of the safety button. It allows you to control if the safety button can be used for “Safety” state enable and/or disable, and whether the button is active if armed. Also, if the “Safety” state is forced on upon disarming.</p></li>
+</ul>
+</section>
+<section id="using-the-safety-switch-to-force-i-o-board-firmware-update">
+<h2>Using the Safety Switch to force I/O board firmware update<a class="headerlink" href="#using-the-safety-switch-to-force-i-o-board-firmware-update" title="Permalink to this heading">¶</a></h2>
+<p>If the safety switch is held down for the first few seconds after the autopilot is powered up, the I/O firmware is reloaded, if the autopilot includes an IOMCU.</p>
+<p>This is normally not required but in some rare cases is required after a firmware upload if you hear the “Start up Failed” sound after startup (see <a class="reference internal" href="common-sounds-pixhawkpx4.html#common-sounds-pixhawkpx4"><span class="std std-ref">Sounds wiki page</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many autopilots have two CPUs, the main CPU (aka FMU) is where ArduPilot runs. The IOMCU is a separate I/O CPU which is responsible for some I/O including PWM outputs to the MAIN OUT channels. Other autopilots do not have an IOMCU, just the main CPU.</p>
+</div>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-leds-pixhawk.html" class="btn btn-neutral float-left" title="LEDs Meaning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-sounds-pixhawkpx4.html" class="btn btn-neutral float-right" title="Sounds (Pixhawk)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

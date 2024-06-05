@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting the input shaping parameters &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setting the input shaping parameters</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-the-input-shaping-parameters">
+<span id="input-shaping"></span><h1>Setting the input shaping parameters<a class="headerlink" href="#setting-the-input-shaping-parameters" title="Permalink to this heading">¶</a></h1>
+<p>Copter has a set of parameters that define the way the aircraft feels to fly. This allows the aircraft to be set up with a very aggressive tune but still feel like a very docile and friendly aircraft to fly.</p>
+<p>The most important of these parameters is:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-y-rate" title="(in Copter)"><span class="xref std std-ref">PILOT_Y_RATE</span></a>: desired maximum yaw rate in deg/s</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#angle-max" title="(in Copter)"><span class="xref std std-ref">ANGLE_MAX</span></a>:  maximum lean angle</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>: Pitch rate acceleration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a>: Roll rate acceleration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a>: Yaw rate acceleration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-lim-tc" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_LIM_TC</span></a>: Aircraft smoothing time</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a>: Time to achieve 63% seady state pitch and roll attitude. Mulitply by 3 to determine time to achieve steady state attitude.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-y-rate-tc" title="(in Copter)"><span class="xref std std-ref">PILOT_Y_RATE_TC</span></a>: Time to achieve 63% steady state yaw rate. Multiply by 3 to determine time to achieve steady state rate.</p></li>
+</ul>
+<p>Autotune will set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a> parameters to their maximum based on measurements done during the Autotune tests. These values should not be increased beyond what Autotune suggests without careful testing. In most cases pilots will want to reduce these values significantly.</p>
+<p>For aircraft designed to carry large directly mounted payloads, the maximum values of <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a> should be reduced based on the minimum and maximum takeoff weight (TOW):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>  x (min_TOW / max_TOW)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a>  x (min_TOW / max_TOW)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a>  x (min_TOW / max_TOW)</p></li>
+</ul>
+<p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-y-rate" title="(in Copter)"><span class="xref std std-ref">PILOT_Y_RATE</span></a> should be set to be approximately 0.005 x <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a> to ensure that the aircraft can achieve full yaw rate in approximately half a second.</p>
+<p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-lim-tc" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_LIM_TC</span></a> may be increased to provide a very smooth feeling on the sticks at the expense of a slower reaction time.</p>
+<p>Aerobatic aircraft should keep the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a> provided by autotune and reduce <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-lim-tc" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_LIM_TC</span></a> to achieve the stick feel desired by the pilot. For pilots wanting to fly ACRO the following input shaping parameters can be used to tune the feel of ACRO:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-pitch" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_PITCH</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-roll" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_ROLL</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-expo" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_EXPO</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate-tc" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE_TC</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-thr-mid" title="(in Copter)"><span class="xref std std-ref">ACRO_THR_MID</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-trainer" title="(in Copter)"><span class="xref std std-ref">ACRO_TRAINER</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-expo" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_EXPO</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate-tc" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE_TC</span></a></p></li>
+</ul>
+<p>The full list of input shaping parameters are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-pitch" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_PITCH</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-roll" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_ROLL</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-expo" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_EXPO</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate-tc" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE_TC</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-thr-mid" title="(in Copter)"><span class="xref std std-ref">ACRO_THR_MID</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-trainer" title="(in Copter)"><span class="xref std std-ref">ACRO_TRAINER</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-expo" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_EXPO</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate-tc" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE_TC</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#angle-max" title="(in Copter)"><span class="xref std std-ref">ANGLE_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-lim-tc" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_LIM_TC</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rate-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_RATE_P_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rate-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_RATE_R_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rate-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_RATE_Y_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-slew-yaw" title="(in Copter)"><span class="xref std std-ref">ATC_SLEW_YAW</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-accel-z" title="(in Copter)"><span class="xref std std-ref">PILOT_ACCEL_Z</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-speed-dn" title="(in Copter)"><span class="xref std std-ref">PILOT_SPEED_DN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-speed-up" title="(in Copter)"><span class="xref std std-ref">PILOT_SPEED_UP</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-thr-bhv" title="(in Copter)"><span class="xref std std-ref">PILOT_THR_BHV</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-thr-filt" title="(in Copter)"><span class="xref std std-ref">PILOT_THR_FILT</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-tkoff-alt" title="(in Copter)"><span class="xref std std-ref">PILOT_TKOFF_ALT</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-y-rate" title="(in Copter)"><span class="xref std std-ref">PILOT_Y_RATE</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-y-rate-tc" title="(in Copter)"><span class="xref std std-ref">PILOT_Y_RATE_TC</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-acc-max" title="(in Copter)"><span class="xref std std-ref">LOIT_ACC_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-ang-max" title="(in Copter)"><span class="xref std std-ref">LOIT_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-brk-accel" title="(in Copter)"><span class="xref std std-ref">LOIT_BRK_ACCEL</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-brk-delay" title="(in Copter)"><span class="xref std std-ref">LOIT_BRK_DELAY</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-brk-jerk" title="(in Copter)"><span class="xref std std-ref">LOIT_BRK_JERK</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-speed" title="(in Copter)"><span class="xref std std-ref">LOIT_SPEED</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

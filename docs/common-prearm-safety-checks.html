@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Arm Safety Checks &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Arming the motors" href="arming_the_motors.html" />
+    <link rel="prev" title="First Flight with Copter" href="flying-arducopter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pre-arm Safety Check</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recognising-which-pre-arm-check-has-failed-using-the-gcs">Recognising which Pre-Arm Check has failed using the GCS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-failure-messages">Other Failure messages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#failsafes">Failsafes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rc-failures">RC failures:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#barometer-failures">Barometer failures:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compass-failures">Compass failures:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gps-related-failures">GPS related failures:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ins-checks-i-e-acclerometer-and-gyro-checks">INS checks (i.e. Acclerometer and Gyro checks):</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#board-voltage-checks">Board Voltage checks:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-checks">Parameter checks:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#battery-power-monitor">Battery/Power Monitor:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#airspeed">Airspeed:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging">Logging:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#safety-switch">Safety Switch:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system">System:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mission">Mission:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rangefinder">Rangefinder:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-the-pre-arm-safety-check">Disabling the Pre-arm Safety Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arming_the_motors.html">Arming and Disarming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklist.html">Pre-Flight Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_tipsfornewpilots.html">Getting Off the Ground – Tips for New Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_throttlemid.html">Setting Hover Throttle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotrim.html">Save Trim &amp; Auto Trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thrust_loss_yaw_imbalance.html">Thrust Loss and Yaw Imbalance Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-flying.html">Indoor Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="flying-arducopter.html">First Flight with Copter</a></li>
+      <li class="breadcrumb-item active">Pre-Arm Safety Checks</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pre-arm-safety-checks">
+<span id="common-prearm-safety-checks"></span><h1>Pre-Arm Safety Checks<a class="headerlink" href="#pre-arm-safety-checks" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot includes a suite of Pre-arm Safety Checks which will prevent the
+vehicle from arming its propulsion system if any of a fairly large number of issues are
+discovered before movement including missed calibration, configuration
+or bad sensor data. These checks help prevent crashes or fly-aways but
+some can also be disabled if necessary.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/gZ3H2eLmStI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Never disable the arming checks (ie <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> not = “1”, except for bench testing. Always resolve any prearm or arming failures BEFORE attempting to fly. Doing otherwise may result in the loss of the vehicle.</p>
+</div>
+<section id="recognising-which-pre-arm-check-has-failed-using-the-gcs">
+<h2>Recognising which Pre-Arm Check has failed using the GCS<a class="headerlink" href="#recognising-which-pre-arm-check-has-failed-using-the-gcs" title="Permalink to this heading">¶</a></h2>
+<p>The pilot will notice a pre-arm check failure because he/she will be
+unable to arm the vehicle and the notification LED, if available, will be flashing yellow.  To
+determine exactly which check has failed:</p>
+<ol class="arabic simple">
+<li><p>Connect the Autopilot to the ground station using a USB cable
+or <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">Telemetry</span></a>.</p></li>
+<li><p>Ensure the GCS is connected to the vehicle (i.e. on Mission
+Planner and push the “Connect” button on the upper right).</p></li>
+<li><p>Turn on your radio transmitter and attempt to arm the vehicle
+(regular procedure is using throttle down, yaw right or via an RCx_OPTION switch)</p></li>
+<li><p>The first cause of the Pre-Arm Check failure will be displayed in red
+on the HUD window</p></li>
+</ol>
+<p>Pre-arm checks that are failing will also be sent as messages to the GCS while disarmed, about every 30 seconds. If you wish to disable this and have them sent only when an attempt arm fails, then set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-options" title="(in Rover)"><span class="xref std std-ref">ARMING_OPTIONS</span></a> bit 1 (value 1).</p>
+<p>Most are obvious as to the issue, but some can have multiple sources and the message cant identify them all in its limited length. The most common of those are:</p>
+<p><strong>AHRS: waiting for home</strong> : autopilot has not gotten a home location, usually because the GPS is detached or has not gotten a fix yet with enough precision. Common experience while indoors.</p>
+<p><strong>EKF3 Roll/Pitch inconsistent by X degs</strong> : The autopilot is not using EKF3 because its roll or pitch disagrees with the current ARHS system being used (usually DCM). Normally due to EKF3 not getting good enough GPS accuracy (are you indoors??), but could be due to other sensors producing errors. Wait or go outdoors.</p>
+<p><strong>EKF3 Yaw inconsistent by x degs</strong>: The autopilot is not using EKF3 because its yaw disagrees with the current ARHS system being used (usually DCM). Normally a compass issue caused by metal objects nearby.</p>
+<p><strong>AHRS: not using configured AHRS type</strong>: Normally, if EKF3 is being used, it has not started or has fallen back to DCM because its not healthy yet. Can also be caused by misconfiguring which EKF is enabled versus being used by <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a>.</p>
+<p><strong>EKF3 waiting for GPS config data</strong>: A DroneCAN GPS has been configured but is disconnected or not setup.</p>
+</section>
+<section id="other-failure-messages">
+<h2>Other Failure messages<a class="headerlink" href="#other-failure-messages" title="Permalink to this heading">¶</a></h2>
+<section id="failsafes">
+<h3>Failsafes:<a class="headerlink" href="#failsafes" title="Permalink to this heading">¶</a></h3>
+<p>Any failsafe (RC, Battery, GCS,etc.) will display a message and prevent arming.</p>
+</section>
+<section id="rc-failures">
+<h3>RC failures:<a class="headerlink" href="#rc-failures" title="Permalink to this heading">¶</a></h3>
+<p><strong>Waiting for RC</strong> or <strong>RC not found</strong> : No RC has been detected. If operating with only a GCS, see <a class="reference internal" href="common-gcs-only-operation.html#common-gcs-only-operation"><span class="std std-ref">Operation Using Only a Ground Control Station (GCS)</span></a>.</p>
+<p><strong>RC not calibrated</strong> : the <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">radio calibration</span></a> has not been
+performed.  <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc3-min" title="(in Rover)"><span class="xref std std-ref">RC3_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc3-max" title="(in Rover)"><span class="xref std std-ref">RC3_MAX</span></a> must have been changed from their
+default values (1100 and 1900), and for channels 1 to 4, MIN value must be 1300 or less, and MAX value 1700 or more.</p>
+</section>
+<section id="barometer-failures">
+<h3>Barometer failures:<a class="headerlink" href="#barometer-failures" title="Permalink to this heading">¶</a></h3>
+<p><strong>Baro not healthy</strong> : the barometer sensor is reporting that it is
+unhealthy which is normally a sign of a hardware failure.</p>
+<p><strong>Alt disparity</strong> : the barometer altitude disagrees with the inertial
+navigation (i.e. Baro + Accelerometer) altitude estimate by more than 1
+meters.  This message is normally short-lived and can occur when the
+autopilot is first plugged in or if it receives a hard jolt
+(i.e. dropped suddenly).  If it does not clear the <a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">accelerometers may need to be calibrated</span></a> or there may
+be a barometer hardware issue.</p>
+</section>
+<section id="compass-failures">
+<h3>Compass failures:<a class="headerlink" href="#compass-failures" title="Permalink to this heading">¶</a></h3>
+<p><strong>Compass not healthy</strong> : the compass sensor is reporting that it is
+unhealthy which is a sign of a hardware failure.</p>
+<p><strong>Compass not calibrated</strong> : the <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">compass(es) has not been calibrated</span></a>.  the
+<code class="docutils literal notranslate"><span class="pre">COMPASS_OFS_X,</span> <span class="pre">_Y,</span> <span class="pre">_Z</span></code> parameters are zero or the number or type of
+compasses connected has been changed since the last compass calibration
+was performed.</p>
+<p><strong>Compass offsets too high</strong> : the primary compass’s offsets length
+(i.e. sqrt(x^2+y^2+z^2)) are larger than 500.  This can be caused by
+metal objects being placed too close to the compass.  If only an
+internal compass is being used (not recommended), it may simply be the
+metal in the board that is causing the large offsets and this may not
+actually be a problem in which case you may wish to disable the compass
+check.</p>
+<p><strong>Check mag field</strong> : the sensed magnetic field in the area is 35%
+higher or  lower than the expected value.  The expected length is 530 so
+it’s &gt; 874 or &lt; 185.  Magnetic field strength varies around the world
+but these wide limits mean it’s more likely the <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">compass calibration</span></a> has not
+calculated good offsets and should be repeated.</p>
+<p><strong>Compasses inconsistent</strong> : the internal and external compasses are
+pointing in different directions (off by &gt;45 degrees).  This is normally
+caused by the external compasses orientation (i.e. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-orient" title="(in Rover)"><span class="xref std std-ref">COMPASS_ORIENT</span></a>
+parameter) being set incorrectly.</p>
+</section>
+<section id="gps-related-failures">
+<h3>GPS related failures:<a class="headerlink" href="#gps-related-failures" title="Permalink to this heading">¶</a></h3>
+<p><strong>GPS Glitch</strong> : the <a class="reference internal" href="gps-failsafe-glitch-protection.html#gps-failsafe-glitch-protection"><span class="std std-ref">GPS is glitching</span></a> and the vehicle
+is in a flight mode that requires GPS (i.e. Loiter, PosHold, etc) and/or
+the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a> is enabled.</p>
+<p><strong>Need 3D Fix</strong> : the GPS does not have a 3D fix and the vehicle is in a
+flight mode that requires the GPS and/or the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a> is enabled.</p>
+<p><strong>Bad Velocity</strong> : the vehicle’s velocity (according to inertial
+navigation system) is above 50cm/s.  Issues that could lead to this
+include the vehicle actually moving or being dropped, bad accelerometer
+calibration, GPS updating at below the expected 5hz.</p>
+<p><strong>High GPS HDOP</strong> : the GPS’s HDOP value (a measure of the position
+accuracy) is above 2.0 and the vehicle is in a flight mode that requires
+GPS and/or the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a> is enabled.
+This may be resolved by simply waiting a few minutes, moving to a
+location with a better view of the sky or checking sources of GPS
+interference (i.e. FPV equipment) are moved further from the GPS.
+Alternatively the check can be relaxed by increasing the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#gps-hdop-good" title="(in Copter)"><span class="xref std std-ref">GPS_HDOP_GOOD</span></a>
+parameter to 2.2 or 2.5.  Worst case the pilot may disable the fence and
+take-off in a mode that does not require the GPS (i.e. Stabilize,
+AltHold) and switch into Loiter after arming but this is not
+recommended.</p>
+<p>Note: the GPS HDOP can be readily viewed through the Mission Planner’s
+Quick tab as shown below.</p>
+<a class="reference external image-reference" href="../_images/MP_QuicHDOP.jpg"><img alt="../_images/MP_QuicHDOP.jpg" src="../_images/MP_QuicHDOP.jpg" /></a>
+</section>
+<section id="ins-checks-i-e-acclerometer-and-gyro-checks">
+<h3>INS checks (i.e. Acclerometer and Gyro checks):<a class="headerlink" href="#ins-checks-i-e-acclerometer-and-gyro-checks" title="Permalink to this heading">¶</a></h3>
+<p><strong>INS not calibrated</strong>: some or all of the accelerometer’s offsets are
+zero.  The <a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">accelerometers need to be calibrated</span></a>.</p>
+<p><strong>Accels not healthy</strong>: one of the accelerometers is reporting it is not
+healthy which could be a hardware issue.  This can also occur
+immediately after a firmware update before the board has been restarted.</p>
+<p><strong>Accels inconsistent</strong>: the accelerometers are reporting accelerations
+which are different by at least 1m/s/s.  The <a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">accelerometers need to be re-calibrated</span></a> or there is a
+hardware issue.</p>
+<p><strong>Gyros not healthy</strong>: one of the gyroscopes is reporting it is
+unhealthy which is likely a hardware issue.  This can also occur
+immediately after a firmware update before the board has been restarted.</p>
+<p><strong>Gyro cal failed</strong>: the gyro calibration failed to capture offsets.
+This is most often caused by the vehicle being moved during the gyro
+calibration (when red and blue lights are flashing) in which case
+unplugging the battery and plugging it in again while being careful not
+to jostle the vehicle will likely resolve the issue.  Sensors hardware
+failures (i.e. spikes) can also cause this failure.</p>
+<p><strong>Gyros inconsistent</strong>: two gyroscopes are reporting vehicle rotation
+rates that differ by more than 20deg/sec.  This is likely a hardware
+failure or caused by a bad gyro calibration.</p>
+</section>
+<section id="board-voltage-checks">
+<h3>Board Voltage checks:<a class="headerlink" href="#board-voltage-checks" title="Permalink to this heading">¶</a></h3>
+<p><strong>Check Board Voltage</strong>: the board’s internal voltage is below 4.3 Volts
+or above 5.8 Volts.</p>
+<p>If powered through a USB cable (i.e. while on the bench) this can be
+caused by the desktop computer being unable to provide sufficient
+current to the autopilot - try replacing the USB cable.</p>
+<p>If powered from a battery this is a serious problem and the power system
+(i.e. Power Module, battery, etc) should be carefully checked before
+flying.</p>
+</section>
+<section id="parameter-checks">
+<h3>Parameter checks:<a class="headerlink" href="#parameter-checks" title="Permalink to this heading">¶</a></h3>
+<p><strong>Ch7&amp;Ch8 Opt cannot be same</strong>: <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">Auxiliary Function Switches</span></a> are set to the same option which is not permitted because it could lead to confusion.</p>
+<p><strong>Check FS_THR_VALUE</strong>: the <a class="reference internal" href="radio-failsafe.html#radio-failsafe"><span class="std std-ref">radio failsafe pwm value</span></a> has been set too close to the throttle channels (i.e. ch3) minimum.</p>
+<p><strong>Check ANGLE_MAX</strong>: the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#angle-max" title="(in Copter)"><span class="xref std std-ref">ANGLE_MAX</span></a> parameter which controls the
+vehicle’s maximum lean angle has been set below 10 degrees (i.e. 1000)
+or above 80 degrees (i.e. 8000).</p>
+<p><strong>ACRO_BAL_ROLL/PITCH</strong>: the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-roll" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_ROLL</span></a> parameter is higher than
+the Stabilize Roll P and/or <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-pitch" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_PITCH</span></a> parameter is higher than
+the Stabilize Pitch P value.  This could lead to the pilot being unable
+to control the lean angle in ACRO mode because the <a class="reference internal" href="acro-mode.html#acro-mode-acro-trainer"><span class="std std-ref">Acro Trainer stabilization</span></a> would overpower the pilot’s
+input.</p>
+</section>
+<section id="battery-power-monitor">
+<h3>Battery/Power Monitor:<a class="headerlink" href="#battery-power-monitor" title="Permalink to this heading">¶</a></h3>
+<p>If a power monitor voltage is below its failsafe low or critical voltages or failsafe remaining capacity low or critical set points, this check will fail and indicate which set point it is below. It will also fail if these set points are inverted, ie critical point is higher than low point. See <a class="reference internal" href="failsafe-battery.html#failsafe-battery"><span class="std std-ref">Battery Failsafe</span></a> for Copter, <a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span>Plane Failsafe Function</span></a> for Plane, or <a class="reference external" href="https://ardupilot.org/rover/docs/rover-failsafes.html#rover-failsafes" title="(in Rover)"><span>Failsafes</span></a> for Rover for more information on these.</p>
+<p>In addition, minimum arming voltage and remaining capacity parameters for each battery/power monitor can be set, for example <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-arm-volt" title="(in Rover)"><span class="xref std std-ref">BATT_ARM_VOLT</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-arm-mah" title="(in Rover)"><span class="xref std std-ref">BATT_ARM_MAH</span></a> for the first battery, to provide a check that the battery is not only above failsafe levels, but also has enough capacity for operation.</p>
+</section>
+<section id="airspeed">
+<h3>Airspeed:<a class="headerlink" href="#airspeed" title="Permalink to this heading">¶</a></h3>
+<p>If an airspeed sensor is configured, and it is not providing a reading or failed to calibrate, this check will fail.</p>
+<p><strong>Airspeed not healthy</strong></p>
+</section>
+<section id="logging">
+<h3>Logging:<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h3>
+<p><strong>Logging failed</strong>: Logging pre-armed was enabled but failed to write to the log.</p>
+<p><strong>No SD Card</strong>: Logging is enabled, but no SD card is detected.</p>
+</section>
+<section id="safety-switch">
+<h3>Safety Switch:<a class="headerlink" href="#safety-switch" title="Permalink to this heading">¶</a></h3>
+<p><strong>Hardware safety switch</strong>: Hardware safety switch has not been pushed.</p>
+</section>
+<section id="system">
+<h3>System:<a class="headerlink" href="#system" title="Permalink to this heading">¶</a></h3>
+<p><strong>Param storage failed</strong>: A check of reading the parameter storage area failed.</p>
+<p><strong>Internal errors (0xx)</strong>: An internal error has occurred. Report to ArduPilot development team <a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/15916">here</a></p>
+<p><strong>KDECAN Failed</strong>: KDECAN system failure.</p>
+<p><strong>DroneCAN Failed</strong>: DroneCAN system failure.</p>
+</section>
+<section id="mission">
+<h3>Mission:<a class="headerlink" href="#mission" title="Permalink to this heading">¶</a></h3>
+<p>See <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-mis-items" title="(in Rover)"><span class="xref std std-ref">ARMING_MIS_ITEMS</span></a></p>
+<p><strong>No mission library present</strong>: Mission checking is enabled, but no mission is loaded.</p>
+<p><strong>No rally library present</strong>: Rally point checking is enabled, but no rally points loaded.</p>
+<p><strong>Missing mission item: xxxx</strong>: A required mission items is missing.</p>
+</section>
+<section id="rangefinder">
+<h3>Rangefinder:<a class="headerlink" href="#rangefinder" title="Permalink to this heading">¶</a></h3>
+<p>IF a rangefinder has been configured, a reporting error has occurred.</p>
+</section>
+</section>
+<section id="disabling-the-pre-arm-safety-check">
+<h2>Disabling the Pre-arm Safety Check<a class="headerlink" href="#disabling-the-pre-arm-safety-check" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Disabling pre-arm safety checks is not recommended. The cause of the pre-arm failure should be corrected before operation of the vehicle if at all possible. If you are confident that the pre-arm check failure is not a real problem, it is possible to disable a failing check.</p>
+</div>
+<p>Arming checks can be individually disabled by setting the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> parameter to something other than 1. Setting to 0 completely removes all pre-arm checks. For example, setting to  4 only checks that the GPS has lock.</p>
+<p>This can also be configured using Mission Planner:</p>
+<a class="reference external image-reference" href="../_images/MP_PreArmCheckDisable.png"><img alt="../_images/MP_PreArmCheckDisable.png" src="../_images/MP_PreArmCheckDisable.png" /></a>
+<ul class="simple">
+<li><p>Connecting your Autopilot to the Mission Planner</p></li>
+<li><p>Go to Mission Planner’s Config/Tuning &gt;&gt; Standard Params screen</p></li>
+<li><p>set the Arming Check drop-down to “Disabled” or one of the “Skip”
+options which more effectively skips the item causing the failure.</p></li>
+<li><p>Push the “Write Params” button</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="flying-arducopter.html" class="btn btn-neutral float-left" title="First Flight with Copter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arming_the_motors.html" class="btn btn-neutral float-right" title="Arming the motors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

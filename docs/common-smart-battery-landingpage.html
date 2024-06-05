@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Batteries &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Smart Batteries</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="smart-batteries">
+<span id="common-smart-battery-landingpage"></span><h1>Smart Batteries<a class="headerlink" href="#smart-batteries" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot supports several types of “smart battery” that communicate using <a class="reference external" href="https://en.wikipedia.org/wiki/System_Management_Bus">SMBus</a>:</p>
+<ul class="simple">
+<li><p>the <a class="reference external" href="https://www.amazon.com/Solo-Smart-Battery-Rechargeable-Lithium/dp/B01LWAAMV3">Solo battery</a></p></li>
+<li><p>Maxell</p></li>
+<li><p><a class="reference internal" href="common-smart-battery-rotoye.html#common-smart-battery-rotoye"><span class="std std-ref">Royote</span></a></p></li>
+<li><p>Generic support for SUI3 and SUI6 SMBus batteries</p></li>
+</ul>
+<p>While not yet very common, smart batteries are easier to attach and detach from the vehicle and are capable of providing more information on the state of the battery including capacity, individual cell voltages, temperature, etc.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-smart-battery-solo.html">Solo</a></li>
+</ul>
+</div>
+<section id="setup-through-mission-planner">
+<h2>Setup through Mission Planner<a class="headerlink" href="#setup-through-mission-planner" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/smart-battery-setup-mission-planner.png"><img alt="../_images/smart-battery-setup-mission-planner.png" src="../_images/smart-battery-setup-mission-planner.png" /></a>
+<p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> to appropriate Smart Battery model
+Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-i2c-bus-ap-battmonitor-ina2xx" title="(in Rover)"><span class="xref std std-ref">BATT_I2C_BUS</span></a> to the appropriate bus number</p>
+<p>For adding more batteries, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-monitor" title="(in Rover)"><span class="xref std std-ref">BATT2_MONITOR</span></a> &amp; <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-i2c-bus-ap-battmonitor-ina2xx" title="(in Rover)"><span class="xref std std-ref">BATT2_I2C_BUS</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt3-monitor" title="(in Rover)"><span class="xref std std-ref">BATT3_MONITOR</span></a> &amp; <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt3-i2c-bus-ap-battmonitor-ina2xx" title="(in Rover)"><span class="xref std std-ref">BATT3_I2C_BUS</span></a>,etc.</p>
+<p>Restart the board and connect with a ground station and check the battery voltage appears.
+The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-capacity" title="(in Rover)"><span class="xref std std-ref">BATT_CAPACITY</span></a> parameter should be automatically updated to the batteries actual capacity in mAh.</p>
+</section>
+<section id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://smbus.org/specs/">SMBus specifications (see ver 1.1, ver 2.0)</a></p></li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Battery “address discovery” is not supported so the battery must use the I2C address 0x0B (7 bit address).  Most smart batteries use this address.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

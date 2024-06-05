@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>External AHRS Systems &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">External AHRS Systems</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="external-ahrs-systems">
+<span id="common-external-ahrs"></span><h1>External AHRS Systems<a class="headerlink" href="#external-ahrs-systems" title="Permalink to this heading">¶</a></h1>
+<p>Rather than using ArduPilot’s internal Attitude Heading Reference System (AHRS) for attitude, heading and position, it is possible to use several external systems.</p>
+<section id="supported-systems">
+<h2>Supported Systems<a class="headerlink" href="#supported-systems" title="Permalink to this heading">¶</a></h2>
+<p>Currently, ArduPilot supports these systems:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.microstrain.com/inertial-sensors/all-sensors">Parker Lord 3DM® Series</a></p></li>
+<li><p><a class="reference external" href="https://www.vectornav.com/products">VectorNav VN-300 AHRS</a></p></li>
+<li><p><a class="reference external" href="https://www.vectornav.com/products">VectorNav VN-100AHRS</a></p></li>
+</ul>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<section id="vectornav300-or-parker-lord">
+<h3>VectorNav300 or Parker Lord<a class="headerlink" href="#vectornav300-or-parker-lord" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> = 11 (External AHRS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#eahrs-type" title="(in Rover)"><span class="xref std std-ref">EAHRS_TYPE</span></a> = 1 (VectorNAV) or 2 (Parker Lord)</p></li>
+</ul>
+</div></blockquote>
+<p>This will replace ArduPilot’s internally generated INS/AHRS subsystems with the external system</p>
+<section id="vn-300-specific-setup">
+<h4>VN-300 Specific setup<a class="headerlink" href="#vn-300-specific-setup" title="Permalink to this heading">¶</a></h4>
+<p>When setting up the VN-300, it will be necessary to set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 21 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type2" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE2</span></a> = 21.</p>
+<p>VN-300 data is expected at two different update rates, 50Hz and 5Hz. This is autoconfigured. See the <a class="reference external" href="https://www.vectornav.com/products/detail/vn-300">USER MANAUAL</a> for more details.</p>
+</section>
+</section>
+<section id="vectornav100">
+<h3>VectorNav100<a class="headerlink" href="#vectornav100" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> = 3 (ArduPilot’s EKF3)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#eahrs-type" title="(in Rover)"><span class="xref std std-ref">EAHRS_TYPE</span></a> = 1 (VectorNAV)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#eahrs-options" title="(in Rover)"><span class="xref std std-ref">EAHRS_OPTIONS</span></a> bit 0 set to 1 (“1” value) to disable its compensation of the sensor biases, letting EKF3 do that (since there is no internal GPS to provide the best estimates)</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>for all of the above, set the <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to “36” (AHRS) and <code class="docutils literal notranslate"><span class="pre">SERIALx_BAUD</span></code> to “115” (unless you have changed the external unit’s baud rate from its default value) for the port which is connected to the external AHRS unit.</p></li>
+</ul>
+<p>This will replace ArduPilot’s internally generated INS/AHRS subsystems with the external system.</p>
+<p>In addition, instead of replacing ArduPilot’s INS/AHRS systems, it is possible to use an external AHRS system’s sensors (IMU,GPS, Compass, and Barometer) as additional sensors for use with ArduPilot’s INS/AHRS systems. Simply do not change the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> from “3” (EKF3), but setup the others parameters as discussed above.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

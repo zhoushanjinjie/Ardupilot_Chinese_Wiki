@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mRobotics Location One DroneCAN GPS &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mRobotics Location One DroneCAN GPS</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mrobotics-location-one-dronecan-gps">
+<span id="common-mrobotics-location-one-gps"></span><h1>mRobotics Location One DroneCAN GPS<a class="headerlink" href="#mrobotics-location-one-dronecan-gps" title="Permalink to this heading">¶</a></h1>
+<p>The mRo Location One is a multi-constellation GNSS powered by the new uBlox M9N module. This smart device is based on the ArduPilot AP_Periph CAN peripheral firmware.</p>
+<img alt="../_images/mrobotics-location-one-gps.jpg" src="../_images/mrobotics-location-one-gps.jpg" />
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Ublox M9N high precision GPS</p></li>
+<li><p>RM3100 High Precision Magnetic Compass</p></li>
+<li><p>DPS310 Low noise Barometer</p></li>
+<li><p>RGB Status LED</p></li>
+<li><p>Push to “Arm” safety button</p></li>
+</ul>
+<p>Designed for all DroneCAN compatible platforms.</p>
+<p>Location One is not just a u-Blox chip populated on a purple reference GNSS board design. Patch antennas don’t work by themselves, they require a proper ground plane to achieve maximum performance and assure good reception at any angle. Without that, as with any RF system, the GNSS module will not achieve peak performance (or work at all). The Location One ground plane has been optimized for maximum performance.</p>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> =1 (DroneCAN, should be set as default already)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 (DroneCAN) if primary GPS or,</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 (DroneCAN) if using as secondary GPS</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-types" title="(in Rover)"><span class="xref std std-ref">NTF_LED_TYPES</span></a> set bit 5 (+32 to value) to enable LED as notification LED</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safety-deflt" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETY_DEFLT</span></a> = 1 enables this, and any other, safety switch in the system. (<code class="docutils literal notranslate"><span class="pre">BRD_SAFETYENABLE</span></code> in older firmware versions)</p></li>
+</ul>
+<section id="compass">
+<h3>Compass<a class="headerlink" href="#compass" title="Permalink to this heading">¶</a></h3>
+<p>If your autopilot has more than 3 compasses connected, you should disable or change the priority on the least important one to allow this compass to be used. Even then, you may wish to prioritize this compass higher than others, or as the highest priority compass, due to its improved performance. See Compass Advanced Configuration page.</p>
+<p>If you have any issues getting these devices recognized and used, follow the instructions on enabling the CANBUS in the <a class="reference internal" href="common-canbus-setup-advanced.html#common-canbus-setup-advanced"><span class="std std-ref">CAN Bus Setup</span></a> page, followed by <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a> steps.</p>
+</section>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://store.mrobotics.io/product-p/mro10070b.htm">mRobotics</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

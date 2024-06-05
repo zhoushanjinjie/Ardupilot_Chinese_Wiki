@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS for Yaw (aka Moving Baseline) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GPS for Yaw (aka Moving Baseline)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gps-for-yaw-aka-moving-baseline">
+<span id="common-gps-for-yaw"></span><h1>GPS for Yaw (aka Moving Baseline)<a class="headerlink" href="#gps-for-yaw-aka-moving-baseline" title="Permalink to this heading">¶</a></h1>
+<p>New RTK GPS modules, such as a pair of Ublox F9’s or devices based on the Unicore UM-982, can be used to estimate yaw, in addition to providing position information. This removes the need for a compass which may suffer from magnetic interference from the ground or the vehicle’s motors and ESCs.  This works even if the
+GPSs do not have an RTK fix (RTCM data from a fixed RTK station or NTRIP server).</p>
+<p>GPSes from ArduPilot Partners that are known to work are shown on the <a class="reference internal" href="common-positioning-landing-page.html#common-positioning-landing-page"><span class="std std-ref">GPS/Compass (landing page)</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Ublox F9P modules must run firmware version 1.3.2 or higher and constellations configured</strong>. See <a class="reference internal" href="common-gps-ublox-firmware-update.html#common-gps-ublox-firmware-update"><span class="std std-ref">U-Blox F9P Firmware Update</span></a>.</p>
+</div>
+<section id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this heading">¶</a></h2>
+<p>GPS Yaw estimation relies on the detection of signal delays from each satellite as they reach two separated antennas. The GPS system may consist of dual or a single module, but two antennas are required in each case.</p>
+<ul class="simple">
+<li><p>The antennas must be separated by at least 30cm on the vehicle.</p></li>
+<li><p>For dual unit systems, the 1st GPS and 2nd GPS should be connected to a serial/telem ports on the
+autopilot or via DroneCAN.  The following parameter instructions assume Serial3 and Serial4 are used for serial connecting GPSes but any serial port(s) should work as long as the first port using protocol 5 is connected to one of the GPS.</p></li>
+<li><p>Dual unit Serial GPS modules must be connected to ArduPilot via their (not the autopilots’s) UART1 connectors, DroneCAN modules via CAN , or interconnected per their manufacturer instructions.</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>should be possible to mix and match a Serial GPS and a DroneCAN GPS, but this configuration has not been tested as yet.</p>
+</div>
+<section id="common-parameter-setup">
+<h3>Common Parameter Setup<a class="headerlink" href="#common-parameter-setup" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> = 3 (to use EKF3)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-enable" title="(in Rover)"><span class="xref std std-ref">EK2_ENABLE</span></a> = 0 (to disable EKF2)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-enable" title="(in Rover)"><span class="xref std std-ref">EK3_ENABLE</span></a> = 1 (to enable EKF3)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-mag-cal" title="(in Rover)"><span class="xref std std-ref">EK3_MAG_CAL</span></a> is not used for this feature so it can be left at its default value (“0” for Plane, “3” for Copter, “2” for Rover)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 2 (“GPS”) or 3 (“GPS with Compass Fallback”) if a compass(es) is also in the system</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not use <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-auto-switch" title="(in Rover)"><span class="xref std std-ref">GPS_AUTO_SWITCH</span></a> = 2 (Blend) when using Moving Baseline configurations.</p>
+</div>
+</section>
+<section id="dual-serial-gps">
+<h3>Dual Serial GPS<a class="headerlink" href="#dual-serial-gps" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial3-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL3_PROTOCOL</span></a> = 5 (“GPS”) assuming the 1st GPS is connected to SERIAL3.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> = 5 (“GPS”) assuming the 2nd GPS is connected to serial port 4</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 17 (“UBlox moving baseline base”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type2" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE2</span></a> = 18 (“UBlox moving baseline rover”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-auto-config" title="(in Rover)"><span class="xref std std-ref">GPS_AUTO_CONFIG</span></a> = 1 (AutoConfig Serial)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-auto-switch" title="(in Rover)"><span class="xref std std-ref">GPS_AUTO_SWITCH</span></a> = 1</p></li>
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_X</span></a>/Y/Z and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos2-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS2_X</span></a>/Y/Z parameters for the GPSs (see <a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">Sensor Position Offset are here</span></a>). You must establish the relative positions of each GPS location on the vehicle with respect the vehicle’s motion.</p></li>
+</ul>
+</section>
+<section id="dual-dronecan-gps">
+<h3>Dual DroneCAN GPS<a class="headerlink" href="#dual-dronecan-gps" title="Permalink to this heading">¶</a></h3>
+<p>If DroneCAN GPS are used, then configure the CAN/DroneCAN ports as explained in <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a> and instead of setting up the SERIAL port protocols above, make sure that no SERIAL ports are setup with GPS protocol (“5”). Also be sure that the two DroneCAN GPS are on the same physical CAN bus from the autopilot. This usually requires that a CAN bus splitter be used. Then set these parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 22 (“DroneCAN moving baseline base”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type2" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE2</span></a> = 23 (“DroneCAN moving baseline rover”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-auto-config" title="(in Rover)"><span class="xref std std-ref">GPS_AUTO_CONFIG</span></a> = 2 (AutoConfig DroneCAN)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-auto-switch" title="(in Rover)"><span class="xref std std-ref">GPS_AUTO_SWITCH</span></a> = 1</p></li>
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_X</span></a>/Y/Z and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos2-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS2_X</span></a>/Y/Z parameters for the GPS antennas (see <a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">Sensor Position Offset are here</span></a>). You must establish the relative positions of each GPS location on the vehicle with respect the vehicle’s motion.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps1-can-ovride" title="(in Rover)"><span class="xref std std-ref">GPS1_CAN_OVRIDE</span></a> (Base NODEID) and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps2-can-ovride" title="(in Rover)"><span class="xref std std-ref">GPS2_CAN_OVRIDE</span></a> (Rover NODEID) determine which physical DroneCAN GPS is used for GPS1 and GPS2. These are automatically populated at boot from the detected addresses, which are also shown in <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-can-nodeid1" title="(in Rover)"><span class="xref std std-ref">GPS_CAN_NODEID1</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-can-nodeid2" title="(in Rover)"><span class="xref std std-ref">GPS_CAN_NODEID2</span></a>, but can be overriden, if needed. You will need to determine which physical CAN GPS is assigned as GPS1 and GPS2 in order to setup the position offsets (see <a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">Sensor Position Offset are here</span></a>)</p></li>
+</ul>
+<p>The above dual unit configurations assumes that you want the RTCMv3 data between
+the two GPS modules to go via the autopilot board.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may instead install a cross-over UART cable between the two UART2 connectors on the two GPS modules (Assuming they are serial rather than DroneCAN). If you do that then you can set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-drv-options" title="(in Rover)"><span class="xref std std-ref">GPS_DRV_OPTIONS</span></a> = 1 which tells the u-blox GPS driver to configure the two GPS modules to send RTCMv2 data over UART2. On DroneCAN modules, a second CAN port is provided to allow this direct connection for RTCMv2 data. In that case, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-drv-options" title="(in Rover)"><span class="xref std std-ref">GPS_DRV_OPTIONS</span></a> = 8.</p>
+</div>
+</section>
+<section id="single-unit-systems">
+<h3>Single Unit Systems<a class="headerlink" href="#single-unit-systems" title="Permalink to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot allows for up to two GPSes. The following parameter examples are for setting up the first GPS instance.</p>
+</div>
+<section id="blicube-grtk">
+<h4>Blicube GRTK<a class="headerlink" href="#blicube-grtk" title="Permalink to this heading">¶</a></h4>
+<p>For the Blicube GRTK, it only requires that the GPS be attached to a SERIALx port using <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 5 (GPS) and setting only:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial3-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL3_PROTOCOL</span></a> = 5 (“GPS”) assuming the GPS is connected to SERIAL3 (be sure any lower numbered port does not use this protocol unless a GPS is attached).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 5 (NMEA)</p></li>
+</ul>
+<p>This system requires that the “Master” antenna and “Slave” antenna (see manufacturer’s documentation for which is antenna is designated the “Master”) be mounted on the vehicle front to back in line with the 0 degree yaw of the vehicle and at the same vertical level and be at least 30cm apart.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this unit can be used with only its “Master” antenna connected, if desired, but no yaw information should be used.</p>
+</div>
+<p>For Unicore UM982 based GPSes, the “Master” and “Slave” antennas have more mounting flexibility, but must be mounted at least 30cm apart on the vehicle. The offset distances in the x/y/z directions must be entered detailed in the <a class="reference internal" href="#antenna-offsets"><span class="std std-ref">Master-Slave Antenna Offsets</span></a> section below.</p>
+</section>
+</section>
+<section id="holybro-um982">
+<h3>Holybro UM982<a class="headerlink" href="#holybro-um982" title="Permalink to this heading">¶</a></h3>
+<p>The Holybro Unicore UM982 GPS should have the following parameters set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial3-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL3_PROTOCOL</span></a> = 5 (“GPS”) assuming the GPS is connected to SERIAL3 (be sure any lower numbered port does not use this protocol unless a GPS is attached).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 25 (UnicoreMovingBaseline)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this unit can be used with only its “Master” antenna connected, if desired, but no yaw information should be used. In this case set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 24 (UnicoreMaster)</p>
+</div>
+</section>
+<section id="cuav-dronecan-c-rtk2-hp">
+<h3>CUAV DroneCAN C-RTK2 HP<a class="headerlink" href="#cuav-dronecan-c-rtk2-hp" title="Permalink to this heading">¶</a></h3>
+<p>C-RTK2 HP supports connection either via serial or DroneCAN port to the autopilot.</p>
+<p>DroneCAN
+~~~~~~~-
+The diagram below shows the C-RTK2-HP being connected via its CAN port to an autopilot’s CAN port.</p>
+<ul class="simple">
+<li><p>setup the autopilot’s CAN port parameters for DroneCAN: <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 (DroneCAN GPS)</p></li>
+</ul>
+<a class="reference external image-reference" href="../images/c-rtk2-hp/c-rtk2-hp-connection-en.jpg"><img alt="../_images/c-rtk2-hp-connection-en.jpg" src="../_images/c-rtk2-hp-connection-en.jpg" /></a>
+<section id="serial">
+<h4>Serial<a class="headerlink" href="#serial" title="Permalink to this heading">¶</a></h4>
+<p>The diagram below shows the C-RTK2 HP being connected via its UART2 port to an autopilot’s serial port setup for GPS Protocol.</p>
+<a class="reference external image-reference" href="../images/c-rtk2-hp/c-rtk2-hp-connection-en2.jpg"><img alt="../_images/c-rtk2-hp-connection-en2.jpg" src="../_images/c-rtk2-hp-connection-en2.jpg" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial3-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL3_PROTOCOL</span></a> = 5 (“GPS”) assuming the GPS is connected to SERIAL3 (be sure any lower numbered port does not use this protocol unless a GPS is attached).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 25 (UnicoreMovingBaseline)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this unit can be used with only its “Master” antenna connected, if desired, but no yaw information should be used. In this case set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 24 (UnicoreMaster)</p>
+</div>
+<p>See <a class="reference internal" href="common-cuav-c-rtk2-hp.html#common-cuav-c-rtk2-hp"><span class="std std-ref">CUAV C-RTK2 HP  Heading and RTK receiver</span></a> for more information and setup details.</p>
+</section>
+</section>
+</section>
+<section id="master-slave-antenna-offsets">
+<span id="antenna-offsets"></span><h2>Master-Slave Antenna Offsets<a class="headerlink" href="#master-slave-antenna-offsets" title="Permalink to this heading">¶</a></h2>
+<p>Dual unit or single unit/dual antenna systems (except Blicube GRTK) need the relative positions for the “Master” and “Slave” antennas specified:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-mb1-type" title="(in Rover)"><span class="xref std std-ref">GPS_MB1_TYPE</span></a> = 1 (GPS1 Moving Baseline master antenna offsets relative to slave antenna, also enables the next parameters to be shown)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-mb1-ofs-x" title="(in Rover)"><span class="xref std std-ref">GPS_MB1_OFS_X</span></a>: offset in meters from the “Slave” to “Master” antenna in the X axis (in direction of 0 deg yaw, positive offsets are if “Master” is in front of the “Slave”.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-mb1-ofs-y" title="(in Rover)"><span class="xref std std-ref">GPS_MB1_OFS_Y</span></a>: offset in meters from the “Slave” to “Master” antenna in the Y axis (in direction 90 deg (right) of 0 deg yaw, positive offsets are if “Master” to the right of the “Slave”.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-mb1-ofs-z" title="(in Rover)"><span class="xref std std-ref">GPS_MB1_OFS_Z</span></a>: offset in meters from the “Slave” to “Master” antenna in the Z axis (in direction up and down, positive offsets are if “Master” below the “Slave”.</p></li>
+</ul>
+<p>This figure and photo illustrates these parameters and their settings:</p>
+<a class="reference external image-reference" href="../_images/UnicoreMovingBaselineOffsets.png"><img alt="../_images/UnicoreMovingBaselineOffsets.png" src="../_images/UnicoreMovingBaselineOffsets.png" /></a>
+<a class="reference external image-reference" href="../_images/X-500V2_MovingBaseline"><img alt="../_images/X-500V2_MovingBaseline.png" src="../_images/X-500V2_MovingBaseline.png" /></a>
+<p>Holybro X500V2 Mounting Example</p>
+</section>
+<section id="rtk-correction">
+<h2>RTK Correction<a class="headerlink" href="#rtk-correction" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot will automatically foward RTCM correction data it receives over MAVLink from a GCS or telemetry radio (from a fixed baseline RTK base station) to these GPSes. See <a class="reference internal" href="common-rtk-correction.html#common-rtk-correction"><span class="std std-ref">RTK GPS Correction (Fixed Baseline)</span></a>.</p>
+</section>
+<section id="master-antenna-offset-from-vehicle-cg">
+<h2>Master Antenna Offset from Vehicle CG<a class="headerlink" href="#master-antenna-offset-from-vehicle-cg" title="Permalink to this heading">¶</a></h2>
+<p>For ultimate positioning precision in the centimeter ranges, the offset of the “Master” antenna from the vehicle’s CG can optionally be entered to compensate for attitude effects on GPS accuracy. The offsets from the CG are entered into:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_X</span></a>: offset in meters from the Center of Gravity to “Master” antenna in the X axis (in direction of 0 deg yaw, positive offsets are if “Master” is in front of the Center of Gravity.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-y" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_Y</span></a>: offset in meters from the Center of Gravity to “Master” antenna in the Y axis (in direction 90 deg (right) of 0 deg yaw, positive offsets are if “Master” to the right of the Center of Gravity.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-z" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_Z</span></a>: offset in meters from the Center of Gravity to “Master” antenna in the Z axis (in direction up and down, positive offsets are if “Master” below the Center of Gravity.</p></li>
+</ul>
+<p>This figure and photo illustrates these parameters and their settings:</p>
+<a class="reference external image-reference" href="../_images/magoffsets.png"><img alt="../_images/magoffsets.png" src="../_images/magoffsets.png" /></a>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>In a location with good GPS reception point the vehicle at a landmark
+some distance away and then check the heading on the ground station
+matches.  Rotate the vehicle and ensure the heading on the ground
+station updates correctly.</p>
+<p>If the heading is reversed, then the GPS_POS_xxx parameters have probably been set incorrectly.</p>
+<p>Note that it can take some time for the two GPS modules to get a
+sufficiently good fix for yaw to work. The ArduPilot GPS driver
+validates that the fix is good enough in several ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>that the rover GPS module is in fix type 6 (fixed RTK)</p></li>
+<li><p>that the reported distance between the two modules matches the
+distance given by the GPS position parameters within 20%</p></li>
+<li><p>that the reported heights of the two GPS modules match the attitude
+of the vehicles is within 20% of the distance between the two GPS
+modules</p></li>
+</ul>
+</div></blockquote>
+<section id="video-demo">
+<h3>Video Demo<a class="headerlink" href="#video-demo" title="Permalink to this heading">¶</a></h3>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/NjaIKyrInpg" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="using-moving-baseline-yaw-to-reject-magnetic-disturbances">
+<h3>Using Moving Baseline Yaw to Reject Magnetic Disturbances<a class="headerlink" href="#using-moving-baseline-yaw-to-reject-magnetic-disturbances" title="Permalink to this heading">¶</a></h3>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/MmnfHUYLTeQ" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

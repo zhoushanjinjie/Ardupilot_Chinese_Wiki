@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneCAN Peripherals &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DroneCAN Peripherals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dronecan-peripherals">
+<span id="common-uavcan-peripherals"></span><h1>DroneCAN Peripherals<a class="headerlink" href="#dronecan-peripherals" title="Permalink to this heading">¶</a></h1>
+<p>DroneCAN was created to continue the development of the widely used UAVCAN v0 protocol. This protocol has proven itself as robust and feature rich and has been widely deployed in the commercial drone industry and enjoys broad support among industry partners. The proposed introduction of the UAVCAN v1 protocol involved changes to UAVCAN that increased complexity and did not offer a smooth migration path for existing deployments. After extended discussions within the UAVCAN consortium it was decided that the best solution was to continue development of UAVCAN v0 under the name DroneCAN.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://arkelectron.com/product/ark-rtk-gps/">ARK RTK F9P</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-avanon-adc.html">Avionics Anonymous Airspeed +Temp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-avanon-gnss-mag.html">Avionics Anonymous GNSS + Compass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-avanon-laserint.html">Avionics Anonymous GNSS/Mag: GNSS + Compass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-avanon-mag.html">Avionics Anonymous LIDAR Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-neo-v2-pro.html">CUAV Neo v2 Pro DroneCAN GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-neo-3-pro.html">CUAV Neo 3 Pro DroneCAN GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-c-rtk2.html">CUAV C-RTK2 PPK and RTK receiver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-c-rtk2-hp.html">CUAV C-RTK2 HP Heading and RTK receiver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-can-pmu.html">CUAV DroneCAN Power Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-uavcan-escs.html">DroneCAN ESCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-dronecan-servos.html">DroneCAN Servos</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.foxtechfpv.com/foxtech-aerofox-can-airspeed-compass.html">FoxTech DroneCAN Airspeed/Compass</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://himarkuaveng.com/cate-21898-23052.html">Himark CAN Servos</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://shop.holybro.com/dronecan-m8n-m9n-gps_p1335.html">Holybro DroneCAN M8/M9 GPS</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://holybro.com/collections/gps-rtk-systems/products/dronecan-h-rtk-f9p-rover">Holybro DroneCAN H-RTK F9P Rover</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://holybro.com/collections/gps-rtk-systems/products/dronecan-h-rtk-f9p-helical">Holybro DroneCAN H-RTK F9P Helical</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://holybro.com/products/dronecan-rm3100-compass">Holybro DroneCAN RM3100 Professional Grade Compass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-matek-m8q.html">Matek M8Q-CAN/DroneCAN GPS+Compass+Baro+Airspeed I2C port</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://www.mateksys.com/?portfolio=m10-l4-3100">Matek DroneCAN AP_Periph GNSS M10-L4-3100</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-matek-uavcan-dlvr.html">Matek DroneCAN DLVR-10 Airspeed Sensor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.mateksys.com/?portfolio=can-l431">Matek DroneCAN Adapter Node</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://www.mateksys.com/?portfolio=can-l4-bm">Matek CAN-L4-BM DroneCan PMU</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.mateksys.com/?portfolio=can-l4-pwm">Matek DroneCAN PWM</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://store.mrobotics.io/category-s/109.htm">mRo GPS, GPS+Compass,RTK, and DroneCAN modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mro-kitcan.html">mRo KitCAN CAN/DroneCAN Adapter Node+Compass+Baro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mrobotics-location-one-gps.html">mRo Location One GPS GPS+Compass+LED+Safety Switch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mro-uavcan-adapter-node.html">mRo DroneCAN Adapter Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-pomegranate-systems-pm.html">Pomegranate Systems DroneCAN Power Module</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module">Qiotek DroneCAN Airspeed Sensor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.qio-tek.com/index.php/product/qiotek-rm3100-dronecan-module">Qiotek DroneCAN RM3100 Compass</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.qio-tek.com/index.php/product/qiotek-zed-f9p-rtk-and-compass-dronecan-module">Qiotek DroneCAN RTK-F9P GPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-zubax-gnss-positioning-module-gps-compass-and-barometer.html">Zubax GNSS 2: GNSS + Compass + Barometer</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

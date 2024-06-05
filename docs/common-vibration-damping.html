@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibration Damping &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Connect ESCs and Motors" href="connect-escs-and-motors.html" />
+    <link rel="prev" title="NAVIO2 Assembly and Wiring Quick Start" href="common-navio2-wiring-and-quick-start.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#attaching-navio2-to-a-raspberry-pi">Attaching NAVIO2 to a Raspberry Pi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#powering-navio2">Powering NAVIO2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#connect-remote-control-inputs">Connect remote control inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#gnss-antenna">GNSS Antenna</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#connect-motors">Connect Motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#connect-other-peripherals">Connect other peripherals</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html#related-information">Related information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#ublox-gps-compass-module">UBlox GPS + Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#connecting-the-autopilot">Connecting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#mounting-the-gps-module">Mounting the GPS Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#setup-in-mission-planner">Setup in Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#led-indicators">LED Indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Vibration Damping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#m-du-bro-or-hobbyking-foam">3M, Du-Bro or HobbyKing Foam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gel-pads">Gel pads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-printed-anti-vibration-platform">3D Printed Anti-Vibration Platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-printed-anti-vibration-platform-for-navio2">3D Printed Anti-Vibration Platform for NAVIO2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#o-ring-suspension-mount">O-ring Suspension Mount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ear-plug-mount">Ear Plug Mount</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bulb-damper-ear-plug-vibration-mount">Bulb Damper + Ear Plug Vibration Mount</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+          <li class="breadcrumb-item"><a href="common-navio2-wiring-and-quick-start.html">NAVIO2 Assembly and Wiring Quick Start</a></li>
+      <li class="breadcrumb-item active">Vibration Damping</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vibration-damping">
+<span id="common-vibration-damping"></span><h1>Vibration Damping<a class="headerlink" href="#vibration-damping" title="Permalink to this heading">¶</a></h1>
+<p>Autopilots have accelerometers that are sensitive to vibrations.
+These accelerometer values are combined with barometer and
+GPS data to estimate the vehicle’s position. With excessive
+vibrations, the estimate can be thrown off and lead to very bad
+performance in modes that rely on accurate positioning (e.g. on Copter:
+AltHold, Loiter, RTL, Guided, Position and Auto flight modes).</p>
+<p>Please refer to the <a class="reference internal" href="common-measuring-vibration.html#common-measuring-vibration"><span class="std std-ref">Measuring Vibration</span></a> page for details of
+how to measure your vehicle’s vibration levels and confirm they are within the acceptable range</p>
+<p>The goal of vibration damping is to reduce high and medium frequency
+vibrations while still allowing low frequency actual board movement to
+take place in concert with the airframe.</p>
+<p>Double sided foam tape or Velcro has traditionally been used to attach
+the autopilot to the frame. In many cases foam tape or Velcro
+does not provide adequate vibration isolation because the mass of the
+autopilot is so small.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples and images in this article refer to Copter, but the
+information is also largely applicable to Plane and Rover.</p>
+</div>
+<section id="m-du-bro-or-hobbyking-foam">
+<h2>3M, Du-Bro or HobbyKing Foam<a class="headerlink" href="#m-du-bro-or-hobbyking-foam" title="Permalink to this heading">¶</a></h2>
+<p>One of the following three types of foam should be cut into small 1cm ~ 2cm cubes and attached to each of the four corners of the autopilot as described on the <a class="reference internal" href="common-mounting-the-flight-controller.html#common-mounting-the-flight-controller"><span class="std std-ref">Mounting the Autopilot wiki page</span></a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://store.mrobotics.io/product-p/mro-pxfoams-mr.htm">3M foam sold by mRobotics</a> is sticky on both sides and comes pre-cut so that individual cubes can be easily attached to the autopilot</p></li>
+<li><p><a class="reference external" href="https://www.dubro.com/products/r-c-protective-foam-rubber">Du-Bro 1/4” R/C foam</a></p></li>
+<li><p><a class="reference external" href="https://hobbyking.com/en_us/anti-vibration-foam-orange-latex-190mm-x-140mm-x-6mm.html?___store=en_us">HobbyKing orange foam</a> (discontinued)</p></li>
+</ul>
+<p>For the last two options “carpet fixing tape” will be required to attach the foam to the autopilot and vehicle frame</p>
+<a class="reference external image-reference" href="../_images/Vibration_3MFoam.jpg"><img alt="../_images/Vibration_3MFoam.jpg" src="../_images/Vibration_3MFoam.jpg" /></a>
+<p>For vehicles with <a class="reference internal" href="common-ice.html#common-ice"><span class="std std-ref">internal combustion engines</span></a>, the autopilot should be mounted on an intermediate plate with <a class="reference external" href="https://www.amazon.com/Great-Planes-Segmented-Weights-6-Ounce/dp/B0015KLJE0">self adhesive lead weights</a> added to increase its mass</p>
+</section>
+<section id="gel-pads">
+<h2>Gel pads<a class="headerlink" href="#gel-pads" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Cut one of the recommended gels into 1cm ~ 2cm cubes and attach to each corner of the autopilot.  Possible gels include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amainhobbies.com/kyosho-zeal-vibration-absorption-gyro-reciever-mounting-gel-1-sheet-kyoz8006/p19713">Kyosho Zeal Gel Tape</a> performs best and is available from Amazon, E-Bay and A-Main Hobbies</p></li>
+<li><p><a class="reference external" href="http://www.vibrationmounts.com/RFQ/VM08010.htm">United States Silicone Gel Tape and Pads (V10Z62MGT5 tape recommended)</a></p></li>
+<li><p><a class="reference external" href="https://gelmec.co.uk/family.php?page=58&amp;ty=9&amp;gr=9">United Kingdom Silicone Gel Tape, Pads</a> and
+<a class="reference external" href="https://gelmec.co.uk/family.php?page=64&amp;ty=19&amp;gr=19">grommets</a></p></li>
+<li><p><a class="reference external" href="https://www.amazon.com/RTOM-Moongel-Damper-Pads-Original/dp/B00F2PKRJW/">Moon Gel Pads</a>
+(also available in music stores). Caution: Moon Gel has been shown
+to fail in heat above 100 degrees Fahrenheit so it should be used
+cautiously.</p></li>
+</ul>
+</li>
+<li><p>Secure the autopilot to the frame with 1cm) wide velcro retaining
+strap or a rubber band. Be careful the strap does not hold down the
+controller so securely that it interferes with the damping of the
+pads. Consider putting a layer of soft foam between the strap and the
+autopilot.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/Flamewheel330PX4onZeal2.jpg"><img alt="../_images/Flamewheel330PX4onZeal2.jpg" src="../_images/Flamewheel330PX4onZeal2.jpg" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">FlameWheel F330 with PX4FMU Mounted on Intermediate platform</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>The blog <a class="reference external" href="https://diydrones.com/profiles/blogs/testing-simple-anti-vibration-solutions-for-gopro-on-an">Testing simple anti-vibration solutions for GoPro on an ArduCopter</a>
+has a video demonstrating vibration isolation using Moon Gel on a Go-Pro camera.</p>
+</section>
+<section id="d-printed-anti-vibration-platform">
+<h2>3D Printed Anti-Vibration Platform<a class="headerlink" href="#d-printed-anti-vibration-platform" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://diydrones.com/profiles/profile/show?id=GuyMcCaldin&amp;">GuyMcCaldin’s</a> 3D Printed vibration mount (available from <a class="reference external" href="https://www.shapeways.com/product/45H92T5RS/omnimac-apm-mount-v1-5">Shapeways</a> and <a class="reference external" href="https://www.thingiverse.com/thing:160655">Thingiverse</a>) using <a class="reference external" href="https://hobbyking.com/en_us/general-purpose-anti-vibration-rubber-w-m3-x-11mm-screw-and-m3-nylock-nut-4pcs-set.html?___store=en_us">these Hobbyking dampers</a></p>
+<a class="reference external image-reference" href="../_images/guymccaldin-vibration-mount.jpg"><img alt="../_images/guymccaldin-vibration-mount.jpg" src="../_images/guymccaldin-vibration-mount.jpg" style="width: 450px;" /></a>
+<p>The mount can be installed using double sided tape, or M3 screws spaced at 45mm x 45mm.</p>
+</section>
+<section id="d-printed-anti-vibration-platform-for-navio2">
+<h2>3D Printed Anti-Vibration Platform for NAVIO2<a class="headerlink" href="#d-printed-anti-vibration-platform-for-navio2" title="Permalink to this heading">¶</a></h2>
+<p>Anti-vibration for NAVIO2 can be easily 3D printed.
+It significantly simplifies mounting and eliminates vibrations.
+You can find STL files <a class="reference external" href="https://docs.emlid.com/navio2/ardupilot/hardware-setup/#anti-vibration-mount">here</a>.</p>
+<p>Anti-vibration with Navio2 mounted on frame:</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/anti-vibration-mount.jpg"><img alt="../_images/anti-vibration-mount.jpg" src="../_images/anti-vibration-mount.jpg" /></a>
+</figure>
+</section>
+<section id="o-ring-suspension-mount">
+<h2>O-ring Suspension Mount<a class="headerlink" href="#o-ring-suspension-mount" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Create a platform upon which to mount your autopilot with
+holes or screws on the four corners. Mount your autopilot on
+this board with double sided foam tape.</p></li>
+<li><p>Mount 4 standoffs on the top of your frame spaced 1/10” to 1/8”
+further apart than the width of the platform upon which the control
+board has been mounted.</p></li>
+<li><p>Insert 1/16” nylon O-rings through each corner of the autopilot and the standoffs so that the autopilot has no hard
+connections to the frame.
+Link <a class="reference external" href="http://www.oringwarehouse.com/">(Here!)</a></p>
+<ul class="simple">
+<li><p>The overall O-ring diameter should be chosen to firmly retain the
+board while providing for light to moderate initial but rapidly
+snubbed movement of the board (generally 1/2” to 3/4” OD) and
+Silicone O-rings should generally damp better than Buna-N O-rings
+(Sizes 15 - 21) if you can acquire them.</p></li>
+</ul>
+</li>
+</ol>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/330FOringSuspPlate45.jpg"><img alt="../_images/330FOringSuspPlate45.jpg" src="../_images/330FOringSuspPlate45.jpg" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">FlameWheel F450 O-Ring Suspension Platform Mount</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Vibrations are short coupled, so all that leaving excess corner
+clearance does is to require higher initial O-ring tension which reduces
+vibration damping responsiveness and allows the board to physically tilt
+more (which is undesirable as it throws the sensor to airframe
+relationship off).</p>
+<p>The disadvantage to O-ring suspension versus Gel pads is that it is
+mechanically more complex and it requires tuning of both of O-ring
+diameter and cross section.</p>
+<p>You can combine O-ring and gel pad design by using an intermediate plate
+and benefit from dual rate damping.</p>
+</section>
+<section id="ear-plug-mount">
+<h2>Ear Plug Mount<a class="headerlink" href="#ear-plug-mount" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Purchase slow response silicon or urethane foam or PVC foam earplugs
+such as <a class="reference external" href="https://www.3m.com/3M/en_US/company-us/all-3m-products/~/3M-E-A-R-Classic-Earplugs-390-1000-Uncorded-Value-Pack-2000-Pair-Case/?N=5002385+3294755285&amp;rt=rud">these from 3M</a></p></li>
+<li><p>Create a platform upon which to mount your autopilot with
+holes at the four corners. The holes should be large enough to allow
+the ear plugs to be inserted into them but not so loose that the
+board comes loose during hard landings. Ensure the holes are smooth
+so they do not cut into the ear plugs. Also keep the holes near the
+corners of your electronic module plate as possible to minimize
+unnecessary module movement.</p></li>
+<li><p>Mount your autopilot on this board with double sided foam
+tape. Extra mass added to the board may improve vibration damping.</p></li>
+<li><p>Squeeze the earplugs through existing holes in the frame (or cut new
+holes) and the holes in the board upon which the autopilot is
+mounted. “Tuning” is possible by varying the amount of earplug left
+exposed in the middle.</p></li>
+</ol>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/EarPlugVibrationMount.jpg"><img alt="../_images/EarPlugVibrationMount.jpg" src="../_images/EarPlugVibrationMount.jpg" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">Ear Plug Vibration Mount</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bulb-damper-ear-plug-vibration-mount">
+<h2>Bulb Damper + Ear Plug Vibration Mount<a class="headerlink" href="#bulb-damper-ear-plug-vibration-mount" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Mounting plate with a 100g soft rubber bulb type
+“gimbal” damper at each corner and a half a urethane foam earplug
+placed inside each one.</p></li>
+<li><p>Gimbal bulb type dampers themselves can work in tension or
+compression.</p></li>
+<li><p>The earplugs provide an additional damping medium with a different
+frequency damping range than the bulb dampers by themselves.</p></li>
+<li><p>The ear plugs also stiffen the bulb mounts up a bit preventing
+excessive free motion being caused by normal flight maneuvers.</p></li>
+<li><p>This was successful at damping a Flamewheel clone with flexible arms
+and over size 12” propellers into the .05 G range.</p>
+<a class="reference external image-reference" href="../_images/vibration_flamewheel_clone_closeup.jpg"><img alt="../_images/vibration_flamewheel_clone_closeup.jpg" src="../_images/vibration_flamewheel_clone_closeup.jpg" style="width: 450px;" /></a>
+</li>
+<li><p>The autopilot is also mounted on anti-vibration grommets available from <a class="reference external" href="https://www.mcmaster.com/vibration-damping-grommets">McMaster Carr</a> (package of 25 each part #9311K64 recommended).</p></li>
+<li><p>The 100G bulb type gimbal vibration dampers can be ordered direct
+from a variety of vendors: <a class="reference external" href="http://copter-rc.com/en/accessories/36-100g-av-ball-tension-damper.html">copter-rc.com</a></p></li>
+</ol>
+<section id="advice-for-reducing-vibrations">
+<h3>Advice for reducing vibrations<a class="headerlink" href="#advice-for-reducing-vibrations" title="Permalink to this heading">¶</a></h3>
+<p>For copters the largest source of vibration is normally the blades passing over the arms but other sources of vibration also exist and may be reduced by following this advice:</p>
+<ul class="simple">
+<li><p>Frame flex especially arm flex is a big cause of asynchronous
+vibration, Frame arms should be as rigid as possible.</p>
+<ul>
+<li><p>Original DJI Flamewheel copters have sufficiently rigid injection molded arms, the many clones do not</p></li>
+<li><p>Aluminum or carbon fibre arms twist and bend less which reduces vibrations</p></li>
+<li><p>Copters with injection molded exoskeletons or arms like the Iris are sufficiently rigid</p></li>
+<li><p>Cheap, light frames tend to flex more than high quality stronger ones and the heavier you load the copter the more flex it gets (not good)</p></li>
+</ul>
+</li>
+<li><p>Motor to frame arm and frame arm to central hub mounts need to be secure and flex free (sometimes a problem for carbon tube arms)</p></li>
+<li><p>Motors need to run smoothly (bearings not worn-out or “screeching”)</p></li>
+<li><p>Prop adapters connecting the propellers to the motors need to be concentric and very straight</p></li>
+<li><p>Propellers should be fully balanced using a good manual prop balancer</p></li>
+<li><p>Motor balancing (or really well factory balanced motors like T-Motor) can have a major effect</p></li>
+<li><p>Propellers that are not well matched to the frame and weight or do  not have the same flex for CCW and CW are very problematic</p></li>
+<li><p>Good propellers vibrate less</p></li>
+<li><p>Carbon fiber props are rigid and vibrate less which reduces vibration but are very sharp which is a major safety hazard</p></li>
+</ul>
+</section>
+<section id="summary-of-the-vibrations-that-should-be-damped">
+<h3>Summary of the vibrations that should be damped<a class="headerlink" href="#summary-of-the-vibrations-that-should-be-damped" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>The vibration frequency and amplitude we primarily need to reduce is
+a characteristic of the motor / prop units turning at flight speed.</p></li>
+<li><p>That is, it is a fairly high frequency with fairly low amplitude.</p></li>
+<li><p>This requires that we provide a short coupled damping and isolation range.</p></li>
+<li><p>The board itself does not need to have nor benefit from a range of
+motion that exceeds the amplitude of the vibration.</p></li>
+<li><p>Because the board does not apply any force to the airframe, the only
+thing we need to be concerned with Damping / Isolating is the weight
+(mass) of the board itself plus the forces applied to it by
+airframe’s normal flight maneuvering.</p></li>
+<li><p>Since excellent broad frequency range, high damping materials are
+available our biggest concern will be to use the proper amount of
+them to optimally damp our autopilot (too much is just as
+bad as too little).</p></li>
+<li><p>Combining the autopilot and receiver onto a separate
+vibration damped electronics module “plate” or enclosure can increase
+the mass of the module making it easier to damp effectively as well
+as reducing the interconnecting wiring and making the whole system
+more modular.</p></li>
+</ol>
+</section>
+<section id="additional-vibration-reduction-considerations">
+<h3>Additional Vibration Reduction Considerations<a class="headerlink" href="#additional-vibration-reduction-considerations" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://www.frozencpu.com/products/8869/scr-138/Hard_Disk_Drive_Anti-Vibration_Screw_Shoulder_Screw_Type.html?tl=g33c113&amp;id=gdASxUFI">Hard Disk Drive Anti-Vibration Grommets</a>
+can provide sufficient or supplemental vibration reduction</p></li>
+<li><p>Significant gains in vibration isolation can also be realized by
+using a high flex wire and strain relief approach to all wires
+connected to the autopilot (and using the minimum number
+of wires necessary as well.)</p></li>
+<li><p>Some frames have lower than normal vibration characteristics due to
+frame stiffness / flex and isolated centralized mass can greatly
+influence motor/prop vibration transfer to the central fight
+controller.</p></li>
+<li><p>Isolation and damping can be improved somewhat by sandwiching the
+autopilot / enclosure between damping pads on both sides
+in about twenty percent compression. 30 durometer Sorbothane is
+actually specified at 15 to 20 percent compression for optimal
+damping.</p></li>
+<li><p>Although 30 durometer Sorbothane seems an excellent candidate,
+experience indicates that it becomes permanently compressed
+and is not as effective at vibration reduction as the Gel solutions.</p></li>
+<li><p>A link to a Blog about the first APM anti-vibration mounting system
+to achieve 0.05 G damping (2/20/2013 improved to 0.02 G), a dual zone
+isolation system, combining O-ring suspension and silicone pad is
+<a class="reference external" href="https://diydrones.com/profiles/blogs/very-good-anti-vibration-results-with-following-apm2-5-mount-quad">(Here!)</a></p></li>
+<li><p>Motor balancing can also reduce vibration and especially so for
+cheaper or larger motors. Balancing involves:</p>
+<ul class="simple">
+<li><p>Tightly fasten a small tie wrap around a motor (WITH NO PROP),
+trim off the extended tab and spin it up.</p></li>
+<li><p>Try multiple times, each time turning the tie wrap on the motor
+housing a bit until the vibration reduces or goes away.</p></li>
+<li><p>A small piece of Scotch tape can be re-positioned instead of the
+tie wrap if desired or for smaller motors.</p></li>
+<li><p>When you locate the spot where there is the least vibration (and
+you should be able to hear it), mark the spot directly under the
+clasp of the tie-wrap with a felt pen.</p></li>
+<li><p>Add a small dot of hot glue gun glue where the Tie-Wrap clasp was
+and increase the glue a bit at a time till the vibration is
+minimized.</p></li>
+<li><p>If you put too much glue on it can be removed with an X-acto knife.</p></li>
+</ul>
+</li>
+<li><p>Camera Mounts also need to be effectively isolated and damped from
+vibration, but they already have a number of “soft” mounting
+solutions.</p></li>
+<li><p>The camera servos need to be vibration isolated as well, either in
+the isolated camera mount itself or with their own vibration
+reduction solution.</p></li>
+<li><p>You should use high quality ball joints on your camera servo arms and
+adequate bearings or bushings in the mount itself with zero free play
+to prevent inertial slop.</p></li>
+<li><p>Quality servos without free play are also a must for precision camera
+work.</p></li>
+<li><p>At this point in time it seems that the more rigid the frame the
+better because frame flex introduces undesirable mechanical delay
+(hysteresis) in translating motor induced actions to the centrally
+located autopilot. (Do NOT shock mount the motor Arms).</p></li>
+<li><p>The amount and type of damping medium needs to be carefully matched
+to the weight (mass) of the item we are trying to isolate as well as
+the frequency and amplitude of the vibrations we are seeking to
+damp. We are trying to isolate an autopilot that weighs
+less than 2 ounces and this is a very small mass.</p></li>
+<li><p>Virtually all off the shelf solutions (either pad or stud type) are
+designed for an isolated mass that would weigh at least 5 to 10 times
+what an average autopilot weighs for optimal effectiveness. This
+includes all pre-made Sorbothane, Alpha gel, EAR, memory foam or
+other silicone or urethane gel or foam mounts as well as Lord Micro
+mounts.</p></li>
+<li><p>A threaded stud or sleeve type mount gel mount properly designed for
+the mass of our autopilot or electronics module undergoing
+the stress’s of normal flight would be a much better long term
+solution.</p></li>
+</ol>
+</section>
+<section id="terminology">
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading">¶</a></h3>
+<p>The methods used will typically incorporate both damping and isolation:</p>
+<ul class="simple">
+<li><p><em>Isolation</em> is simple undamped (spring or rubber band support) which
+allows the movement of the isolated object largely separate from the
+containing object (Automobile spring for instance).</p></li>
+<li><p><em>Damping</em> is the conversion of vibration into heat energy by a shock
+absorbing medium (automobile shock absorber for instance).</p></li>
+</ul>
+</section>
+<section id="links-to-related-discussions">
+<h3>Links to related discussions<a class="headerlink" href="#links-to-related-discussions" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.rcgroups.com/forums/showpost.php?p=16315017&amp;postcount=16338">RC Groups page on Vibration Effects relating to a camera mounts</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/forum/topics/vibration-isolation-and-dampening-of-apm-px4-for-version-2-9">DIYDrones discussion related to Vibration Control</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/vibration-control-wiki-section-started-for-better-or-worse">Gary McCray’s DIYDrones BLOG re Vibration Control</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-navio2-wiring-and-quick-start.html" class="btn btn-neutral float-left" title="NAVIO2 Assembly and Wiring Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="connect-escs-and-motors.html" class="btn btn-neutral float-right" title="Connect ESCs and Motors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

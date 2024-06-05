@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In-Flight FFT Based Harmonic Notch Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Initial Flight and Post-Flight Analysis" href="common-imu-fft-test-flight.html" />
+    <link rel="prev" title="ESC Telemetry Based Harmonic Notch Setup" href="common-esc-telem-based-notch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#determining-notch-filter-center-frequency">Determining Notch Filter Center Frequency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#notch-filter-control-types">Notch Filter Control Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#number-of-harmonics-filtered">Number of Harmonics Filtered</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#fft-dynamic-harmonic-notch-frequency-tracking">FFT Dynamic Harmonic Notch Frequency Tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#checking-notch-filter-effectiveness">Checking Notch Filter Effectiveness</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-imu-notch-filtering.html#double-triple-notch">Double/Triple-Notch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-imu-notch-filtering.html">Managing Gyro Noise with the Dynamic Harmonic Notch Filters</a></li>
+      <li class="breadcrumb-item active">In-Flight FFT Based Harmonic Notch Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-imu-fft">[copywiki destination=”copter,plane”]</p>
+<section id="in-flight-fft-based-harmonic-notch-setup">
+<h1>In-Flight FFT Based Harmonic Notch Setup<a class="headerlink" href="#in-flight-fft-based-harmonic-notch-setup" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is included in autopilots with 2MB of memory. Check your autopilot’s <a class="reference external" href="https://ardupilot.org/rover/docs/binary-features.html#binary-features" title="(in Rover)"><span>List of Firmware Limitations by Board</span></a> to determine if your autopilot has this feature (GyroFFT). Also, only 1 FFT based Notch can be setup.</p>
+</div>
+<p id="common-imu-fft-pre-flight-setup">ArduPilot comes pre-configured with appropriate defaults for all FFT settings. The only initial setup required is:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-enable" title="(in Rover)"><span class="xref std std-ref">FFT_ENABLE</span></a> = 1 to enable the FFT engine. This then requires that you reboot your autopilot after which FFT support will be enabled and other FFT parameters should be visible in your GCS. With default parameter settings the FFT engine will run a self-check for frequency matching on your hardware. If you do not see any FFT errors then things are working properly.</p></li>
+<li><p>With FFT enabled it is best to first perform a test flight to check that your aircraft’s particular noise frequencies are being captured and to monitor CPU load. See <a class="reference internal" href="common-imu-fft-test-flight.html#common-imu-fft-test-flight"><span class="std std-ref">Initial Analysis Flight</span></a>. Normally, results from this will show clear noise recognition and acceptable cpu loading, and  then you can use the FFT to drive the <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering"><span class="std std-ref">harmonic notch</span></a> by setting these parameters:</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_ENABLE</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_ENABLE</span></a> = 1 to enable the harmonic notch = 1 to enable the harmonic notch</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_MODE</span></a> = 4 to use the FFT detected frequency for controlling the harmonic notch frequency.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_REF</span></a> = 1 to set the harmonic notch reference value, which for FFT analysis generally means no scaling</p></li>
+</ul>
+<p>For most uses with other FFT related advanced parameters at their default, this is all that is required. The user can do optimization of the filtering setup by analyzing the test flight logs and adjusting notch bandwidth, if desired, by following the <a class="reference internal" href="common-imu-fft-advanced-setup.html#common-imu-fft-advanced-setup"><span class="std std-ref">In-flight FFT Advanced Setup</span></a> instructions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting up the FFT parameters can be done automatically using the <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> auxiliary function “162” on a transmitter switch. Set the function to a switch on the transmitter. Hover the vehicle, switch it on (high) for 30 seconds, switch back low and land. The parameters will have been setup and switch function removed. NOTE: do not use this feature in firmware version 4.3!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using In-Flight FFT can result in poorer performance than a properly setup <a class="reference internal" href="common-throttle-based-notch.html#common-throttle-based-notch"><span class="std std-ref">Throttle-Based</span></a> notch filter, since the FFT computations take time and can lag the actual required center frequency. In-Flight FFT is useful when the rotor frequencies of the vehicle vary widely as in heavy lift vehicles operating with high and low loads. It can be useful is setting up <a class="reference internal" href="common-throttle-based-notch.html#common-throttle-based-notch"><span class="std std-ref">Throttle-Based</span></a> notch filters, however, see <a class="reference internal" href="common-imu-fft-advanced-setup.html#common-imu-fft-advanced-setup"><span class="std std-ref">In-flight FFT Advanced Setup</span></a> instructions for more information.</p>
+</div>
+<section id="fft-options">
+<h2>FFT Options<a class="headerlink" href="#fft-options" title="Permalink to this heading">¶</a></h2>
+<p>There are two options which can be selected by setting the appropriate bit in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-options" title="(in Rover)"><span class="xref std std-ref">FFT_OPTIONS</span></a> parameter that affect FFT operation:</p>
+<section id="post-filter-chain-fft-analysis-window">
+<h3>Post Filter Chain FFT Analysis Window<a class="headerlink" href="#post-filter-chain-fft-analysis-window" title="Permalink to this heading">¶</a></h3>
+<p>Normally, the FFT analysis for adjusting the center frequency is done by measuring the noise directly at the output of the unfiltered gyro data. However, if bit 0 of <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-options" title="(in Rover)"><span class="xref std std-ref">FFT_OPTIONS</span></a> is set, then the measurement window takes into account the effects of the low pass filter and any configured notch filter(s). This is useful if there is high frequency noise, which impacts the control response less than lower frequency noise due to the low pass at the end of the filter chain, but may be targeted by the FFT measurement. Setting this bit will only track those lower frequency, and more critical, noise peaks.</p>
+</section>
+<section id="motor-noise-check">
+<h3>Motor Noise Check<a class="headerlink" href="#motor-noise-check" title="Permalink to this heading">¶</a></h3>
+<p>If bit 1 of <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-options" title="(in Rover)"><span class="xref std std-ref">FFT_OPTIONS</span></a> is set and ESC motor rpm telemetry is available, then the measurement window for the FFT is centered about the motor(s) frequency as reported by ESC telemetry. This will generate a GCS warning message if noise from any motor greater than 40db is passing through the filter chain, and identify its level, motor number, and frequency. This bit must be used with bit 0 also set.</p>
+</section>
+</section>
+<section id="typical-use">
+<h2>Typical Use<a class="headerlink" href="#typical-use" title="Permalink to this heading">¶</a></h2>
+<p>A typical use of the FFT notch filter is in addition to other dynamic harmonic notch filters (Throttle, ESC, or RPM based). In these configurations, using the post LPF FFT Window <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-options" title="(in Rover)"><span class="xref std std-ref">FFT_OPTIONS</span></a> bit will yield the best overall filtering results by positioning the FFT filter to target noise not filtered by the other notch filter and gyro LPF (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a>.</p>
+</section>
+<section id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this heading">¶</a></h2>
+<p>For those interested in the details of how this feature works and tradeoffs in some of the advanced parameters, not normally adjusted by users, the <a class="reference internal" href="common-imu-fft-how-it-works.html#common-imu-fft-how-it-works"><span class="std std-ref">In-Flight FFT: How it Works</span></a> document describes the operation and these advanced parameters.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-imu-fft-test-flight.html">Initial Analysis Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-imu-fft-advanced-setup.html">In-Flight FFT Advanced Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-imu-fft-how-it-works.html">In-Flight FFT: How it Works</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-esc-telem-based-notch.html" class="btn btn-neutral float-left" title="ESC Telemetry Based Harmonic Notch Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-imu-fft-test-flight.html" class="btn btn-neutral float-right" title="Initial Flight and Post-Flight Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gremsy Mio, Pixy, S1, T3, T7, and ZIO 3-Axis Gimbals &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Gremsy Mio, Pixy, S1, T3, T7, and ZIO 3-Axis Gimbals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gremsy-mio-pixy-s1-t3-t7-and-zio-3-axis-gimbals">
+<span id="common-gremsy-pixyu-gimbal"></span><h1>Gremsy Mio, Pixy, S1, T3, T7, and ZIO 3-Axis Gimbals<a class="headerlink" href="#gremsy-mio-pixy-s1-t3-t7-and-zio-3-axis-gimbals" title="Permalink to this heading">¶</a></h1>
+<p>Gremsy <a class="reference external" href="https://gremsy.com/products/mio">Mio</a>, <a class="reference external" href="https://gremsy.com/products/pixy-f">Pixy F</a>, <a class="reference external" href="https://gremsy.com/products/pixy-u">Pixy U</a>, <a class="reference external" href="https://gremsy.com/products/pixy-wp">Pixy WP</a>,  <a class="reference external" href="https://gremsy.com/products/gremsy-s1v3">S1</a>, <a class="reference external" href="https://gremsy.com/products/gremsy-t3v3">T3</a>, <a class="reference external" href="https://gremsy.com/products/gremsy-t7">T7</a> and <a class="reference external" href="https://gremsy.com/zio">ZIO</a> 3-axis gimbals can communicate with the autopilot using the MAVLink protocol and are compatible with a range of cameras for real-time video or mapping purposes.</p>
+<a class="reference external image-reference" href="https://gremsy.com/products/pixy-u"><img alt="../_images/gremsy-pixyu-gimbal.png" src="../_images/gremsy-pixyu-gimbal.png" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>MIO gimbals are unable to communication with ArduPilot.  We hope for a fix with Gremsy software version 7.7.3.
+T3V3 gimbals must be running 7.7.3-Preview (or higher).</p>
+</div>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>These gimbals can be purchased from the <a class="reference external" href="https://gremsy.com/online-store">Gremsy store</a></p>
+</section>
+<section id="connecting-to-the-autopilot-4-3-or-higher">
+<h2>Connecting to the Autopilot (4.3 or higher)<a class="headerlink" href="#connecting-to-the-autopilot-4-3-or-higher" title="Permalink to this heading">¶</a></h2>
+<p>If using ArduPilot 4.3 (or higher) please follow these setup instructions</p>
+<a class="reference external image-reference" href="../_images/gremsy-pixyu-autopilot.png"><img alt="../_images/gremsy-pixyu-autopilot.png" src="../_images/gremsy-pixyu-autopilot.png" style="width: 450px;" /></a>
+<p>Connect the gimbals’s COM2 port to one of the autopilot’s Serial/Telemetry ports like Telem2 as shown above.</p>
+<p>Connect to the autopilot with a ground station and set the following parameters, if using the first mount:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> to “6” for “Gremsy” and reboot the autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> to “115” for 115200 bps.  “SERIAL2” can be replaced with another serial port (i.e. SERIAL1) depending upon the physical connection</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> to 2 for “MAVLink2”</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-options" title="(in Rover)"><span class="xref std std-ref">SERIAL2_OPTIONS</span></a> to 1024 for “Don’t forward mavlink to/from”</p></li>
+</ul>
+<p>See the “Control with an RC transmitter” section of <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">this page</span></a> for details on parameter changes required to control the gimbal through an RC Transmitter (aka “RC Targeting”)</p>
+<p>When the autopilot has successfully connected to the gimbal, “Mount: GREMSY PixyU fw:7.7.1.0” (or similar) will be sent to the ground station.  Looking for this message may be useful in determining if the autopilot and gimbal are communicating successfully.</p>
+<section id="configuring-the-gimbal">
+<h3>Configuring the Gimbal<a class="headerlink" href="#configuring-the-gimbal" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>Download and install <a class="reference external" href="https://github.com/Gremsy/gTuneDesktop/releases">gTune Desktop</a></p></li>
+<li><p>Connect the gimbal to your Desktop PC using a USB cable and power on the gimbal</p></li>
+<li><p>Use gTune Desktop to check the gimbal firmware version</p>
+<ul class="simple">
+<li><p>Open gTune Desktop application, “Found your device” should be displayed</p></li>
+<li><p>Select “CONNECT”</p></li>
+<li><p>Select “INFO” and confirm the gimbal is running Firmware “7.7.1” or higher</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/gremsy-firmware-version-check.png"><img alt="../_images/gremsy-firmware-version-check.png" src="../_images/gremsy-firmware-version-check.png" style="width: 450px;" /></a>
+<ul class="simple">
+<li><p>If the gimbal firmware is older than 7.7.1 download the latest .hex for <a class="reference external" href="https://github.com/Gremsy/Mio-Firmware/releases">Mio</a>,  <a class="reference external" href="https://github.com/Gremsy/PixyF-Firmware/releases">Pixy F</a>, <a class="reference external" href="https://github.com/Gremsy/PixyU-Firmware/releases">Pixy U</a>,  <a class="reference external" href="https://github.com/Gremsy/PixyW-Firmware/releases">Pixy WP</a>,  <a class="reference external" href="https://github.com/Gremsy/S1V3-Firmware/releases">S1</a>, <a class="reference external" href="https://github.com/Gremsy/T3V3-Firmware/releases">T3</a>, <a class="reference external" href="https://github.com/Gremsy/T7-Firmware/releases">T7</a> or <a class="reference external" href="https://github.com/Gremsy/Zio-Firmware/releases">ZIO</a></p></li>
+<li><p>Select “UPGRADE”, “BROWSE” and select the file downloaded above</p></li>
+<li><p>Press the other “UPGRADE” button and the upgrade should complete within 30 seconds</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/gremsy-settings-upgrade.png"><img alt="../_images/gremsy-settings-upgrade.png" src="../_images/gremsy-settings-upgrade.png" style="width: 450px;" /></a>
+</li>
+<li><p>Use gTune Desktop to configure the gimbal</p>
+<ul class="simple">
+<li><p>Select “SETTINGS”, “CONTROLS” and ensure “SYNC” is selected so the gimbal communicates with the autopilot using MAVLink</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/gremsy-settings-sync.png"><img alt="../_images/gremsy-settings-sync.png" src="../_images/gremsy-settings-sync.png" style="width: 450px;" /></a>
+<ul class="simple">
+<li><p>Select “Settings”, “REDUCE DIRFT by DRONE”</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/gremsy-settings-reduce-drift-by-drone.png"><img alt="../_images/gremsy-settings-reduce-drift-by-drone.png" src="../_images/gremsy-settings-reduce-drift-by-drone.png" style="width: 450px;" /></a>
+</li>
+<li><p>Select the “STIFFNESS” tab and adjust the Tilt, Roll, and Pan gains so that the gimbal holds the camera in position without shaking</p></li>
+</ul>
+</section>
+<section id="control-and-testing">
+<h3>Control and Testing<a class="headerlink" href="#control-and-testing" title="Permalink to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">Gimbal / Mount Controls</span></a> for details on how to control the gimbal using RC, GCS or Auto mode mission commands</p>
+</section>
+<section id="connecting-two-gimbals">
+<h3>Connecting Two Gimbals<a class="headerlink" href="#connecting-two-gimbals" title="Permalink to this heading">¶</a></h3>
+<p>If two Gremsy gimbals are used, each gimbal can be directly connected to one of the autopilot’s serial ports or they can can be daisy-chained together with only one connected to one of the autopilot’s serial ports.</p>
+<ul>
+<li><p>Use the gTune desktop application set the second gimbal’s MAVLink component id to “GIMBAL_COMPID2”</p>
+<a class="reference external image-reference" href="../_images/gremsy-settings-compid.png"><img alt="../_images/gremsy-settings-compid.png" src="../_images/gremsy-settings-compid.png" style="width: 450px;" /></a>
+</li>
+<li><p>Connect a GCS to your autopilot and set</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt2-type" title="(in Rover)"><span class="xref std std-ref">MNT2_TYPE</span></a> to “6” for “Gremsy” and reboot the autopilot</p></li>
+<li><p>set the appropriate SERIALx_BAUD, SERIALx_PROTOCOL and SERIALx_OPTIONS parameters as described above</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="connecting-to-the-autopilot-4-2-or-earlier">
+<h2>Connecting to the Autopilot (4.2 or earlier)<a class="headerlink" href="#connecting-to-the-autopilot-4-2-or-earlier" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/gremsy-pixyu-autopilot.png"><img alt="../_images/gremsy-pixyu-autopilot.png" src="../_images/gremsy-pixyu-autopilot.png" style="width: 450px;" /></a>
+<p>We recommend connecting the Gimbals’s COM2 port to one of the autopilot’s Serial/Telemetry ports like Telem2 as shown above.</p>
+<p>Connect with a ground station and set the following parameters, if using the first mount:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> to “4” for “SToRM32 MavLink” and reboot the autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> to “115” for 115200 bps.  “SERIAL2” can be replaced with another serial port (i.e. SERIAL1) depending upon the physical connection</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> to 2 for “MAVLink2”</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr2-extra1" title="(in Rover)"><span class="xref std std-ref">SR2_EXTRA1</span></a> to 10</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr2-position" title="(in Rover)"><span class="xref std std-ref">SR2_POSITION</span></a> to 10</p></li>
+</ul>
+<p>The gimbal’s maximum angles can be set using these parameters (shown for the first mount):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-min" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MIN</span></a> to -30 to allow leaning left up to 30deg</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-max" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MAX</span></a> to 30 to allow leaning right up to 30deg</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-min" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MIN</span></a> to -90 to allow pointing 90deg down</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-max" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MAX</span></a> to 30 to allow pointing 30deg up</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-min" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MIN</span></a> to -180 to allow turning around to the left</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-max" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MAX</span></a> to 180 to allow turning around to the right</p></li>
+</ul>
+<p>To control the gimbal’s lean angles from a transmitter set the RC controls for roll, pitch, or yaw using <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> 212 (Mount1 Roll), 213 (Mount1 Pitch), 214 (Mount1 Yaw) for the first mount, or 215-217 for the second mount, respectively.</p>
+<p>Gremsy’s instructions can be found below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.gremsy.com/support/solutions/articles/36000189926-how-to-setup-gremsy-gimbal-with-pixhawk-cube">How to setup Gremsy gimbal with Pixhawk Cube</a></p></li>
+<li><p><a class="reference external" href="https://support.gremsy.com/support/solutions/articles/36000222529-control-gremsy-gimbal-with-herelink-cube-pilot">Control Gremsy Gimbal with Herelink &amp; Cube</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

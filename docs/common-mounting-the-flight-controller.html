@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安装飞控 &mdash; Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Typical Autopilot Wiring Connections" href="common-flight-controller-wiring.html" />
+    <link rel="prev" title="飞控系统安装 Instructions" href="autopilot-assembly-instructions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">系统装配</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">安装飞控</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard-orientation">标准方向</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alternative-orientations">其它方向</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-flight-controller-wiring.html">飞控接线</a></li>
+<!--
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) 接线快速入门</a></li>
+-->
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电调和电机</a></li>
+<!--
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+-->
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#ublox-gps-compass-module">UBlox GPS + 指南针模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#connecting-the-autopilot">连接到飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#mounting-the-gps-module">安装GPS模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#setup-in-mission-planner">Mission Planner配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#led-indicators">LED指示灯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#advanced-configuration">高级配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">减振</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">磁干扰</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统装配说明</a></li>
+      <li class="breadcrumb-item active">安装飞控</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mounting-the-autopilot">
+<span id="common-mounting-the-flight-controller"></span><h1>安装飞控<a class="headerlink" href="#mounting-the-autopilot" title="Permalink to this heading">¶</a></h1>
+<p>本文介绍了如何在标准和替代方向安装飞控。</p>
+<section id="standard-orientation">
+<h2>标准方向<a class="headerlink" href="#standard-orientation" title="Permalink to this heading">¶</a></h2>
+<p> <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">飞控</span></a> (Pixhawk等) 应装在一个盒子里（包括气压计上的泡沫），安装时白色箭头应直接指向载具前部。</p>
+<p>应将其放置在靠近载具重心的位置（水平和垂直方向）。一般来说，这意味着它应该放置在距离载具中间几厘米的范围内，并与电机齐平。
+  将其准确放置在中间并不重要，但越近越好（没有记录到控制器远离重心导致问题的案例）。如果飞控不能放置在载具的中心，设置
+  <a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">IMU位置偏移参数</span></a>
+  可能会略微提高性能。</p>
+<p>
+<!--
+  [site wiki=”rover”]
+.. image:: ../../../images/mounting-flight-controller-rover.png</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">target<span class="colon">:</span></dt>
+<dd class="field-odd"><p>../_images/mounting-flight-controller-rover.png</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>[/site]</p>
+-->
+<a class="reference external image-reference" href="../../../../images/mounting-flight-controller-rover.png"><img alt="../../../../images/mounting-flight-controller-rover.png" src="../../../../images/mounting-flight-controller-rover.png" style="width: 300px;" /></a>
+<p>应使用4块约3/4平方英寸的振动阻尼泡沫（3M泡沫可从 <a class="reference external" href="https://store.mrobotics.io/product-p/mro-pxfoams-mr.htm">mRobotics</a> 购买）.</p>
+<a class="reference external image-reference" href="../_images/pixhawk-back-4-corners-foam.jpg"><img alt="../_images/pixhawk-back-4-corners-foam.jpg" src="../_images/pixhawk-back-4-corners-foam.jpg" style="width: 300px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>减振泡沫是一种简单有效的减振机制。如果<a class="reference internal" href="common-measuring-vibration.html#common-measuring-vibration"><span class="std std-ref">测量振动</span></a>
+  表明这是不够的，则在<a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">减振</span></a>中讨论替代机制。</p>
+</div>
+</section>
+<section id="alternative-orientations">
+<h2>其它方向<a class="headerlink" href="#alternative-orientations" title="Permalink to this heading">¶</a></h2>
+<p>如果自动驾驶仪的标准方向不方便，它可以安装在30多个其他可能的方向上。可以通过Mission Planner的
+<strong>Config/Tuning | Advanced Params</strong> 查看
+<code class="docutils literal notranslate"><span class="pre">Board</span> <span class="pre">Orientation</span> <span class="pre">(AHRS_ORIENTATION)</span></code> 参数。</p>
+<p>对于Roll值，正数表示向右滚动（即“Roll90”表示板向右滚动90度，因此白色箭头仍然指向前方，但板位于其右侧边缘）。</p>
+<p>对于俯仰值，正数表示后仰（即“俯仰90”表示板的机头向上倾斜90度，因此箭头直接指向上方）</p>
+<p>对于偏航值，正数表示板的前端顺时针旋转（即“Yaw90”表示板旋转，白色箭头指向右侧）。</p>
+<a class="reference external image-reference" href="../_images/MountingToFrame_MPBoardOrientation.png"><img alt="../_images/MountingToFrame_MPBoardOrientation.png" src="../_images/MountingToFrame_MPBoardOrientation.png" /></a>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>如果板安装在非标准方向（即箭头未指向前方），则在进行加速计校准之前，请确保 <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-orientation" title="(in Rover)"><span class="xref std std-ref">AHRS_ORIENTATION</span></a> 设置正确。</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="autopilot-assembly-instructions.html" class="btn btn-neutral float-left" title="飞控系统安装 Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-flight-controller-wiring.html" class="btn btn-neutral float-right" title="Typical Autopilot Wiring Connections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

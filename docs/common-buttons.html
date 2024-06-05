@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buttons &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Buttons</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="buttons">
+<span id="common-buttons"></span><h1>Buttons<a class="headerlink" href="#buttons" title="Permalink to this heading">¶</a></h1>
+<p>Up to four external buttons or switches connected to the autopilot can be configured to trigger <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Functions</span></a> similar to how RC channel switches can trigger them. These button inputs can be configured to use either digital logic level voltage inputs (pull-to-ground or pull-to-high) or PWM signal inputs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary function</span></a> have a middle position (e.g “Parachute 3 Pos Switch”) but the middle position cannot be triggered from a button</p>
+</div>
+<section id="basic-setup">
+<h2>Basic Setup<a class="headerlink" href="#basic-setup" title="Permalink to this heading">¶</a></h2>
+<p>In order to use a button, an autopilot pin must be configured as a GPIO. Many autopilots have dedicated pins for this, but some do not. In those cases, a normal SERVO/MOTOR output must be configured as a GPIO pin instead of an <a class="reference internal" href="common-rcoutput-mapping.html#common-rcoutput-mapping"><span class="std std-ref">Autopilot Output Functions</span></a>.</p>
+<p>For autopilots with an IOMCU (e.g. Pixhawk, CubeOrange) the external button or switch should be connected to the autopilot’s AUX outputs (not the MAIN outputs).  To ease configuration and avoid timer conflicts it may be best to use AUX outputs at the high end (e.g. AUX5 or AUX6) far from outputs used for motors and servos.  For autopilots without an IOMCU (e.g. pixracer, etc) the normal SERVO/MOTOR outputs may be used.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-enable" title="(in Rover)"><span class="xref std std-ref">BTN_ENABLE</span></a> = 1 (Enable) and refresh parameters</p></li>
+<li><p>If using 4.2 (or later) set the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> = -1 (GPIO) where “x” is the servo output channel connected to the button . For example, if the AUX6 output on an autopilot with an IOMCU is to be used as a GPIO, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo14-function" title="(in Rover)"><span class="xref std std-ref">SERVO14_FUNCTION</span></a> = -1.</p></li>
+<li><p>If using 4.1 (or earlier) on an autopilot with an IOMCU (e.g. Pixhawk, CubeOrange) set <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> low enough so that the servo desired and all other higher outputs may be used for a GPIO input.  E.g. <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> = 4 means only AUX outputs 5 and 6 can be used as GPIOs, BRD_PWM_COUNT = 0 means AUX outputs 1 to 6 can be used. For boards not using an IOMCU, <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> less than the total output number, will configure those higher outputs as GPIOs.</p></li>
+</ul>
+</section>
+<section id="digital-logic-analog-voltage-setup">
+<h2>Digital Logic/Analog Voltage Setup<a class="headerlink" href="#digital-logic-analog-voltage-setup" title="Permalink to this heading">¶</a></h2>
+<p>Digital logic level analog voltages can be used for the button input.  The parameter changes listed below are for the 1st button but the 2nd, 3rd and 4th buttons can be setup similarly, simply replace the “1” in the parameter names with “2”, “3” or “4”. In order to determine which GPIO pin number corresponds to which autopilot SERVO/MOTOR output pin or dedicated GPIO pin, the autopilot’s hwdef.dat file must be consulted. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> for how to determine this.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-pin1" title="(in Rover)"><span class="xref std std-ref">BTN_PIN1</span></a> to the number of the GPIO connected to the button/switch (e.g. “55” = “AUXOUT6”)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-options1" title="(in Rover)"><span class="xref std std-ref">BTN_OPTIONS1</span></a> = set to zero (no bits set in bitmask) to trigger on high logic level voltage (&gt;2.4V) and  be interpreted as a “HIGH” position by the Auxiliary function. Setting bit 1 (PWM input) detects PWM above or below 1800/1200us instead of logic level. If PWM is not detected or is less than 800us or above 2200us the button will interpreted as low. Setting bit 2 (Invert) changes HIGH state to be logic low voltage on pin, or below 1200us, if PWM input.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-func1" title="(in Rover)"><span class="xref std std-ref">BTN_FUNC1</span></a> to the <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Function</span></a> to be triggered.  If set to 0, no function is to be triggered.</p></li>
+</ul>
+<p>The pin is automatically configured with an internal pullup meaning the button or switch is only required to pull the voltage low.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some autopilots pull pins high or low during startup and this may lead to the auxiliary function triggering soon after startup</p>
+</div>
+</section>
+<section id="pwm-input-setup">
+<h2>PWM Input Setup<a class="headerlink" href="#pwm-input-setup" title="Permalink to this heading">¶</a></h2>
+<p>PWM signals can be used as button inputs.  PWM values &gt;1800us or &lt;1200us can be used to trigger the Auxiliary Function. The parameter changes listed below are for the 1st button, but the 2nd, 3rd and 4th buttons can be setup similarly. As above, to determine which GPIO pin number corresponds to which autopilot SERVO/MOTOR output pin or dedicated GPIO pin, the autopilot’s hwdef.dat file must be consulted. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> for how to determine this.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-pin1" title="(in Rover)"><span class="xref std std-ref">BTN_PIN1</span></a> to the number of the GPIO connected to the button/switch (e.g. “55” = “AUXOUT6”)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-options1" title="(in Rover)"><span class="xref std std-ref">BTN_OPTIONS1</span></a> = to “1” to be interpreted as a “HIGH” position by the auxiliary function with a PWM &gt; 1800us</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-options1" title="(in Rover)"><span class="xref std std-ref">BTN_OPTIONS1</span></a> = to “3” to be interpreted as a “HIGH” position by the auxiliary function with a PWM &lt; 1200us, or missing a signal input. PWM &gt;1800us will be interpreted as the “LOW” position.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-func1" title="(in Rover)"><span class="xref std std-ref">BTN_FUNC1</span></a> to the <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Function</span></a> to be triggered.  If set to 0, no function is to be triggered.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The valid PWM input range is 800us to 2200us.  If the PWM value falls outside this range, or is missing, it is equivalent applying &lt;1200us.  Normally this means the auxiliary function will not be triggered unless the invert option of <code class="docutils literal notranslate"><span class="pre">BTN_OPTIONSx</span></code> is set.</p>
+</div>
+</section>
+<section id="additional-setup">
+<h2>Additional Setup<a class="headerlink" href="#additional-setup" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#btn-report-send" title="(in Rover)"><span class="xref std std-ref">BTN_REPORT_SEND</span></a> sets the length of time that a <a class="reference external" href="https://mavlink.io/en/messages/common.html#BUTTON_CHANGE">BUTTON_CHANGE</a> mavlink2 message is sent to the ground control station each time the button state changes.  At the time of this writing we do not know of any GCS that makes use of this message.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

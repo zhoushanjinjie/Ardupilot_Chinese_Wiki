@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-3dr-radio-v1"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="dr-radio-v1">
+<h1>3DR Radio v1<a class="headerlink" href="#dr-radio-v1" title="Permalink to this heading">¶</a></h1>
+<p>This article explains how to connect the <em>3DR Radio v1</em> to your flight
+controller. You should also read <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Radio v2</span></a>, which contains a more detailed user
+guide and feature list.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/3DR_Radio_Version1.jpg"><img alt="../_images/3DR_Radio_Version1.jpg" src="../_images/3DR_Radio_Version1.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">3DR Radio v1</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>The <em>3DR Radio</em> is the easiest way to setup a telemetry connection
+between your autopilot and a ground station.</p>
+<p>There are two versions of the 3DR Radio (version 2 is more recent, see link above). The
+radios have slightly different form factors and connections (v2 comes
+with a built-in FTDI cable) but otherwise their behaviour is very
+similar.</p>
+<a class="reference external image-reference" href="../_images/Telemetry_Ver1Ver2.jpg"><img alt="../_images/Telemetry_Ver1Ver2.jpg" src="../_images/Telemetry_Ver1Ver2.jpg" /></a>
+<p>.</p>
+<p>This article only covers the main difference between the two radios —
+connecting the radios.</p>
+</section>
+<section id="connecting-the-radio">
+<h1>Connecting the radio<a class="headerlink" href="#connecting-the-radio" title="Permalink to this heading">¶</a></h1>
+<p>3DR Radio v1 has different radio modules for air and ground:</p>
+<ul class="simple">
+<li><p>The “ground” module has a USB connector making it easy to connect
+directly to your ground station. On a windows 7 or higher machine,
+the require drivers should be automatically installed the first time
+you plug in the ground module but if it does not install for some
+reason or the ground computer is running Windows XP (or earlier) you
+can get the D2XX FTDI driver
+<a class="reference external" href="http://www.ftdichip.com/Drivers/D2XX.htm">here.</a></p></li>
+<li><p>The ‘aircraft’ module has a FTDI six pin header, allowing it to be
+directly connected to your Autopilot’s telemetry port as shown
+in the following sections.</p></li>
+</ul>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the AutoPilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>The aircraft module will be need to be connected to an autopilot’s serial port, sometimes marked as TELEM1 or TELEM2. The TX and RX pins of the radio to the RX and TX signals of the Serial port. If the port has CTS and RTS pins, then connecting them will provide flow control and increased reliability at longer ranges. The <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> for the UART port to which the module is connected should be set to “2” (MAVLink2).Be sure that the radio is programmed with the latest firmware in order to work properly with MAVLink2 protocol. See the section below for programming.</p>
+<a class="reference external image-reference" href="../_images/3drRadioV1_pixhawk1.jpg"><img alt="../_images/3drRadioV1_pixhawk1.jpg" src="../_images/3drRadioV1_pixhawk1.jpg" /></a>
+</section>
+<section id="changing-configuration-of-the-radio">
+<h2>Changing Configuration of the Radio<a class="headerlink" href="#changing-configuration-of-the-radio" title="Permalink to this heading">¶</a></h2>
+<p>This is not usually required, but if desired see: <a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#common-configuring-a-telemetry-radio-using-mission-planner"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p>
+</section>
+<section id="updating-the-firmware">
+<span id="sik-firmware-update"></span><h2>Updating the Firmware<a class="headerlink" href="#updating-the-firmware" title="Permalink to this heading">¶</a></h2>
+<p>Using Mission Planner, with the module connected to the autopilot for power and the base USB unit plugged into the computer:</p>
+<ul class="simple">
+<li><p>determine the USB COMM port the base radio is using and enter that into the port selection box of Mission Planner along with the baud rate (57600 is defualt for the radios).</p></li>
+<li><p>WITHOUT connecting anything in Mission Planner, use the SETUP/Optional Hardware/Sik Radio utility tab to “Upload Firmware (local)” which will download the latest firmware and write it to the radios.</p></li>
+<li><p>You may now CONNECT to the base radio COMM port with Mission Planner over MAVLink using the radio links.</p></li>
+<li><p>If you have any problems, be sure that the autopilot’s SERIAL port connected to the radio is set to the baud rate (57600 default) and the protocol is MAVLink2 (“2”)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneCAN Adapter Node &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DroneCAN Adapter Node</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dronecan-adapter-node">
+<span id="common-uavcan-adapter-node"></span><h1>DroneCAN Adapter Node<a class="headerlink" href="#dronecan-adapter-node" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>These nodes allow existing ArduPilot supported peripherals to be adapted to the CAN bus as DroneCAN or MSP devices. This also allows for extending the capabilities of the autopilot hardware. Such as allowing I2C devices (e.g. a compass or airspeed) to be located more than 1 meter from the autopilot and enabling up to 32 servo output channels.</p>
+<img alt="../_images/uavcan-node.jpg" src="../_images/uavcan-node.jpg" />
+<p>They utilize the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/Tools/AP_Periph">AP_Periph</a> library to use existing ArduPilot drivers on a supported hardware board. Translating UART, SPI, I2C, or GPIO-based peripheral devices supported by ArduPilot into DroneCAN devices on the CAN bus or MSP.</p>
+<p>For example, a serial GPS adapted to DroneCAN:</p>
+<a class="reference internal image-reference" href="../_images/uavcan-node-gps.jpg"><img alt="../_images/uavcan-node-gps.jpg" src="../_images/uavcan-node-gps.jpg" style="width: 450px;" /></a>
+<p>This provides an easy method to develop integrated DroneCAN peripherals which can be used with ArduPilot or other systems that support DroneCAN.</p>
+<p>The first adapter was manufactured by <a class="reference external" href="https://store.mrobotics.io/product-p/mro10042.htm">mRobotics</a>, is shown below, and provides socketed outputs for a UART+I2C and another I2C connection, and solder pads for a second UART, SPI bus, GPIOs, and ADC inputs.</p>
+<img alt="../_images/mRo-can-node.jpg" src="../_images/mRo-can-node.jpg" />
+<p>The first generation was based on the f103 processor, while the current generation uses an f303 for more memory, allowing more peripheral options to be accommodated simultaneously in the firmware. The L431 processor is now supported, as well as any ArduPilot compatible autopilot can be adapted for use as a DroneCAN Adapter Node.</p>
+<p>Developers might find the <a class="reference external" href="https://ardupilot.org/dev/docs/ap-peripheral-landing-page.html#ap-peripheral-landing-page" title="(in Dev)"><span class="xref std std-ref">AP_Periph section</span></a> of the dev docs useful for more details about creating AP_Periph nodes.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<p>The AP_Periph DroneCAN firmware can be configured to enable a wide range of
+DroneCAN sensor types. Support is included for:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>GPS modules (including RTK GPS)</p></li>
+<li><p>Magnetometers (SPI or I2C)</p></li>
+<li><p>Barometers (SPI or I2C)</p></li>
+<li><p>Airspeed sensors (I2C)</p></li>
+<li><p>Rangefinders (UART or I2C)</p></li>
+<li><p>ADSB (Ping ADSB receiver on UART)</p></li>
+<li><p>LEDs (GPIO, I2C, or WS2812 serial)</p></li>
+<li><p>Safety LED and Safety Switch</p></li>
+<li><p>Buzzer (tonealarm or simple GPIO)</p></li>
+<li><p>PWM and DShot output</p></li>
+</ul>
+</div></blockquote>
+<p>Setting up the autopilot and a general purpose adapter node to enable these features (assuming the node supports them) is detailed on <a class="reference internal" href="common-ap-periph-usage-examples.html#common-ap-periph-usage-examples"><span class="std std-ref">[copywiki destination=”copter,plane,rover,dev”]</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases, different firmware must be loaded onto the adapter node to enable the desired subset of the peripherals to be supported. See “Firmware” below.</p>
+</div>
+<p>The AP_Periph DroneCAN firmware supports these DroneCAN features:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Dynamic or static CAN node allocation</p></li>
+<li><p>Firmware upload</p></li>
+<li><p>Automatically generated bootloader</p></li>
+<li><p>Parameter storage in flash</p></li>
+<li><p>Easy bootloader update</p></li>
+<li><p>High resilience features using watchdog, CRC, and board checks</p></li>
+<li><p>Firmware update via MissionPlanner or DroneCAN-gui-tool</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://firmware.ardupilot.org/AP_Periph/">Firmware</a> is provided in the AP_Periph folder for supported DroneCAN devices as well as the conversion of some autopilots to DroneCAN adapter use. Currently, the following firmware is pre-built, but the code allows for easy customization. Firmware can be installed using either <a class="reference internal" href="common-uavcan-gui.html#common-uavcan-gui"><span class="std std-ref">DroneCAN GUI</span></a> or <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-initial-setup.html#dronecan-uavcan-slcan" title="(in Mission Planner)"><span class="xref std std-ref">MissionPlanner SLCAN</span></a> when the device is attached to a DroneCAN port on an autopilot and the autopilot has that port enabled. See <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a>. Since the size of all the ArduPilot driver libraries would exceed the smaller processors, several variations, supporting different peripheral sets, are provided.</p>
+<section id="f103-based">
+<h3>F103 Based<a class="headerlink" href="#f103-based" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>f103-GPS: Serial GPS, I2C Compass, I2C RGB LED</p></li>
+<li><p>f103-ADSB: Serial ADS_B, I2C Compass, I2C Airspeed</p></li>
+<li><p>f103-Rangefinder: Serial Rangefinder, I2C Airspeed</p></li>
+</ul>
+</section>
+<section id="f303-based">
+<h3>F303 Based<a class="headerlink" href="#f303-based" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>f303-GPS: Serial GPS, SPI RM3100 Compass, I2C Compass, I2C RGB LED</p></li>
+<li><p>f303-M10025: Serial GPS, SPI RM3100 Compass, SPI DPS310 Baro, I2C RGB LED, I2C Airspeed, Safety Switch</p></li>
+<li><p>f303-Universal: Serial GPS/Rangefinder/ADS-B, I2C Compass, I2C Baro, I2C RGB LED, I2C Airspeed</p></li>
+</ul>
+</section>
+<section id="l431-based">
+<h3>L431 Based<a class="headerlink" href="#l431-based" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>MatekL431-Periph: Serial GPS, I2C QMC5883L Compass, I2C SPL06 Baro, I2C RGB LED, I2C Airspeed (MS4525 default), Passive Buzzer, Battery Monitor, MSP, 5 PWM outputs (it is recommended to use MatekL431-DShot for this application)</p></li>
+<li><p>MatekL431-Airspeed: I2C Airspeed, DLVR 10” default type</p></li>
+<li><p>MatekL431-DShot: 5 Bi-Directional DShot(default)/PWM outputs starting at SERVO5 by default, ESC telem on UART1 RX (see <a class="reference external" href="https://discuss.ardupilot.org/t/using-matekl431-adapters-for-pwm-and-dshot">setup instructions here</a>)</p></li>
+<li><p>MatekL431-Rangefinder: Serial Rangefinders</p></li>
+</ul>
+</section>
+</section>
+<section id="ardupilot-firmware-dronecan-setup">
+<h2>ArduPilot Firmware DroneCAN Setup<a class="headerlink" href="#ardupilot-firmware-dronecan-setup" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to enable the autopilot’s CAN port and set it up for DroneCAN protocol. See : <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a></p>
+</div>
+<p>DroneCAN Adapters can support various devices and configurations. Often, its configuration parameters will need to be altered. To achieve this, either use <a class="reference internal" href="common-uavcan-gui.html#common-uavcan-gui"><span class="std std-ref">DroneCAN GUI</span></a> or <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-initial-setup.html#dronecan-uavcan-slcan" title="(in Mission Planner)"><span class="xref std std-ref">MissionPlanner SLCAN</span></a> to change the device’s parameters.</p>
+<p>For example, when using the MatekL431-Airspeed, you may need to change the ARSPD_TYPE parameter in the device to match the actual I2C airspeed sensor you are using.</p>
+<section id="f303-universal-example-setup">
+<h3>f303-Universal Example Setup<a class="headerlink" href="#f303-universal-example-setup" title="Permalink to this heading">¶</a></h3>
+<p>The f303-Universal firmware has the ability to be used for several serial devices but only one can be enabled to use the single UART. Once Firmware is uploaded, the default device connected to the UART port is set to GPS, to use another device such as Rangefinder, the GPS has to be turned off and Rangefinder or other devices enabled.</p>
+<p>Options for serial devices are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>GPS_TYPE=0</p></li>
+<li><p>RNGFND1_TYPE=0</p></li>
+<li><p>ADSB_BAUDRATE=0</p></li>
+</ul>
+<p>The above adapter DroneCAN parameter settings would disable all of the devices, then you should enable just the one you want, knowing that you can’t have two serial devices as there is just one UART.</p>
+</div></blockquote>
+<p>The firmware can also be used for I2C peripherals.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>COMPASS</p></li>
+<li><p>BARO</p></li>
+<li><p>AIRSPEED SENSOR</p></li>
+<li><p>NCP5623 LED</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="dronecan-adapter-nodes">
+<h2>DroneCAN Adapter Nodes<a class="headerlink" href="#dronecan-adapter-nodes" title="Permalink to this heading">¶</a></h2>
+<p>Several devices are manufactured specifically for use as general-purpose adapter nodes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arkelectron.com/product/ark-cannode/">ARK CANnode</a></p></li>
+<li><p><a class="reference external" href="http://www.mateksys.com/?portfolio=can-l431">MatekL431 DroneCAN Adapter Node</a></p></li>
+<li><p><a class="reference internal" href="common-mro-uavcan-adapter-node.html#common-mro-uavcan-adapter-node"><span class="std std-ref">mRo DroneCAN Adapter Node</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

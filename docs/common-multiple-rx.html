@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiple Radio Control Receivers &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Multiple Radio Control Receivers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multiple-radio-control-receivers">
+<span id="common-multiple-rx"></span><h1>Multiple Radio Control Receivers<a class="headerlink" href="#multiple-radio-control-receivers" title="Permalink to this heading">¶</a></h1>
+<p>It is possible to use multiple radio control receivers in ArduPilot for redundancy or hand-off between multiple transmitters.</p>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration only is valid for autopilots that use an IOMCU co-processor. Check the product description to be sure that the autopilot includes either an STMF100 or STMF103 co-processor. Usually these outputs have servo/motor outputs labeled as MAIN (the co-processor) and AUX (from the main cpu).</p>
+</div>
+<p>The additional receivers can be attached to any Serial Port’s RX input as long as they use a serial protocol.
+These are: SBUS, FPort, DSM, DSM2, DSM-X, IBus, SUMD, and SRXL (and CRSF if the TX output of the UART is also used).</p>
+<p>For whichever Serial Port the receiver is attached, the <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> should be set to 23. The baud rate is ignored and auto-detected, as well as the type of the receiver.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SBUS and FPort must either be externally inverted or the SERIALx_OPTIONS be set for inversion (F and H processor types only are capable of this).</p>
+</div>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-options" title="(in Rover)"><span class="xref std std-ref">RC_OPTIONS</span></a> bit 10 must be set.</p>
+</section>
+<section id="failsafe-and-changeover">
+<h2>Failsafe and Changeover<a class="headerlink" href="#failsafe-and-changeover" title="Permalink to this heading">¶</a></h2>
+<p>The autopilot will always use the receiver attached to the IOMCU’s RCin, if providing valid RC signals. If that receiver fails to provide valid RC signals, it will then switch to the other receiver if it is outputting valid RC signals. It will reverted to the first if it restarts outputting valid RC signals.</p>
+<p>Note that the previously calibrated <code class="docutils literal notranslate"><span class="pre">RCx_MAX</span></code> , <code class="docutils literal notranslate"><span class="pre">RCx_MIN</span></code>, <code class="docutils literal notranslate"><span class="pre">RCx_REVERSED</span></code>, <code class="docutils literal notranslate"><span class="pre">RCx_DZ</span></code> and <code class="docutils literal notranslate"><span class="pre">RCx_TRIM</span></code> parameters for each channel will be used by the active receiver and could vary between receivers, especially if different types are mixed. It is recommended that all receivers be of the same manufacture and type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>lowering throttle to below <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-value" title="(in Rover)"><span class="xref std std-ref">FS_THR_VALUE</span></a>  on the first receiver will not force a changeover, but rather force a normal radio failsafe. Only loss of RC signals from the first receiver will cause a changeover.</p>
+</div>
+<p>If all receivers become inactive (no pulses), then the normal radio failsafe handling will begin.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important that all receivers be configured for no pulses for radio loss failsafe for the changeovers to work properly.</p>
+</div>
+</section>
+<section id="inversion">
+<h2>Inversion<a class="headerlink" href="#inversion" title="Permalink to this heading">¶</a></h2>
+<p>Some protocols, like SBus, require that the signal be inverted . Autopilots using F7/H7 cpus have the ability to invert the RX input via its <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> bitmask. Otherwise an external inverter must be used between the receiver data output and the Serial Port’s RX input.</p>
+</section>
+<section id="receivers-having-telemetry-video-transmitters-integrated">
+<h2>Receivers Having Telemetry/Video Transmitters Integrated<a class="headerlink" href="#receivers-having-telemetry-video-transmitters-integrated" title="Permalink to this heading">¶</a></h2>
+<p>Some receivers have telemetry and/or video transmitters integrated. Having multiple units, operating on the same band, in the same vehicle, can cause reduction of range in both units, even if using spread-spectrum techniques. CRSF, FrSky, DragonLink, etc. are some examples of these types of receivers. Having the antennas as widely separated as possible will help, but not eliminate some range reduction. Best case is to have the units operating in different radio bands.</p>
+<p>Be sure to do range checks on the ground using the transmitter’s range check mode before flight testing.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

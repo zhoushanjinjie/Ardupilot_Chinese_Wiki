@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dual Helicopter &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traditional Helicopter Tips" href="traditional-helicopter-tips.html" />
+    <link rel="prev" title="Autorotation" href="traditional-helicopter-autorotation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dual Helicopters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-and-configuring">Connecting and Configuring</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tandem-longitudinal">Tandem (Longitudinal)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#side-by-side-transverse">Side-by-Side (Transverse)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intermeshing">Intermeshing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coaxial">Coaxial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+      <li class="breadcrumb-item active">Dual Helicopter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dual-helicopter">
+<span id="id1"></span><h1>Dual Helicopter<a class="headerlink" href="#dual-helicopter" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dual Heli Frame requires a <a class="reference internal" href="traditional-helicopters.html#traditional-helicopters"><span class="std std-ref">traditional helicopter</span></a> as the base firmware. It is available for download from the <a class="reference external" href="https://firmware.ardupilot.org/">firmware server</a>. When Copter is generated for the firmware server, it generates both multirotor and traditional helicopter (with -heli suffix) firmware.</p>
+</div>
+<section id="connecting-and-configuring">
+<h2>Connecting and Configuring<a class="headerlink" href="#connecting-and-configuring" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>the motor’s ESC should be connected to the autopilot’s channel 8 output</p></li>
+<li><p><a class="reference internal" href="traditional-helicopters.html#traditional-helicopters"><span class="std std-ref">traditional helicopter firmware</span></a> should be loaded onto the vehicle.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#frame-class" title="(in Rover)"><span class="xref std std-ref">FRAME_CLASS</span></a> to 11 (Heli_Dual)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dual-mode" title="(in Copter)"><span class="xref std std-ref">H_DUAL_MODE</span></a></p></li>
+</ul>
+<p>Similar to a <a class="reference internal" href="traditional-helicopters.html#traditional-helicopters"><span class="std std-ref">traditional helicopter</span></a> an <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary switch</span></a> should be set to “Motor Interlock” to turn on/off the motor.  Normally this is channel 8 so you could set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> to 32.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="traditional-helicopter-swashplate-setup.html#traditional-helicopter-swashplate-setup"><span class="std std-ref">Traditional Helicopter – Swashplate Setup</span></a> for basic information on how to setup each swashplate using the parameters below.</p>
+</div>
+<section id="tandem-longitudinal">
+<h3>Tandem (Longitudinal)<a class="headerlink" href="#tandem-longitudinal" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/dual_heli_chinook.jpeg"><img alt="../_images/dual_heli_chinook.jpeg" src="../_images/dual_heli_chinook.jpeg" /></a>
+<p>This setup assumes that the forward rotor swashplate is controlled by servo output 1, 2, and 3 and the aft rotor swashplate is controlled by servo output 4, 5 and 6.</p>
+<p>Parameter Settings:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dual-mode" title="(in Copter)"><span class="xref std std-ref">H_DUAL_MODE</span></a> - Set to 0 for the longitudinal configuration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-scaler" title="(in Copter)"><span class="xref std std-ref">H_DCP_SCALER</span></a> - Scales the differential collective output to the rotors for a pitch axis input</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-yaw" title="(in Copter)"><span class="xref std std-ref">H_DCP_YAW</span></a> - Feedforward input to yaw axis for pitch axis (DCP) inputs</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-scaler" title="(in Copter)"><span class="xref std std-ref">H_YAW_SCALER</span></a> - Scales the differential lateral cyclic based on yaw axis input.  This is a positive number for this setup.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-max" title="(in Copter)"><span class="xref std std-ref">H_COL_MAX</span></a>- PWM for maximum collective pitch on forward rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-min" title="(in Copter)"><span class="xref std std-ref">H_COL_MIN</span></a> - PWM for minimum collective pitch on forward rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> - Swashplate type for forward rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> - Swashplate collective direction for forward rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-lin-svo-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_LIN_SVO</span></a> - Enables linear servo feature for forward rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-min" title="(in Copter)"><span class="xref std std-ref">H_COL2_MIN</span></a> - PWM for minimum collective pitch on aft rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-max" title="(in Copter)"><span class="xref std std-ref">H_COL2_MAX</span></a>- PWM for maximum collective pitch on aft rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> - Swashplate type for aft rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-col-dir" title="(in Copter)"><span class="xref std std-ref">H_SW2_COL_DIR</span></a> - Swashplate collective direction for aft rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-lin-svo" title="(in Copter)"><span class="xref std std-ref">H_SW2_LIN_SVO</span></a> - Enables linear servo feature for aft rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-trim" title="(in Copter)"><span class="xref std std-ref">H_DCP_TRIM</span></a> - Removes pitch I term bias due to center of gravity offsets or discrepancies between rotors in swashplate setup. If pitch axis has I term bias while hovering in calm winds, use value of bias in DCP_TRIM to re-center I term.</p></li>
+</ul>
+<p>These are only needed for the forward swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-enable-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv1-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv2-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv3-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-phang-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_PHANG</span></a></p></li>
+</ul>
+<p>These are only needed for the aft swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-enable" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv1-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv2-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv3-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-phang" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_PHANG</span></a></p></li>
+</ul>
+<p>This parameter is not used for the longitudinal configuration
+- <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-rev-expo" title="(in Copter)"><span class="xref std std-ref">H_YAW_REV_EXPO</span></a></p>
+</section>
+<section id="side-by-side-transverse">
+<h3>Side-by-Side (Transverse)<a class="headerlink" href="#side-by-side-transverse" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/dual_heli_transverse.jpg"><img alt="../_images/dual_heli_transverse.jpg" src="../_images/dual_heli_transverse.jpg" /></a>
+<p>This setup assumes that the left rotor swashplate is controlled by servo output 1, 2, and 3 and the right rotor swashplate is controlled by servo output 4, 5 and 6.</p>
+<p>Parameter Settings:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dual-mode" title="(in Copter)"><span class="xref std std-ref">H_DUAL_MODE</span></a> - Set to 1 for the transverse configuration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-scaler" title="(in Copter)"><span class="xref std std-ref">H_DCP_SCALER</span></a> - Scales the differential collective output to the rotors for a roll axis input</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-yaw" title="(in Copter)"><span class="xref std std-ref">H_DCP_YAW</span></a> - Feedforward input to yaw axis for roll axis (DCP) inputs</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-scaler" title="(in Copter)"><span class="xref std std-ref">H_YAW_SCALER</span></a> - Scales the differential longitudinal cyclic based on yaw axis input.  This is a positive number for this setup.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-max" title="(in Copter)"><span class="xref std std-ref">H_COL_MAX</span></a>- PWM for maximum collective pitch on left rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-min" title="(in Copter)"><span class="xref std std-ref">H_COL_MIN</span></a> - PWM for minimum collective pitch on left rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> - Swashplate type for left rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> - Swashplate collective direction for left rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-lin-svo-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_LIN_SVO</span></a> - Enables linear servo feature for left rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-min" title="(in Copter)"><span class="xref std std-ref">H_COL2_MIN</span></a> - PWM for minimum collective pitch on right rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-max" title="(in Copter)"><span class="xref std std-ref">H_COL2_MAX</span></a>- PWM for maximum collective pitch on right rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> - Swashplate type for right rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-col-dir" title="(in Copter)"><span class="xref std std-ref">H_SW2_COL_DIR</span></a> - Swashplate collective direction for right rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-lin-svo" title="(in Copter)"><span class="xref std std-ref">H_SW2_LIN_SVO</span></a> - Enables linear servo feature for right rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-trim" title="(in Copter)"><span class="xref std std-ref">H_DCP_TRIM</span></a> - Removes roll I term bias due to center of gravity offsets or discrepancies between rotors in swashplate setup. If roll axis has I term bias while hovering in calm winds, use value of bias in DCP_TRIM to re-center I term.</p></li>
+</ul>
+<p>These are only needed for the left swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-enable-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv1-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv2-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv3-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-phang-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_PHANG</span></a></p></li>
+</ul>
+<p>These are only needed for the right swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-enable" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv1-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv2-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv3-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-phang" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_PHANG</span></a></p></li>
+</ul>
+<p>This parameter is not used for the longitudinal configuration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-rev-expo" title="(in Copter)"><span class="xref std std-ref">H_YAW_REV_EXPO</span></a></p></li>
+</ul>
+</section>
+<section id="intermeshing">
+<h3>Intermeshing<a class="headerlink" href="#intermeshing" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/dual_heli_intermeshing.jpg"><img alt="../_images/dual_heli_intermeshing.jpg" src="../_images/dual_heli_intermeshing.jpg" /></a>
+<p>This setup assumes that the left rotor swashplate is controlled by servo output 1, 2, and 3 and the right rotor swashplate is controlled by servo output 4, 5 and 6.</p>
+<p>Parameter Settings:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dual-mode" title="(in Copter)"><span class="xref std std-ref">H_DUAL_MODE</span></a> - Set to 2 for the intermeshing configuration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-scaler" title="(in Copter)"><span class="xref std std-ref">H_DCP_SCALER</span></a> - Scales the differential collective output to the rotors for a yaw axis input. For a positive value the left rotor would spin counter clockwise to give the proper yaw response.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-scaler" title="(in Copter)"><span class="xref std std-ref">H_YAW_SCALER</span></a> - Scales the differential longitudinal cyclic based on yaw axis input.  This is a positive number for this setup.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-max" title="(in Copter)"><span class="xref std std-ref">H_COL_MAX</span></a>- PWM for maximum collective pitch on left rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-min" title="(in Copter)"><span class="xref std std-ref">H_COL_MIN</span></a> - PWM for minimum collective pitch on left rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> - Swashplate type for left rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> - Swashplate collective direction for left rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-lin-svo-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_LIN_SVO</span></a> - Enables linear servo feature for left rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-min" title="(in Copter)"><span class="xref std std-ref">H_COL2_MIN</span></a> - PWM for minimum collective pitch on right rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-max" title="(in Copter)"><span class="xref std std-ref">H_COL2_MAX</span></a>- PWM for maximum collective pitch on right rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> - Swashplate type for right rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-col-dir" title="(in Copter)"><span class="xref std std-ref">H_SW2_COL_DIR</span></a> - Swashplate collective direction for right rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-lin-svo" title="(in Copter)"><span class="xref std std-ref">H_SW2_LIN_SVO</span></a> - Enables linear servo feature for right rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-rev-expo" title="(in Copter)"><span class="xref std std-ref">H_YAW_REV_EXPO</span></a> - Yaw revereser smoothing exponent, smoothen transition near zero collective region. Increase this parameter to shink smoothing range. Set to -1 to disable reverser.</p></li>
+</ul>
+<p>These are only needed for the left swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-enable-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv1-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv2-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv3-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-phang-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_PHANG</span></a></p></li>
+</ul>
+<p>These are only needed for the right swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-enable" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv1-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv2-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv3-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-phang" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_PHANG</span></a></p></li>
+</ul>
+<p>These parameters are not used for the intermeshing configuration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-yaw" title="(in Copter)"><span class="xref std std-ref">H_DCP_YAW</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-trim" title="(in Copter)"><span class="xref std std-ref">H_DCP_TRIM</span></a></p></li>
+</ul>
+</section>
+<section id="coaxial">
+<h3>Coaxial<a class="headerlink" href="#coaxial" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/dual_heli_coaxial.jpg"><img alt="../_images/dual_heli_coaxial.jpg" src="../_images/dual_heli_coaxial.jpg" /></a>
+<p>This setup assumes that the counter clockwise rotor swashplate is controlled by servo output 1, 2, and 3 and the clockwise rotor swashplate is controlled by servo output 4, 5 and 6.</p>
+<p>Parameter Settings:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dual-mode" title="(in Copter)"><span class="xref std std-ref">H_DUAL_MODE</span></a> - Set to 2 for the intermeshing configuration</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-scaler" title="(in Copter)"><span class="xref std std-ref">H_DCP_SCALER</span></a> - Scales the differential collective output to the rotors for a yaw axis input.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-scaler" title="(in Copter)"><span class="xref std std-ref">H_YAW_SCALER</span></a> - This parameter is set to zero for the coaxial configuration.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-max" title="(in Copter)"><span class="xref std std-ref">H_COL_MAX</span></a>- PWM for maximum collective pitch on counter clockwise rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-min" title="(in Copter)"><span class="xref std std-ref">H_COL_MIN</span></a> - PWM for minimum collective pitch on counter clockwise rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> - Swashplate type for counter clockwise rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> - Swashplate collective direction for counter clockwise rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-lin-svo-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_LIN_SVO</span></a> - Enables linear servo feature for counter clockwise rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-min" title="(in Copter)"><span class="xref std std-ref">H_COL2_MIN</span></a> - PWM for minimum collective pitch on clockwise rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2-max" title="(in Copter)"><span class="xref std std-ref">H_COL2_MAX</span></a>- PWM for maximum collective pitch on clockwise rotor head that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> - Swashplate type for clockwise rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-col-dir" title="(in Copter)"><span class="xref std std-ref">H_SW2_COL_DIR</span></a> - Swashplate collective direction for clockwise rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-lin-svo" title="(in Copter)"><span class="xref std std-ref">H_SW2_LIN_SVO</span></a> - Enables linear servo feature for clockwise rotor head</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-yaw-rev-expo" title="(in Copter)"><span class="xref std std-ref">H_YAW_REV_EXPO</span></a> - Yaw revereser smoothing exponent, smoothen transition near zero collective region. Increase this parameter to shink smoothing range. Set to -1 to disable reverser.</p></li>
+</ul>
+<p>These are only needed for the counter clockwise swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-enable-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv1-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv2-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-sv3-pos-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-h3-phang-ap-motorsheli-dual" title="(in Copter)"><span class="xref std std-ref">H_SW_H3_PHANG</span></a></p></li>
+</ul>
+<p>These are only needed for the clockwise swashplate if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-enable" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_ENABLE</span></a> - Do Not Set Manually!  This is set automatically once <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-type" title="(in Copter)"><span class="xref std std-ref">H_SW2_TYPE</span></a> is set to H3 Generic</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv1-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV1_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv2-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV2_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-sv3-pos" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_SV3_POS</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw2-h3-phang" title="(in Copter)"><span class="xref std std-ref">H_SW2_H3_PHANG</span></a></p></li>
+</ul>
+<p>These parameters are not used for the coaxial configuration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-yaw" title="(in Copter)"><span class="xref std std-ref">H_DCP_YAW</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-dcp-trim" title="(in Copter)"><span class="xref std std-ref">H_DCP_TRIM</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-autorotation.html" class="btn btn-neutral float-left" title="Autorotation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-tips.html" class="btn btn-neutral float-right" title="Traditional Helicopter Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

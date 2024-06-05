@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheerson CX-OF Optical Flow &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Cheerson CX-OF Optical Flow</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cheerson-cx-of-optical-flow">
+<span id="common-cheerson-cxof"></span><h1>Cheerson CX-OF Optical Flow<a class="headerlink" href="#cheerson-cx-of-optical-flow" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,plane,rover”]</p>
+<p>The Cheerson CX-OF optical flow sensor is a lightweight and low cost optical flow sensor which can be used to improve horizontal position control especially in GPS denied environments.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/SSISkG58cDk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>The sensor is available from various retailers incluing <a class="reference external" href="https://www.banggood.com/Cheerson-CX-OF-CXOF-RC-Quadcopter-Spare-Parts-Optical-Flow-Module-p-1215911.html">Banggood.com</a> and <a class="reference external" href="https://www.aliexpress.com/item/Original-Cheerson-CX-OF-CXOF-RC-Quadcopter-Spare-Parts-Optical-Flow-Module-for-RC-Toys-Models/32838098799.html">AliExpress</a>.  More retailers can be found by searching for “CX-OF spare parts”.</p>
+<p>These alternatives have also been shown to work:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aliexpress.com/item/1-3-2CM-FPV-RC-Drone-Optical-Flow-Module-Hovering-Altitude-Hold-Optical-Flow-Sensor-Balance/33002000486.html">FPV RC Drone Optical Flow Module</a></p></li>
+<li><p><a class="reference external" href="https://www.seeedstudio.com/ThoneFlow-3901U-UART-Serial-Version-PMW3901-Optical-Flow-Sensor-p-4040.html">ThoneFlow-3901U UART Serial Version PMW3901 Optical Flow Sensor</a></p></li>
+</ul>
+<p>These alternatives may work but this has not been confirmed:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.banggood.com/JJRC-H62-RC-Quadcopter-Spare-Parts-Optical-Current-Board-H62-03-p-1302982.html">JJRC H62 Flow sensor</a></p></li>
+</ul>
+</section>
+<section id="connection-to-autopilot">
+<h2>Connection to Autopilot<a class="headerlink" href="#connection-to-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/cheerson-cxof-pixhawk.jpg"><img alt="../_images/cheerson-cxof-pixhawk.jpg" src="../_images/cheerson-cxof-pixhawk.jpg" style="width: 450px;" /></a>
+<ul class="simple">
+<li><p>The flow sensor should be mounted on the underside of the copter with the camera lens pointing downwards.  The side of the sensor with the “V2.0” label should be towards the front of the vehicle.  The image above is incorrect because the autopilot’s arrow is pointing down while the sensor’s “V2.0” label is close to the top.</p></li>
+<li><p>Connect the sensor’s TX and VSS (aka GND) pins to one of the autopilot’s serial ports.  In the image above the sensor is connected to a Pixhawk’s Telem2 port</p></li>
+<li><p>Connect the sensor’s VDD (aka VCC or 3.3V) to a 3.3V power source.  In the above diagram the Pixhawk’s Switch port is used but another alternative would be the SPKT/DSM port’s power pin</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-type" title="(in Rover)"><span class="xref std std-ref">FLOW_TYPE</span></a> = 4</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 18 if using Serial2/Telem2, if connected to another serial port use the corresponding SERIALx_PROTOCOL parameter</p></li>
+</ul>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>As with the <a class="reference internal" href="common-px4flow-overview.html#common-px4flow-overview"><span class="std std-ref">PX4Flow sensor</span></a> a range finder is required to use the sensor for autonomous modes including <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> and <a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">RTL</span></a></p></li>
+<li><p><a class="reference internal" href="flowhold-mode.html#flowhold-mode"><span class="std std-ref">FlowHold</span></a> does not require the use of a rangefinder</p></li>
+<li><p>The sensor has been successfully tested to altitudes of about 40m</p></li>
+<li><p>Performance can be improved by setting the <a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">sensors position parameters</span></a>.  For example if the sensor is mounted 2cm forward and 5cm below the frame’s center of rotation set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-x" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_X</span></a> to 0.02 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-z" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_Z</span></a> to 0.05.</p></li>
+</ul>
+</section>
+<section id="testing-and-setup">
+<h2>Testing and Setup<a class="headerlink" href="#testing-and-setup" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>See <a class="reference external" href="https://ardupilot.org/rover/docs/common-optical-flow-sensor-setup.html#common-optical-flow-sensor-setup" title="(in Rover)"><span>Optical Flow Sensor Testing and Setup</span></a> for setup guides.</p></li>
+<li><p>Note that recommended value for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-flow-delay" title="(in Rover)"><span class="xref std std-ref">EK2_FLOW_DELAY</span></a> or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-flow-delay" title="(in Rover)"><span class="xref std std-ref">EK3_FLOW_DELAY</span></a> for this sensor is 80.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

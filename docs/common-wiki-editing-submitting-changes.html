@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiki Editing - Submitting Changes &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Wiki Editing - Submitting Changes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wiki-editing-submitting-changes">
+<span id="common-wiki-editing-submitting-changes"></span><h1>Wiki Editing - Submitting Changes<a class="headerlink" href="#wiki-editing-submitting-changes" title="Permalink to this heading">¶</a></h1>
+<p>Once you have completed changes to the wiki on your local machine and tested they are rendered correctly, follow the instructions below to submit a PullRequest to have them included in the wiki.  This is the same <a class="reference external" href="https://ardupilot.org/dev/docs/submitting-patches-back-to-master.html#submitting-patches-back-to-master" title="(in Dev)"><span class="xref std std-ref">PR process used for the flight code</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are not familiar with Git and GitHub please refer to the <a class="reference external" href="https://ardupilot.org/dev/docs/where-to-get-the-code.html#where-to-get-the-code" title="(in Dev)"><span class="xref std std-ref">Using Git</span></a> pages to learn the basics.</p>
+</div>
+<p>There are a number of way of using Git/Github - including a number of different GUI and command line tools.  The typical process for working with Git on the command line is:</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/git-rebase.html#git-rebase" title="(in Dev)"><span class="xref std std-ref">Rebase</span></a> your repo’s master branch on the upstream ardupilot_wiki repo’s master branch:</p>
+<ul>
+<li><p>The very first time a “remote” pointing back to the upstream ardupilot_wiki repository must be created</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/ArduPilot/ardupilot_wiki.git
+</pre></div>
+</div>
+</li>
+<li><p>Switch to your repo’s master branch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the above command fails because of changes made to some files, temporarily “stash” the changes by typing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">save</span> <span class="pre">my-changes</span></code> and then later re-applied the changes by typing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">apply</span> <span class="pre">stash&#64;{0}</span></code></p>
+</div>
+</div></blockquote>
+<ul>
+<li><p>Pull in the changes from upstream/master to your master branch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+git<span class="w"> </span>rebase<span class="w"> </span>upstream/master
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to repeat these first steps if you make new changes in the future, to assure that your local repo is up to date</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Create a branch in your local clone for your changes</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my_well_named_branch
+</pre></div>
+</div>
+</li>
+<li><p>Make any changes needed and test them locally</p></li>
+<li><p>Add (aka “Stage”) and Commit your changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>the_name_of_file_you_changed.rst
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;A short explanation of the change&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Push your commits to your fork on GitHub</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>my_well_named_branch
+</pre></div>
+</div>
+</li>
+<li><p>Open your clone’s repository on the GitHub web page and <a class="reference external" href="https://help.github.com/articles/about-pull-requests/">Create a pull request on GitHub</a>. You’ll be making a pull request from your fork/branch on GitHub to the    ardupilot_wiki/master repository. If using the GitHub for Windows client, one convenient way to navigate to the repository/branch is to click one of your commits and click the “github” (view this commit on github.com) button:</p>
+<a class="reference external image-reference" href="../_images/PullRequest_OpenWikiCloneOnGitHubWebPage.png"><img alt="../_images/PullRequest_OpenWikiCloneOnGitHubWebPage.png" src="../_images/PullRequest_OpenWikiCloneOnGitHubWebPage.png" /></a>
+</li>
+<li><p>On top of the web page select the “Pull Request” tab page, and then select the green “New pull request” button:</p>
+<a class="reference external image-reference" href="../_images/PullRequest_InitiateWikiPullRequest.png"><img alt="../_images/PullRequest_InitiateWikiPullRequest.png" src="../_images/PullRequest_InitiateWikiPullRequest.png" /></a>
+</li>
+<li><p>The comparison should be between ardupilot_wiki:master and the new branch you created. The website probably has defaulted to your clone’s master branch so click the “compare” combo box and change it to the correct branch:</p>
+<a class="reference external image-reference" href="../_images/PullRequest_InitiateWikiPullRequest2.png"><img alt="../_images/PullRequest_InitiateWikiPullRequest2.png" src="../_images/PullRequest_InitiateWikiPullRequest2.png" /></a>
+</li>
+<li><p>Check the list of change at the bottom of the page only includes your
+intended changes, then press “Create pull request”.</p></li>
+</ol>
+<section id="how-to-get-changes-approved">
+<h2>How to get changes approved<a class="headerlink" href="#how-to-get-changes-approved" title="Permalink to this heading">¶</a></h2>
+<p>All changes to the wiki are <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/pulls">reviewed</a> by the wiki “maintainers” to help reduce the chance of misleading or incorrect information being posted.  Feel free to post comments in the PullRequest and/or attend the <a class="reference external" href="https://ardupilot.org/dev/docs/ardupilot-discord-server.html#ardupilot-discord-server" title="(in Dev)"><span class="xref std std-ref">weekly dev meeting</span></a> to escalate getting your changes submitted.</p>
+<p>[copywiki destination=”copter,plane,rover,planner,planner2,antennatracker,dev,ardupilot,mavproxy”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

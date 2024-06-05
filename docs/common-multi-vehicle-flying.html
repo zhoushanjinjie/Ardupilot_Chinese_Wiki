@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Vehicle Flying &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Appendix" href="common-appendix.html" />
+    <link rel="prev" title="First Person View (FPV)" href="common-fpv-first-person-view.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-use-cases-and-applications.html#use-cases">Use Cases</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-3d-mapping.html">3d Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-fpv-first-person-view.html">First Person View (FPV)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Multi-Vehicle Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-use-cases-and-applications.html#vehicle-types">Vehicle Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+      <li class="breadcrumb-item active">Multi-Vehicle Flying</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multi-vehicle-flying">
+<span id="common-multi-vehicle-flying"></span><h1>Multi-Vehicle Flying<a class="headerlink" href="#multi-vehicle-flying" title="Permalink to this heading">¶</a></h1>
+<p>This page shows how to monitor and control multiple vehicles using a
+single ground station. Although this capability has been demonstrated
+(see video below) it is somewhat
+<a class="reference external" href="https://diydrones.com/profiles/blogs/multi-vehicle-testing-with-apm-copter-tracker-and-mission-planner">experimental</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example has been greatly surpassed by <a class="reference external" href="https://diydrones.com/profiles/blogs/from-zero-to-fifty-planes-in-twenty-seven-minutes">Michael Clement’s 50 plane demonstration</a></p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/M4LxtYa94nk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="equipment-you-will-need">
+<h2>Equipment you will need<a class="headerlink" href="#equipment-you-will-need" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Multiple <a class="reference external" href="https://ardupilot.org/plane/index.html">Planes</a> or
+<a class="reference external" href="https://ardupilot.org/copter/index.html#home" title="(in Copter)"><span class="xref std std-ref">Copters</span></a> or
+<a class="reference external" href="https://ardupilot.org/rover/index.html#home" title="(in Rover)"><span class="xref std std-ref">Rovers</span></a></p></li>
+<li><p>An <a class="reference external" href="https://ardupilot.org/antennatracker/index.html#home" title="(in AntennaTracker)"><span class="xref std std-ref">Antenna Tracker</span></a>(a.k.a. Tracker)
+to combine the telemetry data from vehicles and send to the GCS.</p></li>
+<li><p>Pairs of<a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">telemetry radios</span></a> for
+each vehicle (i.e. 2x number of vehicles) OR multi-point radios (like
+the <a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900</span></a>) in which case just 1 radio for
+each vehicle + 1 for the ground station.</p></li>
+<li><p>GCS capable of displaying/controlling multiple vehicles (i.e. the
+<a class="reference external" href="https://ardupilot.org/planner/index.html#home" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a>).</p></li>
+<li><p>RC transmitter for each vehicle (optional).</p></li>
+</ul>
+</section>
+<section id="pre-flight-setup">
+<h2>Pre-Flight Setup<a class="headerlink" href="#pre-flight-setup" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>If using SiK radios, <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio-configuring-using-the-mission-planner"><span class="std std-ref">set the NetID</span></a>
+of each pair of radios to a unique number.  I.e. if controlling 3
+vehicles, set the <code class="docutils literal notranslate"><span class="pre">NetID</span></code> of one pair to “23”, the 2nd pair to
+“24”, the 3rd pair to “25”.</p></li>
+<li><p>Connect one of each radio pairs to the vehicle autopilots
+(i.e. Pixhawk) using Telem1 or Telem2.</p></li>
+<li><p>Connect the other pairs to the Tracker’s controller (i.e. Pixhawk)
+using Telem1, Telem2 and Serial 4/5 ports.</p></li>
+<li><p>If using Serial 4/5 set the Tracker’s <code class="docutils literal notranslate"><span class="pre">SERIAL4_PROTOCOL</span></code> to “1” to
+enable MAVLink communication on that port.</p></li>
+<li><p>Connect to each vehicle’s autopilot and the tracker and set
+the <code class="docutils literal notranslate"><span class="pre">SYSID_THISMAV</span></code> to a unique number (i.e. “1” for first vehicle,
+“2” for second vehicle, “3” for third, “9” for the tracker).</p></li>
+<li><p>On the GCS, <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-telemetry-logs.html#mission-planner-telemetry-logs-setting-the-datarate" title="(in Mission Planner)"><span class="xref std std-ref">reduce data rate</span></a>
+to the minimum acceptable value to reduce network traffic.</p></li>
+<li><p>Plug in the tracker to the ground station PC using a USB cable.</p></li>
+</ul>
+</section>
+<section id="controlling-the-vehicles">
+<h2>Controlling the vehicles<a class="headerlink" href="#controlling-the-vehicles" title="Permalink to this heading">¶</a></h2>
+<p>Plug in the battery of each vehicle and tracker.  After connecting to
+the tracker from the <em>Mission Planner</em> (or other GCS) each vehicle
+including the tracker should appear on the Map.</p>
+<p>Controlling the vehicle depends upon the GCS used but if using the
+<em>Mission Planner</em>, “Ctrl-X” pulls up a drop-down selector which allows
+the user to choose which vehicle to control.</p>
+<p>If using Copter, switch each vehicle into GUIDED mode.  On the MP’s map,
+right-mouse-button-click and select “Takeoff” and input 2m to get the
+vehicle off the air.  Once in the air, each vehicle can be pushed around
+in GUIDED mode (by using Ctrl-X to select the vehicle and then click on
+the map) or the mode can be changed to AUTO etc.</p>
+<p>If you wish to retake control of a vehicle, use the transmitter for that
+vehicle to change the flight to LOITER, STABILIZE, etc and then fly
+manually.  If only one transmitter is being used (not recommended) then
+use the GCS to switch the single vehicle’s mode to LOITER and then
+control with the TX sticks (the other vehicles will ignore the TX’s
+roll, pitch and throttle input if they are in AUTO or GUIDED - they will
+accept yaw input however).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-fpv-first-person-view.html" class="btn btn-neutral float-left" title="First Person View (FPV)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-appendix.html" class="btn btn-neutral float-right" title="Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

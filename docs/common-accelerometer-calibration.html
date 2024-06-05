@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accelerometer Calibration &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compass Calibration" href="common-compass-calibration-in-mission-planner.html" />
+    <link rel="prev" title="RC校准" href="common-radio-control-calibration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">加速度计校准</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#calibration-steps">校准步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simple-calibration">简易校准</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#video-demonstration-copter">视频演示(Copter)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">加速度计校准</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="accelerometer-calibration">
+<span id="common-accelerometer-calibration"></span><h1>加速度计校准<a class="headerlink" href="#accelerometer-calibration" title="Permalink to this heading">¶</a></h1>
+<p>本文展示了如何执行基本的加速度计校准（使用<em>Mission Planner</em>）。飞控中的加速度计必须进行校准，以校正其在所有三个轴上的偏置偏移，以及任何离轴变化。</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>ArduPilot中的加速计校准是必要的。</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>载具处于解锁状态时，无法执行加速计校准。</p>
+</div>
+<section id="calibration-steps">
+<h2>校准步骤<a class="headerlink" href="#calibration-steps" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果飞控板安装在非标准方向（即箭头未指向前方），则在进行加速计校准之前，请确保<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-orientation" title="(in Rover)"><span class="xref std std-ref">AHRS_ORIENTATION</span></a>设置正确。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>对于非常大的载具，这可以在工作台上完成，在设置了如何将其安装在载具中的方向，并在安装后完成校准方向。安装后，请务必使用以下说明中的“校准水平”步骤。</p>
+</div>
+<ul>
+<li><p>在 <strong>初始设置 | 必要硬件</strong>，从左侧菜单中选择 <strong>加速度计校准</strong></p>
+<blockquote>
+<div><figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/mp_accelerometer_calibration.png"><img alt="../_images/mp_accelerometer_calibration.png" src="../_images/mp_accelerometer_calibration.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: 加速度计校准</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</li>
+<li><p>单击 <strong>加速度计校准</strong> 开始完整的3轴校准。</p>
+<blockquote>
+<div><p><em>Mission Planner</em>将提示您在校准期间将载具放置在每个轴上。按任意键指示飞控已就位，然后继续下一个方向。</p>
+<p>校准位置为: level(水平), right(右侧), left(左侧), nose down(机头向下), nose up(机头向上), 和 back(背面).</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/accel-calib-positions-e1376083327116.jpg"><img alt="../_images/accel-calib-positions-e1376083327116.jpg" src="../_images/accel-calib-positions-e1376083327116.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">加速计校准位置(Copter)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>每按一步按键后，车辆必须立即保持静止。这比使角度精确向右更重要，即向左与水平成90度等。除了第一个“LEVEL”，位置可以在精确的20度以内。<strong>当你按下按键时，保持每个位置都是非常重要的。</strong></p>
+<ul class="simple">
+<li><p>如果可能的话，您应该校准安装在载具上的飞控板。</p></li>
+<li><p>但是，如果载具的尺寸/形状使安装板变得困难，则可能需要在安装飞控板之前对其进行校准。</p></li>
+<li><p>水平位置是最重要的，因为这将是你的控制器在飞行时认为水平的姿态。</p></li>
+<li><p>安装飞控并准备飞行后，您可以使用Mission Planner重新校准此级别位置。将载具置于水平飞行姿态，然后使用<strong>Calibrate Level(校准水平)</strong> 按钮。</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>这个<strong>Calibrate Level(校准水平)</strong>操作只能校正载具中初始校准和最终位置之间的10度差异，并且只能校正俯仰和滚转差异，而不能校正偏航。</p>
+</div>
+<!--
+<dl>
+<dt>[site wiki=”plane”]</dt><dd><blockquote>
+<div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For planes, the “level” angle for pitch is important for steady altitude flight. See <a class="reference external" href="https://ardupilot.org/plane/docs/tuning-cruise.html#tuning-cruise" title="(in Plane)"><span>Tuning Cruise Configuration</span></a> for more details.</p>
+</div>
+<p>The <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#stab-pitch-down" title="(in Plane)"><span class="xref std std-ref">STAB_PITCH_DOWN</span></a> parameter will add “nose-down” trim when the throttle stick is lowered in pilot throttle controlled and stabilized modes, such as FBWA, to prevent the autopilot from holding the nose up as the plane slows down and potentially causing a stall. This can be tested, at altitude, in FBWA mode by moving the throttle to idle and checking that there is sufficient airspeed in a turn to avoid stalling. Be prepared to recover from a stall! Increase the value of <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#stab-pitch-down" title="(in Plane)"><span class="xref std std-ref">STAB_PITCH_DOWN</span></a>, if necessary.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For small planes or gliders, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#stab-pitch-down" title="(in Plane)"><span class="xref std std-ref">STAB_PITCH_DOWN</span></a> often needs to be set more than the default value of 2 degrees.</p>
+</div>
+</div></blockquote>
+<p>[/site]</p>
+</dd>
+</dl>
+-->
+<ul>
+<li><p>到达并保持静止后，使用<strong>Click when Done(完成时单击)</strong>按钮继续执行所需的位置。</p></li>
+<li><p>完成校准过程后，Mission Planner将显示“calibration Successful！”，如下所示。</p>
+<blockquote>
+<div><figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/mp_calibration_successful.png"><img alt="../_images/mp_calibration_successful.png" src="../_images/mp_calibration_successful.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Calibration Successful</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your autopilot has a built-in IMU heater, then it is recommended that the <a class="reference internal" href="common-imutempcal.html#common-imutempcal"><span class="std std-ref">IMU Temperature Calibration</span></a> also be done. Some autopilots have this calibration done at the factory in which case, this calibration need not be done.</p>
+</div>
+</section>
+<section id="simple-calibration">
+<h2>简易校准<a class="headerlink" href="#simple-calibration" title="Permalink to this heading">¶</a></h2>
+<p>Sometimes, for very large vehicles, it’s not easy to do the full 3-axis calibration. In this case, the <strong>Simple Accel Cal</strong> can be done with the vehicle held still and in a level attitude. This only calibrates the main offsets of the accelerometers, not the minor off-axis variations, so it’s not ideal in terms of optimal performance, but is sometimes an acceptable compromise.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is <strong>NOT</strong> the same as the <strong>Calibrate Level</strong> function. To use that function, either a full 3-axis or simple calibration must be done first!</p>
+</div>
+</section>
+<section id="video-demonstration-copter">
+<h2>视频演示(Copter)<a class="headerlink" href="#video-demonstration-copter" title="Permalink to this heading">¶</a></h2>
+<p>Video demonstration of accelerometer calibration. This is for an older
+version of Copter/Mission Planner, but is useful as an example of how
+you might hold a Copter.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/56224615" style="border: 0; height: 430px; width: 400px">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-radio-control-calibration.html" class="btn btn-neutral float-left" title="RC校准" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-compass-calibration-in-mission-planner.html" class="btn btn-neutral float-right" title="Compass Calibration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

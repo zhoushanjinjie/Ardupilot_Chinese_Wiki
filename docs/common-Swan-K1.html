@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWAN-K1 HWing &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SWAN-K1 HWing</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="swan-k1-hwing">
+<span id="common-swan-k1"></span><h1>SWAN-K1 HWing<a class="headerlink" href="#swan-k1-hwing" title="Permalink to this heading">¶</a></h1>
+<p>This autopilot is a part of a <a class="reference internal" href="common-rtf.html#common-rtf"><span class="std std-ref">ready-to-fly vehicle</span></a> in  the form of a control-surfaceless, quad-copter Tailsitter QuadPlane. It comes with customized PX4 firmware installed and an GCS application that is downloadable for smart phones. This page describes the conversion to ArduPilot firmware and its setup.</p>
+<p>It was initially offered with a 10 channel RC transmitter using an external smart phone for GCS and video display, and the Pro version comes with a 12 channel system with an integrated screen for the GCS/Video.</p>
+<img alt="../_images/Hwing.jpg" src="../_images/Hwing.jpg" />
+<section id="ardupilot-firmware-installation">
+<h2>ArduPilot Firmware Installation<a class="headerlink" href="#ardupilot-firmware-installation" title="Permalink to this heading">¶</a></h2>
+<p>You will need to remove the access cover in order to attach a USB cable to the autopilot. Installing a short 90 deg USB pigtail, routed into the battery compartment will allow easy USB connections in the future.</p>
+<img alt="../_images/Hwing-access-cover.jpg" src="../_images/Hwing-access-cover.jpg" />
+<p>Connect to Mission Planner or QGC, and upload the Plane firmware for the SWAN-K1 located <a class="reference external" href="https://firmware.ardupilot.org">here</a>.</p>
+<p>The firmware has defaults already set for optimum tuning and operation.</p>
+</section>
+<section id="calibration">
+<h2>Calibration<a class="headerlink" href="#calibration" title="Permalink to this heading">¶</a></h2>
+<p>Once the new ArduPilot firmware is loaded, you will only need to <a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">calibrate the accelerometers</span></a> and <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">calibrate the compass</span></a>. The level point for the accelerometer calibration should be normal fixed wing flight attitude.</p>
+</section>
+<section id="system-setup">
+<h2>System Setup<a class="headerlink" href="#system-setup" title="Permalink to this heading">¶</a></h2>
+<p>The defaults provide for basic operation:</p>
+<ul class="simple">
+<li><p>Flight modes are on the upper left three position switch: QHOVER/QLOITER/FBWA</p></li>
+<li><p>QRTL is on button “B”. Note this, and other buttons, are locking toggle switches!</p></li>
+<li><p>Mode 2 AETR stick setup.</p></li>
+<li><p>Arming/Disarming is done via rudder at lowest throttle.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>once armed, and the center sprung throttle is allowed to return to center, the vehicle may start to  lift off slowly. Also, be sure to arm only in QHOVER or QLOITER!</p>
+</div>
+<ul class="simple">
+<li><p>Failsafe is setup by default to execute the <a class="reference external" href="https://ardupilot.org/plane/docs/quadplane_rtl.html#quadplane-rtl" title="(in Plane)"><span class="xref std std-ref">Hybrid RTL/QRTL</span></a> function with <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rtl-mode" title="(in Plane)"><span class="xref std std-ref">Q_RTL_MODE</span></a> = 3.</p></li>
+</ul>
+</section>
+<section id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this heading">¶</a></h2>
+<p>One of the benefits of using ArduPilot is that you can set transmitter functions easily.</p>
+<p>Some possibilities using <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">RC Auxiliary Functions</span></a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set one of the switches as ARM/DISARM for quick disarming instead of the rudder/throttle combination.</p></li>
+<li><p>Set other flight modes, such as CRUISE or QLAND, on one of the other switches or buttons</p></li>
+<li><p>Set AUTO mode, on a button</p></li>
+<li><p>Set up <a class="reference internal" href="common-geofencing-landing-page.html#common-geofencing-landing-page"><span class="std std-ref">fences</span></a> and enable/disable via switch or button.</p></li>
+</ul>
+</div></blockquote>
+<section id="transmitter-rc-channel-mapping">
+<h3>Transmitter RC Channel Mapping<a class="headerlink" href="#transmitter-rc-channel-mapping" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Control</p></th>
+<th class="head"><p>T10</p></th>
+<th class="head"><p>H12</p></th>
+<th class="head"><p>Default Setup</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sticks</p></td>
+<td><p>1-4</p></td>
+<td><p>1-4</p></td>
+<td><p>Mode2 AETR</p></td>
+</tr>
+<tr class="row-odd"><td><p>Button A</p></td>
+<td><p>7</p></td>
+<td><p>7</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Button B</p></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+<td><p>QRTL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Button/Knob C*</p></td>
+<td><p>9</p></td>
+<td><p>9</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Button/Knob D*</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Knob G</p></td>
+<td></td>
+<td><p>11</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Knob H</p></td>
+<td></td>
+<td><p>12</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Switch E</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>Flight Mode Switch</p></td>
+</tr>
+<tr class="row-even"><td><p>Switch F</p></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>T10 this is a knob, H12 it is a locking button</p></li>
+</ul>
+</section>
+</section>
+<section id="ground-control-station-connections">
+<h2>Ground Control Station Connections<a class="headerlink" href="#ground-control-station-connections" title="Permalink to this heading">¶</a></h2>
+<p>With the T10 transmitter, MAVLink is available for connection via BlueTooth connection from the transmitter. You can connect and run any GCS (Mission Planner, QGC, etc.).</p>
+<p>With the H12 transmitter, you may load and use Mission Planner. The Android compatible Mission Planner applet (.apk) is located <a class="reference external" href="https://github.com/ArduPilot/MissionPlanner/releases/tag/latest">here</a>. But first you must download and run this <a class="reference external" href="https://firmware.ardupilot.org/Tools/misc/Heq_H12_20210526.apk">HEQ .apk  application</a> before starting Mission Planner.</p>
+</section>
+<section id="video-display">
+<h2>Video Display<a class="headerlink" href="#video-display" title="Permalink to this heading">¶</a></h2>
+<p>With the T10 transmitter you must connect a smart phone via the transmitters USB connector and use the <a class="reference external" href="https://www.pgyer.com/xpLb">HEQ Fly app</a> to display the video. You can connect the app via Bluetooth for limited GCS display in the same app, but usually connecting to another phone or PC for a GCS will allow the full GCS capabilities using MAVlink to be exploited.</p>
+<p>The H12 transmitter has video display built in.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://shop.holybro.com/swan-k1_p1246.html">Holybro</a></p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

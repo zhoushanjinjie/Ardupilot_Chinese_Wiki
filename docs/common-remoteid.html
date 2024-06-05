@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remote ID (aka Drone ID) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Remote ID (aka Drone ID)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-remoteid">[copywiki destination=”copter,plane,rover”]</p>
+<section id="remote-id-aka-drone-id">
+<h1>Remote ID (aka Drone ID)<a class="headerlink" href="#remote-id-aka-drone-id" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/remoteid-title.png"><img alt="../_images/remoteid-title.png" src="../_images/remoteid-title.png" style="width: 400px;" /></a>
+<p>Remote IDs are becoming a legal requirement in some countries. Below is a list of devices compatible with ArduPilot. There is a quite nice explanation and list of frequently asked questions regarding Remote ID available <a class="reference external" href="https://drone-remote-id.com/">here</a> (site hosted by Dronetag)</p>
+<section id="variations">
+<h2>Variations<a class="headerlink" href="#variations" title="Permalink to this heading">¶</a></h2>
+<p>There are basically two differing Remote ID requirements, although specifics vary according to country/region: devices integrated into OEM supplied systems, and add-on beacons for DIY and existing vehicles.</p>
+<p>For the ones users will be adding, there are variations on whether the device gets GPS position information via an integrated GPS or from the autopilot using its position and other information for its GPS. If connected to the autopilot for position and other information via MAVLink, either proprietary firmware or firmware conforming to the OpenDroneID standard is used to implement Remote ID(see following section) can be used. Power can be supplied either from the vehicle (MAVLink connection or to the vehicle’s power), or via a small rechargeable battery (completely self contained units which can be transferred between vehicles easily).</p>
+</section>
+<section id="avaliable-devices">
+<h2>Avaliable Devices<a class="headerlink" href="#avaliable-devices" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this list will periodically be updated and may not contain all devices at any given time.</p>
+</div>
+<p>MAVLink-enabled devices that connect to the autopilot:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aerobits.pl/product/idme/">Aerobits idME</a></p></li>
+</ul>
+<p>Stand-alone devices:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aerobits.pl/product/idme-remoteid/">Aerobits idME+</a></p></li>
+<li><p><a class="reference external" href="https://aeroentry.co.jp/info/product/228/">AEROENTRY remote id (Japan)</a></p></li>
+<li><p><a class="reference external" href="https://dronescout.co/dronebeacon-remote-id-transponder/">BlueMark DroneBeacon with Battery</a></p></li>
+<li><p><a class="reference external" href="https://dronescout.co/dronebeacon-ext-power/">BlueMark DroneBeacon External Power</a></p></li>
+<li><p><a class="reference external" href="https://dronescout.co/dronebeacon-fpv/">BlueMark DroneBeacon FPV</a></p></li>
+<li><p><a class="reference external" href="https://www.braveridge.com/product/archives/49">Braveridge remote id (Japan)</a></p></li>
+<li><p><a class="reference external" href="http://www.eams-robo.co.jp/remoteid.html">EAMS Robotics remote id (Japan)</a></p></li>
+<li><p><a class="reference external" href="https://www.tead.co.jp/product/remote-id/">TEAD remote id (Japan)</a></p></li>
+</ul>
+<p>Stand-alone devices with optional MAVLink capability:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dronetag.cz/products/mini/">Dronetag Mini</a></p></li>
+<li><p><a class="reference external" href="https://dronetag.cz/products/beacon/">Dronetag Beacon</a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Connecting devices using MAVLink will eliminate the need for a battery for standalone devices. It can also further enable additional features and information for the Remote ID.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>US FAA Compliant devices are listed <a class="reference external" href="https://uasdoc.faa.gov/listDocs">here</a></p>
+</div>
+<p>OpenDroneID Compatible devices (support included in ArduPlane 4.0 and later)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/">BlueMark DroneBeacon MAVLink Family(EU, US)</a></p></li>
+<li><p><a class="reference external" href="https://docs.cubepilot.org/user-guides/cube-id/cube-id">Cube ID</a></p></li>
+<li><p><a class="reference external" href="https://docs.cubepilot.org/user-guides/cube-id/cube-id">Cube ID_CAN</a></p></li>
+<li><p><a class="reference external" href="https://dronetag.cz/products/dri/">Dronetag DRI</a></p></li>
+<li><p><a class="reference external" href="https://wurzbachelectronics.com/esp32-remote-id-development-set">Wurzbach Electronics</a></p></li>
+<li><p><a class="reference external" href="https://store.mrobotics.io/product-p/m10049.htm">mRo RemoteID</a></p></li>
+</ul>
+</section>
+<section id="opendroneid">
+<h2>OpenDroneID<a class="headerlink" href="#opendroneid" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/remoteid.jpg"><img alt="../_images/remoteid.jpg" src="../_images/remoteid.jpg" /></a>
+<p>ArduPilot provides support for OpenDroneID in firmware versions 4.0 and later via MAVLink to an OpenDroneID compatible RemoteID module attached to either a serial port or DroneCAN port on the autopilot.</p>
+<p>In order to provide tamper protection, a special autopilot firmware must be built and loaded on the autopilot which: enables this feature, prevents loading non-compliant firmware via GCS or normal uploaders, and provides further tamper-proofing.</p>
+<p>For details on building firmware with the OpenDroneID feature, see <a class="reference external" href="https://ardupilot.org/dev/docs/opendroneid.html#opendroneid" title="(in Dev)"><span>OpenDroneID</span></a> for details.</p>
+</section>
+<section id="arduremoteid">
+<h2>ArduRemoteID<a class="headerlink" href="#arduremoteid" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot also has developed firmware for  ESP32-S3 and C3 development boards for an OpenDroneID compatible Remote ID module for attachment by serial MAVLink connection or DroneCAN to the autopilot. A binary for flashing the board, along with instructions, is <a class="reference external" href="https://github.com/ArduPilot/ArduRemoteID">available here</a>.  Note, this firmware is rapidly evolving, so check for updates frequently. This device can be attached to the autopilot by USB, serial, or DroneCAN (if an external CAN transceiver is attached)</p>
+<a class="reference external image-reference" href="../_images/ESP32-S3.jpg"><img alt="../_images/ESP32-S3.jpg" src="../_images/ESP32-S3.jpg" /></a>
+<p>This firmware provides security signing and locking features for tamper resistance on the ArduRemoteID module:</p>
+<ul class="simple">
+<li><p>if the board has a USB programming port, access to that port, as well as the DroneCAN and MAVLink parameters, normally setup before shipment to customers can be locked, either temporarily or permanently, requiring a security key pair and secure commands to be used to alter those parameters.</p></li>
+<li><p>when in a locked state, the only way to update firmware is to use a secure WIFI web interface provided by the module using a public/private key pair.</p></li>
+</ul>
+<p>See the detailed instructions in the <a class="reference external" href="https://github.com/ArduPilot/ArduRemoteID">ArduRemoteID README.md file</a>.</p>
+</section>
+<section id="end-user-data-setup-and-use">
+<h2>End User Data Setup and Use<a class="headerlink" href="#end-user-data-setup-and-use" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner (must be the latest beta version) has a tab in its DATA view (Drone ID) for OpenDrone ID operation which allows connection of the required external serial GPS to obtain operation location, and set up tabs for UAS and Operator IDs if required by your local jurisdiction. It also shows the Remote ID status.
+The ground station will also have status and pre-arm failure messages displayed if there are problems.</p>
+<p>Other GCS are developing similar OpenDroneID setup wizards.</p>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference external" href="https://ardupilot.org/dev/docs/opendroneid.html#opendroneid" title="(in Dev)"><span class="xref std std-ref">OpenDroneID</span></a> for information on how to build firmware for OpenDroneID and to run the code on autopilot to experiment with parameters, etc.</p>
+<section id="android-application">
+<h3>Android Application<a class="headerlink" href="#android-application" title="Permalink to this heading">¶</a></h3>
+<p>There are Android phone applications <a class="reference external" href="https://play.google.com/store/apps/details?id=org.opendroneid.android_osm">OSM</a>  and <a class="reference external" href="https://play.google.com/store/apps/details?id=cz.dronetag.dronescanner">DroneScanner</a> in the Google Play Store that allows one to display RemoteID  Bluetooth and/or WIFI transmissions and vehicle data.</p>
+<p>Other references:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.google.com/presentation/d/1JgnqcIDn7rGCc8nl46AutO0p0ABODdCgBHFfxmKuUw4/edit#slide=id.p">ArduPilot presentation on its OpenDroneID implementation</a></p></li>
+<li><p>The <a class="reference external" href="https://play.google.com/store/apps/details?id=org.opendroneid.android_osm">OpenDroneID OSM</a> android app can be used to check the Remote ID is working (<a class="reference external" href="https://github.com/opendroneid/receiver-android">source code is here</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/opendroneid/receiver-android/blob/master/transmitter-devices.md">OpenDroneID list of Remote ID devices for the US and EU</a></p></li>
+</ul>
+<p>If you know of other available devices please <a class="reference external" href="https://github.com/ArduPilot/ardupilot_wiki/issues/4414">add a comment in this issue</a></p>
+</section>
+</section>
+<section id="video-tutorial-for-oems-adding-remote-id-to-ardupilot-systems">
+<h2>Video Tutorial for OEMs Adding Remote ID to ArduPilot Systems<a class="headerlink" href="#video-tutorial-for-oems-adding-remote-id-to-ardupilot-systems" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Az8v4Kx4hS0" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ST VL53L0X / VL53L1X Lidar &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ST VL53L0X / VL53L1X Lidar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="st-vl53l0x-vl53l1x-lidar">
+<span id="common-vl53l0x-lidar"></span><h1>ST VL53L0X / VL53L1X Lidar<a class="headerlink" href="#st-vl53l0x-vl53l1x-lidar" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://www.st.com/en/imaging-and-photonics-solutions/vl53l0x.html">VL53L0X</a> &amp; <a class="reference external" href="https://www.st.com/en/imaging-and-photonics-solutions/vl53l1x.html">VL53L1X</a> lidar are very small, affordable but relatively short range (2m for VL53L0X &amp; 4m for VL53L1X) time-of-flight lidars</p>
+<img alt="../_images/vl53l0x.jpg" src="../_images/vl53l0x.jpg" />
+<p><em>images courtesy of Pololu.com</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this lidar was first made available in available in Copter-3.6, Rover-3.3, and Plane-3.9.
+Support the 4m <a class="reference external" href="https://www.st.com/en/imaging-and-photonics-solutions/vl53l1x.html">ST VL53L1X</a> was released with Copter-4.0.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This sensor type is suitable for indoor use, however its range and precision is significantly reduced in bright sunlight conditions and is not recommended for outdoor use.</p>
+</div>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.pololu.com/product/2490">Pololu</a> (VL53L0X, 2m)</p></li>
+<li><p><a class="reference external" href="https://www.adafruit.com/product/3317">Adafruit</a> (VL53L0X, 2m)</p></li>
+<li><p><a class="reference external" href="http://www.holybro.com/product/vl53l1x/">Holybro</a> (VL53L1X, 4m)</p></li>
+</ul>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>Connect the VCC, GND, SDA and SCL lines of the lidar to the I2C port on the autopilot as shown below for the first rangefinder.</p>
+<img alt="../_images/vl53l0x-pixhawk.jpg" src="../_images/vl53l0x-pixhawk.jpg" />
+<p>Please set the rangefinder parameters as shown below (this can be done using the <em>Mission Planner</em> <strong>Config/Tuning | Full Parameter List</strong> page):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 16 (VL53L0X)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-addr" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ADDR</span></a> = 41 (I2C Address of lidar in decimal).  <em>The sensor’s default I2C address is 0x29 hexadecimal which is 41 in decimal.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 5</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = <strong>120</strong> for the VL53L0X, <strong>360</strong> for the VL53L1X.  <em>This is the distance in cm that the rangefinder can reliably read.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-gndclear" title="(in Rover)"><span class="xref std std-ref">RNGFND1_GNDCLEAR</span></a> = 10 <em>or more accurately the distance in cm from the range finder to the ground when the vehicle is landed.  This value depends on how you have mounted the rangefinder.</em></p></li>
+</ul>
+<section id="testing-the-sensor">
+<h3>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h3>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.(The value of this image is not a real value.)</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

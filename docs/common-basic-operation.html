@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArduPilot操作简单概述 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frame Class and Type Configuration" href="frame-type-configuration.html" />
+    <link rel="prev" title="Mandatory Hardware Configuration" href="configuring-hardware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">基本系统概述</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-goal">基本目标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inputs">输入</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#outputs">输出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensors">传感器</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">ArduPilot操作简单概述</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="simple-overview-of-ardupilot-operation">
+<span id="basic-operation"></span><h1>ArduPilot操作简单概述<a class="headerlink" href="#simple-overview-of-ardupilot-operation" title="Permalink to this heading">¶</a></h1>
+<p>这是在飞控上运行的ArduPilot固件功能的基本概述。下面显示的是基本功能操作的简单框图。这将使您在配置系统时更好地了解ArduPilot的基本功能。</p>
+<a class="reference external image-reference" href="../_images/block-diagram.jpg"><img alt="../_images/block-diagram.jpg" src="../_images/block-diagram.jpg" /></a>
+<section id="basic-goal">
+<h2>基本目标<a class="headerlink" href="#basic-goal" title="Permalink to this heading">¶</a></h2>
+<p>该软件的基本目标是自动提供对车辆的控制，或通过RC遥控器或地面控制站，或通过载具上的配套计算机，其中任何一项都是可选的，包括仅在载具上加载完全自主的任务以供执行。</p>
+</section>
+<section id="inputs">
+<h2>输入<a class="headerlink" href="#inputs" title="Permalink to this heading">¶</a></h2>
+<p>控制输入由RC接收机输入，或通过遥测或配套计算机的MAVLink通信输入。RC接收机为所需的姿态控制、载具动力（油门）以及操作模式和辅助功能的控制提供横滚/俯仰/偏航输入。
+  横滚/俯仰/偏航/油门的RC输入可以通过<code class="docutils literal notranslate"><span class="pre">RCMAP_x</span></code>
+  功能分配给任何RC通道。使用<code class="docutils literal notranslate"><span class="pre">RCx_FUNCTION</span></code>参数分配辅助功能。
+</p>
+</section>
+<section id="outputs">
+<h2>输出<a class="headerlink" href="#outputs" title="Permalink to this heading">¶</a></h2>
+<p>输出用于激活舵机、电机、继电器等，以控制载具。任何飞控输出都可以通过<code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code>
+  参数分配所需的载具控制输出功能。请注意，输出不一定对应于任何RC输入，除非其功能设置为RCPassThru。
+</p>
+</section>
+<section id="sensors">
+<h2>传感器<a class="headerlink" href="#sensors" title="Permalink to this heading">¶</a></h2>
+<p>姿态、位置、动力系统监控和车速由传感器输入提供给飞控。所有与ArduPilot兼容的飞控上都集成了至少一个或多个加速度计、气压计和陀螺仪。通常需要GPS，通常需要指南针传感器。
+  通常这些都是从外部提供的。一些控制器具有用于冗余的多个传感器实例，这是ArduPilot软件的一个关键功能。在强制硬件设置步骤中，许多传感器需要一次性校准。
+</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuring-hardware.html" class="btn btn-neutral float-left" title="Mandatory Hardware Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="frame-type-configuration.html" class="btn btn-neutral float-right" title="Frame Class and Type Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

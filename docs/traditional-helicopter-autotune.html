@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoTune &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Additional Tuning Topics" href="traditional-helicopter-tuning-other-topics.html" />
+    <link rel="prev" title="Manual Tuning Instructions" href="traditional-helicopter-manual-tuning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-first-flight-tests.html">First Flight Tests</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="traditional-helicopter-tuning.html">Tuning</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-control-system.html">Arducopter Control System Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-preparing.html">Preparing for Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-manual-tuning.html">Manual Tuning Wiki</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">AutoTune Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-other-topics.html">Additional Tuning Topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-flight.html">Traditional Helicopter First Flights</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-tuning.html">Traditional Helicopter – Tuning</a></li>
+      <li class="breadcrumb-item active">AutoTune</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autotune">
+<span id="traditional-helicopter-autotune"></span><h1>AutoTune<a class="headerlink" href="#autotune" title="Permalink to this heading">¶</a></h1>
+<p>The AutoTune for tradheli is completely different from multicopter AutoTune.  It can tune any combination of feedforward (<code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code>),
+the rate gains (<code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code>), or angle P gain (<code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code>).  The tuning for rate gains begins with finding the maximum allowable value for the rate gains and then tunes them.  Knowing the maximum value enables the AutoTune feature to keep from creating an instability.</p>
+<p>Before you start AutoTune, you must:</p>
+<ol class="arabic simple">
+<li><p>Reduce the vibrations in the control signals as low as possible</p></li>
+<li><p>On a calm day, the heli will maintain a near driftless hover (&lt; 1 m/s)</p></li>
+</ol>
+<p>This will greatly improve your chances at a successful AutoTune.</p>
+<p>The following video covers the steps described in this wiki page.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/5960K8EV13A" style="border: 0; height: 345px; width: 560px">
+</iframe></div><section id="parameter-descriptions">
+<h2>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this heading">¶</a></h2>
+<section id="tune-sequence-bitmask">
+<h3><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">Tune Sequence Bitmask</span></a><a class="headerlink" href="#tune-sequence-bitmask" title="Permalink to this heading">¶</a></h3>
+<p>User can specify the tuning desired using the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a> parameter.  Individual gain tuning or combination of tuning several gains can be specified using the bitmask.  Rate P and Rate D are conducted together and always preceded with determining max gains allowable.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Tune Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> **</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Max Gain Determination</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Tune Check</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Values</p></th>
+<th class="head"><p>Tune Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code>, <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code>,</dt><dd><p>&amp; <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code></p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code>, <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code>,
+&amp; <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code>, <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Max Gain Determination</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>Tune Check</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>** Max gain determination is always done before tuning Rate D and Rate P gains. This test determines the maximum allow values of <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> so that the helicopter never experiences servere oscillations due to raising these gains too high.  Since the maximum allowable values of <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> are found, tuning is done by incrementing these gains by 5% of their maximum allowable value.</p>
+</section>
+<section id="axes-bitmask">
+<h3><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">Axes Bitmask</span></a><a class="headerlink" href="#axes-bitmask" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a> parameter specifies one or more axes to be tuned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Axis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Roll</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Pitch</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Yaw</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Values</p></th>
+<th class="head"><p>Axes tested</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Roll</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Pitch</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Roll &amp; Pitch</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Yaw</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Roll &amp; Yaw</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Pitch &amp; Yaw</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Roll, Pitch &amp; Yaw</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="maximum-response-gain">
+<h3><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">Maximum Response Gain</span></a><a class="headerlink" href="#maximum-response-gain" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a> parameter specifies the maximum response gain to be used to tune the Rate D, Rate P and Angle P gains.  The response gain is the output of the response divided by the input.  It is recommended that 1.8 to 2.0 be used for pitch and roll axes as these axes are typically more lightly damped.  It is recommended that 1.0 to 1.4 be used for the yaw axis.</p>
+</section>
+<section id="minimum-test-frequency">
+<h3><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-min" title="(in Copter)"><span class="xref std std-ref">Minimum Test Frequency</span></a><a class="headerlink" href="#minimum-test-frequency" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-min" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MIN</span></a> parameter specifies the minimum frequency in radians per second used during the dwell or frequency sweeps.  For frequency sweeps, this will be the starting frequency.  The default value is good for helicopters with rotor diameters less than 1.4 meters.</p>
+</section>
+<section id="maximum-test-frequency">
+<h3><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-max" title="(in Copter)"><span class="xref std std-ref">Maximum Test Frequency</span></a><a class="headerlink" href="#maximum-test-frequency" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MAX</span></a> parameter specifies the maximum frequency in radians per second used during the dwell or frequency sweeps.  For frequency sweeps, this will be the ending frequency.  The default value is fine for helicopters with rotor diameters greater than 1.2 meters.  Consider raising to 100 radians/sec for helicopters with rotor diameters less then 1.2 meters.</p>
+</section>
+<section id="velocity-p-gain">
+<h3><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a><a class="headerlink" href="#velocity-p-gain" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_VELXY_P</span></a> parameter specifies P gain for velocity feedback.  This aids the AutoTune in maintaining aircraft position during the frequency sweeps and dwells.  It does not apply to <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> tuning.  Keep this at 0.1 unless the aircraft is drifting more than 10 meters during the dwell and frequency sweeps.  It only affects position holding while the aircraft is oscillating during these tests.  If it does drift more than 10 meters during the dwell adn frequency sweep tests then increase this parameter but don’t increase much beyond 0.2. In between the oscillations, it may drift if the aircraft wasn’t properly trimmed for hover.  This gain will not help with that.</p>
+</section>
+</section>
+<section id="preparing-for-autotune">
+<h2>Preparing for AutoTune<a class="headerlink" href="#preparing-for-autotune" title="Permalink to this heading">¶</a></h2>
+<p>Ensure you complete all of the items in the <a class="reference internal" href="traditional-helicopter-tuning-preparing.html#traditional-helicopter-tuning-preparing"><span class="std std-ref">Preparing for Tuning</span></a> wiki page.</p>
+<section id="transmitter-setup">
+<h3>Transmitter Setup<a class="headerlink" href="#transmitter-setup" title="Permalink to this heading">¶</a></h3>
+<p>Be sure to put the AutoTune flight mode as one of the flight modes on your transmitter flight mode switch.  You don’t want to be reaching for the GCS to switch out of the AutoTune if your heli is not behaving properly.  You want to be able to switch modes instantly.</p>
+</section>
+</section>
+<section id="autotune-flights">
+<h2>AutoTune Flights<a class="headerlink" href="#autotune-flights" title="Permalink to this heading">¶</a></h2>
+<section id="suggested-tuning-sequence">
+<h3>Suggested Tuning Sequence<a class="headerlink" href="#suggested-tuning-sequence" title="Permalink to this heading">¶</a></h3>
+<p>In any axis, it is recommended to conduct the feedforward gain tuning first, then the Rate D and Rate P gain tuning, and lastly the Angle P tuning.  Don’t try to tune every axis in one flight, it could take up to 10-15 min to tune one axis.  Here is a suggested flights and tuning sequence. Conventional helicopters do not need Yaw feedforward tuning, therefore the gain can be set to zero.  Dual helicopters may require Yaw feedforward tuning.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Flight</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>1</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a></p></td>
+<td><p>3 (Roll and Pitch)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a></p></td>
+<td><p>1 (feedforward)</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>2</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a></p></td>
+<td><p>2 (Pitch)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a></p></td>
+<td><p>2 (Rate D and Rate P)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a></p></td>
+<td><p>1.8</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>3</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a></p></td>
+<td><p>1 (Roll)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a></p></td>
+<td><p>2 (Rate D and Rate P)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a></p></td>
+<td><p>1.8</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>4</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a></p></td>
+<td><p>3 (Roll and Pitch)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a></p></td>
+<td><p>4 (Angle P)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a></p></td>
+<td><p>1.8</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>5</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a></p></td>
+<td><p>4 (Yaw)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a></p></td>
+<td><p>2 (Rate D and Rate P)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a></p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>6</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-heli" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a></p></td>
+<td><p>4 (Yaw)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-seq" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_SEQ</span></a></p></td>
+<td><p>4 (Angle P)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a></p></td>
+<td><p>1.8</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tuning-flight-procedures">
+<h3>Tuning Flight Procedures<a class="headerlink" href="#tuning-flight-procedures" title="Permalink to this heading">¶</a></h3>
+<p>When conducting an AutoTune flight, be sure to have at least at 50 meter by 50 meter area to fly. The aircraft will move during the autotuning process.  Do not let the aircraft get too far away.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>During the feedforward test, the aircraft may travel 5-10 meters, and perhaps even further with larger helicopters. You may have to bring it back after each iteration of the tuning test.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Power up the controller.</p></li>
+<li><p>Set the flight mode to either stabilize or AltHold (Althold recommended).</p></li>
+<li><p>Enable motor interlock and allow rotors to complete runup.</p></li>
+<li><p>Lift off and establish stable hover approximately 3-5 meters above the ground.</p></li>
+<li><p>Switch into AutoTune and center all sticks.</p></li>
+<li><p>AutoTune will start conducting the maneuvers.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t see anything happening, verify your sticks are centered.</p>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>After the tuning is complete, a message will appear in the GCS saying “AutoTune complete”.</p></li>
+<li><p>To test the settings, switch out of AutoTune and then back to AutoTune and you will be
+able to test the settings that were tuned.</p></li>
+<li><p>Once you are finished testing, descend and land in AutoTune.  Once the aircraft has landed, the
+engine will shutdown on its own.  At that point flip your motor interlock switch to disabled
+and disarm the aircraft.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aircraft must be disarmed in the AutoTune flight mode to save the gain settings.</p>
+</div>
+</section>
+<section id="tuning-maneuver-descriptions">
+<h3>Tuning Maneuver Descriptions<a class="headerlink" href="#tuning-maneuver-descriptions" title="Permalink to this heading">¶</a></h3>
+<section id="atc-rat-xxx-ff-tuning">
+<h4><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> Tuning<a class="headerlink" href="#atc-rat-xxx-ff-tuning" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p>The <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> tuning is accomplished by achieving a constant angular rate of 50 deg/s and determining the steady state command required to maintain the 50 deg/s.  The maneuver to achieve the constant angular rate consists of changing attitude by 15 deg in one direction then reversing direction to achieve a constant rate of 50 deg/s before reaching 15 deg in the opposite direction.  Finally it returns to the starting attitude.   During <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> tuning there is no position holding logic and the aircraft may drift, reposition the aircraft between maneuvers as needed to keep it from drifting.  Making any inputs during this test will stop the tuning and won’t begin again unless the sticks are centered.  The following video demonstrates the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> tuning.</p>
+</div></blockquote>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/2XLBIycPiq0" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="atc-rat-xxx-d-and-atc-rat-xxx-p-tuning">
+<h4><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> Tuning<a class="headerlink" href="#atc-rat-xxx-d-and-atc-rat-xxx-p-tuning" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> tuning starts with determining the maximum <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains that can be safely tuned.  A frequency sweep is conducted from the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-min" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MIN</span></a> to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MAX</span></a>.  This determines the approximate frequency required for calculating the maximum allowable gains.  A series of dwells (oscillations at one frequency) are completed to more accurately determine the data required to calculate the maximum allowable <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains. Next another frequency sweep is conducted to approximate the frequency for tuning <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> gain.  Then the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> gain is raised until the response gain stops decreasing. Next the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gain is increased until the response gain exceeds the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a>.  During this tuning, you can’t make any inputs to hold position during the tuning however the logic includes position holding during the test maneuver but not between manuevers.  If you make any inputs, then it will stop the tuning and wait until you center the sticks before it begins again.  The aircraft will drift very little during the maneuver.  If it is drifting more than 10 meters during the maneuver then the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> can be increased to minimize drifting.  In between the oscillation maneuvers, it may drift if the aircraft wasn’t properly trimmed for hover.  The  <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> gain will not help with that. The tuning sweeps are 23 seconds in duration.  The following video demonstrates the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> tuning.</p>
+</div></blockquote>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/IOOIG_z1Cwc" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="atc-ang-xxx-p-tuning">
+<h4><code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> Tuning<a class="headerlink" href="#atc-ang-xxx-p-tuning" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> tuning starts with conducting a frequency sweep from from the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-min" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MIN</span></a> to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MAX</span></a>.  This determines the approximate frequency for the maximum response gain.  Then dwells (oscillations at one frequency) are conducted to tune the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> gain. The gain is raised or lowered to determine the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> gain that corresponds to a response gain (output angle/input angle request) that matches <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_GN_MAX</span></a>. During this tuning, you can’t make any inputs to hold position during the tuning however the logic includes position holding during the test maneuver but not between manuevers.   If you make any inputs, then it will stop the tuning and wait until you center the sticks before it begins again. If it is drifting more than 10 meters during the maneuver then the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> can be increased to minimize drifting. In between the oscillation maneuvers, it may drift if the aircraft wasn’t properly trimmed for hover. The  <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> gain will not help with that. The tuning sweeps are 23 seconds in duration.</p>
+</div></blockquote>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/aI-uJuQAh-0" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="max-gain-determination">
+<h4>Max Gain Determination<a class="headerlink" href="#max-gain-determination" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p>This test determines the maximum <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains that can be safely tuned.  A frequency sweep is conducted from the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-min" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MIN</span></a> to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-frq-max" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_FRQ_MAX</span></a>.  This determines the approximate frequency required for calculating the maximum allowable gains.  A series of dwells (oscillations at one frequency) are completed to more accurately determine the data required to calculate the maximum allowable <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains. The maximum allowable gains are provided in a GCS message.  Although these are termed maximum allowable gains, it is not recommended that these gains be used without any buildup as they would most likely cause feedback oscillations.  Experience has shown that <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> gains up to 25-35% of the maximum allowable value can be used safely and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains of up to 50% of the maximum allowable gain can be used safely.  If you make any inputs, then it will stop the gain determination test and wait until you center the sticks before it begins again.  The aircraft will drift very little during the maneuver.  If it is drifting more than 10 meters during the maneuver then the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> can be increased to minimize drifting.  In between the oscillation maneuvers, it may drift if the aircraft wasn’t properly trimmed for hover.  The  <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> gain will not help with that. The frequency sweeps are 23 seconds in duration.</p>
+</div></blockquote>
+</section>
+<section id="tune-check">
+<h4>Tune Check<a class="headerlink" href="#tune-check" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p>This test allows the user to look at the final tune in the frequency domain.  It consists of one frequency sweep to obtain the frequency domain data that can be viewed in the log file.  If you make any inputs during the frequency sweep, then it will stop the tune check test and wait until you center the sticks before it begins again, starting the sweep over.  The aircraft will drift very little during the maneuver.  If it is drifting more than 10 meters during the maneuver then the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-velxy-p" title="(in Copter)"><span class="xref std std-ref">Velocity P Gain</span></a> can be increased to minimize drifting. The frequency sweeps are 23 seconds in duration.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="log-analysis">
+<h2>Log Analysis<a class="headerlink" href="#log-analysis" title="Permalink to this heading">¶</a></h2>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> Tuning<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>After completing the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> tuning, the log should be reviewed to ensure the code determined the value of <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> gain correctly.  Unless head speed is very low, this gain should not be above 0.3. The graph below shows a time history of the target and actual rates for a FF tuning test.</p>
+<a class="reference external image-reference" href="../_images/Tradheli_FF_log_example.png"><img alt="../_images/Tradheli_FF_log_example.png" src="../_images/Tradheli_FF_log_example.png" /></a>
+<p>In the time history, an example of a good capture of the FF gain is shown the pitch up part of the tuning.  The actual rate is slightly below the target as it reaches the steady state.  Next the pitch down FF tuning is conducted and it can be seen that the rate appears to drop off before achieving steady state.  The FF gain is increased but it can be seen that the actual rate exceeds the target which results in the FF gain being too high.  If you see behavior like this, it is best to take the FF gain found where the rate is slightly below the target rate and manually enter it for the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> gain.</p>
+<blockquote>
+<div><p>The video discusses what to look for in the log.</p>
+</div></blockquote>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/qtmEm1rs1Y0" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> Tuning<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>After completing the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> tuning, the log should be reviewed to ensure the gains were determined correctly.  If the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> gain is zero after tuning, it can be adjusted manually by finding the max allowable gain provided in the GCS messages found in the bin log file.  Use 10% of the gain provided as rate_d given at the end of the max gain test. The messages look like this</p>
+<blockquote>
+<div><p>AutoTune: Max rate P freq=23.62473 gain=6.239318
+AutoTune: ph=161.0000 rate_p=0.121300
+AutoTune: Max Rate D freq=41.98507 gain=1.493140
+AutoTune: ph=251.0000 rate_d=0.012072</p>
+</div></blockquote>
+<p>Therefore in this case, a value for <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> of 0.0012 could be manually entered and also manually change <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> to zero.  Then run the autotune test again.  If <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> gain has not changed from the value manually entered accept the tuned values and move on to <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> tuning.</p>
+<p>The most common problem that may be experienced with the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> tuning is the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">Maximum Response Gain</span></a> may be set too low.  It may require viewing the log to determine the highest response gain.  Then set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">Maximum Response Gain</span></a> higher but don’t exceed 2.2 as the response could have larger overshoots when capturing an attitude.</p>
+<blockquote>
+<div><p>The video discusses what to look for in the log.</p>
+</div></blockquote>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/YytbRB-KzSE" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> Tuning<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>After completing the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> tuning, the log should be reviewed to ensure the gains were determined correctly. Be sure to set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">Maximum Response Gain</span></a> slightly higher than the value used for the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> tuning, maybe 10% higher.  In this tuning, the frequency where the max response gain occurs is determined in the frequency response.  Then the  <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> gain is raised or lowered to achieve the desired response gain at the frequency where the maximum response gain occurs.  Below is an example of the frequency sweep from the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> tuning.</p>
+<a class="reference external image-reference" href="../_images/Tradheli_angle_P_tuning_log_example.png"><img alt="../_images/Tradheli_angle_P_tuning_log_example.png" src="../_images/Tradheli_angle_P_tuning_log_example.png" /></a>
+<p>In this example, the response gain (ATSH.gain) has a peak shown in the graph.  The table below shows the dwells completed after the frequency sweep where the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> was raised until the response gain met the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-gn-max" title="(in Copter)"><span class="xref std std-ref">Maximum Response Gain</span></a> value which was 2.0 in this case.  It is important to ensure that the correct frequency was found.  In cases like tuning the yaw axis, the response gain may not have a peak and a low frequency may be chosen which will not result in a proper tuning of the gain.  In this case, the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> gain may be manually set higher by 1. So if the starting value was 4.5 then manually set it to 5.5 and run the <code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> tuning again.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-manual-tuning.html" class="btn btn-neutral float-left" title="Manual Tuning Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-tuning-other-topics.html" class="btn btn-neutral float-right" title="Additional Tuning Topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

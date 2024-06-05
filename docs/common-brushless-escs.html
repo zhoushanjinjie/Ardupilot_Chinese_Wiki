@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWM, OneShot and OneShot125 ESCs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PWM, OneShot and OneShot125 ESCs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pwm-oneshot-and-oneshot125-escs">
+<span id="common-brushless-escs"></span><h1>PWM, OneShot and OneShot125 ESCs<a class="headerlink" href="#pwm-oneshot-and-oneshot125-escs" title="Permalink to this heading">¶</a></h1>
+<p>Most ArduPilot vehicles use brushless motors controlled by brushless motor ESCs. The most common protocols used by these ESCs are PWM, OneShot, OneShot125, and <a class="reference internal" href="common-dshot-escs.html#common-dshot-escs"><span class="std std-ref">DShot</span></a>. This page describes the first three (PWM, OneShot and OneShot125).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure your ESC can support the configuration you select for it. Damage can occur otherwise. This includes frame rates discussed below. Also be careful when switching between protocols without rebooting or re-calibrating ESCs as this can lead to uncommanded motor output.</p>
+</div>
+<section id="pwm">
+<h2>PWM<a class="headerlink" href="#pwm" title="Permalink to this heading">¶</a></h2>
+<p>These are the most common ESCs for non-copter applications and were historically the first brushless ESCs.</p>
+<img alt="../_images/hobbywing-esc.jpg" src="../_images/hobbywing-esc.jpg" />
+<p>PWM ESCs use a periodic input pulse of width typically between 1000uS and 2000uS for zero to full power, respectively.</p>
+<p>[site wiki=”copter”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> to 0/Normal (the default) and reboot the autopilot
+- <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-min" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-max" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MAX</span></a> specify the PWM range sent to motors (e.g. where <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo1-function" title="(in Rover)"><span class="xref std std-ref">SERVOx_FUNCTION</span></a> = “Motor1”, “Motor2”, etc).  See <a class="reference internal" href="esc-calibration.html#esc-calibration"><span class="std std-ref">电调校准</span></a> for info on aligning the autopilot’s output range with the ESC’s input range.
+[/site]
+[site wiki=”rover”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> to 0/Normal (the default) and reboot the autopilot
+- The PWM range for each channel is specified by the corresponding <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-min" title="(in Rover)"><span class="xref std std-ref">SERVOx_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-max" title="(in Rover)"><span class="xref std std-ref">SERVOx_MAX</span></a> parameters.
+[/site]
+[site wiki=”plane”]
+- Forward motors will use normal PWM unless OneShot (see below) or <a class="reference internal" href="common-dshot-escs.html#common-dshot-escs"><span class="std std-ref">DShot</span></a> has been enabled.  The PWM range for each channel is specified by the corresponding <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-min" title="(in Rover)"><span class="xref std std-ref">SERVOx_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-max" title="(in Rover)"><span class="xref std std-ref">SERVOx_MAX</span></a> parameters.
+- VTOL motors will use normal PWM when <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-m-pwm-type" title="(in Plane)"><span class="xref std std-ref">Q_M_PWM_TYPE</span></a> is 0/Normal (the default).  The PWM range is specified by the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-m-pwm-min" title="(in Plane)"><span class="xref std std-ref">Q_M_PWM_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-m-pwm-max" title="(in Plane)"><span class="xref std std-ref">Q_M_PWM_MAX</span></a> parameters
+- See <a class="reference internal" href="common-esc-calibration.html#common-esc-calibration"><span class="std std-ref">电调校准</span></a> for info on aligning the autopilot’s output range with the ESC’s input range.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The autopilot should be re-booted after changing the protocol type.</p>
+</div>
+<p>[/site]</p>
+<p>The frame rate of these pulses is usually between 50Hz to 490Hz. The faster frame rates allow quicker control reactions to be sent to the motor, if the ESC has capability for those frame rates.</p>
+<p>[site wiki=”copter”]
+- Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#rc-speed" title="(in Copter)"><span class="xref std std-ref">RC_SPEED</span></a> to change the frame rate (default is 490Hz)
+[/site]
+[site wiki=”rover”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-rate" title="(in Rover)"><span class="xref std std-ref">SERVO_RATE</span></a> to change the frame rate (default is 50Hz)
+[/site]
+[site wiki=”plane”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-rate" title="(in Rover)"><span class="xref std std-ref">SERVO_RATE</span></a> to change the frame rate for forward motors (default is 50hz)
+- Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rc-speed" title="(in Plane)"><span class="xref std std-ref">Q_RC_SPEED</span></a> to change the frame rate for the VTOL esc/motors (default is 490Hz)
+[/site]</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>be sure of the capabilities of your ESC before selecting a higher frame rate to avoid damage to the ESC.</p>
+</div>
+</section>
+<section id="oneshot">
+<h2>OneShot<a class="headerlink" href="#oneshot" title="Permalink to this heading">¶</a></h2>
+<p>OneShot (not to be confused with “OneShot125”) is an older protocol that uses the same pulse widths as Normal PWM but has a fixed frame rate equal to the autopilot main loop rate.  There is little advantage for using this protocol over regular PWM.</p>
+<p>[site wiki=”copter, rover”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> to 1 (OneShot) and reboot the autopilot
+[/site]
+[site wiki=”plane”]
+Oneshot (not Oneshot125) loop synchronization can be added to any motor running an normal PWM ESC or servo using the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#oneshot-mask" title="(in Plane)"><span class="xref std std-ref">ONESHOT_MASK</span></a> bitmask. It will trigger pulses at the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a>, but no lower than at 250Hz. Be sure the ESCs can handle this rate.</p>
+<p>VTOL motors will use OneShot if <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-m-pwm-type" title="(in Plane)"><span class="xref std std-ref">Q_M_PWM_TYPE</span></a> is 1 (OneShot)
+[/site]</p>
+</section>
+<section id="oneshot-125">
+<h2>OneShot 125<a class="headerlink" href="#oneshot-125" title="Permalink to this heading">¶</a></h2>
+<p>The OneShot125 (sometimes confusingly shortened to just OneShot) protocol is similar to regular PWM except that the pulse widths are divided by a factor of 8 which allows faster communication from the autopilot to the ESC.  Individual pulses are sent more quickly and the overall frame rate can be increased up to 490Hz.</p>
+<p>[site wiki=”copter, rover”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> to 2 (OneShot125) and reboot the autopilot
+[/site]
+[site wiki=”plane”]
+- Forward motors will use normal PWM unless OneShot or DShot has been enabled (see below)
+- VTOL motors will use OneShot125 if <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-m-pwm-type" title="(in Plane)"><span class="xref std std-ref">Q_M_PWM_TYPE</span></a> is 2 (OneShot125)
+[/site]</p>
+<p>If using an autopilot with an IOMCU (e.g. Pixhawk, CubeOrange) the ESCs should be connected to the AUX outputs and the corresponding <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVOx_FUNCTION</span></a> values should be set to “Motor1”, etc.  This can be most easily done using Mission Planner’s “Servo Output” page</p>
+<img alt="../_images/dshot-setup-mp-servooutput.png" src="../_images/dshot-setup-mp-servooutput.png" />
+<p>Reboot the autopilot and check the “RC banner” to confirm the output channels are setup as expected (this banner appears whenever parameters are downloaded)</p>
+<img alt="../_images/oneshot-setup-mp-rcbanner.png" src="../_images/oneshot-setup-mp-rcbanner.png" />
+</section>
+<section id="mixing-esc-protocols">
+<span id="mixing-escs"></span><h2>Mixing ESC Protocols<a class="headerlink" href="#mixing-esc-protocols" title="Permalink to this heading">¶</a></h2>
+<p>While all the servo/motor outputs of an ArduPilot autopilot are capable of Normal PWM operation at 50Hz frame rates, not all are capable of other ESC protocols. And, usually, these configurations must apply to pre-designated groups of outputs, even if they are not all driving an ESC. So the following cautions apply:</p>
+<ol class="arabic simple">
+<li><p>The 8 “MAIN” outputs of autopilots using an IOMCU (like PixHawk and Cube), cannot be used for  protocols other than Normal PWM and OneShot. On these autopilots, only the additional “AUX” outputs can properly support OneShot125. If you attempt to set a “MAIN” output to OneShot125, then normal PWM output will occur, even though it has been set to a OneShot125 protocol.</p></li>
+<li><p>For <a class="reference internal" href="common-pixracer-overview.html#common-pixracer-overview"><span class="std std-ref">Pixracer</span></a> and <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">other boards</span></a> without a separate IOMCU coprocessor, all servo/motor outputs can be used.</p></li>
+<li><p>Groups of outputs sharing a common timer, MUST have the same advanced configuration. Usually, these are specified in the autopilot’s hardware description linked from the <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">Choosing an Autopilot</span></a> page. For example, if an output is configured for OneShot125 in a group, then you cannot use another output in that group for Normal PWM ESC <strong>or</strong> normal PWM servo operation.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Everytime the autopilot initializes, it sends the “RC Banner” to the ground control station, showing which outputs are PWM, OneShot, OneShot125 or DShot. The remaining higher numbered outputs are assigned as GPIOs.</p>
+</div>
+<img alt="../_images/RCOutbanner.jpg" src="../_images/RCOutbanner.jpg" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

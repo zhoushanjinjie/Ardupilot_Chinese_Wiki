@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autonomous Autorotation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Land Mode" href="land-mode.html" />
+    <link rel="prev" title="Guided Mode" href="ac2_guidedmode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Autonomous Autorotation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autonomous-autorotation">
+<span id="traditional-helicopter-autorotation-mode"></span><h1>Autonomous Autorotation<a class="headerlink" href="#autonomous-autorotation" title="Permalink to this heading">¶</a></h1>
+<p>This page introduces the helicopter autorotation flight mode.  To assist in understanding how the mode works a
+basic overview of the theory is first given.  This will be followed by instructions on how to setup and tune the flight
+mode.  However, as this mode is still in development, a link to the forum thread is provided.  This thread contains all the
+latest information on the mode, as it is created.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This flight mode is available for traditional helicopters only.  It is currently limited to single rotor helicopters.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is an ongoing development project.  This is only enabled for use with SITL.  Do not attempt to use this flight mode in real life.</p>
+</div>
+<section id="overview-of-the-autorotation-manoeuvre">
+<h2>Overview of the Autorotation Manoeuvre<a class="headerlink" href="#overview-of-the-autorotation-manoeuvre" title="Permalink to this heading">¶</a></h2>
+<p>Traditional helicopters are capable of landing safely after losing propulsive power.  This is achieved through
+the autorotation manoeuvre, in which the descending aircraft can use the airflow being forced up through the main blades to
+drive the rotor and still produce some upwards thrust.  The primary goal of the manoeuvre is to use the aircrafts remaining energy
+to bring the aircraft safely to the ground, landing softly.</p>
+<p>The manoeuvre can be broken down into phases.  The breakdown and description of those phases differs across the literature that
+is available on the topic.  The description that is given here matches the approach taken in the implementation with ArduCopter.</p>
+<p>There are four phases of the autorotation:</p>
+<p><strong>1. Entry</strong> - The initial actions of the vehicle in which collective is used to minimize head speed loss and cyclic is used for attitude control
+to either maintain or begin building forward airspeed.</p>
+<p><strong>2. Glide</strong> - The continuation of the entry phase in which collective is used to manage head speed and cyclic is used to manage airspeed.
+In this phase the aircraft can be gently navigated to attain the most suitable landing area, within its gliding range.</p>
+<p><strong>3. Flare</strong> - Performed close to the ground this phase of the manoeuvre looks to convert airspeed into lift, reducing descent speed and, where
+necessary, building head speed.  This is achieved through a complex coupling of both collective and cyclic.</p>
+<p><strong>4. Touch-Down</strong> - The vehicle is gently landed using the energy remaining in the rotor head.  Head speed is converted into thrust through
+collective management and cyclic is used to maintain a landing attitude.</p>
+<p>The diagram below illustrates the four phases.  Each phase will now be explained in more detail.</p>
+<blockquote>
+<div><img alt="../_images/autorotation_phases.png" src="../_images/autorotation_phases.png" />
+</div></blockquote>
+<section id="entry-phase">
+<h3>Entry Phase<a class="headerlink" href="#entry-phase" title="Permalink to this heading">¶</a></h3>
+<p>Without sufficient power to maintain flight a helicopter will descend.  The descending aircraft can utilise the relative upward flowing air to drive
+the main rotor.  This is the essence of the autorotation.  This is illustrated in the image below, in which the left-hand images show a simplified view
+of how the rotor forces are generated in normal powered flight.  This can then be compared with the images on the right which show the forces generated
+whilst gliding in an autorotation.</p>
+<blockquote>
+<div><img alt="../_images/autorotation_inflow_angles.png" src="../_images/autorotation_inflow_angles.png" />
+</div></blockquote>
+<p>A key difference to note between the two scenarios is the reversal of the vertical velocity component.  It is this reversal of the vertical velocity that
+necessitates careful collective management when entering the autorotation.  The objective is to reduce the blade collective angle reducing the risk of blade
+stall.  It is key that the collective is moved proportionally to the direction of the resultant velocity vector to minimize the blade drag generated, preventing
+excessive loss of head speed.  As the descent velocity increases the lift vector will naturally rotate towards the leading edge of the blade, providing the
+driving force to mainain rotor RPM.</p>
+<p>In addition to this, the forward airspeed must be either maintained or increased (if the failure is initiated from a low airspeed state).  This is done
+through cyclic controls.</p>
+</section>
+<section id="glide-phase">
+<h3>Glide Phase<a class="headerlink" href="#glide-phase" title="Permalink to this heading">¶</a></h3>
+<p>This phase of the manoeuvre is analogous to gliding flight for fixed-wing aircraft.  Forward airspeed is necessary for efficient flight and will improve
+the range of the helicopter, increasing the likelihood of finding a suitable landing area.  It is important to maintain aircraft energy as efficiently as
+possible in the glide phase so that the maximum amount of energy is available for the flare and touch-down phase.</p>
+<p>It is during this phase of flight that small angles of bank and low yaw rates can be applied to navigate the aircraft towards a suitable landing area,
+and where possible, turn to land into wind.</p>
+</section>
+<section id="flare-phase">
+<h3>Flare Phase<a class="headerlink" href="#flare-phase" title="Permalink to this heading">¶</a></h3>
+<p>This is the most critical phase for achieving a good landing during autorotation.  The objectives here are to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Reduce vertical descent speed.</p></li>
+<li><p>Convert forward airspeed into main rotor lift.</p></li>
+<li><p>Perform the manoeuvre close to the ground so as to minimize the height loss required during the touch-down phase.</p></li>
+</ul>
+</div></blockquote>
+<p>Cyclic is used to pitch the aircraft nose up.  Doing so changes the effective angle of attack seen by the main rotor blades.  This has the effects of both
+increasing the lift force and rotating the lift vector towards the leading edge of the blade.  Hence, a greater component of the blade lift is available
+for driving the main rotor, providing more energy for use in the touch-down phase.  In addition, the larger lift and drag forces generated in the flare
+contribute to the deceleration of the aircraft ready for landing.  Collective is subsequently used to manage the head speed, preventing overspeed and blade
+stall as required.  It is during this phase of flight, toward the transition to touch-down, that the flow direction is once again reversed and the rotor begins
+generating a downward induced flow once more.</p>
+<p>As this manoeuvre is flown close to the ground it requires a reliable height estimate that can account for the local terrain.  Downward facing LiDaR is therefore
+highly recommended.</p>
+</section>
+<section id="touch-down-phase">
+<h3>Touch-Down Phase<a class="headerlink" href="#touch-down-phase" title="Permalink to this heading">¶</a></h3>
+<p>Finally, with the aircraft now close to the ground, with low forward and descent speeds, it can be gently lowered to the ground.  This is achieved using
+the energy remaining in the main rotor to produce/maintain an induced flow.  As energy in the main rotor is used it will slow, meaning more and more positive
+collective is applied to maintain the thrust force being generated.  The aircraft must therefore be landed before the head speed slows too much, resulting
+in blade stall.  This phase of the autorotation is highly dependent on the amount of energy that can be stored in the main rotor head.  Main rotors with
+higher inertia are therefore comparatively easier to autorotate due to their greater capacity to store energy.  This is one reason why larger RC helicopters
+are deemed easier to autorotate than their smaller counterparts.</p>
+</section>
+<section id="bail-out-phase">
+<h3>Bail-Out Phase<a class="headerlink" href="#bail-out-phase" title="Permalink to this heading">¶</a></h3>
+<p>Not a part of the “standard” autorotation, the bail-out phase has been created for the purposes of recovering the aircraft when tuning the flight mode or for
+when power is restored after a temporary power failure clears (e.g. a kinked fuel line becomes straight again).  When exiting the autonomous autorotation flight
+mode the aircraft will be returned to a “non-manual collective mode”.  It is therefore necessary to gently reintroduce the z position controller to prevent aggressive
+collective angles being applied, resulting in blade stall or even rotor stop.</p>
+<p>When initiated, the bail-out phase will read the requested climb or descent rate from the operators throttle stick position.  The aircraft will then be decelerated
+over a set period of time (see parameter AROT_BAIL_TIME).  At the end of which, the requested vertical speed will match the magnitude requested on the stick.
+The time spent in this phase is typically of the order of two seconds.  Smaller helicopters (550 size and below) may require this time to be extended to three or
+four seconds.  When deciding/tuning, it is conservative to opt for a longer time and initiate a practice bail-out with a large height margin for recovery.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The motor ramp time defined by H_RSC_RAMP_TIME is ignored during bail-out, and a hard-coded ramp time of one second is used.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The ramp time defined by H_RSC_RAMP_TIME is now only observed when the aircraft is on ground and the “landed flag” is set true.  It often takes ArduCopter a second
+to register that the aircraft has landed once on the ground.  Therefore, if the interlock is re-engaged immediately after the aircraft touches down the one second
+ramp time of the bail-out phase can be initiated on the ground.  Caution is therefore required when running autorotations in quick succession to prevent rapid rotor
+spool up on ground.</p>
+</div>
+</section>
+</section>
+<section id="mode-setup">
+<h2>Mode Setup<a class="headerlink" href="#mode-setup" title="Permalink to this heading">¶</a></h2>
+<p>This flight mode is currently under development.  It is available in Copter 4.0 as SITL only, for those that want to test the entry, glide, and bail-out phases.
+For the most up-to-date information please see this <a class="reference external" href="https://discuss.ardupilot.org/t/autonomous-autorotation-gsoc-project-blog/42139">Discourse Topic</a> .
+Once the mode has been sufficiently tested the final instructions will be published and maintained on this wiki page.</p>
+</section>
+<section id="mode-entry">
+<h2>Mode Entry<a class="headerlink" href="#mode-entry" title="Permalink to this heading">¶</a></h2>
+<p>The autonomous autorotation flight mode cannot be entered via a mode switch, as is done with other flight modes.  In an attempt to mimic the autorotation procedure
+followed when flying a manual autorotation, the mode is entered and exited using the motor interlock switch.  The autonomous flight mode can only be entered if
+the interlock is disengaged whilst flying in a non-manual collective mode.  When exiting the autorotation the flight mode is returned to the mode from which it came
+(e.g. Altitude Hold -&gt; Autonomous Autorotation -&gt; Altitude Hold).  The only exception to this is when the aircraft enters the autorotation from an auto mission.
+In which case, the mode is exited into Altitude Hold.  This is done to prevent the aircraft from potentially resuming its auto mission and flying further away
+from home, whereby in the scenario it has autonomously recovered from a power failure and is therefore high risk for another power failure.</p>
+<p>The diagram below illustrates the mode switchology:</p>
+<blockquote>
+<div><img alt="../_images/autorotation_switchology.png" src="../_images/autorotation_switchology.png" />
+</div></blockquote>
+</section>
+<section id="setup-support">
+<h2>Setup Support<a class="headerlink" href="#setup-support" title="Permalink to this heading">¶</a></h2>
+<p>For any setup advice please post in this <a class="reference external" href="https://discuss.ardupilot.org/t/autonomous-autorotation-gsoc-project-blog/42139">forum thread</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ac2_guidedmode.html" class="btn btn-neutral float-left" title="Guided Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="land-mode.html" class="btn btn-neutral float-right" title="Land Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

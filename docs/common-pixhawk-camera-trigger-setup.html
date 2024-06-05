@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Trigger Setup for Pixhawk &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Trigger Setup for Pixhawk</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-trigger-setup-for-pixhawk">
+<span id="common-pixhawk-camera-trigger-setup"></span><h1>Camera Trigger Setup for Pixhawk<a class="headerlink" href="#camera-trigger-setup-for-pixhawk" title="Permalink to this heading">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/CTimage0.png"><img alt="../_images/CTimage0.png" src="../_images/CTimage0.png" style="width: 450px;" /></a>
+<p>This guide is intended to help you modify a remote shutter release cable
+for use with ArduPilot autopilots and setup the flight
+controller for triggering the camera. This method eliminates the need
+(and costs) for 3<sup>rd</sup> party triggering devices. In this specific
+example, we will use a Sony Alpha 6000 (A6000) camera. This procedure
+may work with other cameras however for this specific example, we will
+use a Sony Alpha A6000 (A6000).</p>
+<section id="items-required">
+<h2>Items Required<a class="headerlink" href="#items-required" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Sony A6000 (or other camera with wire shutter release)</p></li>
+<li><p>ArduPilot compatible autopilot with a free GPIO pin to be used as a relay pin. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> for more information</p></li>
+<li><p>Remote Shutter Release Cable (<a class="reference external" href="https://www.amazon.com/SHOOT-DSC-RX100M3-DSC-RX100M20-DSC-RX100II-DSC-RX100III/dp/B00ME7N6P8/ref=sr_1_1?ie=UTF8&amp;qid=1496578319&amp;sr=8-1&amp;keywords=Sony+A6000+Shutter+Release+Cable">see here for an affordable solution</a>)</p></li>
+<li><p>Servo Pins (<a class="reference external" href="https://www.digikey.com/products/en?keywords=952-2157-1-ND">link</a>)</p></li>
+<li><p>Servo Pin Crimper (<a class="reference external" href="https://www.servocity.com/pin-crimpers">link</a>)</p></li>
+<li><p>Wire Stripper or Razor Blade</p></li>
+<li><p>Laptop with Mission Planner Installed</p></li>
+</ul>
+<p><strong>Step 1:</strong> Preparing the Remote Shutter Release Cable</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Trim the Remote Shutter Release Cable to the desired cable length</p></li>
+</ol>
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/CTimage2.png"><img alt="../_images/CTimage2.png" src="../_images/CTimage2.png" style="width: 450px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li><p>Strip off approximately 2-3cm of the black sleeve making sure not to damage the 3 wires contained within the sleeve.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage3.png"><img alt="../_images/CTimage3.png" src="../_images/CTimage3.png" style="width: 450px;" /></a>
+<ol class="loweralpha simple" start="3">
+<li><p>Remove approximately 3mm of the sleeves off of each of the three wires. You will need to make sure that there is enough of the sleeve removed that when the servo pin is crimped to the wire that there is contact between the pin and the exposed wire.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage4.png"><img alt="../_images/CTimage4.png" src="../_images/CTimage4.png" style="width: 450px;" /></a>
+<p>The three wires have the following functions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RED: SHUTTER</p></li>
+<li><p>YELLOW: GROUND</p></li>
+<li><p>WHITE: FOCUS</p></li>
+</ul>
+</div></blockquote>
+<p><strong>NOTE:</strong> Your wire coloring may differ from this example. You can
+identify which functions are controlled by each cable by connecting the
+cable to your camera, powering it on and then shorting the cables in
+pairs to identify which pair does what. For example, if you have a
+GREEN, BLUE and BLACK set of wires and shorting BLUE and BLACK results
+in the camera focusing, and then you short the GREEN AND BLUE wires and
+nothing happens but shorting the GREEN AND BLACK results in the camera
+exposing, then you know that the BLACK wire is ground, GREEN is shutter
+and BLUE is focus.</p>
+<ol class="loweralpha simple" start="4">
+<li><p>Twist the exposed ends of the FOCUS and GROUND wires together then crimp a servo connector to the pair as well as to the exposed end of the SHUTTER wire</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage5.png"><img alt="../_images/CTimage5.png" src="../_images/CTimage5.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/CTimage6.png"><img alt="../_images/CTimage6.png" src="../_images/CTimage6.png" style="width: 450px;" /></a>
+<p>TIP: The Servo Pin has two sets of tabs which after crimping will fold
+on each other and secure the wire. To make life a little easier, use a
+small pair of needle nose pliers to press the pair of tabs on the end of
+the servo pin tightly against the wires. This will prevent the wires
+from coming out of the servo pin while trying to crimp them.</p>
+<a class="reference internal image-reference" href="../_images/CTimage7.png"><img alt="../_images/CTimage7.png" src="../_images/CTimage7.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../_images/CTimage8.png"><img alt="../_images/CTimage8.png" src="../_images/CTimage8.png" style="width: 450px;" /></a>
+<ol class="loweralpha simple" start="5">
+<li><p>Insert the Servo Pins into a Servo connector, one pin on each side of the middle slot of the servo connector.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage9.png"><img alt="../_images/CTimage9.png" src="../_images/CTimage9.png" style="width: 450px;" /></a>
+<p>The cable is now ready for connection to your Pixhawk
+Controller. Note that the Shutter Pin (in this case the RED wire) will
+be on the SIGNAL side of the Auxiliary port while the WHITE/YELLOW wire
+will be on the GROUND side of the Auxiliary port.</p>
+<a class="reference internal image-reference" href="../_images/CTimage10.png"><img alt="../_images/CTimage10.png" src="../_images/CTimage10.png" style="width: 450px;" /></a>
+<p><strong>Step 2:</strong> Setting up your  autopilot to trigger
+your camera via the Shutter Release Cable</p>
+<ol class="loweralpha simple">
+<li><p>Connect to your Autopilot via Mission Planner either through direct USB connection or wireless telemetry link.</p></li>
+<li><p>Connect your modified shutter release cable to a free GPIO capable pin on the autopilot making sure to maintain the correct orientation for polarity. For example, by default on the Pixhawk, AUX5 or AUX6 is configured to be a GPIO and can be used as a Relay output.</p></li>
+<li><p>Connect the shutter release cable to your camera and power the camera on</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage12.png"><img alt="../_images/CTimage12.png" src="../_images/CTimage12.png" style="width: 450px;" /></a>
+<p>Since we have shorted the FOCUS and GROUND wires, the camera should
+automatically pull focus. As of now, I have not found a way to connect
+the SHUTTER, FOCUS and GROUND wires individually to the autopilot and
+have the autopilot pull the camera focus and trigger the camera
+in sequence. To get around this, the camera settings are set so that the
+camera has the following features activated:</p>
+<ol class="lowerroman simple">
+<li><p>Pre-Shutter Focus</p></li>
+<li><p>Continuous Auto-Focus</p></li>
+</ol>
+<ol class="loweralpha simple" start="4">
+<li><p>In Mission Planner, navigate to INITIAL SETUP -&gt; CAMERA GIMBAL and change the SHUTTER drop-down menu to “RELAY”</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage13.png"><img alt="../_images/CTimage13.png" src="../_images/CTimage13.png" style="width: 450px;" /></a>
+<p>NOTE: You can play around with the “Duration” values to increase or
+decrease the responsiveness of the shutter command. With the Sony A6000,
+a duration of 1/10<sup>th</sup> of a Second functions perfectly.</p>
+<ol class="loweralpha simple" start="5">
+<li><p>Proceed to the CONFIG/TUNING -&gt; EXTENDED TUNING screen in Mission Planner and change the CH7 OPT to “Camera Trigger”. This will be necessary if you intend to use your remote controls CH7 to trigger the camera in addition to having the autopilot trigger the camera.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage14.png"><img alt="../_images/CTimage14.png" src="../_images/CTimage14.png" style="width: 450px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of 4.0 firmware versions, any GPIO can be assigned as the Camera Trigger pin via its <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter, and any RC channel can be assigned to control that trigger via its <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> parameter.</p>
+</div>
+<ol class="loweralpha simple" start="6">
+<li><p>Navigate to the FULL PARAMETER LIST under the main CONFIG/TUNING tab and locate the <code class="docutils literal notranslate"><span class="pre">CAMx_TRIGG_TYPE</span></code> parameter. This parameter must show as 1 for “RELAY”. If it is not set to 1, change this parameter to 1 before proceeding to the next step.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage15.png"><img alt="../_images/CTimage15.png" src="../_images/CTimage15.png" style="width: 450px;" /></a>
+<ol class="loweralpha simple" start="7">
+<li><p>Scroll down through the parameters until you get to <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN</span></a> (for the first relay pin…there can be up to 6) . Here you will want to set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN</span></a>  parameter to match the GPIO pin you have connected the shutter release cable to. Since we have connected the cable to AUX6 on a Pixhawk, we need to change the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN</span></a>  parameter to “55” (55:Pixhawk AUXOUT6).</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage16.png"><img alt="../_images/CTimage16.png" src="../_images/CTimage16.png" style="width: 450px;" /></a>
+<ol class="loweralpha simple" start="8">
+<li><p>Now that the required parameters have been changed, click on “WRITE PARAMS”</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage17.png"><img alt="../_images/CTimage17.png" src="../_images/CTimage17.png" style="width: 450px;" /></a>
+<p><strong>Step 3:</strong> Testing the Remote Shutter Cable and Autopilot</p>
+<p>Now that the cable has been modified and connected to the autopilot
+which has been setup to trigger the camera via relay, let’s test it.</p>
+<ol class="loweralpha simple">
+<li><p>Navigate back to the FLIGHT DATA Screen and right click on the map to select “TRIGGER CAMERA NOW”</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/CTimage18.png"><img alt="../_images/CTimage18.png" src="../_images/CTimage18.png" style="width: 450px;" /></a>
+<p>Once clicked, you should hear or see the camera expose. If the camera
+does not expose, check the following:</p>
+<ul class="simple">
+<li><p>Correct Orientation of cables (ie, Shutter Wire is connected to the SIGNAL pin on the correct port of the autopilot and Ground is connected to Ground)</p></li>
+<li><p>Camera is On and not in an Error State</p></li>
+<li><p>Camera lens is not too close to an object which may cause it to be unable to autofocus and expose</p></li>
+</ul>
+<p>If you still are not getting the camera to expose and all of the
+above-mentioned check points are not a problem, then you may want to
+adjust the Shutter Duration mentioned in Step 2 Part D.</p>
+<p>If your camera took a picture, congratulations! You are all set to take
+pictures using the autopilot without needing third
+party hardware!</p>
+<p>Many thanks to Oliver Volkmann and <a class="reference external" href="http://www.microaerialprojects.com/">*www.microaerialprojects.com*</a>
+for contributing this page.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

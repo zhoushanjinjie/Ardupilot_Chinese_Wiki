@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robotis Servos &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Robotis Servos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="robotis-servos">
+<span id="common-servo-robotis"></span><h1>Robotis Servos<a class="headerlink" href="#robotis-servos" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/servo-robotis.jpg" src="../_images/servo-robotis.jpg" />
+<p>Robotis Dynamixel servos are relatively expensive but high-end “smart actuators” that can be controlled by ArduPilot once connected to the autopilot’s serial port.</p>
+<p>Robotis servos using the “<a class="reference external" href="http://emanual.robotis.com/docs/en/dxl/protocol2/">Robotis Protocol version 2.0</a>” are supported.  Look for “Half duplex Asynchronous Serial Communication” in the “H/W SPECS” section of each servo.  The <a class="reference external" href="http://www.robotis-shop-en.com/?act=shop_en.goods_view&amp;GS=2923&amp;keyword=XM430-W350-T">XM430-W350-T</a> in particular is known to work correctly with ArduPilot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for these servos is available in Copter-4.0, Plane-3.10 and Rover-3.5 (or higher)</p>
+</div>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.robotis-shop-en.com/?act=main_en">Robotis Shop’s</a> Actuator section</p></li>
+<li><p>1x <a class="reference external" href="http://www.robotis-shop-en.com/?act=shop_en.goods_view&amp;GS=3288&amp;keyword=U2D2">U2D2</a> is also recommended to allow easy configuration of the servos (<a class="reference external" href="http://emanual.robotis.com/docs/en/parts/interface/u2d2/">online manual</a>)</p></li>
+</ul>
+</section>
+<section id="configuring-the-servos">
+<h2>Configuring the Servos<a class="headerlink" href="#configuring-the-servos" title="Permalink to this heading">¶</a></h2>
+<p>The ID for each servo needs to be set using the R+ Manager configuration tool.</p>
+<p><a class="reference external" href="http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/">DYNAMIXEL Wizard 2.0</a> is the latest DYNAMIXEL configuration tool that supports Windows / Linux / Mac OSX.</p>
+<ul class="simple">
+<li><p>Open the <a class="reference external" href="http://www.robotis.us/roboplus2/">robotis.us/roboplus2</a> website, in the “R+ Manager 2.0” row, download and install the “2.0.1 Windows (exe)”</p></li>
+<li><p>Attach the U2D2 to the servos as described in the <a class="reference external" href="http://emanual.robotis.com/docs/en/parts/interface/u2d2/">online manual</a></p></li>
+<li><p>Start the R+ Manager, connect to the appropriate COM port and set each servo’s ID to a value from 1 to 16.  The number chosen for each servo should correspond to the servo number used to configure and control the servo.  For example if the ID is set to “9”, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-min" title="(in Rover)"><span class="xref std std-ref">SERVO9_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-max" title="(in Rover)"><span class="xref std std-ref">SERVO9_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a>, etc parameters will be used to configure the servo.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/servo-robotis-rmanager.png"><img alt="../_images/servo-robotis-rmanager.png" src="../_images/servo-robotis-rmanager.png" style="width: 450px;" /></a>
+</section>
+<section id="connecting-and-configuring">
+<h2>Connecting and Configuring<a class="headerlink" href="#connecting-and-configuring" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/servo-robotis-pixhawk.jpg"><img alt="../_images/servo-robotis-pixhawk.jpg" src="../_images/servo-robotis-pixhawk.jpg" /></a>
+<ul class="simple">
+<li><p>Connect one of the servos to any serial port on the autopilot.  In this example SERIAL4 is used but any serial port should work</p></li>
+<li><p>Additional servos should be connected to the first by daisy chaining them as shown above</p></li>
+<li><p>Set the following parameters on the autopilot</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> = 19 (“RobotisServo”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL4_BAUD</span></a> = 57 (57600 baud)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-options" title="(in Rover)"><span class="xref std std-ref">SERIAL4_OPTIONS</span></a> = 4 to enable half-duplex mode</p></li>
+</ul>
+</div></blockquote>
+<section id="testing-with-the-mission-planner">
+<h3>Testing with the Mission Planner<a class="headerlink" href="#testing-with-the-mission-planner" title="Permalink to this heading">¶</a></h3>
+<p>The mission planner’s Flight Data screen includes a “Servo” tab on the
+bottom right that can be used to test that the servos are moving
+correctly.</p>
+<a class="reference external image-reference" href="../_images/Servo_TestingWithMP.jpg"><img alt="../_images/Servo_TestingWithMP.jpg" src="../_images/Servo_TestingWithMP.jpg" style="width: 450px;" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

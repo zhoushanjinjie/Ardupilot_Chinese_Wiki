@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Gear/ Retractable Camera Mount &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Landing Gear/ Retractable Camera Mount</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="landing-gear-retractable-camera-mount">
+<span id="common-landing-gear"></span><h1>Landing Gear/ Retractable Camera Mount<a class="headerlink" href="#landing-gear-retractable-camera-mount" title="Permalink to this heading">¶</a></h1>
+<p>Copter and Plane support retractable Landing Gear / Camera Mounts activated by a servo mechanism(like these sold by <a class="reference external" href="https://hobbyking.com/en_us/quanum-600-class-quick-release-universal-retractable-gear-set-680uc-pro-hexa-copter.html?___store=en_us">Hobby King</a> for copters).
+The gear/ mount can be manually retracted or deployed with an auxiliary switch.
+The gear will also automatically deploy during landing and/or retract during takeoff.
+The output which controls the servo for landing gear/ camera mount is set by the SERVOx_FUNCTION =29.</p>
+<p>During startup, the status of the landing gear/ camera mount is determined by the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#lgr-startup" title="(in Plane)"><span class="xref std std-ref">LGR_STARTUP</span></a>  parameter. Starting either in deployed or retracted state can be selected, or to wait for pilot input, which prevents PWM signals from being active on the outputs whose SERVOx_FUNCTION = 29 (Landing Gear). This prevents the current position of those outputs from changing until the pilot or automatic operation commands a change.</p>
+<p>In firmware versions before Plane 4.0.6 and Copter 4.0.4, retraction and deployment happen automatically in AUTO mode takeoffs, AUTO mode landings, and final land or glide phase of RTL landings, for both Plane and Copter. And happen when changing to LAND mode for Copter. For later firmware versions, the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#lgr-options" title="(in Plane)"><span class="xref std std-ref">LGR_OPTIONS</span></a> bitmask can selectively enable or disable these operations. If bit 0 is set, the automatic retractions are enabled, and if bit 1 is set, then automatic deployment occurs. Either or both bits can be set. Default is both bits set, enabling automatic deployment and retraction. The manual switch, if programmed, can change the deploy/retract state of the gear at any time.</p>
+<p>In addition, the landing gear/ camera mount can automatically deploy or retract based on altitude, using the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#lgr-deploy-alt" title="(in Plane)"><span class="xref std std-ref">LGR_DEPLOY_ALT</span></a> for automatic deployment below this altitude, and automatic retraction if above the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#lgr-retract-alt" title="(in Plane)"><span class="xref std std-ref">LGR_RETRACT_ALT</span></a>. If these are set to 0, then these functions are not active.</p>
+<a class="reference external image-reference" href="../_images/LandingGear_HobbyKing.jpg"><img alt="../_images/LandingGear_HobbyKing.jpg" src="../_images/LandingGear_HobbyKing.jpg" /></a>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>Most retractable landing gear will require just a single PWM cable to be
+connected to one of the autopilot outputs, selected using the SERVOx_FUNCTION set to 29 for that output.
+If the retractable landing gear operation appears to be flipped (retracted when it should be deployed) you can change this using the SERVOx_REVERSED parameter.
+Reversed operation seems to be necessary with Tarot retractable landing gear legs without the Tarot control box.</p>
+</section>
+<section id="setup-through-the-mission-planner">
+<h2>Setup through the Mission Planner<a class="headerlink" href="#setup-through-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>Use the Mission Planner’s Full Parameter List (or equivalent) to set the
+above parameters and/or set an RC channel to be a manual control using the RCx_OPTION = 29 for that channel. When the PWM for the channel is &lt; 1200us, the gear will be deployed, &gt; 1800us it will be retracted, other values will not change the gear’s state. After the RC channel requests a deploy or retract, an automatic function can override the manual control, until the channel is moved to another state and/or returned.</p>
+</section>
+<section id="other-parameters">
+<h2>Other Parameters<a class="headerlink" href="#other-parameters" title="Permalink to this heading">¶</a></h2>
+<p>There are additional landing gear/ camera mount features in development for future releases and therefore other <code class="docutils literal notranslate"><span class="pre">LGR_</span></code> parameters are listed not covered in this topic, but they are only used for logging purposes at this time and do not affect operation.</p>
+<p>[copywiki destination=”plane,copter”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

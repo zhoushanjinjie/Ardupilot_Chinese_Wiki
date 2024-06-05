@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”copter,plane,rover,dev”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”copter,plane,rover,dev”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-copter-plane-rover-dev">
+<span id="common-ek3-affinity-lane-switching"></span><h1>[copywiki destination=”copter,plane,rover,dev”]<a class="headerlink" href="#copywiki-destination-copter-plane-rover-dev" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="ekf3-affinity-and-lane-switching">
+<h1>EKF3 Affinity and Lane Switching<a class="headerlink" href="#ekf3-affinity-and-lane-switching" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter" title="(in Dev)"><span class="xref std std-ref">EKF</span></a> instantiates multiple instances of the filter called ‘lanes’. The primary lane is the one that provides state estimates, rest are updated in the background and available for switching to. The number of possible lanes is exactly equal to the number of IMUs enabled for use. Conventionally, each lane uses the primary instance of the Airspeed, Barometer, GPS and Magnetometer sensors. The primary sensor can be set as a user-modifiable parameter, but can be later changed by the system, even in-flight, in case of a driver-level fault. However, modern-day vehicles are known to have multiple sensors installed of good quality. Affinity is a way for the EKF lanes to use non-primary sensors within any running lane. This provides a statistically consistent way to make use of multiple high quality sensors and use lane-switching to select the lane which has best performing combination of sensors. The lane error score takes into account innovations from all sensors used by a lane. This way, the vehicle can be saved from mishaps using noisy non-IMU sensors as well.</p>
+<p><strong>A simple example of an affinity configuration for a vehicle which has 1 Barometer, 2 GPS, 2 Airspeeds, 3 Magnetometers and 3 IMUs -</strong></p>
+<table border="1" class="docutils">
+<tr><th>LANE</th><th>1</th><th>2</th><th>3</th></tr>
+<tr><td>AIRSPEED</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>BAROMETER</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>GPS</td><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>MAGNETOMETER</td><td>1</td><td>2</td><td>3</td></tr>
+</table><p><em>Numbers are the respective sensor instances</em></p>
+<section id="configuration-parameters">
+<h2>Configuration Parameters<a class="headerlink" href="#configuration-parameters" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Affinity is only available with EKF3, so make sure you are using it by ensuring <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-enable" title="(in Rover)"><span class="xref std std-ref">EK3_ENABLE</span></a> is set to “1” and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> is set to “3”</p>
+</div>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-affinity" title="(in Rover)"><span class="xref std std-ref">EK3_AFFINITY</span></a> parameter is a bitmask which gives you the option to choose the sensors you want to enable affinity for. Non-enabled will follow the default primary sensor allotment.</p>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-err-thresh" title="(in Rover)"><span class="xref std std-ref">EK3_ERR_THRESH</span></a> parameter controls the sensitivity of lane switching. Lane errors are accumulated over time relative to the active primary lane. This threshold controls how much of an error difference between a non-primary and primary lane is required to consider the former performing better. Lowering this parameter makes lane switching more responsive to smaller ‘relative’ errors, and in practical you will see a more aggressive lane switching, and, vice-versa.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Misconfiguring the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-err-thresh" title="(in Rover)"><span class="xref std std-ref">EK3_ERR_THRESH</span></a> parameter could adversely affect the lane switching mechanism and have serious consequences which could lead to the loss of your vehicle. Please tune carefully.</p>
+</div>
+</section>
+<section id="test-results">
+<h2>Test Results<a class="headerlink" href="#test-results" title="Permalink to this heading">¶</a></h2>
+<p>Following graphs are from SITL testing that show Affinity enabled lane changing when the primary lane’s sensor is subjected to noise/malfunctioning.</p>
+<section id="airspeed">
+<h3>AIRSPEED<a class="headerlink" href="#airspeed" title="Permalink to this heading">¶</a></h3>
+<p>An example of lane switching for a plane with 2 airspeed sensors and airspeed affinity enabled. There are 2 IMUs, hence 2 active lanes. The primary lane’s airspeed sensor has failed to show changes in pressure, hence reporting a constant value. The speed of the plane is increased and a lane switch occurs. Similarly, the second airspeed sensor of the second lane (now the primary lane) is failed and the plane’s speed is decreased which again triggers a lane switch.</p>
+<img alt="../_images/airspeed_affinity.png" src="../_images/airspeed_affinity.png" />
+</section>
+<section id="barometer">
+<h3>BAROMETER<a class="headerlink" href="#barometer" title="Permalink to this heading">¶</a></h3>
+<p>An example of lane switching for a plane with 2 barometers and barometer affinity enabled. There are 2 IMUs, hence 2 active lanes. The primary lane’s barometer has failed to show changes in pressure, hence reporting a constant value. The altitude of the plane is increased and a lane switch occurs. Similarly, the second barometer of the second lane (now the primary lane) is failed and the plane’s altitude is decreased which again triggers a lane switch.</p>
+<img alt="../_images/barometer_affinity.png" src="../_images/barometer_affinity.png" />
+</section>
+<section id="gps">
+<h3>GPS<a class="headerlink" href="#gps" title="Permalink to this heading">¶</a></h3>
+<p>An example of lane switching for a plane with 2 GPS and GPS affinity enabled. There are 2 IMUs, hence 2 active lanes. The primary lane’s GPS is simulated with a random GPS Velocity Noise of range ±2m in all 3-axis. The actual speed can be tracked with the 2nd GPS. Subsequently, the EKF primary lane starts reporting a consistently high error and a lane switch occurs when the error crosses the set threshold.</p>
+<img alt="../_images/gps_affinity.png" src="../_images/gps_affinity.png" />
+</section>
+<section id="magnetometer">
+<h3>MAGNETOMETER<a class="headerlink" href="#magnetometer" title="Permalink to this heading">¶</a></h3>
+<p>An example of lane switching for a plane with 2 Magnetometers and magnetometer affinity enabled. There are 2 IMUs, hence 2 active lanes. An error is simulated in the primary lane’s magnetometer by changing the offset of the z-axis while flying. The offset change can be tracked with the 2nd magnetometer. Subsequently, the EKF primary lane starts reporting a consistently high error and a lane switch occurs when the error crosses the set threshold.</p>
+<img alt="../_images/mag_affinity.png" src="../_images/mag_affinity.png" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-frsky-repurposed"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="frsky-telemetry-using-repurposed-messages">
+<h1>FrSky Telemetry Using Repurposed Messages<a class="headerlink" href="#frsky-telemetry-using-repurposed-messages" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this is superseded by <a class="reference internal" href="common-frsky-passthrough.html#common-frsky-passthrough"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p>
+</div>
+<p>The original solution for transmitting ArduPilot telemetry data over the FrSky telemetry link was to reuse FrSky data messages meant for another purpose and/or reserved by FrSky for their sensors. For example in this protocol the Flight mode is sent using the tmp1 message instead of the temperature. If you are not using an FrSky temperature sensor on your vehicle, this will not cause any problem. But if you intend to use temperature, other FrSky sensors, this telemetry protocol will cause conflicts with them.</p>
+<p>Once your equipment is connected and ArduPilot is configured, follow the instructions below to get standard FrSky telemetry displayed on your RC transmitter.</p>
+</section>
+<section id="protocol-information">
+<h1>Protocol information<a class="headerlink" href="#protocol-information" title="Permalink to this heading">¶</a></h1>
+<p>Values that are sent over the FrSky telemetry link by ArduPilot:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Taranis telemetry screen identifier</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fuel</p></td>
+<td><p>Remaining battery capacity %</p></td>
+</tr>
+<tr class="row-odd"><td><p>VFAS</p></td>
+<td><p>Battery voltage</p></td>
+</tr>
+<tr class="row-even"><td><p>Curr</p></td>
+<td><p>Current consumption</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPS</p></td>
+<td><p>Latitude/longitude</p></td>
+</tr>
+<tr class="row-even"><td><p>GSpd</p></td>
+<td><p>GPS groundspeed</p></td>
+</tr>
+<tr class="row-odd"><td><p>GAlt</p></td>
+<td><p>GPS altitude</p></td>
+</tr>
+<tr class="row-even"><td><p>Hdg</p></td>
+<td><p>Yaw angle</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alt</p></td>
+<td><p>Navigation altitude (relative to home)</p></td>
+</tr>
+<tr class="row-even"><td><p>Tmp1</p></td>
+<td><p>Control/flight mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tmp2</p></td>
+<td><p>GPS status and number of satellites (as num_sats*10 + status)</p></td>
+</tr>
+</tbody>
+</table>
+<p>If you installed FrSky sensors on your vehicle, other messages from these may also appear during discovery.</p>
+</section>
+<section id="repurposed-messages-scripts-for-ardupilot">
+<h1>Repurposed Messages Scripts for ArduPilot<a class="headerlink" href="#repurposed-messages-scripts-for-ardupilot" title="Permalink to this heading">¶</a></h1>
+<p>The following script was made specifically for ArduPilot with telemetry protocol 4, repurposed messages.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://ilihack.github.io/LuaPilot_Taranis_Telemetry">LuaPilot</a></p></li>
+</ul>
+<p>for additional information, see:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://discuss.ardupilot.org/t/lua-script-for-apm-plane-quadplane/16202">LuaPilot use for plane discussion</a></p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/LuaPilot-Logo.jpg"><img alt="../_images/LuaPilot-Logo.jpg" src="../_images/LuaPilot-Logo.jpg" /></a>
+<a class="reference external image-reference" href="../_images/LuaPilot.jpg"><img alt="../_images/LuaPilot.jpg" src="../_images/LuaPilot.jpg" /></a>
+</section>
+<section id="configuration-with-opentx">
+<h1>Configuration with OpenTX<a class="headerlink" href="#configuration-with-opentx" title="Permalink to this heading">¶</a></h1>
+<section id="transmitter-set-up">
+<h2>Transmitter set-up<a class="headerlink" href="#transmitter-set-up" title="Permalink to this heading">¶</a></h2>
+<p>Please refer to the <a class="reference external" href="https://www.gitbook.com/book/opentx/opentx-taranis-manual/details">OpenTX manual</a>
+for how to display values from the FrSky telemetry feed on the RC transmitter’s screen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If upgrading to OpenTX 2.1+ you will need to replace your OpenTX
+2.0 configuration and “discover” your sensors. There are other minor
+“oddities” - for example T1 (flight mode) and Tt2 (number of sats) are
+both called TEMP (switching mode helps you identify which is
+which).</p>
+</div>
+<a class="reference external image-reference" href="../_images/Telemetry_FrSky_TXSetup.png"><img alt="../_images/Telemetry_FrSky_TXSetup.png" src="../_images/Telemetry_FrSky_TXSetup.png" /></a>
+<p>FrSky telemetry data consists of 16 or 32bit unsigned integers recognized by OpenTX. Standard FrSky telemetry does not include autopilot messages natively. Therefore, less important telemetry data messages (temperature, variometer…) have been repurposed to carry more useful information such as flight mode.</p>
+<section id="using-telemetry-values-in-opentx">
+<h3>Using telemetry values in OpenTX<a class="headerlink" href="#using-telemetry-values-in-opentx" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="variometer">
+<h3>Variometer<a class="headerlink" href="#variometer" title="Permalink to this heading">¶</a></h3>
+<p>In the example below, the variometer function of OpenTX is configured to use the discovered VSpd sensor value. The value is only considered if it is between -10m/s and 10m/s. In the center band -0.5 to 0.5 m/s the variometer will be silent.</p>
+<a class="reference external image-reference" href="../_images/OpenTX_VarioTelem.png"><img alt="../_images/OpenTX_VarioTelem.png" src="../_images/OpenTX_VarioTelem.png" /></a>
+<p>This example shows how to assign a switch on the Taranis to enable/disable variometer sounds:</p>
+<a class="reference external image-reference" href="../_images/OpenTX_VarioSwitch.png"><img alt="../_images/OpenTX_VarioSwitch.png" src="../_images/OpenTX_VarioSwitch.png" /></a>
+<p>For a more detailed video of how to setup the variometer, you may check out this <a class="reference external" href="https://youtu.be/oe_LIWRJ37w">video</a>
+ArduPilot already provides variometer values through the FrSky telemetry link, so the FrSky variometer sensor is not necessary.</p>
+</section>
+<section id="gps">
+<h3>GPS<a class="headerlink" href="#gps" title="Permalink to this heading">¶</a></h3>
+<p>You can setup the display of the latest transmitted latitude and longitude information; for instance, in case of a crash or fly away, to locate your copter.</p>
+<a class="reference external image-reference" href="../_images/OpenTX_GPStelem.png"><img alt="../_images/OpenTX_GPStelem.png" src="../_images/OpenTX_GPStelem.png" /></a>
+<p>When configured to display “GPS,” the custom telemetry screen will show longitude/latitude value pairs as such:</p>
+<a class="reference external image-reference" href="../_images/OpenTX_GPSdisplay.png"><img alt="../_images/OpenTX_GPSdisplay.png" src="../_images/OpenTX_GPSdisplay.png" /></a>
+</section>
+</section>
+</section>
+<section id="configuration-with-ersky9x">
+<h1>Configuration with ErSky9x<a class="headerlink" href="#configuration-with-ersky9x" title="Permalink to this heading">¶</a></h1>
+<p>For information on how to configure your ErSky9x transmitter (such as a Turnigy 9XR Pro) for FrSky telemetry, please go <a class="reference internal" href="common-frsky-telemetry.html#common-frsky-telemetry"><span class="std std-ref">here</span></a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

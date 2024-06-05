@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electro Permanent Magnet Gripper (EPM688) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Electro Permanent Magnet Gripper (EPM688)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="electro-permanent-magnet-gripper-epm688">
+<span id="common-electro-permanent-magnet-gripper"></span><h1>Electro Permanent Magnet Gripper (EPM688)<a class="headerlink" href="#electro-permanent-magnet-gripper-epm688" title="Permalink to this heading">¶</a></h1>
+<p>This article shows how to use the <a class="reference external" href="http://nicadrone.com/index.php?id_product=13&amp;controller=product">Electro Permanent Magnet Gripper (EPM688)</a>
+with ArduPilot.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The <em>EPM688</em> (from NicaDrone.com) is a small (less than 4cm x 4cm x 2cm)
+Electro Permanent Magnet gripper capable of 7kg of force meaning it can
+hold about 1kg of cargo.  The gripping and releasing of the cargo if
+accomplished by delivering a short pulse to an electromagnet which
+reverses its field.  Objects that it grips onto should be metal or have
+the included <a class="reference external" href="http://nicadrone.com/index.php?id_product=15&amp;controller=product">thin steel target square</a>
+attached to them.</p>
+<p>The device accepts a standard PWM servo input and uses a 5V power
+supply.  Significant amounts of power are only required for less than 1
+second when it first grips or releases the cargo.</p>
+<p><a class="reference external" href="https://www.kickstarter.com/projects/412473553/opengrab-open-hardware-electro-permanent-cargo-gri/widget/video.html">See Kickstarter **Video** of the product here</a>!</p>
+</section>
+<section id="connecting-to-a-pixhawk">
+<h2>Connecting to a Pixhawk<a class="headerlink" href="#connecting-to-a-pixhawk" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/EPM_Pixhawk.jpg"><img alt="../_images/EPM_Pixhawk.jpg" src="../_images/EPM_Pixhawk.jpg" /></a>
+<p>The EPM is connected to the Pixhawk in the same way as a
+<a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servo</span></a>.</p>
+<ul class="simple">
+<li><p>If using Copter, Connect the EPM to AUX OUT 1, 2, 3 or 4.  MAIN OUT 1
+~ 8 cannot be used because the EPM does not accept the 400hz update
+rate.  AUX OUT 5 an 6 cannot be used because they are reserved for
+<a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relays</span></a>.</p></li>
+<li><p>If using Plane or Rover where all pwm pins update at 50hz, any unused
+MAIN OUT or AUX OUT 1 ~ 4 may be used.</p></li>
+<li><p>A BEC or ESC should be used that can provide 600milliamps of current
+at 5V for the short period that the gripper is first activated to
+latch onto the cargo.</p></li>
+</ul>
+</section>
+<section id="controlling-from-a-transmitter-using-servo-pass-through">
+<h2>Controlling from a transmitter using servo pass-through<a class="headerlink" href="#controlling-from-a-transmitter-using-servo-pass-through" title="Permalink to this heading">¶</a></h2>
+<p>Unfortunately with the latest versions of Copter, Plane and Rover the
+EPM can be controlled either from the transmitter OR during missions.
+Either is possible but parameter changes are required meaning both
+methods are not available during a single flight.  Below are
+instructions for setting up manual control through a transmitter.</p>
+<a class="reference external image-reference" href="../_images/EPM_SetupManualControlMP.png"><img alt="../_images/EPM_SetupManualControlMP.png" src="../_images/EPM_SetupManualControlMP.png" /></a>
+<p>Control using the transmitter is accomplished by setting up “RC Pass
+Through” which means the “input” channel from the transmitter is passed
+through to the autopilot’s “output” channel of the same number.  For
+Copter this means you must have a transmitter capable of 9 or more
+channels because the EPM is connected to output ch9 (or higher).</p>
+<p>Assuming the above is possible for your set-up, connect with the mission
+planner.  Go to the Config/Tuning &gt;&gt; Full Parameters List and set the
+<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> (or RC9_FUNCTION) to “1” (i.e. “RCPassThru”).  Note that if the EPM is
+connected to AUX OUT 2 then <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo10-function" title="(in Rover)"><span class="xref std std-ref">SERVO10_FUNCTION</span></a> should be set instead, etc.</p>
+<p>On the transmitter set CH9 to be controlled from a 3-position switch and
+the positions set as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>low position set to about **1100 pwm*</em>.  This will release the
+cargo*</p></li>
+<li><p><em>mid position set to about **1500 pwm*</em>.  This is the neutral
+position, after pulling the switch high or low to grab or
+release, the switch should be returned to this position*</p></li>
+<li><p><em>high position set to about **1900 pwm*</em>.  This will activate the
+EPM so it grips onto the cargo.*</p></li>
+</ul>
+</div></blockquote>
+<p>To grab onto the cargo, bring the cargo close to the EPM and momentarily
+bring the switch high and then return the switch to neutral.</p>
+<p>To release the cargo, momentarily bring the switch low and then return
+it to neutral.</p>
+<p>Note: the <a class="reference external" href="https://ardupilot.org/copter/docs/channel-7-and-8-options.html#channel-7-and-8-options" title="(in Copter)"><span class="xref std std-ref">Copter Ch7/Ch8 switch</span></a>
+includes options for the EPM but these unfortunately do not function
+properly.</p>
+<p>Note: it is also possible (if using an older style, non ppm-sum
+receiver) to directly connect one signal wire from the receiver to the
+EPM’s PWM pin thus bypassing the autopilot completely.  The image
+below shows the power line between the receiver and EPM connected but
+this is not correct and is quite dangerous because power spikes could
+pass through the receiver to the autopilot.  Only PWM and Ground
+should be connected.  The EPM should be powered from a BEC (not shown
+below).</p>
+<a class="reference external image-reference" href="../_images/EPM-with-receiver.jpg"><img alt="../_images/EPM-with-receiver.jpg" src="../_images/EPM-with-receiver.jpg" style="width: 450px;" /></a>
+</section>
+<section id="controlling-during-missions-and-from-gcs">
+<h2>Controlling during missions and from GCS<a class="headerlink" href="#controlling-during-missions-and-from-gcs" title="Permalink to this heading">¶</a></h2>
+<p>As mentioned above, the EPM can be controlled either through a
+transmitter or from the ground station (including during missions,
+aka <a class="reference external" href="https://ardupilot.org/copter/docs/auto-mode.html#auto-mode" title="(in Copter)"><span class="xref std std-ref">AUTO mode</span></a>) but
+not both during the same flight. Below are instructions for setting up
+control through the ground station.</p>
+<a class="reference external image-reference" href="../_images/EPM_SetupMissionControlMP.png"><img alt="../_images/EPM_SetupMissionControlMP.png" src="../_images/EPM_SetupMissionControlMP.png" /></a>
+<p>Connect with the mission planner. Go to the Config/Tuning &gt;&gt; Full
+Parameters List and set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> (or RC9_FUNCTION) to “0” (its default value).
+Note that if the EPM is connected to Pixhawk’s AUX OUT 2 then
+<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo10-function" title="(in Rover)"><span class="xref std std-ref">SERVO10_FUNCTION</span></a> (or RC10_FUNCTION) should be set instead, etc.</p>
+<p>Create the mission you wish to fly and add pairs of <code class="docutils literal notranslate"><span class="pre">DO_GRIPPER</span></code>
+commands to grip or release the cargo .The EPM is returned to neutral after each command.</p>
+<ul class="simple">
+<li><p>“Ser No” should be set according to which output the EPM is connected
+to (i.e. “9” = Pixhawk’s AUX OUT 1, “10” = APM2’s RC10).</p></li>
+<li><p>“PWM” should be set to <strong>1100ms</strong> to release the cargo, <strong>1500ms</strong> to
+return to neutral, and <strong>1900ms</strong> to grip the cargo.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/EPM_Mission.jpg"><img alt="../_images/EPM_Mission.jpg" src="../_images/EPM_Mission.jpg" /></a>
+<p>In the example above the vehicle takes off to 20ft, flies west 548ft where
+it delays for 5 seconds, releases the cargo, delays another 5 seconds
+and then returns home.</p>
+<p>In order to pick up the cargo before the mission begins, push the round
+black button on the EPM to momentarily turn it on.  A cumbersome
+alternative is to use the Mission Planner’s Flight Data screen’s Servo
+tab to momentarily set the output to 1900 pwm (i.e. “High” in the image
+below) and then back to neutral (i.e. 1500 or “Low” in the image below).</p>
+<a class="reference external image-reference" href="../_images/EPM_MPFlightData_ServoTab.jpg"><img alt="../_images/EPM_MPFlightData_ServoTab.jpg" src="../_images/EPM_MPFlightData_ServoTab.jpg" /></a>
+</section>
+<section id="specifications-and-more-info">
+<h2>Specifications and more info<a class="headerlink" href="#specifications-and-more-info" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/EPMV2_1.jpg"><img alt="../_images/EPMV2_1.jpg" src="../_images/EPMV2_1.jpg" style="width: 450px;" /></a>
+<p>The EPM has an onboard PIC12F MCU with an in circuit programming header
+to allow easy reflashing.</p>
+<p>When first gripping or releasing the cargo it consumes 400mA for 0.4
+seconds.  The majority of the energy is consumed to move the target into
+place and the rest realigns the magnets.  The on-board LED will blink
+rapidly 4 times when a switching cycle is being executed</p>
+<p>On-board tactile push button: Allows toggle testing the EPM on/off
+having only the power connected</p>
+<p>Full bridge Thyrisotor drive circuit increases efficiency and reduces
+capacitor size .</p>
+<p>Reduced magnetic interference allows mounting within 5cm of a compass
+(please test it with your application)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.hizook.com/files/users/3/Electropermanent_Magnets_Knaian.pdf">Paper by Ara Nerses Knaian</a></p></li>
+<li><p><a class="reference external" href="http://nicadrone.com/img/Datasheet%20EPM688-V2.0.pdf">Datasheet</a></p></li>
+<li><p><a class="reference external" href="https://upverter.com/eda/#tool=schematic,designId=5466622af0d942e4">Schematics and PCB files</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ctech4285/EPM_688_V2">Git repository for Parts Drawing PCB Masks Pic12F source code</a></p></li>
+<li><p><a class="reference external" href="https://groups.google.com/forum/#%21forum/opengrab">User Group (Help)</a></p></li>
+</ul>
+</section>
+<section id="magnetic-interference-and-board-voltage-check">
+<h2>Magnetic interference and Board Voltage check<a class="headerlink" href="#magnetic-interference-and-board-voltage-check" title="Permalink to this heading">¶</a></h2>
+<p>The EPM can cause magnetic interference especially while gripping or
+releasing the cargo or if left in the “on” state with no cargo
+attached.  Make sure to mount the EPM at least 10cm from the flight
+controller’s compass.</p>
+<p>The EPM’s impact on the compass can be tested in real-time by connecting
+with the Mission Planner, go to the Flight Data screen and click on the
+“Tuning” checkbox at the bottom, middle.  Double click on the graph that
+appears on the top right and when the “Graph This” window appears select
+“magfield”.</p>
+<p>Turning the EPM on and off and ensure the magfield length does not
+change by more than 10%.</p>
+<a class="reference external image-reference" href="../_images/mag_field.jpg"><img alt="../_images/mag_field.jpg" src="../_images/mag_field.jpg" /></a>
+<p>In addition to magnetic interference, if a weak BEC is used a voltage
+drop may be noticed.  For example the BEC in a 3DR ESC leads to a drop
+of 0.4V when the EPM is activated.  This is normally not a concern
+because the BEC should only be powering the servo rail of the
+autopilot, so the CPU’s voltage should be unaffected.  This can be
+tested by graphing the “hwvoltage” field in the same way the “magfield”
+was checked above.  Ideally this test should be performed when connected
+via <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">Telemetry</span></a>because a USB cable
+will also provide power the CPU and may hide any voltage disturbance.</p>
+</section>
+<section id="user-video">
+<h2>User Video<a class="headerlink" href="#user-video" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/_iyTo9H7HAk#t=190" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

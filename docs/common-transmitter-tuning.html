@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter">
+<span id="common-transmitter-tuning"></span><h1>[copywiki destination=”plane,copter”]<a class="headerlink" href="#copywiki-destination-plane-copter" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="transmitter-based-tuning">
+<h1>Transmitter Based Tuning<a class="headerlink" href="#transmitter-based-tuning" title="Permalink to this heading">¶</a></h1>
+<p>You can perform extensive parameter tuning in flight using your R/C
+transmitter. This is meant for advanced users who are unable to use
+the Autotune features or wish to do fine tuning with full manual
+tuning control of each parameter</p>
+</section>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>Transmitter based tuning allows you to tune a single parameter or a
+set of parameters while flying. The basic idea is to link the tuning
+value of a parameter to a knob or slider on your transmitter then to
+adjust the parameter in flight by moving the knob.</p>
+<p>[site wiki=”plane”]</p>
+<p>Key features of transmitter based tuning are:</p>
+<ul class="simple">
+<li><p>Tune either a single parameter or a whole set of related parameters
+in a single flight</p></li>
+<li><p>Re-scale the range of the parameter value linked to the tuning knob
+using a “selector switch”</p></li>
+<li><p>Switch between parameters to tune while flying using a selector
+switch</p></li>
+<li><p>Save the new parameters in flight</p></li>
+<li><p>Receive audible feedback from the flight board buzzer and the GCS on
+tuning progress</p></li>
+</ul>
+</section>
+<section id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading">¶</a></h1>
+<p>The two key controls for transmitter based tuning are:</p>
+<ul class="simple">
+<li><p>A “tuning knob”, setup on your transmitter to a convenient knob or
+slider and linked to an RC channel that your board receives</p></li>
+<li><p>An optional “selector switch” for controlling advanced features of
+the tune. This should be linked to a two position switch mapped to
+a RC channel that your board receives. A spring loaded switch (such
+as the trainer switch) works particularly well.</p></li>
+</ul>
+<p>In addition to those input controls the following concepts are useful
+in understanding the tuning process:</p>
+<ul class="simple">
+<li><p>A “parameter set” is a group of related parameters that can be
+tuned one after the other in a single flight</p></li>
+<li><p>The “mid-point” is point on the tuning knobs range where it
+produces a PWM value half way between minimum and maximum</p></li>
+</ul>
+</section>
+<section id="setting-up-for-tuning">
+<h1>Setting up for tuning<a class="headerlink" href="#setting-up-for-tuning" title="Permalink to this heading">¶</a></h1>
+<p>To setup your vehicle for tuning you need to set the following
+parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN</span></a>: the RC input channel associated with your chosen tuning
+knob</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan-min" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN_MIN</span></a>: the minimum PWM values produced on <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan-max" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN_MAX</span></a>: the maximum PWM values produced on <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a>: the parameter or set of parameters you will be tuning</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-selector" title="(in Plane)"><span class="xref std std-ref">TUNE_SELECTOR</span></a>: the RC input channel associated with your chosen
+selector switch (optional)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-range" title="(in Plane)"><span class="xref std std-ref">TUNE_RANGE</span></a>: the scaling range which the tuning knob covers</p></li>
+</ul>
+<p>The <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a> parameter selects the parameter or set of parameters you
+will be tuning. Values of <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a> less than 100 correspond to
+individual tunable parameters whereas values of 101 or higher
+correspond to sets of related parameters that can be tuned one after
+the other in a flight.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most of the tuneable parameters apply to the VTOL operation of QuadPlanes. Only <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a> values in the 50-57 range are for fixed wing operation.</p>
+</div>
+<p>Use your ground stations parameter interface to see see the full list
+of tunable parameters and parameter sets available for <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a>. For
+Plane most of the parameters are associated with tuning the
+QuadPlane VTOL motors as those are the most difficult to tune. You can
+also tune some fixed wing parameters, although most people find the
+automatic tuning with AUTOTUNE mode is the best option for fixed wing
+flight.</p>
+<p>If you want to tune a set of parameters (by choosing a <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a> value
+over 100) you must have a selector switch configured with the
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-selector" title="(in Plane)"><span class="xref std std-ref">TUNE_SELECTOR</span></a> parameter.</p>
+</section>
+<section id="using-the-tuning-knob">
+<h1>Using the tuning knob<a class="headerlink" href="#using-the-tuning-knob" title="Permalink to this heading">¶</a></h1>
+<p>The basic operation of the tuning knob is very simple. If the tuning
+knob is at the bottom of its range then the parameter being tuned is
+set to the initial value divided by the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-range" title="(in Plane)"><span class="xref std std-ref">TUNE_RANGE</span></a>. If the tuning knob
+is at the top of its range then the parameter being tuned will be set
+to the initial value multiplied by <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-range" title="(in Plane)"><span class="xref std std-ref">TUNE_RANGE</span></a>.</p>
+<p>So with a default value for <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-range" title="(in Plane)"><span class="xref std std-ref">TUNE_RANGE</span></a> of 2 you will be able to change
+the parameter in a range from half its initial value to 2x the initial
+value. This is a good range for many tuning tasks.</p>
+<section id="activating-the-tuning-knob">
+<h2>Activating the tuning knob<a class="headerlink" href="#activating-the-tuning-knob" title="Permalink to this heading">¶</a></h2>
+<p>When you first start tuning a parameter you will find the tuning knob
+is not yet active. This is because the knob does not activate until it
+passes the “mid-point value”, defined as half way between
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan-min" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan-max" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN_MAX</span></a>. Activating the tuning knob in this
+way ensures that you don’t accidentally take off with a large change
+in tuning value. You are guaranteed to start the tune with a value
+very close to your current value for the parameter.</p>
+<p>When the tuning knob activates by reaching the mid-point the buzzer on
+the flight board will give a quick “bup-bip” sound to indicate that
+tuning has been activated.</p>
+</section>
+<section id="re-centering-the-tuning-knob">
+<h2>Re-centering the tuning knob<a class="headerlink" href="#re-centering-the-tuning-knob" title="Permalink to this heading">¶</a></h2>
+<p>It is quite common to find that the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-range" title="(in Plane)"><span class="xref std std-ref">TUNE_RANGE</span></a> is not wide enough to
+move the tuning value to the ideal point for your vehicle. For
+example, you may have started the tune with a P gain for some axis of
+0.7, and when you move the tuning knob up all the way the vehicle
+still hasn’t started oscillating. In that case the tuning value will
+have reached 1.4 and you need some more range.</p>
+<p>To get more range you can use the selector switch to re-center the
+tuning knob around the current value. Toggle the selector switch
+briefly high then low and the center-value will change to whatever the
+tubing knob is set to. When you re-center the tuning knob will
+de-activate again until you move it to the mid-point position. This
+prevents you from getting a jump in the tuning value when you re-center.</p>
+</section>
+</section>
+<section id="tuning-multiple-parameters">
+<h1>Tuning multiple parameters<a class="headerlink" href="#tuning-multiple-parameters" title="Permalink to this heading">¶</a></h1>
+<p>You can tune multiple parameters in one flight by setting <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a> to
+one of the “tuning set” parameters. For example, if you set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a>
+to 101 then you will have 4 different stages to your tune:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Roll:</span> <span class="pre">Rate</span> <span class="pre">D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Roll:</span> <span class="pre">Rate</span> <span class="pre">P</span> <span class="pre">and</span> <span class="pre">Rate</span> <span class="pre">I</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pitch:</span> <span class="pre">Rate</span> <span class="pre">D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pitch:</span> <span class="pre">Rate</span> <span class="pre">P</span> <span class="pre">and</span> <span class="pre">Rate</span> <span class="pre">I</span></code></p></li>
+</ul>
+<p>notice that <code class="docutils literal notranslate"><span class="pre">Roll:</span> <span class="pre">Rate</span> <span class="pre">P</span> <span class="pre">and</span> <span class="pre">Rate</span> <span class="pre">I</span></code> is actually two parameters in one, controlling
+both the P gain and the I gain for roll. This follows the normal
+advice for MultiCopters that you should keep the P and I values equal
+when doing a manual tune.</p>
+<p>When you choose a tuning set with <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a> then you will initially be
+tuning the first parameter in the set. Once you have adjusted that
+parameter as much as you need to you can move to the next parameter in
+the set by holding the selector switch for more than 2 seconds. It is
+suggested that you count to 3 to ensure you are over 2 seconds.</p>
+<p>Holding the selector switch for more than 2 seconds will switch you to
+the next parameter and will also change the tuning knob back to its
+“wait for mid-point” state on the new parameter. The buzzer on the
+board will give a loud BEEP sequence to indicate which parameter in
+the set you have changed to. For the first parameter in the set, you
+will get one loud BEEP. For the second parameter, you will get two loud
+BEEPs and so on.</p>
+<p>When you have cycled through all of the parameters in the tuning set
+you have chosen it will wrap back around to the first parameter in the
+set.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a></p></td>
+<td rowspan="2"><p>Set Name</p></td>
+<td rowspan="2"><p>Params Tuned</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="3"><p>101</p></td>
+<td rowspan="3"><p>Set_RateRollPitch</p></td>
+<td rowspan="3"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_D</span></a>/<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_P</span></a> &amp; <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-i" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_I</span></a>/
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_D</span></a>/<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_P</span></a> &amp; <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-i" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_I</span></a></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>102</p></td>
+<td rowspan="2"><p>Set_RateRoll</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_D</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_P</span></a> &amp; <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-i" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_I</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>103</p></td>
+<td rowspan="2"><p>Set_RatePitch</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_D</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_P</span></a> &amp; <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-i" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_I</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>104</p></td>
+<td rowspan="2"><p>Set_RateYaw</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-yaw-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_YAW_P</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-yaw-i" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_YAW_I</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-yaw-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_YAW_D</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>105</p></td>
+<td rowspan="2"><p>Set_AngleRollPitch</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-ang-rll-p" title="(in Plane)"><span class="xref std std-ref">Q_A_ANG_RLL_P</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-ang-pit-p" title="(in Plane)"><span class="xref std std-ref">Q_A_ANG_PIT_P</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>106</p></td>
+<td rowspan="2"><p>Set_VelXY</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-p-velxy-p" title="(in Plane)"><span class="xref std std-ref">Q_P_VELXY_P</span></a>  / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-p-velxy-i" title="(in Plane)"><span class="xref std std-ref">Q_P_VELXY_I</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>107</p></td>
+<td rowspan="2"><p>Set_AccelZ</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-p-accz-p" title="(in Plane)"><span class="xref std std-ref">Q_P_ACCZ_P</span></a> /  <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-p-accz-i" title="(in Plane)"><span class="xref std std-ref">Q_P_ACCZ_I</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-p-accz-d" title="(in Plane)"><span class="xref std std-ref">Q_P_ACCZ_D</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>108</p></td>
+<td rowspan="2"><p>Set_RatePitchDP</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_D</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-pit-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_PIT_P</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>109</p></td>
+<td rowspan="2"><p>Set_RateRollDP</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_D</span></a> / <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-rll-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_RLL_P</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>110</p></td>
+<td rowspan="2"><p>Set_RateYawDP</p></td>
+<td rowspan="2"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-yaw-d" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_YAW_D</span></a> /  <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-a-rat-yaw-p" title="(in Plane)"><span class="xref std std-ref">Q_A_RAT_YAW_P</span></a></p></td>
+</tr>
+<tr class="row-odd"></tr>
+</tbody>
+</table>
+</section>
+<section id="saving-the-tuning-results">
+<h1>Saving the tuning results<a class="headerlink" href="#saving-the-tuning-results" title="Permalink to this heading">¶</a></h1>
+<p>When you are happy with the tune you can save the result by holding
+the selector switch for more than 5 seconds. After 5 seconds the board
+will make a rapid bup-bip-bup-bip sound to indicate that the save is
+complete. If you leave the selector switch in the high position then
+tuning will remain disabled after the save.</p>
+</section>
+<section id="reverting-the-tune">
+<h1>Reverting the tune<a class="headerlink" href="#reverting-the-tune" title="Permalink to this heading">¶</a></h1>
+<p>If you are not happy with your tuning results or the vehicle becomes
+unstable you should change flight mode. Any change of flight mode will
+immediately revert all of the parameters you are tuning to the last
+saved value. However, you can prevent this reversion upon flight mode change by setting
+the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-mode-revert" title="(in Plane)"><span class="xref std std-ref">TUNE_MODE_REVERT</span></a> parameter to 0.</p>
+</section>
+<section id="the-tuning-process">
+<h1>The tuning process<a class="headerlink" href="#the-tuning-process" title="Permalink to this heading">¶</a></h1>
+<p>The tuning system is designed to make it easy to quickly get a
+reasonable manual tune on a vehicle in one flight. The most common use
+for this type of tuning will be in adjusting the rate roll and pitch
+PID gains. The tuning procedure outlined below is for that particular
+case.</p>
+<section id="setting-up">
+<h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this heading">¶</a></h2>
+<p>To setup for tuning your rate PIDs you should set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-chan" title="(in Plane)"><span class="xref std std-ref">TUNE_CHAN</span></a> to your
+tuning channel, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-selector" title="(in Plane)"><span class="xref std std-ref">TUNE_SELECTOR</span></a> to your selector switch and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-param" title="(in Plane)"><span class="xref std std-ref">TUNE_PARAM</span></a>
+to 101 (which is the “rate roll and pitch PIDs tuning set”).</p>
+<p>Then takeoff and switch the vehicle to a comfortable flight mode for
+rate tuning. For a QuadPlane
+QHOVER or QLOITER are the best choices.</p>
+<p>The first parameter you will be tuning will be RateRollD. To tune that
+parameter (and the other parameters in the rate roll/pitch set) you
+should follow this process:</p>
+<ul class="simple">
+<li><p>move the tuning knob to the mid-point to activate the knob. You will
+hear a rapid bup-bip from the board to indicate the tuning knob is
+activated.</p></li>
+<li><p>start raising the tuning knob slowly, stopping immediately if the
+vehicle starts to oscillate. While you raise the gain you should
+give some small roll inputs on the sticks.</p></li>
+<li><p>if you get to the top of the tuning knob range and the vehicle has
+not yet started to oscillate then use the selector switch to
+re-center the range, then move the tuning knob to the mid-point to
+reactivate the tuning knob</p></li>
+<li><p>as soon as you see oscillation you should immediately lower the
+tuning knob to the point where the oscillation just stops</p></li>
+<li><p>once the oscillation stops then re-center the tuning knob using the
+selector switch, then move it to the mid-point to activate it, and
+then lower the tuning knob all the way down. That will move the
+tuning value to half of the value that just stopped the
+oscillation (assuming a <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tune-range" title="(in Plane)"><span class="xref std std-ref">TUNE_RANGE</span></a> of 2). Moving to half of that value will give you enough
+margin in your tune to ensure your vehicle can handle a wide range
+of flight conditions.</p></li>
+</ul>
+<p>Once you have completed the above process for the first parameter then
+you can move to the 2nd parameter by holding the selector switch for a
+count of 3. You will hear a BEEP BEEP sound from the vehicle
+indicating that you have moved to parameter 2, which is the RateRollPI
+parameters. You should then repeat exactly the same tuning process
+with that parameter.</p>
+<p>Keep tuning each parameter in turn using the above process until you
+are happy with all of them and then save your new tuning parameters by
+holding the selector switch for more than five seconds. You will know
+the 5 seconds is up when you hear the distinctive rapid
+bup-bip-bup-bip sound from the buzzer.</p>
+<p>At that point, you can land the vehicle, or just enjoy flying it.</p>
+<p>The first time you do a full tune in this way it will probably take
+about five minutes of flight time to do a tune. With some practice, you
+can do a full tune in a bit over a minute.</p>
+<p>[/site]
+[site wiki=”copter”]</p>
+<p>With transmitter based tuning you can tune single or multiple parameters in flight using Channel 6 of the transmitter.</p>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune" title="(in Copter)"><span class="xref std std-ref">TUNE</span></a> parameter determines which parameter is being tuned.</p>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune-max" title="(in Copter)"><span class="xref std std-ref">TUNE_MAX</span></a> parameter determines the maximum value of the parameter when the channel is at <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc6-max" title="(in Rover)"><span class="xref std std-ref">RC6_MAX</span></a>, while the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune-min" title="(in Copter)"><span class="xref std std-ref">TUNE_MIN</span></a> parameter determines the value when RC channel 6 is at <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc6-min" title="(in Rover)"><span class="xref std std-ref">RC6_MIN</span></a>.</p>
+</section>
+</section>
+<section id="tune-values">
+<h1><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune" title="(in Copter)"><span class="xref std std-ref">TUNE</span></a> Values<a class="headerlink" href="#tune-values" title="Permalink to this heading">¶</a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parameter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>None</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Stab Roll/Pitch kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-rll-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_RLL_P</span></a>,
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-pit-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_PIT_P</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Rate Roll/Pitch kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_P</span></a>,
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Rate Roll/Pitch kI</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_I</span></a>,
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_I</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Rate Roll/Pitch kD</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a>,
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Stab Yaw kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-yaw-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_YAW_P</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Rate Yaw kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Rate Yaw kD</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_D</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>56</p></td>
+<td><p>Rate Yaw Filter</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-flte-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FLTE</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>55</p></td>
+<td><p>Motor Yaw Headroom</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-yaw-headroom" title="(in Copter)"><span class="xref std std-ref">MOT_YAW_HEADROOM</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>AltHold kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-posz-p" title="(in Copter)"><span class="xref std std-ref">PSC_POSZ_P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Throttle Rate kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-velz-p" title="(in Copter)"><span class="xref std std-ref">PSC_VELZ_P</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>34</p></td>
+<td><p>Throttle Accel kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-accz-p" title="(in Copter)"><span class="xref std std-ref">PSC_ACCZ_P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>Throttle Accel kI</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-accz-i" title="(in Copter)"><span class="xref std std-ref">PSC_ACCZ_I</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>36</p></td>
+<td><p>Throttle Accel kD</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-accz-d" title="(in Copter)"><span class="xref std std-ref">PSC_ACCZ_D</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Loiter Pos kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-posxy-p" title="(in Copter)"><span class="xref std std-ref">PSC_POSXY_P</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>Velocity XY kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-velxy-p" title="(in Copter)"><span class="xref std std-ref">PSC_VELXY_P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Velocity XY kI</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-velxy-i" title="(in Copter)"><span class="xref std std-ref">PSC_VELXY_I</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>WP Speed</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wpnav-speed" title="(in Copter)"><span class="xref std std-ref">WPNAV_SPEED</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>Acro RollPitch kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>Acro Yaw kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>45</p></td>
+<td><p>RC Feel</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Heli Ext Gyro</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-gyr-gain" title="(in Copter)"><span class="xref std std-ref">H_GYR_GAIN</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>Declination</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-dec" title="(in Rover)"><span class="xref std std-ref">COMPASS_DEC</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>39</p></td>
+<td><p>Circle Rate</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#circle-rate" title="(in Copter)"><span class="xref std std-ref">CIRCLE_RATE</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>46</p></td>
+<td><p>Rate Pitch kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_P</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>47</p></td>
+<td><p>Rate Pitch kI</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_I</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>Rate Pitch kD</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>Rate Roll kP</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_P</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>Rate Roll kI</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_I</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>Rate Roll kD</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>Rate Pitch FF</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FF</span></a> **</p></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>Rate Roll FF</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FF</span></a> **</p></td>
+</tr>
+<tr class="row-odd"><td><p>54</p></td>
+<td><p>Rate Yaw FF</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FF</span></a> **</p></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>Winch</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#winch-rate-max" title="(in Copter)"><span class="xref std std-ref">WINCH_RATE_MAX</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>58</p></td>
+<td><p>SysID Magnitude</p></td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#sid-magnitude" title="(in Copter)"><span class="xref std std-ref">SIDS_MAGNITUDE</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>59</p></td>
+<td><dl class="simple">
+<dt>Position Control Max</dt><dd><p>Lean Angle</p>
+</dd>
+</dl>
+</td>
+<td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-angle-max" title="(in Copter)"><span class="xref std std-ref">PSC_ANGLE_MAX</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>** Traditional Heli Only</p>
+<p>These values can be either set manually or using Mission Planner</p>
+</section>
+<section id="setting-with-mission-planner">
+<h1>Setting with Mission Planner<a class="headerlink" href="#setting-with-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>Rate Roll P and Rate Pitch P will be used in the following example procedure</p>
+<a class="reference external image-reference" href="../_images/RollPitchTuning.png"><img alt="../_images/RollPitchTuning.png" src="../_images/RollPitchTuning.png" /></a>
+<ol class="arabic simple">
+<li><p>Connect your autopilot to Mission Planner</p></li>
+<li><p>On Mission Planner, select CONFIG&gt;&gt;Extended Tuning</p></li>
+<li><p>Set the TUNE drop down box option to “Rate Roll/Pitch kP”</p></li>
+<li><p>Set Min to 0.08, Max to 0.20 (most copters ideal gain is within this
+range although from a small number of copter the Max can be as high
+as 0.25)</p></li>
+<li><p>Push the “Write Params” button</p></li>
+<li><p>Turn your transmitter’s CH6 tuning knob to the minimum position,
+press the “Refresh Params” button and ensure that the Rate Roll P and
+Rate Pitch P values become 0.08 (or something very close)</p></li>
+<li><p>Turn the CH6 knob to its maximum position, press “Refresh Params”
+and ensure the Rate Roll P moves to 0.20</p></li>
+<li><p>Move the CH6 knob back to the middle</p></li>
+<li><p>Arm and fly your copter in Stabilize mode adjusting the ch6 knob
+until you get a copter that is responsive but not wobbly</p></li>
+<li><p>After the flight, disconnect your LiPo battery and reconnect the autopilot to the mission planner</p></li>
+<li><p>With the CH6 knob in the position that gave the best performance,
+return to the Copter Pids screen and push the “Refresh Params” button</p></li>
+<li><p>In the Rate Roll P and Rate Pitch P fields re-type the value that you
+see but just slightly modified so that the mission planner recognizes
+that it’s changed and resends to the autopilot (Note: if you re-type
+exactly the same number as what appears in Rate Roll P it won’t be
+updated).  So for example, if the Rate Roll P appears as “0.1213” make
+it “0.1200”</p></li>
+<li><p>Set Ch6 Opt back to “None” and push “Write Params”</p></li>
+<li><p>Push the Disconnect button on the top right, and the Connect</p></li>
+<li><p>Ensure that the Rate Roll P value is the value that you retyped in
+step #12</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While you are moving the tuning knob the values update at 3 times per second.  The need to press the Refresh button in the mission planner in steps #6 and #7 above is just because the Copter is not sending the updates to the mission planner in real-time.</p>
+</div>
+<p>[/site]</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

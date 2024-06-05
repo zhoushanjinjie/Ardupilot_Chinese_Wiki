@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARCHIVED: Analog Sonar (AC3.1) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ARCHIVED: Analog Sonar (AC3.1)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-analog-sonar-ac3-1">
+<span id="sonar"></span><h1>ARCHIVED: Analog Sonar (AC3.1)<a class="headerlink" href="#archived-analog-sonar-ac3-1" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this document superceded by <a class="reference internal" href="common-rangefinder-maxbotix-analog.html#common-rangefinder-maxbotix-analog"><span class="std std-ref">Maxbotix Analog Sonar</span></a></p>
+</div>
+<p>Copter supports the MaxSonar line of sonar sensors for “Terrain
+Following” while in Loiter or Alt Hold modes.  In these modes, the
+copter will attempt to maintain a constant distance from the ground.
+The sonar is also used during
+<a class="reference internal" href="land-mode.html#land-mode"><span class="std std-ref">LAND</span></a> mode.  The copter
+will slow its descent to 50cm/s (configurable with LAND_SPEED
+parameter) when the sonar detects something below the vehicle.</p>
+<a class="reference external image-reference" href="../_images/XLMaxsonarEZ4.jpg"><img alt="../_images/XLMaxsonarEZ4.jpg" src="../_images/XLMaxsonarEZ4.jpg" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>RNGFND_MAX_CM must be set to a tested, appropriate value.  If RNGFND_MAX_CM is set to a value
+greater than the range of the sensor, the autopilot will not respond correctly to the
+data provided.</p>
+</div>
+<section id="supported-sonars">
+<h2>Supported Sonars<a class="headerlink" href="#supported-sonars" title="Permalink to this heading">¶</a></h2>
+<p>The Maxbotix recommended Sonar for Multicopter use is the <a class="reference external" href="https://www.maxbotix.com/Ultrasonic_Sensors/MB1240.htm">MaxBotix XL-EZ4</a>
+(aka MB1240) which has a 7.65m max range and a narrow beam which helps
+reduce the chance of interference from other sources of sound at the same frequency.</p>
+<p>It is definitely worth reading the <a class="reference external" href="https://www.maxbotix.com/articles/ultrasonic-sensors-pixhawk-ardupilot.htm">Interfacing an Ultrasonic Sensor with a Pixhawk or ArduPilot Mega</a> article by Maxbotix.</p>
+<p>These other sonar are also supported:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.maxbotix.com/Ultrasonic_Sensors/MB1260.htm">XL-EZL0</a>
+(10.68m max range but lower resolution, also XLL)</p></li>
+<li><p><a class="reference external" href="https://www.sparkfun.com/products/11309">HRLV-EZ4</a> (5m max range
+but higher resolution, also HRLV-EZ0)</p></li>
+<li><p><a class="reference external" href="https://www.maxbotix.com/Ultrasonic_Sensors/MB1040.htm">LV-EZ4</a>
+(6.45m max range, cheaper but less resistant to noise, also LV_EZ0)</p></li>
+</ul>
+<p>We do not yet support I2C based MaxBotix sonars.</p>
+</section>
+<section id="building-a-cable-to-reduce-sonar-noise">
+<h2>Building a cable to reduce sonar noise<a class="headerlink" href="#building-a-cable-to-reduce-sonar-noise" title="Permalink to this heading">¶</a></h2>
+<p>As described in <a class="reference external" href="https://www.maxbotix.com/articles/maxsonar-troubleshooting.htm">this Maxbotix article</a>,
+you will need to make a special cable which requires:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sparkfun.com/products/96">100uF capacitor</a></p></li>
+<li><p><a class="reference external" href="https://www.sparkfun.com/products/10969">10ohm resistor</a></p></li>
+<li><p>3-wire shielded cable</p></li>
+<li><p><a class="reference external" href="https://www.pololu.com/product/1901">0.1” crimp connector housing</a> and <a class="reference external" href="https://www.pololu.com/product/1930">crimp pins</a></p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Rba1ZdL0vyE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="connecting-the-sonar-sensor-on-apm-2-x">
+<h2>Connecting the Sonar Sensor on APM 2.x<a class="headerlink" href="#connecting-the-sonar-sensor-on-apm-2-x" title="Permalink to this heading">¶</a></h2>
+<p>The sensor’s GND, V+ and “AN” or “3” pins should be connected to APM 2’s
+A0 pins as shown in the diagram below:</p>
+<a class="reference external image-reference" href="../_images/APM2_Sonar.jpg"><img alt="../_images/APM2_Sonar.jpg" src="../_images/APM2_Sonar.jpg" /></a>
+</section>
+<section id="connecting-the-sonar-sensor-on-px4fmu">
+<h2>Connecting the Sonar Sensor on PX4FMU<a class="headerlink" href="#connecting-the-sonar-sensor-on-px4fmu" title="Permalink to this heading">¶</a></h2>
+<p>You will need to assign the Sonar (signal line) to an appropriate PX4
+pin in Mission Planner - Configuration - Advanced Params - Adv Parameter
+List using the SONAR_PIN parameter.  The following PX4 “Pins” are available for SONAR use.</p>
+<p>SONAR_PIN = 11 - (recommended)</p>
+<p>The “airspeed” pin. Located on a 3 pin DF13 connector on the PX4IO board, but directly visible to the ADC on the PX4FMU.
+This pin can take voltages up to 6.6V (it has an internal voltage divider).</p>
+<p>SONAR_PIN = 12</p>
+<p>A general analog input pin. Located on pin 3 of the “FMUSPI” port on
+the PX4IO board, this pin is directly visible to the PX4FMU analog
+input code. This can take voltages up to 3.3V.</p>
+<p>SONAR_PIN = 13</p>
+<p>A general analog input pin. Located on pin 4 of the “FMUSPI” port on
+the PX4IO board, this pin is directly visible to the PX4FMU analog
+input code. This can take voltages up to 3.3V.  It is being worked on
+and will be included in this section when it is available.</p>
+</section>
+<section id="mounting-the-sonar-sensor">
+<h2>Mounting the Sonar Sensor<a class="headerlink" href="#mounting-the-sonar-sensor" title="Permalink to this heading">¶</a></h2>
+<p>It’s important that the sonar sensor be mounted at least three inches (10cm) away from sources of electrical noise including the ESCs and other interference.</p>
+</section>
+<section id="enabling-the-sonar-through-mission-planner">
+<h2>Enabling the Sonar through Mission Planner<a class="headerlink" href="#enabling-the-sonar-through-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>Enable the sonar by connecting your APM/PX4 to the Mission Planner and then:</p>
+<ul class="simple">
+<li><p>Go to Initial Setup &gt; Optional Hardware &gt; Sonar</p></li>
+<li><p>Check the “Enable” checkbox</p></li>
+<li><p>Select the sonar model from the drop down list</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Sonar_Setup.png"><img alt="../_images/Sonar_Setup.png" src="../_images/Sonar_Setup.png" /></a>
+</section>
+<section id="testing-the-sonar">
+<h2>Testing the sonar<a class="headerlink" href="#testing-the-sonar" title="Permalink to this heading">¶</a></h2>
+<p>You can test the sonar basically works by connecting your APM/PX4 to the
+mission planner and then:</p>
+<ul class="simple">
+<li><p>Go to the Terminal window and press “Connect to APM” or “Connect to PX4”</p></li>
+<li><p>when the prompt appears type <em>test</em></p></li>
+<li><p>type <em>sonar</em></p></li>
+</ul>
+<p>The current distanced sensed by the sonar should be displayed.  Aim the
+sonar at targets of different distances (i.e. ceiling, wall, etc) and
+ensure the numbers change.  If they do not then there may be a hardware
+issue with the sonar or cabling.</p>
+<p>You should also hear the sonar clicking very rapidly (10hz) whenever
+power is applied if you do not hear this then it’s possible that the
+sonar is defective or is not being powered for some reason.</p>
+</section>
+<section id="tuning-the-gain">
+<h2>Tuning the gain<a class="headerlink" href="#tuning-the-gain" title="Permalink to this heading">¶</a></h2>
+<p>If when flying you find that your copter bobs up and down it is possible
+that the default SONAR_GAIN is too high for your copter.  Go to the
+mission planner’s Config/Tuning &gt; Full Parameter List and reduce the
+SONAR_GAIN parameter from its default of 0.2 to 0.1 or even 0.05 and
+press “Write Params”.</p>
+</section>
+<section id="sonar-maximum-altitude">
+<h2>Sonar Maximum Altitude<a class="headerlink" href="#sonar-maximum-altitude" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>When enabled Sonar is used as the means of determining altitude
+below Sonar Maximum Altitude, above that the barometer is used.</p></li>
+<li><p>Sonar Maximum Altitude is calculated as 60 percent of the factory
+specified maximum Sonar range for the Sonar type selected.</p></li>
+<li><p>Sonar is used for determining altitude only when the Sonar itself is
+detecting the ground and is below its Sonar Maximum Altitude.</p>
+<ul>
+<li><p>XL-EZ4 or XL-EZ0 have a Maximum range of 7.65 meters and a Sonar
+Maximum Altitude of 4.59 meters.</p></li>
+<li><p>XL-EZLO have a Maximum range of 10.68 meters and a Sonar Maximum
+Altitude = 6.4 meters.</p></li>
+<li><p>HRLV-EZ4 or HRLV-EZ0 with Maximum range of 5 meters and a Sonar
+Maximum Altitude of 3 meters.</p></li>
+<li><p>LV-EZ4 or LV-EZ0 have a Maximum range of 6.45 meters and a Sonar
+Maximum Altitude = 3.87 meters.</p></li>
+</ul>
+</li>
+<li><p>If the Sonar gets an unreliable return below the Sonar Maximum
+Altitude, it is ignored and the Barometer altitude is used.</p></li>
+</ul>
+</section>
+<section id="cold-weather-performance">
+<h2>Cold weather performance<a class="headerlink" href="#cold-weather-performance" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="common-rangefinder-maxbotix-analog.html#common-rangefinder-maxbotix-analog"><span class="std std-ref">MaxBotix</span></a>
+XL-EZ0 sonar (and other variations of their indoor sonar) may not
+function for about 10 minutes after an extreme drop in temperature (i.e.
+a drop from a warm 27C/80F house to the chilly 10C/50F outdoors) because
+of condensation building up on the sensor.</p>
+<p><a class="reference external" href="https://diydrones.com/forum/topics/arducopter-2-0-48?xg_source=activity&amp;id=705844%3ATopic%3A676942&amp;page=31#comments">This post</a> includes
+one member’s (<a class="reference external" href="https://www.diydrones.com/forum/topic/listForContributor?user=3a28calx54gma">Geir Engebakken</a>)
+solution (initially suggested by the developer Olivier ADLER) involving
+attaching 4x10Ohm resistors to the base of the sonar powered from a 5V
+source.</p>
+</section>
+<section id="other-potential-causes-of-sonar-noise">
+<h2>Other Potential Causes of Sonar Noise<a class="headerlink" href="#other-potential-causes-of-sonar-noise" title="Permalink to this heading">¶</a></h2>
+<p>If you are having problems with excessive noise on your sonar as shown
+in the dataflash log below (sonar is in red, baro is in green)</p>
+<a class="reference external image-reference" href="../_images/Sonar_Spikes.png"><img alt="../_images/Sonar_Spikes.png" src="../_images/Sonar_Spikes.png" /></a>
+<p>There are a number of possible causes which should be investigated:</p>
+<p>Sonar is susceptible to “noise” from a variety of sources and several
+“fixes” may be required to achieve adequate performance.</p>
+<ul class="simple">
+<li><p>Electrical noise caused by ESCs, Servos, or switching BEC’s on the
+same circuit as the Sonar.</p>
+<ul>
+<li><p>The RC filter and use of shielded cable as described above are
+usually sufficient.</p></li>
+</ul>
+</li>
+<li><p>EMF radiation from motors, motor wires, ESC’s or Xbee.</p>
+<ul>
+<li><p>Sonar is especially susceptible to AC EMF noise generated by the
+ESCs and ESC to motor wiring.</p></li>
+<li><p>This can be greatly reduced by wrapping the nearby ESCs and their
+motor wiring in aluminum (gutter) tape.</p></li>
+</ul>
+</li>
+<li><p>Acoustic noise from propellers, prop wash and turbulence.</p>
+<ul>
+<li><p>It is very important to keep the Sonar out of direct prop wash or
+turbulence.</p></li>
+<li><p>Balancing propellers (and motors) can help.</p></li>
+<li><p>Mounting the sonar sensor inside a small can or tube thinly lined
+with foam can greatly reduce unwanted exterior acoustic noise.</p></li>
+<li><p>Wrap Sonar module board and components in rubber or foam tape to
+reduce transferred acoustic noise.</p></li>
+</ul>
+</li>
+<li><p>Vibration from motors, props, etc.</p>
+<ul>
+<li><p>Sonar is very subject to frame transmitted vibration.</p></li>
+<li><p>Mounting the Sonar module on double sided foam or Gel tape will
+pretty much eliminate this noise source.</p></li>
+</ul>
+</li>
+<li><p>The MB 1240 series is the only Sonar considered suitable for
+multicopter use by the manufacturer - Maxbotix.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please read this tutorial for a comprehensive review: <a class="reference external" href="https://www.maxbotix.com/articles/ultrasonic-sensors-pixhawk-ardupilot.htm">Interfacing an Ultrasonic Sensor with a Pixhawk or ArduPilot Mega</a>.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

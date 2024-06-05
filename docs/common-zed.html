@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZED stereo camera for Non-GPS Navigation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ZED stereo camera for Non-GPS Navigation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-zed">ARCHIVED</p>
+<section id="zed-stereo-camera-for-non-gps-navigation">
+<h1>ZED stereo camera for Non-GPS Navigation<a class="headerlink" href="#zed-stereo-camera-for-non-gps-navigation" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,rover”]</p>
+<p>This article explains how a <a class="reference external" href="https://www.stereolabs.com">ZED stereo camera</a> can be used with <a class="reference external" href="https://github.com/yankailab/OpenKAI">OpenKai</a> as a substitute for a GPS allowing position control modes like Loiter, PosHold, RTL, Auto.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ze3zs9Bhm98" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="required-hardware">
+<h2>Required Hardware<a class="headerlink" href="#required-hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://store.stereolabs.com/products/zed">Stereo Labs ZED camera</a></p></li>
+<li><p><a class="reference external" href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems-dev-kits-modules/">NVidia TX1</a></p></li>
+<li><p><a class="reference external" href="https://auvidea.com/j120/">Auvidea J120 carrier board</a></p></li>
+</ul>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>connect the autopilot and TX1 as shown on the <a class="reference external" href="https://ardupilot.org/dev/docs/companion-computer-nvidia-tx1.html">NVidia TX1 as a Companion Computer</a> wiki page</p></li>
+<li><p>flash the TX1 as described in the <a class="reference external" href="https://ardupilot.org/dev/docs/companion-computer-nvidia-tx1.html#setup-the-tx1">Setup the TX1</a> section of the above wiki page but use the apsync-tx1-openkai image from <a class="reference external" href="https://firmware.ardupilot.org/Companion/apsync/beta/">firmware.ardupilot.org</a></p></li>
+<li><p>mount the ZED camera upside-down and using vibration dampeners to the front of the vehicle.
+It can be mounted right-side-up after <a class="reference external" href="https://ardupilot.org/dev/docs/apsync-intro.html#connecting-with-ssh">connecting with ssh</a> and then modify <a class="reference external" href="https://github.com/yankailab/OpenKAI/blob/master/kiss/apmCopter.kiss#L60">~/src/OpenKAI/kiss/apmCopter.kiss</a> so “bFlip” is <cite>1</cite>.</p></li>
+<li><p>in order to download the ZED camera’s calibration parameters from stereolabs.com, connect the TX1 to the Internet with an Ethernet cable during powerup (this procedure is only required once)</p></li>
+<li><p>disable APSync’s video streaming (so that OpenKai can use the camera) by connecting your computer to APSync’s access point (<code class="docutils literal notranslate"><span class="pre">ssid=ardupilot</span></code>, pw=ardupilot), then open a browser to <code class="docutils literal notranslate"><span class="pre">http://10.0.1.128:8000</span></code> and click the red <strong>Disable Auto Streaming</strong> button (button should turn green) and reboot the TX1.</p></li>
+</ul>
+<img alt="../_images/apsync-disable-auto-stream.png" src="../_images/apsync-disable-auto-stream.png" />
+<a class="reference external image-reference" href="../_images/zed-enrouteex700.jpg"><img alt="../_images/zed-enrouteex700.jpg" src="../_images/zed-enrouteex700.jpg" /></a>
+</section>
+<section id="configuration-through-the-ground-station">
+<h2>Configuration through the Ground Station<a class="headerlink" href="#configuration-through-the-ground-station" title="Permalink to this heading">¶</a></h2>
+<p>Example setup below shown for first proximity sensor:</p>
+<ul class="simple">
+<li><p>enable communication between the TX1 and autopilot using the <a class="reference external" href="https://ardupilot.org/dev/docs/companion-computer-nvidia-tx1.html#setup-the-pixhawk">Setup the Pixhawk instructions from the tx1 setup wiki page</a></p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> to 3 (means use EKF3)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-enable" title="(in Rover)"><span class="xref std std-ref">EK2_ENABLE</span></a> to 0 (disable EKF2)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-enable" title="(in Rover)"><span class="xref std std-ref">EK3_ENABLE</span></a> to 1 (enable EKF3)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> to 0 (disable the GPS)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-type" title="(in Rover)"><span class="xref std std-ref">VISO_TYPE</span></a> to 1 (enable visual odometry)</p></li>
+<li><p>optionally set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#prx1-type" title="(in Rover)"><span class="xref std std-ref">PRX1_TYPE</span></a> to 2 (enable using ZED’s depth map for object avoidance)</p></li>
+</ul>
+<p>Optionally you may also:</p>
+<ul class="simple">
+<li><p>set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-pos-x" title="(in Rover)"><span class="xref std std-ref">VISO_POS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-pos-y" title="(in Rover)"><span class="xref std std-ref">VISO_POS_Y</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-pos-z" title="(in Rover)"><span class="xref std std-ref">VISO_POS_Z</span></a> to account for the camera’s offset from the IMU or vehicle’s center-of-gravity (<a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">more details here</span></a>)</p></li>
+<li><p>mount the camera in other orientations and change the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-orient" title="(in Rover)"><span class="xref std std-ref">VISO_ORIENT</span></a> parameter.
+Note: if you are using the ZED’s depth sensing you will also need to modify <a class="reference external" href="https://github.com/yankailab/OpenKAI/blob/master/kiss/apmCopter.kiss">OpenKai’s configuration</a>  (not documented)</p></li>
+</ul>
+</section>
+<section id="ground-testing">
+<h2>Ground Testing<a class="headerlink" href="#ground-testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Plug in the vehicle’s LiPo battery so that both the TX1 and autopilot are powered</p></li>
+<li><p>Connect the autopilot to a ground station using a USB cable</p></li>
+<li><p>If you are using Mission Planner as your ground station, once messages are successfully passing from the ZED/TX1 to the autopilot:
+- a proximity viewer should appear showing the distance to objects ahead of the vehicle (if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#prx1-type" title="(in Rover)"><span class="xref std std-ref">PRX1_TYPE</span></a> was enabled above)
+- “Bad Vision Position” message should disappear from the HUD</p></li>
+<li><p>Set the home position from the ground station map (from MP’s Flight Data screen, right-mouse-button-click on the map and select “Set EKF Origin Here”).  The vehicle should appear on the map.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/zed-set-ekf-origin.png"><img alt="../_images/zed-set-ekf-origin.png" src="../_images/zed-set-ekf-origin.png" /></a>
+<ul class="simple">
+<li><p>Pick-up the vehicle and walk it around checking that the vehicle’s position movements are shown on the map</p></li>
+</ul>
+</section>
+<section id="flight-testing">
+<h2>Flight testing<a class="headerlink" href="#flight-testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Setup the vehicle with AltHold and Loiter flight modes</p></li>
+<li><p>Setup an <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">auxiliary switch</span></a> to enable/disable object avoidance and move switch to the off position.  Alternatively set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#prx1-type" title="(in Rover)"><span class="xref std std-ref">PRX1_TYPE</span></a> to 0.  This helps ensure the vehicle will not backaway from objects in AltHold mode which could surprise the pilot.</p></li>
+<li><p>Attempt to arm and take-off in Loiter mode</p></li>
+</ul>
+</section>
+<section id="dataflash-logging">
+<h2>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The ZED’s visual odometry information will appear in the VISO dataflash log messages.</p></li>
+<li><p>Distance to objects ahead of the vehicle will appear in the PRX messages.</p></li>
+<li><p>EKF’s visual odometry information will appear in XKFD messages</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

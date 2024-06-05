@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>电机推力缩放 &mdash; Copter 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Managing Gyro Noise with the Dynamic Harmonic Notch Filters" href="common-imu-notch-filtering.html" />
+    <link rel="prev" title="Surface Tracking" href="terrain-following-manual-modes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">飞行功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">围栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">避障</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">地形跟随（自动、引导等）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">表面跟踪</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">电机推力缩放</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#thrust-curves">推力曲线</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thrust-stands">推力台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-calculation">参数计算</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-imu-notch-filtering.html">陷波滤波</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">移动载具初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">无GPS导航</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">随风向改变方位和风力保持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">飞行功能</a></li>
+      <li class="breadcrumb-item active">电机推力缩放</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="motor-thrust-scaling">
+<span id="id1"></span><h1>电机推力缩放<a class="headerlink" href="#motor-thrust-scaling" title="Permalink to this heading">¶</a></h1>
+<p>Copter包括<em></em>电机推力缩放</em>功能，可补偿大多数ESCs和电机的非线性推力输出。</p>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>默认曲线应适用于几乎所有ESC/电机组合。通常情况下，除非测量了车辆的实际推力曲线，否则不应调整参数。</p>
+</div>
+<section id="thrust-curves">
+<h2>推力曲线<a class="headerlink" href="#thrust-curves" title="Permalink to this heading">¶</a></h2>
+<p>曲线由两个参数控制：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-thst-expo" title="(in Rover)"><span class="xref std std-ref">MOT_THST_EXPO</span></a>控制推力曲线的形状，“0”表示完全线性曲线，“1.0”表示非常弯曲（见下图）。默认值为“0.65”（下图错误地表示默认值为0.5）。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>一些ESC具有内置的线性化曲线，默认的EXPO值“0.65”将导致稳定性问题，需要测量推力台来调整EXPO。通常情况下，会产生“0”到“0.2”的值。</p>
+</div>
+<a class="reference external image-reference" href="../_images/MotThstExpo_graphs2.png"><img alt="../_images/MotThstExpo_graphs2.png" src="../_images/MotThstExpo_graphs2.png" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-max" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MAX</span></a>控制推力在其最大值附近趋于平缓的点。默认情况下，这是0.95，意味着节气门全开的95%。</p></li>
+</ul>
+</section>
+<section id="thrust-stands">
+<h2>推力台<a class="headerlink" href="#thrust-stands" title="Permalink to this heading">¶</a></h2>
+<p>下面列出的推力台可用于测量车辆特定电机、esc和电池的PWM信号与推力输出的关系。测量这些值时，请确保使用ESCs额定输入PWM范围。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer">RCbenchmark.com推力台</a></p></li>
+<li><p><a class="reference external" href="https://hobbyking.com/en_us/turnigy-thrust-stand-and-power-analyser-v3.html">回转推力台</a></p></li>
+</ul>
+</section>
+<section id="parameter-calculation">
+<h2>参数计算<a class="headerlink" href="#parameter-calculation" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1_75aZqiT_K1CdduhUe4-DjRgx3Alun4p8V2pt6vM5P8/edit#gid=0">该电子表格</a>的副本可用于根据上述推力台数据计算适当的值。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="terrain-following-manual-modes.html" class="btn btn-neutral float-left" title="Surface Tracking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="common-imu-notch-filtering.html" class="btn btn-neutral float-right" title="Managing Gyro Noise with the Dynamic Harmonic Notch Filters" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

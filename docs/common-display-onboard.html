@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onboard Display &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Onboard Display</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="onboard-display">
+<span id="common-display-onboard"></span><h1>Onboard Display<a class="headerlink" href="#onboard-display" title="Permalink to this heading">¶</a></h1>
+<p>This article explains how to connect a small onboard display to an autopilot which can be useful for displaying a small amount of vehicle information before takeoff.</p>
+<a class="reference external image-reference" href="../_images/common-display-pixhawk.png"><img alt="../_images/common-display-pixhawk.png" src="../_images/common-display-pixhawk.png" style="width: 300px;" /></a>
+<p>This information includes:</p>
+<ul class="simple">
+<li><p>arming failure messages</p></li>
+<li><p>flight mode</p></li>
+<li><p>battery voltage</p></li>
+<li><p>GPS Lock and satellite count</p></li>
+<li><p>Pre-arm passed/failed</p></li>
+<li><p>EKF status</p></li>
+</ul>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<section id="ssd1306">
+<h3>SSD1306<a class="headerlink" href="#ssd1306" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.com/s?k=ssd1306&amp;ref=nb_sb_noss_1">Amazon</a></p></li>
+<li><p><a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=ssd1306&amp;_sacat=0">Ebay</a></p></li>
+</ul>
+</section>
+<section id="ssh1106">
+<h3>SSH1106<a class="headerlink" href="#ssh1106" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.com/s?k=ssh1106&amp;ref=nb_sb_noss_1">Amazon</a></p></li>
+<li><p><a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=ssh1106&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_odkw=ssd1306&amp;_osacat=0">Ebay</a></p></li>
+</ul>
+</section>
+</section>
+<section id="connecting-to-a-autopilot">
+<h2>Connecting to a Autopilot<a class="headerlink" href="#connecting-to-a-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>Connect the display to the autopilot’s I2C port as shown in the image above</p>
+<p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-display-type" title="(in Rover)"><span class="xref std std-ref">NTF_DISPLAY_TYPE</span></a> to 1 if using an SSD1306, 2 if using the SH1106 and reboot the board.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

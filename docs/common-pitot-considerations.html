@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitot Tube Considerations &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pitot Tube Considerations</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-pitot-considerations">[copywiki destination=”plane”]</p>
+<section id="pitot-tube-considerations">
+<h1>Pitot Tube Considerations<a class="headerlink" href="#pitot-tube-considerations" title="Permalink to this heading">¶</a></h1>
+<p>Airspeed sensor accuracy is very dependent on the placement and construction of the pitot tube and static port. For vehicles that do not operate close to their stall speed, airspeed accuracy is not as critical and pitot/static port configuration and placement are not as critical, but some basic guidlines still need to be followed.</p>
+<section id="pitot-dynamic-pressure-input-static-port">
+<h2>Pitot Dynamic Pressure Input/Static Port<a class="headerlink" href="#pitot-dynamic-pressure-input-static-port" title="Permalink to this heading">¶</a></h2>
+<p>Airspeed sensors work by measuring the differential pressure between a dynamic port facing the vehicle’s relative wind and a static port measuring general prevailing air pressure. Usually, these ports are placed on a single pitot tube.</p>
+<a class="reference external image-reference" href="../_images/pitot.jpg"><img alt="../_images/pitot.jpg" src="../_images/pitot.jpg" /></a>
+<p>The pitot tube should be placed on the vehicle such that:</p>
+<ul class="simple">
+<li><p>The dynamic pressure port and static port do not get turbulence from propellers, or aircraft surfaces (boundary layers of wings, pressure fronts of leading edges, rotors generated by cameras, etc.)</p></li>
+<li><p>The ports should not be positioned as to be affected by angle of attack changes of the vehicle in its normal operating range of speeds. For example, mounting on the top of the aircraft nose on the fuselage will “blanket” the sensor as the angle of attack in flight is increased, leading to inaccurate readings.</p></li>
+</ul>
+<p>The ideal location would be extended well beyond the nose of the aircraft or wing leading edge, as shown below:</p>
+<a class="reference external image-reference" href="../_images/ideal-pitot.jpg"><img alt="../_images/ideal-pitot.jpg" src="../_images/ideal-pitot.jpg" /></a>
+<p>But this does present handling and “trip” hazards that must be tolerated. However, such positioning is very important for vehicles operating near their stall point.</p>
+<p>For sport aircraft which typically fly at speeds well above their stall point (&gt;25-30% speed margin), fuselage placement such as shown below is more practical, with the downside of some (usually acceptable) speed reading variations during tight turns and full power climbs, etc.</p>
+<a class="reference external image-reference" href="../.././_images/nonideal-pitot.jpg"><img alt="../_images/nonideal-pitot.jpg" src="../_images/nonideal-pitot.jpg" /></a>
+<p>This one is located out of propeller wash, away from turbulence causing fuselage features, away from surface boundary layer flow, but is still subject to fuselage blanketing on sliding turns which may cause some inaccuracies, but for this sport plane operating well above its stall point, it is not an issue.</p>
+</section>
+<section id="pitot-clogging">
+<h2>Pitot Clogging<a class="headerlink" href="#pitot-clogging" title="Permalink to this heading">¶</a></h2>
+<p>Many pitot tubes typically supplied with commercial airspeed sensors have dynamic pressure port opening that are very small. In rain, clouds, or dense fog, water droplets can easily clog the port leading to highly inaccurate sensor readings, or AduPilot declaring the sensor has failed. For operations in these environments, be sure to use a pitot tube that has been designed for these conditions.</p>
+</section>
+<section id="cabin-static-port">
+<h2>Cabin Static Port<a class="headerlink" href="#cabin-static-port" title="Permalink to this heading">¶</a></h2>
+<p>Some Ready To Fly vehicles use an internal cabin static port for the airspeed sensor instead of placement on the external pitot tube. These can sometimes provide adequate results, but can easily result in reading inaccuracies if the cabin in which they are located are subject to pressure changes in flight (ie. openings in cabin exposed to direct airflow) or configuration (ie. nose or belly camera removal exposing an opening in the fuselage). Therefore, this configuration is usually not recommended, especially if airspeed sensors are being used during an autolanding.</p>
+<p>The impact of angle of attack on the cabin pressure (and by inference airspeed reading accuracy)can be checked by examining the BARO.Alt vs GPS.Alt log readings at various speeds, since the BARO is measuring altitude based on cabin pressure.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel RealSense T265 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Marvelmind for Non-GPS navigation" href="common-marvelmind.html" />
+    <link rel="prev" title="Non-GPS Navigation" href="common-non-gps-navigation-landing-page.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Intel RealSense T265</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-marvelmind.html">MarvelMind Beacons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-modalai-voxl.html">ModalAI VOXL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-nooploop.html">Nooploop Beacons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+      <li class="breadcrumb-item active">Intel RealSense T265</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intel-realsense-t265">
+<span id="common-vio-tracking-camera"></span><h1>Intel RealSense T265<a class="headerlink" href="#intel-realsense-t265" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,rover,blimp”]</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/HCyTt0xK8CQ" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>This article explains how to setup an <a class="reference external" href="https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html?_ga=2.225595998.511560227.1566178471-459370638.1562639781">Intel Realsense T265</a> for use with ArduPilot as a substitude for a GPS allowing position control modes like Loiter, PosHold, RTL, Auto to work. This method uses a python script running on an RPI companion computer to send position information to ArduPilot without the use of <a class="reference external" href="https://www.ros.org/">ROS</a>.  The <a class="reference external" href="https://ardupilot.org/dev/docs/ros-vio-tracking-camera.html">setup using ROS is here</a>.</p>
+<section id="what-to-buy">
+<h2>What to Buy<a class="headerlink" href="#what-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.intelrealsense.com/tracking-camera-t265/">Intel RealSense Tracking Camera T265</a></p></li>
+<li><p><a class="reference external" href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (2GB or 4GB recommended, 8GB has issues) or <a class="reference external" href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">Raspberry Pi 3</a></p></li>
+<li><p>16GB (or larger) SD card</p></li>
+<li><p><a class="reference external" href="https://www.rpanion.com/product/pi-connect-lite/">PiConnectLite</a> to connect the RPI to the autopilot (optional)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The RPI4 supports USB3 which allows both <strong>pose</strong> + <strong>image</strong> data to be captured from the camera.  The slower RPI3 only has USB2 meaning only <strong>pose</strong> data can be captured although this is sufficient for most users.</p>
+</div>
+</section>
+<section id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/t265-rpi4-pixhawk.png"><img alt="../_images/t265-rpi4-pixhawk.png" src="../_images/t265-rpi4-pixhawk.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>Download the latest APSync Ubuntu image (<a class="reference external" href="https://firmware.ardupilot.org/Companion/apsync/apsync-rpi-ubuntu-t265-latest.img.xz">found here</a>) to your PC and then flash it to the 16GB (or larger) SD card using a tool such as <a class="reference external" href="https://www.balena.io/etcher/">Etcher</a> or <a class="reference external" href="https://sourceforge.net/projects/win32diskimager/">Win32DiskImager</a> and then insert it into the RPI’s SD Card slot</p></li>
+<li><p>Mount the Intel RealSense T265 on the vehicle facing forward (see below for information other orientations) using thick double sided tape or <a class="reference external" href="https://www.dropbox.com/s/e3ias30czsn2q4t/Intel_RealSense_Tracking_Camera_T265_holder.STL?dl=0">David Sastre’s T265 mount</a> to better isolate the camera from vibrations</p></li>
+<li><p>Connect the Intel RealSense T265’s USB cable to one of the RPI4’s blue USB3 ports</p></li>
+<li><p>Connect the PiConnectLite’s power cable to the battery (7V to 30V)</p></li>
+<li><p>Connect the PiConnectLite’s serial cable to one of the autopilot’s telemetry ports (i.e. Telem1, Telem2). The only signals used in this cable are TX, RX and GND. The other signals are NC.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/t265-mount.png"><img alt="../_images/t265-mount.png" src="../_images/t265-mount.png" style="width: 500px;" /></a>
+<p><a class="reference external" href="https://www.dropbox.com/s/e3ias30czsn2q4t/Intel_RealSense_Tracking_Camera_T265_holder.STL?dl=0">David Sastre’s T265 mount</a></p>
+</section>
+<section id="configure-ardupilot">
+<h2>Configure ArduPilot<a class="headerlink" href="#configure-ardupilot" title="Permalink to this heading">¶</a></h2>
+<p>Connect to the autopilot with a ground station (i.e. Mission Planner) and check that the following parameters are set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 2 (MAVLink2).  Note this assumes the RPI4 is connected to AutoPilot “Telem2” port.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 921 (921600 baud)</p></li>
+<li><p>Optionally set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-options" title="(in Rover)"><span class="xref std std-ref">SERIAL2_OPTIONS</span></a> = 1024 (Don’t forward mavlink to/from) to block the RPI4/T265 mavlink messages from reaaching the ground station</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-type" title="(in Rover)"><span class="xref std std-ref">VISO_TYPE</span></a> = 2 (IntelT265)</p></li>
+</ul>
+<p>Next setup the EKF3 to use the ExternalNav for position and velocity:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 6 (ExternalNav)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 6 (ExternalNav)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 1 (Baro which is safer because of the camera’s weakness to high vibrations)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> = 6 (ExternalNav)</p></li>
+<li><p>Optionally set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a>  = 0 to disable the GPS</p></li>
+</ul>
+<p>If you wish to use the camera’s heading:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-use" title="(in Rover)"><span class="xref std std-ref">COMPASS_USE</span></a> = 0, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-use2" title="(in Rover)"><span class="xref std std-ref">COMPASS_USE2</span></a> = 0, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-use3" title="(in Rover)"><span class="xref std std-ref">COMPASS_USE3</span></a> = 0 to disable all compasses</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 6 (ExternalNav)</p></li>
+</ul>
+<p>If you wish to use the autopilot’s compass for heading:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-use" title="(in Rover)"><span class="xref std std-ref">COMPASS_USE</span></a> = 1 (the default)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 1 (Compass)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc7-option" title="(in Rover)"><span class="xref std std-ref">RC7_OPTION</span></a> = 80 (Viso Align) to allow the pilot to re-align the camera’s yaw with the AHRS/EKF yaw before flight with auxiliary switch 7.  Re-aligning yaw before takeoff is a good idea or loss of position control (aka “toilet bowling”) may occur.</p></li>
+</ul>
+<p>After the parameters are modified, reboot the autopilot.  Connect with the ground station and (if using Mission Planner) right-mouse-button-click on the map, select “Set Home Here”, “Set EKF Origin Here” to tell ArduPilot where the vehicle is and it should instantly appear on the map.</p>
+<p>Just before flying, pick up the vehicle to a height of 1m and then put it down again.  This allows the camera to calibrate its vertical scaling.</p>
+<p>If you wish to switch between GPS and T265 see the <a class="reference internal" href="common-non-gps-to-gps.html#common-non-gps-to-gps"><span class="std std-ref">GPS/Non-GPS Transitions</span></a> wiki page</p>
+<section id="system-overview">
+<h3>System Overview<a class="headerlink" href="#system-overview" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/ros-vio-connection.png"><img alt="../_images/ros-vio-connection.png" src="../_images/ros-vio-connection.png" /></a>
+<p>In a nutshell, the 6-DOF pose data (<strong>position</strong> and <strong>orientation</strong>) and <strong>confidence level</strong> obtained from the Realsense T265 will be processed by our python script and send to ArduPilot through MAVLink. Overall, the script will do the following tasks:</p>
+<ul class="simple">
+<li><p>Obtain 6-DOF pose data and tracking confidence level data using relevant APIs from <code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code>, which is the Python wrapper for <code class="docutils literal notranslate"><span class="pre">librealsense</span></code>.</p></li>
+<li><p>Perform necessary matrix transformation to align the frames of the Realsense T265 and NED frame as well as other processing steps.</p></li>
+<li><p>Pack pose data into MAVLink message <a class="reference external" href="https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE">VISION_POSITION_ESTIMATE</a> and confidence level data into a dummy message, then send them to ArduPilot at a predetermined frequency so as to not <cite>flood</cite> the Autopilot with incoming data.</p></li>
+<li><p>Automatically set EKF home for simple setup and flying.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The choice of Python is optional, and you can use any <a class="reference external" href="https://github.com/IntelRealSense/librealsense/tree/master/wrappers#wrappers-for-intel-realsense-technology">other wrappers supported by librealsense</a>.
+ROS users can find the equivalent article <a class="reference external" href="https://ardupilot.org/dev/docs/ros-vio-tracking-camera.html#ros-vio-tracking-camera" title="(in Dev)"><span class="xref std std-ref">here</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the sake of brevity, explanation of the system will be kept short. More in-depth discussion can be found in the following blog posts: <a class="reference external" href="https://discuss.ardupilot.org/t/integration-of-ardupilot-and-vio-tracking-camera-part-4-non-ros-bridge-to-mavlink-in-python/44001">part 4</a>, <a class="reference external" href="https://discuss.ardupilot.org/t/integration-of-ardupilot-and-vio-tracking-camera-part-5-camera-position-offsets-compensation-scale-calibration-and-compass-north-alignment-beta/44984">part 5</a>.</p>
+</div>
+</section>
+</section>
+<section id="install-librealsense-and-pyrealsense2">
+<h2>Install <code class="docutils literal notranslate"><span class="pre">librealsense</span></code> and <code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code><a class="headerlink" href="#install-librealsense-and-pyrealsense2" title="Permalink to this heading">¶</a></h2>
+<p>The Realsense T265 is supported via <a class="reference external" href="https://github.com/IntelRealSense/librealsense">librealsense</a> on Windows and Linux. Installation process varies widely for different systems, hence refer to <a class="reference external" href="https://github.com/IntelRealSense/librealsense">the official github page</a> for instructions for your specific system:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">Ubuntu</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/wrappers/python/readme.md">Jetson</a> (Compiling from source is needed to get the Python wrapper <code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code>)</p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_odroid.md">Odroid</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md">Windows</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_raspbian.md">Raspbian</a></p></li>
+</ul>
+<p>For RPi running Ubuntu, the installation process for <code class="docutils literal notranslate"><span class="pre">librealsense</span></code> has been detailed in <a class="reference external" href="https://ardupilot.org/dev/docs/ros-vio-tracking-camera.html#ros-vio-tracking-camera" title="(in Dev)"><span class="xref std std-ref">this wiki</span></a>. Follow the instructions to install <code class="docutils literal notranslate"><span class="pre">librealsense</span></code> and <code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code>. Since we are <strong>not</strong> using ROS, <code class="docutils literal notranslate"><span class="pre">realsense-ros</span></code> is not required.</p>
+<section id="python-packages-installation">
+<h3>Python Packages Installation<a class="headerlink" href="#python-packages-installation" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Establish serial connection: <a class="reference external" href="https://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html#raspberry-pi-via-mavlink" title="(in Dev)"><span class="xref std std-ref">Connect RPi to ArduPilot with MAVLink</span></a>.</p>
+<ul>
+<li><p>If the connection between RPi-ArduPilot is established via the UART serial port, also <a class="reference external" href="https://discuss.ardupilot.org/t/communicating-with-raspberry-pi-3b/39269/8">change the setting in /boot/config.txt</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://realpython.com/installing-python/#ubuntu">Install Python3</a>.</p>
+<ul>
+<li><p>You should be able to run the examples provided by Intel can be found in the folder <code class="docutils literal notranslate"><span class="pre">~/librealsense/wrappers/python/example</span></code> with Python3 command.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update the PYTHONPATH environment variable to add the path to the pyrealsense2 library</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:/usr/local/lib
+
+<span class="nb">cd</span><span class="w"> </span>~/librealsense/wrappers/python/examples
+
+<span class="c1"># You should see a stream of data coming from the T265.</span>
+python3<span class="w"> </span>t265_example.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linuxize.com/post/how-to-install-pip-on-ubuntu-18.04/#installing-pip-for-python-3">Install pip for Python3 (pip3)</a>.</p></li>
+<li><p>Install Python packages:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install may require sudo, so proceed accordingly</span>
+pip<span class="w"> </span>install<span class="w"> </span>pyrealsense2
+pip3<span class="w"> </span>install<span class="w"> </span>transformations
+pip3<span class="w"> </span>install<span class="w"> </span>dronekit
+pip3<span class="w"> </span>install<span class="w"> </span>apscheduler
+
+<span class="c1"># Install serial packages for serial connection</span>
+sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>pyserial
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Download the script <a class="reference external" href="https://github.com/thien94/vision_to_mavros/blob/master/scripts/t265_to_mavlink.py">t265_to_mavlink.py</a>. In case you have downloaded the <a class="reference external" href="https://github.com/thien94/vision_to_mavros">vision_to_mavros</a> package, it can be found in the script folder.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navigate to the location of the scripts</span>
+<span class="nb">cd</span><span class="w"> </span>~/path/to/the/script/
+
+<span class="c1"># Download the script if you haven’t already:</span>
+wget<span class="w"> </span>https://raw.githubusercontent.com/thien94/vision_to_mavros/master/scripts/t265_to_mavlink.py
+
+chmod<span class="w"> </span>+x<span class="w"> </span>t265_to_mavlink.py
+</pre></div>
+</div>
+</section>
+<section id="how-to-run">
+<h3>How to run<a class="headerlink" href="#how-to-run" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Before the script can be run, the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable needs to be added with the path to the <code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code> library. Alternatively, copy the build output (<code class="docutils literal notranslate"><span class="pre">librealsense2.so</span></code> and <code class="docutils literal notranslate"><span class="pre">pyrealsense2.so</span></code> in <code class="docutils literal notranslate"><span class="pre">~/librealsense/build/</span></code>) next to the script. First, run the test script <code class="docutils literal notranslate"><span class="pre">t265_test_streams.py</span></code> to verify installation of <code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code> and the T265 is connected.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update the PYTHONPATH environment variable to add the path to the pyrealsense2 library</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:/usr/local/lib
+
+<span class="c1"># Navigate to the location of the scripts</span>
+<span class="nb">cd</span><span class="w"> </span>~/path/to/the/script/
+
+<span class="c1"># Download and run a test script, you should see a short stream of pose data coming from the T265 on the terminal</span>
+wget<span class="w"> </span>https://raw.githubusercontent.com/thien94/vision_to_mavros/master/scripts/t265_test_streams.py
+chmod<span class="w"> </span>+x<span class="w"> </span>t265_test_streams.py
+python3<span class="w"> </span>t265_test_streams.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Modify parameters in the <code class="docutils literal notranslate"><span class="pre">t265_to_mavlink.py</span></code> script for your system configuration. Most importantly, find and change the following parameters in the script:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Default configurations for connection to the FCU</span>
+<span class="nv">connection_string_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/dev/ttyUSB0&#39;</span>
+<span class="nv">connection_baudrate_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">921600</span>
+
+<span class="c1"># Default frequency for pose and confidence messages</span>
+<span class="nv">vision_msg_hz_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span>
+<span class="nv">confidence_msg_hz_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># Transformation to convert different camera orientations to NED convention. Replace camera_orientation_default for your configuration.</span>
+<span class="c1">#   0: Forward, USB port to the right</span>
+<span class="c1">#   1: Downfacing, USB port to the right</span>
+<span class="nv">camera_orientation_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The parameters can also be passed as input arguments from the command line. Now let’s run the main script:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For serial connection: set udev.rules in order to get the USB available; allow permission to serial</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/dev/ttyUSB0
+
+<span class="c1"># When everything is working and all defaults are set:</span>
+python3<span class="w"> </span>t265_to_mavlink.py
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>View all available input arguments: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">t265_to_mavlink.py</span> <span class="pre">--help</span></code></p>
+</div>
+</section>
+<section id="verification-before-testing">
+<h3>Verification before testing<a class="headerlink" href="#verification-before-testing" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>To verify that ArduPilot is receiving <code class="docutils literal notranslate"><span class="pre">VISION_POSITION_ESTIMATE</span></code> messages, on Mission Planner: press <code class="docutils literal notranslate"><span class="pre">Ctrl+F</span></code> and click on “Mavlink Inspector”, you should be able to see data coming in. The confidence level can be viewed in message <code class="docutils literal notranslate"><span class="pre">VISION_POSITION_DELTA</span></code>, field <code class="docutils literal notranslate"><span class="pre">confidence</span></code>.</p></li>
+</ul>
+<a class="reference external image-reference" href="../../../dev/source/images/ros-vio-check-data.png"><img alt="../_images/ros-vio-check-data.png" src="../_images/ros-vio-check-data.png" /></a>
+<ul class="simple">
+<li><p>Changes in value of the tracking confidence level can also be notified on Mission Planner’s message panel, HUD and by speech. These notifications will pop up when the system starts and when confidence level changes to a new state, for example from <code class="docutils literal notranslate"><span class="pre">Medium</span></code> to <code class="docutils literal notranslate"><span class="pre">High</span></code>.</p>
+<ul>
+<li><p>To enable speech in Mission Planner: Tab Config/Tuning &gt; Planner &gt; Speech &gt; tick on “Enable speech”.</p></li>
+<li><p>If there are some messages constantly displayed on the HUD, you might not be able to see / hear the confidence level notification.</p></li>
+<li><p>If telemetry is slow, notification might be dropped. You can still see the latest message in MAVLink Inspector, message <code class="docutils literal notranslate"><span class="pre">STATUSTEXT</span></code>.</p></li>
+<li><p>If telemetry is very slow, it may be flooded by VISION_POSITION_ESTIMATE messages. You can disable message forwarding by setting bit 10 in <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code>. Be aware you will not receive VISION_POSITION_ESTIMATE in GCS anymore.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ground-test">
+<h3>Ground Test<a class="headerlink" href="#ground-test" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>After power on, ssh into the companion computer, navigate to the script and run: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">t265_to_mavlink.py</span></code>.</p></li>
+<li><p>Wait until the quadcopter icon appears on the map of Mission Planner.</p></li>
+<li><p>Pick-up the vehicle and walk it around, check that the vehicle’s position movements are shown on the map. The trajectory of the vehicle on the map should reflect the real movements without too much distortion or overshoot. Below is an example of walking in a 2m x 2m square.</p></li>
+</ul>
+<a class="reference external image-reference" href="../../../dev/source/images/ros-vio-ground-test.png"><img alt="../_images/ros-vio-ground-test.png" src="../_images/ros-vio-ground-test.png" /></a>
+<ul class="simple">
+<li><p>During the test, view the confidence level and verify tracking performance. For most applications you should trust the full 6dof pose only in <strong>high</strong> confidence. If you only need the rotation (3dof), lower confidence poses can be used.</p></li>
+<li><p>If the external navigation data is lost for any reason (tracking lost, script is interrupted etc.), reboot the Autopilot.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are flying in a confined environment, it might be best to go around the safety perimeter of flying, view the trajectory on the map, then remember not to fly/setup mission beyond that perimeter.</p>
+</div>
+</section>
+<section id="flight-test">
+<h3>Flight Test<a class="headerlink" href="#flight-test" title="Permalink to this heading">¶</a></h3>
+<p>For your first flight:</p>
+<ul class="simple">
+<li><p>Takeoff in Stabilize or Alt-Hold, check that the vehicle is stable.</p></li>
+<li><p>Move the vehicle around and observe the position on Mission Planner to see if tracking is stable.</p></li>
+<li><p>Switch to Loiter, but always ready to switch back to Stabilize/Alt-Hold if anything goes awry.</p></li>
+<li><p>Otherwise, the vehicle should hover stably and able to keep its position.</p></li>
+<li><p>Move the vehicle around (translate, rotate) at varying speed, always ready to switch back to Stabilize/Alt-Hold.</p></li>
+</ul>
+<p>If everything works as expected, next time you can arm and takeoff in Loiter mode.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always confirm that position feedback is running ok before switching to Loiter mode. Also look out for the safety boundary in your environment, i.e. where tracking might get lost due to lack of features, fast or rotation movement.</p>
+</div>
+</section>
+<section id="indoor-and-outdoor-experiments">
+<h3>Indoor and Outdoor Experiments<a class="headerlink" href="#indoor-and-outdoor-experiments" title="Permalink to this heading">¶</a></h3>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/lQbVqNtuA0s" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/KOF9GndtruA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="dataflash-logging">
+<h3>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The visual odometry information will appear in the <code class="docutils literal notranslate"><span class="pre">VISO</span></code> dataflash log messages.</p></li>
+<li><p>EKF’s visual odometry information will appear in XKFD messages</p></li>
+</ul>
+</section>
+<section id="autorun-at-boot">
+<h3>Autorun at boot<a class="headerlink" href="#autorun-at-boot" title="Permalink to this heading">¶</a></h3>
+<p>The script can be run automatically at boot time.</p>
+<ul class="simple">
+<li><p>Download or create a shell file <code class="docutils literal notranslate"><span class="pre">t265.sh</span></code>, modify the path to <cite>t265_to_mavlink.py</cite> script in this shell file, then make it executable:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://raw.githubusercontent.com/thien94/vision_to_mavros/master/scripts/t265.sh
+
+nano<span class="w"> </span>t265.sh
+
+<span class="c1"># In t265.sh, change the path to t265_to_mavlink.py, in my case:</span>
+<span class="c1"># /home/ubuntu/catkin_ws/src/vision_to_mavros/scripts/t265_to_mavlink.py</span>
+
+chmod<span class="w"> </span>+x<span class="w"> </span>/path/to/t265.sh
+
+<span class="c1"># Run test the shell. The script t265_to_mavlink.py should run as normal</span>
+./t265.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Depends on your system, use <a class="reference external" href="https://blog.frd.mn/how-to-set-up-proper-startstop-services-ubuntu-debian-mac-windows/">any method</a> to make the script autorun at boot. In the steps below, we will use <code class="docutils literal notranslate"><span class="pre">systemd</span></code> to turn it into a service.</p></li>
+<li><p>Let’s create a file <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/t265.service</span></code> with the following content. Set your actual username after <code class="docutils literal notranslate"><span class="pre">User=</span></code> and set the proper path to your <code class="docutils literal notranslate"><span class="pre">t265.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">ExecStart=</span></code>.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Realsense<span class="w"> </span>T265<span class="w"> </span>Service
+<span class="nv">After</span><span class="o">=</span>multi-user.target
+<span class="nv">StartLimitIntervalSec</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">Conflicts</span><span class="o">=</span>
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">User</span><span class="o">=</span>ubuntu
+<span class="nv">EnvironmentFile</span><span class="o">=</span>
+<span class="nv">ExecStartPre</span><span class="o">=</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/home/ubuntu/catkin_ws/src/vision_to_mavros/scripts/t265.sh
+
+<span class="nv">Restart</span><span class="o">=</span>on-failure
+<span class="nv">RestartSec</span><span class="o">=</span><span class="m">1</span>
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>That’s it. We can now start the service and automatically get it to start on boot:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>start<span class="w"> </span>t265
+
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>t265
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-non-gps-navigation-landing-page.html" class="btn btn-neutral float-left" title="Non-GPS Navigation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-marvelmind.html" class="btn btn-neutral float-right" title="Marvelmind for Non-GPS navigation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

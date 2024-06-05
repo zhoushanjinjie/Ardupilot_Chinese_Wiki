@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="[copywiki destination=”plane,copter,rover,blimp”]" href="common-jumperT16pro.html" />
+    <link rel="prev" title="[copywiki destination=”plane,copter,rover,blimp”]" href="common-srxl-receivers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#gps-compass">GPS/Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#rc-input">RC input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-flight-controller-wiring.html#motor-servo-connections">Motor/Servo Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#ublox-gps-compass-module">UBlox GPS + Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#connecting-the-autopilot">Connecting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#mounting-the-gps-module">Mounting the GPS Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#setup-in-mission-planner">Setup in Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#led-indicators">LED Indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+          <li class="breadcrumb-item"><a href="common-flight-controller-wiring.html">Typical Autopilot Wiring Connections</a></li>
+          <li class="breadcrumb-item"><a href="common-rc-systems.html">Radio Control Systems</a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-tbs-rc"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="team-black-sheep-rc-systems">
+<h1>Team Black Sheep RC Systems<a class="headerlink" href="#team-black-sheep-rc-systems" title="Permalink to this heading">¶</a></h1>
+<p>Any Crossfire compatible receiver can be used with ArduPilot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ELRS (ExpressLRS) RC systems use the Crossfire protocol and are connected in a similar manner. However, ERLS telemetry does not provide bi-directional telemetry like Crossfire.</p>
+</div>
+<p>If you do not wish to use telemetry then a <strong>TBS Crossfire</strong> receiver can be connected to the <strong>RCIN</strong> port using <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">SBUS</span></a>. You must configure the Receiver to output SBUS, of course.</p>
+</section>
+<section id="crsf-receivers">
+<h1>CRSF Receivers<a class="headerlink" href="#crsf-receivers" title="Permalink to this heading">¶</a></h1>
+<p>If you wish to use telemetry then a TBS receiver can be connected to a UART utilizing the <a class="reference external" href="https://www.team-blacksheep.com/products/prod:crossfire_tx">CRSF</a> protocol.</p>
+<p>CRSF is a full-duplex protocol that supports integrated telemetry and a number of other features. Connect the RX pin of the UART to the CRSF TX pin of the CRSF device and vice versa.
+Currently a full-duplex UART connection is required. For best performance a UART with DMA capability on its RX port is desirable, but not required. A message will be displayed once on the GCS console, if connected to a UART without this capability.</p>
+<p>In the configuration of the serial port select the RCIN protocol. So for example for serial port 4:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> = 23</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> = 3</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The serial port baudrate is automatically set and controlled by the firmware when any serial RC protocol, such as CRSF, is detected.</p>
+</div>
+<p>With the receiver connected and configured correctly proceed with RC calibration as normal.</p>
+<p>See <a class="reference internal" href="common-crsf-telemetry.html#common-crsf-telemetry"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a> for information about telemetry data sent, display scripts for OpenTX transmitters, and adjustment of ArduPilot parameters via CRSF.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the autopilot is rebooted via MAVLink, it will lose communication with the CRSF receiver until the receiver is power cycled. Also, the CRSF TX must be transmitting BEFORE the receiver is powered up.</p>
+</div>
+</section>
+<section id="elrs-receivers">
+<h1>ELRS Receivers<a class="headerlink" href="#elrs-receivers" title="Permalink to this heading">¶</a></h1>
+<p>ELRS can be setup in the same manner as CRSF above , however, bit 13 of <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-options" title="(in Rover)"><span class="xref std std-ref">RC_OPTIONS</span></a> should be set to alter the baudrate from 416KBaud that CRSF uses, to 420KBaud that ELRS uses.</p>
+</section>
+<section id="crsf-video-transmitters">
+<h1>CRSF Video Transmitters<a class="headerlink" href="#crsf-video-transmitters" title="Permalink to this heading">¶</a></h1>
+<p>TBS Video Transmitters can also be connected to ArduPilot using the CRSF protocol. This allows the VTX to be configured via parameters and, for VTXs such as the <a class="reference external" href="https://www.team-blacksheep.com/products/prod:tbs_unify_evo">TBS Unify Evo</a> , receive telemetry data that can be displayed using the built-in OSD.</p>
+<p>If you are using CRSF for RC input as well then nothing more needs to be done in order to enable VTX control.</p>
+<p>If you only wish to use CRSF for VTX control then connect the VTX to the UART in the normal way - TX to RX and RX to TX and configure the UART connection as follows:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> = 29</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-srxl-receivers.html" class="btn btn-neutral float-left" title="[copywiki destination=”plane,copter,rover,blimp”]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-jumperT16pro.html" class="btn btn-neutral float-right" title="[copywiki destination=”plane,copter,rover,blimp”]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

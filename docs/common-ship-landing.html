@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane">
+<span id="common-ship-landing"></span><h1>[copywiki destination=”plane”]<a class="headerlink" href="#copywiki-destination-plane" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="moving-platform-takeoff-and-landing-ships-trucks-etc">
+<h1>Moving Platform Takeoff and Landing (Ships, Trucks, etc.)<a class="headerlink" href="#moving-platform-takeoff-and-landing-ships-trucks-etc" title="Permalink to this heading">¶</a></h1>
+<p>The Plane 4.2 firmware supports VTOL taking off and landing on a moving platform with QuadPlanes. VTOL Takeoffs and Landings will track the platform’s motion to remain vertically above the takeoff/landing pad and landings will provide a tracking hold-off loitering point and controlled angular approach to avoid vehicle superstructures or other obstructions. This article describes how to setup and use this functionality.</p>
+</section>
+<section id="equipment-needed">
+<h1>Equipment Needed<a class="headerlink" href="#equipment-needed" title="Permalink to this heading">¶</a></h1>
+<p>To use this feature you need a beacon setup on the landing platform. This beacon should be based on an ArduPilot autopilot running the ArduPilot Rover firmware. You can set the <code class="docutils literal notranslate"><span class="pre">FRAME_CLASS</span></code> parameter on the beacon autopilot to “2” to make it a “boat” or “1” to make it a truck, so that the right icon shows in the ground station. The beacon will be broadcasting its position to allow the QuadPlane to track its moving HOME position, similar to <a class="reference external" href="https://ardupilot.org/copter/docs/follow-mode.html#follow-mode" title="(in Copter)"><span class="xref std std-ref">Copter’s Follow Mode</span></a>.</p>
+<img alt="../_images/ship-landing.jpg" src="../_images/ship-landing.jpg" />
+<p>The beacon system needs the following:</p>
+<ul class="simple">
+<li><p>a reliable yaw source. Using dual-F9P GPS with <a class="reference internal" href="common-gps-for-yaw.html#common-gps-for-yaw"><span class="std std-ref">moving baseline yaw</span></a> is recommended if the moving platform will cause problems with compasses.</p></li>
+<li><p>a telemetry radio setup so that the aircraft can see GLOBAL_POSITION_INT mavlink messages from the beacon autopilot. There are multiple methods of achieving that, see the section below on radio setup</p></li>
+<li><p>the beacon needs a different mavlink system ID to the aircraft and the GCS. You set this with the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sysid-thismav" title="(in Rover)"><span class="xref std std-ref">SYSID_THISMAV</span></a> parameter. In the example below, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sysid-thismav" title="(in Rover)"><span class="xref std std-ref">SYSID_THISMAV</span></a> = 17, has been set.</p></li>
+<li><p>the beacon can be offset from the actual landing location. The beacon should be placed for optimal radio performance, then the instructions below can be used to setup the actual landing location relative to the beacon.</p></li>
+</ul>
+<p>Here are examples a nice setups for the beacon (courtesy of FreeSpace Operations and Offshore Aviation):</p>
+<img alt="../_images/freespace-beacon.jpg" src="../_images/freespace-beacon.jpg" />
+<img alt="../_images/offshore-aviation.jpg" src="../_images/offshore-aviation.jpg" />
+<section id="telemetry">
+<h2>Telemetry<a class="headerlink" href="#telemetry" title="Permalink to this heading">¶</a></h2>
+<p>The telemetry system needs to be capable of:</p>
+<ul class="simple">
+<li><p>allowing the ground station to see MAVLink packets from both the beacon and the aircraft</p></li>
+<li><p>allowing the aircraft see MAVLink packets that originate from the beacon (the only packet the aircraft needs from the beacon is the GLOBAL_POSITION_INT message)</p></li>
+</ul>
+<p>There are several ways to setup this type <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">Telemetry</span></a>:</p>
+<ul class="simple">
+<li><p>WiFi, with a multicast network</p></li>
+<li><p>a mesh-capable telemetry radio</p></li>
+<li><p>using any kind of telemtry for GCS &lt;-&gt; vehicle and GCS &lt;-&gt; beacon, setup the GCS to forward GLOBAL_POSITION_INT packets from the beacon to the aircraft (for example, MAVProxy GCS can do this by setting the fwdpos to TRUE (ie type ‘set fwdpos true’ from the command line)</p></li>
+</ul>
+<p>For mesh capable radios, you could use three RFD900x radios, with the radios setup for broadcast.(see <a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a>)</p>
+<p>Alternatively you could use the RFD900x relay firmware from <a class="reference external" href="https://firmware.ardupilot.org/SiK/RFD900x-relay/">here</a>  with the GCS set as NODE=1, the beacon set as NODE=0 and the aircraft set as NODE=2.</p>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p>You will need ArduPilot plane 4.2 or later</p>
+</section>
+<section id="lua-script">
+<h2>Lua Script<a class="headerlink" href="#lua-script" title="Permalink to this heading">¶</a></h2>
+<p>The ship landing functionality is in a <a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">LUA script</span></a>. You will need the plane_ship_landing.lua script from <a class="reference external" href="https://github.com/ardupilot/ardupilot/blob/master/libraries/AP_Scripting/applets/plane_ship_landing.lua">here</a></p>
+<p>This script needs to be put in the APM/scripts directory on your microSD card on the aircraft.</p>
+<p>This script also creates several new <code class="docutils literal notranslate"><span class="pre">SHIP_</span></code> parameters that will need to be setup (see below).</p>
+</section>
+</section>
+<section id="parameter-setup">
+<h1>Parameter Setup<a class="headerlink" href="#parameter-setup" title="Permalink to this heading">¶</a></h1>
+<section id="aircraft">
+<h2>Aircraft<a class="headerlink" href="#aircraft" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-enable" title="(in Rover)"><span class="xref std std-ref">SCR_ENABLE</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-heap-size" title="(in Rover)"><span class="xref std std-ref">SCR_HEAP_SIZE</span></a> = 100000 (perhaps more if other scripts are running)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHIP_ENABLE</span></code> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-enable" title="(in Rover)"><span class="xref std std-ref">FOLL_ENABLE</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-sysid" title="(in Rover)"><span class="xref std std-ref">FOLL_SYSID</span></a> = 17 (this needs to be the SYSID of the beacon set above)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rtl-mode" title="(in Plane)"><span class="xref std std-ref">Q_RTL_MODE</span></a> = 0 (execute a normal RTL)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fs-long-actn" title="(in Plane)"><span class="xref std std-ref">FS_LONG_ACTN</span></a> either 0 or 1 (Continue if in AUTO or RTL always)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rtl-autoland" title="(in Plane)"><span class="xref std std-ref">RTL_AUTOLAND</span></a> = 0</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 5 set (QRTL return in RC failsafes while in a VTOL mode)</p></li>
+</ul>
+<p>Note that you will need to refresh parameters and reboot for these to all take effect. The <code class="docutils literal notranslate"><span class="pre">SHIP_ENABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> and <code class="docutils literal notranslate"><span class="pre">SHIP_AUTO_OFS_n</span></code> parameters will appear when the script is running correctly.</p>
+</section>
+<section id="beacon">
+<h2>Beacon<a class="headerlink" href="#beacon" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-gps-for-yaw.html#common-gps-for-yaw"><span class="std std-ref">Moving baseline setup</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 3 (GPS altitude as altitude source)</p></li>
+</ul>
+</section>
+</section>
+<section id="land-angle">
+<h1>Land Angle<a class="headerlink" href="#land-angle" title="Permalink to this heading">¶</a></h1>
+<p>You can choose the approach angle of the aircraft to the ship. The default is <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> = 0 which means land from behind the ship. A value of 90 will mean that the aircraft approaches the ship from the left-hand side. A value of -90 means it approaches from the right-hand side. A value of 180 means the aircraft will approach the landing from the front of the ship.</p>
+<p>You should choose a <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> value to avoid obstructions on the ship, for example masts. The angle should also be chosen such that if you need to abort the landing, flying straight ahead will leave plenty of clearance to obstacles.</p>
+</section>
+<section id="beacon-messages">
+<h1>Beacon Messages<a class="headerlink" href="#beacon-messages" title="Permalink to this heading">¶</a></h1>
+<p>When the aircraft can see the beacon position it will print a GCS message like this:
+“Have beacon”.</p>
+<p>If you lose the connection to the beacon (after 3 seconds) you will see a GCS message
+“Lost Beacon”.</p>
+<p>You will also get an arming failure if you try to arm without the beacon working.</p>
+</section>
+<section id="landing-offset">
+<h1>Landing Offset<a class="headerlink" href="#landing-offset" title="Permalink to this heading">¶</a></h1>
+<p>It is important to set the correct values for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-x" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-y" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_Y</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-z" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_Z</span></a> on the aircraft for the landing point relative to the beacon. These values are in meters, in front-right-down format.
+The easiest way to set these is to place the aircraft in the correct landing location with the beacon working and then set the parameter <code class="docutils literal notranslate"><span class="pre">SHIP_AUTO_OFS</span></code> to 1. When this parameter is set to 1 then the ship landing lua script will calculate the right offset values and set them in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-x" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-y" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_Y</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-z" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_Z</span></a> values.</p>
+<p>The values are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-x" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_X</span></a> distance in front of the beacon to land (use a negative value for landing behind the beacon)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-y" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_Y</span></a> distance to the right of the beacon to land (use a negative value for left)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#foll-ofs-z" title="(in Rover)"><span class="xref std std-ref">FOLL_OFS_Z</span></a> distance below the beacon to land (use a negative value to land above the beacon)</p></li>
+</ul>
+<p>When the beacon is active you should see the HOME icon on the GCS move to match the landing position. The HOME position is continuously updated while you are flying which gives you a good way to ensure that the beacon is working properly before you land.</p>
+<p>It is recommended that the method of setting <code class="docutils literal notranslate"><span class="pre">SHIP_AUTO_OFS</span></code> = 1 is used to get the location before each flight. Look carefully at the message it gives when this parameter is set(use the Messages tab in MissionPlanner):</p>
+<blockquote>
+<div><p>Set follow offset (-10.82,3.29,0.46)</p>
+</div></blockquote>
+<p>That message confirms that the X, Y and Z offset has calculated. Check that they are reasonable, paying close attention to the Z offset. If you get a bad Z offset (ie. a long way off from the actual height difference between the beacon and the aircraft) then you may need to reboot the beacon and/or aircraft to cope with GPS altitude drift.</p>
+</section>
+<section id="takeoff-procedure">
+<h1>Takeoff Procedure<a class="headerlink" href="#takeoff-procedure" title="Permalink to this heading">¶</a></h1>
+<p>When <code class="docutils literal notranslate"><span class="pre">SHIP_ENABLE</span></code> = 1 and the beacon is visible to the aircraft then an AUTO VTOL takeoff will use velocity matching, so the aircraft will hold its velocity relative to the beacon while ascending. This velocity matching is only done for VTOL takeoff as a mission item in AUTO mode.</p>
+</section>
+<section id="hold-off-position">
+<h1>Hold-off Position<a class="headerlink" href="#hold-off-position" title="Permalink to this heading">¶</a></h1>
+<p>A key part of ship landing is the “hold-off position”. The hold-off position is where the aircraft will loiter while waiting for the pilot to command the landing via the movement of the throttle stick (see throttle stick information below).</p>
+<p>The holdoff position is based on a few criteria:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rtl-radius" title="(in Plane)"><span class="xref std std-ref">RTL_RADIUS</span></a> in meters (negative for counter-clockwise loiter, positive for clockwise loiter). If <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rtl-radius" title="(in Plane)"><span class="xref std std-ref">RTL_RADIUS</span></a> is zero, then the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#wp-loiter-rad" title="(in Plane)"><span class="xref std std-ref">WP_LOITER_RAD</span></a> parameter is used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> parameter, which controls the angle that the aircraft will approach the ship for landing. A value of zero means to approach from behind the ship. The hold-off loiter position will be setup so that the tangent of the circle intercepts the beacon landing point.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-trans-decel" title="(in Plane)"><span class="xref std std-ref">Q_TRANS_DECEL</span></a> parameter, which determines how fast the aircraft can slow down</p></li>
+<li><p>The speed of the ship, the wind speed and the speed of the aircraft</p></li>
+</ul>
+<p>Here is an example where <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> is -45 and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rtl-radius" title="(in Plane)"><span class="xref std std-ref">RTL_RADIUS</span></a> is -100:</p>
+<img alt="../_images/landing-angle-zero.png" src="../_images/landing-angle-zero.png" />
+<p>and here is an example with <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> at 0 and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rtl-radius" title="(in Plane)"><span class="xref std std-ref">RTL_RADIUS</span></a> at 100:</p>
+<img alt="../_images/landing-angle-45.png" src="../_images/landing-angle-45.png" />
+</section>
+<section id="landing-procedure">
+<h1>Landing Procedure<a class="headerlink" href="#landing-procedure" title="Permalink to this heading">¶</a></h1>
+<p>When you are ready to land you can switch the vehicle to RTL mode. When in RTL mode the aircraft will fly towards the landing location (you can see this location before you land from the HOME icon on the GCS, which moves with the beacon).</p>
+<p>The aircraft will initially approach the “hold-off” position. The altitude of the holdoff position is set by the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#alt-hold-rtl" title="(in Plane)"><span class="xref std std-ref">ALT_HOLD_RTL</span></a> parameter (in centimeters above the landing location). A good value of this is around 9000, which is 90 meters above the landing location.</p>
+<p>The description below will assume that <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> = 0 which means landing happens from behind the beacon. The approach and landing is rotated by the value of this parameter in degrees.
+With <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> = 0, the hold-off position will be behind and above the beacon. The distance depends on the beacon speed, wind speed and the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-trans-decel" title="(in Plane)"><span class="xref std std-ref">Q_TRANS_DECEL</span></a> parameter (which controls the deceleration of the aircraft).</p>
+<p>Once the aircraft arrives at the hold-off position it will circle until the throttle stick is lowered below 40%. The throttle stick on the transmitter is used to control the landing sequence and also to abort the landing.</p>
+<p>Throttle stick controls are:</p>
+<ul class="simple">
+<li><p>Throttle at 40% or above means to hold at the hold-off position (at <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#alt-hold-rtl" title="(in Plane)"><span class="xref std std-ref">ALT_HOLD_RTL</span></a> height above beacon in centimeters)</p></li>
+<li><p>Throttle below 40% and above 10% means to descend while loitering to the approach altitude. The approach altitude is giving by <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rtl-alt" title="(in Plane)"><span class="xref std std-ref">Q_RTL_ALT</span></a> in meters above the beacon. A good value for testing may be 40 meters.</p></li>
+<li><p>Throttle below 10% means to start landing approach once the aircraft is at the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rtl-alt" title="(in Plane)"><span class="xref std std-ref">Q_RTL_ALT</span></a> and lined up with the <code class="docutils literal notranslate"><span class="pre">SHIP_LAND_ANGLE</span></code> to move toward the vehicle.</p></li>
+</ul>
+<p>Once the landing descent has started can still abort the landing. To do this, the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 15 must be set to enable ThrLandControl. When that option is set you can raise the throttle momentarily above 70% to enable throttle control for climb and descent rate. You can use this to slow the descent or climb back up. If you climb up past the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rtl-alt" title="(in Plane)"><span class="xref std std-ref">Q_RTL_ALT</span></a> approach altitude then the aircraft will go back to loitering at the hold-off location at <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-rtl-alt" title="(in Plane)"><span class="xref std std-ref">Q_RTL_ALT</span></a>.</p>
+<p>You may also want to enable horizontal repositioning with the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 17(EnableLandResponsition). If that is enabled then you can manually reposition the aircraft horizontally while landing to account for any GPS position errors.</p>
+<section id="simple-mission">
+<h2>Simple Mission<a class="headerlink" href="#simple-mission" title="Permalink to this heading">¶</a></h2>
+<p>The simplest mission would be a single VTOL_TAKEOFF waypoint. Once the takeoff is complete the aircraft will immediately switch to RTL mode and go to the hold-off location. You should have the throttle stick above 40% to keep the aircraft circling at the hold-off location. This very simple mission is good for ship operations as it does not have specific latitude/longitude, so will work wherever the ship is.</p>
+<p>You could also switch to a fixed wing mode just before reaching the takeoff altitude you set, then fly under pilot control and when ready to land, simply switch back into AUTO to RTL and land.</p>
+</section>
+</section>
+<section id="simulation">
+<h1>Simulation<a class="headerlink" href="#simulation" title="Permalink to this heading">¶</a></h1>
+<p>To simulate a QuadPlane ship landing:</p>
+<ol class="arabic simple">
+<li><p>Copy the plane_ship_landing.lua LUA script, into the /scripts directory where you will run the simulation</p></li>
+<li><p>Run the following commands for Linux SITL:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sim_vehicle.py<span class="w"> </span>-v<span class="w"> </span>plane<span class="w"> </span>-f<span class="w"> </span>quadplane<span class="w"> </span>--console<span class="w"> </span>--map<span class="w"> </span>-w<span class="w">  </span>/start<span class="w"> </span>SITL<span class="w"> </span>with<span class="w"> </span>default<span class="w"> </span>params
+param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>sim_ship_enable<span class="w"> </span><span class="m">1</span><span class="w">                              </span>/Enable<span class="w"> </span>ship<span class="w"> </span>sim
+param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>scr_enable<span class="w"> </span><span class="m">1</span><span class="w">                                   </span>/Enable<span class="w"> </span>scripting<span class="w"> </span>on<span class="w"> </span>QuadPlane
+param<span class="w"> </span>ftp<span class="w">                                                </span>/Refresh<span class="w"> </span>params<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>SCR_<span class="w"> </span>params
+param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>scr_heap_size<span class="w"> </span><span class="m">100000</span><span class="w">                           </span>/Set<span class="w"> </span>memory<span class="w"> </span>large<span class="w"> </span>enough<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>script
+reboot<span class="w">                                                   </span>/Reboot<span class="w"> </span>and<span class="w"> </span>start<span class="w"> </span>running<span class="w"> </span>script
+param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>ship_enable<span class="w"> </span><span class="m">1</span><span class="w">                                  </span>/Enable<span class="w"> </span>script<span class="w"> </span>action
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Then setup a mission item: VTOL_TAKEOFF to the desired altitude</p></li>
+<li><p>Enter:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mode<span class="w"> </span>auto
+arm<span class="w"> </span>throttle<span class="w">                                              </span>/Takeoff<span class="w"> </span>will<span class="w"> </span>begin
+rc<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1500</span><span class="w">                                                 </span>/Raise<span class="w"> </span>throttle<span class="w"> </span>to<span class="w"> </span>allow<span class="w"> </span>hold-off<span class="w"> </span>loiter
+</pre></div>
+</div>
+<p>The QuadPlane will takeoff and then execute an RTL to the hold-off point and wait until the throttle is lowered (rc 3 1000) to start the landing.</p>
+<p>Credit:</p>
+<p>Many thanks to SpektreWorks for funding a lot of the work on ship landing support!</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

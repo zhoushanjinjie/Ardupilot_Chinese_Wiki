@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Throw Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Turtle Mode" href="turtle-mode.html" />
+    <link rel="prev" title="System ID Mode Operation" href="systemid-mode-operation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Throw Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="throw-mode">
+<span id="id1"></span><h1>Throw Mode<a class="headerlink" href="#throw-mode" title="Permalink to this heading">¶</a></h1>
+<p>This slightly dangerous flight mode allows the pilot to throw the vehicle into the air (or drop the vehicle) in order to start the motors.
+Once in the air, this mode does not accept any input from the pilot.  This mode requires GPS.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use with caution!  It is dangerous to get close to an armed multicopter as is required to throw the vehicle.  It is recommended to takeoff normally instead of using throw mode whenever possible.</p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/JIPMpDJqdJ8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="how-to-use">
+<h2>How To Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Disarm copter</p></li>
+<li><p>Switch to throw mode</p></li>
+<li><p>Check GPS light is green</p></li>
+<li><p>Arm copter and listen for ready tune (if vehicle has a buzzer).  The motors will not spin by default.</p></li>
+<li><p>Pick up the vehicle and throw it up and away from you (it must climb by 50cm/s and reach a total speed of 5m/s)</p></li>
+<li><p>Once the vehicle has stopped, switch the flight mode to Loiter (or other mode) to retake manual control</p></li>
+</ol>
+<p>The motors should start when the vehicle reaches the apex of it’s trajectory.
+After the motors start this flight mode will first try to control it’s attitude (return to level and stop rotating), then stop descending and finally it will attempt to stop moving horizontally.</p>
+</section>
+<section id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#throw-type" title="(in Copter)"><span class="xref std std-ref">THROW_TYPE</span></a>: set to 0 if throwing the vehicle up, 1 if dropping the vehicle.  If dropping, drop from a height of at least 10m.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#throw-mot-start" title="(in Copter)"><span class="xref std std-ref">THROW_MOT_START</span></a>: controls whether the motors will spin slowly or not at all while waiting for the throw (0 = stopped, 1 = spinning slowly).  The default is 0 (will not spin after arming).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#throw-nextmode" title="(in Copter)"><span class="xref std std-ref">THROW_NEXTMODE</span></a>: the vehicle will switch into this flight mode after stopping (Auto, Guided, RTL, Land and Brake are support).  Set to “Throw” (the default) to simply remain in Throw mode and wait for the pilot to switch modes manually</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ZnEFcJx1qko" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="log-analysis">
+<h2>Log Analysis<a class="headerlink" href="#log-analysis" title="Permalink to this heading">¶</a></h2>
+<p>During the throw, THRO messages are written to the <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">dataflash log</span></a>.  These can be useful in diagnosing problems in case the motors failed to start as part of a throw.  The graph below shows a successful throw in which the overall velocity climbs above 5m/s and the vertical velocity is over 0.5m/s.</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/throw_log.png"><img alt="../_images/throw_log.png" src="../_images/throw_log.png" style="width: 500px;" /></a>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="systemid-mode-operation.html" class="btn btn-neutral float-left" title="System ID Mode Operation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="turtle-mode.html" class="btn btn-neutral float-right" title="Turtle Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buzzer (aka Tone Alarm) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Buzzer (aka Tone Alarm)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-buzzer">[copywiki destination=”copter,plane,rover”]</p>
+<section id="buzzer-aka-tone-alarm">
+<h1>Buzzer (aka Tone Alarm)<a class="headerlink" href="#buzzer-aka-tone-alarm" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/pixhawk_buzzer.jpg"><img alt="../_images/pixhawk_buzzer.jpg" src="../_images/pixhawk_buzzer.jpg" /></a>
+<p>A buzzer (or Tone Alarm) can be used to audibly indicate status changes for the vehicle. Depending on board capabilities, this can be an active device (only needs voltage applied to produce a single frequency tone), as shown below, or a passive piezo device driven by PWM capable of producing variable musical tones, as shown above. Some boards can use either type.</p>
+<a class="reference external image-reference" href="../_images/buzzer.jpg"><img alt="../_images/buzzer.jpg" src="../_images/buzzer.jpg" /></a>
+<p>If an output capable of producing PWM is used with a passive piezo, it can play various <a class="reference internal" href="common-sounds-pixhawkpx4.html#common-sounds-pixhawkpx4"><span class="std std-ref">sounds</span></a> including the Arming sound, Mode Change sound, and Lost Vehicle Alarms (search for “Lost Copter Alarm” on <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">this page</span></a>, “Lost Plane” in the RCx_OPTION, for example, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc5-option" title="(in Rover)"><span class="xref std std-ref">RC5_OPTION</span></a>, or “Lost Rover” in the <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Functions</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in order to use a passive piezo buzzer to play the musical notification tones, the autopilot firmware must have defined that capability to a pin with a timer in its build definition. This is not a capability that the user can add by parameter setup, unlike the use of an active single tone buzzer by designating any GPIO capable pin with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-buzz-pin" title="(in Rover)"><span class="xref std std-ref">NTF_BUZZ_PIN</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>some autopilots (most of the 1MB flash boards) provide ONLY the ability to use an active buzzer and will provide a limited set of simple beeps instead of musical tones to indicate ARM, DISARM, etc. See the next section for information. However, it is possible to create a custom build of a board’s firmware that includes the Tone Alarm functionality. Then motor outputs, can be used to drive a buzzer with the full range of ArduPilot tunes, which can be convenient on boards that only support buzzers that beep. The output used will have to be configured as either <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> =  138 or = 139, depending on signal polarity required.</p>
+</div>
+<p>Care must be taken with buzzer selection as the motor/servo outputs can only supply a small current and so it is best to use a buzzer with separate power and amplification such as the <a class="reference external" href="https://www.hglrc.com/products/hglrc-soter-fpv-drone-buzzer">HGLRC Soter FPV drone buzzer</a>.  The buzzer output selected needs to be in a separate PWM group - i.e. it cannot be in the same group as outputs used for other functions such as ESC DSHOT.</p>
+<section id="using-an-active-buzzer-instead-of-a-passive-buzzer">
+<h2>Using an active buzzer instead of a passive buzzer<a class="headerlink" href="#using-an-active-buzzer-instead-of-a-passive-buzzer" title="Permalink to this heading">¶</a></h2>
+<p>An active buzzer can be used with boards setup for a passive buzzer in two ways.</p>
+<p>First, the active buzzer can simply replace the passive piezo on autopilots designed to play Tone Alarms, paying attention to the polarity of the buzzer (unlike passive piezo buzzers, active buzzers need to be connected with the right polarity in order to function  properly. It will play all the sounds, however, potentially at lower volume and without the precise tone frequencies as played with a passive buzzer.</p>
+<p>Alternatively, you can set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-buzz-pin" title="(in Rover)"><span class="xref std std-ref">NTF_BUZZ_PIN</span></a> to a GPIO pin, like those used for <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay control</span></a>, and attach an active buzzer to that pin with its negative lead, and apply power (usually +5V) to the buzzer’s positive lead. This is usually how the “BUZZ” or “BUZZ-” output pin on some autopilots is intended to be used</p>
+<p>If an active buzzer is used, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-buzz-on-lvl" title="(in Rover)"><span class="xref std std-ref">NTF_BUZZ_ON_LVL</span></a> parameter determines the pin level needed to activate it.</p>
+<p>If an active buzzer is used, it can indicate the following:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>STATUS</p></th>
+<th class="head"><p>Pattern</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ARMING</p></td>
+<td><p>3 sec long Beep</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARMING FAILURE</p></td>
+<td><p>Single Beep</p></td>
+</tr>
+<tr class="row-even"><td><p>DISARMED</p></td>
+<td><p>Single Beep</p></td>
+</tr>
+<tr class="row-odd"><td><p>BATTERY FAILSAFE</p></td>
+<td><p>Single Beep repeating every 3 sec</p></td>
+</tr>
+<tr class="row-even"><td><p>EKF FAILURE</p></td>
+<td><p>Beeeep-Beeep-Beep-Beep</p></td>
+</tr>
+<tr class="row-odd"><td><p>LOST VEHICLE</p></td>
+<td><p>Beep-Beep repeating every 3 sec</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For many boards, the GPIO pin numbers are assigned to PWM outputs for alternate use can only be found by looking at that board’s hwdef.dat file <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">here</a> .</p>
+</div>
+</section>
+<section id="mounting-the-buzzer">
+<h2>Mounting the buzzer<a class="headerlink" href="#mounting-the-buzzer" title="Permalink to this heading">¶</a></h2>
+<p>The sound from the buzzer can impact the accelerometers if placed too close to the autopilot which can lead to poor altitude hold performance when the buzzer is activated.
+The buzzer should ideally be mounted at least 5cm away from the autopilot and the speaker (i.e. the open hole) should not be pointing directly at the autopilot.</p>
+</section>
+<section id="silencing-the-buzzer">
+<h2>Silencing the buzzer<a class="headerlink" href="#silencing-the-buzzer" title="Permalink to this heading">¶</a></h2>
+<p>Some autopilots (like the HobbyKing PixRacer) have built-in buzzers.  We recommend disabling the these buzzers by setting the following parameter:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-buzz-types" title="(in Rover)"><span class="xref std std-ref">NTF_BUZZ_TYPES</span></a> controls which types of buzzers are enabled: Pin driven buzzers (built-in or external), and/or DShot based on ESCs.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">NTF_BUZZ_ENABLE</span></code> = 0 to disable the pin driven buzzer in firmware prior to 4.1.</p></li>
+</ul>
+<p>In addition, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-buzz-volume" title="(in Rover)"><span class="xref std std-ref">NTF_BUZZ_VOLUME</span></a> can be used to control the volume.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

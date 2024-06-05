@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotor Speed Control Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Internal RSC Governor" href="traditional-helicopter-internal-rsc-governor.html" />
+    <link rel="prev" title="Traditional Helicopter – Tailrotor Setup" href="traditional-helicopter-tailrotor-setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traditional-heli-parts-list.html">Suggested Parts List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-the-code.html">Loading the Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-mounting.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-parameter-list.html">Helicopter Parameter List at a Glance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-connecting-apm.html">Connecting and Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-swashplate-setup.html">Swashplate Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-tailrotor-setup.html">Tailrotor Setup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Rotor Speed Control Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rsc-mode">RSC mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rotor-speed-ramp-and-idle-settings">Rotor Speed Ramp and Idle Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ardupilot-internal-governor-setup">ArduPilot Internal Governor Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#turbine-engine-start">Turbine Engine Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#practice-manual-autorotation-setup">Practice (Manual) Autorotation Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-internal-rsc-governor.html">Internal Rotor Speed Governor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-time-setup.html">Traditional Helicopter Setup</a></li>
+      <li class="breadcrumb-item active">Rotor Speed Control Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rotor-speed-control-setup">
+<span id="traditional-helicopter-rsc-setup"></span><h1>Rotor Speed Control Setup<a class="headerlink" href="#rotor-speed-control-setup" title="Permalink to this heading">¶</a></h1>
+<p>Unlike other vehicles, more specifically multicopters, the throttle RC input channel does not directly control the throttle in any mode, even in modes designated in Multicopter as “non altitude controlled modes” or “non throttle controlled modes”, like STABILIZE or ACRO. Instead it only directly controls the Collective for the helicopter in non altitude controlled modes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the exception to this is the RC Passthrough RSC mode. This is NOT recommended usually.</p>
+</div>
+<p>This means that some method must be used to control the throttle or esc for maintaining constant rotor speed through out the flight envelope.</p>
+<p>The Rotor Speed Control (RSC) uses the heliRSC output (<code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> = 31) to the engine throttle or speed control/governor to control rotor speed. This can be derived in a few different ways:</p>
+<ul class="simple">
+<li><p>Through an open loop control via either an RC transmitter passthrough or an internal throttle curve which takes collective demand and creates a corresponding throttle demand.</p></li>
+<li><p>Using a set point signal to an external governor, or electronic speed controller</p></li>
+<li><p>Using a closed loop governor in the ArduPilot firmware.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When Motor Interlock is disengaged,the state is sometimes called Throttle Hold and throttle is driven to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-idle" title="(in Copter)"><span class="xref std std-ref">H_RSC_IDLE</span></a></p>
+</div>
+<p>The RSC also controls the heliRSC output for ground idle, rotor run up and shut down. This wiki covers the set up of each of the parameters in the RSC.</p>
+<section id="rsc-mode">
+<h2>RSC mode<a class="headerlink" href="#rsc-mode" title="Permalink to this heading">¶</a></h2>
+<p>First, set the RSC Mode parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a>). The RSC modes are listed below with a short description.</p>
+<ol class="arabic simple">
+<li><p>RC Passthrough (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> = 1) - this mode passes through the RC channel input on which the Motor Interlock (<code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> =32) is assigned. The channel must be over 1200us in order for the heliRSC output to follow the RC input. Otherwise, heliRSC will be <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-idle" title="(in Copter)"><span class="xref std std-ref">H_RSC_IDLE</span></a>.</p></li>
+<li><p>RSC setpoint (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> = 2) - this mode is used for helicopters utilizing either an electronic speed controller or an external governor for internal combustion engines. The PWM passed to the HeliRSC output is determined from the External Motor Governor Setpoint (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-setpoint" title="(in Copter)"><span class="xref std std-ref">H_RSC_SETPOINT</span></a>) parameter. The output PWM is calculated by the following equation: PWM output = <code class="docutils literal notranslate"><span class="pre">RSC_SETPOINT</span></code> * 0.01 * (<code class="docutils literal notranslate"><span class="pre">SERVOx_MAX</span></code> - <code class="docutils literal notranslate"><span class="pre">SERVOx_MIN</span></code>) + <code class="docutils literal notranslate"><span class="pre">SERVOx_MIN</span></code> where SERVOx is the output assigned to Throttle</p></li>
+<li><p>Throttle curve (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> = 3) - This mode is an open loop control of the HeliRSC servo output. Users will need to fine-tune the throttle curve to maintain the desired rotor speed throughout the flight envelope. The throttle curve is a five point spline curve fit set by the <code class="docutils literal notranslate"><span class="pre">H_RSC_THRCRV_x</span></code> parameters. It is used to determine the HeliRSC servo output based on the collective (throttle stick) on the RC transmitter.</p></li>
+<li><p>Governor (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> = 4) - The governor is designed to maintain a user specified rotor speed using the throttle curve as the feedforward control. This feature requires a rotor speed sensor. The <code class="docutils literal notranslate"><span class="pre">H_RSC_GOV_x</span></code>. The parameters needed to set  the Throttle Curve mode above, also should be set correctly for this mode since it uses them as a basis for feed-forward control in the Governor.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Setting the RSC mode to RC Passthrough requires configuring the RC receiver to hold last value for the Motor Interlock channel (default is channel 8). If the receiver loses connection to the transmitter and receiver is not configured correctly, the motor will shutdown and the helicopter will crash! It also means that the pilot has to be in control of throttle during any altitude holding or autonomous modes. This can be very difficult, can lead to a crash, and is strongly discouraged. This mode is provided only for some very specialized, advanced users.</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> =2 will be the most commonly used mode for electric helis having an ESC with governor mode built in.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> =3 can be used for open loop control of the heli motor, providing no constant head speed feedback control, but is usually used to setup the feed-forward throttle curve baseline for the Governor mode below. Having a RSC governor is highly desirable in order to maintain a steady tune point for the stabilization parameters.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> =4 can be used if no external RSC governor is present. Primarily for ICE and Turbine engines.</p></li>
+</ul>
+<section id="typical-throttle-curves-for-h-rsc-mode-3">
+<h3>Typical Throttle Curves for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> = 3<a class="headerlink" href="#typical-throttle-curves-for-h-rsc-mode-3" title="Permalink to this heading">¶</a></h3>
+<p>These are also used in <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> = 4 as a basis for its feedforward.</p>
+<p>If the collective range is set for conventional (non-aerobatic) setups, ie ~-2deg to +12deg, then the <code class="docutils literal notranslate"><span class="pre">H_RSC_THRCRV_X</span></code> parameters would be set to drive the Throttle Servo similarly to:</p>
+<a class="reference external image-reference" href="../_images/normal_throttle_curve.jpg"><img alt="../_images/normal_throttle_curve.jpg" src="../_images/normal_throttle_curve.jpg" /></a>
+<p>If setup with an aerobatic, symmetrical collective range, ie ~ -12deg to +12deg, then they should be set drive the Throttle Servo similarly to this:</p>
+<a class="reference external image-reference" href="../_images/aerobatic_throttle_curve.jpg"><img alt="../_images/aerobatic_throttle_curve.jpg" src="../_images/aerobatic_throttle_curve.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot will spline curve fit between the <code class="docutils literal notranslate"><span class="pre">H_RSC_THRCRV_X</span></code> setpoints to produce smooth throttle servo output versus collective points.</p>
+</div>
+</section>
+</section>
+<section id="rotor-speed-ramp-and-idle-settings">
+<h2>Rotor Speed Ramp and Idle Settings<a class="headerlink" href="#rotor-speed-ramp-and-idle-settings" title="Permalink to this heading">¶</a></h2>
+<p>The rotor speed control features an idle setting and start up and shut down logic for throttle control. The throttle output at <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-idle" title="(in Copter)"><span class="xref std std-ref">H_RSC_IDLE</span></a> parameter determines the output to heliRSC servo output after the aircraft is armed, but before the motor interlock is enabled.</p>
+<p>When the motor interlock is enabled the rotor speed control will ramp the throttle from the idle setting (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-idle" title="(in Copter)"><span class="xref std std-ref">H_RSC_IDLE</span></a>) to flight setting (this depends on the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> chosen) based on the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-ramp-time" title="(in Copter)"><span class="xref std std-ref">H_RSC_RAMP_TIME</span></a> parameter . The RSC will prevent take off in non-manual throttle modes and auto mode until the timer has reached <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-runup-time" title="(in Copter)"><span class="xref std std-ref">H_RSC_RUNUP_TIME</span></a>. It is very important to set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-runup-time" title="(in Copter)"><span class="xref std std-ref">H_RSC_RUNUP_TIME</span></a> to the amount of time it takes for the rotor to spin up to the flight rotor speed.  This parameter has to be equal to or greater than the Throttle Ramp Time parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-ramp-time" title="(in Copter)"><span class="xref std std-ref">H_RSC_RAMP_TIME</span></a>).</p>
+<p>When the motor interlock is disabled with the rotor at flight rotor speed, the rotor speed control will count down the same amount of time as specified by the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-runup-time" title="(in Copter)"><span class="xref std std-ref">H_RSC_RUNUP_TIME</span></a>. The RSC will declare rotor speed below critical based on the Critical Rotor Speed parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-critical" title="(in Copter)"><span class="xref std std-ref">H_RSC_CRITICAL</span></a>) and will reset the runup complete flag. It is best to set the Critical Rotor Speed parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-critical" title="(in Copter)"><span class="xref std std-ref">H_RSC_CRITICAL</span></a>) for a percentage of the runup timer that equates to about three seconds. For example if you had a 10 second runup timer, setting the Critical Rotor Speed parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-critical" title="(in Copter)"><span class="xref std std-ref">H_RSC_CRITICAL</span></a>) to 70% will cause the RSC to declare rotor speed below critical three seconds from when Motor interlock is disabled.  For versions 4.0 and earlier, the autopilot is able to disarm the aicraft during auto landings after the RSC declares the rotor speed below critical.  For versions 4.1 and later, the autopilot waits the length of time of the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-runup-time" title="(in Copter)"><span class="xref std std-ref">H_RSC_RUNUP_TIME</span></a> to disarm the aircraft during auto landings.</p>
+</section>
+<section id="ardupilot-internal-governor-setup">
+<h2>ArduPilot Internal Governor Setup<a class="headerlink" href="#ardupilot-internal-governor-setup" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot provides an internal rotor speed control primarily for use with ICE or Turbine engines without a speed governor, but can also be used with electric ESCs that do not provide a governor mode. This mode requires that the
+<code class="docutils literal notranslate"><span class="pre">H_RSC_THRCRV_x</span></code> parameters be set such that the helicopter can be flown in <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_MODE</span></a> =3 safely, since they are used as the baseline control curve for the RSC governor, providing the feed-forward portion of the control loop.</p>
+<p>See <a class="reference internal" href="traditional-helicopter-internal-rsc-governor.html#traditional-helicopter-internal-rsc-governor"><span class="std std-ref">Internal RSC Governor</span></a> for setup details.</p>
+</section>
+<section id="turbine-engine-start">
+<h2>Turbine Engine Start<a class="headerlink" href="#turbine-engine-start" title="Permalink to this heading">¶</a></h2>
+<p>A special RC Auxiliary Function (“159”) is implemented to provide the start signal RC switch for turbine engines. When armed and RSC is idle, the high position signals the helicopter rotor speed governor to ramp the throttle to full and back to idle, which signals the turbine engine ECU to initiate the start sequence. The switch must be set back low and aircraft has to be disarmed to re-enable this feature.</p>
+</section>
+<section id="practice-manual-autorotation-setup">
+<h2>Practice (Manual) Autorotation Setup<a class="headerlink" href="#practice-manual-autorotation-setup" title="Permalink to this heading">¶</a></h2>
+<p>In versions 4.4 and later, the ability to conduct power re-engagement from an autorotation has been added.  This feature will work with ESC’s when using their internal governor, the ArduPilot throttle curve or the ArduPilot built-in RSC governor.</p>
+<p>See <a class="reference internal" href="traditional-helicopter-autorotation.html#traditional-helicopter-autorotation"><span class="std std-ref">Autorotation</span></a> page.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-tailrotor-setup.html" class="btn btn-neutral float-left" title="Traditional Helicopter – Tailrotor Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-internal-rsc-governor.html" class="btn btn-neutral float-right" title="Internal RSC Governor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

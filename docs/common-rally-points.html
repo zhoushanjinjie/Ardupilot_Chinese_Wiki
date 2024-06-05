@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rally Points &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rally Points</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rally-points">
+<span id="common-rally-points"></span><h1>Rally Points<a class="headerlink" href="#rally-points" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Ordinarily when a plane or copter enters <a class="reference external" href="https://ardupilot.org/plane/docs/rtl-mode.html#rtl-mode" title="(in Plane)"><span class="xref std std-ref">Return to Launch (RTL)</span></a> mode (typically
+triggered by an
+autopilot <a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span class="xref std std-ref">failsafe</span></a>),
+the default behaviour is to return to the <a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#common-planning-a-mission-with-waypoints-and-events-setting-the-home-position"><span class="std std-ref">Home point</span></a>,
+but there are often cases when that can be undesirable. For example it
+may be an area full of people or property and a system running in RTL
+mode may very likely be in a state that merits extreme caution!  It is
+also possible that the flight plan is large enough that should the
+aircraft enter RTL mode it is undesirable to traverse all the way back
+to the point of takeoff.</p>
+<p>For this reason we now support the creation of multiple Rally Points.
+Should an aircraft enter RTL and Rally Points have been defined then it
+will proceed to the closest Rally Point, rather than proceeding to the
+Home position. Plane will then loiter at that location, and Copter will
+perform an automated landing there.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/mp_flight_plan_with_three_rally_points.jpg"><img alt="../_images/mp_flight_plan_with_three_rally_points.jpg" src="../_images/mp_flight_plan_with_three_rally_points.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">A flight plan with Rally Points. Rally Points are denoted with Purpleplace markers.
+Mousing over a Rally Point will give its loiter altitude(as in the middle point above).</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="setting-up-rally-points">
+<h2>Setting Up Rally Points<a class="headerlink" href="#setting-up-rally-points" title="Permalink to this heading">¶</a></h2>
+<p>The following steps are for specifying Rally Points in Mission Planner:</p>
+<ol class="arabic">
+<li><p>Rally Point latitude and longitude.To set a Rally Point’s location,
+right click on the Flight Plan map, and select Rally Points &gt; Set
+Rally Point on the resulting pop-up menu (note that this ONLY work in
+the Flight Plan screen, not the Flight Data screen):</p>
+<a class="reference external image-reference" href="../_images/mp_rally_point_dialog.jpg"><img alt="../_images/mp_rally_point_dialog.jpg" src="../_images/mp_rally_point_dialog.jpg" /></a>
+</li>
+<li><p>The Rally loiter altitudes need to be specified (note that the
+default altitude for Rally Points is the default waypoint altitude
+value and is relative to the home location):</p>
+<a class="reference external image-reference" href="../_images/mp_rally_altitude_dialog.jpg"><img alt="../_images/mp_rally_altitude_dialog.jpg" src="../_images/mp_rally_altitude_dialog.jpg" /></a>
+<a class="reference external image-reference" href="../_images/defaultAltCircled1.png"><img alt="../_images/defaultAltCircled1.png" src="../_images/defaultAltCircled1.png" /></a>
+</li>
+<li><p>Repeat for all desired Rally points!</p></li>
+<li><p>Upload to the vehicle by selecting Rally Points &gt; Upload from the
+right-click popup menu</p></li>
+</ol>
+<p>The following should be considered when using Rally Points:</p>
+<ol class="arabic simple">
+<li><p>If using a <a class="reference external" href="https://ardupilot.org/plane/docs/geofencing.html#geofencing" title="(in Plane)"><span class="xref std std-ref">geofence</span></a>:
+its HIGHLY recommended the Rally Points you intend to use at your event
+are inside the geofence.</p></li>
+<li><p>Make sure Rally Point altitudes are high enough to clear terrain and
+buildings.</p></li>
+<li><p>Because of the limited flash memory size on the APM2.x hardware the
+number of Rally Points is restricted to 10 on Plane and 6 on Copter
+– this limit may be expanded on other platforms such as Pixhawk in the future.</p></li>
+<li><p>On Plane, loiter radius for a Rally Point is the same as all other
+loiter points; determined by the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#wp-loiter-rad" title="(in Plane)"><span class="xref std std-ref">WP_LOITER_RAD</span></a>
+parameter.</p></li>
+<li><p>The <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#alt-hold-rtl" title="(in Plane)"><span class="xref std std-ref">ALT_HOLD_RTL</span></a>
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#rtl-alt" title="(in Copter)"><span class="xref std std-ref">RTL_ALT</span></a> parameters are NOT used with Rally Points!
+The aircraft will transit to the Rally Point at the altitude
+specified when adding that point.</p></li>
+</ol>
+<p>The following MAVLink parameters control Rally Point behavior:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rally-limit-km" title="(in Plane)"><span class="xref std std-ref">RALLY_LIMIT_KM</span></a>
+is the maximum distance a Rally Point may be from the aircraft to be
+considered for an RTL event.  If all Rally Points are greater than
+this distance from the aircraft, then the Home location is used for
+RTL events (at altitude <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#alt-hold-rtl" title="(in Plane)"><span class="xref std std-ref">ALT_HOLD_RTL</span></a>)
+This parameter is to prevent fly offs if Rally Points have been specified for multiple
+flying fields. This parameter can be disabled if set to 0.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rally-incl-home" title="(in Rover)"><span class="xref std std-ref">RALLY_INCL_HOME</span></a> allows Home to be included in the RALLY points, allowing it to return to home if closer than any RALLY point.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rally-total" title="(in Plane)"><span class="xref std std-ref">RALLY_TOTAL</span></a> is
+the number of Rally Points currently specified. This parameter will
+be set for you by your ground control station (e.g., Mission Planner)
+when you add and remove Rally Points.  <strong>IT IS HIGHLY UNLIKELY YOU
+WANT TO SET THIS PARAMETER MANUALLY AND IT IS PROBABLY UNSAFE TO DO
+SO</strong>.  RALLY_TOTAL should be 0 if you have specified no Rally Points
+and in this case the Home location will be used for RTL events.</p></li>
+</ol>
+</section>
+<section id="example-flight">
+<h2>Example Flight<a class="headerlink" href="#example-flight" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/mp_rally_demo.jpg"><img alt="../_images/mp_rally_demo.jpg" src="../_images/mp_rally_demo.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Flight in which RTL was commanded nearwaypoint. Plane began loitering about the southernmost RallyPoint.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/mp_rally_point_dialog.jpg"><img alt="../_images/mp_rally_point_dialog.jpg" src="../_images/mp_rally_point_dialog.jpg" /></a>
+</figure>
+<p>[copywiki destination=”copter,plane,rover,planner”]</p>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">¶</a></h2>
+<p>The RALLY fields present in a rally point file are as follows:</p>
+<ul class="simple">
+<li><p>Lat: Latitude of Rally Point</p></li>
+<li><p>Lon: Longitude of Rally Point</p></li>
+<li><p>Alt: AGL altitude of Rally Point as referenced from the point where the copter/plane got a GPS lock.</p></li>
+<li><p>Break Altitude: Specific to NPS fixed wings; the point at which to break out of a loiter and fly toward the landing waypoint. Also in AGL.</p></li>
+<li><p>Desired Heading: Whether to verify that the plane is going the correct heading before breaking out of the loiter (see break altitude).</p></li>
+<li><dl class="simple">
+<dt>Flags:</dt><dd><ul>
+<li><p>1 = FAVORABLE_WIND. Flag set when requiring favorable winds for landing.  We never got around to implementing this at the Naval Postgraduate School, but basically whether or not we are required to land with the aircraft facing into the wind.</p></li>
+<li><p>2 = LAND_IMMEDIATELY. Flag set when plane is to immediately descend to break altitude and land without GCS intervention.  Flag not set when plane is to loiter at Rally point until commanded to land.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

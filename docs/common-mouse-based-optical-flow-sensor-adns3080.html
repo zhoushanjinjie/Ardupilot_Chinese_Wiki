@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARCHIVED:Mouse-based Optical Flow Sensor (ADNS3080) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ARCHIVED:Mouse-based Optical Flow Sensor (ADNS3080)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-mouse-based-optical-flow-sensor-adns3080">
+<span id="common-mouse-based-optical-flow-sensor-adns3080"></span><h1>ARCHIVED:Mouse-based Optical Flow Sensor (ADNS3080)<a class="headerlink" href="#archived-mouse-based-optical-flow-sensor-adns3080" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is archived and the device is no longer supported in ArduPilot software</p>
+</div>
+<p>[copywiki destination=”copter,plane,rover”]</p>
+<p>Copter-3.2.1 on APM2.x boards included limited support for the mouse sensor based <a class="reference external" href="http://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=p2047675.m570.l1313.TR0.TRC0.H0.Xoptical+flow.TRS0&amp;_nkw=optical+flow&amp;_sacat=0">Optical Flow sensor</a> using the OF_Loiter flight mode.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This sensor is not supported in recent versions of the firmware.
+Instead please use the <a class="reference internal" href="common-px4flow-overview.html#common-px4flow-overview"><span class="std std-ref">PX4Flow sensor</span></a>.</p>
+</div>
+<a class="reference external image-reference" href="../_images/BR-0016-01-2T.jpg"><img alt="../_images/BR-0016-01-2T.jpg" src="../_images/BR-0016-01-2T.jpg" /></a>
+<a class="reference external image-reference" href="../_images/BR-0016-01-5T.jpg"><img alt="../_images/BR-0016-01-5T.jpg" src="../_images/BR-0016-01-5T.jpg" /></a>
+<section id="connecting-the-sensor-to-the-apm2-5">
+<h2>Connecting the sensor to the APM2.5<a class="headerlink" href="#connecting-the-sensor-to-the-apm2-5" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect VCC, GND, MISO, MOSI, SCLK and NCS pins as shown in the diagram below</p></li>
+<li><p>Default mounting is lens pointing down, pins forward</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Optical_Flow_Sensor_APM25.jpg"><img alt="../_images/Optical_Flow_Sensor_APM25.jpg" src="../_images/Optical_Flow_Sensor_APM25.jpg" /></a>
+<ul class="simple">
+<li><p>Cut and resolder the MISOLVL jumper on the back of the board to switch the MISO pin to work on 3.3v. This is critical to ensure the optical flow sensor does not interfere with the MPU6000.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Optical_Flow_Sensor_APM25_SolderBridge.jpg"><img alt="../_images/Optical_Flow_Sensor_APM25_SolderBridge.jpg" src="../_images/Optical_Flow_Sensor_APM25_SolderBridge.jpg" /></a>
+</section>
+<section id="connecting-the-sensor-to-the-apm2">
+<h2>Connecting the sensor to the APM2<a class="headerlink" href="#connecting-the-sensor-to-the-apm2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Power, GND, NCS pins should be attached to A3</p></li>
+<li><p>MISO, MOSI and SCLK pins should be directly soldered to the pins shown</p></li>
+<li><p>Default mounting is lens pointing down, pins forward</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Optical_Flow_Sensor_APM2.jpg"><img alt="../_images/Optical_Flow_Sensor_APM2.jpg" src="../_images/Optical_Flow_Sensor_APM2.jpg" /></a>
+</section>
+<section id="connecting-the-sensor-to-the-apm1">
+<h2>Connecting the sensor to the APM1<a class="headerlink" href="#connecting-the-sensor-to-the-apm1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Directly solder wires to the top of the Oilpan as shown below</p></li>
+<li><p>Default mounting is lens pointing down, pins forward</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Optical_Flow_Sensor_v_1_0.jpg"><img alt="../_images/Optical_Flow_Sensor_v_1_0.jpg" src="../_images/Optical_Flow_Sensor_v_1_0.jpg" /></a>
+</section>
+<section id="testing-the-sensor">
+<h2>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Upload the test sketch to the APM:</p>
+<ul>
+<li><p>If using an APM2, you can <a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/AP_OpticalFlow_test.hex">download the hex file from here</a>
+and then upload to your APM2 using the Mission Planner’s <strong>INITIAL SETUP | Install Firmware | Load custom firmware</strong> link</p></li>
+<li><p>If using an APM1 you must open the
+<a class="reference external" href="https://raw.githubusercontent.com/diydrones/ardupilot/860f4b260552297253a28b83a7f108302b84b97e/libraries/AP_OpticalFlow/examples/AP_OpticalFlow_test/AP_OpticalFlow_test.pde">AP_OpticalFlow_test.pde</a>sketch in the arduino IDE, compile and upload to your APM1</p></li>
+</ul>
+</li>
+<li><p>Connect to your APM with the Serial Monitor or AP Mission Planner Terminal</p></li>
+<li><p>type ‘c’ to ensure that the sensor is responding to the APM</p></li>
+<li><p>type ‘m’ and move the camera back and forth and check that x,y values
+change. If they do not change, modify the focus of the lens by turning it left or right.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/OpticalFlow_test.jpg"><img alt="../_images/OpticalFlow_test.jpg" src="../_images/OpticalFlow_test.jpg" /></a>
+</section>
+<section id="capturing-an-image-from-the-sensor">
+<h2>Capturing an image from the sensor<a class="headerlink" href="#capturing-an-image-from-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>In order to check that you have the lens properly focused you can capture an image directly from the sensor and display it using a simpler viewer written in Python.</p>
+<a class="reference external image-reference" href="../_images/ADNS3080ImageGrabber.jpg"><img alt="../_images/ADNS3080ImageGrabber.jpg" src="../_images/ADNS3080ImageGrabber.jpg" /></a>
+<ol class="arabic">
+<li><p>Upload the AP_OpticalFlow_test.pde to the APM (see above)</p></li>
+<li><p>Install Python 2.7 (or later version) from the <a class="reference external" href="https://www.python.org/downloads/">official python site</a></p>
+<p>(For windows users, for compatibility with pyserial, you should
+install the <a class="reference external" href="https://www.python.org/ftp/python/2.7.2/python-2.7.2.msi">32bit version</a>even
+if you are running 64bit windows)</p>
+</li>
+<li><p>Install <a class="reference external" href="http://pyserial.sourceforge.net/">PySerial 2.5</a>. The Windows package
+<a class="reference external" href="http://pypi.python.org/packages/any/p/pyserial/pyserial-2.5.win32.exe">can be downloaded from here</a>.</p></li>
+<li><p>Start the Python IDLE editor</p></li>
+<li><p>File, Open,
+…/arduino-0022/libraries/AP_OpticalFlow/examples/ADNS3080ImageGrabber/ADNS3080ImageGrabber.py</p></li>
+<li><p>Run, Run Module - the Python Shell and then ADNS3080ImageGrabber
+applications should appear</p></li>
+<li><p>On the ADNS3080ImageGrabber screen, change the default com port to
+the port connected to your APM and press Open</p></li>
+<li><p>Push the Send button to start/stop grabbing images from the sensor (a
+new image should appear every 2 seconds)</p></li>
+</ol>
+<p>Note 1: After capturing images, you will need to reset the sensor (i.e.
+plug/unplug it) to restore it to the normal motion capture mode.</p>
+<p>Note 2: you should see the AP_OpticalFlow_ADNS3080’s menu and any
+errors appear in the Python Shell.</p>
+</section>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading">¶</a></h2>
+<p>The mouse sensor returns the average movement (in the x and y
+directions) of surface features that it sees. A single pixel move will
+not cause the sensor to return “1”. It will return a higher value around
+5. This value is referred to as the <strong>scaler</strong> below. In the example
+below, the value returned would be about 1.6 ( (-5+5+5) / 3)</p>
+<a class="reference external image-reference" href="../_images/SurfaceFeatures.png"><img alt="../_images/SurfaceFeatures.png" src="../_images/SurfaceFeatures.png" /></a>
+<p><strong>Sensor’s x and y values can be converted to real distances based on
+altitude</strong></p>
+<p>In order to convert values from the sensor to real distances moved, we
+need to take into account the altitude. This is necessary because as you
+can see from the two pictures below, if we have two quads moving the
+same distance, but one at a low altitude, the other at a higher
+altitude, the lower quad will see surface features appear to move
+further and this will result in a higher optical flow values</p>
+<a class="reference external image-reference" href="../_images/AltitudesEffectOnSensorValues.png"><img alt="../_images/AltitudesEffectOnSensorValues.png" src="../_images/AltitudesEffectOnSensorValues.png" /></a>
+<a class="reference external image-reference" href="../_images/distanceMovedFormula.png"><img alt="../_images/distanceMovedFormula.png" src="../_images/distanceMovedFormula.png" /></a>
+<p>We compensate for vehicle roll and pitch changes</p>
+<p>Change in the vehicle’s roll and pitch will also cause changes in the x
+and y values returned by the sensor. Unlike the lateral movement
+calculations these are not dependent upon the distance of the visible
+objects. In the picture below you can see that as the quad has rolled 10
+degrees but both flowers have moved from the center of the camera’s view
+in the 1st pic to the edge of the view in the 2nd pic.</p>
+<a class="reference external image-reference" href="../_images/RotationEffectOnSensorValues.png"><img alt="../_images/RotationEffectOnSensorValues.png" src="../_images/RotationEffectOnSensorValues.png" /></a>
+<p>The expected change in sensor values can be calculated directly from the
+change in roll and pitch given the formula below. We subtract these
+expected changes from the real values returned by the sensor.</p>
+<a class="reference external image-reference" href="../_images/expectedRollChangeFormula.png"><img alt="../_images/expectedRollChangeFormula.png" src="../_images/expectedRollChangeFormula.png" /></a>
+<p>Once we have the x/y movements we can integrate these values over time
+with the current yaw to arrive at an estimate of position.</p>
+</section>
+<section id="known-issues">
+<h2>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The sensor only works in well lit environments</p></li>
+<li><p>A fixed-focus lens is used meaning it cannot focus on objects closer
+than 30cm (1 foot).</p></li>
+<li><p>Rotating the sensor will confuse the sensor</p></li>
+</ul>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements:<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://diydrones.com/profiles/profile/show?id=MarkoKleineBerkenbusch&amp;">Marko Klein Berkenbusch’s</a>
+position hold with mouse sensor</p></li>
+<li><p>research paper re <a class="reference external" href="http://www.araa.asn.au/acra/acra2007/papers/paper181final.pdf">optical flow for position hold</a></p></li>
+<li><p>research paper re <a class="reference external" href="https://www.scribd.com/document/241321239/2006-Thesis-Remote-Terrain-Navigation-for-Unmanned-Air-Vehicles">optical flow for object avoidance</a></p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nooploop for Non-GPS Navigation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Weathervaning and Wind Hold" href="weathervaning.html" />
+    <link rel="prev" title="ModalAI VOXL" href="common-modalai-voxl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-vio-tracking-camera.html">Intel RealSense T265</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-marvelmind.html">MarvelMind Beacons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-modalai-voxl.html">ModalAI VOXL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Nooploop Beacons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+      <li class="breadcrumb-item active">Nooploop for Non-GPS Navigation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nooploop-for-non-gps-navigation">
+<span id="common-nooploop"></span><h1>Nooploop for Non-GPS Navigation<a class="headerlink" href="#nooploop-for-non-gps-navigation" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,rover,blimp”]</p>
+<p>This article explains how a <a class="reference external" href="https://www.nooploop.com/en/">Nooploop</a> system based on UWB(Ultra Wide Band) technology can be used as a short-range substitute for a GPS allowing position control modes like Loiter, PosHold, RTL, Auto indoors.</p>
+<section id="required-hardware">
+<h2>Required Hardware<a class="headerlink" href="#required-hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>5 Nooploop LinkTrack nodes.</p></li>
+<li><p>one <a class="reference external" href="https://store.arduino.cc/usa/nano-every">Arduino Nano Every</a> (optional)</p></li>
+<li><p>4 <a class="reference external" href="https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=portable+charger&amp;rh=i%3Aaps%2Ck%3Aportable+charger">portable chargers</a> with type A USB ports to power the anchors (optional)</p></li>
+<li><p>4 <a class="reference external" href="https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&amp;field-keywords=tripod&amp;rh=i%3Aaps%2Ck%3Atripod">tripods</a> to mount the anchors (optional)</p></li>
+</ul>
+</section>
+<section id="preparing-the-anchors">
+<h2>Preparing the anchors<a class="headerlink" href="#preparing-the-anchors" title="Permalink to this heading">¶</a></h2>
+<p>4 Nooploop nodes need to be configured to act as anchors. Follow Nooploop <a class="reference external" href="https://www.nooploop.com/en/download/">LinkTrack user manual</a> to setup and calibrate them.</p>
+</section>
+<section id="placing-the-anchors">
+<h2>Placing the anchors<a class="headerlink" href="#placing-the-anchors" title="Permalink to this heading">¶</a></h2>
+<p>The anchors should be placed in a rectangular shape. Anchor 0 will act as “origin” and Y axis of Nooploop system will act as “North”. The configuration is slightly simpler if the line from anchor 0 to anchor 1 is due North but it is not required as the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-orient-yaw" title="(in Rover)"><span class="xref std std-ref">BCN_ORIENT_YAW</span></a> parameter can be used to account this difference.</p>
+<a class="reference external image-reference" href="../_images/nooploop-anchor-layout.png"><img alt="../_images/nooploop-anchor-layout.png" src="../_images/nooploop-anchor-layout.png" /></a>
+</section>
+<section id="preparing-the-tag">
+<h2>Preparing the tag<a class="headerlink" href="#preparing-the-tag" title="Permalink to this heading">¶</a></h2>
+<p>Use Nooploop NAssistant tool to configure one node to act as a tag.</p>
+<ul class="simple">
+<li><p>set Protocol to Node_Frame2</p></li>
+<li><p>set Baudrate to 921600</p></li>
+<li><p>set Update Rate to 25</p></li>
+<li><p>set Filter Factor to 0</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/nooploop-config-tag.png"><img alt="../_images/nooploop-config-tag.png" src="../_images/nooploop-config-tag.png" /></a>
+</section>
+<section id="connecting-the-tag-to-the-flight-controller">
+<h2>Connecting the tag to the Flight Controller<a class="headerlink" href="#connecting-the-tag-to-the-flight-controller" title="Permalink to this heading">¶</a></h2>
+<p>It is possible to directly connect UART port of the tag to the FC. However, UART Tx of certain FCs is not compatible with Nooploop UART Rx (According to developers at Nooploop, it seems to be caused by a CP2012 inside Nooploop nodes. It is possible that this problem can be solved by removing this CP2012). It causes the FC to be unable to communicate with the tag. Pixhawk 4 mini and Kakute F7 are confirmed to have this issue. In this case, an Arduino Nano Every can be used as a work-around. Use Ardnio IDE to upload <a class="reference external" href="https://github.com/chobitsfan/nooploop_workaround.git">Nooploop work-around sketch</a> to a Arduino Nano Every and connect its UART Tx to UART Rx of the tag. For the following we assume that the tag is connected to the FC’s UART port corresponding to SERIAL1.</p>
+<a class="reference external image-reference" href="../_images/nooploop-connect-tag.png"><img alt="../_images/nooploop-connect-tag.png" src="../_images/nooploop-connect-tag.png" /></a>
+</section>
+<section id="configuration-through-the-ground-station">
+<h2>Configuration through the Ground Station<a class="headerlink" href="#configuration-through-the-ground-station" title="Permalink to this heading">¶</a></h2>
+<p>Ensure that Copter-4.1 (or higher) is loaded onto the autopilot and connect with a Ground Station (i.e. Mission Planner).</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-type" title="(in Rover)"><span class="xref std std-ref">BCN_TYPE</span></a> to 3 (means using Nooploop system)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-latitude" title="(in Rover)"><span class="xref std std-ref">BCN_LATITUDE</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-longitude" title="(in Rover)"><span class="xref std std-ref">BCN_LONGITUDE</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-alt" title="(in Rover)"><span class="xref std std-ref">BCN_ALT</span></a> to match your actual location.  Getting these values exactly correct is not particularly important although getting them close is required in order for the compass’s declination to be correctly looked up from the database held within ArduPilot.</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-orient-yaw" title="(in Rover)"><span class="xref std std-ref">BCN_ORIENT_YAW</span></a> to the heading from the origin anchor to the 2nd anchor.  One way to capture this value is to stand at the origin holding the vehicle so that its nose points towards the second beacon.  Read the vehicle’s heading from the HUD and enter this value into <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-orient-yaw" title="(in Rover)"><span class="xref std std-ref">BCN_ORIENT_YAW</span></a></p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-bcn-delay" title="(in Rover)"><span class="xref std std-ref">EK3_BCN_DELAY</span></a> to 20</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> to 4 (“Beacon”)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> to 4 (“Beacon”) to use NoopLoop for altitude or leave at “1” to use the barometer</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> to 0 (“None”)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> to 0 (“None”)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> to 0 to disable the GPS</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> to -9 to disable the GPS arming check</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL1_BAUD</span></a> to 921 to set SERIAL1’s baud rate to 921600</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL1_PROTOCOL</span></a> to 13 to enable reading the IndoorLoiter2 protocol</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser1-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER1_RTSCTS</span></a> to 0 to ensure SERIAL1 does not use flow control, assuming it has this capability.</p></li>
+</ul>
+</section>
+<section id="ground-testing">
+<h2>Ground Testing<a class="headerlink" href="#ground-testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect the Autopilot to a ground station.</p></li>
+<li><p>After about 1 minute the vehicle’s position should jump to the latitude, longitude you input during the configuration step (above).</p></li>
+<li><p>Check that the vehicle’s position is relatively stable (i.e. moving around less than one meter)</p></li>
+<li><p>Walk the vehicle around between the anchors and ensure that its position on the map updates correctly</p></li>
+</ul>
+</section>
+<section id="flight-testing">
+<h2>Flight testing<a class="headerlink" href="#flight-testing" title="Permalink to this heading">¶</a></h2>
+<p>Setup the transmitter with Stabilize, AltHold and Loiter flight modes.
+Take off in AltHold mode and maintain a stable hover.
+Switch to Loiter but be ready to switch back to AltHold or Stabilize if the vehicle’s position or altitude becomes unstable.</p>
+</section>
+<section id="dataflash-logging">
+<h2>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h2>
+<p>The distance to the beacons can be found in the dataflash log’s BCN message’s D0, D1, D2, D3 fields.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-modalai-voxl.html" class="btn btn-neutral float-left" title="ModalAI VOXL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="weathervaning.html" class="btn btn-neutral float-right" title="Weathervaning and Wind Hold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

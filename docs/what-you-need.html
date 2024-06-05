@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>构建多旋翼你需要什么 &mdash; Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MultiCopter Safety" href="safety-multicopter.html" />
+    <link rel="prev" title="Choosing a MultiCopter Frame" href="choosing-a-frame.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-flight-features.html">飞行功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">构建自己的多旋翼</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multicopter-frame-including-motors-escs-and-propellers">多旋翼机包括电机、ESC和螺旋桨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-rc-transmitter-and-receiver">6+通道RC发射器和接收器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autopilot-autopilot-hardware">自动驾驶仪（自动驾驶仪硬件）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gps-module">GPS模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lipo-batteries-and-charger">锂电池和充电器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ground-control-station">地面控制站</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#telemetry-radio">遥测无线电</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+      <li class="breadcrumb-item active">构建多旋翼你需要什么</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="what-you-need-to-build-a-multicopter">
+<span id="what-you-need"></span><h1>构建多旋翼你需要什么<a class="headerlink" href="#what-you-need-to-build-a-multicopter" title="Permalink to this heading">¶</a></h1>
+<p>本文概述了构建基于Copter的多旋翼时所需的主要组件。</p>
+<section id="multicopter-frame-including-motors-escs-and-propellers">
+<h2>多旋翼机包括电机、ESC和螺旋桨<a class="headerlink" href="#multicopter-frame-including-motors-escs-and-propellers" title="Permalink to this heading">¶</a></h2>
+<p>有许多机架、ESCs和电机可供选择。您可能会考虑的一些部件在<a class="reference internal" href="choosing-a-frame.html#choosing-a-frame"><span class="std std-ref">选择一款多旋翼机型</span></a>和<a class="reference internal" href="common-common-airframe-builds.html#common-common-airframe-builds"><span class="std std-ref">载具构建详细说明</span></a>中进行了讨论。</p>
+<p>还支持包括传统直升机在内的许多其他设计和配置。</p>
+</section>
+<section id="channel-rc-transmitter-and-receiver">
+<h2>6+通道RC发射器和接收器<a class="headerlink" href="#channel-rc-transmitter-and-receiver" title="Permalink to this heading">¶</a></h2>
+<p>您需要一个无线电控制发射机来手动控制您的Copter并激活其飞行模式。您可以使用任何至少有六个通道的RC发射器/接收器系统。<a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">兼容RC发射机和接收机系统</span></a>中讨论了一些选项。</p>
+<a class="reference external image-reference" href="../_images/spektrum-dx8.jpg"><img alt="../_images/spektrum-dx8.jpg" src="../_images/spektrum-dx8.jpg" /></a>
+</section>
+<section id="autopilot-autopilot-hardware">
+<h2>自动驾驶仪（自动驾驶仪硬件）<a class="headerlink" href="#autopilot-autopilot-hardware" title="Permalink to this heading">¶</a></h2>
+<p>Copter的自动驾驶板决定了其自主飞行的能力。有关列表，请参阅<a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">ArduPilot兼容自动驾驶仪页面</span></a>。建议使用具有以下功能的自动驾驶仪：</p>
+<ul class="simple">
+<li><p>一张SD卡，用于日志记录、地形数据库、脚本编写（如果需要）</p></li>
+<li><p>所用电机和伺服装置数量的足够输出</p></li>
+<li><p>如果需要，为GPS和遥测无线电提供足够数量的UART</p></li>
+<li><p>振动隔离IMU是非常理想的，简化了安装注意事项。</p></li>
+<li><p>确保自动驾驶仪包括气压计</p></li>
+<li><p>I2C用于外部指南针</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>许多自动驾驶仪都有内部指南针，但为了避免电机干扰，有时需要外部指南针。</p>
+</div>
+<p>创建无人机视觉应用程序的开发人员应考虑使用单独的Companion计算机或基于Linux的自动驾驶板。</p>
+</section>
+<section id="gps-module">
+<h2>GPS模块<a class="headerlink" href="#gps-module" title="Permalink to this heading">¶</a></h2>
+<p>您的Copter将<em>需要</em>GPS模块。推荐的模块是<a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#common-installing-3dr-ublox-gps-compass-module"><span class="std std-ref">3DR UBlox GPS+指南针模块</span></a>，其中还包括一个指南针。您可以在<a class="reference internal" href="common-positioning-landing-page.html#common-positioning-landing-page"><span class="std std-ref">这里</span></a>查看其他GPS解决方案。</p>
+<a class="reference external image-reference" href="../_images/GPS_TopAndSide.jpg"><img alt="../_images/GPS_TopAndSide.jpg" src="../_images/GPS_TopAndSide.jpg" /></a>
+</section>
+<section id="lipo-batteries-and-charger">
+<h2>锂电池和充电器<a class="headerlink" href="#lipo-batteries-and-charger" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/lipo_battery.jpg"><img alt="../_images/lipo_battery.jpg" src="../_images/lipo_battery.jpg" /></a>
+<p>Copter需要可充电的锂聚合物（LiPo）电池。一个好的经验法则是每个电机使用1000毫安时（毫安时）。对于四旋翼直升机来说，<a class="reference external" href="https://hobbyking.com/en_us/turnigy-4000mah-3s-20c-lipo-pack.html?___store=en_us">像这样的4000mAH锂电池</a>会很好地工作。虽然你的直升机一次只能使用一个电池，但我们建议至少有两个电池库存；电池越多，飞行时间就越多。你还需要一个充电站来给你的电池充电，<a class="reference external" href="https://hobbyking.com/en_us/turnigy-2s-3s-balance-charger-direct-110-240v-input.html?___store=en_us">比如这个</a>。</p>
+</section>
+<section id="ground-control-station">
+<h2>地面控制站<a class="headerlink" href="#ground-control-station" title="Permalink to this heading">¶</a></h2>
+<p>如果您要将新版本的Copter加载到自动驾驶仪上，并进行首次飞行调整和校准，则需要（免费和开源）<a class="reference external" href="https://ardupilot.org/planner/index.html#home" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a>。它在PC上运行，也可以用于规划任务。</p>
+<a class="reference external image-reference" href="../_images/groundstation-with-MP.jpg"><img alt="../_images/groundstation-with-MP.jpg" src="../_images/groundstation-with-MP.jpg" /></a>
+<p>配置好Copter后，您可能会发现选择不同的地面站更方便——在您选择的平板电脑、手机或电脑上运行。主要选项在主题<a class="reference internal" href="common-choosing-a-ground-station.html#common-choosing-a-ground-station"><span class="std std-ref">选择地面站</span></a>中进行了讨论。</p>
+</section>
+<section id="telemetry-radio">
+<h2>遥测无线电(数传)<a class="headerlink" href="#telemetry-radio" title="Permalink to this heading">¶</a></h2>
+<p>遥测无线电允许您的Copter使用MAVLink协议从空中与地面站通信。这使您能够实时与任务交互，并从直升机的摄像头和其他组件接收流式数据。这为您的任务增加了相当大的便利！</p>
+<p>我们推荐从<a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">遥测登录页</span></a>链接的遥测无线电解决方案。请记住，如果使用<a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SIK数传</span></a>，您将需要所在国家/地区允许频率的版本-915 MHz（美洲）和433 MHz（欧洲）。</p>
+<a class="reference external image-reference" href="../_images/Telemetry_store.jpg"><img alt="../_images/Telemetry_store.jpg" src="../_images/Telemetry_store.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="choosing-a-frame.html" class="btn btn-neutral float-left" title="Choosing a MultiCopter Frame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="safety-multicopter.html" class="btn btn-neutral float-right" title="MultiCopter Safety" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

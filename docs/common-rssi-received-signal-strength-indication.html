@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Received Signal Strength Indication (RSSI) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Received Signal Strength Indication (RSSI)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="received-signal-strength-indication-rssi">
+<span id="common-rssi-received-signal-strength-indication"></span><h1>Received Signal Strength Indication (RSSI)<a class="headerlink" href="#received-signal-strength-indication-rssi" title="Permalink to this heading">¶</a></h1>
+<p>This article shows how to get the Received Signal Strength Indication
+(RSSI) to your autopilot.</p>
+<a class="reference external image-reference" href="../_images/mp_hud_rssi.jpg"><img alt="../_images/mp_hud_rssi.jpg" src="../_images/mp_hud_rssi.jpg" style="width: 400px;" /></a>
+<section id="setting-up-rssi-on-your-autopilot">
+<h2>Setting up RSSI on your autopilot<a class="headerlink" href="#setting-up-rssi-on-your-autopilot" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>RSSI can be specifically set up by a collapsible set of parameters. By default, it is required to first set</dt><dd><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a>  according to how the RC receiver’s signal strength indication will be fed to the autopilot:</p>
+</dd>
+</dl>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Value</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Disabled</p></td>
+<td><p>no RSSI used</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>AnalogPin</p></td>
+<td><p>signal strength indicated by a fixed voltage (0 - 3.3 or 5V) fed to an analog (ADC) pin</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>RCChannelPwmValue</p></td>
+<td><p>signal strength indicated by a dedicated channel’s PWM value,
+optionally embedded into a sum signal (cPPM / SBus)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>ReceiverProtocol</p></td>
+<td><p>supports RSSI via dedicated receiver protocols like SUMD or ST24</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>PWMInputPin</p></td>
+<td><p>allows to specify a GPIO pin to read PWM type RSSI input</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>TelemetryRadioRSSI</p></td>
+<td><p>signal strength reported by remote telemetry radio</p></td>
+</tr>
+</tbody>
+</table>
+<p>After setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> to a value other than 0 you will have to save and refresh your parameters to uncollapse a set of subordinate parameters that allow to further specify RSSI handling.</p>
+<p>There are four basic options for feeding RSSI to your autopilot:</p>
+<blockquote>
+<div><dl>
+<dt><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> = 1  Analog voltage type RSSI fed to a dedicated pin</dt><dd><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a>  specifies the pin used to read RSSI voltage. This parameter defaults to the correct pin number on most boards when using current chibios firmware.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-pin-high" title="(in Rover)"><span class="xref std std-ref">RSSI_PIN_HIGH</span></a>  voltage received on the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a> when the signal is the strongest.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-pin-low" title="(in Rover)"><span class="xref std std-ref">RSSI_PIN_LOW</span></a>  voltage received on the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a> when the signal is the weakest.</p>
+</dd>
+<dt><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> = 2  PWM Channel type RSSI embedded in a collective PPM / sum signal (sBus)</dt><dd><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-channel" title="(in Rover)"><span class="xref std std-ref">RSSI_CHANNEL</span></a>  Channel number the radio receiver will use to embed RSSI if collective / sum signal is used (channel 5 and up).</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-high" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_HIGH</span></a>  PWM value the radio receiver will output when the signal is the strongest.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-low" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_LOW</span></a>  PWM value the radio receiver will output when the signal is the weakest.</p>
+</dd>
+</dl>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> = 3  digital receiver protocols’ signal quality or dropped packets information (SUMD / ST24 /FPort)
+Scaled internally, no further adjustments required.</p>
+<dl>
+<dt><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> = 4  PWM type RSSI fed to a dedicated GPIO pin</dt><dd><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a>  Specifies the GPIO pin to read PWM type RSSI from. On boards with IOMCU these are the AUX pins that can be used as PWM output by default or alternatively set to be used as GPIO . See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a>.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-high" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_HIGH</span></a>  PWM value the radio receiver will output when the signal is the strongest.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-low" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_LOW</span></a>  PWM value the radio receiver will output when the signal is the weakest.</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some radio receivers output inverted RSSI values (lowest voltage / PWM on best reception), so _HIGH parameters may actually be set to lower values than corresponding _LOW parameters for correct internal scaling to 0 - 100%.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To read analog voltage type RSSI,  <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a>  can be set to any free ADC pin available. On pixhawk / cube type boards, this includes the sBus out / RSSI input pin (103). When using dedicated ADC pins, the corresponding pin number usually matches the ADC1 channel used on that pin. See the DMA1 map in the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef/scripts">resepective processor’s alternative function table</a> for further reference.</p>
+</div>
+</section>
+<section id="displaying-the-rc-receiver-s-rssi-value-in-missionplanner-s-hud">
+<h2>Displaying the RC receiver’s RSSI value in MissionPlanner’s HUD<a class="headerlink" href="#displaying-the-rc-receiver-s-rssi-value-in-missionplanner-s-hud" title="Permalink to this heading">¶</a></h2>
+<p>Once you have set up RSSI correctly on your autopilot, the corresponding values will be sent to your groundstation within the telemetry stream and can be displayed on your GCS. Additionally, your RC receiver’s RSSI will be logged and can be displayed on your onboard or standalone OSD.</p>
+<p>To display RC receiver’s RSSI on MP’s HUD:</p>
+<ul class="simple">
+<li><p>Open Mission Planner and connect to the autopilot</p></li>
+<li><p>On the Flight Data screen, right-mouse-button click on the HUD and select “User Items”</p></li>
+<li><p>On the “Display this” window that appears, check “rxrssi”</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/MissionPlanner_RSSI_DisplayRxRSSI.JPG"><img alt="../_images/MissionPlanner_RSSI_DisplayRxRSSI.JPG" src="../_images/MissionPlanner_RSSI_DisplayRxRSSI.JPG" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is crucial to select  rxrssi  to display the RC link’s rssi, while the items  rssi  and  remrssi  are used to display a radio modem’s ground- and remote-transceiver’s signal strength indication.</p>
+</div>
+</section>
+<section id="connection-examples">
+<h2>Connection examples<a class="headerlink" href="#connection-examples" title="Permalink to this heading">¶</a></h2>
+<p>Below are examples of typical RC receiver RSSI connection schemes:</p>
+<section id="rssi-embedded-in-a-collective-ppm-sum-signal-s-channel">
+<h3>RSSI embedded in a collective PPM / sum signal’s channel<a class="headerlink" href="#rssi-embedded-in-a-collective-ppm-sum-signal-s-channel" title="Permalink to this heading">¶</a></h3>
+<p>It is common practice to feed all RC channels from your RC receiver to your autopilot using a cPPM or sBus type sum signal on a single signal wire. Most UHF type RC systems like EZUHF, OpenLRS, Crossfire or DragonLink support embedding RSSI into a dedicated channel within this collective / sum signal stream. As per ArduPilot default channels 1-4 are used as input for primary control (roll, pitch, throttle, yaw), any channel number above 4 can be used to embed RSSI. Usually, these systems use a GUI to assign RSSI to a dedicated channel slot on your RC receiver, or have it set to a standard channel by default. See your respective system’s user manual for reference.</p>
+<p>If there is an existing RC receiver connection to your autopilot, no additional wiring is required for using embedded RSSI:</p>
+<a class="reference external image-reference" href="../_images/embed_rssi.jpg"><img alt="../_images/embed_rssi.jpg" src="../_images/embed_rssi.jpg" /></a>
+<p>The example below shows how to assign channel 5 to embed RSSI on a DragonLink RC receiver:</p>
+<a class="reference external image-reference" href="../_images/DL_rssi.jpg"><img alt="../_images/DL_rssi.jpg" src="../_images/DL_rssi.jpg" /></a>
+<p>RSSI values will be output both within the PPM stream on signal pin 1 as well as within the sBus stream on pin 4. Either can be fed to your autopilot’s RCInput pin.</p>
+<p>Now set your RSSI parameters accordingly:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a>  = 2 (requires parameter reload if set to default 0 previously)</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-channel" title="(in Rover)"><span class="xref std std-ref">RSSI_CHANNEL</span></a>  = the channel used to embed RSSI on your RC receiver (Ch5 in the above example)</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-high" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_HIGH</span></a>  = channel value at strongest reception</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-low" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_LOW</span></a>  = channel value at weakest reception</p>
+</div></blockquote>
+<p>Displaying  rxssi  alongside with the respective RC channel’s input value in your GCS helps to adjust the value range to match a 0 - 100% RSSI scale:</p>
+<a class="reference external image-reference" href="../_images/hud_rssi_ch.jpg"><img alt="../_images/hud_rssi_ch.jpg" src="../_images/hud_rssi_ch.jpg" /></a>
+<p>At strongest reception, Ch5 shows a PWM value of 1904 us. With the transmitter switched off, it will drop to 1093 us. Setting  <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-high" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_HIGH</span></a>  and  <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-low" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_LOW</span></a>  respectively allows to scale the used PWM range to 0 - 100 % with optimal resolution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Certain sBus protocol variances may lead to channel values not being updated during receiver failsafe conditions. In this case, you will see the last valid RSSI value displayed during a failsafe. As the received signal strength usually gradually decreases under flight conditions, this will likely not have any negative effects. However, during setup and testing it might be confusing to see RSSI freezed at a compareably high value while your RC transmitter is actually switched off.</p>
+</div>
+</section>
+<section id="analog-voltage-type-rssi-fed-to-a-dedicated-pin">
+<h3>Analog voltage type RSSI fed to a dedicated pin<a class="headerlink" href="#analog-voltage-type-rssi-fed-to-a-dedicated-pin" title="Permalink to this heading">¶</a></h3>
+<p>If your RC receiver outputs an analog voltage range type RSSI, you can feed this to your autopilot’s analog RSSI input pin. Typical voltage range is 0 - 3,3V or 0 - 5V. See your RC system’s manual for detail or check using a multimeter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mind that though most autopilots’ input pins theoretically are 5V tolerant, most ADCs will only measure up to 3,3 - 3,6 V unless equipped with voltage dividers to scale down higher input voltages. Check your RC receiver’s RSSI voltage as well as your autopilot’s specifications to ensure compatibility.</p>
+</div>
+<p>If there is an existing RC receiver connection to your autopilot that includes supply voltage and ground, only one additional signal wire is required. The example below shows how to connect a receiver’s analog voltage type RSSI to a pixhawk autopilot’s sBus output pin:</p>
+<a class="reference external image-reference" href="../_images/volt_type_rssi.jpg"><img alt="../_images/volt_type_rssi.jpg" src="../_images/volt_type_rssi.jpg" /></a>
+<p>Now set your RSSI parameters accordingly:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a>  = 1 (requires parameter reload if set to default 0 previously)</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a>  = 103 (PixHawk SBUS output / RSSI input pin)</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-pin-high" title="(in Rover)"><span class="xref std std-ref">RSSI_PIN_HIGH</span></a>  voltage received on the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a> when the signal is the strongest, usually 3,3V.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-pin-low" title="(in Rover)"><span class="xref std std-ref">RSSI_PIN_LOW</span></a>  voltage received on the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a> when the signal is the weakest, usually 0V</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RSSI type options depend on your individual RC system’s specifications. Some systems require additional workarounds or additional hardware conversion of non-standard proprietary protocols.</p>
+</div>
+</section>
+<section id="pwm-type-rssi-fed-to-a-dedicated-pin">
+<h3>PWM type RSSI fed to a dedicated pin<a class="headerlink" href="#pwm-type-rssi-fed-to-a-dedicated-pin" title="Permalink to this heading">¶</a></h3>
+<p>If your RC receiver outputs PWM type RSSI on a dedicated pin or pad, you can feed this to one of your autopilot’s GPIO pins. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> to set PWM output pins as GPIO. On pixahwk type hardware, this refers to the AUX pins as they are connected to the board’s MCU, bypassing the IOMCU co-processer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>HW Pin (AUX) number</p></th>
+<th class="head"><p>alternative GPIO number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>51</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>52</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>53</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>54</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>55</p></td>
+</tr>
+</tbody>
+</table>
+<p>In the above example, setting  <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code>  to 4 will set pins 1-4 for use as PWM output and free the remaining pins 5 and 6 for use as GPIO 54 and 55.</p>
+<p>If there is an existing RC receiver connection to your autopilot that includes supply voltage and ground, only one additional signal wire is required. The example below shows how to connect a receiver’s PWM type RSSI output to a pixhawk autopilot’s AUX 6 pin set for use as GPIO 55:</p>
+<a class="reference external image-reference" href="../_images/PWM_tpye_rssi.jpg"><img alt="../_images/PWM_type_rssi.jpg" src="../_images/PWM_type_rssi.jpg" /></a>
+<p>Now set your RSSI parameters accordingly:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a>  = 4 (requires parameter reload if set to default 0 previously)</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a>  = GPIO pin number used (55 in the above example)</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-high" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_HIGH</span></a>  = PWM value at strongest reception</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-chan-low" title="(in Rover)"><span class="xref std std-ref">RSSI_CHAN_LOW</span></a>  = PWM value at weakest reception</p>
+</div></blockquote>
+</section>
+</section>
+<section id="special-use-cases">
+<h2>Special use cases<a class="headerlink" href="#special-use-cases" title="Permalink to this heading">¶</a></h2>
+<section id="converting-non-standard-pwm-type-rssi-to-analog-voltage">
+<h3>Converting Non-standard PWM type RSSI to analog voltage<a class="headerlink" href="#converting-non-standard-pwm-type-rssi-to-analog-voltage" title="Permalink to this heading">¶</a></h3>
+<p>For non-standard RSSI types like some FrSky receivers’ high frequency PWM RSSI, an RC filter can be used to level the signal, rendering it useable for the autopilot’s analog RSSI input pin:</p>
+<p><strong>A 4.7k resistor and 10uF capacitor are used to filter out the pulses
+from the receiver’s RSSI output.</strong></p>
+<a class="reference external image-reference" href="../_images/rssi_rc_filter.jpg"><img alt="../_images/rssi_rc_filter.jpg" src="../_images/rssi_rc_filter.jpg" /></a>
+</section>
+<section id="how-to-utilize-futaba-s-bus2-frame-error-rate-information-to-be-used-as-rssi-in-your-autopilot">
+<h3>How to utilize Futaba S.BUS2 “Frame Error Rate” information to be used as RSSI in your autopilot<a class="headerlink" href="#how-to-utilize-futaba-s-bus2-frame-error-rate-information-to-be-used-as-rssi-in-your-autopilot" title="Permalink to this heading">¶</a></h3>
+<p>The <strong>Frame Error Rate (FER)</strong> indicates, if the receiver has trouble decoding a received data package sent by the transmitter. The value is similar to RSSI.</p>
+<p>The FER information is implemented within the <strong>Futaba S.BUS2</strong> datastream. It is not transmitted as a continuous value, but is sent in 25% resolution.</p>
+</section>
+<section id="how-to-setup-the-hardware">
+<h3>How to setup the Hardware<a class="headerlink" href="#how-to-setup-the-hardware" title="Permalink to this heading">¶</a></h3>
+<p>To extract the FER from the <strong>Futaba S.BUS2</strong> datastream, a <a class="reference external" href="http://shop.tje.dk/catalog/product_info.php?products_id=43">S.BUS2 to Analog DC voltage converter</a> can be used.</p>
+<p>A basic setup using a <strong>Futaba R7008SB</strong> receiver and an additional S.BUS2 GPS Multi Sensor is shown in the image below. A similar setup should work using a <strong>Futaba R7003SB</strong> receiver.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To enable <strong>S.Bus and S.Bus2 protocol</strong> on your Futaba receiver, you have to set your <strong>R7008SB</strong> receiver to <strong>“Mode B”</strong> or <strong>“Mode C”</strong> and your <strong>R7003SB</strong> receiver to <strong>“Mode A”</strong>. Check out your <a class="reference external" href="http://manuals.hobbico.com/fut/r7008sb-manual.pdf">R7008SB</a> or <a class="reference external" href="http://manuals.hobbico.com/fut/r7003sb-manual.pdf">R7003SB</a>  user manual for further details.</p>
+</div>
+<a class="reference external image-reference" href="../_images/SBUS2_2_analog_converter.png"><img alt="../_images/SBUS2_2_analog_converter.png" src="../_images/SBUS2_2_analog_converter.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>The converter is designed to provide a max. voltage output of 3.3 V DC when 100% of the frames are good, and appr. 0.4 V DC when connection is lost or receiver is in failsafe. To get best results, it is best practice to calibrate the output voltages of the converter at “full reception” and “Tx off” using a voltmeter. In general the converter should output the following DC voltage:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Rx in failsafe</strong> –&gt; 12 % of max. <strong>VDC out ~ 0.4 V DC</strong></p></li>
+<li><p>Rx received &lt;= 25 % good frames –&gt; 34 % of max. VDC out ~ 1.1 V DC</p></li>
+<li><p>Rx received &lt;= 50 % good frames –&gt; 56 % of max. VDC out ~ 1.85 V DC</p></li>
+<li><p>Rx received &lt;= 75 % good frames –&gt; 78 % of max. VDC out ~ 2.6 V DC</p></li>
+<li><p><strong>Rx received &lt;= 100 % good frames</strong> –&gt; 100 % of max. <strong>VDC out ~ 3.3 V DC</strong></p></li>
+</ul>
+</div>
+</section>
+<section id="how-to-setup-rssi-feedback-to-your-futaba-fasstest-telemetry-capable-transmitter">
+<h3>How to setup RSSI Feedback to your Futaba FASSTest Telemetry capable transmitter<a class="headerlink" href="#how-to-setup-rssi-feedback-to-your-futaba-fasstest-telemetry-capable-transmitter" title="Permalink to this heading">¶</a></h3>
+<p>In addition to the S.BUS2 to Analog conversion, the <a class="reference external" href="http://shop.tje.dk/catalog/product_info.php?products_id=43">converter</a>  is looping back the FER / RSSI value to the S.BUS2 datastream simultaniously. This feature enables all users of <strong>FASSTest Telemetry capable transmitters</strong> to setup a <strong>Telemetry RSSI Feedback</strong> as an option. Moreover an <strong>audible and/or vibration alarm</strong> can be set to notice when received signal quality is degrading.</p>
+<p>To use this feature, the <strong>“FASSTest-14CH” protocol</strong> has to be enabled in your transmitter.</p>
+<dl class="simple">
+<dt>The following screenshots show the setup procedure for a Futaba T14SG. Other FASSTest capable transmitters have to be setup in a similar way:</dt><dd><ul class="simple">
+<li><p>Enter the “LINKAGE MENU” by double clicking the “LNK” button [1].</p></li>
+<li><p>Goto “SYSTEM” and press “RTN” [2].</p></li>
+<li><p>Within “SYSTEM” menu, goto the protocol selection tab and choose “FASSTest-14CH” protocol [3] .</p></li>
+<li><p>In case you changed the protocol, eventualy you have to re “LINK” your receiver to your transmitter [4].</p></li>
+<li><p>Ensure, that TELEMETRY is set to “ACT” [5].</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference external image-reference" href="../_images/FASSTest_EnableProtocol.png"><img alt="../_images/FASSTest_EnableProtocol.png" src="../_images/FASSTest_EnableProtocol.png" /></a>
+<p>Due to the fact that Futabas Telemetry Sensors can’t be renamed, the transmitted FER / RSSI value appears as a simple <strong>“temperature sensor”</strong>, wheras “0°C” means “Rx in failsafe” and “100°C” means “Rx received &lt;= 100 % good frames”.</p>
+<p>The <a class="reference external" href="http://shop.tje.dk/catalog/product_info.php?products_id=43">converter</a> is reporting the current FER / RSSI value into Slot 1 of S.Bus2 Telemetry datastream.</p>
+<dl class="simple">
+<dt>In order to decode the FER / RSSI feedback of the converter, a standard “TEMP125” Sensor has to be assigned to Slot 1 of your transmitter:</dt><dd><ul class="simple">
+<li><p>Enter the “LINKAGE MENU” by double clicking the “LNK” button.</p></li>
+<li><p>Show page 2 of the menu by pressing “S1” [1], goto “SENSOR” and press “RTN” [2].</p></li>
+<li><p>Goto Slot 1 tab and press “RTN” [3].</p></li>
+<li><p>Choose “TEMP125” Sensor and confirm the selection by pressing “RTN” two times [4].</p></li>
+<li><p>Slot 1 should be assigned with a “TEMP125” Sensor now [5]. If so, leave the menu by pressing “HOME/EXIT” button two times.</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference external image-reference" href="../_images/FASSTest_AdressTelemetrySensorToSlot.png"><img alt="../_images/FASSTest_AdressTelemetrySensorToSlot.png" src="../_images/FASSTest_AdressTelemetrySensorToSlot.png" /></a>
+<dl class="simple">
+<dt>To display the FER / RSSI value and to trigger an alarm, your TELEMETRY MONITOR has to be configured:</dt><dd><ul class="simple">
+<li><p>Enter the “TELEM.MONI” menu by pressing the “HOME/EXIT” button [1].</p></li>
+<li><p>Goto “RECEIVER” and press the “RTN” button [2].</p></li>
+<li><p>Goto DISPLAY tab [3] and choose “3” [4].</p></li>
+<li><p>Goto “SENSOR” [5] and choose “TEMP125” [6] and confirm with “RTN”.</p></li>
+<li><p>Press “HOME/EXIT” to return to “TELEM.MONI” display and to see the RSSI / FER value as a “Temperature” [7].</p></li>
+<li><p>To set alarms, goto “TEMP” [7] and press “RTN”. For alarm setup please refer to your Tx user manual.</p></li>
+<li><p>As soon as you connect your receiver with power, the FER / RSSI value will show up as well as the standard received signal quality indicator [8].</p></li>
+<li><p>The converter can be mixed with other telemetry devices as long as they are assigned to Slot 2 to Slot 31 [9].</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference external image-reference" href="../_images/FASSTest_SetupTelemetryDisplay.png"><img alt="../_images/FASSTest_SetupTelemetryDisplay.png" src="../_images/FASSTest_SetupTelemetryDisplay.png" /></a>
+<p><strong>Developed and illustrated by Lukasz - Thank You - Hope this helps.</strong></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

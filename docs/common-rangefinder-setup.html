@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangeFinders Setup Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RangeFinders Setup Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rangefinders-setup-overview">
+<span id="common-rangefinder-setup"></span><h1>RangeFinders Setup Overview<a class="headerlink" href="#rangefinders-setup-overview" title="Permalink to this heading">¶</a></h1>
+<p>There are many different kinds of rangefinders: Lidar (using laser or infra-red light to measure distance), Sonar (using ultrasonic sound), and Radar (using microwave RF). Some are analog, producing  pulses whose timing represent the distance to an object, others are digital sending data streams over serial to UARTs, or I2C, or even via DroneCAN.</p>
+<p><a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">RangeFinders (Sonar or Lidar)</span></a> can be used for <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a> as well as altitude sensors for precision landing in Plane and Copter.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/y2Kk6nIily0" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a> features are new and should be used with caution.</p>
+</div>
+<p>Up to 10 Rangefinders can be used in the system (1 thru A). <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a> can use a single 360 degree Lidar, or up to 9 unidirectional rangefinders: 8 arranged in a circle covering 45 degree wide segments, plus an upward facing rangefinder. And a downward facing rangefinder used for low altitude height above ground measurements.</p>
+<section id="connecting-and-configuring-the-rangefinder">
+<h2>Connecting and Configuring the Rangefinder<a class="headerlink" href="#connecting-and-configuring-the-rangefinder" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Follow the instructions for each type of rangefinder described in its linked page on <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">Rangefinders (landing page)</span></a>.</p></li>
+<li><p>Set the RNGFNDx_ORIENT parameters (i.e. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-orient" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ORIENT</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd2-orient" title="(in Rover)"><span class="xref std std-ref">RNGFND2_ORIENT</span></a>, etc.) to specify the direction each range finder is pointing in.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that if the type of rangefinder is set or changed, a reboot will be required.</p>
+</div>
+<dl class="simple">
+<dt>[site wiki=”copter,rover”]</dt><dd><ul class="simple">
+<li><p>Set the parameter <code class="docutils literal notranslate"><span class="pre">PRXx_TYPE</span></code> = 4 for each horizontal rangefinder(s) to use them as Proximity Sensors (For obstacle avoidance).</p></li>
+<li><p>For Copter and Rover, up to 8 rangefinders may placed around the vehicle to provide 360 degree coverage, or a single 360 degree Lidar. But only one forward facing rangefinder is required for <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a>.</p></li>
+<li><p>If a rangefinder is oriented facing up, then it will be used in the <a class="reference internal" href="common-simple-object-avoidance.html#common-simple-object-avoidance"><span class="std std-ref">[copywiki destination=”copter,rover”]</span></a> operation as an upwards sensing proximity sensor in Copter LOITER, ALTHOLD, and POSHOLD modes.</p></li>
+</ul>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”plane,copter”]</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If a rangefinder is oriented facing down, it will  be used to for height above ground measurements when within its range for increased landing precision in Copter, and in Plane autolandings if <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rngfnd-landing" title="(in Plane)"><span class="xref std std-ref">RNGFND_LANDING</span></a> is enabled. In Copter, when landing and within 10m of the ground according to the range finder, the vehicle will slow its descent to the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#land-speed" title="(in Copter)"><span class="xref std std-ref">LAND_SPEED</span></a> (which defaults to 50cm/s). In Plane, see the “using a rangefinder” section of <a class="reference external" href="https://ardupilot.org/plane/docs/automatic-landing.html#automatic-landing" title="(in Plane)"><span>Automatic Landing</span></a></p></li>
+<li><p>If using a rangefinder for altitude measurements, be sure to read this page:</p></li>
+</ul>
+</div></blockquote>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-understanding-altitude.html">Understanding Altitude in ArduPilot</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only downward facing rangefinders are supported in Plane currently.</p>
+</div>
+<p>[/site]</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Object Avoidance wiki page is <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">here</span></a></p></li>
+</ul>
+<p>[site wiki=”copter,rover”]
+- More details of the algorithms used in <a class="reference internal" href="common-simple-object-avoidance.html#common-simple-object-avoidance"><span class="std std-ref">[copywiki destination=”copter,rover”]</span></a> are on the <a class="reference external" href="https://ardupilot.org/dev/docs/code-overview-object-avoidance.html#code-overview-object-avoidance" title="(in Dev)"><span class="xref std std-ref">developer wiki’s object avoidance page</span></a>
+[/site]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

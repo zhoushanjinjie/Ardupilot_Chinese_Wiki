@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DShot ESCs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DShot ESCs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dshot-escs">
+<span id="common-dshot-escs"></span><h1>DShot ESCs<a class="headerlink" href="#dshot-escs" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/hobbywing-esc.jpg" src="../_images/hobbywing-esc.jpg" />
+<p>DShot is a digital ESC protocol which allows fast, high resolution digital communication which may improve vehicle control which is especially useful in multirotor and quadplane applications.  Other advantages include</p>
+<ul class="simple">
+<li><p>Values sent to the ESC are checksum-protected</p></li>
+<li><p>Clock differences between the ESC and autopilot don’t affect flight performance</p></li>
+<li><p>ESC calibration is not required</p></li>
+</ul>
+<p>DShot is the underlying ESC control protocol used by <a class="reference internal" href="common-blheli32-passthru.html#common-blheli32-passthru"><span class="std std-ref">BLHeli</span></a> ESCs.  Many BLHeli ESC versions offer even more features such as ESC configuration, <a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">ESC telemetry</span></a>, LED control and/or <a class="reference internal" href="common-esc-telemetry.html#bidir-dshot"><span class="std std-ref">Bi-directional dshot</span></a>.  If choosing a DShot enabled ESC we recommend using one that also supports BLHeli32 or BLHeli_S.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only try DShot on ESCs that are known to support it or you will get unpredictable results.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recently there is a growing number of proprietary and non-proprietary 16 / 32 bit ESCs with firmware that support DShot and other digital ESC protocols, but not BLHeli32 specific features like passthrough and telemetry. See your ESC’s manual for further detail on supported features.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>most DShot ESCs normally will also operate as normal <a class="reference internal" href="common-brushless-escs.html#common-brushless-escs"><span class="std std-ref">PWM ESCs</span></a>.</p>
+</div>
+<section id="connecting-the-escs">
+<h2>Connecting the ESCs<a class="headerlink" href="#connecting-the-escs" title="Permalink to this heading">¶</a></h2>
+<p>For autopilots with an IOMCU (e.g. Pixhawk, CubeOrange) the Bi-Directional DShot ESCs should be connected to the AUX outputs.
+On CubeOrange Normal DShot works on all channels.  AUX1 cannot be used for Bi-Directional DShot meaning only AUX2 to AUX6 can be used for Bi_directional.  (<a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/20362">see issue</a>).</p>
+<p>For <a class="reference internal" href="common-pixracer-overview.html#common-pixracer-overview"><span class="std std-ref">Pixracer</span></a> and <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">other boards</span></a> without a separate IOMCU coprocessor, any servo/motor outputs can be used.</p>
+<p>Please see the <a class="reference internal" href="#dshot-mixing-escs"><span class="std std-ref">Mixing ESC Protocols</span></a> section below for more details on limitations</p>
+</section>
+<section id="select-the-dshot-baud-rate">
+<h2>Select the DShot baud rate<a class="headerlink" href="#select-the-dshot-baud-rate" title="Permalink to this heading">¶</a></h2>
+<p>[site wiki=”copter, rover”]
+Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> for the desired baud rate and reboot the autopilot
+[/site]
+[site wiki=”plane”]
+Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-m-pwm-type" title="(in Plane)"><span class="xref std std-ref">Q_M_PWM_TYPE</span></a> for the desired baud rate to use for VTOL motors and reboot the autopilot
+[/site]</p>
+<ul class="simple">
+<li><p>DShot150 at 150kbaud (recommended for larger aircraft with long signal lead runs)</p></li>
+<li><p>DShot300 at 300kbaud</p></li>
+<li><p>DShot600 at 600kbaud (recommended for most vehicles)</p></li>
+<li><p>DShot1200 at 1200kbaud</p></li>
+</ul>
+<p>For larger aircraft with longer cable runs using DShot ESC protocol, we recommend using the lowest baud rate, DShot150, as it is the most reliable protocol (lower baudrates are less susceptible to noise on cables).</p>
+<p>For smaller craft, DShot600 is by far the most widely used and can therefore be a more suitable choice simply because of the amount of testing that it has had, rather than the newer DShot1200 protocol.</p>
+<p>Higher rates (e.g. DShot600 and DShot1200) are more susceptible to noise but have the advantage that they tie up the allocated DMA channel for less time which can be beneficial on autopilots with a lot of DMA sharing.</p>
+<p>If <a class="reference internal" href="common-esc-telemetry.html#bidir-dshot"><span class="std std-ref">Bi-directional DShot</span></a> will be used, DShot300 and DShot600 are preferred, because this feature requires a longer pulse width as it has to wait for the response from the ESC before it can send another pulse.  Bi-directional DShot does not share DMA channels and so there is no impact on other peripherals.  Bi-directional DShot is only supported on BLHeli32 ESCs</p>
+</section>
+<section id="configure-the-servo-functions">
+<h2>Configure the Servo Functions<a class="headerlink" href="#configure-the-servo-functions" title="Permalink to this heading">¶</a></h2>
+<p>As mentioned above, if using an autopilot with an IOMCU (e.g. Pixhawk, CubeOrange) the ESCs should be connected to the AUX outputs instead of the default MAIN outputs.  This in turn means that the corresponding <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVOx_FUNCTION</span></a> parameters must be updated so the autopilot knows which output is connected to the ESCs/motors.   This can be most easily done using Mission Planner’s “Servo Output” page</p>
+<img alt="../_images/dshot-setup-mp-servooutput.png" src="../_images/dshot-setup-mp-servooutput.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When an output is configured for DShot, the <code class="docutils literal notranslate"><span class="pre">SERVOx_MIN/MAX/TRIM</span></code> parameters for that output will always be ignored since DShot does not use these parameters. The trim  value used will be  1500 if it’s a reversible output, or 1000 if normal output setup in DShot, and the output range always be 1000-2000. No ESC calibration step is required.</p>
+</div>
+<p>[site wiki=”plane”]
+On Plane, all other motors use Normal (PWM) protocol. However, in Plane, any motor, like the traditional fixed wing’s main motor or Dual Motor Tailsitters (SERVOx_FUNCTION = 70 throttle, 73 throttle left and / or 74 throttle right), can be changed to a protocol other than PWM using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_MASK</span></a> parameter to specify the output number of the motor together with the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-otype" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_OTYPE</span></a> parameter to select the protocol of these motors independently of that selected for the copter function motors.
+[/site]</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All mask-based configuration can only be changed at a PWM group level, please consult the documentation for your autopilot to ascertain which outputs are on different groups. See <a class="reference internal" href="#dshot-mixing-escs"><span class="std std-ref">Mixing ESC Protocols</span></a> section below.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure your ESC can support the configuration you select for it. Damage can occur otherwise. This includes frame rates discussed below. Also be careful when switching between digital and analogue output types without re-calibrating ESCs as this can lead to uncommanded motor output.</p>
+</div>
+</section>
+<section id="check-the-rc-banner">
+<h2>Check the RC Banner<a class="headerlink" href="#check-the-rc-banner" title="Permalink to this heading">¶</a></h2>
+<p>Reboot the autopilot and check the “RC banner” to confirm the output channels are setup as expected (this banner appears whenever parameters are downloaded)</p>
+<img alt="../_images/dshot-setup-mp-rcbanner.png" src="../_images/dshot-setup-mp-rcbanner.png" />
+</section>
+<section id="additional-configuration">
+<h2>Additional Configuration<a class="headerlink" href="#additional-configuration" title="Permalink to this heading">¶</a></h2>
+<section id="dshot-update-rates">
+<h3>DShot Update Rates<a class="headerlink" href="#dshot-update-rates" title="Permalink to this heading">¶</a></h3>
+<p>The frequency at which DShot pulses are sent can be configured through <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-dshot-rate" title="(in Rover)"><span class="xref std std-ref">SERVO_DSHOT_RATE</span></a>. By default ArduPilot will output a DShot data pulse every time a new IMU sample is ready <em>and</em> at a fixed 1Khz interval. On a copter with the standard 400Hz scheduler loop rate this works out at about 1.4Khz. However, the output is quite irregular - in order to get more regular output <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-dshot-rate" title="(in Rover)"><span class="xref std std-ref">SERVO_DSHOT_RATE</span></a> can be configured to send pulses at multiples of the scheduler loop rate. Thus if set to 2 the pulses will be sent at 800Hz, set to 3 at 1.2Khz and so on. The difference being very, very even output which can benefit copters needing tighter motor control (for instance smaller racers). It is not recommended to send pulses at less than 1Khz due to reports of BLHeli32 occasionally missing frames on some autopilots, similarly sending at higher rates can result in increased reliability and faster recovery from missed pulses where needed at the cost of some CPU. Very high rates can only be used for faster DShot speeds since otherwise pulses might overlap - for instance the fastest rate that DShot150 can theoretically support is 4Khz.</p>
+</section>
+<section id="dshot-commands">
+<span id="id1"></span><h3>DShot Commands<a class="headerlink" href="#dshot-commands" title="Permalink to this heading">¶</a></h3>
+<p>On certain ESCs DShot commands are supported. These allow functions such as ESC LEDs, beeps and motor direction to be manipulated by the autopilot. In order to use DShot commands:</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-dshot-esc" title="(in Rover)"><span class="xref std std-ref">SERVO_DSHOT_ESC</span></a> = 1 (BLHeli32/BLHeli_S/Kiss)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-types" title="(in Rover)"><span class="xref std std-ref">NTF_LED_TYPES</span></a>’s “DShot” checkbox to enable controlling the ESCs LEDs</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-buzz-types" title="(in Rover)"><span class="xref std std-ref">NTF_BUZZ_TYPES</span></a>’s “DShot” checkbox to enable usingthe motors as buzzers</p></li>
+</ul>
+<p>The current commands supported are:</p>
+<ul class="simple">
+<li><p>DShot LEDs on/off</p></li>
+<li><p>DShot Buzzer on/off</p></li>
+<li><p>Reverse motor direction (see <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-rvmask" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_RVMASK</span></a> parameter)</p></li>
+<li><p>Reversible DShot (aka 3D mode) (see <a class="reference internal" href="#blheli32-reversible-dshot"><span class="std std-ref">Reversible DShot ESCs</span></a>)</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently, ArduPilot supports the command set (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-dshot-esc" title="(in Rover)"><span class="xref std std-ref">SERVO_DSHOT_ESC</span></a> =1) that is commonly used, however, others are appearing and may not be compatible, resulting in undefined operation. Use caution (remove blades!) until correct operation using type=1 is verified for your ESC</p>
+</div>
+</section>
+<section id="reversible-dshot-escs">
+<span id="blheli32-reversible-dshot"></span><h3>Reversible DShot ESCs<a class="headerlink" href="#reversible-dshot-escs" title="Permalink to this heading">¶</a></h3>
+<p>Reversible DShot (aka 3D mode) allows the motor to be spun in either direction which is important for Rover, Boats and <a class="reference external" href="https://ardupilot.org/plane/docs/reverse-thrust-setup.html#reverse-thrust-setup" title="(in Plane)"><span class="xref std std-ref">Planes with reverse thrust</span></a>.</p>
+<p>Currently, only BLHeli32 and BLHeli_S capable reversible DShot ESCs are supported. In order to use one, the output which drives it must be designated with the appropriate bit in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-3dmask" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_3DMASK</span></a> bitmask parameter. This will map the outputs 1000-1500-2000 values to the correct digital values for the ESC to provide FullReverse-Idle-FullForward range operation, respectively.</p>
+<p>If <a class="reference internal" href="#dshot-commands"><span class="std std-ref">DShot commands</span></a> have been enabled then ArduPilot will automatically configure the ESCs to reversible mode (3D mode) at startup, according to the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-3dmask" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_3DMASK</span></a>. Enabling <a class="reference internal" href="#dshot-commands"><span class="std std-ref">DShot commands</span></a> will allow the other DShot commands to be sent to any other ESC configured as DShot by the DShot mask parameters discussed in <a class="reference internal" href="#common-dshot-escs"><span class="std std-ref">DShot setup instructions</span></a>.</p>
+<p>Otherwise, you must manually configure the ESCs’ “Motor Direction” to “Bidirectional 3D” as shown below.</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/blheli-reversible-dshot.png"><img alt="../_images/blheli-reversible-dshot.png" src="../_images/blheli-reversible-dshot.png" style="width: 450px;" /></a>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, ArduPilot only supports the use of reversible ESCs for Plane and Rover, not Copter.</p>
+</div>
+</section>
+</section>
+<section id="mixing-esc-protocols">
+<span id="dshot-mixing-escs"></span><h2>Mixing ESC Protocols<a class="headerlink" href="#mixing-esc-protocols" title="Permalink to this heading">¶</a></h2>
+<p>While all the servo/motor outputs of an ArduPilot autopilot are capable of Normal PWM operation at 50Hz and higher frame rates, not all are capable of other ESC protocol configurations. And, usually, these configurations must apply to pre-designated groups of outputs, even if they are not all driving an ESC. So the following cautions apply:</p>
+<ol class="arabic simple">
+<li><p>The 8 “MAIN” outputs of autopilots using an IOMCU (like PixHawk and Cube), cannot be used for DShot. On these autopilots, only the additional “AUX” outputs support DShot. If you attempt to set a “MAIN” output to DShot, then normal PWM output will occur, even though it has been set to a DShot protocol.</p></li>
+<li><p>For <a class="reference internal" href="common-pixracer-overview.html#common-pixracer-overview"><span class="std std-ref">Pixracer</span></a> and <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">other boards</span></a> without a separate IOMCU coprocessor, all servo/motor outputs can be used.</p></li>
+<li><p>Groups of outputs sharing a common timer, MUST have the same advanced configuration. Usually, these are specified in the autopilot’s hardware description linked from the <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">Choosing an Autopilot</span></a> page. For example, if an output is configured for DShot in a group, then you cannot use another output in that group for Normal PWM ESC <strong>or</strong> normal PWM servo operation.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Everytime the autopilot initializes, it sends a message to the ground control station, showing which outputs are PWM/Oneshot/or DShot. The remaining higher numbered outputs are assigned as GPIOs.</p>
+</div>
+<img alt="../_images/RCOutbanner.jpg" src="../_images/RCOutbanner.jpg" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

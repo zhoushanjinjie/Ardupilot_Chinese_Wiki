@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeraBee TOF RangeFinders &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">TeraBee TOF RangeFinders</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="terabee-tof-rangefinders">
+<span id="common-teraranger-one-rangefinder"></span><h1>TeraBee TOF RangeFinders<a class="headerlink" href="#terabee-tof-rangefinders" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/terabee-evo.jpg" src="../_images/terabee-evo.jpg" />
+<p>The TeraBee EVO family of rangefinders are lightweight distance measurement sensors based on infrared Time-of-Flight (TOF) technology. They are much faster than ultrasound and smaller, lighter and require less power than laser-based lidar but also have a shorter outdoor range.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Specifications are derived from tests in controlled conditions. Bright sunlight, target surface reflectivity and other variables will affect sensor performance. The combination of very bright sunshine and low reflectivity targets (such as grass) can reduce maximum range to 10m or less. For additional information, please find the following &lt;<a class="reference external" href="https://terabee.b-cdn.net/wp-content/uploads/2019/04/TeraRanger-Evo-60m-Test-Results-Report-Outdoor.pdf">https://terabee.b-cdn.net/wp-content/uploads/2019/04/TeraRanger-Evo-60m-Test-Results-Report-Outdoor.pdf</a>&gt;`__</p>
+</div>
+<p>More technical information about these senors can be found below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-60m/">Evo 60m</a></p></li>
+<li><p><a class="reference external" href="https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-40m/">Evo 40m</a></p></li>
+<li><p><a class="reference external" href="https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-15m/">Evo 15m</a></p></li>
+<li><p><a class="reference external" href="https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-3m/">Evo 3m</a></p></li>
+<li><p><a class="reference external" href="https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-mini/">Evo Mini</a></p></li>
+</ul>
+<p>Discontinued:</p>
+<ul class="simple">
+<li><p>Evo600Hz</p></li>
+<li><p>TeraRanger One</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These rangefinders are only supported in ArduPilot autopilots via I2C
+protocol.</p>
+</div>
+<section id="connecting-to-the-teraranger-evo-via-i2c">
+<h2>Connecting to the TeraRanger EVO via I2C<a class="headerlink" href="#connecting-to-the-teraranger-evo-via-i2c" title="Permalink to this heading">¶</a></h2>
+<p>The TeraRanger EVO sensor can be easily connected to the Pixhawk or other ArduPilot with
+the open-ended cable included with the sensor.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p>EVO I2C backboard pins</p></td>
+<td rowspan="2"><p>Pixhawk I2C port pins</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>1 Tx</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>2 Rx</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>3 GND</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>4 SDA</p></td>
+<td rowspan="2"><p>3 SDA</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>5 SCL</p></td>
+<td rowspan="2"><p>2 SCL</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>6</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>7 VCC</p></td>
+<td rowspan="2"><p>1 VCC</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>8 GND</p></td>
+<td rowspan="2"><p>4 GND</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>9</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not power from autopilot port, unless port is known to have sufficient current capability. If this is the case just connect the SCL/SDA lines from the rangefinder to the autopilot’s I2C signals of the same name.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>some of these rangefinders consume over 100ma of current and should NOT be powered from the autopliots’s I2C port, but from an external 5V regulated supply source.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information please visit this link &lt;<a class="reference external" href="https://www.terabee.com/connection-to-pixhawk-autopilots-teraranger-evo/">https://www.terabee.com/connection-to-pixhawk-autopilots-teraranger-evo/</a>&gt;`__</p>
+</div>
+</section>
+<section id="setup-in-mission-planner">
+<h2>Setup in Mission Planner<a class="headerlink" href="#setup-in-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>To use the TeraRanger EVO sensor as rangefinder, connect with <em>Mission
+Planner</em> and open the <strong>CONFIG/Full Parameter List</strong> menu and set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RNGFNDx_MAX_CM</span></code>: This parameter sets the maximum
+distance that the rangefinder is used by the autopilot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RNGFNDx_MIN_CM</span></code>: This parameter set the minimum distance that
+the rangefinder is used by the autopilot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RNGFNDx_ADDR</span></code>: 48 (for TeraRanger One) or 49 (for EVO series), 0 will disable the rangefinder setup.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RNGFNDx_TYPE</span></code>: 14</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RNGFNDx_ORIENT</span></code>: 25 (for downward facing). If used for <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a> or ceiling distancing, instead of altitude ranging, mount and chose the appropriate orientatioin.</p></li>
+</ul>
+<p>Values for the rangefinders are shown below:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>EVO60M</p></td>
+<td rowspan="2"><p>EVO40M</p></td>
+<td rowspan="2"><p>EVO15M</p></td>
+<td rowspan="2"><p>EVO3M</p></td>
+<td rowspan="2"><p>EVOMini</p></td>
+<td rowspan="2"><p>EVO600Hz</p></td>
+<td rowspan="2"><p>Terranger One</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>RNGFNDx_MAX_CM</p></td>
+<td rowspan="2"><p>6000</p></td>
+<td rowspan="2"><p>4000</p></td>
+<td rowspan="2"><p>1500</p></td>
+<td rowspan="2"><p>300</p></td>
+<td rowspan="2"><p>330</p></td>
+<td rowspan="2"><p>800</p></td>
+<td rowspan="2"><p>1400</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>RNGFNDx_MIN_CM</p></td>
+<td rowspan="2"><p>50</p></td>
+<td rowspan="2"><p>50</p></td>
+<td rowspan="2"><p>50</p></td>
+<td rowspan="2"><p>50</p></td>
+<td rowspan="2"><p>3</p></td>
+<td rowspan="2"><p>75</p></td>
+<td rowspan="2"><p>20</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>RNGFNDx_ADDR</p></td>
+<td rowspan="2"><p>49</p></td>
+<td rowspan="2"><p>49</p></td>
+<td rowspan="2"><p>49</p></td>
+<td rowspan="2"><p>49</p></td>
+<td rowspan="2"><p>49</p></td>
+<td rowspan="2"><p>49</p></td>
+<td rowspan="2"><p>48</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Power Required</p></td>
+<td rowspan="2"><p>5V/330ma</p></td>
+<td rowspan="2"><p>5V/330ma</p></td>
+<td rowspan="2"><p>5V/330ma</p></td>
+<td rowspan="2"><p>5V/330ma</p></td>
+<td rowspan="2"><p>5V/50ma</p></td>
+<td rowspan="2"><p>5V/190ma</p></td>
+<td rowspan="2"><p>10-20V/120ma</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Notes</p></td>
+<td rowspan="2"><p>1</p></td>
+<td rowspan="2"><p>1</p></td>
+<td rowspan="2"><p>1</p></td>
+<td rowspan="2"><p>1</p></td>
+<td rowspan="2"></td>
+<td rowspan="2"><p>1</p></td>
+<td rowspan="2"><p>2</p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Do not power from autopilot port, unless port is known to have sufficient current capability.</p></li>
+<li><p>Requires 3.3V to 5V level shifting to connect to autopilots I2C signals</p></li>
+</ol>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/TeraRangerOne_MissionPlannerSettings.jpg"><img alt="../_images/TeraRangerOne_MissionPlannerSettings.jpg" src="../_images/TeraRangerOne_MissionPlannerSettings.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">MissionPlanner Setup for using TeraRanger One sensor on autopilot</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="testing-the-sensor">
+<h2>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>The distances read by the <em>TeraRanger EVO</em> sensor can be displayed on
+the <em>Mission Planner Flight Data</em> menu. The Status button the
+left will show status values. Then choose
+“sonarrange”.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/TeraRangerOne_MissionPlannerEnableFlightData.jpg"><img alt="../_images/TeraRangerOne_MissionPlannerEnableFlightData.jpg" src="../_images/TeraRangerOne_MissionPlannerEnableFlightData.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Setting to display rangefinder data on the Flight Datascreen</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When the autopilot boots, the rangefinder needs to already be powered on, or at
+least be powered on at the same time as the autopilot. If you power the rangefinder
+after the autopilots has booted, it will not be recognized since the autopilot will have already scanned its I2C bus for devices!</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

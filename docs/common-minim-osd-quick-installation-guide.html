@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minim OSD Quick Installation Guide &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Minim OSD Quick Installation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="minim-osd-quick-installation-guide">
+<span id="common-minim-osd-quick-installation-guide"></span><h1>Minim OSD Quick Installation Guide<a class="headerlink" href="#minim-osd-quick-installation-guide" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference external" href="https://code.google.com/archive/p/arducam-osd/wikis/minimosd.wiki">MinimOSD</a>
+“On-Screen Display” is a small circuit board that pulls telemetry data
+from your autopilot and over-lays it on your <a class="reference internal" href="common-fpv-first-person-view.html#common-fpv-first-person-view"><span class="std std-ref">First Person View</span></a> monitor.  The Minim OSD was designed and programmed by Sandro Benigno and Jani Hirvinen</p>
+<p>This article provides brief instructions for how to connect the board.
+For more detailed instructions please refer to the <a class="reference external" href="https://code.google.com/archive/p/arducam-osd/wikis/minimosd.wiki">MinimOSD Project wiki</a>.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Connect the MinimOSD to the any of the autopilot’s serial ports as shown below.  Note that the MinimOSD only “listens” so it is possible (but not recommended) to connect it in parallel with a telemetry radio (e.g. <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Radio</span></a> or similar).</p>
+<a class="reference external image-reference" href="../_images/MinimOSD_Pixhawk.jpg"><img alt="../_images/MinimOSD_Pixhawk.jpg" src="../_images/MinimOSD_Pixhawk.jpg" /></a>
+<p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIALx_PROTOCOL</span></a> = 1 (MAVLink1) because MinimOSD does not understand MAVLink2</p>
+</section>
+<section id="basic-wiring-diagram">
+<h2>Basic wiring Diagram<a class="headerlink" href="#basic-wiring-diagram" title="Permalink to this heading">¶</a></h2>
+<p>The original MinimOSD’s power setup provides two stages to avoid noises
+coming from servos attached to your ArduPilot boards. Those noises could
+introduce some glitches on video signal. The independent analog powering
+from a dedicated battery will heat the board considerably, but the video
+is the most clean as possible from MAX7456.</p>
+<p>Maybe you don’t need to use the two stages. The way those noises would
+impact on the video signal will vary depending on a chain of aspects
+like servo’s brand, model, cables length, etc. So, try yourself and see
+if it’s important for your setup.</p>
+<p>Here is the basic diagram which uses two stages approach of MinimOSD
+board:</p>
+<a class="reference external image-reference" href="../_images/DiagramaMinimOSD.jpg"><img alt="../_images/DiagramaMinimOSD.jpg" src="../_images/DiagramaMinimOSD.jpg" /></a>
+</section>
+<section id="optional-setup-for-critical-cooling-conditions">
+<h2>Optional setup for critical cooling conditions<a class="headerlink" href="#optional-setup-for-critical-cooling-conditions" title="Permalink to this heading">¶</a></h2>
+<p>(Hardware V0.1 and 1.0 only)</p>
+<p>The second stage regulator from the MinimOSD boards earlier than V1.1
+gets too hot on 12V video setups. If your frame does not have good air flow
+for cooling the OSD board you may want to feed the OSD entirely from
+the autopilot. Probably it will add some noises from servos, but you’ll be more
+safe this way:</p>
+<a class="reference external image-reference" href="../_images/DiagramaMinimOSD_OP.jpg"><img alt="../_images/DiagramaMinimOSD_OP.jpg" src="../_images/DiagramaMinimOSD_OP.jpg" /></a>
+</section>
+<section id="firmware-available-for-minimosd">
+<h2>Firmware available for MinimOSD<a class="headerlink" href="#firmware-available-for-minimosd" title="Permalink to this heading">¶</a></h2>
+<p>There are several firmware options available for MinimOSD boards. Currently the two most active development streams are:</p>
+<ul class="simple">
+<li><p>Minimosd-extra NG</p></li>
+<li><p>MWOSD</p></li>
+</ul>
+<p>Core functionality is broadly similar between the two firmwares.</p>
+</section>
+<section id="mwosd">
+<h2>MWOSD<a class="headerlink" href="#mwosd" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The project is located <a class="reference external" href="https://github.com/ShikOfTheRa/scarab-osd">here</a>.</p></li>
+<li><p>The documentation is located <a class="reference external" href="https://github.com/ShikOfTheRa/scarab-osd/wiki">here</a>.</p></li>
+<li><p>The support thread is located <a class="reference external" href="https://fpvlab.com/forums/showthread.php?34250-MWOSD-for-BETAFLIGHT-CLEANFLIGHT-RACEFLIGHT-PIXHAWK-KISS-DRONIN-INAV-and-others">here</a>.</p></li>
+</ul>
+<p>MWOSD is a very popular OSD which has been around for many years initially supporting the muiltiwii based autopilots - iNav, betaflight, etc. Recent versions now provides full support for ArduPilot based FC.</p>
+<p>MWOSD has an easy to use GUI configurator which has the added advantage of being able to flash firmware versions directly from within the GUI. Arduino or third party software is no longer required.</p>
+<p>MWOSD continues to be actively developed and supported.</p>
+<ul class="simple">
+<li><p>Modern GUI configurator with ability to flash hardware directly from within GUI</p></li>
+<li><p>Drag / drop easy configurable screen layouts</p></li>
+<li><p>Autoconfigures MAVLink for higher performance</p></li>
+<li><p>OSD also fully supports many different FC types other than ArduPilot</p></li>
+<li><p>MAX7456 renew doing in VSYNC to get rid of “snow” on screen but on interrupt instead of SPI polling</p></li>
+<li><p>3 screens instead of 2</p></li>
+<li><p>Individual control of sign icon visibility of each panel per screen</p></li>
+<li><p>Voltage, current &amp; RSSI can be measured on external pins (which can be found on some MinimOSD boards)</p></li>
+<li><p>Alternative RADAR / MAP display modes</p></li>
+<li><p>PAL/NTSC detected dynamically which allows using different cameras</p></li>
+<li><p>Any RC channel can be translated to output pin (e.g. for cameras switch)</p></li>
+<li><p>Font uploader included in the main firmware and much more usable</p></li>
+<li><p>Font editor and several fonts already included with the GUI</p></li>
+<li><p>Multiple pre-set layouts to choose from. All can be customised</p></li>
+<li><p>Choose to display pilot icon or callsigns</p></li>
+</ul>
+<p>The following links contain a quick start overview and an ardupilot specific installation guide</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ShikOfTheRa/scarab-osd/wiki/Quick-start-guide">https://github.com/ShikOfTheRa/scarab-osd/wiki/Quick-start-guide</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ShikOfTheRa/scarab-osd/wiki/MAVLINK-installation">https://github.com/ShikOfTheRa/scarab-osd/wiki/MAVLINK-installation</a></p></li>
+</ul>
+</section>
+<section id="minimosd-extra-ng">
+<h2>MinimOSD-extra NG<a class="headerlink" href="#minimosd-extra-ng" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The project is located <a class="reference external" href="https://github.com/night-ghost/minimosd-extra">here</a>.</p></li>
+<li><p>The documentation is located <a class="reference external" href="https://github.com/night-ghost/minimosd-extra/wiki">here</a>.</p></li>
+<li><p>The support thread is located <a class="reference external" href="https://www.rcgroups.com/forums/showthread.php?2591835-New-MinimOSD-fork">here</a>.</p></li>
+</ul>
+<p>After some time with a stalled development of the firmware for the MinimOSD boards due to
+reaching the limit of the code size, a new developer (<a class="reference external" href="https://github.com/night-ghost">https://github.com/night-ghost</a>) picked
+up the project and through some clever development effort managed to bring it back to life.</p>
+<p>Some of the differences from the old traditional firmware are:</p>
+<ul class="simple">
+<li><p>MAX7456 renew doing in VSYNC to get rid of “snow” on screen but on interrupt instead of SPI polling</p></li>
+<li><p>4 screens instead of 2</p></li>
+<li><p>Individual control of sign icon visibility of each panel per screen</p></li>
+<li><p>voltage, current &amp; RSSI can be measured on external pins (which can be found on some MinimOSD boards)</p></li>
+<li><p>TLOG player in configurator - now settings can be checked without working plane/copter!</p></li>
+<li><p>Small panels can be placed in unused areas of big panels</p></li>
+<li><p>RADAR (like in MiniNAZAosd) and ILS in Horizon, can be enabled individually</p></li>
+<li><p>Horizon angles can be adjusted via configurator, independently for PAL and NTSC</p></li>
+<li><p>PAL/NTSC detected dynamically which allows using different cameras</p></li>
+<li><p>Screen offsets via configurator</p></li>
+<li><p>New format of GPS coordinates - in one line</p></li>
+<li><p>Any RC channel can be translated to output pin (e.g. for cameras switch)</p></li>
+<li><p>Font uploader included in the main firmware and much more usable</p></li>
+<li><p>Plane &amp; copter joined and even can be changed on the fly (e.g. for VTOL)</p></li>
+<li><p>Configuration of some “hot” parameters from RC</p></li>
+</ul>
+<p>Pre-compiled binaries and HEX files are in the Released folder with the CT GUI.</p>
+<p>If you are willing to compile your version from the GitHub repo, the following mini guide is quite useful.</p>
+<p>To compile on Windows:</p>
+<ol class="arabic">
+<li><p>Download the latest Arduino Version (currently 1.6.8)</p></li>
+<li><p>Download the version of MinimOSD-Extra-DV you like, via git or zip (Github lets you click on a
+commit and view its files, so downloading that zip gives you the version you want)</p></li>
+<li><p>If using git clone, also do a git submodule init and git submodule update.
+If downloading the zip from Github, you also need SingleSerial because
+Github does not include submodules into the download zip, so you will need to: <a class="reference external" href="https://github.com/night-ghost/SingleSerial">https://github.com/night-ghost/SingleSerial</a></p></li>
+<li><p>Copy all the libraries from MinimOSD to the Arduino libraries folder
+(+ SingleSerial if you downloaded the zip for it)</p></li>
+<li><p>If not using UAVTalk or MultiWii disable them in <strong>Config.h</strong>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//#define USE_UAVTALK 1</span>
+<span class="c1">//#define USE_MWII 1</span>
+</pre></div>
+</div>
+</li>
+<li><p>Sketch -&gt; Export Compiled Binary (it will save the hex file in the MinimOSD folder of the source, one file with the bootloader and one without)</p></li>
+</ol>
+<p>The developer also provides a convenient ready to use package that includes all the required files in their latest version here:
+<a class="reference external" href="https://raw.githubusercontent.com/night-ghost/minimosd-extra/c3d21869a06f4917b2841cf2405f59b0aab668bc/osd_latest.zip">OSD latest</a>.</p>
+</section>
+<section id="alternative-hardware">
+<h2>Alternative Hardware<a class="headerlink" href="#alternative-hardware" title="Permalink to this heading">¶</a></h2>
+<p>Recently, new style of boards have appeared for sale on ebay and vendor sites:</p>
+<ul class="simple">
+<li><p>MinimOSD w/ KV Team mod</p></li>
+<li><p>Micro MinimOSD w/ KV Team mod</p></li>
+<li><p>AEROMAX</p></li>
+</ul>
+<p>The minimOSD w/ KV team mod is adds extra analogue/digital IO pins for direct voltage, current and RSSI measurement.</p>
+<p>The Micro MinimOSD board is only 15mm x 15mm and is ideal for micro UAV projects.</p>
+<p>The AEROMAX is slightly smaller than tradional minimOSD, has the additional KV mods,further I/O pins, a more efficient power consumption and a hardware IC that is far more resilient to power fluctuations providing a cleaner image.</p>
+<a class="reference external image-reference" href="../_images/MinimOSD_Micro.jpg"><img alt="../_images/MinimOSD_Micro.jpg" src="../_images/MinimOSD_Micro.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precision Landing and Loiter with IR-LOCK &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Precision Landing and Loiter with IR-LOCK</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="precision-landing-and-loiter-with-ir-lock">
+<span id="precision-landing-with-irlock"></span><h1>Precision Landing and Loiter with IR-LOCK<a class="headerlink" href="#precision-landing-and-loiter-with-ir-lock" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Copter supports Precision Landing using the <a class="reference external" href="https://irlock.com/collections/frontpage/products/ir-lock-sensor-precision-landing-kit">IR-LOCK sensor</a> and a <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">sonar or lidar</span></a>.
+Using this system, when the vehicle enters LAND mode (and has GPS lock) it is possible to reliably land within 30cm of an IR beacon that is moving at less than 1m/s.</p>
+<p>Copter also supports Precision Loiter which allows a vehicle to maintain its position above a target while in Loiter mode.  The Pilot can enable this using one of the transmitter’s <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary function switches</span></a> (in versions prior to Copter-4.0, CH7_OPT or CH_8_OPT would be used).</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/rGFO73ZxADY" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="where-to-get-it">
+<h2>Where to get it<a class="headerlink" href="#where-to-get-it" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://irlock.com/collections/frontpage/products/ir-lock-sensor-precision-landing-kit">IR-LOCK sensor</a>
+can be purchased from <a class="reference external" href="https://irlock.com/">irlock.com</a>.  The IR-LOCK
+sensor is a modified version of the <a class="reference external" href="https://pixycam.com/pixy-cmucam5/">Pixy camera</a>, which comes
+pre-configured to work as an IR beacon detector. There are multiple IR
+beacons which are compatible with the sensor. The <a class="reference external" href="https://irlock.com/collections/markone">MarkOne Beacon</a>
+can be reliably detected in <strong>all</strong> <strong>lighting conditions</strong>, with a
+detection range of <strong>15 meters</strong>. <a class="reference external" href="https://irlock.com/collections/shop/products/beacon">Beacon (V1.1)</a> is a more
+cost-effective option which can be reliably detected in <strong>most lighting
+conditions</strong>.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/sensorandMarkers01.jpg"><img alt="../_images/sensorandMarkers01.jpg" src="../_images/sensorandMarkers01.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">IR-LOCK Sensor and IR Beacons</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="connecting-to-autopilot">
+<h2>Connecting to Autopilot<a class="headerlink" href="#connecting-to-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>The IR-LOCK sensor can be connected directly to the autopiot via an <a class="reference external" href="https://irlock.com/collections/shop/products/pixhawk-cable">I2C cable</a>. If
+you are using multiple I2C sensors, then you will need an <a class="reference external" href="https://store.mrobotics.io/mRo-DF13-I2C-Bus-Splitter-for-Pixhawk-p/mro-df13-i2c-split-5-mr.htm">I2C splitter</a>.
+More detailed instructions are included in the <a class="reference external" href="https://irlock.readme.io/docs">irlock.com Documentation</a>.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/precision_landing_connect_irlock_to_pixhawk.jpg"><img alt="../_images/precision_landing_connect_irlock_to_pixhawk.jpg" src="../_images/precision_landing_connect_irlock_to_pixhawk.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">IRLock sensor/Autopilot Wiring</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mounting-to-the-frame">
+<h2>Mounting to the frame<a class="headerlink" href="#mounting-to-the-frame" title="Permalink to this heading">¶</a></h2>
+<p>The IRLOCK sensor should be mounted to the underside of the frame with
+the camera lens pointing directly down toward the ground.  A mounting
+bracket for IRIS is sold
+<a class="reference external" href="https://irlock.com/collections/frontpage/products/sensor-bracket-for-iris">here</a>
+(and pictured below).  The sensor board should be oriented so that the
+white button on the board points towards the front of the vehicle (or to
+put it another way, the side closest to the camera lens should be
+towards the front of the vehicle).</p>
+<p>The image below shows the camera mounted on the <em>bottom</em> of a 3DR
+IRIS+. It is probably best to mount the sensor as close as possible to
+the autopilot, but successful tests have also been performed with
+various mounting locations.</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/IRISbracket03.jpg"><img alt="../_images/IRISbracket03.jpg" src="../_images/IRISbracket03.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">IR-LOCK Sensor Mounted onBottom of Iris+</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/I8QF313F3bs" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="setup-through-mission-planner">
+<h2>Setup through Mission Planner<a class="headerlink" href="#setup-through-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>Set the following parameters through the Mission Planner (or other GCS)
+to enable the precision landing feature and then Reboot the autopilot.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#plnd-enabled" title="(in Rover)"><span class="xref std std-ref">PLND_ENABLED</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#plnd-type" title="(in Rover)"><span class="xref std std-ref">PLND_TYPE</span></a> = 2</p></li>
+</ul>
+<p>To enable Precision Loiter, an <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Function Switch</span></a> must be set to 39 to enable “Precision Loiter”</p>
+<ul class="simple">
+<li><p>in versions prior to  Copter-4.0, a CHx_OPT parameter could be set via Mision Planner to 39 for this enable.</p></li>
+</ul>
+</section>
+<section id="flying-and-testing">
+<h2>Flying and Testing<a class="headerlink" href="#flying-and-testing" title="Permalink to this heading">¶</a></h2>
+<p>Setup the vehicle with one of the flight modes set to LAND (as of the
+time this wiki page was written, the precision landing function only
+operates in LAND mode).</p>
+<p>Place the IR beacon on the ground and take-off to approximately 10m
+above the target.  Switch the vehicle to LAND.  If everything is working
+properly, the copter should move toward the IR beacon.  A successful
+demo is shown below (using an older firmware).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Be prepared to retake control if there are sudden unexpected
+movements (Change mode to Stabilize, AltHold or Loiter).</p>
+</div>
+<p>If the vehicle does behave appropriately, download the dataflash logs
+and examine the PL messages.</p>
+<ul class="simple">
+<li><p>If the “Heal” (meaning health) field is not “1” then there may be a communication issue between the autopilot and IR-LOCK sensor.</p></li>
+<li><p>If the “TAcq” (meaning Target Acquired) field is not “1” then the sensor is not seeing the target.</p></li>
+<li><p>The pX, pY values show the horizontal distance to the target from the vehicle.</p></li>
+<li><p>The vX, vY values show the estimated velocity of the target relative to the vehicle.</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/IRfo5GcHniU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Precision Loiter demonstration:</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/KoLZpSZDfII" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

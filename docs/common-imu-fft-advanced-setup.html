@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced In-Flight FFT Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How it works" href="common-imu-fft-how-it-works.html" />
+    <link rel="prev" title="Initial Flight and Post-Flight Analysis" href="common-imu-fft-test-flight.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#determining-notch-filter-center-frequency">Determining Notch Filter Center Frequency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#notch-filter-control-types">Notch Filter Control Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#number-of-harmonics-filtered">Number of Harmonics Filtered</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#fft-dynamic-harmonic-notch-frequency-tracking">FFT Dynamic Harmonic Notch Frequency Tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#checking-notch-filter-effectiveness">Checking Notch Filter Effectiveness</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-imu-notch-filtering.html#double-triple-notch">Double/Triple-Notch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-imu-notch-filtering.html">Managing Gyro Noise with the Dynamic Harmonic Notch Filters</a></li>
+          <li class="breadcrumb-item"><a href="common-imu-fft.html">In-Flight FFT Based Harmonic Notch Setup</a></li>
+      <li class="breadcrumb-item active">Advanced In-Flight FFT Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-imu-fft-advanced-setup">[copywiki destination=”copter,plane”]</p>
+<section id="advanced-in-flight-fft-setup">
+<h1>Advanced In-Flight FFT Setup<a class="headerlink" href="#advanced-in-flight-fft-setup" title="Permalink to this heading">¶</a></h1>
+<section id="harmonic-notch-bandwidth-configuration">
+<h2>Harmonic Notch Bandwidth Configuration<a class="headerlink" href="#harmonic-notch-bandwidth-configuration" title="Permalink to this heading">¶</a></h2>
+<p>A component of the harmonic notch is the bandwidth of the notch and the in-flight FFT can be used to determine this. Download a log from a stable hover and graph FTN1.BwAvg. This is the FFT’s energy-weighted estimate of the bandwidth of the noise peak. Here is a graph from the same flight above:</p>
+<a class="reference external image-reference" href="../_images/imu-in-flight-fft-bandwidth.png"><img alt="../_images/imu-in-flight-fft-bandwidth.png" src="../_images/imu-in-flight-fft-bandwidth.png" style="width: 450px;" /></a>
+<p>You can see that the bandwidth estimate is roughly 125Hz. Use this as follows:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-bw" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_BW</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-bw" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_BW</span></a> = <em>bandwidth estimate</em></p></li>
+</ul>
+</section>
+<section id="fft-averaging">
+<h2>FFT Averaging<a class="headerlink" href="#fft-averaging" title="Permalink to this heading">¶</a></h2>
+<p>Instantaneous FFT’s can suffer from noise and one way to reduce the noise is to average a number of data frames together before performing the FFT. Theory shows that this will reduce the noise by sqrt(N), where N is the number of frames that are averaged, as long as the data is stationary. On a multirotor the data is not stationary for very long because of changes in throttle, thus usually only a small number of frames can be averaged. Setting the parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-num-frames" title="(in Rover)"><span class="xref std std-ref">FFT_NUM_FRAMES</span></a> to a non-zero value will average that number of frames to produce the FFT used by the center frequency setting code. Experimentation will be required to determine the optimum number of frames to be used, but is normally 2-5 frames.</p>
+</section>
+<section id="post-configuration-flight-and-post-flight-analysis">
+<h2>Post Configuration Flight and Post-Flight Analysis<a class="headerlink" href="#post-configuration-flight-and-post-flight-analysis" title="Permalink to this heading">¶</a></h2>
+<p>With the dynamic harmonic notch configured perform another stable hover to check that the motor noise peak has been <a class="reference internal" href="common-imu-batchsampling.html#common-imu-notch-filtering-post-configuration-flight-and-post-flight-analysis"><span class="std std-ref">eliminated</span></a>. It is also important to check that the autopilot is not overloaded for the FFT length being used. Graph PM.Load and PM.NLon. PM.Load ideally should be below 60% and PM.NLon in the low 10’s - although experimentation shows that it is possible to fly a Pixracer with an FFT length of 128 and CPU load of 90% without instability.</p>
+<p>Other points to check:</p>
+<ul class="simple">
+<li><p>The FFT will only analyse frequencies between <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-minhz" title="(in Rover)"><span class="xref std std-ref">FFT_MINHZ</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-maxhz" title="(in Rover)"><span class="xref std std-ref">FFT_MAXHZ</span></a>. If your copter’s motor rpm is outside these bounds the results can be somewhat random, so make sure that these are set appropriately for your copter. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-maxhz" title="(in Rover)"><span class="xref std std-ref">FFT_MAXHZ</span></a> should not be set above the Nyquist frequency, so a maximum of about 495Hz for most copters using standard gyros.</p></li>
+<li><p>FTN1.SnX, FTN1.SnY and FTN1.SnZ give an indication of the signal-to-noise ratio of the detected frequency. This value should be above <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-snr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_SNR_REF</span></a>. For the example flight in <a class="reference external" href="https://ardupilot.org/plane/docs/common-imu-fft-test-flight.html#common-imu-fft-test-flight" title="(in Plane)"><span>Initial Flight and Post-Flight Analysis</span></a> the SNR was about 58dB.</p></li>
+</ul>
+</section>
+<section id="harmonic-notch-throttle-configuration-using-data-from-an-in-flight-fft-test-flight">
+<h2>Harmonic Notch Throttle Configuration Using Data from an In-Flight FFT Test Flight<a class="headerlink" href="#harmonic-notch-throttle-configuration-using-data-from-an-in-flight-fft-test-flight" title="Permalink to this heading">¶</a></h2>
+<p>It is also possible to use the in-flight FFT in a test flight to generate a precise <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_FREQ</span></a><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a>. Then the In-Flight FFT would be disabled and the data used to setup a throttle-based center frequency for driving the dynamic harmonic notch. This has very low CPU cost with minimal latency and can be a good option for certain applications. To setup the harmonic notch this way:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-minhz" title="(in Rover)"><span class="xref std std-ref">FFT_MINHZ</span></a> to the lowest value that you want the harmonic notch frequency to be set to. Typically this should be above about 50Hz to stay clear of your copter’s control bandwidth.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-enable" title="(in Rover)"><span class="xref std std-ref">FFT_ENABLE</span></a> = 1 to enable the FFT engine.</p></li>
+<li><p>Perform a stable lengthy hover as you might do for learning the hover throttle with the sticks on the transmitter not being moved while in a hover or loiter. Moving the sticks while in hover or letting the vehicle loiter in wind (ie the autopilot is moving the sticks to hold position) stops hover learning until the vehicle attitude is returned to neutral VTOL stance.</p></li>
+<li><p>Land and disarm. The learned value for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_FREQ</span></a> at hover will be in <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-freq-hover" title="(in Rover)"><span class="xref std std-ref">FFT_FREQ_HOVER</span></a> and the learned value for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> to scale <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-minhz" title="(in Rover)"><span class="xref std std-ref">FFT_MINHZ</span></a> to the learned hover frequency will be in <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-thr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_THR_REF</span></a>. The values are not transferred automatically to the harmonic notch so you should set them based on the learned values.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-enable" title="(in Rover)"><span class="xref std std-ref">FFT_ENABLE</span></a> = 0 to disable the FFT engine.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_MODE</span></a> = 1 to use the throttle-based dynamic harmonic notch.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_FREQ</span></a> = <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-minhz" title="(in Rover)"><span class="xref std std-ref">FFT_MINHZ</span></a></p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_REF</span></a> = <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-thr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_THR_REF</span></a></p></li>
+</ul>
+<p>Alternatively, if you wish the hover frequency to be the lowest value for the harmonic notch:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-enable" title="(in Rover)"><span class="xref std std-ref">FFT_ENABLE</span></a> = 0 to disable the FFT engine.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_MODE</span></a> = 1 to use the throttle-based dynamic harmonic notch.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_FREQ</span></a> = <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-freq-hover" title="(in Rover)"><span class="xref std std-ref">FFT_FREQ_HOVER</span></a></p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_REF</span></a> = <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-thst-hover" title="(in Copter)"><span class="xref std std-ref">MOT_THST_HOVER</span></a></p></li>
+</ul>
+</section>
+<section id="tuning">
+<h2>Tuning<a class="headerlink" href="#tuning" title="Permalink to this heading">¶</a></h2>
+<p>In addition to the options described above there are several tuning options available for the FFT which can be useful in certain circumstances</p>
+<section id="tuning-small-multicopters">
+<h3>Tuning Small MultiCopters<a class="headerlink" href="#tuning-small-multicopters" title="Permalink to this heading">¶</a></h3>
+<p>Small multicopters are generally characterized by a very pronounced motor rpm frequency peak. The peak is generally the first harmonic and there are rarely other significant harmonics. For this reason it can be sufficient to target the first harmonic alone. By default, the FFT engine tracks the top three frequency peaks and these can be observed by graphing FTN2[N].PkX for each peak. PkX is the noise on the roll axis. Here is an example from a 4” quad:</p>
+<a class="reference external image-reference" href="../_images/fft-small-copter.png"><img alt="../_images/fft-small-copter.png" src="../_images/fft-small-copter.png" style="width: 450px;" /></a>
+<p>As can be seen the roll and pitch axes track the main frequency peak quite closely and the secondary peaks are essentially tracking noise. Unfortunately this noise sometimes looks like the highest energy peak and can distort the primary tracked frequency. If this is the case it is possible to force the FFT engine to only track the primary peak by setting:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-hmnc-peak" title="(in Rover)"><span class="xref std std-ref">FFT_HMNC_PEAK</span></a> = 1</p></li>
+</ul>
+<p>It is also possible to set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-hmnc-peak" title="(in Rover)"><span class="xref std std-ref">FFT_HMNC_PEAK</span></a> to 2 and 3 to track the second and third peaks respectively.</p>
+<p>Another important metric for small copters is the frequency energy. This is most easily visualized by graphing the signal-to-noise ratio of the frequency energy, which is the ratio in dB of the gyro noise at startup to the gyro noise of the detected frequency peak in flight. Here is an example from the same 4” quad:</p>
+<a class="reference external image-reference" href="../_images/fft-small-copter-energy.png"><img alt="../_images/fft-small-copter-energy.png" src="../_images/fft-small-copter-energy.png" style="width: 450px;" /></a>
+<p>As can be seen there is a strong signal at about 50dB on roll and 40dB on pitch. The FFT engine uses the setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-snr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_SNR_REF</span></a> to determine whether a detected frequency peak is actually a signal or just noise. The default setting is 25dB and so in this example the peak is correctly detected as a signal.</p>
+<p>Let’s look at a smaller copter. This is a 3” quad in a stable hover:</p>
+<a class="reference external image-reference" href="../_images/fft-small-copter-hover.png"><img alt="../_images/fft-small-copter-hover.png" src="../_images/fft-small-copter-hover.png" style="width: 450px;" /></a>
+<p>This time you can see that the signal-to-noise ratio is right around the 25dB mark and if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-snr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_SNR_REF</span></a> was set to 25dB then the detected peak would be treated as noise a significant amount of the time. So for this copter I have set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-snr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_SNR_REF</span></a> to 15dB in order to detect the peak correctly. Mechanically it’s easy to see why this is necessary - the same MEMS gyros are used in pretty much all autopilots, but the difference in vibrational energy of 10” props versus 3” props is enormous. Thus it is likely that for smaller builds it will be necessary to reduce <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-snr-ref" title="(in Rover)"><span class="xref std std-ref">FFT_SNR_REF</span></a>.</p>
+</section>
+<section id="tuning-large-multicopters">
+<h3>Tuning Large MultiCopters<a class="headerlink" href="#tuning-large-multicopters" title="Permalink to this heading">¶</a></h3>
+<p>Small multicopters are relatively simple from a noise perspective - the motors have nice, clean noise profiles and picking the noise frequency is algorithmically a relatively simple task. Larger multicopters are much more complex. There is much more noise energy and this noise energy can appear in unexpected places. On any copter motor noise frequencies will diverge during yaw due to the different motor rpms employed to effect a yaw manoeuvre. This divergence can also be seen as you add more motors - for instance Y6 or X8 configurations - or for any kind of imbalance - for instance Y6 with difference prop sizes in a coaxial configuration. These differences can make the fundamental harmonic frequency hard to find. Here are the detected frequency peaks for a Y6B:</p>
+<a class="reference external image-reference" href="../_images/fft-large-copter.png"><img alt="../_images/fft-large-copter.png" src="../_images/fft-large-copter.png" style="width: 450px;" /></a>
+<p>As you can see the noisiest motor peak is around 150Hz, with the second noisiest around 75Hz. Then the third noisiest peak appears to be jumping between 120Hz and 225Hz. So what is going on here? Well, the frequency that the motors are turning at is indeed 75Hz, but the frequency that the FFT would target by default is 150Hz. From a control perspective this is bad. The harmonic notch targets increasing harmonics of the fundamental frequency, so if the harmonic notch is configured to target 150Hz then the 75Hz noise peak will not be notch filtered at all. 75Hz is getting down into the control frequencies of the aircraft and therefore ignoring this noise can be extremely problematic. The 150Hz signal is nice and clear, but the flip flopping between 120Hz and 225Hz seems odd. Mechanically this can be understood when you think about the configuration of my Y6B. It has larger props on the topside meaning that upper and lower props are almost certainly turning at different frequencies. It also is balanced around the centerline but slightly imbalanced front to back. This combination of factors means that there will be at least two fundamental harmonics, and this is almost certainly what the 120Hz signal is. The 225Hz signal is then the third harmonic of the 75Hz fundamental. So how do we target notches appropriately? We clearly want 75Hz to be treated as the fundamental harmonic. Fortunately, by default ArduPilot has <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-hmnc-peak" title="(in Rover)"><span class="xref std std-ref">FFT_HMNC_PEAK</span></a> set to 0, which means “auto”. In auto mode the autopilot tries to detect the situation where one frequency is the harmonic of another frequency and will return the lower frequency for use by the harmonic notch filter. This works quite well on quads, but on my Y6B the relationship is too soft to be useful - probably because of the 120Hz harmonic confusing things. So in this instance setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-hmnc-peak" title="(in Rover)"><span class="xref std std-ref">FFT_HMNC_PEAK</span></a> to 2, will allow us to accurately target the first harmonic.</p>
+<p>Things get more confusing when we look at the different axes. Here is roll, pitch and yaw for the highest energy peak on the same Y6B :</p>
+<a class="reference external image-reference" href="../_images/fft-large-copter-axes.png"><img alt="../_images/fft-large-copter-axes.png" src="../_images/fft-large-copter-axes.png" style="width: 450px;" /></a>
+<p>As you can see roll is tracking quite nicely, pitch is flipping a little between the first and second harmonics and yaw is flipping all the time. Having different peaks detected on different axes is not uncommon on larger copters and can be problematic for the harmonic notch as the frequency used is the energy-weighted average of roll and pitch axes. If roll and pitch are tracking different peaks then the energy weighted average will be somewhere in-between - totally useless for the purposes of notch filtering.</p>
+<p>In order to address this problem it is possible to set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-hmnc-peak" title="(in Rover)"><span class="xref std std-ref">FFT_HMNC_PEAK</span></a> to 4 to track the roll-axis only or 5 to track the pitch-axis only.</p>
+<p>Finally, it is possible - as is clearly the case here - that the noisiest peaks are not necessarily harmonics of one another. In this case it is possible to configure the harmonic notch to track the frequency peaks directly by setting bit two of <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_OPTS</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_OPTS</span></a> - so to 2 if no other options are configured. This results in very accurate frequency tracking and lower noise. Here is the log from a Solo with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_OPTS</span></a> and/or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_OPTS</span></a> set to 3 - dynamic harmonics and double notch:</p>
+<a class="reference external image-reference" href="../_images/fft-large-copter-solo.png"><img alt="../_images/fft-large-copter-solo.png" src="../_images/fft-large-copter-solo.png" style="width: 450px;" /></a>
+<p>You can see that the dynamic notch frequency is tracking the two highest noise peaks precisely, resulting in a significant reduction in noise.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-imu-fft-test-flight.html" class="btn btn-neutral float-left" title="Initial Flight and Post-Flight Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-imu-fft-how-it-works.html" class="btn btn-neutral float-right" title="How it works" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

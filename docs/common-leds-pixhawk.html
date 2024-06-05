@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEDs Meaning &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Safety Switch" href="common-safety-switch-pixhawk.html" />
+    <link rel="prev" title="Pixhawk Overview" href="common-pixhawk-overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://arkelectron.com/product/arkv6x/">ARKV6X DS-10 Pixhawk6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pixhawkv6X.html">CUAV Pixhawk v6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-x7-family-overview.html">CUAV X7/X7Pro/X7+/X7+ Pro</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecube-overview.html">CubePilot Cube Black</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeorange-overview.html">CubePilot Cube Orange/+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubepurple-overview.html">CubePilot Cube Purple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeyellow-overview.html">CubePilot Cube Yellow</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">CubePilot Cube Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-durandal-overview.html">Holybro Durandal H7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6X.html">Holybro Pixhawk6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6C.html">Holybro Pixhawk6C/ 6C Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v6.html">Holybro Pix32v6(Pixhawk6C variant)</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRo X2.1</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/m10022a.htm">mRo X2.1-777</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+          <li class="breadcrumb-item"><a href="common-pixhawk-overview.html">Pixhawk Overview</a></li>
+      <li class="breadcrumb-item active">LEDs Meaning</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="leds-meaning">
+<span id="common-leds-pixhawk"></span><h1>LEDs Meaning<a class="headerlink" href="#leds-meaning" title="Permalink to this heading">¶</a></h1>
+<p>This topic explains how to interpret the colours and flash sequence of
+the main and/or external LED(s), if the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-override" title="(in Rover)"><span class="xref std std-ref">NTF_LED_OVERRIDE</span></a> parameter is set to its <code class="docutils literal notranslate"><span class="pre">standard</span></code> default setting. Some of the LED patterns have associated sound/tone
+patterns as listed in <a class="reference internal" href="common-sounds-pixhawkpx4.html#common-sounds-pixhawkpx4"><span class="std std-ref">Sounds (Pixhawk)</span></a>.</p>
+<section id="boards-with-2-notify-leds">
+<h2>Boards with 2 Notify LEDS<a class="headerlink" href="#boards-with-2-notify-leds" title="Permalink to this heading">¶</a></h2>
+<p>These boards have two leds on the board: LED A and LED B, normally, but not always, green and blue, respectively.</p>
+<p>After boot, LED A usually shows system status, while LED B shows GPS status. Each sequence of flashes shown below repeats every second. So, LED A will flash with a 50% duty cycle at 4Hz , alternating with LED B, when the autopilot is in ESC calibration mode.</p>
+<p>The states and events are shown in order of precedence. For example, LED A will flash the battery failsafe sequence even if RC is in failsafe also.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>STATE</p></th>
+<th class="head"><p>LED A</p></th>
+<th class="head"><p>LED B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Initializing (calibrating gyros,etc.)</p></td>
+<td><p><a class="reference internal" href="../_images/initializinga.gif"><img alt="init" src="../_images/initializinga.gif" style="width: 30pt;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Save Trim or ESC Calibration</p></td>
+<td><p><a class="reference internal" href="../_images/savetrima.gif"><img alt="savetrima" src="../_images/savetrima.gif" style="width: 30pt;" /></a></p></td>
+<td><p><a class="reference internal" href="../_images/savetrimb.gif"><img alt="savetrimb" src="../_images/savetrimb.gif" style="width: 30pt;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>指南针校准</p></td>
+<td><p><a class="reference internal" href="../_images/compasscala.gif"><img alt="compcala" src="../_images/compasscala.gif" style="width: 30pt;" /></a></p></td>
+<td><p><a class="reference internal" href="../_images/compasscalb.gif"><img alt="compcalb" src="../_images/compasscalb.gif" style="width: 30pt;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">AUTOTUNE:</div>
+<div class="line">Completed</div>
+<div class="line">Failed</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference internal" href="../_images/autotunecomplete.gif"><img alt="atc" src="../_images/autotunecomplete.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/autotunefail.gif"><img alt="atf" src="../_images/autotunefail.gif" style="width: 30pt;" /></a></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">ARMED:</div>
+<div class="line">Battery failsafe</div>
+<div class="line">RC or GCS failsafe</div>
+<div class="line">Readytofly</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference internal" href="../_images/battfs.gif"><img alt="battfs" src="../_images/battfs.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/controlfs.gif"><img alt="fs" src="../_images/controlfs.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/armed.gif"><img alt="armed" src="../_images/armed.gif" style="width: 30pt;" /></a></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">DISARMED:</div>
+<div class="line">pre-arm checks failing</div>
+<div class="line">ready to arm</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference internal" href="../_images/prearmfail.gif"><img alt="prearm" src="../_images/prearmfail.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/readytoarm.gif"><img alt="ready" src="../_images/readytoarm.gif" style="width: 30pt;" /></a></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">GPS:</div>
+<div class="line">No lock or No GPS</div>
+<div class="line">Lock (flashs = # sats/2)</div>
+</div>
+</td>
+<td></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line">not lit</div>
+<div class="line"><a class="reference internal" href="../_images/gps.gif"><img alt="gps" src="../_images/gps.gif" style="width: 30pt;" /></a> 8sats</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rgb-leds">
+<h2>RGB LEDS<a class="headerlink" href="#rgb-leds" title="Permalink to this heading">¶</a></h2>
+<p>The states and events are shown in order of precedence.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>STATE</p></th>
+<th class="head"><p>LED</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Initializing (calibrating gyros,etc.)</p></td>
+<td><p><a class="reference internal" href="../_images/rgb-initializing.gif"><img alt="rgbinit" src="../_images/rgb-initializing.gif" style="width: 30pt;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Save Trim or ESC Calibration</p></td>
+<td><p><a class="reference internal" href="../_images/rgb-savetrim.gif"><img alt="rgbsavetrim" src="../_images/rgb-savetrim.gif" style="width: 30pt;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">Leak failsafe</div>
+<div class="line">EKF failsafe</div>
+<div class="line">GPS glitch</div>
+<div class="line">Radio/GCS/Batt failsafe</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><a class="reference internal" href="../_images/rgb-leakfs.gif"><img alt="rgbleakfs" src="../_images/rgb-leakfs.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-ekffs.gif"><img alt="rgbekffs" src="../_images/rgb-ekffs.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-gps-glitch.gif"><img alt="rgbgpsglitch" src="../_images/rgb-gps-glitch.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-controlfs.gif"><img alt="rgbcontrolfs" src="../_images/rgb-controlfs.gif" style="width: 30pt;" /></a></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">ARMED:</div>
+<div class="line">3Dfix</div>
+<div class="line">No valid GPS fix</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-armed.gif"><img alt="rgbarmed" src="../_images/rgb-armed.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-armed-nogps.gif"><img alt="rgbarmednogps" src="../_images/rgb-armed-nogps.gif" style="width: 30pt;" /></a></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">DISARMED:</div>
+<div class="line">pre-arm checks failing</div>
+<div class="line">good DGPS fix</div>
+<div class="line">good GPS fix</div>
+<div class="line">bad GPS fix</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-prearmfail.gif"><img alt="rgbprearm" src="../_images/rgb-prearmfail.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-good-dgps.gif"><img alt="rgbready1" src="../_images/rgb-good-dgps.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-good-gps.gif"><img alt="rgbready2" src="../_images/rgb-good-gps.gif" style="width: 30pt;" /></a></div>
+<div class="line"><a class="reference internal" href="../_images/rgb-bad-gps.gif"><img alt="rgbbadgps" src="../_images/rgb-bad-gps.gif" style="width: 30pt;" /></a></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="video-overview">
+<h2>Video Overview<a class="headerlink" href="#video-overview" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/j-CMLrAwlco" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="led-buzzer-meanings">
+<h2>LED/Buzzer Meanings<a class="headerlink" href="#led-buzzer-meanings" title="Permalink to this heading">¶</a></h2>
+<p><strong>Flashing red and blue</strong>: Initializing gyroscopes. Hold the vehicle
+still and level while it initializes the sensors.</p>
+<p><strong>Flashing blue</strong>: Disarmed, no GPS lock found. Autopilot, loiter and
+return-to-launch modes require GPS lock.</p>
+<p><strong>Solid blue</strong>: Armed with no GPS lock</p>
+<p><strong>Flashing green</strong>: Disarmed (ready to arm), GPS lock acquired. Quick
+double tone when disarming from the armed state.</p>
+<p><strong>Fast Flashing green</strong>: Same as above but GPS is using SBAS (so should
+have better position estimate).</p>
+<p><strong>Solid green - with single long tone at time of arming:</strong> Armed, GPS
+lock acquired. Ready to fly!</p>
+<p><strong>Double flashing yellow:</strong> Failing pre-arm checks (system refuses to
+arm).</p>
+<p><strong>Single Flashing yellow:</strong> Radio failsafe activated</p>
+<p><strong>Flashing yellow - with quick beeping tone</strong>: Battery failsafe
+activated</p>
+<p><strong>Flashing yellow and blue - with high-high-high-low tone sequence (dah-dah-dah-doh):</strong> GPS glitch or GPS failsafe activated</p>
+<p><strong>Flashing red and yellow - with rising tone:</strong> EKF or Inertial Nav
+failure</p>
+<p><strong>Flashing Red, Blue and Green</strong>: Copter ESC Calibration mode entered. See <a class="reference internal" href="esc-calibration.html#esc-calibration"><span class="std std-ref">Electronic Speed Controller (ESC) Calibration</span></a></p>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/pixhawk_sound_files/NoSDCard_short.wav">SOS tone sequence</a> : SD Card missing (or other SD error like bad format etc.)</p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-pixhawk-overview.html" class="btn btn-neutral float-left" title="Pixhawk Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-safety-switch-pixhawk.html" class="btn btn-neutral float-right" title="Safety Switch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

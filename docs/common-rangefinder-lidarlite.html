@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIDAR-Lite Rangefinder &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LIDAR-Lite Rangefinder</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lidar-lite-rangefinder">
+<span id="common-rangefinder-lidarlite"></span><h1>LIDAR-Lite Rangefinder<a class="headerlink" href="#lidar-lite-rangefinder" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://support.garmin.com/support/manuals/manuals.htm?partNo=010-01722-00">Garmin / PulsedLight LIDAR-Lite</a> rangefinder is a low-cost optical distance measurement solution with a 40m range under most operating conditions, low power consumption, and small form factor.  This sensor can be purchased from many online retailers including <a class="reference external" href="https://www.sparkfun.com/products/14032">Sparkfun</a>.  Technical info can be found <a class="reference external" href="https://support.garmin.com/support/manuals/manuals.htm?partNo=010-01722-00">here</a>.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3I06AOwIQVY" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="problems-with-the-lidar-lite-v1-v2">
+<h2>Problems with the Lidar-Lite v1 &amp; v2<a class="headerlink" href="#problems-with-the-lidar-lite-v1-v2" title="Permalink to this heading">¶</a></h2>
+<p>A number of problems have been found with the Lidar-Lite v1 &amp; v2 and it is not yet clear if these issues are resolved in v3. Attempts to resolve these issues with the manufacture have not been entirely successful. These notes serve as a warning to potential users.</p>
+<p>The problems are:</p>
+<ul class="simple">
+<li><p>13m offset from true distance on both “blue-label” and “black-label” Lidars</p></li>
+<li><p>Interference with other I2C devices when using “blue-label” Lidars</p></li>
+<li><p>Sensor lock-ups when using I2C with the older “black-label” Lidars</p></li>
+<li><p>GPS interference with the older “black-label” Lidars</p></li>
+</ul>
+<section id="m-offset-blue-label-and-black-label-lidars">
+<h3>13m offset (Blue-Label and Black-Label Lidars)<a class="headerlink" href="#m-offset-blue-label-and-black-label-lidars" title="Permalink to this heading">¶</a></h3>
+<p>The lidar will sometimes (rarely) return a distance of approximately 13m greater than the true distance. This happens on both I2C and PWM. The problem has been recorded in several flight logs on several different aircraft and has also been reproduced in extensive bench testing.</p>
+<p>When the problem happens the 13m offset usually locks in place, so all remaining readings from the Lidar for the rest of the flight will give a 13m offset. There have however been cases where the 13m offset disappears after a few seconds or minutes.</p>
+<p>The problem is much more likely to occur if the Lidar power supply fluctuates too much. The problem can be easily reproduced in a bench setup where the Lidar is initially powered at below 4V then the voltage raised.</p>
+<p>Unfortunately low supply voltage is not the only trigger for the problem, so ensuring a good power supply will reduce the probability of the issue but not eliminate it. Multiple flight logs where the supply voltage to the Lidar is being monitored show the problem can occur with a good power supply.</p>
+<p>There is no known workaround for this issue. Detailed traces of the issue have been provided to the makers of the device with no resolution. The issue has also been reproduced using the device makers own software and own recommended hardware setup.</p>
+</section>
+<section id="i2c-interference-blue-label-lidars">
+<h3>I2C interference (Blue-Label Lidars)<a class="headerlink" href="#i2c-interference-blue-label-lidars" title="Permalink to this heading">¶</a></h3>
+<p>The newer blue-label Lidars have been associated with interference problems on I2C with other I2C devices on the same bus. In particular, incorrect airspeed readings have been seen when used on the same I2C bus as a digital airspeed sensor. This issue does not occur in all aircraft, but when it does occur the results are quite dramatic, with airspeed readings being off by more than 10m/s.</p>
+<p>Although bench testing has reproduced the result we have not yet managed to capture a logic trace of it happening. The problem is solved by using the Lidar via PWM instead of I2C.</p>
+</section>
+<section id="sensor-lock-up-on-i2c-black-label-lidar">
+<h3>Sensor Lock-up on I2C (Black-Label Lidar)<a class="headerlink" href="#sensor-lock-up-on-i2c-black-label-lidar" title="Permalink to this heading">¶</a></h3>
+<p>The first issue (Lock-ups on I2C with black-label lidars) is solved by either using the new blue-label Lidars or by using the PWM output method, preferably with a reset pin. The issue is not common, but it is relatively easy to reproduce in bench tests by covering the Lidars lenses. It appears to be more likely to happen when the Lidar is reading short distances. There are two manifestations of the issue - one is where the lock-up is solved by sending a I2C reset command, the other does not respond to an I2C reset.</p>
+</section>
+<section id="gps-interference-black-label-lidars">
+<h3>GPS Interference (Black-Label Lidars)<a class="headerlink" href="#gps-interference-black-label-lidars" title="Permalink to this heading">¶</a></h3>
+<p>The older black-label Lidars cause significant GPS interference. This manifests as longer time to get GPS lock on power up and higher levels of GPS noise when lock is achieved resulting in lower GPS accuracy. Testing shows that the interference includes both a conducted and radiated component.</p>
+<p>Placing the Lidar as far away from the GPS as possible helps, but does not entirely eliminate the issue.</p>
+</section>
+</section>
+<section id="connecting-via-i2c">
+<h2>Connecting via I2C<a class="headerlink" href="#connecting-via-i2c" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Lidar-Lites manufactured before Feb 2015 have I2C interface communications issues.  For these lidar please connect using PWM.</p>
+</div>
+<p>The connector cable has a 6-pin CLIK Mate connector on one end and tinned leads on the other.  The leads should be soldered to a DF13 or JST connector and connected to the autopilot’s I2C port as shown below</p>
+<p>The power to the rangefinder should be supplied from a separate external BEC as shown in the diagram below.</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/lidar-lite-pixhawk-i2c.jpg"><img alt="../_images/lidar-lite-pixhawk-i2c.jpg" src="../_images/lidar-lite-pixhawk-i2c.jpg" style="width: 450px;" /></a>
+</figure>
+<p>Set the following parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 3 “LidarLite-I2c”</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = 3500 (the maximum range the lidar can accurately report in cm)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 20 (the mininum range the lidar can accurately report in cm)</p></li>
+</ul>
+</section>
+<section id="connecting-via-pwm">
+<h2>Connecting via PWM<a class="headerlink" href="#connecting-via-pwm" title="Permalink to this heading">¶</a></h2>
+<p>The PWM interface is recommended because it avoids a number of issues with the I2C interface.</p>
+<p>Connect the Lidar to the rear servo rail of the autopilot and BEC or ESC (to provide power) as shown below:</p>
+<a class="reference external image-reference" href="../_images/lidar-lite-pixhawk-pwm.png"><img alt="../_images/lidar-lite-pixhawk-pwm.png" src="../_images/lidar-lite-pixhawk-pwm.png" /></a>
+<p>The resistor can be between 200 Ohm and 1kOhm.  Connecting a resistor between the Mode-control pin (number “5”) and ground (number “3”) puts the Lidar into continuous acquisition mode.</p>
+<p>Set the following parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 5 “PWM”</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pin" title="(in Rover)"><span class="xref std std-ref">RNGFND1_PIN</span></a> = 54 “AUX5” (if using 4.0.0 or higher any Auxiliary output may be used)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = 3500 (the maximum range the lidar can accurately report in cm)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 20 (the mininum range the lidar can accurately report in cm)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> = 1 (“0.8” may produce more accurate readings for some units)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-offset" title="(in Rover)"><span class="xref std std-ref">RNGFND1_OFFSET</span></a> = 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> = 4 (ensures AUX5 is not used as a servo output)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in firmware versions 4.2 and later, the method for setting a PWM/SERVO/MOTOR output to be a GPIO function is changed. Instead of <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> being used, the individual <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter is merely set to “-1”. If set to “0”, it remains a PWM output, unassigned to a function, and outputs that output’s trim value when board safety is not active. If the servo function is being “mirrored” to a remote device, as in the case of a DroneCAN or KDECAN ESC, then in order to change the autopilot board’s corresponding output pin to be a GPIO, but allow the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to still be assigned to the remote device, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter can be used to assign the board pin to be a GPIO without affecting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> assignment for the remote device.</p>
+</div>
+<section id="optional-power-saving">
+<h3>Optional Power Saving<a class="headerlink" href="#optional-power-saving" title="Permalink to this heading">¶</a></h3>
+<p>When using the PWM driver you can optionally configure the lidar to be disabled when the vehicle is more than a specified height above the terrain (using SRTM altitudes) saving about 100mA of current.</p>
+<a class="reference external image-reference" href="../_images/lidar-lite-pixhawk-pwm-with-trigger.png"><img alt="../_images/lidar-lite-pixhawk-pwm-with-trigger.png" src="../_images/lidar-lite-pixhawk-pwm-with-trigger.png" /></a>
+<p>Set the following parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-stop-pin" title="(in Rover)"><span class="xref std std-ref">RNGFND1_STOP_PIN</span></a> to 55 “AUX6” (other auxiliary pins may also be used)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pwrrng" title="(in Rover)"><span class="xref std std-ref">RNGFND1_PWRRNG</span></a> to a terrain height in meters above which the Lidar will be disabled to save power</p></li>
+</ul>
+<p>When the terrain data indicates that the vehicle is above the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pwrrng" title="(in Rover)"><span class="xref std std-ref">RNGFND1_PWRRNG</span></a> height the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-stop-pin" title="(in Rover)"><span class="xref std std-ref">RNGFND1_STOP_PIN</span></a> will be used to disable the Lidar</p>
+<p>[site wiki=”plane,copter”]
+Your GCS must <a class="reference internal" href="common-terrain-following.html#common-terrain-following"><span class="std std-ref">provide terrain data</span></a> for this to work.
+[/site]</p>
+</section>
+</section>
+<section id="testing-the-sensor">
+<h2>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab.  Look closely for “sonarrange”.
+It’s best to place the Lidar several known distances (1m, 3m, 5m) from
+a large flat wall to test it.  If the Lidar is constantly reading
+wrong by a fixed offset e.g. it’s always 50cm out at each distance then
+adjust the <code class="docutils literal notranslate"><span class="pre">RNGFNDx_OFFSET</span></code> parameter by the correct amount.  If however
+it gets the distance wrong each time by a different amount then the
+<code class="docutils literal notranslate"><span class="pre">RNGFNDx_SCALING</span></code> parameter needs changing.  Update it (maybe 1.1 or 0.9)
+and test again and repeat until it’s correct.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" style="width: 350px;" /></a>
+</section>
+<section id="video-guide">
+<h2>Video guide<a class="headerlink" href="#video-guide" title="Permalink to this heading">¶</a></h2>
+<p>The video guide below shows the setup using PWM but is based on out-of-date instructions and skips the setting of the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pin" title="(in Rover)"><span class="xref std std-ref">RNGFND1_PIN</span></a> parameter</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/FUT-ZsKGtxI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

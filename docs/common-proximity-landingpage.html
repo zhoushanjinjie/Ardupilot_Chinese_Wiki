@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proximity Sensors (landing page) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Proximity Sensors (landing page)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="proximity-sensors-landing-page">
+<span id="common-proximity-landingpage"></span><h1>Proximity Sensors (landing page)<a class="headerlink" href="#proximity-sensors-landing-page" title="Permalink to this heading">¶</a></h1>
+<p>Copter/Rover have support for avoidance obstacles that may appear in front of the vehicle. The first step to enable these features is to have a working Proximity Sensor. ArduPilot supports up to 4 sensors.</p>
+<p>360 degree Lidars are typically used in object avoidance as proximity sensors, but multiple rangefinders sensors or stereo depth cameras can also be used for proximity detection.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users often confuse RangeFinders with proximity sensors. Rangefinders are typically single dimensional sensors, that provide distances from a very narrow ray. Proximity Sensors is generally a name used for 360 Lidar and other sensors with a wider FOV. The settings and parameters used for both classes of sensors are different.</p>
+</div>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>You will need to set up the parameter <code class="docutils literal notranslate"><span class="pre">PRXx_TYPE</span></code> correctly for the sensor(s) you are using.
+Exclusion zones are provided for 360 degree Lidars, since these may have obstructions in their field of view. Exclusion zones are set via the <code class="docutils literal notranslate"><span class="pre">PRXx_IGN_ANGx</span></code> and <code class="docutils literal notranslate"><span class="pre">PRXx_IGN_WIDx</span></code> parameters, specifying a direction and width the frame obstruction presents and will be ignored. Up to 6 exclusion sectors can be specified.</p>
+<p>Follow the links below for configuration information based upon your set-up:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-rangefinder-setup.html#common-rangefinder-setup"><span class="std std-ref">RangeFinders</span></a></p></li>
+<li><p><a class="reference internal" href="common-realsense-depth-camera.html#common-realsense-depth-camera"><span class="std std-ref">Intel RealSense Depth Camera</span></a></p></li>
+<li><p><a class="reference internal" href="common-lightware-sf40c-objectavoidance.html#common-lightware-sf40c-objectavoidance"><span class="std std-ref">Lightware SF40/C (360 degree)</span></a></p></li>
+<li><p><a class="reference internal" href="common-lightware-sf45b.html#common-lightware-sf45b"><span class="std std-ref">Lightware SF45/B (350 degree)</span></a></p></li>
+<li><p><a class="reference internal" href="common-rplidar-a2.html#common-rplidar-a2"><span class="std std-ref">RPLidar A2 360 degree laser scanner</span></a></p></li>
+<li><p><a class="reference internal" href="common-teraranger-tower-objectavoidance.html#common-teraranger-tower-objectavoidance"><span class="std std-ref">TerraRanger Tower (360 degree)</span></a></p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<section id="real-time-view">
+<h3>Real-time view<a class="headerlink" href="#real-time-view" title="Permalink to this heading">¶</a></h3>
+<p>Real-time distances can be seen in the Mission Planner’s proximity viewer</p>
+<img alt="../_images/copter-object-avoidance-radar-view.png" src="../_images/copter-object-avoidance-radar-view.png" />
+<p>This window can be opened by moving to the MP’s Flight Data screen, press Ctrl-F and push the Proximity button.</p>
+<a class="reference external image-reference" href="../_images/copter-object-avoidance-show-radar-view.png"><img alt="../_images/copter-object-avoidance-show-radar-view.png" src="../_images/copter-object-avoidance-show-radar-view.png" style="width: 300px;" /></a>
+</section>
+<section id="dataflash-logging">
+<h3>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h3>
+<p>Upward and downward facing range finder distances can be seen in the DataFlash Log’s RFND message.</p>
+<p>The distance to the nearest object in 8 quadrants around the vehicle is recorded in the DataFlash log’s PRX messages.
+Since Copter and Rover 4.1 have the ability to store 3D obstacles, various instances of PRX message log is used. 0th instance stands for obstacles detected between -75 to -45 degrees pitch. Similarly, PRX[1] stores from -45 to -15 degrees, and PRX[2] stores from -15 to + 15 degrees and so on.</p>
+</section>
+</section>
+<section id="additional-features">
+<h2>Additional Features<a class="headerlink" href="#additional-features" title="Permalink to this heading">¶</a></h2>
+<section id="filter">
+<h3>Filter<a class="headerlink" href="#filter" title="Permalink to this heading">¶</a></h3>
+<p>Various sensors can be attached to the autopilot. However, depending on the quality and use case of the sensor, it might give noisy data.
+This noise will be stored onboard the autopilot as “obstacles” and the vehicle might suddenly start avoiding false objects. To counter this problem, Copter and Rover 4.1 have an inbuilt low pass filter on the raw sensor data.
+The filter can be adjusted by <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#prx-filt" title="(in Rover)"><span class="xref std std-ref">PRX_FILT</span></a> (setting it to 0 will disable the feature).
+By default, only the filtered values get logged. However, by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#prx-log-raw" title="(in Rover)"><span class="xref std std-ref">PRX_LOG_RAW</span></a> = 1, raw values from the sensors will also be logged. This can be used for debugging purposes.</p>
+</section>
+<section id="ground-detection">
+<h3>Ground detection<a class="headerlink" href="#ground-detection" title="Permalink to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature requires a valid downward facing rangefinder configured first and only works with Copter.</p>
+</div>
+<p>For low altitude obstacle avoidance, and while just taking off and landing, sometimes the sensor will pick up the ground below as obstacle. This can be dangerous because the vehicle will try and “avoid” these obstacles (if avoidance features are turned on).
+By setting <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#prx-ign-gnd" title="(in Copter)"><span class="xref std std-ref">PRX_IGN_GND</span></a> = 1, we attempt to detect and ignore any obstacles that are near the ground.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This feature only works when the vehicle is armed
+It might also ignore valid obstacles when the vehicle is flying very close to the ground.
+Detected obstacles will not be visible on the Mission Planner Proximity Viewer, or data flash logs.</p>
+</div>
+<p>[copywiki destination=”copter,rover”]</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

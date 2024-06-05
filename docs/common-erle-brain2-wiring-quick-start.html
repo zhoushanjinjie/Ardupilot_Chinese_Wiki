@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived Topic: Erle-Brain2 Wiring Quick Start &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Archived Topic: Compatible RC Transmitter and Receiver Systems (Erle-Brain 2)" href="common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2.html" />
+    <link rel="prev" title="Archived Topic: Erle-Brain Linux Autopilot" href="common-erle-brain-linux-autopilot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-pixhackV5-overview.html">CUAV V5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-emlid-edge.html">Emlid Edge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pxfmini.html">Erle PXFmini RPi Zero Shield</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-erle-brain-linux-autopilot.html">Erle ErleBrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini.html">Holybro Kakute H7 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-overview.html">Intel Aero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-rtf.html">Intel Aero RTF vehicle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-se.html">Mateksys F405-SE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405.html">Mateksys F405-STD and variants*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-wing.html">Mateksys F405-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wing.html">Mateksys F765-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wse.html">Mateksys F765-WSE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+          <li class="breadcrumb-item"><a href="common-erle-brain-linux-autopilot.html">Archived Topic: Erle-Brain Linux Autopilot</a></li>
+      <li class="breadcrumb-item active">Archived Topic: Erle-Brain2 Wiring Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-topic-erle-brain2-wiring-quick-start">
+<span id="common-erle-brain2-wiring-quick-start"></span><h1>Archived Topic: Erle-Brain2 Wiring Quick Start<a class="headerlink" href="#archived-topic-erle-brain2-wiring-quick-start" title="Permalink to this heading">¶</a></h1>
+<p>This article provides high level information about how to power
+<a class="reference internal" href="common-erle-brain-linux-autopilot.html#common-erle-brain-linux-autopilot"><span class="std std-ref">Erle-Brain2</span></a> and connect its most
+important peripherals.</p>
+<section id="erle-brain2-wiring-chart">
+<span id="common-erle-brain2-wiring-quick-start-erle-brain2-wiring-chart"></span><h2>Erle-Brain2 Wiring Chart<a class="headerlink" href="#erle-brain2-wiring-chart" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/EB2_chart.jpg"><img alt="../_images/EB2_chart.jpg" src="../_images/EB2_chart.jpg" /></a>
+<p>[site wiki=”copter”]
+Copter users should also see the
+<a class="reference external" href="http://docs.erlerobotics.com/erle_robots/erle_copter">official setup documentation</a>.
+[/site]</p>
+</section>
+<section id="power-erle-brain2">
+<h2>Power Erle-Brain2<a class="headerlink" href="#power-erle-brain2" title="Permalink to this heading">¶</a></h2>
+<p>Erle-Brain2 is typically powered via its “power” port, as shown in the
+picture below. The power port simultaneously powers Erle-Brain2 and
+reads voltage and current analog measurements.</p>
+<a class="reference external image-reference" href="../_images/Erle-Brain2_Power.jpg"><img alt="../_images/Erle-Brain2_Power.jpg" src="../_images/Erle-Brain2_Power.jpg" /></a>
+<p>Additionally, for developing/configuration purposes, it can be powered
+using a micro USB charger (2A recommended), as shown in the below
+picture.</p>
+<a class="reference external image-reference" href="../_images/Erle-Brain_MiniUSB.jpg"><img alt="../_images/Erle-Brain_MiniUSB.jpg" src="../_images/Erle-Brain_MiniUSB.jpg" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always use a power module to feed Erle-Brain2 while flying your
+drone</p>
+</div>
+</section>
+<section id="connect-remote-control-inputs">
+<h2>Connect remote control inputs<a class="headerlink" href="#connect-remote-control-inputs" title="Permalink to this heading">¶</a></h2>
+<p>Erle-Brain2 is compatible with PPM remote control (RC) receivers. For
+traditional single-wire-per-channel (PWM) receivers a PPM encoder can be
+used to convert the receiver outputs to PPM-SUM.</p>
+<p>For more information see <a class="reference internal" href="common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2.html#common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2"><span class="std std-ref">Compatible RC Transmitter and Receiver Systems (Erle-Brain 2)</span></a>.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/FRSkyTaranis.jpg"><img alt="../_images/FRSkyTaranis.jpg" src="../_images/FRSkyTaranis.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">FRSky Taranis Transmitter</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gps-compass">
+<h2>GPS+Compass<a class="headerlink" href="#gps-compass" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://erlerobotics.com/blog/product/gpscompass-ublox-neo-m8n-gps-with-compass-kit/">uBlox GPS + Compass Module</a>
+is the recommended GPS for Erle-Brain2. The GPS port is connected with
+the six-position DF13 cable, and the Compass port is connected to the
+I2C port with the four-position DF13 cable, as shown in the
+<a class="reference internal" href="#common-erle-brain2-wiring-quick-start-erle-brain2-wiring-chart"><span class="std std-ref">wiring chart above</span></a>.</p>
+</section>
+<section id="connect-motors">
+<h2>Connect Motors<a class="headerlink" href="#connect-motors" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="../../../images/ErleBrain3_Power_ESC.png"><img alt="../_images/ErleBrain3_Power_ESC.png" src="../_images/ErleBrain3_Power_ESC.png" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware of how you connect ESCs wires to PWM rail. The signal
+wire (white or orange color) should be connected at the top, the ground
+wire (black or brown color) at the bottom.</p>
+</div>
+<p>[site wiki=”copter”]</p>
+<p>For Copter see <a class="reference external" href="https://ardupilot.org/copter/docs/connect-escs-and-motors.html#connect-escs-and-motors" title="(in Copter)"><span class="xref std std-ref">Connect ESCs and Motors</span></a>.</p>
+<p>In overview, for copters connect each signal wire from the PDB to the
+main output signal (S) pins by motor number:</p>
+<ul class="simple">
+<li><p>Pin 1 = Motor 1 - - Pin 5 = Motor 5</p></li>
+<li><p>Pin 2 = Motor 2 - - Pin 6 = Motor 6</p></li>
+<li><p>Pin 3 = Motor 3 - - Pin 7 = Motor 7</p></li>
+<li><p>Pin 4 = Motor 4 - - Pin 8 = Motor 8</p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”plane”]</p>
+<p>For planes connect the control channel wires to the main output signal
+pins:</p>
+<ul class="simple">
+<li><p>Pin 1 = Aileron</p></li>
+<li><p>Pin 2 = Elevator</p></li>
+<li><p>Pin 3 = Throttle</p></li>
+<li><p>Pin 4 = Rudder</p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”rover”]</p>
+<p>For Rovers connect the throttle and steering wires to the main output
+signal pins:</p>
+<ul class="simple">
+<li><p>Pin 3 = Throttle</p></li>
+<li><p>Pin 1 = Steering</p></li>
+</ul>
+<p>[/site]</p>
+</section>
+<section id="usb-ports">
+<h2>USB ports<a class="headerlink" href="#usb-ports" title="Permalink to this heading">¶</a></h2>
+<p>Erle-Brain2 has four USB ports. Some of the devices you can connect are
+listed in the following section.</p>
+<section id="wifi-dongle">
+<h3>WiFi dongle<a class="headerlink" href="#wifi-dongle" title="Permalink to this heading">¶</a></h3>
+<p>Use a (regular or high gain) WiFi dongle to create a hotspot that can,
+for example, be used for sending telemetry data and commands to a Ground
+Station. Erle-Brain2 automatically generates a WiFi hotspot when the
+dongle is connected.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Edimax AC (regular and high gain) are the officially supported
+dongles. These can be purchased from Erle-Brain with your
+autopilot/vehicle.</p>
+</div>
+</section>
+<section id="bluetooth-dongle">
+<h3>Bluetooth dongle<a class="headerlink" href="#bluetooth-dongle" title="Permalink to this heading">¶</a></h3>
+<p>Use a Bluetooth dongle to connect additional devices, such as joysticks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to configure BlueTooth interface to make it
+work</p>
+</div>
+<figure class="align-default">
+<a class="reference external image-reference" href="..figure::../../../images/"><img alt="../_images/Erle-Brain_DongleWifi.jpg" src="../_images/Erle-Brain_DongleWifi.jpg" /></a>
+</figure>
+</section>
+</section>
+<section id="connect-other-peripherals">
+<h2>Connect other peripherals<a class="headerlink" href="#connect-other-peripherals" title="Permalink to this heading">¶</a></h2>
+<p>Depending on your hardware there may be any number of other peripherals
+attached, including sensors, cameras, grippers etc. These can be found
+as sub-pages of the topic <a class="reference internal" href="common-optional-hardware.html#common-optional-hardware"><span class="std std-ref">Optional Hardware</span></a>.</p>
+<p>More information in <a class="reference external" href="http://erlerobotics.com/docs/Artificial_Brains_and_Autopilots/Additional_Sensors/Lidar.html">official documentation</a>.</p>
+</section>
+<section id="related-information">
+<h2>Related information<a class="headerlink" href="#related-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://docs.erlerobotics.com/">Erle Robotics official documentation</a> includes
+additional information about how to use Erle-Brain2.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2.html">Compatible RC Transmitter and Receiver Systems (Erle-Brain 2)</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-erle-brain-linux-autopilot.html" class="btn btn-neutral float-left" title="Archived Topic: Erle-Brain Linux Autopilot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2.html" class="btn btn-neutral float-right" title="Archived Topic: Compatible RC Transmitter and Receiver Systems (Erle-Brain 2)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

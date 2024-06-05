@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane">
+<h1>[copywiki destination=”plane”]<a class="headerlink" href="#copywiki-destination-plane" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="tuning-for-autonomous-aerobatics">
+<h1>Tuning for Autonomous Aerobatics<a class="headerlink" href="#tuning-for-autonomous-aerobatics" title="Permalink to this heading">¶</a></h1>
+<p>First, be sure your plane is capable of precision aerobatics. It must be able to not only nose up hover in place, but accelerate vertically from a hover, ie have unlimited vertical climb capability. It must also be capable of sustained knife-edge flignt, ie have sufficient side area to fly knife-edge.</p>
+<p>Second, the normal ArduPilot Autotune provides a safe, stable PID tune for most vehicles. As such, its not optimized for precision aerobatics which require a tight tune.</p>
+<p>This article will discuss how to obtain a more optimized tune.</p>
+</section>
+<section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Be sure the COG is properly setup. Nose heavy vehicles will perform poorly. Tail heavy vehicles will involve significant repairs.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a> = 200</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#oneshot-mask" title="(in Plane)"><span class="xref std std-ref">ONESHOT_MASK</span></a> to match the servos controlling the flying surfaces, assuming that they are digital servos capable of 200Hz signaling</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> = 40Hz to increase phase margin. Be sure the motor/propeller is well balanced and control surface hinges slop-free to minimize vibration since the filtering is being raised.</p></li>
+<li><p>Depending on the amount of fuselage side area, adequate knife-edge performance may require setting the <code class="docutils literal notranslate"><span class="pre">AEROM_KE_ANGLE</span></code> plane_aerobatics.lua parameter to 5-15 degrees to get adequate altitude hold on knife-edges, rolling circles, etc.</p></li>
+</ul>
+</section>
+<section id="verifying-the-rate-capabilities">
+<h1>Verifying the Rate Capabilities<a class="headerlink" href="#verifying-the-rate-capabilities" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#acro-pitch-rate" title="(in Plane)"><span class="xref std std-ref">ACRO_PITCH_RATE</span></a>, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#acro-roll-rate" title="(in Plane)"><span class="xref std std-ref">ACRO_ROLL_RATE</span></a>, and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#acro-yaw-rate" title="(in Plane)"><span class="xref std std-ref">ACRO_YAW_RATE</span></a> must be set to less than what the airframe is capable of doing. Values of 180, 360, and 90 degress per second, respectively, are adequate for aerobatics, but they should be verified to be less than the vehicles’s maximum capabilities.</p>
+<p>Do a flight in Manual mode, with full stick movements in all axes in order to determine the maximum rotation rates that can be obtained. Analysis of the flight logs using the IMU[0].GyrX for roll in radians/second, IMU[0].GyrY for pitch, and IMU[0].GyrZ for yaw log messages will show the obtained rates.</p>
+<p>Below is a graph in MAVExplorer of those log messages (converted to degrees/s) from a flight log of a vehicle in MANUAL doing full stick moves to establish the maximum rate capabilities:</p>
+<a class="reference external image-reference" href="../_images/acro-rates.png"><img alt="../_images/acro-rates.png" src="../_images/acro-rates.png" /></a>
+<p>The vehicle is definitely capable of meeting the 360 deg/s for roll, while 180 deg/s would be acceptable for pitch (it varies as its looping due to varying airspeed, but 180 is the average), 90 deg/s for yaw is acceptable.</p>
+<p>Note that Yaw rate checking should be done with short stick movements, instead of prolonged full stick deflections to prevent excessive speed bleed off while the vehicle is slipping hard into the airstream.</p>
+</section>
+<section id="autotune">
+<h1>AutoTune<a class="headerlink" href="#autotune" title="Permalink to this heading">¶</a></h1>
+<p>Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#autotune-level" title="(in Plane)"><span class="xref std std-ref">AUTOTUNE_LEVEL</span></a> = 8, and do an <a class="reference external" href="https://ardupilot.org/plane/docs/automatic-tuning-with-autotune.html#automatic-tuning-with-autotune" title="(in Plane)"><span class="xref std std-ref">Autotuning</span></a> flight. Be sure to have set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#yaw-rate-enable" title="(in Plane)"><span class="xref std std-ref">YAW_RATE_ENABLE</span></a> =1, and tune all three axes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>with yaw controller active, turns will require not only aileron but also rudder in Autotune!</p>
+</div>
+</section>
+<section id="check-pids">
+<h1>Check PIDS<a class="headerlink" href="#check-pids" title="Permalink to this heading">¶</a></h1>
+<p>From the the Autotuning flight, check the logs for proper FF PID, and to tighten up the P and D terms. For the following we will look at an actual log and check if how the Pitch portion of the Aututune turned out by comparing the “Target” (PIDP.Tar log message) rates demanded by the stick movements during the Autotune for pitch versus what the actual pitch rotation rates (PIDP.Act) where measured by the IMU.</p>
+<a class="reference external image-reference" href="../_images/aerobatic-pid-tuning1.png"><img alt="../_images/aerobatic-pid-tuning1.png" src="../_images/aerobatic-pid-tuning1.png" /></a>
+<p>As the tune progressed adjusting FF throughout the tune, which begins by optimizing D and then P, the matching became better and better, as expected.</p>
+<section id="ff">
+<h2>FF<a class="headerlink" href="#ff" title="Permalink to this heading">¶</a></h2>
+<p>This tune settled on a value of 0.285 for <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#ptch-rate-ff" title="(in Plane)"><span class="xref std std-ref">PTCH_RATE_FF</span></a>. We can check this by graphing the following using that value to verify its accuracy.</p>
+<a class="reference external image-reference" href="../_images/aerobatic-pid-tuning3.png"><img alt="../_images/aerobatic-pid-tuning3.png" src="../_images/aerobatic-pid-tuning3.png" /></a>
+<p>since the magnitudes of the two plots are very close, we know the FF term is correct, in this case. If there is a disparity, you can adjust the FF value in the first graph until a match is obtained. This is then the correct FF value for that axis.</p>
+</section>
+<section id="p-and-d-tightening">
+<h2>P and D Tightening<a class="headerlink" href="#p-and-d-tightening" title="Permalink to this heading">¶</a></h2>
+<p>Typically, the FF will be very pretty accurate from an Autotune, but in order to be safe for the majority of vehicles, the D and P values are tuned until instability occurs and then reduced by 1/3 for a large safety margin. This is illustrated in the log graphs below during the Autotune showing the D and P values being adjusted until instability occurs (PIDP.Dmod &lt; 1), and then backed down by 1/3. While this is safe, its not optimum for response, so increasing these values back by a factor of 1.5-2X will increase responsiveness. Be prepared, however, to switch back to MANUAL if instability occurs.</p>
+<a class="reference external image-reference" href="../_images/aerobatic-pid-tuning4.png"><img alt="../_images/aerobatic-pid-tuning4.png" src="../_images/aerobatic-pid-tuning4.png" /></a>
+<p>so in this example we would change the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#ptch-rate-d" title="(in Plane)"><span class="xref std std-ref">PTCH_RATE_D</span></a> from 0.0016 to 0.0032 and the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#ptch-rate-p" title="(in Plane)"><span class="xref std std-ref">PTCH_RATE_P</span></a> from 0.11 to 0.22 and then test fly.</p>
+</section>
+</section>
+<section id="confirming-test-flight">
+<h1>Confirming Test Flight<a class="headerlink" href="#confirming-test-flight" title="Permalink to this heading">¶</a></h1>
+<p>Do the above analysis for all axes.</p>
+<p>After verifying and modifying the PIDS, fly again, being ready to resume MANUAL control if unstable. A rolling circle trick is one of the most difficult to execute with a softly tuned vehicle, so try that trick. If it does not maintain altitude well, the pitch or yaw tuning during that maneuver should be analyzed and tuning tweaks performed, assuming there is not another issue like insufficient power or fuselage side surface area.</p>
+</section>
+<section id="video-on-log-analysis">
+<h1>Video on Log Analysis<a class="headerlink" href="#video-on-log-analysis" title="Permalink to this heading">¶</a></h1>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/vGgfyhUOZGk" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

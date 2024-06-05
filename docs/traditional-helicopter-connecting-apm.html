@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Helicopter — Connecting and Calibrating the System &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traditional Helicopter – Swashplate Setup" href="traditional-helicopter-swashplate-setup.html" />
+    <link rel="prev" title="Traditional Helicopter Parameter List at a Glance" href="traditional-helicopter-parameter-list.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traditional-heli-parts-list.html">Suggested Parts List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-the-code.html">Loading the Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-mounting.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-parameter-list.html">Helicopter Parameter List at a Glance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Connecting and Calibration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autopilot-info">Autopilot Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-of-servo-and-rx-connection">Overview of servo, and RX connection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-swashplate-setup.html">Swashplate Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-tailrotor-setup.html">Tailrotor Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-rsc-setup.html">Rotor Speed Control Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-internal-rsc-governor.html">Internal Rotor Speed Governor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-time-setup.html">Traditional Helicopter Setup</a></li>
+      <li class="breadcrumb-item active">Traditional Helicopter — Connecting and Calibrating the System</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traditional-helicopter-connecting-and-calibrating-the-system">
+<span id="traditional-helicopter-connecting-apm"></span><h1>Traditional Helicopter — Connecting and Calibrating the System<a class="headerlink" href="#traditional-helicopter-connecting-and-calibrating-the-system" title="Permalink to this heading">¶</a></h1>
+<p>This page covers how to make the physical connections between the autopilot, RC receiver, ESC and servos as well as calibrating the RC transmitter, Compass, Accelerometer, and ESC.  The following video covers making the connections and setting up the transmitter to work with the autopilot.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/JagHOc0_mNQ" style="border: 0; height: 345px; width: 560px">
+</iframe></div><section id="autopilot-info">
+<h2>Autopilot Info<a class="headerlink" href="#autopilot-info" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhackv5.jpg"><img alt="../_images/pixhackv5.jpg" src="../_images/pixhackv5.jpg" /></a>
+<p>A autopilot with internally damped IMU’s is highly recommended for helicopters. Experience has shown the tuning, handling and stability performance of your helicopter will be greatly improved over the first generation autopilots, like the Pixhawk.</p>
+<p>Before you begin connecting the system it is recommended to review the docs for the autopilot you select.</p>
+</section>
+<section id="overview-of-servo-and-rx-connection">
+<h2>Overview of servo, and RX connection<a class="headerlink" href="#overview-of-servo-and-rx-connection" title="Permalink to this heading">¶</a></h2>
+<p>The RC input for many ardupilot compatible autopilots is either PPM SUM (8 channels) or S.Bus (up to 18 channels).  Some controllers also accept Spektrum satellite receivers.  For receivers that only output PWM, a PPM encoder is required to connect to the autopilot, however this is not recommended for applications requiring minimum possible latency.  For all helicopter frames, an RC radio that has at least 6 channels is required.  For autopilots, traditional helicopter and quadheli frames require one that has at least 5 output channels. The dual helicopter frame requires the autopilot have at least 7 output channels.</p>
+<p>The default receiver channel to ArduCopter RC input function mapping is as follows:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>RC Receiver
+Channel</p></td>
+<td><p>ArduPilot RC
+Input Function</p></td>
+</tr>
+<tr class="row-even"><td><p>1 (Aileron)</p></td>
+<td><p>Roll (note1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2 (Elevator)</p></td>
+<td><p>Pitch (note1)</p></td>
+</tr>
+<tr class="row-even"><td><p>3 (Throttle)</p></td>
+<td><p>Collective(note1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>4 (Rudder)</p></td>
+<td><p>Yaw (note1)</p></td>
+</tr>
+<tr class="row-even"><td><p>5 (Gear)</p></td>
+<td><p>Flight Mode (note2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>6 (Aux 1)</p></td>
+<td><p>Tuning</p></td>
+</tr>
+<tr class="row-even"><td><p>7 (Aux 2)</p></td>
+<td><p>Aux</p></td>
+</tr>
+<tr class="row-odd"><td><p>8 (Aux 3)</p></td>
+<td><p>Motor Interlock
+(throttle) (note3)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note1: These functions are  mapped by <code class="docutils literal notranslate"><span class="pre">RCMAP_x</span></code> parameters by default.</p>
+<p>Note2: The <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fltmode-ch" title="(in Plane)"><span class="xref std std-ref">FLTMODE_CH</span></a> defaults to RC Channel 5.</p>
+<p>Note3: The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> defaults to the Motor Interlock function.</p>
+<p>The output on most controllers for SERVO’s 1 thru 8 are labeled Main Out:</p>
+<a class="reference external image-reference" href="../_images/PH21_2.jpg"><img alt="../_images/PH21_2.jpg" src="../_images/PH21_2.jpg" /></a>
+<p>The <a class="reference internal" href="common-rcoutput-mapping.html#common-rcoutput-mapping"><span class="std std-ref">autopilot output functions wiki</span></a> shows the complete list of servo output functions.  The default swashplate is H3-120 where Motor 1 (servo function 33) left front servo, goes to output 1; Motor 2 (output function 34), right front servo goes to output 2; and Motor 3 (output function 35), rear (elevator) servo goes to output 3. See the <a class="reference internal" href="traditional-helicopter-swashplate-setup.html#traditional-helicopter-swashplate-setup"><span class="std std-ref">swashplate setup wiki</span></a> for more details.</p>
+<section id="tail-servo-control">
+<h3>Tail Servo/Control<a class="headerlink" href="#tail-servo-control" title="Permalink to this heading">¶</a></h3>
+<p>Tail servo is designated as Motor 4 (servo function 36) and is defaulted to output 4. Direct Drive Fixed Pitch (DDFP) tail rotors will also be connected to Motor 4 and the tail type parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-tail-type" title="(in Copter)"><span class="xref std std-ref">H_TAIL_TYPE</span></a>) set to DDFP.  Direct Drive Variable Pitch (DDVP) tail rotors will use Motor 4 (defaulted to output 4) to control tail rotor pitch and the tail ESC (servo function 32) connection is defaulted to output 7. This is automatically configured as tail RSC for the servo 7 function when the tail type parameter (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-tail-type" title="(in Copter)"><span class="xref std std-ref">H_TAIL_TYPE</span></a>) is set to DDVP.</p>
+<p>Be sure to check the direction of operation of the Tail Servo. Move the rudder stick and notice the change in tail rotor pitch. Be sure that its increase or decrease of pitch is such that the change in thrust will result in the desired direction of movement. If not, reverse the servo direction with the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo4-reversed" title="(in Rover)"><span class="xref std std-ref">SERVO4_REVERSED</span></a> parameter.</p>
+</section>
+<section id="motor-control">
+<h3>Motor Control<a class="headerlink" href="#motor-control" title="Permalink to this heading">¶</a></h3>
+<p>The throttle servo or ESC for the main rotor motor is defaulted to output 8.  This is automatically configured as Heli RSC (servo function 31) for the servo 8 function. See the <a class="reference internal" href="traditional-helicopter-rsc-setup.html#traditional-helicopter-rsc-setup"><span class="std std-ref">rotor speed control setup wiki</span></a> for more details on RSC setup.  All traditional helicopter frames are required to use Motor Interlock.  This feature adds an extra layer of safety when working with helicopters.  Motor interlock enables the motor to drive the rotor/tailrotor.  This is similar to throttle hold in RC helicopters.  Motor interlock enabled (throttle hold off) means the motor is allowed to drive the rotor/tailrotor and the rotor speed control handles the rotor runup/shutdown.  Motor interlock disabled (throttle hold on) means the motor is not allowed to drive the rotor/tailrotor.  In order to arm the helicopter, the motor interlock must be disabled (throttle hold on). In ArduCopter 3.6 and earlier, the motor interlock and RC passthrough mode is tied to RC channel 8 only.  The RC transmitter channel 8 must have the PWM within 10 pwm of the RC8_MIN for motor interlock disabled (throttle hold on).  All other PWM values will set motor interlock enabled (throttle hold off).  In ArduCopter 4.0, the RCn_Option parameter can be set to motor interlock for a user selectable channel.  The transmitter channel on which the motor interlock is set requires the PWM to be low (&lt;1200 PWM) for motor interlock disabled (throttle hold on) and above 1200 PWM for motor interlock enabled (throttle hold off).</p>
+<p>Check the docs for your selected autopilot but most require a separate power supply to the servo rail to power your servos at their appropriate rated voltage.</p>
+<p>Connect telemetry radios, GPS/compass module, power to autopilot itself, and any other peripherals as per the instructions in the owners manual for the unit.</p>
+</section>
+<section id="rc-calibration">
+<h3>RC Calibration<a class="headerlink" href="#rc-calibration" title="Permalink to this heading">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before powering the autopilot and servo rail for the first time,
+disconnect the rudder linkage from the tail servo or bellcrank on the tail
+gearbox. If you have a piston engine helicopter, also disconnect the throttle
+servo linkage.</p>
+</div>
+<p>The RC MUST be calibrated before proceeding once the autopilot is powered up. RC calibration is identical to all other vehicles. With helicopters using the ArduPilot system there can be no mixes in the RC radio. All the outputs must be
+“pure”, i.e. use either airplane mode in your radio, or helicopter mode with H1 or “straight” swash.
+<a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">See this topic</span></a>.</p>
+</section>
+<section id="compass-calibration">
+<h3>指南针校准<a class="headerlink" href="#compass-calibration" title="Permalink to this heading">¶</a></h3>
+<p>It is recommended to calibrate the compasses at this time as well. This is the same as all other vehicles.
+<a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">See this topic</span></a>.</p>
+</section>
+<section id="accelerometer-calibration">
+<h3>加速度计校准<a class="headerlink" href="#accelerometer-calibration" title="Permalink to this heading">¶</a></h3>
+<p>If the accelerometers were not calibrated on the bench prior to installation it must be calibrated before proceeding.(It is usually easier to calibrate on the bench and then re-calibrate only the level position, if required, once installed.)
+<a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">See this topic</span></a>.</p>
+</section>
+<section id="esc-calibration">
+<h3>电调校准<a class="headerlink" href="#esc-calibration" title="Permalink to this heading">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>be sure to remove all blades when doing ESC calibration.</p>
+</div>
+<p>Some ESCs must be calibrated to the throttle range (ie HeliRSC output range, which defaults to 1000 to 2000us). In addition, it is often required to change ESC settings, such as enabling the governor mode and/or setting voltage protection levels.</p>
+<p>In order to do this, you must be able to directly control the input to the ESC. By default the output function where it is attached is set to HeliRSC (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo8-function" title="(in Rover)"><span class="xref std std-ref">SERVO8_FUNCTION</span></a> = 31). In order to pass the throttle stick directly to the ESC for ESC programming per the ESC’s instructions, temporarily change this to <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo8-function" title="(in Rover)"><span class="xref std std-ref">SERVO8_FUNCTION</span></a> = 53. Remember to change it back to “31”, after completing the ESC programming.</p>
+<p>In addition, check to see that <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc3-min" title="(in Rover)"><span class="xref std std-ref">RC3_MIN</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc3-max" title="(in Rover)"><span class="xref std std-ref">RC3_MAX</span></a> match the MIN and MAX range of the HeliRSC output, which defaults to SERVO8 output (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo8-min" title="(in Rover)"><span class="xref std std-ref">SERVO8_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo8-max" title="(in Rover)"><span class="xref std std-ref">SERVO8_MAX</span></a>), since passing through the throttle input will be direct and ignore those values, hich you are trying to match in the calibration. If not, temporarily change them to  match and then return them to the values when <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">RC校准</span></a> was done.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-parameter-list.html" class="btn btn-neutral float-left" title="Traditional Helicopter Parameter List at a Glance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-swashplate-setup.html" class="btn btn-neutral float-right" title="Traditional Helicopter – Swashplate Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

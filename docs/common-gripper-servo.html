@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servo Gripper &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Servo Gripper</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="servo-gripper">
+<span id="common-gripper-servo"></span><h1>Servo Gripper<a class="headerlink" href="#servo-gripper" title="Permalink to this heading">¶</a></h1>
+<p>This article explains how to connect a servo to an autopilot and configure it for use as a gripper which is useful for delivery or bottle drop applications.
+The servo can be controlled directly by the pilot via a switch on the transmitter or as part of a mission.  You may wish to refer to the <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">general servo wiki page</span></a> for other ways servos can be controlled.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/HiOw6OvJcik" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="connecting-the-servo-to-an-autopilot">
+<h2>Connecting the servo to an autopilot<a class="headerlink" href="#connecting-the-servo-to-an-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Servo_Pixhawk.jpg"><img alt="../_images/Servo_Pixhawk.jpg" src="../_images/Servo_Pixhawk.jpg" /></a>
+<ul class="simple">
+<li><p>If using Copter, connect the servo to AUX OUT 1, 2, 3 or 4 if the autopilot includes an IOMCU for the first 8 MAIN outputs, or any output operating at 50Hz if the autopilot does not use an IOMCU.  MAIN OUT 1 ~ 8 should be avoided because these normally update at 400hz.  If using Plane or Rover where all PWM output pins usually update at 50hz, any unused output may be used.</p></li>
+<li><p>In autopilots with IOMCUs, AUX OUT 5 and 6 cannot be used by default because they are setup as <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relays</span></a>.  These pins can changed to Servo outputs by setting the <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> parameter to 6 and setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin2" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN2</span></a> to -1.</p></li>
+<li><p>If the autopilot cannot provide power to the servos, an external BEC or ESC that can provide 5V should be used.</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>set which RC output is used by setting SERVOx_FUNCTION (or RCX_FUNCTION) to 28 (i.e. if using AUX OUT 1 on a Pixhawk, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> to 28).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-enable" title="(in Rover)"><span class="xref std std-ref">GRIP_ENABLE</span></a> to 1 to enable the gripper feature and then refetch parameters from the ground station in order to make other gripper parameters visible.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-type" title="(in Rover)"><span class="xref std std-ref">GRIP_TYPE</span></a> to 1 to enable the servo gripper and reboot the autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-grab" title="(in Rover)"><span class="xref std std-ref">GRIP_GRAB</span></a> to the pwm value (i.e. 1000 ~ 2000) for the gripper’s closed position</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-release" title="(in Rover)"><span class="xref std std-ref">GRIP_RELEASE</span></a> to the pwm value for the gripper’s open position</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-neutral" title="(in Rover)"><span class="xref std std-ref">GRIP_NEUTRAL</span></a> to the pwm value for the gripper’s neutral position (often the same as its closed position)</p></li>
+</ul>
+</section>
+<section id="controlling-gripper-from-the-transmitter">
+<h2>Controlling Gripper from the transmitter<a class="headerlink" href="#controlling-gripper-from-the-transmitter" title="Permalink to this heading">¶</a></h2>
+<p>The transmitter’s auxiliary switch can control the gripper.</p>
+<p>If using a firmware version prior to 4.0. CH7_OPT or CH8_OPT can be used to control the gripper by setting it to 19. If using the mission planner, select Config/Tuning &gt; Extended Tuning and set the Ch7 Opt or Ch8 Opt drop-down to “EPM” or “Gripper”.</p>
+<img alt="../_images/gripper_servo_auxswitch.png" src="../_images/gripper_servo_auxswitch.png" />
+<ul class="simple">
+<li><p>In firmware versions 4.0 later, use an RC channel for control by setting is <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> parameter to 19.</p></li>
+</ul>
+</section>
+<section id="controlling-gripper-during-a-mission">
+<h2>Controlling Gripper during a mission<a class="headerlink" href="#controlling-gripper-during-a-mission" title="Permalink to this heading">¶</a></h2>
+<p>The gripper position can be controlled during a mission in AUTO mode using the <a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#common-mavlink-mission-command-messages-mav-cmd"><span class="std std-ref">DO_GRIPPER</span></a> command.  Set the “drop/grab” column to 0 to close the gripper, 1 to open the gripper.</p>
+<a class="reference external image-reference" href="../_images/MissionList_DoGripper.png"><img alt="../_images/MissionList_DoGripper.png" src="../_images/MissionList_DoGripper.png" /></a>
+</section>
+<section id="controlling-gripper-from-the-ground-station">
+<h2>Controlling Gripper from the ground station<a class="headerlink" href="#controlling-gripper-from-the-ground-station" title="Permalink to this heading">¶</a></h2>
+<p>The gripper can be opened or closed in real-time from the ground station if the ground station sends a <a class="reference external" href="https://mavlink.io/en/messages/common.html#COMMAND_LONG">COMMAND_LONG</a> with the command field set to DO_GRIPPER (i.e. 211) but there are no ground stations (as far as we know) that support doing this.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:PX4FMU Wiring QuickStart &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:PX4FMU Wiring QuickStart</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-px4fmu-wiring-quickstart">
+<span id="px4fmu-plus-px4io-wiring"></span><h1>Archived:PX4FMU Wiring QuickStart<a class="headerlink" href="#archived-px4fmu-wiring-quickstart" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED</strong></p>
+<p>The PX4FMU is end of life and is not generally available for purchase.
+This article is made available for existing users.</p>
+</div>
+<p>This article provides an overview of the <a class="reference internal" href="common-px4fmu-overview.html#common-px4fmu-overview"><span class="std std-ref">PX4FMU</span></a> and
+<a class="reference internal" href="common-px4io-overview.html#common-px4io-overview"><span class="std std-ref">PX4IO</span></a> Board Copter Wiring/Installation.</p>
+<section id="px4fmu-plus-px4io-wiring-diagrams">
+<h2>PX4FMU plus PX4IO Wiring Diagrams<a class="headerlink" href="#px4fmu-plus-px4io-wiring-diagrams" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4IOWiring1PPMSUMrec.jpg"><img alt="../_images/PX4IOWiring1PPMSUMrec.jpg" src="../_images/PX4IOWiring1PPMSUMrec.jpg" /></a>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/PX4FMU_PX4IO_Wire_3DRradio2.jpg"><img alt="../_images/PX4FMU_PX4IO_Wire_3DRradio2.jpg" src="../_images/PX4FMU_PX4IO_Wire_3DRradio2.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Wiring: PX4FMU plus PX4IO with 3DR 8 channel encoder and 3DR Telemetry radio</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="assembly">
+<h2>Assembly<a class="headerlink" href="#assembly" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Solder the right angle 9x3 pin connector that was included with
+your PX4FMU kit to the side of the PX4IO board that has “PX4 autopilot”
+printed on it.</strong></p>
+<ol class="arabic simple">
+<li><p>When you insert the 9 x 3 connector into the PX4IO board put it in
+with the plastic spacer on the connector facing to the back of the
+board, NOT down against the board.</p></li>
+</ol>
+</li>
+<li><p>Solder the small white PAP-02-VS 2 pin connector into the 2 holes
+directly behind the battery pads on the PX4IO board.</p></li>
+<li><p><strong>Install the PX4IO board on top of the PX4FMU board.</strong></p>
+<ol class="arabic simple">
+<li><p>To protect the barometer from wind, gusts, motion effects and prop
+wash:</p>
+<ol class="arabic simple">
+<li><p>Cut a piece of 1/2” thick soft foam to the size of the PX4FMU
+board minus the inter-board connector.</p></li>
+<li><p>Place place the piece of 1/2” foam between the PX4FMU board and
+the PX4IO board before you connect them.</p></li>
+<li><p>An enclosure could mitigate barometer problems too, but ensure
+that it does not interfere with the compass (magnetometer).</p></li>
+</ol>
+</li>
+<li><p>Connect the PX4FMU board to the PX4IO board and ensure all of the
+connector pins are straight and insertion is complete.</p></li>
+<li><p>Mount the PX4-FMU + PX4-IO board stack in a central and level
+location on top of your Copter.</p></li>
+<li><p>The PX4FMU board is normally on top.</p></li>
+<li><p>It can be advantageous to mount the PX4IO board on top to provide
+for better Connector access.</p></li>
+<li><p>If you do mount the PX4IO board on top it will be necessary to set
+the “Board Orientation (AHRS_ORIENTATION)” parameter to <strong>8</strong> i.e
+“Roll 180”, in the Advanced Parameter List in Mission Planner.</p></li>
+<li><p>The arrow labeled “FRONT” should be facing to the front of the
+aircraft.</p></li>
+<li><p>The Micro SD memory card holder should face to the back of the
+Aircraft.</p></li>
+</ol>
+</li>
+<li><p><strong>Use the included standoffs and hardware.</strong></p>
+<ol class="arabic simple">
+<li><p>Which ever side of which ever board is going to be on top but a
+black standoff through one of the mounting holes from the bottom
+and thread a black plastic nut onto it from the top.</p></li>
+<li><p>Repeat the above for the remaining 3 holes.</p></li>
+<li><p>Connect the PX4FMU and PX4IO board insuring no pins are bent on
+the board interconnection connector.</p></li>
+<li><p>Thread 4 more of the black standoffs into the already installed
+black standoffs.</p></li>
+</ol>
+</li>
+<li><p><strong>In order to reduce DC EMF effect on the compass see</strong> <a class="reference internal" href="common-magnetic-interference.html#common-magnetic-interference"><span class="std std-ref">Magnetic Interference</span></a>.</p></li>
+<li><p>You will need additional vibration damping and should review
+<a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">Vibration Damping</span></a>.</p>
+<ol class="arabic simple">
+<li><p>At a minimum you should mount the standoffs to an intermediate
+plate.</p></li>
+<li><p>Mount the plate to your airframe with 4 small (&lt;1”)square pads of
+Kyosho “Zeal” gel or “Moon Gel” in the corners.</p></li>
+</ol>
+</li>
+<li><p><strong>Mount the GPS facing up with an unobstructed “view” of the sky.</strong></p>
+<ol class="arabic simple">
+<li><p>Connect the GPS cable to the GPS connector on the PX4FMU board.</p></li>
+<li><p>The GPS must be positioned so that its cable will connect without
+strain to the PX4FMU’s GPS connector.</p></li>
+<li><p>The GPS can be mounted on a short riser to give it the widest
+satellite access.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="wire-the-px4fmu-and-px4io-boards-to-your-copter">
+<h2>Wire the PX4FMU and PX4IO boards to Your Copter<a class="headerlink" href="#wire-the-px4fmu-and-px4io-boards-to-your-copter" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Wire the PX4-IO board.</strong></p>
+<ol class="arabic simple">
+<li><p>The PX4IO board has a built in Power Supply which can connect to
+up to 18 volts.</p></li>
+<li><p>Insert the white PAP-02-VS 2 pin connector with the black and red
+wires coming out of it into the mating power connector you
+soldered in previously on the PX4IO board.</p></li>
+<li><p>Battery Plus is the(red wire) and should be soldered to your
+battery red power lead / connector.</p></li>
+<li><p>Battery Ground is the(black wire) and should be soldered to your
+battery black battery (Ground) lead / connector.</p></li>
+<li><p>The main power inputs of your ESC’s will also need to connect to
+these wires and to a battery connector.</p></li>
+<li><p>A Power Distribution board can also be used.</p></li>
+</ol>
+</li>
+<li><p><strong>Connect your PPM-Sum RC receiver’s 3 wire cable to the end of the 9
+x 3 angle connector that is nearest the edge of the PX4IO board with
+the signal wire furthest from the board and the ground closest to the
+board.</strong></p></li>
+<li><p><strong>Wire the PX4FMU board’s servo out signals to your ESC control inputs.</strong></p>
+<ol class="arabic simple">
+<li><p>Run the Signal wires ONLY from the ESCs to the 3 x 9 Servo
+Connector on the PX4IO board.</p></li>
+<li><p>The PX4IO board connector for Motor 1 is at the edge of the
+connector next to the Battery power in wires.</p></li>
+<li><p>Insert the Motor ESC wires arranged progressively from that edge,
+(1,2,3,4,etc) for 4 to 8 motors depending on your copter type.</p></li>
+<li><p>You can put the ESC Signal wires into a single inline connector
+with the correct number of pins for your copter.</p></li>
+<li><p>The ESC Signal Wires / connector should be plugged into the top
+row (furthest from the board) of the PX4IO boards 3 x 9 Servo
+Connector.</p></li>
+</ol>
+</li>
+<li><p><strong>Note, the cable that is supplied in the plastic envelope with the
+UBLOX GPS which has white 6 pin connectors on both ends is not the
+correct cable for the PX4FMU board.</strong></p>
+<ol class="arabic simple">
+<li><p>The correct longer cable is provided in a separate envelope and
+has a 5 pin “beige” connector on one end and a 6 pin white
+connector on the other end.</p></li>
+<li><p>Plug the correct GPS cable’s white 6 pin connector into the 6 pin
+socket on the GPS.</p></li>
+<li><p>Plug the beige 5 pin connector into the PX4FMU board’s 5 pin GPS
+socket which is next to the 15 pin DF13 Mini connector.</p></li>
+</ol>
+</li>
+<li><p><strong>Plug the 2 pin connector attached to the lead supplied with the
+buzzer into the buzzer socket on the side of the PX4FMU board that
+has the SD card holder on it.</strong></p></li>
+<li><p><strong>Connect the “Safety Button” to the Safety connector on the PX4IO
+board on the opposite side of the board from the Battery pads.</strong></p></li>
+</ol>
+</section>
+<section id="using-a-3dr-telemetry-radio-with-your-px4fmu-plus-px4io-system">
+<h2>Using a 3DR telemetry radio with your PX4FMU plus PX4IO system.<a class="headerlink" href="#using-a-3dr-telemetry-radio-with-your-px4fmu-plus-px4io-system" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>You will need a <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">3DR Radio</span></a>.</p></li>
+<li><p>Plug the telemetry adapter cable’s large black connector into the 3DR
+radio as shown above.</p></li>
+<li><p>The telemetry radio is shown above <strong>incorrectly</strong> connected to the
+FMU USART2 socket at the corner of the PX4IO board.</p>
+<ol class="arabic simple">
+<li><p><strong>Correctly</strong> plug the telemetry adapter cable’s beige connector
+into the PX4IO boards <strong>FMU UART5</strong> socket.</p></li>
+<li><p>FMU UART5 is the middle socket on the end of the PX4IO board as
+indicated by the <strong>red arrow</strong> above.</p></li>
+<li><p>(FMU UARTx) means a port that is pass through connected directly
+from the PX4IO board to the PX4FMU.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="separate-servo-power-for-high-power-applications">
+<h2>Separate Servo power for high power applications<a class="headerlink" href="#separate-servo-power-for-high-power-applications" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4io-bottom1.jpg"><img alt="../_images/PX4io-bottom1.jpg" src="../_images/PX4io-bottom1.jpg" /></a>
+<ol class="arabic simple">
+<li><p><strong>Using a separate power supply to provide power to the center servo
+power pins of the PX4IO board.</strong></p>
+<ol class="arabic simple">
+<li><p>If you are driving high power servos with your PX4IO board you
+will want to provide servo power separately.</p></li>
+<li><p>In order to do this, remove the L1 Ferrite device circled in red
+on the image above.</p></li>
+<li><p>Then run power from your separate power supply to one of the
+center pins of the Servo Connector.</p></li>
+<li><p>And run the ground from your separate power supply to one of the
+servo connector pins nearest the edge of the board.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="wiring-your-motors-and-escs">
+<h2>Wiring your Motors and ESCs<a class="headerlink" href="#wiring-your-motors-and-escs" title="Permalink to this heading">¶</a></h2>
+<p>Motor wiring and order for different frame shapes is covered in the
+topic <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors"><span class="std std-ref">Connect ESCs and Motors</span></a>.</p>
+</section>
+<section id="using-a-standard-rc-radio-receiver-with-an-8-channel-ppm-encoder">
+<h2>Using a Standard RC Radio Receiver with an 8 channel PPM Encoder<a class="headerlink" href="#using-a-standard-rc-radio-receiver-with-an-8-channel-ppm-encoder" title="Permalink to this heading">¶</a></h2>
+<p>You can use a standard radio receiver with an 8 channel PPM Encoder in
+place of the PPM-SUM receiver.</p>
+<ul class="simple">
+<li><p>An 8 Channel PPM Encoder is
+<a class="reference external" href="http://store.jdrones.com/pixhawk_px4_paparazzi_ppm_encoder_v2_p/eleppmenc20.htm">available from jDrones</a>.</p></li>
+<li><p>Solder a 3x8 Right angle connector from the top into one end of the 8
+Channel PPM Encoder board.</p></li>
+<li><p>With the 3x8 connector up and facing away from you, solder a 3x1
+Right angle connector on the right edge of the 8 Channel PPM Encoder
+board.</p></li>
+</ul>
+<p>Connect 5-8 output channels of your receiver to the inputs of the 8
+Channel Encoder (signal wire furthest from board) with 5-8 female to
+female servo jumpers.</p>
+<ul class="simple">
+<li><p>Connect the PPM-SUM output of the Encoder with a 3 wire cable to the
+PX4IO boards PPM sum input (1x3 connector).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using a 3DR PPM Encoder it is important to know that
+when you are calibrating your transmitter you will quite likely need to
+hook up your flight battery to the PX4IO because the USB port alone
+can’t supply enough power.</p>
+</div>
+</section>
+<section id="compatible-remote-control-rc-receivers">
+<h2>Compatible remote control (RC) receivers<a class="headerlink" href="#compatible-remote-control-rc-receivers" title="Permalink to this heading">¶</a></h2>
+<p>PX4FMU is compatible with PPM remote control (RC) receivers, Futaba S.Bus
+receivers, and Spektrum DSM,DSM2, and DSM-X Satellite receivers. For
+traditional single-wire-per-channel (PWM) receivers a PPM encoder can be
+used to convert the receiver outputs to PPM-SUM.  Information about
+compatible receivers and how they are connected can be found in <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">this wiki page</span></a>.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/FRSkyTaranis.jpg"><img alt="../_images/FRSkyTaranis.jpg" src="../_images/FRSkyTaranis.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">FRSky Taranis Transmitter</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

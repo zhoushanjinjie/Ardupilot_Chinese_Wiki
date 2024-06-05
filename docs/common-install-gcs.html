@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安装地面站(GCS)软件&mdash;Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="飞控系统安装 Instructions" href="autopilot-assembly-instructions.html" />
+    <link rel="prev" title="First Time Setup" href="initial-setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+      <li class="breadcrumb-item active">安装地面站(GCS)软件</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-ground-station-gcs-software">
+<span id="common-install-gcs"></span><h1>安装地面站(GCS)软件<a class="headerlink" href="#installing-ground-station-gcs-software" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot可以与<a class="reference internal" href="common-choosing-a-ground-station.html#common-choosing-a-ground-station"><span class="std std-ref">许多不同的地面站</span></a>一起使用。</p>
+<p>开发人员通常使用 <em>桌面</em> GCS，因为这些GCS往往可以更深入地访问车辆设置参数和高级调试功能。如果你只是想坐飞机，你可以选择使用在移动操作系统（iOS、Android）上运行的GCS。</p>
+<p>以下提供了一些更受欢迎的地面站的安装链接：</p>
+<ul>
+<li><p><a class="reference external" href="https://ardupilot.org/planner/index.html#home" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a> (Windows, Linux, Android): <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-installation.html#install-mission-planner" title="(in Mission Planner)"><span class="xref std std-ref">Install Mission Planner</span></a> 该GCS是最兼容的，并密切跟踪ArduPilot中的新功能和更新。建议首次使用和超级用户使用。它在Windows环境中运行得最好。</p></li>
+<li><p><a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a> (Windows, Mac OS X, Linux, Android and iOS)  这是基于安卓系统的最受欢迎的GCS，在手机等小格式设备上提供最佳演示。不具备Mission Planner的所有功能，但对某些功能有一个更用户友好的界面。在所有平台上运行良好。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html">下载和安装</a> (稳定版)</p></li>
+<li><p><a class="reference external" href="https://docs.qgroundcontrol.com/en/releases/daily_builds.html">Daily builds</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://ardupilot.org/planner2/index.html#home" title="(in APM Planner 2)"><span class="xref std std-ref">APM Planner 2</span></a> (Windows, Mac OS X, Linux): <a class="reference external" href="https://ardupilot.org/planner2/docs/installing-apm-planner-2.html#installing-apm-planner-2" title="(in APM Planner 2)"><span class="xref std std-ref">Install APM Planner 2</span></a> - 提供了基本功能，但目前没有得到很好的维护和更新。</p></li>
+</ul>
+<!--
+<p>[copywiki destination=”copter,plane,rover,blimp”]</p>
+-->
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="initial-setup.html" class="btn btn-neutral float-left" title="First Time Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autopilot-assembly-instructions.html" class="btn btn-neutral float-right" title="飞控系统安装 Instructions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSD based parameter menu &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">OSD based parameter menu</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="osd-based-parameter-menu">
+<span id="common-paramosd"></span><h1>OSD based parameter menu<a class="headerlink" href="#osd-based-parameter-menu" title="Permalink to this heading">¶</a></h1>
+<p>This allows to set and adjust parameters using the ArduPilot onboard OSD and an RC transmitter’s stick input.
+There’s two additional OSD screens available (OSD5 and OSD6), with 9 “slots” each to hold parameters. The screens
+display a default set of parameters to start with. Additionally, it is possible to change the parameter used in a
+respective slot directly (on-screen) using stick inputs, or using MAVProxy’s osd-module command-line setup.</p>
+<section id="copter-default-screens">
+<h2>Copter default screens:<a class="headerlink" href="#copter-default-screens" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/paramscreens_copter.jpg"><img alt="../_images/paramscreens_copter.jpg" src="../_images/paramscreens_copter.jpg" style="width: 450px;" /></a>
+</section>
+<section id="plane-default-screens">
+<h2>Plane default screens:<a class="headerlink" href="#plane-default-screens" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/paramscreens_plane.jpg"><img alt="../_images/paramscreens_plane.jpg" src="../_images/paramscreens_plane.jpg" style="width: 450px;" /></a>
+<p>The RC transmitter’s roll and pitch stick input is used to navigate through the screen, pick
+a parameter and adjust the parameter value. Parameter values can be adjusted in disarmed state only.</p>
+<p>Additionally there’s a “save and reboot” button on each screen that allows to save the adjusted settings and reboot the
+flightcontroller if required. It defaults to “reboot”, will auto-switch to “save” if a parameter value has been altered,
+and switch back to “reboot” after saving is completed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the “save” button after adjusting a parameter will make the adjustments persistent, otherwise the value will be reset to its prior state after a reboot.</p>
+</div>
+<section id="accessing-parameter-screens">
+<h3>Accessing parameter screens<a class="headerlink" href="#accessing-parameter-screens" title="Permalink to this heading">¶</a></h3>
+<p>To enable the parameter screens, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd5-enable" title="(in Rover)"><span class="xref std std-ref">OSD5_ENABLE</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd6-enable" title="(in Rover)"><span class="xref std std-ref">OSD6_ENABLE</span></a> = 1.
+Parameter screens can be accessed in the same way the conventional osd screens are accessed.
+See the documentation on <a class="reference internal" href="common-osd-overview.html#screen-switching"><span class="std std-ref">OSD screens and switching</span></a> for reference.
+When one of the parameter screens is selected, adjustments can be made in disarmed state only. If a parameter screen is
+selected inflight, the screen allows display only. This allows live monitoring of automatic parameter adjustments,
+i.e. when performing autotune procedures or automatic servo trims.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For systems not using an actual OSD, as when using CRSF with no OSD or DJI OSD, and running OpenTX transmitters with CRSF configuration script, setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-type" title="(in Rover)"><span class="xref std std-ref">OSD_TYPE</span></a> =3 (MSP), will allow the OpenTX CRSF script on the transmitter to change these parameters.</p>
+</div>
+</section>
+<section id="menu-navigation">
+<h3>Menu navigation<a class="headerlink" href="#menu-navigation" title="Permalink to this heading">¶</a></h3>
+<p>Use the RC transmitter’s roll and pitch input to navigate through the parameter screen. UP / DOWN and LEFT / RIGHT will navigate through
+the screen’s parameter slots. The selected parameter will blink. Move right on the selected parameter to adjust its value using
+up or down stick input. Leave the selection with left roll stick input. On a typical mode 2 type transmitter this would be the right
+gimbal stick:</p>
+<a class="reference external image-reference" href="../_images/stickinput.jpg"><img alt="../_images/stickinput.jpg" src="../_images/stickinput.jpg" style="width: 450px;" /></a>
+</section>
+<section id="parameter-slot-scroll-selection">
+<h3>Parameter slot scroll-selection<a class="headerlink" href="#parameter-slot-scroll-selection" title="Permalink to this heading">¶</a></h3>
+<p>Holding roll right for &gt; 3 seconds on a parameter’s value will highlight both the selected parameter and its value (blink). This allows
+you to scroll through the full list of parameters and place another parameter into that respective slot using pitch up and down stick input.
+Move left to exit parameter selection and get back into standard screen navigation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OSD based parameter adjustment is designed to allow basic adjustments without any additional data link or GCS setup required. However,
+some parameters with exceptionally wide value ranges, as well as complex bitmap-type parameters might not be ideal for adjustment using parameter OSD.</p>
+</div>
+</section>
+<section id="parameter-range-increment-and-type-mnemonics">
+<h3>Parameter range, increment and type-mnemonics<a class="headerlink" href="#parameter-range-increment-and-type-mnemonics" title="Permalink to this heading">¶</a></h3>
+<p>OSD based parameter menu uses parameter metadata to estimate a useful value range and incrementation for each parameter. Additionally, support for the
+display of human-readable abbreviations instead of numeric values is provided for the following parameter types:</p>
+<ul class="simple">
+<li><p>flightmodes</p></li>
+<li><p>servo functions</p></li>
+<li><p>serial protocols</p></li>
+<li><p>RC aux options</p></li>
+<li><p>failsafe actions</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature may have limitations on certain parameters with exceptionally wide value ranges and when handling bitmap-type parameters.</p>
+</div>
+</section>
+<section id="populating-a-screen-s-parameter-slots-using-mavproxy-s-osd-module">
+<h3>Populating a screen’s parameter slots using MAVProxy’s OSD module<a class="headerlink" href="#populating-a-screen-s-parameter-slots-using-mavproxy-s-osd-module" title="Permalink to this heading">¶</a></h3>
+<p>OSD based parameter setting includes a <a class="reference external" href="https://ardupilot.org/mavproxy/">MAVProxy module</a> to populate each screen’s parameter slots.
+Connect your autopilot, connect tp MAVProxy and load the OSD module by typing <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">osd</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The osd module is supported by MAVProxy 1.8.21 and later. Type <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pymavlink</span> <span class="pre">MAVProxy</span> <span class="pre">--user</span></code>
+to update MAVProxy if required.</p>
+</div>
+<p>Use the following syntax to set and show a parameter, its type, minimum, maximum and increments:</p>
+<p>:code:` osd param-set &lt;screen&gt; &lt;index&gt; &lt;name&gt; (&lt;type&gt; | &lt;min&gt; &lt;max&gt; &lt;increment&gt;)`</p>
+<p><code class="code docutils literal notranslate"><span class="pre">osd</span> <span class="pre">param-show</span> <span class="pre">&lt;screen&gt;</span> <span class="pre">&lt;index&gt;</span></code></p>
+<p>where</p>
+<p><code class="code docutils literal notranslate"><span class="pre">screen</span></code> is the desired parameter screen number (5 or 6)</p>
+<p><code class="code docutils literal notranslate"><span class="pre">index</span></code>  is the desired parameter slot (1 - 9)</p>
+<p><code class="code docutils literal notranslate"><span class="pre">NAME</span></code> is the desired parameter’s full name (case sensitive)</p>
+<p><code class="code docutils literal notranslate"><span class="pre">type</span></code> allows to set mnemonics to</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">FLIGHT_MODE</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">SERIAL_PROTOCOL</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">SERVO_FUNCTION</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">AUX_FUNCTION</span></code> (for RC options)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">FAILSAFE_ACTION</span></code> (plane: battery low and critical failsafe actions; copter: failsafe options)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">FAILSAFE_ACTION_1</span></code> (plane: short failsafe actions; copter: throttle and GCS failsafe options)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">FAILSAFE_ACTION_2</span></code> (plane: long failsafe actions; copter: battery failsafe actions)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">NONE</span></code></p></li>
+</ul>
+<p><code class="code docutils literal notranslate"><span class="pre">MIN</span></code> allows to set a lower limit to the setteable range</p>
+<p><code class="code docutils literal notranslate"><span class="pre">MAX</span></code> allows to limit the settable range’s maximum</p>
+<p><code class="code docutils literal notranslate"><span class="pre">INCREMENT</span></code> allows to use specific increments if required</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>To set OSD5 parameter1 to TRIM_THROTTLE, type <code class="code docutils literal notranslate"><span class="pre">osd</span> <span class="pre">param-show</span> <span class="pre">5</span> <span class="pre">1</span> <span class="pre">TRIM_THROTTLE</span></code></p>
+<p>To set OSD6 parameter2 to FLTMODE1 using respective mnemonics, type <code class="code docutils literal notranslate"><span class="pre">osd</span> <span class="pre">param-set</span> <span class="pre">6</span> <span class="pre">2</span> <span class="pre">FLTMODE1</span> <span class="pre">FLIGHT_MODE</span></code></p>
+<p>To set OSD5 parameter2 to LIM_ROLL_CD, limiting range from 2000 - 6000 with increments of 100, type <code class="code docutils literal notranslate"><span class="pre">osd</span> <span class="pre">param-set</span> <span class="pre">5</span> <span class="pre">2</span> <span class="pre">LIM_ROLL_CD</span> <span class="pre">2000</span> <span class="pre">6000</span> <span class="pre">100</span></code></p>
+<p>To show what OSD6 parameter2 is set to, type <code class="code docutils literal notranslate"><span class="pre">osd</span> <span class="pre">param-show</span> <span class="pre">6</span> <span class="pre">2</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware that some <code class="code docutils literal notranslate"><span class="pre">TYPE</span></code> mnemonic options are vehicle-specific. Make sure to apply mnemonics to the correct vehicle type in order to avoid unexpected results</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

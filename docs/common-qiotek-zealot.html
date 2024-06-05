@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QioTek Zealot F427 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">QioTek Zealot F427</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qiotek-zealot-f427">
+<span id="common-qiotek-zealot"></span><h1>QioTek Zealot F427<a class="headerlink" href="#qiotek-zealot-f427" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This autopilot is supported in 4.1 and later firmware</p>
+</div>
+<p>The QioTek Zealot F427 is an internally vibration dampened autopilot with a protective CNC metal case for ruggedness. It features fully redundant sensors, expanded number of outputs, temperature controlled IMUs, and is the first high performance autopilot with integrated OSD chip.</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/QioTek-Zealot.jpg"><img alt="../_images/QioTek-Zealot.jpg" src="../_images/QioTek-Zealot.jpg" style="width: 400px;" /></a>
+</figure>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong>:</p>
+<ul>
+<li><p>MCU - STM32F427VIT6</p></li>
+<li><p>16KB FRAM - FM25V01</p></li>
+<li><p>AT7456E OSD</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>Gyro/Accelerometers: ICM20689, ICM20602, and BMI088</p></li>
+<li><p>Barometers: MS5611 and DPS3018</p></li>
+<li><p>Compass: IST8310 or QMC5883L</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>5-5.5VDC from USB (internal circuitry and RX only) or via 2 x PowerModule connectors, or via internal BEC off VBAT input pin. All 5V pins are powered when USB, or Power Module(s), or VBAT input is used.</p></li>
+<li><p>Internal 5V, 1.5A BEC directly can be used with up to 6S LIPO batteries to supply board and peripheral power up to 1.5A max with voltage only monitoring via BATT2 monitor (500ma max recommended).</p></li>
+<li><p>ADC monitoring of board voltage??</p></li>
+<li><p>ADC monitoring of Servo/Output’s power rail</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces/Connectivity</strong></p>
+<ul>
+<li><p>14 PWM Outputs with independent power rail for external power source</p></li>
+<li><p>4 Relay outputs</p></li>
+<li><p>MicroSD card reader</p></li>
+<li><p>Micro USB or remote USB via a JST_GH connector</p></li>
+<li><p>Builtin RGB LED</p></li>
+<li><p>Camera Input and Video Output</p></li>
+<li><p>External Buzzer interface</p></li>
+<li><p>2, 6.6V tolerant ADC inputs for RSSI, Analog Airspeed, etc.</p></li>
+<li><p>5 UARTs</p></li>
+<li><p>Safety Switch connector</p></li>
+</ul>
+</li>
+<li><p><strong>Dimensions</strong></p>
+<ul>
+<li><p>Weight 65g</p></li>
+<li><p>Size 42mm x 65mm x 25mm</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="connector-pin-assignments">
+<h2>Connector pin assignments<a class="headerlink" href="#connector-pin-assignments" title="Permalink to this heading">¶</a></h2>
+<p>Unless noted otherwise all connectors are JST GH</p>
+<section id="uart2-telem1-uart1-telem2-ports">
+<h3>UART2(TELEM1), UART1(TELEM2) ports<a class="headerlink" href="#uart2-telem1-uart1-telem2-ports" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="osd">
+<h3>OSD<a class="headerlink" href="#osd" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VIN</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>4</td>
+<td>VOUT</td>
+<td>3.3V</td>
+</tr>
+</tbody>
+</table></section>
+<section id="usb-remote-port">
+<h3>USB remote port<a class="headerlink" href="#usb-remote-port" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>USB VDD</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DM</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DP</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="i2c1-port">
+<h3>I2C1 port<a class="headerlink" href="#i2c1-port" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SCL1</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SDA1</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="can-port">
+<h3>CAN port<a class="headerlink" href="#can-port" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CAN_H</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CAN_L</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="usart5-adc1-sbus-out-port">
+<h3>USART5/ADC1/SBus Out port<a class="headerlink" href="#usart5-adc1-sbus-out-port" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TX5</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RX5</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SBUS Out</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ADC1 </td>
+<td>+6V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND </td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="safety-buzzer-port">
+<h3>Safety/Buzzer port<a class="headerlink" href="#safety-buzzer-port" title="Permalink to this heading">¶</a></h3>
+ <table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC3.3</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VCC5.5</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SafKey</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SafLED</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BUZZER-</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="relay-adc2-port">
+<h3>Relay/ADC2 port<a class="headerlink" href="#relay-adc2-port" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>ADC2</td>
+<td>+6V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Relay1</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Relay2</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Relay3</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Relay4</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="usart3-gps1-i2c1-uart4-gps2-i2c2-ports">
+<h3>USART3(GPS1/I2C1), UART4(GPS2/I2C2) ports<a class="headerlink" href="#usart3-gps1-i2c1-uart4-gps2-i2c2-ports" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TX</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RX</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SCL</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5</td>
+<td>SDA</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="power1-power2-ports">
+<h3>Power1, Power2 ports<a class="headerlink" href="#power1-power2-ports" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CURRENT</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4</td>
+<td>VOLTAGE</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><img alt="../_images/qiotek-zealot-power-input.jpg" src="../_images/qiotek-zealot-power-input.jpg" />
+</section>
+<section id="vbat-input">
+<h3>VBAT Input<a class="headerlink" href="#vbat-input" title="Permalink to this heading">¶</a></h3>
+<p>30V maximum input. A 5V, 1.5A regulator drops this input to the +5V used and supplied by the autopilot. Do not connect power to this input if Power Module 2 input is used as they share the BATT2 voltage monitoring circuitry. This connector is a JST-EH type.</p>
+</section>
+<section id="servo-vcc-rail-input">
+<h3>SERVO VCC Rail Input<a class="headerlink" href="#servo-vcc-rail-input" title="Permalink to this heading">¶</a></h3>
+<p>This provides a means to power servos attached to the output connector block by an external BEC or power source. Maximum power rating is 36V &#64; 20A.</p>
+</section>
+<section id="rc-input">
+<h3>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h3>
+<p>All compatible RC protocols can be decoded by attaching the Receiver’s output to the SBUS input pin next to the Servo/Output VCC input connector. Note that some protocols such as CRSF or, FPort including telemetry, require connection to, and setup of, one of the UARTs instead of this pin.</p>
+</section>
+</section>
+<section id="default-uart-order">
+<h2>Default UART order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SERIAL0 = console = USB</p></li>
+<li><p>SERIAL1 = Telemetry1 = USART1</p></li>
+<li><p>SERIAL2 = Telemetry2 = USART2</p></li>
+<li><p>SERIAL3 = GPS1 = USART3</p></li>
+<li><p>SERIAL4 = GPS2 = UART4</p></li>
+<li><p>SERIAL5 = USER = UART5</p></li>
+</ul>
+</section>
+<section id="dshot-capability">
+<h2>Dshot capability<a class="headerlink" href="#dshot-capability" title="Permalink to this heading">¶</a></h2>
+<p>All motor/servo outputs are Dshot and PWM capable. However, mixing Dshot and normal PWM operation for outputs is restricted into groups, ie. enabling Dshot for an output in a group requires that ALL outputs in that group be configured and used as Dshot, rather than PWM outputs. The output groups that must be the same (PWM rate or Dshot, when configured as a normal servo/motor output) are: 1/2/3/4, 5/6/7/8, 9/10/11/12. Outputs 13 and 14 cannot support Dshot, only PWM.</p>
+</section>
+<section id="battery-monitor-settings">
+<h2>Battery Monitor Settings<a class="headerlink" href="#battery-monitor-settings" title="Permalink to this heading">¶</a></h2>
+<p>These should already be set by default. However, if lost or changed:</p>
+<p>Enable Battery monitor with these parameter settings :</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> =4</p>
+<p>Then reboot.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> 13</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> 12</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> 20</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> 17</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT2_VOLT_PIN</span></a> 9</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT2_CURR_PIN</span></a> 8</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT2_VOLT_MULT</span></a> 20</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT2_AMP_PERVLT</span></a> 17</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://www.Qio-Tek.com">QIOTEK</a>
+<a class="reference external" href="https://www.banggood.com/Qiotek-Zealot-F427-PIXHAWK-Autopilot-Ardupilot-Firmware-Flight-Controller-for-VTOL-Drone-Airplane-Multirotor-p-1828905.html?cur_warehouse=CN&amp;rmmds=search">Banggood</a></p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RadioLink MiniPix &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RadioLink MiniPix</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="radiolink-minipix">
+<span id="common-radiolink-minipix"></span><h1>RadioLink MiniPix<a class="headerlink" href="#radiolink-minipix" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This autopilot is not recommended because some versions of the board are not compatible with the official ArduPilot software despite multiple efforts to work with the manufacturer to make them compatible. The manufacturer is also apparently not abiding by the GPLv3 license which requires releasing the modified source code to its customers.  “V1.0” and “V1.2” probably work, “V1.0 II” and “V1.1” definitely do not work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The RadioLink CrossFlight is not supported by ArduPilot.  As far as the ArduPilot Development Team is aware, RadioLink are in violation of ArduPilot’s GPLv3 license in that they refuse to release the source code for their modifications to ArduPilot.  The Development Team recommend you do not purchase this product, and instead select from one of our many other supported boards.</p>
+</div>
+<a class="reference external image-reference" href="../_images/minipix1.jpg"><img alt="../_images/minipix1.jpg" src="../_images/minipix1.jpg" /></a>
+<p><em>above image and some content courtesy of the</em> <a class="reference external" href="http://www.radiolink.com.cn/doce/product-detail-133.html">RadioLink website</a></p>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor and Sensors</strong></p>
+<ul>
+<li><p>STM32F405VGT6 ARM microcontroller</p></li>
+<li><p>InvenSense MPU6500</p></li>
+<li><p>Compass QMC5883L</p></li>
+<li><p>Barometer LPS22HB</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>6x PWM outputs</p></li>
+<li><p>1x RC input (PWM/PPM, SBUS)</p></li>
+<li><p>3 UARTS (flow-control on Telem 1 &amp; 2, no flow-control on GPS port)</p></li>
+<li><p>external I2C</p></li>
+<li><p>2 x ADC for voltage and current sensor</p></li>
+<li><p>1 x additional ADC for analog RSSI or analog airspeed</p></li>
+<li><p>SDIO microSD card slot</p></li>
+<li><p>micro USB connector</p></li>
+<li><p>includes buzzer / safety-switch, power module, I2C expansion board and TS100 GPS / mag combo depending on kit features</p></li>
+<li><p>size 39 x 39 x 12 mm</p></li>
+<li><p>weight 12 g without wires</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>RadioLink hardware is available from various warehouses like <a class="reference external" href="https://www.banggood.com/de/Radiolink-Mini-PIX-F4-Flight-Controller-MPU6500-w-TS100-M8N-GPS-UBX-M8030-For-RC-Drone-FPV-Racing-p-1240423.html?cur_warehouse=CN">banggood.com</a></p></li>
+</ul>
+</section>
+<section id="peripheral-connections">
+<h2>Peripheral Connections<a class="headerlink" href="#peripheral-connections" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/minipix_periphs.jpg"><img alt="../_images/minipix_periphs.jpg" src="../_images/minipix_periphs.jpg" /></a>
+</section>
+<section id="default-uart-order">
+<h2>Default UART order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SERIAL0 = console = USB</p></li>
+<li><p>SERIAL1 = Telemetry1 = USART3</p></li>
+<li><p>SERIAL2 = Telemetry2 = USART2 (see Notes for reversed plastic case labels!)</p></li>
+<li><p>SERIAL3 = GPS1 = UART4</p></li>
+</ul>
+<p>Serial protocols can be adjusted to personal preferences.</p>
+</section>
+<section id="firmware-handling">
+<h2>Firmware handling<a class="headerlink" href="#firmware-handling" title="Permalink to this heading">¶</a></h2>
+<p>This hardware comes preflashed with a RadioLink-branded version of ArduCopter and an ArduPilot-compatible bootloader. To use non-branded ChibiOS-based ArduPilot firmware versions, download the required vehicle firmware .apj file from <a class="reference external" href="https://firmware.ardupilot.org/">https://firmware.ardupilot.org/</a> and flash your board using MissionPlanner’s “custom firmware” option.</p>
+<p>In case a bootloader re-installation is required, you can boot your board to DFU-mode using the following solder-points:</p>
+<a class="reference external image-reference" href="../_images/minipix_dfu.jpg"><img alt="../_images/minipix_dfu.jpg" src="../_images/minipix_dfu.jpg" /></a>
+<p>Then follow the instructions on how to <a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#common-loading-firmware-onto-chibios-only-boards"><span class="std std-ref">load firmware onto ChibiOS boards</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The flightcontroller’s plastic case shows the telemetry ports’ numbers reversed compared to the board’s PCB imprints and the
+firmware’s SERIALn assignments, this requires additional attention!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MiniPix voltage and current sensing pins use Pixhawk standard ( <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> = 2, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> = 3).
+The additional ADC pin can be used for either RSSI or analog airspeed. Set required option to PIN = 11.</p>
+</div>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

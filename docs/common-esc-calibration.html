@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,rover”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,rover”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-rover">
+<span id="common-esc-calibration"></span><h1>[copywiki destination=”plane,rover”]<a class="headerlink" href="#copywiki-destination-plane-rover" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="esc-calibration">
+<h1>电调校准<a class="headerlink" href="#esc-calibration" title="Permalink to this heading">¶</a></h1>
+<p>First, make sure that the correct ESC protocol has been setup. Find your ESC(s) type under <a class="reference internal" href="common-escs-and-motors.html#common-escs-and-motors"><span class="std std-ref">ESCs and Motors</span></a>, and follow its configuration information.</p>
+<p>Vehicles using a traditional PWM controlled ESC (electronic speed controller) for motor output
+will likely need to be calibrated. <strong>If you are using a digital esc protocol like DShot or are using CAN ESCs then you don’t need to calibrate them.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remove the propeller from Planes before
+starting ESC calibration!</p>
+</div>
+<p>Calibrating an ESC involves teaching the ESC what range of throttle
+inputs it should respond to. It needs to know what PWM value on the
+throttle channel corresponds with the commanding the motor to be off,
+and what PWM value corresponds with full throttle. These values are
+stored inside the ESC.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should not try to calibrate your ESC until you have
+completed both your <a class="reference external" href="https://ardupilot.org/plane/docs/rc-throw-trim.html#rc-throw-trim" title="(in Plane)"><span class="xref std std-ref">RC inputs</span></a>
+calibration and your <a class="reference external" href="https://ardupilot.org/plane/docs/servo-functions.html#servo-functions" title="(in Plane)"><span class="xref std std-ref">servo setup</span></a>.
+Mission Planner’s motor calibration does not work on
+traditional planes.</p>
+</div>
+</section>
+<section id="typical-esc-calibration">
+<h1>Typical ESC Calibration<a class="headerlink" href="#typical-esc-calibration" title="Permalink to this heading">¶</a></h1>
+<p>The most common type of ESC calibration for small electric aircraft is
+the max-throttle/min-throttle method.</p>
+<p>To perform this type of calibration you will need to be able to
+control power to your motor separately from power to the autopilot. If
+you don’t have separate power, then you can temporarily power your
+autopilot from a USB cable for the purposes of this calibration.</p>
+<p>The steps for calibration are:</p>
+<ul class="simple">
+<li><p>start with the autopilot powered, but with the ESC unpowered and
+propeller, if a Plane, removed</p></li>
+<li><p>switch to MANUAL flight/control mode</p></li>
+<li><p>disable the safety switch (if fitted) and arm the vehicle</p></li>
+<li><p>move the throttle stick on your transmitter to maximum</p></li>
+<li><p>add power to the ESC</p></li>
+</ul>
+<p>At this stage the ESC/motor should beep to indicate that it is in ESC
+calibration mode. Typically it will be 2 or 3 quick beeps, but the
+motor won’t turn.</p>
+<ul class="simple">
+<li><p>now lower the throttle stick rapidly to zero</p></li>
+<li><p>the ESC should beep to indicate it has accepted the new calibration
+range</p></li>
+<li><p>now slowly raise the throttle and check that the motor responds
+correctly</p></li>
+</ul>
+</section>
+<section id="alternative-esc-calibration">
+<h1>Alternative ESC Calibration<a class="headerlink" href="#alternative-esc-calibration" title="Permalink to this heading">¶</a></h1>
+<p>If the typical ESC calibration method above doesn’t work,
+instead adjust the SERVOx_MIN and SERVOx_MAX values on
+the appropriate servo channel (SERVOx) you had set as the Throttle channel in ref:<cite>servo setup &lt;servo-functions&gt;</cite> to match the existing range of your ESC.</p>
+<p>To use this method slowly raise the SERVOx_MIN value until it is set
+to a value just below the point that the motor comes on. A value about
+20 PWM points below the point where the motor starts turning is usually a
+good choice.</p>
+<p>Next move the transmitter stick to full throttle and adjust SERVOx_MAX
+until maximum RPM is reached. You can use a tachometer, or just use
+the sound of the motor as a guide.</p>
+</section>
+<section id="reversing-pwm-based-escs">
+<h1>Reversing PWM based ESCs<a class="headerlink" href="#reversing-pwm-based-escs" title="Permalink to this heading">¶</a></h1>
+<p>If you are using a reversing ESC for reverse thrust ( see <a class="reference external" href="https://ardupilot.org/plane/docs/automatic-landing.html#automatic-landing" title="(in Plane)"><span class="xref std std-ref">Automatic Landing</span></a> section on Reverse Thrust Landing ), and its PWM based rather than CAN, OneShot, or DShot, then you may need to calibrate it. Usually, a button is provided for setting full forward, neutral, and full reverse. In this case, you will need to setup an RCx_OPTION on an RC channel to allow setting full reverse manually. Follow the manufacturers instructions for calibration.</p>
+</section>
+<section id="brushed-motor-escs">
+<h1>Brushed Motor ESCS<a class="headerlink" href="#brushed-motor-escs" title="Permalink to this heading">¶</a></h1>
+<p>Most brushed motor ESCs have a fixed calibration which will require manually setting the throttle output’s <code class="docutils literal notranslate"><span class="pre">SERVOx_MAX</span></code>, and <code class="docutils literal notranslate"><span class="pre">SERVOx_MIN</span></code> parameters to match the ESCs maximum points. <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> would be set so that the motor is stopped, if using a reversing ESC.</p>
+</section>
+<section id="other-esc-protocols">
+<h1>Other ESC Protocols<a class="headerlink" href="#other-esc-protocols" title="Permalink to this heading">¶</a></h1>
+<p>New ESC’s using protocols other than PWM often do not require calibration.
+Some examples include CAN and DShot. The digital signals replace
+the need for PWM calibration and are usually pre-set to a range of 1000us to 2000us.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

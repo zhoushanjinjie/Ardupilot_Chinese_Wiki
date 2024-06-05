@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSD &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">OSD</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="osd">
+<span id="common-osd-overview"></span><h1>OSD<a class="headerlink" href="#osd" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/osd.jpg"><img alt="../_images/osd.jpg" src="../_images/osd.jpg" /></a>
+<p>OSD functionality is provided for on-board OSDs using MAX7456-type chips and external MSP based OSDs, including DJI Goggles, and goggles using DisplayPort.
+This enables overlay of FC data on the video. Once enabled, it uses various panel items that can individually be set active and positioned on the screen using respective parameters. It allows to setup multiple screen layouts and switch between those using a spare RC channel. It also allows the display and change of sets of parameters using stick gestures or RC transmitters, in certain cases.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Being an integral library of ArduPilot firmware, the OSD code provides the prerequisites to be redirected to various backends other than MAX-type chipsets, including testing on SITL setups without actual autopilot- or video-hardware needed.</p>
+</div>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<p>To enable the OSD overlay on MAX7456-type chips, set parameter: <code class="docutils literal notranslate"><span class="pre">OSD_TYPE</span></code> to 1, reboot and reload parameters.
+This exposes the whole OSD parameter group.</p>
+<p>To set a RC channel for screen switching, use parameter <code class="docutils literal notranslate"><span class="pre">OSD_CHAN</span></code>.</p>
+<p>To set the units used to display, use parameter <code class="docutils literal notranslate"><span class="pre">OSD_UNITS</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> = Metric (meters,kilometers,meters/sec,kilometers/hour,degs in C)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> = Imperial (feet, miles, feet/sec, miles/hour, degs in F)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> = ArduPilot Native (meters,kilometers,meters/sec,degs in C)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> = Aviation (feet, nautical mile, feet/min, knots, degs in C)</p></li>
+</ul>
+<p>To set vertical and horizontal display offset (space at top and left side of screen), use parameters <code class="docutils literal notranslate"><span class="pre">OSD_H_OFFSET</span></code>, <code class="docutils literal notranslate"><span class="pre">OSD_V_OFFSET</span></code>.</p>
+<p>Several options can be set using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-options" title="(in Rover)"><span class="xref std std-ref">OSD_OPTIONS</span></a> (bitmask selection):</p>
+<ul class="simple">
+<li><p>bit0 = Enable use of compact number+decimal point fonts</p></li>
+<li><p>bit1 = Invert wind direction indicator (to point to the direction its blowing from instead of toward)</p></li>
+<li><p>bit2 = Invert horizon roll direction</p></li>
+</ul>
+<p>Several font sets are included and can be changed during runtime (and those who can build the software can customize or add additional font sets….see libraries/AP_OSD/fonts/README.md)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-font" title="(in Rover)"><span class="xref std std-ref">OSD_FONT</span></a>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> = Clarity (default). A clearly visible large font</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> = Clarity Medium. Good visibility, less dominant than clarity default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> = Betaflight.  bf- / inav-osd default style</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> = Bold. A bolder version of Betaflight</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> = Digital. 80’s LED clock radio style</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In firmware 4.1 and above, onboard font options might be limited on 1 MB boards to save memory for other features. However, font upload from SD card is supported. This allows the user to choose from up to 10 font files (named “font0.bin” - “font9.bin”) placed in the root directory of your SD card. Additionally, this allows the user to easily add individualized and/or customized language charsets for the onboard OSD without the need to compile  individual firmware. Runtime font changing using the parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-font" title="(in Rover)"><span class="xref std std-ref">OSD_FONT</span></a> is unaffected.</p>
+</div>
+<p>MAVftp might be a convenient option to upload files to your SD card without having to physically remove it from your autopilot. Font files, font editor, and utilities to convert to a .bin file from .mcm are <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_OSD/fonts">here</a>. If downloading the editor or a font’s .bin file from this site, be sure to use the <code class="docutils literal notranslate"><span class="pre">Download`</span> <span class="pre">button,</span> <span class="pre">rather</span> <span class="pre">than</span> <span class="pre">selecting</span> <span class="pre">``Raw</span></code>, and then right click saving, as you would the .mcm or .py files.</p>
+<p>To enable the use of external MSP OSDs or DisplayPort systems see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-minim-osd-quick-installation-guide.html#common-minim-osd-quick-installation-guide"><span class="std std-ref">Minim OSD Quick Installation Guide</span></a></p></li>
+<li><p><a class="reference internal" href="common-msp-osd-overview-4.2.html#common-msp-osd-overview-4-2"><span class="std std-ref">MSP OSD</span></a></p></li>
+<li><p><a class="reference internal" href="common-paramosd.html#common-paramosd"><span class="std std-ref">OSD based parameter menu</span></a></p></li>
+</ul>
+</section>
+<section id="screens-and-screen-switching">
+<span id="screen-switching"></span><h2>Screens and screen switching<a class="headerlink" href="#screens-and-screen-switching" title="Permalink to this heading">¶</a></h2>
+<p>For multiple screen layouts, each parameter’s “OSD” part is trailed by a number, starting with “1” for the screen number for which the parameter applies.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;_&lt;PARAMETER&gt;</span></code> - n represents the screen number, ITEM the displayed data item, and PARAMETER, the enable and positions parameters for this display item. OSD settings default to allowing up to 4 screens available, each optionally enabled. Displayed data items can be shown on one screen and not on others by setting its ENABLE parameter for that screen.</p></li>
+<li><p>Set parameters <code class="docutils literal notranslate"><span class="pre">OSDn_CHAN_MIN</span></code> and <code class="docutils literal notranslate"><span class="pre">OSDn_CHAN_MAX</span></code> are used to adjust RC channel pwm limits to use for switching to a respective screen. Be careful not to have overlapping PWM ranges for two screens.</p></li>
+</ul>
+<p>There are different switch-method options to meet individual RC systems switch layout requirements.
+These can be set by parameter: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-sw-method" title="(in Rover)"><span class="xref std std-ref">OSD_SW_METHOD</span></a>.
+The options are:</p>
+<ul class="simple">
+<li><p>0 = switches to next screen if the set RC channel’s (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-chan" title="(in Rover)"><span class="xref std std-ref">OSD_CHAN</span></a>) value is changed</p></li>
+<li><p>1 = directly selects a screen based on the set pwm limits for each respective screen. RC channel value must change for new pwm value to be recognized.</p></li>
+<li><p>2 = toggles screens on a low to high transition of set RC channel. keeps toggling to next screen every 1s while channel value is kept high</p></li>
+</ul>
+</section>
+<section id="panel-items">
+<h2>Panel items<a class="headerlink" href="#panel-items" title="Permalink to this heading">¶</a></h2>
+<p>Each OSD panel item uses a set of three variables to be set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;EN</span></code> - activates the respective item when set to 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;_X</span></code> and <code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;_Y</span></code> set the horizontal and vertical position of the item, starting with <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">0</span></code> in the upper left corner of your screen.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The typical MAXChip based OSD screen has a visible matrix of 30 horizontal x 13 vertical chars in NTSC standard, while PAL standard has 16 vertical chars. The OSD code enables auto-detection of NTSC vs. PAL to match input signal properties.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot calculates an sensor-less airspeed estimate that is used if no sensor is present or fails. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> must be set to zero in order to display this value as the airspeed item, if no sensor is present.</p>
+</div>
+</section>
+<section id="callsign-panel">
+<h2>Callsign panel<a class="headerlink" href="#callsign-panel" title="Permalink to this heading">¶</a></h2>
+<p>This panel allows to display your amateur radio callsign (or any other individual character string) on your onboard OSD screen. It will read the character string from a file named “callsign.txt” placed in the root of your SD card. Mind that the default ardupilot charsets require to use capital letters for correct display. Using MAVftp is a convenient option to upload the file to your SD card without having to physically remove it from your flightcontroller.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will find this feature in firmware 4.1 and later</p>
+</div>
+</section>
+<section id="user-programmable-warnings">
+<h2>User Programmable Warnings<a class="headerlink" href="#user-programmable-warnings" title="Permalink to this heading">¶</a></h2>
+<p>Several user defined warnings can be set which will flash the respective osd panel item when warning level is reached or exceeded</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-w-batvolt" title="(in Rover)"><span class="xref std std-ref">OSD_W_BATVOLT</span></a> - Blinks battery voltage panel if less than this value. 0-100V with up tenth volt precision</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-w-rssi" title="(in Rover)"><span class="xref std std-ref">OSD_W_RSSI</span></a> - Blinks rssi panel if less than this integet percentage value. 0-99%</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-w-nsat" title="(in Rover)"><span class="xref std std-ref">OSD_W_NSAT</span></a> - Blinks #Sat panel if less than this number. 0-30</p></li>
+</ul>
+</section>
+<section id="testing-osd-with-sitl">
+<h2>Testing OSD with SITL<a class="headerlink" href="#testing-osd-with-sitl" title="Permalink to this heading">¶</a></h2>
+<p>OSD functionality can be tested without autopilot- or video-hardware using a <a class="reference external" href="https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html#sitl-simulator-software-in-the-loop" title="(in Dev)"><span class="xref std std-ref">Software In The Loop (SITL) simulator</span></a> setup. Follow the SITL-Instructions to setup a simulation environment. Run the simulator on current source code.</p>
+<p>A graphical OSD simulation in a separate window can be opened by adding the following option to sim_vehicle.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">osd</span>
+</pre></div>
+</div>
+<p>The simulated OSD can now be set and configured via parameters.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To see all available options type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">sim_vehicle</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">help</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="list-of-osd-panels">
+<h2>List of OSD Panels<a class="headerlink" href="#list-of-osd-panels" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Panel Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ALTITUDE</p></td>
+<td><p>Altitude above Home</p></td>
+</tr>
+<tr class="row-odd"><td><p>BAT_VOLT</p></td>
+<td><p>Primary Battery Voltage</p></td>
+</tr>
+<tr class="row-even"><td><p>RSSI</p></td>
+<td><p>RC Received Signal Strength</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURRENT</p></td>
+<td><p>Primary Battery Current</p></td>
+</tr>
+<tr class="row-even"><td><p>BATUSED</p></td>
+<td><p>Consumed Battery Capacity</p></td>
+</tr>
+<tr class="row-odd"><td><p>SATS</p></td>
+<td><p>Number of GPS Satellites</p></td>
+</tr>
+<tr class="row-even"><td><p>FLTMODE</p></td>
+<td><p>Flight Mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>MESSAGE</p></td>
+<td><p>GCS Messages</p></td>
+</tr>
+<tr class="row-even"><td><p>GSPEED</p></td>
+<td><p>Ground Speed</p></td>
+</tr>
+<tr class="row-odd"><td><p>HORIZON</p></td>
+<td><p>Artificial Horizon</p></td>
+</tr>
+<tr class="row-even"><td><p>HOME</p></td>
+<td><p>Distance and Direction to Home</p></td>
+</tr>
+<tr class="row-odd"><td><p>HEADING</p></td>
+<td><p>Magnetic Heading</p></td>
+</tr>
+<tr class="row-even"><td><p>THROTTLE</p></td>
+<td><p>Throttle Percentage</p></td>
+</tr>
+<tr class="row-odd"><td><p>COMPASS</p></td>
+<td><p>Compass Rose</p></td>
+</tr>
+<tr class="row-even"><td><p>WIND</p></td>
+<td><p>Wind Speed and Direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>ASPEED</p></td>
+<td><p>System Airspeed</p></td>
+</tr>
+<tr class="row-even"><td><p>VSPEED</p></td>
+<td><p>Climb Rate</p></td>
+</tr>
+<tr class="row-odd"><td><p>ESCTEMP</p></td>
+<td><p>ESC Temperature</p></td>
+</tr>
+<tr class="row-even"><td><p>ESCRPM</p></td>
+<td><p>ESC RPM</p></td>
+</tr>
+<tr class="row-odd"><td><p>ESCAMPS</p></td>
+<td><p>ESC Current</p></td>
+</tr>
+<tr class="row-even"><td><p>GPSLAT</p></td>
+<td><p>GPS Latitude</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPSLONG</p></td>
+<td><p>GPS Longitude</p></td>
+</tr>
+<tr class="row-even"><td><p>ROLL</p></td>
+<td><p>Roll degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>PITCH</p></td>
+<td><p>Pitch degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>TEMP</p></td>
+<td><p>Baro Temperature</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDOP</p></td>
+<td><p>GPS HDOP</p></td>
+</tr>
+<tr class="row-even"><td><p>WAYPOINT</p></td>
+<td><p>Next Waypoint Distance and Direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>XTRACK</p></td>
+<td><p>Cross Track Error</p></td>
+</tr>
+<tr class="row-even"><td><p>DIST</p></td>
+<td><p>Total Distance Traveled</p></td>
+</tr>
+<tr class="row-odd"><td><p>STATS</p></td>
+<td><p>Statistics Summary</p></td>
+</tr>
+<tr class="row-even"><td><p>FLTIME</p></td>
+<td><p>Elasped Time in Flight</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLIMBEFF</p></td>
+<td><p>Climb Efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>EFF</p></td>
+<td><p>Efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>BTEMP</p></td>
+<td><p>2nd Baro Temperature</p></td>
+</tr>
+<tr class="row-even"><td><p>ATEMP</p></td>
+<td><p>Airspeed Temperature</p></td>
+</tr>
+<tr class="row-odd"><td><p>BAT2_VLT</p></td>
+<td><p>Second Battery Voltage</p></td>
+</tr>
+<tr class="row-even"><td><p>BAT2USED</p></td>
+<td><p>Second Battery Consumption</p></td>
+</tr>
+<tr class="row-odd"><td><p>ASPD2</p></td>
+<td><p>Airspeed sensor 2</p></td>
+</tr>
+<tr class="row-even"><td><p>ASPD1</p></td>
+<td><p>Airspeed sensor 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLK</p></td>
+<td><p>Local Time of Day</p></td>
+</tr>
+<tr class="row-even"><td><p>SIDEBARS</p></td>
+<td><p>Speed/Alt Sidebars</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRSSHAIR</p></td>
+<td><p>Artificial Horizon Crosshair</p></td>
+</tr>
+<tr class="row-even"><td><p>HOMEDIST</p></td>
+<td><p>Distance to HOME (MSPOSD only)</p></td>
+</tr>
+<tr class="row-odd"><td><p>HOMEDIR</p></td>
+<td><p>Direction to HOME (MSPOSD only)</p></td>
+</tr>
+<tr class="row-even"><td><p>POWER</p></td>
+<td><p>Power (MSPOSD only)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CELLVOLT</p></td>
+<td><p>Calculated Cell Voltage for Primary Battery (MSPOSD only)</p></td>
+</tr>
+<tr class="row-even"><td><p>BATTBAR</p></td>
+<td><p>Battery Health Bar (MSPOSD only)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARMING</p></td>
+<td><p>Arming Status (MSPOSD only)</p></td>
+</tr>
+<tr class="row-even"><td><p>PLUSCODE</p></td>
+<td><p>Open Location Code</p></td>
+</tr>
+<tr class="row-odd"><td><p>CALLSIGN</p></td>
+<td><p>Callsign from SD card callsign.txt</p></td>
+</tr>
+<tr class="row-even"><td><p>CURRENT2</p></td>
+<td><p>2nd Battery Current</p></td>
+</tr>
+<tr class="row-odd"><td><p>VTX_PWR</p></td>
+<td><p>Video TX power setting</p></td>
+</tr>
+<tr class="row-even"><td><p>TER_HGT</p></td>
+<td><p>Altitude above Terrain</p></td>
+</tr>
+<tr class="row-odd"><td><p>AVGCELLV</p></td>
+<td><p>Calculated Cell Voltage for Primary Battery</p></td>
+</tr>
+<tr class="row-even"><td><p>RESTVOLT</p></td>
+<td><p>Calculated Resting Voltage for Primary Battery</p></td>
+</tr>
+<tr class="row-odd"><td><p>FENCE</p></td>
+<td><p>EENCE enabled status</p></td>
+</tr>
+<tr class="row-even"><td><p>RNGF</p></td>
+<td><p>Rangefinder Distance</p></td>
+</tr>
+<tr class="row-odd"><td><p>ACRVOLT</p></td>
+<td><p>Calculated Cell Resting Voltage for Primary Battery</p></td>
+</tr>
+<tr class="row-even"><td><p>LINK_Q</p></td>
+<td><p>RC Link Quality</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

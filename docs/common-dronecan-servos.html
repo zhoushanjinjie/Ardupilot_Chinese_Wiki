@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneCAN Servos &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DroneCAN Servos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dronecan-servos">
+<span id="common-dronecan-servos"></span><h1>DroneCAN Servos<a class="headerlink" href="#dronecan-servos" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot supports <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN</span></a> servos. DroneCAN connected servos offer high noise immunity and longer lead runs that normal <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">PWM servos</span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.currawongeng.com/can-servo/">Currawong</a></p></li>
+<li><p><a class="reference external" href="http://himarkuaveng.com/cate-21898-23052.html">Himark</a></p></li>
+<li><p><a class="reference external" href="https://www.hiteccs.com/actuators/products/search/servo/1/spec/1-18/accessory/0/sort/0">HiTec</a></p></li>
+<li><p><a class="reference external" href="http://zeus-actuators.com/">Zeus</a></p></li>
+</ul>
+<section id="autopilot-setup">
+<h2>Autopilot Setup<a class="headerlink" href="#autopilot-setup" title="Permalink to this heading">¶</a></h2>
+<p>There are several parameters that determine which autopilot servo/motor channels are sent to the DroneCAN servos:
+For the examples below, the values are shown for DroneCAN driver #1 using CAN Port #1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1, which assigns driver1 to port1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 1 (DroneCAN protocol)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-node" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_NODE</span></a> - which is the node ID of the autopilot sending the commands to the servos so that there can be differentiation between multiple sources on the CAN bus. This is normally automatically set during discovery, but can be altered for advanced configurations (multiple sources on the bus).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_BM</span></a> - bitmask that determines which autopilot servo/motor output signals are sent to the DroneCAN servos</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Himark servos use a different command set. In order to use them, also set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-option" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_OPTION</span></a> bit 5 (+32).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

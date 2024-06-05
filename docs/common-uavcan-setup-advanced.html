@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneCAN Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DroneCAN Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dronecan-setup">
+<span id="common-uavcan-setup-advanced"></span><h1>DroneCAN Setup<a class="headerlink" href="#dronecan-setup" title="Permalink to this heading">¶</a></h1>
+<p>DroneCAN was created to continue the development of the widely used UAVCAN v0 protocol. This protocol has proven itself as robust and feature rich and has been widely deployed in the commercial drone industry and enjoys broad support among industry partners. The proposed introduction of the UAVCAN v1 protocol involved changes to UAVCAN that increased complexity and did not offer a smooth migration path for existing deployments. After extended discussions within the UAVCAN consortium it was decided that the best solution was to continue development of UAVCAN v0 under the name DroneCAN.</p>
+<p>This article provides guidance to setup DroneCAN protocol on ArduPilot.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The physical CAN port, and its driver selected as DroneCAN protocol, should be enabled first. Please refer to the
+<a class="reference internal" href="common-canbus-setup-advanced.html#common-canbus-setup-advanced"><span class="std std-ref">CAN Bus Setup</span></a></p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>DroneCAN is a lightweight protocol designed for reliable communication
+in aerospace and robotic applications via CAN bus.
+The DroneCAN network is a decentralized peer network, where each peer
+(node) has a unique numeric identifier - node ID and that is only one
+parameter needs to be set for basic setup.</p>
+<p>Detailed description of protocol can be found at <a class="reference external" href="https://uavcan.org/">https://uavcan.org/</a></p>
+</section>
+<section id="dronecan-peripheral-types-supported">
+<h2>DroneCAN Peripheral Types Supported<a class="headerlink" href="#dronecan-peripheral-types-supported" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot currently supports the following types of DroneCAN peripherals:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>GPS</p></td>
+<td><p>Compass</p></td>
+<td><p>Barometer</p></td>
+</tr>
+<tr class="row-even"><td><p>Rangefinder</p></td>
+<td><p>ADSB Receiver</p></td>
+<td><p>Power Module</p></td>
+</tr>
+<tr class="row-odd"><td><p>LED</p></td>
+<td><p>Buzzer</p></td>
+<td><p>Airspeed</p></td>
+</tr>
+<tr class="row-even"><td><p>Safety Switch/LED</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>DroneCAN Adapter Node</p></td>
+</tr>
+</tbody>
+</table>
+<p>DroneCAN device type is selected by:</p>
+<ul class="simple">
+<li><p>GPS,Compass, Barometer, ADSB Receiver, LED, Buzzer, Safety Switch/LED, and Airspeed devices are automatically identified in the DroneCAN protocol</p></li>
+<li><p>Rangefinder: <code class="docutils literal notranslate"><span class="pre">RNGFNDx_TYPE</span></code> = 24</p></li>
+<li><p>Power Module: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> or <code class="docutils literal notranslate"><span class="pre">BATTx_MONITOR</span></code> = 8</p></li>
+</ul>
+</section>
+<section id="dronecan-setup-parameters">
+<h2>DroneCAN Setup Parameters<a class="headerlink" href="#dronecan-setup-parameters" title="Permalink to this heading">¶</a></h2>
+<p>shown for the first DroneCAN driver, second driver has identical parameters</p>
+<a class="reference external image-reference" href="../_images/uavcan-main-settings.png"><img alt="../_images/uavcan-main-settings.png" src="../_images/uavcan-main-settings.png" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> if set for DroneCAN(1) has the following associated parameters:</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-pool" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_POOL</span></a>: a memory pool for the driver of this size will be allocated if possible. The default size can usually be reduced, saving RAM for other functions and features, if the CAN traffic is light, as with GPSes or Compass, as opposed to ESCs.</p></li>
+</ul>
+</section>
+<section id="dronecan-adapter-node">
+<h2>DroneCAN Adapter Node<a class="headerlink" href="#dronecan-adapter-node" title="Permalink to this heading">¶</a></h2>
+<p>These devices are general purpose DroneCAN nodes with I/O ports that allow the attachment of non-DroneCAN ArduPilot peripherals to the DroneCAN bus via UART ports, I2C, SPI, and/or GPIOs. See <a class="reference internal" href="common-uavcan-adapter-node.html#common-uavcan-adapter-node"><span class="std std-ref">DroneCAN Adapter Nodes</span></a>.</p>
+</section>
+<section id="dronecan-esc-and-servo-configuration-settings">
+<h2>DroneCAN ESC and Servo Configuration settings<a class="headerlink" href="#dronecan-esc-and-servo-configuration-settings" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-uavcan-escs.html#common-uavcan-escs"><span class="std std-ref">DroneCAN ESCs</span></a> for information on DroneCAN ESCs.</p>
+<p>Each DroneCAN ESC or Servo will have an programmed ID or channel address corresponding to the autopilot’s servo/motor output channel. These are set by switches on the ESC or via a setup/configuration program, depending on the ESC.</p>
+<p>There are three parameters that determine which autopilot servo/motor channels are sent to the CAN ESC and/or Servos:
+For the examples below, the values are shown for CAN driver #1.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-node" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_NODE</span></a> - which is the node ID of the autopilot sending the commands to the ESCs so that there can be differentiation between multiple sources on the CAN bus</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_BM</span></a> - bitmask that determines which autopilot servo/motor output signals are sent to the DroneCAN ESCs.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-srv-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_SRV</span></a> - bitmask that determines which autopilot servo/motor output signals are sent to the Servos on DroneCAN Servos</p></li>
+</ul>
+<p>In the bitmap masks, each bit position represents an ESC or servo ID number
+that the corresponding autopilot servo/motor channel command will be directed to. For example, 00001111 (15 decimal) would send commands to ESC or SERVO IDs 0 through 3.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using DroneCAN ESCs/Servos, you can set the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> for those, but still use those outputs on the autopilot for GPIOs using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter. The autopilot outputs will become GPIOS and the corresponding <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> will be sent out DroneCAN.</p>
+</div>
+<p>To reduce bandwidth, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_BM</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-srv-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_SRV_BM</span></a> params should be set
+to enable only the motor and servo channels you need CAN signals to be sent to. In addition, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-of" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_OF</span></a> parameter lets you further maximize bandwidth by offsetting the ESC position to the first time slots on the bus, eliminating empty time slots. For example, if the ESCs are on outputs 5 to 8, an offset of 4 will transport them in the first 4 timeslots which would otherwise be empty and consume bandwidth.</p>
+<ul class="simple">
+<li><p>Example: For a configuration of CAN servos on channels 1,2,4 and ESC motor on channel 3, set:</p></li>
+<li><p>Example: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_BM</span></a> = 0x0B</p></li>
+<li><p>Example: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-srv-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_SRV</span></a> = 0x04</p></li>
+</ul>
+</section>
+<section id="gps-configuration-settings">
+<h2>GPS configuration settings<a class="headerlink" href="#gps-configuration-settings" title="Permalink to this heading">¶</a></h2>
+<p>If there is a DroneCAN GPS device, it has to be enabled in <code class="docutils literal notranslate"><span class="pre">GPS</span></code>
+subgroup of parameters.
+The <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> parameter should be set to 9 for corresponding GPS receiver in autopilot.</p>
+<a class="reference external image-reference" href="../_images/uavcan-gnss-settings.png"><img alt="../_images/uavcan-gnss-settings.png" src="../_images/uavcan-gnss-settings.png" /></a>
+</section>
+<section id="dronecan-led-configuration">
+<h2>DroneCAN LED configuration<a class="headerlink" href="#dronecan-led-configuration" title="Permalink to this heading">¶</a></h2>
+<p>DroneCAN LEDs are enabled by setting bit 5 in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-types" title="(in Rover)"><span class="xref std std-ref">NTF_LED_TYPES</span></a> bitmask. The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-ntf-rt" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_NTF_RT</span></a> sets the rate that notification messages are transmitted in DroneCAN.</p>
+</section>
+<section id="dronecan-rangefinder-configuration">
+<h2>DroneCAN Rangefinder configuration<a class="headerlink" href="#dronecan-rangefinder-configuration" title="Permalink to this heading">¶</a></h2>
+<p>Set <code class="docutils literal notranslate"><span class="pre">RNGFNDx_TYPE</span></code> = 24 to enable DroneCAN rangefinder type. Rangefinder data received over DroneCAN will only be used if the received sensor_id matches the parameter <code class="docutils literal notranslate"><span class="pre">RNGFNDx_ADDR</span></code>. For AP_Periph firmware based adaptor nodes, this value is 0, so <code class="docutils literal notranslate"><span class="pre">RNGFNDx_ADDR</span></code> must be set to 0. Other DroneCAN rangefinders may differ. See also <a class="reference internal" href="common-uavcan-adapter-node.html#common-uavcan-adapter-node"><span class="std std-ref">DroneCAN Adaptor Node</span></a> instructions.</p>
+</section>
+<section id="dronecan-options">
+<h2>DroneCAN Options<a class="headerlink" href="#dronecan-options" title="Permalink to this heading">¶</a></h2>
+<p>Several options for each DroneCAN driver can be selected via the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-option" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_OPTION</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d2-uc-option" title="(in Rover)"><span class="xref std std-ref">CAN_D2_UC_OPTION</span></a> bitmask parameters. Default is not set:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>CAN_Dx_UC_OPTION bit</p></th>
+<th class="head"><p>Function when set</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>ClearDNADatabase, <a class="reference internal" href="#dronecan-node-conflicts"><span class="std std-ref">see below</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>IgnoreDNANodeConflicts, <a class="reference internal" href="#dronecan-node-conflicts"><span class="std std-ref">see below</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>EnableCanfd, <a class="reference internal" href="#dronecan-node-flexibledatarate"><span class="std std-ref">CANFD below</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>IgnoreDNANodeUnhealthy, ignore disconnected node ids</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>SendServoAsPWM, instead of sending servo positions as -1 to -1, send as PWM values in us</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>SendGNSS, send GPS fix and status info over DroneCAN, used by some gimbals</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dronecan-node-id-conflicts">
+<span id="dronecan-node-conflicts"></span><h2>DroneCAN Node ID Conflicts<a class="headerlink" href="#dronecan-node-id-conflicts" title="Permalink to this heading">¶</a></h2>
+<p>When a device is attached and recognized, it’s node ID and hardware ID are entered into a database which is stored between power cycles. If multiple devices with the same node ID and different hardware IDs are used (swapping smart batteries, for example, with the same node ID), a conflict will arise in the database. This will require the use of the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-option" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_OPTION</span></a> parameter to allow the database to be reset on the next boot, or conflicts in the database to be ignored.</p>
+</section>
+<section id="can-fd-flexible-data-rate">
+<span id="dronecan-node-flexibledatarate"></span><h2>CAN FD (Flexible Data rate)<a class="headerlink" href="#can-fd-flexible-data-rate" title="Permalink to this heading">¶</a></h2>
+<p>If the DroneCAN port is attached to CAN FD peripherials, setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-option" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_OPTION</span></a> bit 2 (+ value 4) will enable this mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CAN FD requires a larger memory pool allocation than normal. Default is 24KB instead of the normal 12KB.</p>
+</div>
+</section>
+<section id="slcan">
+<h2>SLCAN<a class="headerlink" href="#slcan" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SLCAN access via COM port is disabled when armed to lower cpu load. Use SLCAN via MAVLink instead. This method is generally preferred, in any case.</p>
+</div>
+<p>ArduPilot and DroneCAN provide a means to directly communicate with DroneCAN devices on the CAN BUS attached to the autopilot: SLCAN. Enabling SLCAN and communicating with the DroneCAN devices is dependent on the autopilot’s processor. F7/H7 processors use one method and F4, a different method.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-initial-setup.html#dronecan-uavcan-slcan" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner SLCAN</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-slcan-f4.html">SLCAN Access on F4 Based Autopilots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-slcan-f7h7.html">SLCAN Access on F7/H7 Based Autopilots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-uavcan-gui.html">DroneCAN GUI</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

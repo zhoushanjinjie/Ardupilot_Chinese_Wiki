@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixracer Pro &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mRo Nexus" href="common-mro-nexus.html" />
+    <link rel="prev" title="mRobotics Control Zero F7" href="common-mro-control-zero-F7.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://aerotenna.com/shop/ocpoc-zynq-mini/">Aerotenna Ocpoc-Zynq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html">[copywiki destination=”copter,plane,rover,blimp”]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#airvolute-dronecore-suite">Airvolute DroneCore.Suite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#useful-links">Useful links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-atomrcf405-navi.html">AtomRC F405-NAVI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-overview.html">Emlid NAVIO2 (Linux)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flywoo-f745.html">Flywoo F745 AIO BL_32/ Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-foxeerf745aio.html">Foxeer Reaper F745-AIO V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-furiousfpv-f35.html">Furious FPV F-35 Lightning and Wing FC-10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef4.html">Holybro Kakute F4*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef4-mini.html">Holybro Kakute F4 Mini*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef7aio.html">Holybro Kakute F7 AIO*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef7mini.html">Holybro Kakute F7 Mini* (only V1 and V2 are compatible)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7.html">Holybro Kakute H7 V1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7-v2.html">Holybro Kakute H7 V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini-v13.html">Holybro Kakute H7 Mini v1.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-kakuteh7wing.html">Holybro Kakute H7 Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-ph4mini.html">Holybro Pixhawk 4 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-ph5x.html">Holybro Pixhawk5X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-horizon31-pixc4-jetson.html">Horizon31 PixC4-Jetson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-iflight-beastf7AIO.html">IFlight Beast F7 45A AIO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-iflight-beasth7AIO.html">IFlight BeastH7 AIO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mamba405-mk2.html">Mamba F405 MK2*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#mamba-mk4-f405mini">Mamba MK4 F405Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#pinout">Pinout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#uart-mapping">UART Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#rc-input">RC Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#frsky-telemetry">FrSky Telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#osd-support">OSD Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#dji-video">DJI Video</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#pwm-output">PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#battery-monitoring">Battery Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#compass">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#rssi">RSSI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#loading-firmware">Loading Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mamba-basic-mk3.html">Mamba Basic F405 mk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#mamba-h743v4">Mamba H743v4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#pinout">Pinout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#uart-mapping">UART Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#rc-input">RC Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#frsky-telemetry">FrSky Telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#osd-support">OSD Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#pwm-output">PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#battery-monitoring">Battery Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#compass">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#firmware">Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#loading-firmware">Loading Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixSurveyA1.html">MakeFlyEasy PixSurveyA1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixSurveyA1-IND.html">MakeFlyEasy PixSurveyA1-IND</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixSurveyA2.html">MakeFlyEasy PixSurveyA2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixPilot-V3.html">MakeFlyEasy PixPilot-V3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixPilot-V6.html">MakeFlyEasy PixPilot-V6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-te.html">Mateksys F405 TE Family</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekh743-wing.html">Mateksys H743-Wing/MINI/SLIM/WLITE</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://www.modalai.com/products/flight-core">ModalAI Flight core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mro-control-zero-F7.html">mRo ControlZero F7</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mRo Pixracer Pro (H7)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mro-nexus.html">mRo Nexus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-omnibusf4pro.html">Omnibus F4 AIO/Pro*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-omnibusnanov6.html">OmnibusNanoV6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-omnibusf7.html">Omnibus F7V2*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thepeach-k1.html">ThePeach FCC-K1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thepeach-r1.html">ThePeach FCC-R1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Pixracer Pro</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pixracer-pro">
+<span id="common-pixracer-pro"></span><h1>Pixracer Pro<a class="headerlink" href="#pixracer-pro" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://store.mrobotics.io">Pixracer Pro</a> is the next generation
+autopilot of mRo’s Pixracer family.</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/pixracer-pro-top.png"><img alt="../_images/pixracer-pro-top.png" src="../_images/pixracer-pro-top.png" style="width: 400px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/pixracer-pro-bottom.png"><img alt="../_images/pixracer-pro-bottom.png" src="../_images/pixracer-pro-bottom.png" style="width: 400px;" /></a>
+</figure>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://store.mrobotics.io">Pixracer Pro</a> is the next generation of mRobotics’ family of Pixracer autopilots. It has been designed primarily for the demanding requirements of small multicopters, but of course can be used on planes and other vehicles which require no more than 8 pwm outputs for controlling escs and motors.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>At time of writing the autopilot is still being evolved/improved.
+The final version may very slightly from the information provided
+here.</p>
+</div>
+</section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong>:</p>
+<ul>
+<li><p>MCU - STM32H743IIK6</p></li>
+<li><p>2MB flash allows full features of ArduPilot to be flashed</p></li>
+<li><p>256KB FRAM - FM25V02-G</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>Gyro/Accelerometer: Invensense ICM-20948 / Gyro / Mag (? KHz)</p></li>
+<li><p>Gyro/Accelerometer: Invensense ICM-20602 Accel / Gyro (? KHz)</p></li>
+<li><p>Gyro/Accelerometer: Bosch BMI088 Accel / Gyro (? KHz)</p></li>
+<li><p>Barometer: DSP310</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>5-5.5VDC from USB or PowerBrick connector. Optional/recommended
+<a class="reference external" href="https://store.mrobotics.io/product-p/auav-acsp4-mr.htm">ACSP4 +5V/+12V Power Supply</a>.</p></li>
+<li><p>Ultra low noise LDOs for sensors and FMU</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces/Connectivity</strong></p>
+<ul>
+<li><p>MicroSD card reader</p></li>
+<li><p>Micro-C USB</p></li>
+<li><p>RGB LED</p></li>
+<li><p>GPS (serial + I2C)</p></li>
+<li><p>TELEM1/TELEM2</p></li>
+<li><p>FrSky Telemetry serial port</p></li>
+<li><p>On-Board Buzzer</p></li>
+<li><p>8 Servo/Motor Outputs, 3.3V (default) or 5V level selectable (GPIO 74)</p></li>
+<li><p>Connectors: GPS+I2C (USART4), RC-IN/PPM-IN/RSSI/SBus-IN/Spektrum-IN,
+USART3 (TxD, RxD, CTS, RTS), USART2 (TxD, RxD, CTS, RTS),
+USART8(FRSky-IN/FRSky-OUT), CAN1, CAN2,
+SERVO1-SERVO8, USART1/USART7 (TxD, RxD), SPI6, POWER-BRICK
+(VDD, Voltage, Current, GND).</p></li>
+</ul>
+</li>
+<li><p><strong>Dimensions</strong></p>
+<ul>
+<li><p>Weight ?</p></li>
+<li><p>Size</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="connector-pin-assignments">
+<h2>Connector pin assignments<a class="headerlink" href="#connector-pin-assignments" title="Permalink to this heading">¶</a></h2>
+<p>Unless noted otherwise all connectors are JST GH</p>
+<section id="usart2-usart3-telem1-telem2-connectors">
+<h3>USART2,USART3 (TELEM1/TELEM2)connectors<a class="headerlink" href="#usart2-usart3-telem1-telem2-connectors" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>TX</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RX</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>CTS</p></td>
+<td><p>+3.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RTS</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart1-uart7-connector">
+<h3>UART1/UART7 connector<a class="headerlink" href="#uart1-uart7-connector" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>TX1</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RX1</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>+5V</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>TX7</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>RX7</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usart4-gps-i2c-connector">
+<h3>USART4 (GPS+I2C) connector<a class="headerlink" href="#usart4-gps-i2c-connector" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>TX</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RX</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>SCL</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>SDA</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usart8-frsky-telemetry">
+<h3>USART8 (FrSky Telemetry)<a class="headerlink" href="#usart8-frsky-telemetry" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>TX</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RX</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rc-rssi-input-connector-accepts-ppm-s-bus-spektrum-sumd-st24">
+<h3>RC/RSSI Input Connector(accepts PPM / S.BUS / Spektrum / SUMD / ST24)<a class="headerlink" href="#rc-rssi-input-connector-accepts-ppm-s-bus-spektrum-sumd-st24" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+4.5V</p></td>
+<td><p>+4.5V **</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>RC input
+(USART6 RX)</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RSSI input</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>+3.3V</p></td>
+<td><p>+3.3V (for Spektrum RX power)</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+<p>** normally supply outputs only valid when power module is powered, but this output is also active when USB is connected.</p>
+</section>
+<section id="can1-and-can2-connectors">
+<h3>CAN1 and CAN2 connectors<a class="headerlink" href="#can1-and-can2-connectors" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>CH</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>CL</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="power-connector">
+<h3>Power connector<a class="headerlink" href="#power-connector" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V in</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>+5V in</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>CURR sense in</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>VOLT sense in</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="spi6-connector">
+<h3>SPI6 connector<a class="headerlink" href="#spi6-connector" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>PIN</p></th>
+<th class="head"><p>SIGNAL</p></th>
+<th class="head"><p>VOLTAGE/TOLERANCE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>+5V in</p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>MISO</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>SCK</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>CS</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>MOSI</p></td>
+<td><p>+3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="default-uart-order">
+<h2>Default UART order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Default Protocol**</p></th>
+<th class="head"><p>Connector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SERIAL0</p></td>
+<td><p>console</p></td>
+<td><p>USB</p></td>
+</tr>
+<tr class="row-odd"><td><p>SERIAL1</p></td>
+<td><p>Telemetry1</p></td>
+<td><p>USART2 (supports CTS and RTS signaling)</p></td>
+</tr>
+<tr class="row-even"><td><p>SERIAL2</p></td>
+<td><p>Telemetry2</p></td>
+<td><p>USART3 (supports CTS and RTS signaling)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SERIAL3</p></td>
+<td><p>GPS1</p></td>
+<td><p>UART4</p></td>
+</tr>
+<tr class="row-even"><td><p>SERIAL4</p></td>
+<td><p>GPS2</p></td>
+<td><p>UART8  (targeted for FrSky Telem, but must change SERIAL4_PROTOCOL)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SERIAL5</p></td>
+<td><p>USER</p></td>
+<td><p>USART1</p></td>
+</tr>
+<tr class="row-even"><td><p>SERIAL6</p></td>
+<td><p>USER</p></td>
+<td><p>UART7</p></td>
+</tr>
+<tr class="row-odd"><td><p>SERIAL7</p></td>
+<td><p>SLCAN</p></td>
+<td><p>USB (second composite USB interface)</p></td>
+</tr>
+</tbody>
+</table>
+<p>** User may change SERIALx_PROTOCOL as required for application</p>
+</section>
+<section id="dshot-capability">
+<h2>Dshot capability<a class="headerlink" href="#dshot-capability" title="Permalink to this heading">¶</a></h2>
+<p>All motor/servo outputs are Dshot and PWM capable. However, mixing Dshot and normal PWM operation for outputs is restricted into groups, ie. enabling Dshot for an output in a group requires that ALL outputs in that group be configured and used as Dshot, rather than PWM outputs. The output groups that must be the same (PWM rate or Dshot, when configured as a normal servo/motor output) are: 1/2/3/4, 5/6, and 7/8.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://store.mrobotics.io/">mRobotics</a></p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-pixracer-serial-names.html">PixRacer Serial Names</a></li>
+</ul>
+</div>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-mro-control-zero-F7.html" class="btn btn-neutral float-left" title="mRobotics Control Zero F7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-mro-nexus.html" class="btn btn-neutral float-right" title="mRo Nexus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guided Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Autonomous Autorotation" href="traditional-helicopter-autorotation-mode.html" />
+    <link rel="prev" title="Follow Me Mode (GCS Enabled)" href="ac2_followme.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Guided Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guided-mode">
+<span id="ac2-guidedmode"></span><h1>Guided Mode<a class="headerlink" href="#guided-mode" title="Permalink to this heading">¶</a></h1>
+<p>Guided mode is a capability of Copter to dynamically guide the copter to
+a target location wirelessly using a telemetry radio module and ground
+station application. This page provides instructions for using guided
+mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Guided Mode can also be used by LUA scripts and companion computers to command vehicle movement and navigation.</p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Guided mode is not a traditional flight mode that would be assigned to a
+mode switch like other flight modes. The guided mode capability is
+enabled using a ground station application (such as Mission Planner) and
+telemetry radio (such as a <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Telemetry Radio</span></a>).
+This capability allows you to
+interactively command the copter to travel to a target location by
+clicking on a point on the Mission Planner Flight Data map. Once the
+location is reached, the copter will hover at that location, waiting for
+the next target. Follow Me mode also uses Guided Mode to make the copter
+follow the pilot around the field.</p>
+<a class="reference external image-reference" href="../_images/guided.jpg"><img alt="../_images/guided.jpg" src="../_images/guided.jpg" /></a>
+</section>
+<section id="what-you-ll-need">
+<h2>What you’ll need<a class="headerlink" href="#what-you-ll-need" title="Permalink to this heading">¶</a></h2>
+<p>To use guided mode, you’ll need a <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">telemetry radio</span></a>
+allowing your computer and
+autopilot to communicate during flight, a ground station computer or
+tablet, and a ground station application such as <a class="reference external" href="https://ardupilot.org/planner/index.html#home" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a>.</p>
+</section>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Set up your copter at the field and establish a MAVLink connection
+over wireless telemetry between your copter and your laptop.</p></li>
+<li><p>On your laptop, using the software that came with the telemetry
+module, make sure that it’s working and that you have a GPS lock.</p></li>
+<li><p>Take off in <a class="reference internal" href="stabilize-mode.html#stabilize-mode"><span class="std std-ref">Stabilize Mode</span></a> and once
+at a reasonable altitude, switch to Loiter.</p></li>
+<li><p>In the Mission Planner Flight Data screen map, try right-clicking on
+a nearby spot and select “Fly to Here”.</p></li>
+<li><p>You will be asked for a guided mode altitude. Enter an above home
+altitude in meters.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/FlightModes_Guide_FlyToHere.jpg"><img alt="../_images/FlightModes_Guide_FlyToHere.jpg" src="../_images/FlightModes_Guide_FlyToHere.jpg" /></a>
+<ul class="simple">
+<li><p>A “Guided” target should appear on the map and the orange line (which
+indicates the target heading) should point to this guided target.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/FlightModes_Guide_TargetEstablished.jpg"><img alt="../_images/FlightModes_Guide_TargetEstablished.jpg" src="../_images/FlightModes_Guide_TargetEstablished.jpg" /></a>
+<ul class="simple">
+<li><p>The vehicle should fly to the target location and wait there until
+you enter another location or switch to another mode.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On <em>Mission Planner</em> there is no need to set up one of your flight
+modes as “Guided”. This may not be the case for other Ground Control
+Stations.</p>
+</div>
+</section>
+<section id="guided-mode-options">
+<h2>Guided Mode Options<a class="headerlink" href="#guided-mode-options" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#guid-options" title="(in Rover)"><span class="xref std std-ref">GUID_OPTIONS</span></a> parameter allows several guided mode behavior changes:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Allow Arming from Transmitter</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Ignore pilot yaw input</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>SetAttitudeTarget_ThrustAsThrust</p></td>
+</tr>
+</tbody>
+</table>
+<p>Bit 3 makes interpretation of SET_ATTITUDE_TARGET MAVLink command’s <code class="docutils literal notranslate"><span class="pre">thrust</span></code> field as pure thrust from 0 to 1 , instead of a climb rate. See <a class="reference external" href="https://ardupilot.org/dev/docs/copter-commands-in-guided-mode.html">Commands in Guided Mode</a></p>
+<p>The :ref:GUID_TIMEOUT&lt;GUID_TIMEOUT&gt; parameter holds the timeout (in seconds) when the vehicle is being controlled using attitude, velocity and/or acceleration commands. If no commands are received from the companion computer for this many seconds, the vehicle will slow to a stop (if velocity and/or acceleration commands were being provided) or hold a level hover (if attitude commands were provided). The default setting is 3 seconds.</p>
+</section>
+<section id="guided-nogps">
+<span id="id1"></span><h2>Guided_NoGPS<a class="headerlink" href="#guided-nogps" title="Permalink to this heading">¶</a></h2>
+<p>This variation of Guided mode does not require a GPS but it only accepts <a class="reference external" href="https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET">attitude targets</a>.  Because it does not accept position or velocity targets like regular Guided mode it is generally not useful for regular users.  This mode was created for use by companion computers that may want to fly the vehicle as if it was in AltHold mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Guided_NoGPS does not allow a vehicle to hold position without a GPS (i.e. non-GPS navigation).  For information on <a class="reference internal" href="common-non-gps-navigation-landing-page.html#common-non-gps-navigation-landing-page"><span class="std std-ref">non-GPS navigation see this wiki page</span></a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ac2_followme.html" class="btn btn-neutral float-left" title="Follow Me Mode (GCS Enabled)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-autorotation-mode.html" class="btn btn-neutral float-right" title="Autonomous Autorotation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

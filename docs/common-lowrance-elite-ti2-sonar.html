@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lowrance Elite Ti2 Sonar &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Lowrance Elite Ti2 Sonar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lowrance-elite-ti2-sonar">
+<span id="common-lowrance-elite-ti2-sonar"></span><h1>Lowrance Elite Ti2 Sonar<a class="headerlink" href="#lowrance-elite-ti2-sonar" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://www.lowrance.com/lowrance/type/fishfinders-chartplotters/elite-7-ti2-us-inland-ai-3-in-1/">Lowrance Elite Ti2 sonar</a> can be connected to the autopilot so that the sonar can use the autopilot’s position estimate (which is normally better than the sonar’s built-in GPS) and the autopilot can record and report the sonar’s simple depth.</p>
+<a class="reference internal image-reference" href="../_images/lowrance-elite-title-image.jpg"><img alt="../_images/lowrance-elite-title-image.jpg" src="../_images/lowrance-elite-title-image.jpg" style="width: 400px;" /></a>
+<p>Discussion of this sonar’s setup is <a class="reference external" href="https://discuss.ardupilot.org/t/lowrance-nmea-0183-to-cube-orange/86057/8">here</a></p>
+<section id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/lowrance-elite-ti2-sonar.jpg"><img alt="../_images/lowrance-elite-ti2-sonar.jpg" src="../_images/lowrance-elite-ti2-sonar.jpg" /></a>
+<ul class="simple">
+<li><p>Purchase an <a class="reference external" href="https://www.amazon.com/LM-bi-directional-Full-duplex-single-chip-microcomputer/dp/B01NGTMROI">RS422 to TTL converter</a></p></li>
+<li><p>Connect the sonar’s NMEA 0183 pins to the left side of the converter as shown above</p></li>
+<li><p>Connect one of the autopilot’s serial ports to the right side of the converter as shown above</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>If the autopilot’s Serial2 port (aka Telem2) is used then the following parameters should be set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 9 (Lidar)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 38 (38400 baud) to match the baud rate the Elite is using</p></li>
+</ul>
+<p>These rangefinder parameters should also be set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 17 (NMEA)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 13</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = 30000 (300m)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-orient" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ORIENT</span></a> = 25 (down)</p></li>
+</ul>
+<section id="testing-the-sensor">
+<h3>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h3>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

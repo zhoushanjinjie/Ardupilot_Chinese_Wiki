@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>表面跟踪 &mdash; Copter 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Motor Thrust Scaling" href="motor-thrust-scaling.html" />
+    <link rel="prev" title="Terrain Following (in Auto, Guided, etc)" href="terrain-following.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">飞行功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">围栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">避障</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">地形跟随（自动、引导等）</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">表面跟踪</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup-and-configuration">设置和配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-does-it-work">它是如何工作的？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">电机推力缩放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-imu-notch-filtering.html">陷波滤波</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">移动载具初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">无GPS导航</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">随风向改变方位和风力保持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">飞行功能</a></li>
+      <li class="breadcrumb-item active">表面跟踪</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="surface-tracking">
+<span id="terrain-following-manual-modes"></span><h1>表面跟踪<a class="headerlink" href="#surface-tracking" title="Permalink to this heading">¶</a></h1>
+<p>Copter在几乎所有模式下都支持低空表面跟踪，无论是地面/地面还是天花板，包括飞行员控制的模式，如
+<a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">AltHold</span></a>, <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> 和 <a class="reference internal" href="poshold-mode.html#poshold-mode"><span class="std std-ref">PosHold</span></a>。</p>
+<p>此外，在自动驾驶模式下，使用存储在自动驾驶仪SD卡上和/或从地面控制站实时获得的地形高度数据库支持<a class="reference internal" href="terrain-following.html#terrain-following"><span class="std std-ref">地形跟随</span></a>。
+</p>
+<p>本页介绍曲面跟随设置。有关使用下载的地形跟随数据的自动驾驶模式，请参阅<a class="reference internal" href="terrain-following.html#terrain-following"><span class="std std-ref">自动驾驶模式的地形跟随</span></a>wiki页面。
+</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3I06AOwIQVY" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="setup-and-configuration">
+<h2>设置和配置<a class="headerlink" href="#setup-and-configuration" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>将一个向下的测距仪（用于地板/地面跟踪）和/或一个向上的测距机（用于天花板跟踪）<a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">激光雷达或声纳</span></a>连接到车辆上。
+</p></li>
+<li><p>正在使用的是由<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#surftrak-mode" title="(in Copter)"><span class="xref std std-ref">SURFTRAK_MODE</span></a>参数或通过以下方式配置的：
+</p></li>
+<li><p><a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">辅助开关</span></a>（功能“75”）或<a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">辅助功能开关（3.6及更早版本）</span></a>可配置为打开/关闭测距仪的使用。
+</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#surftrak-tc" title="(in Copter)"><span class="xref std std-ref">SURFTRAK_TC</span></a>参数控制表面数据的平滑。如果你移动得很快，并且在飞行路线上受到干扰，则增加。相反，它可以更低，以使车辆对测距仪数据更具响应性。
+</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>不要设置<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-alt-source" title="(in Rover)"><span class="xref std std-ref">EK2_ALT_SOURCE</span></a>或<code class="docutils literal notranslate"><span class="pre">EK3_ALT_SOURCE</span></code>参数。这些参数应保留在“0”（气压计）。
+</p>
+<p>不要设置<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-rng-use-hgt" title="(in Rover)"><span class="xref std std-ref">EK2_RNG_USE_HGT</span></a>或<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-rng-use-hgt" title="(in Rover)"><span class="xref std std-ref">EK3_RNG_USE_HGT</span></a>参数。这些参数应保留在“-1”处。
+</p>
+</div>
+</section>
+<section id="how-does-it-work">
+<h2>它是如何工作的？<a class="headerlink" href="#how-does-it-work" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>当测距仪可以“看到”地面时，飞行员的油门杆会调整目标离地高度（即距离测距仪的姿态校正距离）</p></li>
+<li><p>当载具爬出测距仪的范围时，飞行员的操纵杆返回到直接控制载具的目标爬升率（即基于气压计和加速度计的EKF估计爬升率）。当载具回到地面范围内时，高于地形的目标高度将重置为当前高于地形的高度。有关详细信息，请参见
+<a class="reference internal" href="common-understanding-altitude.html#common-understanding-altitude"><span class="std std-ref">了解ArduPilot中的海拔高度</span></a>。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="terrain-following.html" class="btn btn-neutral float-left" title="Terrain Following (in Auto, Guided, etc)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="motor-thrust-scaling.html" class="btn btn-neutral float-right" title="Motor Thrust Scaling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIS (for boats) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AIS (for boats)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ais-for-boats">
+<span id="common-ais"></span><h1>AIS (for boats)<a class="headerlink" href="#ais-for-boats" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/ais-daisy2.png" src="../_images/ais-daisy2.png" />
+<p>Rover-4.2.0 (and higher) support <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_identification_system">Automatic identification system (AIS)</a> sensors allowing the position of manned boats to be displayed on the ground station</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this peripheral is also available for Planes and Copters using the <a class="reference external" href="https://custom.ardupilot.org/">Custom Firwmare Build Server</a> , by creating a firmware build including this feature listed under the IDENT category.</p>
+</div>
+<section id="what-to-buy">
+<h2>What to Buy<a class="headerlink" href="#what-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://shop.wegmatt.com/products/daisy-2-dual-channel-ais-receiver-with-nmea-0183">dAISy 2+</a></p></li>
+<li><p>AIS compatible antenna (161.975 MHz and 162.025 MHz).  VHF antennas <a class="reference external" href="https://www.ebay.co.uk/itm/133825338570?chn=ps&amp;norover=1&amp;mkevt=1&amp;mkrid=710-134428-41853-0&amp;mkcid=2&amp;itemid=133825338570&amp;targetid=1279076611409&amp;device=c&amp;mktype=pla&amp;googleloc=9045387&amp;poi=&amp;campaignid=12125450855&amp;mkgroupid=123088734215&amp;rlsatarget=pla-1279076611409&amp;abcId=9300480&amp;merchantid=7309454&amp;gclid=CjwKCAjwmK6IBhBqEiwAocMc8sJIbv4ZN9fhjX3vB1uKhBodpDi0X3O4bFbGwYcejBn_U2bl1SpqfRoCG3EQAvD_BwE">including this one</a> should work</p></li>
+</ul>
+</section>
+<section id="autopilot-connection">
+<h2>AutoPilot connection<a class="headerlink" href="#autopilot-connection" title="Permalink to this heading">¶</a></h2>
+<p>The dAISy2 should be connected to one of the autopilot’s serial ports as shown below</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/ais-daisy2-autopilot.png"><img alt="../_images/ais-daisy2-autopilot.png" src="../_images/ais-daisy2-autopilot.png" style="width: 400px;" /></a>
+</div></blockquote>
+</section>
+<section id="autopilot-configuration">
+<h2>Autopilot Configuration<a class="headerlink" href="#autopilot-configuration" title="Permalink to this heading">¶</a></h2>
+<p>Connect to the autopilot with a ground station and set these parameters and then reboot the autopilot</p>
+<ul class="simple">
+<li><p>AIS_TYPE = 1 (Enable)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL1_PROTOCOL</span></a> = 40 (AIS) if the sensor is connected to serial port 1.  If another serial port is used please set the appropriate SERIALx_PROTOCOL parameter</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL1_BAUD</span></a> = 38 (38400 bps) if using serial port 1.  If another serial port is used please set the appropriate SERIALx_BAUD parameter instead</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr0-adsb" title="(in Rover)"><span class="xref std std-ref">SR0_ADSB</span></a> = 5 to enable sending AIS mavlink messages to the ground station over Serial0 (the USB port).  If a telemetry radio is used the SRx_ADSB param corresponding to its serial port should also be set to 5(Hz).</p></li>
+</ul>
+</section>
+<section id="daisy2-configuration-and-testing">
+<h2>dAISy2 Configuration and Testing<a class="headerlink" href="#daisy2-configuration-and-testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect dAISy2 to your PC using a USB cable</p></li>
+<li><p>Download, install and run a terminal program such as <a class="reference external" href="https://www.putty.org/">Putty</a></p></li>
+<li><p>Connect to the dAISy2’s COM port at 38400 baud and press &lt;ESC&gt; to view the setup menu</p></li>
+<li><p>Type “3” to enable the serial port.  “38400 8N1 serial output (NMEA HS w/ adapter)” should be displayed</p></li>
+<li><p>Type “#” to save this change and retain this baudrate on boot</p></li>
+<li><p>Type “T” to enable entering a test NMEA message and then copy-paste this message, “!AIVDM,1,1,,A,3815;hUw00wfUdHMPfQ4s8WT0D`r,0*00”, or hit “Enter” and use the default location</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/ais-daisy2-console.png"><img alt="../_images/ais-daisy2-console.png" src="../_images/ais-daisy2-console.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>Connect to the autopilot with Mission Planner (or another ground station) and a boat should appear on the South West coast of England</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/ais-gcs.png"><img alt="../_images/ais-gcs.png" src="../_images/ais-gcs.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>press &lt;ESC&gt; to stop sending test messages</p></li>
+</ul>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h2>
+<p>The AIS_OPTIONS parameter specifies which AIS messages are logged.  These messages are useful for debugging purposes and contain the following information</p>
+<ul class="simple">
+<li><p>TimeUS : System time that the AIS message was received</p></li>
+<li><p>Num : Number of fragments in the currently accumulating message</p></li>
+<li><p>Total : Fragment number of this sentence</p></li>
+<li><p>ID : Sequential message ID for multi-sentence messages</p></li>
+<li><p>Payload : Data payload</p></li>
+</ul>
+</section>
+<section id="user-videos">
+<h2>User Videos<a class="headerlink" href="#user-videos" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/pGluWMlIXho" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

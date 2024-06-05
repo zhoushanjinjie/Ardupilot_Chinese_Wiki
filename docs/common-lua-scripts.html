@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lua Scripts &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Lua Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-lua-scripts">[copywiki destination=”plane,copter,rover,dev”]</p>
+<section id="lua-scripts">
+<h1>Lua Scripts<a class="headerlink" href="#lua-scripts" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot has introduced support for <a class="reference external" href="https://www.lua.org/">Lua</a> scripting.
+Scripting provides a safe, “sandboxed” environment for new behaviors to be added to the autopilot without modifying the core flight code.
+Scripts are stored on the SD card and run in parallel with the flight code.</p>
+<p>This page describes how to setup scripts on your autopilot, the scripting API, scripting applets,and some examples to help get started.</p>
+<p>While scripting normally requires at least some LUA programming and editing, there are some <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets">Applets</a>  available which require no user editing and are ready to use. See links below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lua scripting support was released with Copter-4.0, Rover-4.0, and Plane-3.9.11.</p>
+</div>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>Ensure your autopilot has at least 2 MB of flash and 70 kB of memory.  High powered autopilots like the CubePilot Cube Orange and HolyBro Durandal will certainly work well but check the specifications of your <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">autopilot</span></a>.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-enable" title="(in Rover)"><span class="xref std std-ref">SCR_ENABLE</span></a> to 1 to enable scripting (refresh or reboot to see all <code class="docutils literal notranslate"><span class="pre">SCR_</span></code> parameters).</p></li>
+<li><p>Upload scripts (files with extension .lua) to the autopilot’s SD card’s <code class="docutils literal notranslate"><span class="pre">APM/scripts</span></code> folder.</p>
+<ul class="simple">
+<li><p>If this folder does not exist, you can create it by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-enable" title="(in Rover)"><span class="xref std std-ref">SCR_ENABLE</span></a> to 1 and rebooting. This folder can also be created manually on the SD card.</p></li>
+<li><p>If using Mission Planner, this can be done using MAVFTP.</p></li>
+<li><p>If using a simulator, the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> folder is in the directory the simulator was started from. MAVFTP will work in this case as well.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/scripting-MP-mavftp.png"><img alt="../_images/scripting-MP-mavftp.png" src="../_images/scripting-MP-mavftp.png" style="width: 450px;" /></a>
+</li>
+<li><p><strong>Sample/Example Scripts</strong> can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/ArduPlane-stable/libraries/AP_Scripting/examples">here for stable Plane</a>, <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/ArduCopter-stable/libraries/AP_Scripting/examples">Copter</a> and <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/APMrover2-stable/libraries/AP_Scripting/examples">Rover</a>.  The latest development scripts can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/examples">here</a>.</p></li>
+<li><p><strong>Applets</strong> which are scripts that require no user editing before use, can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets">here</a> . Each of these has a .md file of the same name detailing its capabilities, use, and setup. For example, there is a script to allow a user to change a SmartAudio capable video transmitter’s output power level from a transmitter channel and set its power-up value via parameter. See <a class="reference external" href="https://ardupilot.org/rover/docs/common-scripting-applets.html#common-scripting-applets" title="(in Rover)"><span>Script Applets</span></a>.</p></li>
+<li><p><strong>Drivers</strong> Lua scripts can actually provide hardware drivers for new peripheral hardware that is not directly supported in the ArduPilot firmware, such a new EFIs or Gimbals. Examples of these can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/ArduPlane-stable/libraries/AP_Scripting/drivers">here</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To download from the github locations, first click the script name, then select “raw” in upper right corner, then right mouse click to “Save Page as” a text file with the “.lua” file extension</p>
+</div>
+<ul class="simple">
+<li><p>Up to 8 RC channels can be assigned as scripting inputs/controls using the``RCX_OPTION`` = “300-307” options. In addition, four dedicated script parameters are available: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-user1" title="(in Rover)"><span class="xref std std-ref">SCR_USER1</span></a> thru <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-user4" title="(in Rover)"><span class="xref std std-ref">SCR_USER4</span></a> and are accessed with the same method as any other parameter, but these are reserved for script use.</p></li>
+<li><p>When the autopilot is powered on it will load and start all scripts.</p></li>
+<li><p>Messages and errors are sent to the ground station and, if using Mission Planner, can be viewed in the Data screen’s “Messages” tab.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-heap-size" title="(in Rover)"><span class="xref std std-ref">SCR_HEAP_SIZE</span></a> can be adjusted to increase or decrease the amount of memory available for scripts. The default of 43 kB is sufficient for small scripts and fits onto most autopilots. The autopilot’s free memory depends highly upon which features and peripherals are enabled. If this parameter is set too low, scripts may fail to run. If set too high other autopilot features such as Terrain Following or even the EKF may fail to initialize. On autopilots with a STM32F4 microcontroller, Smart RTL (Rover, Copter) and Terrain Following (Plane, Copter) need to be nearly always disabled. These features are usually enabled by default, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-points" title="(in Rover)"><span class="xref std std-ref">SRTL_POINTS</span></a> = 0, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-enable" title="(in Plane)"><span class="xref std std-ref">TERRAIN_ENABLE</span></a> = 0). See also <a class="reference internal" href="common-limited-firmware.html#ram-limitations"><span class="std std-ref">RAM Limitations</span></a> section.</p></li>
+</ul>
+</section>
+<section id="what-scripts-can-do">
+<h2>What Scripts Can Do<a class="headerlink" href="#what-scripts-can-do" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Multiple scripts can be run at once</p></li>
+<li><p>Monitor the vehicle state</p></li>
+<li><p>Start to manipulate vehicle state</p></li>
+</ul>
+<p>Lua is a garbage collected, imperative programming language.
+Scripts are run at a low priority on the system, which ensures that the core flight code will continue to execute even if a script is taking a long time to process.
+In order to allow multiple scripts to be run, each script is allocated a fixed time chunk (measured in VM instructions) in which it is expected to complete it’s processing.
+The script is allowed to specify a new callback function and time at which it should be called, which allows it to be run continuously.
+While this serves to bound the worst-case execution time safely, scripts are not guaranteed to be run on a reliable schedule.</p>
+<p>Each script is run in its own “sandboxed” environment.
+This allows each script to manipulate any global variables it wants to without causing other scripts problems, and allows the script to persist state between calls to its callback.
+A side effect of this however is that heavy memory usage in a script can cause other scripts to be short on memory.</p>
+</section>
+<section id="a-sample-script">
+<h2>A Sample Script<a class="headerlink" href="#a-sample-script" title="Permalink to this heading">¶</a></h2>
+<p>The following script is used to change a servo output based on the aircraft’s distance from the home position.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kr">function</span> <span class="nf">update</span> <span class="p">()</span> <span class="c1">-- periodic function that will be called</span>
+<span class="linenos"> 2</span>  <span class="kd">local</span> <span class="n">current_pos</span> <span class="o">=</span> <span class="n">ahrs</span><span class="p">:</span><span class="n">get_position</span><span class="p">()</span> <span class="c1">-- fetch the current position of the vehicle</span>
+<span class="linenos"> 3</span>  <span class="kd">local</span> <span class="n">home</span> <span class="o">=</span> <span class="n">ahrs</span><span class="p">:</span><span class="n">get_home</span><span class="p">()</span>            <span class="c1">-- fetch the home position of the vehicle</span>
+<span class="linenos"> 4</span>  <span class="kr">if</span> <span class="n">current_pos</span> <span class="ow">and</span> <span class="n">home</span> <span class="kr">then</span>            <span class="c1">-- check that both a vehicle location, and home location are available</span>
+<span class="linenos"> 5</span>    <span class="kd">local</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">current_pos</span><span class="p">:</span><span class="n">get_distance</span><span class="p">(</span><span class="n">home</span><span class="p">)</span> <span class="c1">-- calculate the distance from home in meters</span>
+<span class="linenos"> 6</span>    <span class="kr">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">1000</span> <span class="kr">then</span> <span class="c1">-- if more then 1000 meters away</span>
+<span class="linenos"> 7</span>      <span class="n">distance</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>      <span class="c1">-- clamp the distance to 1000 meters</span>
+<span class="linenos"> 8</span>    <span class="kr">end</span>
+<span class="linenos"> 9</span>    <span class="n">servo</span><span class="p">.</span><span class="n">set_output_pwm</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">+</span> <span class="n">distance</span><span class="p">)</span> <span class="c1">-- set the servo assigned function 96 (scripting3) to a proportional value</span>
+<span class="linenos">10</span>  <span class="kr">end</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>  <span class="kr">return</span> <span class="n">update</span><span class="p">,</span> <span class="mi">1000</span> <span class="c1">-- request &quot;update&quot; to be rerun again 1000 milliseconds (1 second) from now</span>
+<span class="linenos">13</span><span class="kr">end</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="kr">return</span> <span class="n">update</span><span class="p">,</span> <span class="mi">1000</span>   <span class="c1">-- request &quot;update&quot; to be the first time 1000 milliseconds (1 second) after script is loaded</span>
+</pre></div>
+</div>
+<p>This script begins by defining the update function, which will be called periodically.
+This function fetches the vehicles current position and home position, and stores them within the local variables current_pos and home.
+Both of these variables now either hold a Location userdata, or are nil, if the information was not currently available from the vehicle.
+The variables are then checked to ensure that they were actually provided, before calculating the distance between the locations.
+After a check to ensure that the distance is never measured as more then 1 kilometer away, the distance is used to set the servo position.
+The final line in the function is used to reschedule this function to be run again in 1000 milliseconds from the current time.
+The last line of the script is also used to schedule the function to be run for the first time in 1000 milliseconds from the time at which it’s loaded.</p>
+</section>
+<section id="script-crashes-and-errors">
+<h2>Script Crashes and Errors<a class="headerlink" href="#script-crashes-and-errors" title="Permalink to this heading">¶</a></h2>
+<p>If scripts run out of memory (or panic for any reason) all currently running scripts are terminated, and the scripting engine will restart, and reload all scripts from the disk.
+This is allowed to happen at all flight stages, even while the vehicle is armed and flying.</p>
+</section>
+<section id="scripting-and-parameters">
+<h2>Scripting and Parameters<a class="headerlink" href="#scripting-and-parameters" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-scripting-parameters.html">Accessing/Adding Parameters via Scripts</a></li>
+</ul>
+</div>
+</section>
+<section id="api-documentation">
+<h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">¶</a></h2>
+<p>The API documentation described here is not a complete list, but rather some examples.  For a <strong>full list of the methods</strong> currently available, the LUA auto-generated document file is a complete list, It can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/docs/docs.lua">here</a> and lists all the available bindings and their parameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use VScode for your editor, by installing <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=sumneko.lua">this</a> lua extension (version 2.4.1 only as of now), you can get this information integrated as suggestions and autocomplete in the editor.</p>
+</div>
+<p>For complete information on how a binding works the source can be found in the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/generator/description/bindings.desc">binding generator descriptions</a> .</p>
+<p>See <a class="reference internal" href="common-lua-binding-syntax.html#common-lua-binding-syntax"><span class="std std-ref">Binding Description Method Syntax</span></a> for more information on how to decode the methods shown there. ArduPilot uses Lua version 5.3.5.</p>
+<section id="location">
+<h3>Location<a class="headerlink" href="#location" title="Permalink to this heading">¶</a></h3>
+<p>Location is a userdata object that holds locations expressed as latitude, longitude, altitude. The altitude can be in several different frames, relative to home, absolute altitude above mean sea level, or relative to terrain. To create a new Location userdata you can call Location() to allocate an empty location object, or call a method that returns one to you.</p>
+<p>A Location userdata object supports the following calls:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">lat(</span> <span class="pre">[new_lat]</span> <span class="pre">)</span></code> - If called with no arguments, returns the current latitude in degrees * 1e7 as an integer. If called with one argument, it will assign the value to the latitude.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">lng(</span> <span class="pre">[new_lng]</span> <span class="pre">)</span></code> - If called with no arguments, returns the current longitude in degrees * 1e7 as an integer. If called with one argument, it will assign the value to the longitude.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">alt(</span> <span class="pre">[new_alt]</span> <span class="pre">)</span></code> - If called with no arguments, returns the current altitude in cm as an integer. If called with one argument, it will assign the value to the altitude.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">relative_alt(</span> <span class="pre">[is_relative]</span> <span class="pre">)</span></code> - If called with no arguments returns true if the location is planned as relative to home. If called with a boolean value this will set the relative altitude.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">terrain_alt(</span> <span class="pre">[is_terrain]</span> <span class="pre">)</span></code> - If called with no arguments returns true if the location is planned as relative to terrain. If called with a boolean value this will flag if the altitude should be relative to terrain.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">origin_alt(</span> <span class="pre">[is_origin]</span> <span class="pre">)</span></code> - If called with no arguments returns true if the location is planned in absolute altitude relative to mean sea level. If called with a boolean value this will set the altitude to be relative to mean sea level.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">loiter_xtrack(</span> <span class="pre">[should_xtrack]</span> <span class="pre">)</span></code> - If the location is used for a loiter location this flags if the aircraft should track from the center point, or from the exit location of the loiter.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_distance(</span> <span class="pre">other_Location</span> <span class="pre">)</span></code> - Given a Location this calculates the horizontal distance between the two locations in meters.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">offset(</span> <span class="pre">offset_north</span> <span class="pre">,</span>&#160; <span class="pre">offset_east</span> <span class="pre">)</span></code> - Translates this Location by the specified number of meters.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_vector_from_origin_NEU()</span></code> - Returns nil or Vector3f that contains the offset from the EKF origin to this location. This will return nil if the EKF origin wasn’t available at the time this was called.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_bearing(</span> <span class="pre">other_Location</span> <span class="pre">)</span></code> - Given a Location this calculates the relative bearing to the location in radians</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_distance_NED(</span> <span class="pre">other_Location</span> <span class="pre">)</span></code> - Returns nil or Vector3f that contains the 3D vector in meters to the other Location.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_distance_NE(</span> <span class="pre">other_Location</span> <span class="pre">)</span></code> - Returns nil or Vector2f that contains the 2D vector in meters to the other Location.</p></li>
+</ul>
+</section>
+<section id="vector2f">
+<h3>Vector2f<a class="headerlink" href="#vector2f" title="Permalink to this heading">¶</a></h3>
+<p>Vector2f is a userdata object that holds a 2D vector. The components are stored as floating point numbers. To create a new Vector2f you can call Vector2f() to allocate a new one, or call a method that returns one to you.</p>
+<p>A Vector2f object supports the following calls:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">x(</span> <span class="pre">[new_x]</span> <span class="pre">)</span></code> - If called with no arguments, return the currently set X component as a floating point number. If called with one argument it will assign the value to the X component.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">y(</span> <span class="pre">[new_y]</span> <span class="pre">)</span></code> - If called with no arguments, return the currently set Y component as a floating point number. If called with one argument it will assign the value to the Y component.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">length()</span></code> - Returns the length of the vector as a floating point number.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">normalize()</span></code> - Normalizes the vector to be a unit vector.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_nan()</span></code> - Returns true if the vector contains any NaN members.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_inf()</span></code> - Returns true if the vector contains any infinity members.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_zero()</span></code> - Returns true if all the vector fields are 0.</p></li>
+</ul>
+<p>The following operators are supported on a Vector2f:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">+</span></code> - Adds the two vectors by components.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">-</span></code> - Subtracts the two vectors by components.</p></li>
+</ul>
+</section>
+<section id="vector3f">
+<h3>Vector3f<a class="headerlink" href="#vector3f" title="Permalink to this heading">¶</a></h3>
+<p>Vector3f is a userdata object that holds a 3D vector. The components are stored as floating point numbers. To create a new Vector3f you can call Vector3f() to allocate a new one, or call a method that returns one to you.</p>
+<p>A Vector3f object supports the following calls:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">x(</span> <span class="pre">[new_x]</span> <span class="pre">)</span></code> - If called with no arguments, return the currently set X component as a floating point number. If called with one argument it will assign the value to the X component.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">y(</span> <span class="pre">[new_y]</span> <span class="pre">)</span></code> - If called with no arguments, return the currently set Y component as a floating point number. If called with one argument it will assign the value to the Y component.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">z(</span> <span class="pre">[new_z]</span> <span class="pre">)</span></code> - If called with no arguments, return the currently set Z component as a floating point number. If called with one argument it will assign the value to the Z component.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">length()</span></code> - Returns the length of the vector as a floating point number.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">normalize()</span></code> - Normalizes the vector to be a unit vector.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_nan()</span></code> - Returns true if the vector contains any NaN members.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_inf()</span></code> - Returns true if the vector contains any infinity members.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_zero()</span></code> - Returns true if all the vector fields are 0.</p></li>
+</ul>
+<p>The following operators are supported on a Vector3f:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">+</span></code> - Adds the two vectors by components.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">-</span></code> - Subtracts the two vectors by components.</p></li>
+</ul>
+</section>
+<section id="ahrs-ahrs">
+<h3>AHRS (ahrs:)<a class="headerlink" href="#ahrs-ahrs" title="Permalink to this heading">¶</a></h3>
+<p>The ahrs library represents the Attitude Heading Reference System computed by the autopilot. It provides estimates for the vehicles attitude, and position.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_roll()</span></code> - Returns the current vehicle roll angle in radians.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_pitch()</span></code> - Returns the current vehicle pitch angle in radians.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_yaw()</span></code> - Returns the current vehicle yaw angle in radians.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_position()</span></code> - Returns nil or Location userdata that contains the vehicles current position. Note: This will only return a Location if the system considers the current estimate to be reasonable.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_home()</span></code> - Returns a Location that contains the vehicles current home waypoint.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_gyro()</span></code> - Returns a Vector3f containing the current smoothed and filtered gyro rates (in radians/second)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_hagl()</span></code> - Returns nil, or the latest altitude estimate above ground level in meters</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">wind_estimate()</span></code> - Returns a Vector3f containing the current wind estimate for the vehicle.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">groundspeed_vector()</span></code> - Returns a Vector2f containing the vehicles velocity in meters/second in north and east components.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_velocity_NED()</span></code> - Returns nil, or a Vector3f containing the current NED vehicle velocity in meters/second in north, east, and down components.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_velocity_NE()</span></code> - Returns nil, or a Vector2f containing the current NE vehicle velocity in meters/second in north and east components.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">home_is_set()</span></code> - Returns a true if home position has been set.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">prearm_healthy()</span></code> - Returns a true if current pre-arm checks are passing.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">airspeed_estimate()</span></code> - Returns current airspeed estimate in meters/second or nil.</p></li>
+</ul>
+</section>
+<section id="arming-arming">
+<h3>Arming (arming:)<a class="headerlink" href="#arming-arming" title="Permalink to this heading">¶</a></h3>
+<p>The Arming library provides access to arming status and commands.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">disarm()</span></code> - Disarms the vehicle in all cases. Returns false only if already disarmed.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_armed()</span></code> -Returns a true if vehicle is currently armed.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">arm()</span></code> - Attempts to arm the vehicle. Returns true if successful.</p></li>
+</ul>
+</section>
+<section id="battery-battery">
+<h3>Battery (battery:)<a class="headerlink" href="#battery-battery" title="Permalink to this heading">¶</a></h3>
+<p>The battery library provides access to information about the currently connected batteries on the vehicle.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">num_instances()</span></code> - Returns the number of battery instances currently available.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">healthy(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns true if the requested battery instance is healthy. Healthy is considered to be ArduPilot is currently able to monitor the battery.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">voltage(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the voltage of the selected battery instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">voltage_resting(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the estimated battery voltage if it was not under load.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">current_amps(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the current (in Amps) that is currently being consumed by the battery, or nil if current monitoring is not available.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">consumed_mah(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the capacity (in milliamp hours) used from the battery, or nil if current monitoring is not available.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">consumed_wh(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the used watt hours from the battery, or nil if energy monitoring is not available.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">capacity_remaining_pct(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the remaining percentage of battery (from 0 to 100)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">pack_capacity_mah(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the full pack capacity (in milliamp hours) from the battery.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">has_failsafed()</span></code> - Returns true if any of the batteries being monitored have triggered a failsafe.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">overpower_detected(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns true if too much power is being drawn from the battery being monitored.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_temperature(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the temperature of the battery in degrees Celsius if the battery supports temperature monitoring.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_cycle_count(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns cycle count of the battery or nil if not available.</p></li>
+</ul>
+</section>
+<section id="gps-gps">
+<h3>GPS (gps:)<a class="headerlink" href="#gps-gps" title="Permalink to this heading">¶</a></h3>
+<p>The GPS library provides access to information about the GPS’s on the vehicle.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">num_sensors()</span></code> - Returns the number of connected GPS devices. If GPS blending is turned on that will show up as the third sensor, and be reported here.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">primary_sensor()</span></code> - Returns which GPS is currently being used as the primary GPS device.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">status(instance)</span></code> - Returns the GPS fix status. Compare this to one of the GPS fix types (GPS.NO_GPS, GPS.GPS_OK_FIX_2D, GPS.GPS_OK_FIX_3D GPS.GPS_OK_FIX_3D_DGPS GPS.GPS_OK_FIX_3D_RTK_FLOAT GPS.GPS_OK_FIX_3D_RTK_FIXED</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">location(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns a Location userdata for the last GPS position. You must check the status to know if the location is still current, if it is NO_GPS, or NO_FIX then it will be returning old data.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">speed_accuracy(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns nil, or the speed accuracy of the GPS in meters per second, if the information is available for the GPS instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">horizontal_accuracy(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns nil, or the horizontal accuracy of the GPS in meters, if the information is available for the GPS instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">vertical_accuracy(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns nil, or the vertical accuracy of the GPS in meters, if the information is available for the GPS instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">velocity(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns a Vector3f that contains the velocity as observed by the GPS. You must check the status to know if the velocity is still current.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ground_speed(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the ground speed of the vehicle in meters per second. You must check the status to know if the ground speed is still current.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ground_course(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the ground course of the vehicle in degrees. You must check the status to know if the ground course is still current.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">num_sats(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the number of satellites that the GPS is currently tracking.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">time_week(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the GPS week number.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">time_week_ms(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the number of milliseconds into the current week.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_hdop(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the horizontal dilution of precision of the GPS instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_vdop(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the vertical dilution of precision of the GPS instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">last_fix_time_ms(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns the time of the last fix in system milliseconds.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">have_vertical_velocity(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns true if the GPS instance can report the vertical velocity.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_antenna_offset(</span> <span class="pre">instance</span> <span class="pre">)</span></code> - Returns a Vector3f that contains the offsets of the GPS in meters in the body frame.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">first_unconfigured_gps()</span></code> - Returns nil or the instance number of the first GPS that has not been fully configured. If all GPS’s have been configured this returns 255 if all the GPS’s have been configured.</p></li>
+</ul>
+</section>
+<section id="gcs-gcs">
+<h3>GCS (gcs:)<a class="headerlink" href="#gcs-gcs" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">send_text(</span> <span class="pre">severity</span> <span class="pre">,</span>&#160; <span class="pre">text</span> <span class="pre">)</span></code> - Will send the text  string with message severity level . Severity level is :</p></li>
+</ul>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Severity Level</p></td>
+<td><p>Type</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Emergency</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Alert</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Critical</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Error</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Notice</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Info</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Debug</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_message_interval(</span> <span class="pre">serial_channel</span> <span class="pre">,</span>&#160; <span class="pre">message_type</span> <span class="pre">,</span>&#160; <span class="pre">rate</span> <span class="pre">)</span></code> - Sets the message_type’s update rate on SERIAL(serial_channel). For example, gcs:set_message_interval(0, 30, 500000) sets SERIAL0 rate for ATTITUDE message stream (30) to 2.0 Hz (500,000 microseconds)</p></li>
+</ul>
+</section>
+<section id="serial-led-serialled">
+<h3>Serial LED (serialLED:)<a class="headerlink" href="#serial-led-serialled" title="Permalink to this heading">¶</a></h3>
+<p>This library allows the control of WS8212B RGB LED strings via an output reserved for scripting and  selected by SERVOx_FUNCTION = 94 thru 109 (Script Out 1 thru 16)</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_num_LEDs(</span> <span class="pre">output_number</span> <span class="pre">,</span>&#160; <span class="pre">number_of_LEDs</span> <span class="pre">)</span></code> - Sets the number_of_LEDs in the string on a servo output. output_number is servo output number 1-16 that the string is attached to with a string having &lt;number_of_LEDs&gt;.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_RGB(</span> <span class="pre">output_number</span> <span class="pre">,</span>&#160; <span class="pre">LED_number</span> <span class="pre">,</span>&#160; <span class="pre">r</span> <span class="pre">,</span> <span class="pre">g</span> <span class="pre">,</span> <span class="pre">b</span> <span class="pre">)</span></code> - Set the data for LED_number (1-32) on the string attached servo output_number (1-16) output to the r,g,b values (0-255)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">send()</span></code> - Sends the data to the LED strings</p></li>
+</ul>
+</section>
+<section id="notify-notify">
+<h3>Notify (notify:)<a class="headerlink" href="#notify-notify" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">play_tune(</span> <span class="pre">tune</span> <span class="pre">)</span></code> - Plays a MML tune through the buzzer on the vehicle. The tune is provided as a string.</p></li>
+</ul>
+<p>An online <a class="reference external" href="https://firmware.ardupilot.org/Tools/ToneTester/">tune tester can be found here</a></p>
+</section>
+<section id="vehicle-vehicle">
+<h3>Vehicle (vehicle:)<a class="headerlink" href="#vehicle-vehicle" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_mode(mode_number)</span></code> - Attempts to change vehicle (in this example Plane) mode to mode_number. Returns true if successful, false if mode change is not successful.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_mode()</span></code> - Returns current vehicle mode by mode_number.</p></li>
+</ul>
+<p>Mode numbers for each vehicle type can be <a class="reference external" href="https://mavlink.io/en/messages/ardupilotmega.html#PLANE_MODE">found here</a></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_likely_flying()</span></code> - Returns true if the autopilot thinks it is flying. Not guaranteed to be accurate.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_flying_time_ms()</span></code> - Returns time in milliseconds since the autopilot thinks it started flying, or zero if not currently flying.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">start_takeoff(altitude)</span></code> - Begins auto takeoff to given altitude above home in meters. Returns false if not available.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_target_location(Location)</span></code> - Sets target location using a Location object. Returns false if not successful.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_target_location()</span></code> - Returns Location object of the current target location. Returns false if not available.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_target_velocity_NED()</span></code> - Sets the target velocity using a Vector3f object. Returns false if not available.</p></li>
+</ul>
+</section>
+<section id="terrain-terrain">
+<h3>Terrain (terrain:)<a class="headerlink" href="#terrain-terrain" title="Permalink to this heading">¶</a></h3>
+<p>The terrain library provides access to checking heights against a terrain database.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">enabled()</span></code> - Returns true if terrain is enabled.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">status()</span></code> - Returns the current status of the rangefinder. Compare this to one of the terrain statuses (terrain.TerrainStatusDisabled, terrain.TerrainStatusUnhealthy, terrain.TerrainStatusOK).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">height_amsl(</span> <span class="pre">Location</span> <span class="pre">)</span></code> - Returns the height (in meters) above mean sea level at the provided Location userdata, or returns nil if that is not available.</p></li>
+<li><dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">height_terrain_difference_home(</span> <span class="pre">difference,</span> <span class="pre">extrapolate)</span></code> -  find the difference between home terrain height and the terrain</dt><dd><p>height at the current location in meters. Returns false if not available. If extrapolate is true, will return based on last valid terrain data.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">height_above_terrain()</span></code> - Returns the height (in meters) that the vehicle is currently above the terrain, or returns nil if that is not available.</p></li>
+</ul>
+</section>
+<section id="relay-relay">
+<h3>Relay (relay:)<a class="headerlink" href="#relay-relay" title="Permalink to this heading">¶</a></h3>
+<p>The relay library provides access to controlling relay outputs.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">on(relay_num)</span></code> - Turns the requested relay on.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">off(relay_num)</span></code> - Turns the requested relay off.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">enabled(relay_num)</span></code> - Returns true if the requested relay is enabled.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">toggle(relay_num)</span></code> - Toggles the requested relay on or off.</p></li>
+</ul>
+</section>
+<section id="servo-channels-srv-channels">
+<h3>Servo Channels (SRV_Channels:)<a class="headerlink" href="#servo-channels-srv-channels" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">find_channel(output_function)</span></code> - Returns first servo output number -1 of an output assigned output_function (See <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameters ). False if none is assigned.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_output_pwm(output_function)</span></code> - Returns first servo output PWM value an output assigned output_function (See <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameters ). False if none is assigned.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_output_pwm_chan_timeout(channel,</span> <span class="pre">pwm,</span> <span class="pre">timeout)</span></code> - Sets servo channel to specified PWM for a time in ms. This overrides any commands from the autopilot until the timeout expires.</p></li>
+</ul>
+</section>
+<section id="rc-channels-rc">
+<h3>RC Channels (rc:)<a class="headerlink" href="#rc-channels-rc" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_pwm()</span></code> - Returns the RC input PWM value given a channel number. Note that channel here is indexed from 1. Returns false if channel is not available.</p></li>
+</ul>
+</section>
+<section id="serial-uart-serial">
+<h3>Serial/UART (serial:)<a class="headerlink" href="#serial-uart-serial" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">find_serial(instance)</span></code> - Returns the UART instance that allows connections from scripts (those with <code class="code docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span> <span class="pre">=</span> <span class="pre">28</span></code>). For <code class="code docutils literal notranslate"><span class="pre">instance</span> <span class="pre">=</span> <span class="pre">0</span></code>, returns first such UART, second for <code class="code docutils literal notranslate"><span class="pre">instance</span> <span class="pre">=</span> <span class="pre">1</span></code>, and so on. If such an instance is not found, returns <code class="code docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">UART:begin(baud)</span></code> - Start serial connection at given baud rate.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">UART:read()</span></code> - Returns a sequence of bytes from UART instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">UART:write(number)</span></code> - Writes a sequence of bytes to UART instance.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">UART:available()</span></code> -  Returns integer of currently available bytes.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">UART:set_flow_control(flow_control)</span></code> - Sets flow control for UART instance.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="barometer-baro">
+<h3>Barometer (baro:)<a class="headerlink" href="#barometer-baro" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_pressure()</span></code> - Returns pressure in Pascal.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_temperature()</span></code> - Returns temperature in degrees C.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_external_temperature()</span></code> - Returns external temperature in degrees C.</p></li>
+</ul>
+</section>
+<section id="esc-telemetry-esc-telem">
+<h3>ESC Telemetry (esc_telem:)<a class="headerlink" href="#esc-telemetry-esc-telem" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_usage_seconds(channel)</span></code> - Returns an individual ESC’s usage time in seconds, or false if not available.</p></li>
+</ul>
+</section>
+<section id="parameters-param">
+<h3>Parameters (param:)<a class="headerlink" href="#parameters-param" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get(parameter_name)</span></code> - Returns parameter value if available, or nil if not found.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">set(parameter_name)</span></code> - Sets a parameter by name if available. Returns true if the parameter is found.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">set_and_save(parameter_name)</span></code> Sets and saves a parameter by name if available. Returns true if the parameter is found.</p></li>
+</ul>
+</section>
+<section id="rpm-rpm">
+<h3>RPM (RPM:)<a class="headerlink" href="#rpm-rpm" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_rpm(instance)</span></code> - Returns RPM of given instance, or nil if not available.</p></li>
+</ul>
+</section>
+<section id="button-button">
+<h3>Button (button:)<a class="headerlink" href="#button-button" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">get_button_state(button_number)</span></code> - Returns button state if available. Buttons are 1 indexed.</p></li>
+</ul>
+</section>
+<section id="servo-output">
+<h3>Servo Output<a class="headerlink" href="#servo-output" title="Permalink to this heading">¶</a></h3>
+<p>This method stands alone and is called directly as shown below.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">servo.set_output</span> <span class="pre">(function_number,</span> <span class="pre">PWM)</span></code> -Sets servo outputs of type function_number to a PWM value (typically between 1000 and 2000)</p></li>
+</ul>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>See the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/examples">code examples folder</a></p>
+</section>
+<section id="how-to-add-new-bindings">
+<h2>How to Add New Bindings<a class="headerlink" href="#how-to-add-new-bindings" title="Permalink to this heading">¶</a></h2>
+<p>To give Lua scripts access to more features of ArduPilot the API can be extended by creating new bindings. The process is as follows:</p>
+<ul class="simple">
+<li><p>Find the method or function you would like to expose to Lua. For example if you wanted to expose an additional feature of AHRS you would first find the method within <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_AHRS/AP_AHRS.h">libraries/AP_AHRS/AP_AHRS.h</a>. This can be an already existing method (function) or a method (function) newly added to the code.</p></li>
+<li><p>Edit the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/generator/description/bindings.desc">libraries/AP_Scripting/generator/description/bindings.desc</a> and add a new line in the appropriate section for the method, or add a new section if a new class shall be added by following the examples of the other sections.</p></li>
+<li><p>For releases before Copter/Rover/Plane 4.1: Open a command line prompt and cd to the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/generator">/libraries/AP_Scripting/generator</a> directory and type “make run”.</p></li>
+<li><p>For 4.1 onwards, clean the distribution (./waf distclean) and restart compilation from there as usual.</p></li>
+</ul>
+</section>
+<section id="include-lua-scripts-in-firmware-directly">
+<h2>Include Lua scripts in firmware directly<a class="headerlink" href="#include-lua-scripts-in-firmware-directly" title="Permalink to this heading">¶</a></h2>
+<p>Lua scripts may be directly embedded in firmware binaries, rather than being placed on an external SD card. This is useful for manufacturer’s to provide the scripts for included peripherals or when the autopilot does not support an SD card. Instructions to do so are on <a class="reference external" href="https://ardupilot.org/dev/docs/common-oem-customizations.html#">this link</a>.</p>
+</section>
+<section id="further-information">
+<h2>Further Information<a class="headerlink" href="#further-information" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<p>For more background on technical decisions made before this point you can reference the presentation from the 2019 ArduPilot Unconference.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ZUNOZMxOwsI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3n80dYoJQ60" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

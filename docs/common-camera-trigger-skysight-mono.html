@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Triggering for Sony MultiPort Connectors using SkySight MONO &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Triggering for Sony MultiPort Connectors using SkySight MONO</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-triggering-for-sony-multiport-connectors-using-skysight-mono">
+<span id="common-camera-trigger-skysight-mono"></span><h1>Camera Triggering for Sony MultiPort Connectors using SkySight MONO<a class="headerlink" href="#camera-triggering-for-sony-multiport-connectors-using-skysight-mono" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this device is no longer available and this article is ARCHIVED.</p>
+</div>
+<p>This article shows how to setup the <a class="reference external" href="http://skysight.eu/?product=skysight-mono">SkySight MONO</a> to trigger pictures on cameras equipped with the Sony MultiPort™ connector</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/SkySightMono.jpg"><img alt="../_images/SkySightMono.jpg" src="../_images/SkySightMono.jpg" /></a>
+<figcaption>
+<p><span class="caption-text"><a class="reference external" href="http://skysight.eu/?product=skysight-mono">SkySightMONO</a> and CameraCable</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot allows you to <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">configure a servo or relay output as the control signal for the camera shutter</span></a> so that it can be used in
+<a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">Camera Missions</span></a>.
+Additional hardware is required to convert the shutter activation signal
+to the format expected by the particular camera.</p>
+<p>Farsight’s <a class="reference external" href="http://skysight.eu/?product=skysight-mono">SkySight MONO</a>
+provides everything needed to connect a Pixhawk to a supported Sony
+MultiPort™ equipped camera in order to automate camera shutter
+triggering. The current list of compatible cameras is on the <a class="reference external" href="http://skysight.eu/?product=skysight-mono">product page</a>.</p>
+<p>The board supports four camera triggering modes, allowing you to trigger
+the shutter in single shot and burst modes, both with and without first
+setting the autofocus. The mode used is determined by the servo PWM
+output set in the <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration</span></a> in Mission Planner.</p>
+<p>This article provides a brief overview of how to set up the board
+(images are reproduced courtesy of Farsight). More detailed instructions
+are provided in the <a class="reference external" href="http://skysight.eu/wp-content/uploads/2015/05/MONO-User-Manual.pdf">SkySight MONO User Manual</a>.</p>
+</section>
+<section id="parts-and-hardware-connections">
+<h2>Parts and hardware connections<a class="headerlink" href="#parts-and-hardware-connections" title="Permalink to this heading">¶</a></h2>
+<p>The SkySight MONO can be <a class="reference external" href="http://skysight.eu/?product=skysight-mono">purchased from FarSight</a>, and comes with
+the cables you need to connect to Pixhawk and the camera.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/SkySightMono_all_connectors_DSC01078.jpg"><img alt="../_images/SkySightMono_all_connectors_DSC01078.jpg" src="../_images/SkySightMono_all_connectors_DSC01078.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">SkySight Mono: Board and Cables</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Working out the correct connections is easy; the back of the board has
+colour coded connections for the power/signal/ground, and icons to
+indicate which connection is for the camera and which is for the servo.</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/SykSightMono-boardconnections_MONO_04-300x92.jpg"><img alt="../_images/SykSightMono-boardconnections_MONO_04-300x92.jpg" src="../_images/SykSightMono-boardconnections_MONO_04-300x92.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">SykSight Mono: Board Connections</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pixhawk-board">
+<h2>Pixhawk board<a class="headerlink" href="#pixhawk-board" title="Permalink to this heading">¶</a></h2>
+<p>Pixhawk has 6 AUX ports that may be used for triggering the camera
+(AUX1-AUX6). These correspond to shutter options RC9-RC14 in <em>Mission
+Planner</em></p>
+<a class="reference external image-reference" href="../_images/Pixhawkdetailview.jpg"><img alt="../_images/Pixhawkdetailview.jpg" src="../_images/Pixhawkdetailview.jpg" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The MONO is powered from the Pixhawk servo power rail (middle
+pin). Ensure that the rail is <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview-powering"><span class="std std-ref">powered from a BEC</span></a> or provide an alternative
+mechanism to power the board.</p>
+</div>
+</section>
+<section id="camera-shutter-configuration-in-mission-planner">
+<h2>Camera shutter configuration in Mission Planner<a class="headerlink" href="#camera-shutter-configuration-in-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration in Mission Planner</span></a> article explains how to
+configure Pixhawk AUX output as a servo camera trigger.</p>
+<p>The parameters used to configure this hardware are listed below:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CAM_TRIG_TYPE</span></code>: 0 (Servo).</p>
+<p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">(Port)</span></code>: RC10 (for AUX2, but this will depend on your
+connected output).</p>
+<p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Pushed</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IS-S</span></code>: 1300 (single shot without autofocus).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IS-B</span></code>: 1100 (burst mode without autofocus).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AF-S</span></code>: 1700 (autofocus 800ms then single shot).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AF-B</span></code>: 1900 (autofocus 800ms then burst mode).</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Not</span> <span class="pre">Pushed</span></code>: 1550</p>
+<p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Duration</span></code>: 4 (4/10 seconds - this may need to be tuned for
+specific cameras)</p>
+<p><code class="docutils literal notranslate"><span class="pre">Servo</span> <span class="pre">Limits</span> <span class="pre">Max</span></code>%3</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

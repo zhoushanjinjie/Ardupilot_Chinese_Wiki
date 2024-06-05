@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-ltm-telemetry"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="ltm-telemetry">
+<h1>LTM Telemetry<a class="headerlink" href="#ltm-telemetry" title="Permalink to this heading">¶</a></h1>
+<section id="protocol-overview">
+<h2>Protocol overview<a class="headerlink" href="#protocol-overview" title="Permalink to this heading">¶</a></h2>
+<p>Lightweight TeleMetry protocol (LTM) is one-way communication protocol - data downlink from vehicle - that allows you to send most important vehicle data at low band-width / low baud rate, usually at 2400 bauds.</p>
+<p>Protocol was introduced by KipK and is used in his Ghetto Station.</p>
+<p>Typical use-case is antenna tracking when serial telemetry data from Flight Controller (FC) are transformed by Frequency Shift Keying modulation (FSK) modem to sort of audio signal, that is transferred by audio channel of video transmitter to video receiver on ground side. Consequently it’s converted back to digital signal by other FSK modem and processed in antenna tracker (AT) and possibly in Ground Control Station (GCS).</p>
+<figure class="align-center" id="id1">
+<a class="reference external image-reference" href="../_images/ltm-block-diagram-example.png"><img alt="../_images/ltm-block-diagram-example.png" src="../_images/ltm-block-diagram-example.png" /></a>
+<figcaption>
+<p><span class="caption-text">Block diagram of common LTM telemetry setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl class="simple">
+<dt><strong>Implemented protocol frame types at ardupilot side</strong></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>G-Frame (GPS)</dt><dd><ul>
+<li><p>contains latitude, longitude, GPS ground speed, no. of visible sats, GPS fix type</p></li>
+<li><p>size 18 Bytes, sent at 2 Hz</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>A-Frame (Attitude)</dt><dd><ul>
+<li><p>contains vehicle attitude, heading</p></li>
+<li><p>10B / 5 Hz</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>S-Frame (Status)</dt><dd><ul>
+<li><p>contains battery voltage, current, receiver RSSI, airspeed from AHRS</p></li>
+<li><p>11B / 2 Hz</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt><strong>Protocol limitations</strong></dt><dd><ul class="simple">
+<li><p>GPS fix data type uses only 2 bits - list of possible values is <em>0</em> (No GPS fix), <em>1</em> (2D fix), <em>2</em> (3D fix). GPS fix values above 2 are mapped to value <em>2</em>.</p></li>
+</ul>
+</dd>
+<dt><strong>Links related to LTM telemetry</strong></dt><dd><ul class="simple">
+<li><p>GhettoStation antenna tracker: <a class="reference external" href="https://github.com/KipK/Ghettostation">https://github.com/KipK/Ghettostation</a></p></li>
+<li><p>iNAV documentation for LTM protocol: <a class="reference external" href="https://github.com/iNavFlight/inav/wiki/Lightweight-Telemetry-(LTM)">https://github.com/iNavFlight/inav/wiki/Lightweight-Telemetry-(LTM)</a></p></li>
+<li><p>Protocol overview at quadmeup.com: <a class="reference external" href="https://quadmeup.com/ltm-light-telemetry-protocol">https://quadmeup.com/ltm-light-telemetry-protocol/</a></p></li>
+<li><p>LTM-to-MAVLink converter for Arduino ProMini or ESP8266: <a class="reference external" href="https://github.com/vierfuffzig/LTM2MAVLink">https://github.com/vierfuffzig/LTM2MAVLink</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>Parameter <strong>SERIALX_PROTOCOL</strong> has to be set to value <em>25</em> to enable LTM output from FC on given serial port. Note that only one LTM output port is supported. If you set multiple serial ports to output LTM, only the first one found during serial driver initialisation will actually be assigned to output LTM telemetry.</p>
+<figure class="align-center" id="id2">
+<a class="reference external image-reference" href="../_images/ltm-ardupilot-conf-mission-planner.png"><img alt="../_images/ltm-ardupilot-conf-mission-planner.png" src="../_images/ltm-ardupilot-conf-mission-planner.png" /></a>
+<figcaption>
+<p><span class="caption-text">LTM configuration screenshot from Mission Planner</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don’t forget to set your LTM telemetry port’s baud rate to an appropriate value. If you are using FSK modems, baud rate value depends on capability of modems.</p>
+<p>Additionally, not all of your autopilot’s serial ports support the lowest possible baud rate setting of 1 ( = 1200 baud). On STM32F4xx and F7xx based autopilots, these typically are USARTs 1 and 6 that run on the full system clock. If set to 1200 baud, these ports will default to 19200 baud instead. If you have issues getting correct LTM telemetry output at 1200 baud, try using a serial port other that USART 1 or 6 or opt for 2400 baud instead. On STM32H7-based boards, 2400 baud is lowest supported UART baudrate. Check your flightcontroller’s hardware page for further reference on UART to SERIALn mapping.</p>
+</div>
+</section>
+<section id="usage-example-with-fpv-video-transmitter">
+<h2>Usage example with FPV video transmitter<a class="headerlink" href="#usage-example-with-fpv-video-transmitter" title="Permalink to this heading">¶</a></h2>
+<figure class="align-center" id="id3">
+<a class="reference external image-reference" href="../_images/ltm-workbench-test.jpg"><img alt="../_images/ltm-workbench-test.jpg" src="../_images/ltm-workbench-test.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">LTM telemetry wiring example for Plane</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="fsk-modem-example-with-tcm3105">
+<h2>FSK modem example with TCM3105<a class="headerlink" href="#fsk-modem-example-with-tcm3105" title="Permalink to this heading">¶</a></h2>
+<p>One of the possibilities for FSK modem is to use chip TCM3105. Eagle files for modem schematics and board can be found at <a class="reference external" href="https://github.com/kh4/FSK_modem">https://github.com/kh4/FSK_modem</a></p>
+<p>This modem can work at 1200 or 2400 bauds, baud rate depends on used oscillator.</p>
+<figure class="align-center" id="id4">
+<a class="reference external image-reference" href="../_images/ltm-fsk-modem-tcm3105-scheme-example.png"><img alt="../_images/ltm-fsk-modem-tcm3105-scheme-example.png" src="../_images/ltm-fsk-modem-tcm3105-scheme-example.png" /></a>
+<figcaption>
+<p><span class="caption-text">FSK modem with TCM3105 schematics example</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference external image-reference" href="../_images/ltm-modem-detail.jpg"><img alt="../_images/ltm-modem-detail.jpg" src="../_images/ltm-modem-detail.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">FSK modem with TCM3105 photo</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use 8 MHz oscillator to make modem work at 2400 bauds.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

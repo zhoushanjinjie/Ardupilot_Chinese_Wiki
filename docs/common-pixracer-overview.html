@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixracer &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PixRacer Serial Mapping" href="common-pixracer-serial-names.html" />
+    <link rel="prev" title="Pixhawk FMUv2 / Cube FMU v3 Serial Mapping" href="common-pixhawk-serial-names.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://arkelectron.com/product/arkv6x/">ARKV6X DS-10 Pixhawk6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pixhawkv6X.html">CUAV Pixhawk v6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-x7-family-overview.html">CUAV X7/X7Pro/X7+/X7+ Pro</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecube-overview.html">CubePilot Cube Black</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeorange-overview.html">CubePilot Cube Orange/+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubepurple-overview.html">CubePilot Cube Purple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeyellow-overview.html">CubePilot Cube Yellow</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">CubePilot Cube Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-durandal-overview.html">Holybro Durandal H7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6X.html">Holybro Pixhawk6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6C.html">Holybro Pixhawk6C/ 6C Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v6.html">Holybro Pix32v6(Pixhawk6C variant)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mRo Pixracer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRo X2.1</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/m10022a.htm">mRo X2.1-777</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Pixracer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pixracer">
+<span id="common-pixracer-overview"></span><h1>Pixracer<a class="headerlink" href="#pixracer" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm">Pixracer</a> is the first
+autopilot of the FMUv4 Pixhawk generation. It comes with a small Wifi extension board.</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/pixracer_top.jpg"><img alt="../_images/pixracer_top.jpg" src="../_images/pixracer_top.jpg" style="width: 400px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/pixracer_bottom.jpg"><img alt="../_images/pixracer_bottom.jpg" src="../_images/pixracer_bottom.jpg" style="width: 400px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/pixracer_top_wifi.jpg"><img alt="../_images/pixracer_top_wifi.jpg" src="../_images/pixracer_top_wifi.jpg" style="width: 400px;" /></a>
+</figure>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm">Pixracer</a> is the
+common name for the FMUv4 generation of Pixhawk autopilots. It has been
+designed primarily for the demanding requirements of small multicopters, but of course can be used on planes and other
+vehicles which require no more than 6 pwm outputs for controlling escs
+and motors. Pixracer is available from the <a class="reference external" href="https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm">mRobotics</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>At time of writing the autopilot is still being evolved/improved.
+The final version may very slightly from the information provided
+here.</p>
+</div>
+<p>This video below provides a detailed overview of the board. Additional
+information can be found on
+<a class="reference external" href="https://pixhawk.org/modules/pixracer">pixhawk.org</a> and the <a class="reference external" href="https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm">mRobotics</a>.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/mpb6Cq023N8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong>:</p>
+<ul>
+<li><p>MCU - STM32F427VIT6 rev.3</p></li>
+<li><p>Ultra low noise LDOs for sensors and FMU</p></li>
+<li><p>FRAM - FM25V02-G</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>Gyro/Accelerometer: Invensense MPU9250 Accel / Gyro / Mag (4 KHz)</p></li>
+<li><p>Gyro/Accelerometer: Invensense ICM-20608 Accel / Gyro (4 KHz)</p></li>
+<li><p>Barometer: MS5611</p></li>
+<li><p>Compass: Honeywell HMC5983 magnetometer with temperature
+compensation</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>5-5.5VDC from USB or PowerBrick connector. Optional/recommended
+<a class="reference external" href="https://store.mrobotics.io/product-p/auav-acsp4-mr.htm">ACSP4 +5V/+12V Power Supply</a>.</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces/Connectivity</strong></p>
+<ul>
+<li><p>Wifi: ESP-01 802.11bgn Flashed with MavESP8266</p></li>
+<li><p>MicroSD card reader</p></li>
+<li><p>Micro USB</p></li>
+<li><p>RGB LED</p></li>
+<li><p>GPS (serial + I2C)</p></li>
+<li><p>TELEM1/TELEM2</p></li>
+<li><p>Wifi serial</p></li>
+<li><p>FrSky Telemetry serial(see note)</p></li>
+<li><p>Debug connector (serial + SWD)</p></li>
+<li><p>Connectors: GPS+I2C, RC-IN, PPM-IN, RSSI, SBus-IN, Spektrum-IN,
+USART3 (TxD, RxD, CTS, RTS), USART2 (TxD, RxD, CTS, RTS),
+FRSky-IN, FRSky-OUT, CAN, USART8 (TxD, RxD), ESP8266 (full set),
+SERVO1-SERVO6, USART7 (TxD, RxD), JTAG (SWDIO, SWCLK), POWER-BRICK
+(VDD, Voltage, Current, GND), BUZZER-LED_BUTTON.</p></li>
+</ul>
+</li>
+<li><p><strong>Dimensions</strong></p>
+<ul>
+<li><p>Weight ?</p></li>
+<li><p>36 x 36mm with 30.5 x 30.5mm hole grid with 3.2mm holes</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The FrSky telemetry port is implemented using a 74LVC2G86 NOR gate as a programmable inverter to both the RX and TX lines. See below for use information.</p>
+</div>
+</section>
+<section id="connector-pin-assignments">
+<h2>Connector pin assignments<a class="headerlink" href="#connector-pin-assignments" title="Permalink to this heading">¶</a></h2>
+<p>Unless noted otherwise all connectors are JST GH</p>
+<section id="telem1-telem2-osd-ports">
+<h3>TELEM1, TELEM2+OSD ports<a class="headerlink" href="#telem1-telem2-osd-ports" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Volt</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>CTS (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>RTS (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="gps-port">
+<h3>GPS port<a class="headerlink" href="#gps-port" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>I2C1 SCL</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>I2C1 SDA</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="frsky-telemetry-serial4">
+<h3>FrSky Telemetry / SERIAL4<a class="headerlink" href="#frsky-telemetry-serial4" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table><p>This port has built in inverters on the TX and RX lines and shunt resistors which allow them to be tied together and connected to an FrSky receiver’s SPort input for telemetry. It is on by default, and only <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> needs to be set to “10” for FrSky passthrough telemetry to be sent to the receiver. See <a class="reference internal" href="common-frsky-telemetry.html#common-frsky-telemetry"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a> for more information.</p>
+<p>The operation of the TX/RX path inverter can be disabled by setting the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-options" title="(in Rover)"><span class="xref std std-ref">SERIAL4_OPTIONS</span></a> parameter to “2” to “invert” the TX , which will turn off the inversion for both the TX and RX pins. This will allow normal UART operation, if desired.</p>
+</section>
+<section id="rc-input-accepts-ppm-s-bus-spektrum-sumd-st24">
+<h3>RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)<a class="headerlink" href="#rc-input-accepts-ppm-s-bus-spektrum-sumd-st24" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>RC IN</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>RSSI IN</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>VDD 3V3</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="can">
+<h3>CAN<a class="headerlink" href="#can" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>CAN_H</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CAN_L</td>
+<td>+12V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="power">
+<h3>Power<a class="headerlink" href="#power" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>VCC</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CURRENT</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>VOLTAGE</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+<section id="switch">
+<h3>Switch<a class="headerlink" href="#switch" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>SAFETY</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>!IO_LED_SAFETY</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CURRENT</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>BUZZER-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>BUZZER+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table></section>
+<section id="debug-port-jst-sm06b-connector">
+<h3>Debug port (JST SM06B connector)<a class="headerlink" href="#debug-port-jst-sm06b-connector" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>PIN</th>
+<th>SIGNAL</th>
+<th>VOLT</th>
+</tr>
+<tr>
+<td>1 (red)</td>
+<td>VCC TARGET SHIFT</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>2 (blk)</td>
+<td>CONSOLE TX (OUT)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>3 (blk)</td>
+<td>CONSOLE RX (IN)</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>4 (blk)</td>
+<td>SWDIO</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>5 (blk)</td>
+<td>SWCLK</td>
+<td>+3.3V</td>
+</tr>
+<tr>
+<td>6 (blk)</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table></section>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>We suggest buying directly from <a class="reference external" href="https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm">mRobotics</a>.</p></li>
+<li><p>Whilst PixRacer can be sourced from other retailers, the specific design may differ and not have been tested by the Development Team.  Known retailers of 3rd party PixRacer boards are <a class="reference external" href="https://hobbyking.com/en_us/new-pixracer-xracer-autopollot-v1-0-fmuv4-generation.html?___store=en_us">HobbyKing</a>, and <a class="reference external" href="https://www.banggood.com/Pixracer-Autopilot-Xracer-V1-0-Flight-Controller-Mini-PX4-Built-in-Wifi-For-FPV-Racing-RC-Multirotor-p-1056428.html?">Banggood</a>, …</p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-pixracer-serial-names.html">PixRacer Serial Names</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some information and images in this page were copied from
+<a class="reference external" href="https://pixhawk.org/">pixhawk.org</a>,
+<a class="reference external" href="https://docs.px4.io/en/flight_controller/pixracer.html">docs.px4.io</a> and the
+<a class="reference external" href="https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm">mRobotics shop</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/ArduPilot/Schematics/tree/master/mRobotics">Schematics</a></p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-pixhawk-serial-names.html" class="btn btn-neutral float-left" title="Pixhawk FMUv2 / Cube FMU v3 Serial Mapping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-pixracer-serial-names.html" class="btn btn-neutral float-right" title="PixRacer Serial Mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

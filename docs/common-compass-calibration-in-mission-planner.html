@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass Calibration &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RC Transmitter Flight Mode Configuration" href="common-rc-transmitter-flight-mode-configuration.html" />
+    <link rel="prev" title="Accelerometer Calibration" href="common-accelerometer-calibration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">指南针校准</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#calibration-first-steps">校准的第一步</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onboard-calibration">机载校准</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onboard-calibration-using-rc-switch">使用RC开关机载校准</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#large-vehicle-magcal">大型载具的指南针校准</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compass-ordering">指南针排序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-information">附加信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#video-demonstration">视频演示</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">指南针校准</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compass-calibration">
+<span id="common-compass-calibration-in-mission-planner"></span><h1>指南针校准<a class="headerlink" href="#compass-calibration" title="Permalink to this heading">¶</a></h1>
+<p>本文介绍了如何进行基本的指南针校准。它假设您至少有一个指南针，无论是在系统内部还是外部，并且它已经启用。请参阅<a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">高级指南针设置</span></a>以了解更多信息并设置其他指南针相关功能。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>重要的是，当罗盘校准完成时，载具具有良好的三维gps锁定，以确保最佳设置。如有必要，在进行指南针校准之前，移动到户外，以获得良好的3D gps锁定。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>载具解锁后无法执行指南针校准。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>当载具在新位置飞行时，没有必要重新校准指南针，因为ArduPilot包括一个“世界磁模型”，可以在不重新校准的情况下将该位置的磁北转换为正北。此外，该位置的“倾斜度”在启动时进行校准，然后在起飞后不久再次进行校准。</p>
+</div>
+<section id="calibration-first-steps">
+<h2>校准的第一步<a class="headerlink" href="#calibration-first-steps" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>不要在任何金属或产生磁场的物体（电脑、手机、金属桌子、电源等）附近校准指南针，否则会出现不正确的校准。</p>
+</div>
+<ul>
+<li><p>在 <strong>初始设置| 必要硬件</strong> 选择 <strong>指南针</strong>.</p>
+<blockquote>
+<div><figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/CompassCalibration_Onboard.png"><img alt="../_images/CompassCalibration_Onboard.png" src="../_images/CompassCalibration_Onboard.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: 指南针校准</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>如果您经常看到“指南针不一致”pre-arm 信息，并且您确信外部指南针已校准，则您可能希望禁用任何内部指南针。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="onboard-calibration">
+<span id="id1"></span><h2>机载校准<a class="headerlink" href="#onboard-calibration" title="Permalink to this heading">¶</a></h2>
+<p>“机载校准”是在自动驾驶仪上运行的校准程序。这种方法比在地面站上运行的旧的“场外校准”（也称为“现场校准”）更准确，因为除了偏移之外，缩放和方向也会自动确定。</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>如果<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-orientation" title="(in Rover)"><span class="xref std std-ref">自动驾驶仪板</span></a>方向参数不正确，集成到自动驾驶仪中的罗盘（如果有的话）的校准可能会失败。</p>
+</div>
+<p>要执行所有指南针的机载校准：</p>
+<ul>
+<li><p>单击“Onboard Mag Calibration”部分的“Start” 按钮</p></li>
+<li><p>如果你的自动驾驶仪上有一个蜂鸣器，你应该每秒听到一声单音，然后是一声短促的嘟嘟声</p></li>
+<li><p>将载具保持在空中并旋转，使每一侧（前、后、左、右、上、下）依次指向地面几秒钟。考虑一个完整的360度转弯，每个转弯都指向载具与地面的不同方向。这将导致6个完整的循环，加上可能的一些额外的时间和循环，以确认校准，或者如果最初没有通过，则重试。</p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference external image-reference" href="../_images/accel-calib-positions-e1376083327116.jpg"><img alt="../_images/accel-calib-positions-e1376083327116.jpg" src="../_images/accel-calib-positions-e1376083327116.jpg" /></a>
+</figure>
+</div></blockquote>
+</li>
+<li><p>当载具旋转时，绿色条应该越来越向右延伸，直到校准完成</p></li>
+<li><p>成功完成后，将发出三个上升音，并出现“Please reboot the autopilot”（请重新启动自动驾驶仪）窗口，您需要重新启动自动行驶仪，然后才能解锁载具。</p></li>
+</ul>
+<p>如果校准失败：</p>
+<ul class="simple">
+<li><p>您将听到“不愉快”的故障提示音，绿色条可能会重置到左侧，校准程序可能会重新启动（取决于地面站）。Mission Planner将自动重试，因此继续按照上面的指示旋转载具。</p></li>
+<li><p>如果指南针没有校准，可以考虑转移到远离磁干扰的另一个区域，并从口袋里取出电子设备。</p></li>
+<li><p>如果多次尝试后，指南针未通过校准，请按“Cancel取消”按钮，将“Fitness适合度”下拉菜单更改为更轻松的设置，然后重试。</p></li>
+<li><p>如果指南针校准仍然失败，则可以将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-offs-max" title="(in Rover)"><span class="xref std std-ref">COMPASS_OFFS_MAX</span></a>从850提高到2000甚至3000</p></li>
+<li><p>最后，如果一个指南针没有校准，而你信任其他指南针，请禁用它。</p></li>
+</ul>
+</section>
+<section id="onboard-calibration-using-rc-switch">
+<h2>使用RC开关进行车载校准<a class="headerlink" href="#onboard-calibration-using-rc-switch" title="Permalink to this heading">¶</a></h2>
+<p>机载校准可以使用RC开关启动，而不是使用上面的任务规划器技术。这允许在没有USB电缆缠结的情况下进行校准。</p>
+<p>通过将RC通道的<code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code>设置为“171”，设置RC通道以开始校准。通道上的高值将开始校准所有指南针，您将如上所述移动载具。低值将取消校准。上面成功或失败的音调将会发出。</p>
+</section>
+<section id="large-vehicle-magcal">
+<span id="large-vehicle-mag-cal"></span><h2>大型载具的指南针校准<a class="headerlink" href="#large-vehicle-magcal" title="Permalink to this heading">¶</a></h2>
+<p>大型或重型载具无法在所有轴上旋转。如果自动驾驶仪上的GPS锁定处于激活状态，并且载具实际航向已知，则可以使用任务规划器地图上的地标参考，或者使用另一个指南针（如手机）并输入载具航向，则此功能可以进行相当准确的校准。</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>输入的标题应该是TRUE，而不是MAGNETIC。使用手机的指南针应用程序通常需要将本地赤纬值添加到读数中，以获得应输入的TRUE地理航向。还必须设置指南针的正确方向，才能使用此方法。</p>
+</div>
+</section>
+<section id="compass-ordering">
+<h2>指南针排序<a class="headerlink" href="#compass-ordering" title="Permalink to this heading">¶</a></h2>
+<p>如果需要，可以在页面顶部更改所附指南针的优先级。</p>
+</section>
+<section id="additional-information">
+<h2>附加信息<a class="headerlink" href="#additional-information" title="Permalink to this heading">¶</a></h2>
+<p>有关指南针配置的更多信息，请参阅<a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">高级指南针设置</span></a>。这包括如何设置附加指南针、<a class="reference internal" href="common-compass-setup-advanced.html#automatic-compass-offset-calibration"><span class="std std-ref">自动设置偏移</span></a>、非标准指南针校准、<a class="reference external" href="https://ardupilot.org/copter/docs/common-compass-setup-advanced.html#common-compass-setup-advanced-compassmot-compensation-for-interference-from-the-power-wires-escs-and-motors" title="(in Copter)"><span class="xref std std-ref">指南针和电机</span></a>,等的说明。</p>
+<p>关于磁干扰的一般讨论以及减少磁干扰的方法可以在<a class="reference internal" href="common-magnetic-interference.html#common-magnetic-interference"><span class="std std-ref">磁干扰</span></a>中找到。</p>
+</section>
+<section id="video-demonstration">
+<h2>视频演示<a class="headerlink" href="#video-demonstration" title="Permalink to this heading">¶</a></h2>
+<p>指南针校准的视频演示。</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/CD8EhVDfgnI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/DmsueBS0J3E" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p> </p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-accelerometer-calibration.html" class="btn btn-neutral float-left" title="Accelerometer Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="common-rc-transmitter-flight-mode-configuration.html" class="btn btn-neutral float-right" title="RC Transmitter Flight Mode Configuration" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

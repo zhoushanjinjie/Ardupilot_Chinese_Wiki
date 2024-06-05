@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RC校准 &mdash; Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Accelerometer Calibration" href="common-accelerometer-calibration.html" />
+    <link rel="prev" title="SingleCopter and CoaxCopter" href="singlecopter-and-coaxcopter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RC校准</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">概览</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">RC校准</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="radio-control-calibration">
+<span id="common-radio-control-calibration"></span><h1>RC校准<a class="headerlink" href="#radio-control-calibration" title="Permalink to this heading">¶</a></h1>
+<p>本文展示了如何使用Mission Planner执行RC校准</p>
+<section id="overview">
+<h2>概览<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>遥控发射器允许飞行员设置飞行模式，控制飞行器的移动和方向，还可以打开/关闭辅助功能（如升降起落架等）。</p>
+<p>RC校准包括捕获每个RC输入通道的最小值、最大值和“微调”值，以便ArduPilot能够正确解释输入。</p>
+<section id="check-the-transmitter-s-setup">
+<h3>检查遥控发射器设置<a class="headerlink" href="#check-the-transmitter-s-setup" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>确保断开电池（这一点很重要，因为在RC校准过程中可能会意外启动载具）</p></li>
+<li><p>确保RC接收器连接到飞控</p></li>
+<li><p>打开RC发射器，如果它有“微调按钮”，请确保它们位于中间</p></li>
+<li><p>使用USB线将飞控连接到电脑</p></li>
+<li><p>在Mission Planner上，按下“连接”按钮，打开Mission Planner的<strong>初始设置(INITIAL SETUP)|必要硬件(Mandatory Hardware)|遥控器校准(Radio Calibration)</strong></p></li>
+<li><p>应出现一些绿色条，显示ArduPilot正在接收来自发射器/接收器的输入。如果没有出现条形图，请检查接收器的LED：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>没有任何指示灯可能表明它与飞控的接线不正确。查找可能已反插的接头</p></li>
+<li><p>红色或闪烁的LED可能表示您的RC发射器/接收器需要绑定。有关说明，请参阅RC设备附带的手册</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/mp_radio_calibration.png"><img alt="../_images/mp_radio_calibration.png" src="../_images/mp_radio_calibration.png" /></a>
+</figure>
+<ul class="simple">
+<li><p>通过摇杆、旋钮和开关并观察哪些（如有）绿色条移动，检查遥控器中的通道映射（即检查哪些输入通道由遥控器的摇杆、开关和旋钮控制）。
+  如果这是第一次将遥控器与ArduPilot一起使用，则可能需要更改遥控器的信道映射，通常情况下，这是在遥控器上使用其内置配置菜单进行的</p>
+<ul>
+<li><p>确定您的发射机是模式1还是模式2（见下文）</p></li>
+<li><p>横滚操纵杆应控制通道1</p></li>
+<li><p>俯仰操纵杆应控制通道2</p></li>
+<li><p>油门操纵杆应控制通道3</p></li>
+<li><p>偏航操纵杆应控制通道4</p></li>
+<li><p>应设置一个三段开关（用于控制飞行模式）以控制通道5（如果使用Copter）或通道8（如果使用Rover或Plane）。可以通过设置 <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fltmode-ch" title="(in Plane)"><span class="xref std std-ref">FLTMODE_CH</span></a> 参数来移动此通道。</p></li>
+<li><p>在Copter上，要用一个旋钮开关来控制Channel 6</p></li>
+<li><p>在Copter和Rover上，任何剩余的两个或三个位置开关都可以设置为通过将其映射到通道7至12来控制辅助功能</p></li>
+</ul>
+</li>
+<li><p>移动遥控器的横滚、俯仰、油门和偏航操纵杆，并确保软件上绿色条沿正确方向移动：</p>
+<ul>
+<li><p>对于横滚、油门和偏航通道，绿色条应与遥控器的操纵杆沿相同方向移动</p></li>
+<li><p>对于俯仰，绿色条应该向与遥控器操纵杆相反的方向移动</p></li>
+<li><p>如果其中一个绿色条的移动方向不正确，则反转遥控器中的通道。如果无法反转遥控器中的通道，您可以通过选中“反转”复选框（仅限Plane和Rover）来反转ArduPilot中的通道。如果复选框不可见，则可以通过直接更改RCx_REVERSED参数来反转通道（其中“x”是从1到4的输入通道）。</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/mp_radio_calibration.png"><img alt="../_images/mp_radio_calibration.png" src="../_images/mp_radio_calibration.png" /></a>
+</figure>
+</section>
+<section id="calibration">
+<h3>校准<a class="headerlink" href="#calibration" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>打开Mission Planner的|强制硬件|无线电校准屏幕 <strong>初始设置 | 必要硬件 | 遥控器校准</strong> 界面</p></li>
+<li><p>单击右下角的绿色“遥控校准”按钮</p></li>
+<li><p>当提示检查无线电控制设备是否打开、电池是否未连接以及螺旋桨是否未连接时，按下“OK”</p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference external image-reference" href="../_images/mp_calibrate_radio.jpg"><img alt="../_images/mp_calibrate_radio.jpg" src="../_images/mp_calibrate_radio.jpg" /></a>
+</figure>
+</div></blockquote>
+</li>
+<li><p>将遥控器的操纵杆、旋钮和开关移动到其极限。红线将出现在校准条上，以显示当前看到的最小值和最大值</p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference external image-reference" href="../_images/mp_radio_calibration_click_when_done.jpg"><img alt="../_images/mp_radio_calibration_click_when_done.jpg" src="../_images/mp_radio_calibration_click_when_done.jpg" /></a>
+</figure>
+</div></blockquote>
+</li>
+<li><p>选择 <strong>完成时点击</strong></p></li>
+</ul>
+<ul>
+<li><p>将出现一个窗口，并提示“Ensure all your sticks are centered and throttle is down and click ok to continue”。将油门移到零，然后按“OK”。</p></li>
+<li><p>Mission Planner将显示校准数据的摘要。最小值的正常值约为1100，最大值为1900。</p>
+<blockquote>
+<div><figure class="align-default">
+<a class="reference external image-reference" href="../_images/radi-calib-results.png"><img alt="../_images/radi-calib-results.png" src="../_images/radi-calib-results.png" /></a>
+</figure>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="mode1-and-mode2-transmitters">
+<h3>Mode1和Mode2<a class="headerlink" href="#mode1-and-mode2-transmitters" title="Permalink to this heading">¶</a></h3>
+<p>遥控器主要有两种配置：</p>
+<ul class="simple">
+<li><p><em>Mode 1</em>: 左杆控制俯仰和偏航，右杆控制油门和横滚。</p></li>
+<li><p><em>Mode 2</em>: 左杆控制油门和偏航；右杆控制俯仰和横滚。</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/radio_setup_mode_1.png"><img alt="../_images/radio_setup_mode_1.png" src="../_images/radio_setup_mode_1.png" /></a>
+</figure>
+<!--
+<p>[site wiki=”rover”]Rover users may prefer to control both throttle and roll from the same stick.[/site]</p>
+-->
+</section>
+<section id="channel-mappings">
+<h3>通道映射<a class="headerlink" href="#channel-mappings" title="Permalink to this heading">¶</a></h3>
+<!--
+<p>[site wiki=”copter”]</p>
+-->
+<p>Copter默认通道映射为：</p>
+<ul class="simple">
+<li><p><strong>通道 1</strong>: 横滚(Roll)</p></li>
+<li><p><strong>通道 2</strong>: 俯仰(Pitch)</p></li>
+<li><p><strong>通道 3</strong>: 油门(Throttle)</p></li>
+<li><p><strong>通道 4</strong>: 偏航(Yaw)</p></li>
+<li><p><strong>通道 5</strong>: 飞行模式(Flight modes)</p></li>
+<li><p><strong>通道 6</strong>: （可选）飞行中调参或云台（映射到遥控器旋钮开关）</p></li>
+<li><p><strong>通道 7 to 12</strong>: （可选）辅助功能开关</p></li>
+</ul>
+<!--
+<p>[/site]</p>
+<p>[site wiki=”plane”]</p>
+<p>Plane default channel mappings are:</p>
+<ul class="simple">
+<li><p><strong>Channel 1</strong>: Roll</p></li>
+<li><p><strong>Channel 2</strong>: Pitch</p></li>
+<li><p><strong>Channel 3</strong>: Throttle</p></li>
+<li><p><strong>Channel 4</strong>: Yaw</p></li>
+<li><p><strong>Channel 8</strong> (default): Flight modes. Mode selection can be mapped to any RC channel using the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fltmode-ch" title="(in Plane)"><span class="xref std std-ref">FLTMODE_CH</span></a> parameter</p></li>
+</ul>
+<p>Unused channels can be mapped to control additional peripherals.
+[/site]</p>
+<p>[site wiki=”rover”]</p>
+<p>Rover default channel mappings are:</p>
+<ul class="simple">
+<li><p><strong>Channel 1</strong>: Steering</p></li>
+<li><p><strong>Channel 3</strong>: Throttle</p></li>
+<li><p><strong>Channel 8</strong> (default): Flight modes. Mode selection can be mapped to any RC channel using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mode-ch" title="(in Rover)"><span class="xref std std-ref">MODE_CH</span></a> parameter</p></li>
+<li><p><strong>Channel 7 to 12</strong>: (Optional) Auxiliary function switches</p></li>
+</ul>
+</section>
+<section id="spring-centered-throttle-stick-versus-free-moving">
+<h3>Spring Centered Throttle Stick versus Free Moving<a class="headerlink" href="#spring-centered-throttle-stick-versus-free-moving" title="Permalink to this heading">¶</a></h3>
+<p>Rover’s throttle channel is assumed to be normally centered, with forward commanding forward movement, and backward, reverse movement. Most RC systems for cars and boats have this spring centered throttle arrangement. However, most aircraft RC systems have a free moving throttle stick. Use of this arrangement presents a challenge to maintain the stick precisely centered for zero motion.</p>
+<p>If the transmitter is capable of programming multiple throttle curves controlled by a switch, then it is easy to have one switch position (for FORWARD) have a throttle curve that starts at 1500uS (50%, or mid-range of the channel) at low stick and increases linearly to maximum output (+100% or ~2000us), and in the other position (for REVERSE) that again starts at mid range at low stick, but linearly decreases pulse width to the channel minimum value (-100% or ~1000us), representing full reverse throttle. Zero motion position of the stick is fully down in either case, making it much easier to use.</p>
+<p>[/site]</p>
+</section>
+-->
+<section id="further-reading">
+<h3>补充<a class="headerlink" href="#further-reading" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>横滚、俯仰、油门和偏航通道映射可以使用 <a class="reference internal" href="common-rcmap.html#common-rcmap"><span class="std std-ref">RCMAP Input Channel Mapping</span></a>进行更改</p></li>
+<li><p>可在 <a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html#common-rc-transmitter-flight-mode-configuration"><span class="std std-ref">遥控器飞行模式设置</span></a> 页面上找到飞行模式开关设置，以指定每个开关位置启用的飞行模式</p></li>
+</ul>
+<!--
+<p>[site wiki=”rover”]
+- Rover steering and reversing behaviour setup are described on the <a class="reference external" href="https://ardupilot.org/rover/docs/rover-steering-input-type-and-reversing-behaviour.html#rover-steering-input-type-and-reversing-behaviour" title="(in Rover)"><span class="xref std std-ref">Steering Input Type and Reversing Behaviour</span></a> page
+[/site]</p>
+<p>[copywiki destination=”copter,plane,rover,planner,blimp”]</p>
+-->
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="singlecopter-and-coaxcopter.html" class="btn btn-neutral float-left" title="SingleCopter and CoaxCopter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-accelerometer-calibration.html" class="btn btn-neutral float-right" title="Accelerometer Calibration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

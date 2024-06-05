@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emlid Reach RTK GPS Receiver &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Emlid Reach RTK GPS Receiver</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="emlid-reach-rtk-gps-receiver">
+<span id="common-reach-rtk-receiver"></span><h1>Emlid Reach RTK GPS Receiver<a class="headerlink" href="#emlid-reach-rtk-gps-receiver" title="Permalink to this heading">¶</a></h1>
+<p>This article provides a brief overview of Reach RTK GPS receiver.</p>
+<a class="reference external image-reference" href="../_images/Reach.jpg"><img alt="../_images/Reach.jpg" src="../_images/Reach.jpg" /></a>
+<section id="what-is-reach-and-what-is-it-for">
+<h2>What is Reach and what is it for?<a class="headerlink" href="#what-is-reach-and-what-is-it-for" title="Permalink to this heading">¶</a></h2>
+<p>Reach is an RTK GNSS receiver for applications when your standard GPS with several meters accuracy just won’t cut it. It relies on RTK (real-time kinematics) technology to deliver centimeter level accuracy.</p>
+<p>RTK has historically been used primarily by surveyors and others who required centimeter precise positioning, and were able to spend thousands of dollars on an RTK system. Reach makes this same functionality affordable to hobbyists and makers.</p>
+<p>Reach runs open-source RTK processing software called RTKLIB written by Tomoji Takasu. Previously a computer was required to run RTKLIB, but now all RTKLIB features are available directly on Reach.</p>
+<p>For further information see <a class="reference external" href="https://docs.emlid.com/reach/">Reach documentation</a>.</p>
+</section>
+<section id="ardupilot-integration">
+<h2>ArduPilot integration<a class="headerlink" href="#ardupilot-integration" title="Permalink to this heading">¶</a></h2>
+<p>Reach supports RTK-enhanced coordinates output to ArduPilot based autopilots. To make this possible, it uses a custom GPS protocol called ERB (Emlid Reach Binary protocol).</p>
+<p>Here is a demo video of Pixhawk and Reach working together:</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/oq9H19ikAdM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="connecting-reach-to-pixhawk">
+<h2>Connecting Reach to Pixhawk<a class="headerlink" href="#connecting-reach-to-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>A Reach unit mounted on the vehicle can receive base corrections over telemetry radio, thus not requiring a separate correction link to the drone. Coordinate output is implemented via a serial port.</p>
+<a class="reference external image-reference" href="../_images/Reach_pixhawk_radio.jpg"><img alt="../_images/Reach_pixhawk_radio.jpg" src="../_images/Reach_pixhawk_radio.jpg" /></a>
+<p>For more information on Reach and Pixhawk integration, visit <a class="reference external" href="https://docs.emlid.com/reach/ardupilot-integration/">Reach ArduPilot integration docs</a>.</p>
+<p>Read about Reach and its other applications:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://emlid.com/reach/">Reach overview</a></p></li>
+<li><p><a class="reference external" href="https://docs.emlid.com/reach/">Introduction to using Reach</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

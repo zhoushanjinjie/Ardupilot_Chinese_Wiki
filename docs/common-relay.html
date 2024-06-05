@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relay Switch &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Relay Switch</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="relay-switch">
+<span id="common-relay"></span><h1>Relay Switch<a class="headerlink" href="#relay-switch" title="Permalink to this heading">¶</a></h1>
+<p>A “Relay” is an digital output pin on the autopilot that can be switched between 0 volts and either 3.3V or 5V, depending on the autopilot.  Similar to a servo it allows the autopilot to invoke some action from another device on the vehicle.  Up to 6 pins can be defined as relays.</p>
+<section id="relay-pins-on-iomcu-equipped-autopilots">
+<h2>Relay pins on IOMCU equipped autopilots<a class="headerlink" href="#relay-pins-on-iomcu-equipped-autopilots" title="Permalink to this heading">¶</a></h2>
+<p>Autopilots having an IOMCU (IO co-processor providing the “MAIN” PWM outputs) can have their AUX outputs configured as <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> instead of Servo/Motor outputs and used as RELAY outputs.</p>
+<p>For example, the Pixhawk default defines set up AUX OUT 5 (pin 54) and AUX OUT 6 (pin 55) as the “First” (or #0) and “Second” (or #1) Relays respectively.</p>
+<a class="reference external image-reference" href="../_images/Relay_Pixhawk.jpg"><img alt="../_images/Relay_Pixhawk.jpg" src="../_images/Relay_Pixhawk.jpg" /></a>
+<p>The number of available Relays can be increased to a maximum of 6 by reducing the number of AUX pins used as <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">Servo</span></a> outputs.  This can be accomplished by reducing the <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> from 4 to 2 or even 0.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in firmware versions 4.2 and later, the method for setting a PWM/SERVO/MOTOR output to be a GPIO function is changed. Instead of <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> being used, the individual <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter is merely set to “-1”. If set to “0”, it remains a PWM output, unassigned to a function, and outputs that output’s trim value when board safety is not active. If the servo function is being “mirrored” to a remote device, as in the case of a DroneCAN or KDECAN ESC, then in order to change the autopilot board’s corresponding output pin to be a GPIO, but allow the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to still be assigned to the remote device, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter can be used to assign the board pin to be a GPIO without affecting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> assignment for the remote device.</p>
+</div>
+<p>Likewise, on other controllers which have only PWM outputs and no IOMCU, setting <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> to a lower number will free up their higher numbered outputs for use as GPIOs for controlling relays.</p>
+</section>
+<section id="defining-the-relay-pins-through-the-mission-planner">
+<h2>Defining the relay pins through the Mission Planner<a class="headerlink" href="#defining-the-relay-pins-through-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>The First ~ Sixth relay pins can be setup most easily using the Mission Planner’s CONFIG/Standard Params list as shown below after “Find”ing the term relay. Pin designations for several different autopilots are shown in the drop-down box.</p>
+<a class="reference external image-reference" href="../_images/Relay_SetupWithMP.png"><img alt="../_images/Relay_SetupWithMP.png" src="../_images/Relay_SetupWithMP.png" /></a>
+<p>For other boards, you will need to find its hwdef.dat file <a class="reference external" href="ttps://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">here</a> and determine the GPIO pin number listed beside its output number, as shown below:</p>
+<img alt="../_images/GPIO_numbers.png" src="../_images/GPIO_numbers.png" />
+<p>In the above case, you could set the BRD_PWM_COUNT down to 8, freeing PWM9 and PWM10 for GPIO use, then use GPIO pin 58 (which is PWM output 9 on the board) for a relay pin. Use its GPIO number to set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN</span></a> parameter in the above Mission Planner parameter entry ignoring the drop-down selections or, directly in the parameter itself, using the CONFIG/Full Parameter List screen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>any change to relay pin setup requires a reboot to take effect.</p>
+</div>
+</section>
+<section id="pilot-control-of-the-relay">
+<h2>Pilot control of the relay<a class="headerlink" href="#pilot-control-of-the-relay" title="Permalink to this heading">¶</a></h2>
+<p>The relays can be controlled with the auxiliary switches. These can be set using the CONFIG/User Params screen as shown below:</p>
+<a class="reference external image-reference" href="../_images/User_params.png"><img alt="../_images/User_params.png" src="../_images/User_params.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This screen allows setting RC5 thru RC14, but any RC channel (1-16) can have its RCx_OPTION set as a RELAY, if its not already being used as another control function using the CONFIG/Full Parameter List screen.</p>
+</div>
+</section>
+<section id="mission-control-of-the-relay">
+<h2>Mission control of the relay<a class="headerlink" href="#mission-control-of-the-relay" title="Permalink to this heading">¶</a></h2>
+<p>Similar to a servo, the Relays can be activated during a mission using
+the Do-Set-Relay mission command.  This is described on the <a class="reference external" href="https://ardupilot.org/copter/docs/mission-command-list.html#mission-command-list-do-set-relay" title="(in Copter)"><span class="xref std std-ref">Copter Mission Command List wiki page</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In MAVLink the relays are numbered 0-5 instead of 1-6, so RELAY 0 is the first relay</p>
+</div>
+</section>
+<section id="mission-planner-control-of-the-relay">
+<h2>Mission Planner control of the relay<a class="headerlink" href="#mission-planner-control-of-the-relay" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner allows the user to use buttons to set any of the first four relay pin’s outputs low, high or set it low and briefly toggle it high using the DATA screen and the Servo/Relay sub-window, as show below:</p>
+<img alt="../_images/MP_relay_control.png" src="../_images/MP_relay_control.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

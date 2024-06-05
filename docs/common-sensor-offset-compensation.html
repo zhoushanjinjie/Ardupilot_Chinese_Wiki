@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensor Position Offset Compensation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sensor Position Offset Compensation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-sensor-offset-compensation">[copywiki destination=”copter,plane,rover”]</p>
+<section id="sensor-position-offset-compensation">
+<h1>Sensor Position Offset Compensation<a class="headerlink" href="#sensor-position-offset-compensation" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot includes compensation for sensor placement on the vehicle.  This page clarifies what parameters can be set and how they should be set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In most vehicles which have all their sensors (IMU, GPS, optical flow, etc) within 15cm of each other, it is unlikely that providing the offsets will provide a noticeable performance improvement.</p>
+</div>
+<img alt="../_images/sensor-position-offsets-xyz.png" src="../_images/sensor-position-offsets-xyz.png" />
+<p>The sensor’s position offsets are specified as 3 values (X, Y and Z) which are distances in meters from the IMU (which can be assumed to be in the middle of the autopilot board) or the vehicle’s center of gravity.</p>
+<ul class="simple">
+<li><p>X : distance forward of the IMU or center of gravity.  Positive values are towards the front of the vehicle, negative values are towards the back.</p></li>
+<li><p>Y : distance to the right of the IMU or center of gravity.  Positive values are towards the right side of the vehicle, negative values are towards the left.</p></li>
+<li><p>Z : distance <em>below</em> the IMU or center of gravity.  Positive values are <em>lower</em>, negative values are <em>higher</em>.</p></li>
+</ul>
+<p>In practice the distance to the sensor can be measured from the center of the autopilot unless the autopilot itself is placed a significant distance from the vehicle’s center of gravity in which case
+the IMU position offsets can be specified and then the other sensor’s position offsets can be specified from the vehicle’s center of gravity.</p>
+<section id="parameter-details">
+<h2>Parameter Details<a class="headerlink" href="#parameter-details" title="Permalink to this heading">¶</a></h2>
+<p><strong>IMU (aka INS):</strong></p>
+<p>For the best results the autopilot (and thus the IMUs) should be placed at the center-of-gravity of the vehicle but if this is physically impossible the offset can be partially compensated for by setting the following parameters.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos1-x" title="(in Rover)"><span class="xref std std-ref">INS_POS1_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos1-y" title="(in Rover)"><span class="xref std std-ref">INS_POS1_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos1-z" title="(in Rover)"><span class="xref std std-ref">INS_POS1_Z</span></a> the first IMU’s position from the vehicle’s center-of-gravity</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos2-x" title="(in Rover)"><span class="xref std std-ref">INS_POS2_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos2-y" title="(in Rover)"><span class="xref std std-ref">INS_POS2_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos2-z" title="(in Rover)"><span class="xref std std-ref">INS_POS2_Z</span></a> the second IMU’s position from the vehicle’s center-of-gravity</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos3-x" title="(in Rover)"><span class="xref std std-ref">INS_POS3_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos3-y" title="(in Rover)"><span class="xref std std-ref">INS_POS3_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-pos3-z" title="(in Rover)"><span class="xref std std-ref">INS_POS3_Z</span></a> the third IMU’s position from the vehicle’s center-of-gravity</p></li>
+</ul>
+<p>The compensation is only <em>partial</em> because ArduPilot can correct the vehicle’s velocity and position estimate but it does not correct the acceleration estimate.
+For example if the autopilot was placed on the nose of a vehicle and the vehicle suddenly leans back (i.e. rotates so that its nose points up) with no offset compensation the vehicle velocity
+estimate would momentarily show the vehicle is climbing when it’s not.  With the position offsets added the velocity would not show this momentary climb.  The EKF would still show a momentary vertical acceleration and
+because we use the acceleration in our altitude hold controllers this could still lead to the vehicle momentary reducing throttle.</p>
+<p>Although individual position offsets can be set for each IMU, the difference between the placement of IMUs on most autopilot boards is so small that the same values can be used for all IMUs</p>
+<p><strong>GPS:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-y" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos1-z" title="(in Rover)"><span class="xref std std-ref">GPS_POS1_Z</span></a> the first GPS’s position from the vehicle’s IMU or center-of-gravity</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos2-x" title="(in Rover)"><span class="xref std std-ref">GPS_POS2_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos2-y" title="(in Rover)"><span class="xref std std-ref">GPS_POS2_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-pos2-z" title="(in Rover)"><span class="xref std std-ref">GPS_POS2_Z</span></a> the second GPS’s position from the vehicle’s IMU or center-of-gravity</p></li>
+</ul>
+<p><strong>Range Finder (Sonar or Lidar):</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pos-x" title="(in Rover)"><span class="xref std std-ref">RNGFND1_POS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pos-z" title="(in Rover)"><span class="xref std std-ref">RNGFND1_POS_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pos-z" title="(in Rover)"><span class="xref std std-ref">RNGFND1_POS_Z</span></a> the first RangeFinder’s position from the vehicle’s IMU or center of gravity</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd2-pos-x" title="(in Rover)"><span class="xref std std-ref">RNGFND2_POS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd2-pos-z" title="(in Rover)"><span class="xref std std-ref">RNGFND2_POS_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd2-pos-z" title="(in Rover)"><span class="xref std std-ref">RNGFND2_POS_Z</span></a> the second RangeFinder’s position from the vehicle’s IMU or center of gravity</p></li>
+</ul>
+<p><strong>Optical Flow:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-x" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-y" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-z" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_Z</span></a> distance from the IMU or center of gravity</p></li>
+</ul>
+<p><strong>Visual Odometry:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-pos-x" title="(in Rover)"><span class="xref std std-ref">VISO_POS_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-pos-y" title="(in Rover)"><span class="xref std std-ref">VISO_POS_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#viso-pos-z" title="(in Rover)"><span class="xref std std-ref">VISO_POS_Z</span></a> distance from the IMU or center of gravity</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speedy Bee F4 V3 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Speedy Bee F4 V3</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="speedy-bee-f4-v3">
+<span id="common-speedybeef4-v3"></span><h1>Speedy Bee F4 V3<a class="headerlink" href="#speedy-bee-f4-v3" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/speedybeef4-v3.png"><img alt="../_images/speedybeef4-v3.png" src="../_images/speedybeef4-v3.png" /></a>
+<p><em>above image and some content courtesy of the</em> <a class="reference external" href="https://www.speedybee.com">speedybee.com</a></p>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor and Sensors</strong></p>
+<ul>
+<li><p>STM32F405 ARM microcontroller</p></li>
+<li><p>BMI270 IMU (Gyro and Accelerometers)</p></li>
+<li><p>SPL06 Barometer</p></li>
+<li><p>AT7456E OSD</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>9x PWM outputs (PWM9 for Neopixel LED)</p></li>
+<li><p>1x RC input (PWM/PPM, SBUS)</p></li>
+<li><p>6x serial port inputs (including RC input listed above)</p></li>
+<li><p>1x I2C for external compass or airspeed sensor</p></li>
+<li><p>Micro SD card slot</p></li>
+<li><p>4 in 1 ESC connector</p></li>
+<li><p>DJI Air Unit connector</p></li>
+<li><p>USB-C connector</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>9V ~ 25V DC input power (3S-6S)</p></li>
+<li><p>5V 2A BEC for peripheral</p></li>
+<li><p>9V 2A for Video</p></li>
+</ul>
+</li>
+<li><p><strong>Size and Dimensions</strong></p>
+<ul>
+<li><p>41.6mm x3 9.4mm x 7.8mm (30.5mm x 30.5mm mount pattern)</p></li>
+<li><p>9.6g</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pinouts">
+<h2>Pinouts<a class="headerlink" href="#pinouts" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/speedybeef4-v3-pinout-top.jpg"><img alt="../_images/speedybeef4-v3-pinout-top.jpg" src="../_images/speedybeef4-v3-pinout-top.jpg" /></a>
+<a class="reference external image-reference" href="../_images/speedybeef4-v3-pinout-bottom.jpg"><img alt="../_images/speedybeef4-v3-pinout-bottom.jpg" src="../_images/speedybeef4-v3-pinout-bottom.jpg" /></a>
+</section>
+<section id="uart-defaults">
+<h2>UART Defaults<a class="headerlink" href="#uart-defaults" title="Permalink to this heading">¶</a></h2>
+<p>The UARTs are marked Rn and Tn in the above pinouts. The Rn pin is the receive pin for UARTn. The Tn pin is the transmit pin for UARTn. N</p>
+<ul class="simple">
+<li><p>SERIAL0 -&gt; USB</p></li>
+<li><p>SERIAL1 -&gt; UART1 (DJI-VTX, DMA-enabled)</p></li>
+<li><p>SERIAL2 -&gt; UART2 (RCIN, DMA-enabled) Note that the SBUS input must be used for SBUS.</p></li>
+<li><p>SERIAL3 -&gt; UART3 (User defined)</p></li>
+<li><p>SERIAL4 -&gt; UART4 (connected to internal BT module, not currently usable by ArduPilot)</p></li>
+<li><p>SERIAL5 -&gt; UART5 (ESC Telemetry)</p></li>
+<li><p>SERIAL6 -&gt; UART6 (GPS, DMA-enabled)</p></li>
+</ul>
+</section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<p>RC input is configured on the R2 (UART2_RX) pin for most RC unidirectional protocols except SBUS which should be applied at the SBUS pin. PPM is not supported. For Fport, a bi-directional inverter will be required. See <a class="reference external" href="https://ardupilot.org/plane/docs/common-connecting-sport-fport.html">this article for connection information for F4 autopilots</a>.</p>
+<p>For CRSF/ELRS/SRXL2 connection of the receiver to T2 will also be required.</p>
+</section>
+<section id="dshot-capability">
+<h2>Dshot capability<a class="headerlink" href="#dshot-capability" title="Permalink to this heading">¶</a></h2>
+<p>The SpeedyBee F405 v3 supports up to 9 PWM outputs. The M1 to M4 outputs are on the esc connector, M5 to M8 on solder pads, plus LED pad(PWM output 9) for LED strip or another PWM output.</p>
+<p>The PWM is in 3 groups:</p>
+<ul class="simple">
+<li><p>PWM 1-4 in group1</p></li>
+<li><p>PWM 5-8 in group2</p></li>
+<li><p>PWM 9   in group3</p></li>
+</ul>
+<p>Channels within the same group need to use the same output protocol. If any channel in a group uses DShot then all channels in the group need to use DShot. Channels 1-4 also support bi-directional DShot, but only if the IC2 port is not being used for compass or other devices.</p>
+</section>
+<section id="osd-support">
+<h2>OSD Support<a class="headerlink" href="#osd-support" title="Permalink to this heading">¶</a></h2>
+<p>The SpeedyBee F405 v3 has an on-board OSD using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-type" title="(in Rover)"><span class="xref std std-ref">OSD_TYPE</span></a> =  1 (MAX7456 driver). The CAM and VTX pins provide connections for using the internal OSD.</p>
+</section>
+<section id="dji-video-and-osd">
+<h2>DJI Video and OSD<a class="headerlink" href="#dji-video-and-osd" title="Permalink to this heading">¶</a></h2>
+<p>A JST-GH-6P connector supports a standard DJI HD VTX connection and SERIAL6 is already setup for this by default.  Pin 1 of the connector is 9v so be careful not to connect this to any peripheral requiring 5v.</p>
+</section>
+<section id="battery-monitoring">
+<h2>Battery Monitoring<a class="headerlink" href="#battery-monitoring" title="Permalink to this heading">¶</a></h2>
+<p>The board has a internal voltage sensor and connections on the ESC connector for an external current sensor input. The voltage sensor can handle up to 6S LiPo batteries.</p>
+<p>The default battery parameters are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = 4</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> = 10</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> = 11</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> = 11.2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> = 52.7 (will need to be adjusted for whichever current sensor is attached)</p></li>
+</ul>
+</section>
+<section id="compass">
+<h2>Compass<a class="headerlink" href="#compass" title="Permalink to this heading">¶</a></h2>
+<p>The SpeedyBee F405 v3 does not have a builtin compass, but you can attach an external compass using I2C on the SDA and SCL pads.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Available from various retailers and directly from the manufacturer <a class="reference external" href="https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/">SpeedyBee</a></p></li>
+</ul>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixhawk Wiring Quick Start &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Powering the Pixhawk" href="common-powering-the-pixhawk.html" />
+    <link rel="prev" title="Autopilot Inputs and Outputs" href="common-flight-controller-io.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#gps-compass">GPS/Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#rc-input">RC input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-flight-controller-wiring.html#motor-servo-connections">Motor/Servo Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#ublox-gps-compass-module">UBlox GPS + Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#connecting-the-autopilot">Connecting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#mounting-the-gps-module">Mounting the GPS Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#setup-in-mission-planner">Setup in Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#led-indicators">LED Indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+          <li class="breadcrumb-item"><a href="common-flight-controller-wiring.html">Typical Autopilot Wiring Connections</a></li>
+      <li class="breadcrumb-item active">Pixhawk Wiring Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pixhawk-wiring-quick-start">
+<span id="common-pixhawk-wiring-and-quick-start"></span><h1>Pixhawk Wiring Quick Start<a class="headerlink" href="#pixhawk-wiring-quick-start" title="Permalink to this heading">¶</a></h1>
+<p>This article provides high level information about how to power Pixhawk
+and connect its most important peripherals.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not connect any servos or other devices to the PWM outputs of your
+receiver. The RCIN port on the Pixhawk is designed for low power devices
+only, and a servo or relay may draw a lot of current from the receiver. If you
+connect a servo directly onto your receiver while the receiver is
+powered from the RCIN port of your Pixhawk you may damage your
+Pixhawk.</p>
+</div>
+<section id="pixhawk-wiring-chart">
+<h2>Pixhawk Wiring Chart<a class="headerlink" href="#pixhawk-wiring-chart" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhawk_connect_essential_peripherals.jpg"><img alt="../_images/pixhawk_connect_essential_peripherals.jpg" src="../_images/pixhawk_connect_essential_peripherals.jpg" /></a>
+<p>[site wiki=”copter”]
+Copter users should also see the <a class="reference external" href="https://ardupilot.org/copter/docs/advanced-pixhawk-quadcopter-wiring-chart.html#advanced-pixhawk-quadcopter-wiring-chart" title="(in Copter)"><span class="xref std std-ref">Advanced Pixhawk Quadcopter Wiring Chart</span></a>.
+[/site]</p>
+</section>
+<section id="power-pixhawk">
+<h2>Power Pixhawk<a class="headerlink" href="#power-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>Pixhawk is typically powered via its “power” port, as shown in the
+picture below. The power port simultaneously powers Pixhawk and reads
+voltage and current analog measurements produced by an optional power
+module. Information about powering the Pixhawk can be found in the topic
+<a class="reference internal" href="common-powering-the-pixhawk.html#common-powering-the-pixhawk"><span class="std std-ref">Powering the Pixhawk</span></a>.</p>
+<a class="reference external image-reference" href="../_images/pixhawkpower-port.jpg"><img alt="../_images/pixhawkpower-port.jpg" src="../_images/pixhawkpower-port.jpg" /></a>
+</section>
+<section id="connect-remote-control-inputs">
+<h2>Connect remote control inputs<a class="headerlink" href="#connect-remote-control-inputs" title="Permalink to this heading">¶</a></h2>
+<p>Pixhawk is compatible with</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>PPM-Sum receivers</p></li>
+<li><p>SBus receivers</p></li>
+<li><p>IBUS receivers</p></li>
+<li><p><a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p></li>
+<li><p><a class="reference internal" href="common-spektrum-rc.html#common-spektrum-rc"><span class="std std-ref">Spektrum DSM, DSM2, and DSM-X Satellite receivers</span></a></p></li>
+<li><p><a class="reference internal" href="common-srxl-receivers.html#common-srxl-receivers"><span class="std std-ref">SRXL version 1 and version 2 receivers</span></a></p></li>
+<li><p><a class="reference internal" href="common-graupner-rc.html#common-graupner-rc"><span class="std std-ref">Graupner SUM-D</span></a></p></li>
+</ol>
+</div></blockquote>
+<p>For traditional single-wire-per-channel (PWM) receivers a PPM encoder
+can be used to convert the receiver outputs to PPM-SUM.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Information about compatible receivers and how they are connected can be found in <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a></p>
+</div>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/FRSkyTaranis.jpg"><img alt="../_images/FRSkyTaranis.jpg" src="../_images/FRSkyTaranis.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">FRSky Taranis Transmitter</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="connect-buzzer-and-safety-switch">
+<h2>Connect buzzer and safety switch<a class="headerlink" href="#connect-buzzer-and-safety-switch" title="Permalink to this heading">¶</a></h2>
+<p>The buzzer and safety switch button are mandatory for Pixhawk. Connect
+to the BUZZER and SWITCH ports as shown.</p>
+<a class="reference external image-reference" href="../_images/pixhawk-required_peripherals.jpg"><img alt="../_images/pixhawk-required_peripherals.jpg" src="../_images/pixhawk-required_peripherals.jpg" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Mount the beeper at least 5cm away from the flight
+controller or the noise may upset the accelerometers.</p>
+</div>
+</section>
+<section id="dr-gps-compass">
+<h2>3DR GPS+Compass<a class="headerlink" href="#dr-gps-compass" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#common-installing-3dr-ublox-gps-compass-module"><span class="std std-ref">3DR UBlox GPS + Compass Module</span></a> is the
+recommended GPS for Pixhawk on ArduPilot.  The GPS ports are connected
+with the six-position DF13 cable, and the MAG port is connected to the
+I2C port with the four-position DF13 cable.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/GPS_TopAndSide.jpg"><img alt="../_images/GPS_TopAndSide.jpg" src="../_images/GPS_TopAndSide.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">3DR UBlox GPS + Compass Module</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The topic <a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#common-installing-3dr-ublox-gps-compass-module"><span class="std std-ref">3DR UBlox GPS + Compass Module</span></a>
+shows how to connect to Pixhawk and include additional configuration and
+mounting information.</p>
+</section>
+<section id="connect-motors">
+<h2>Connect Motors<a class="headerlink" href="#connect-motors" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhawk_motor_outputs.jpg"><img alt="../_images/pixhawk_motor_outputs.jpg" src="../_images/pixhawk_motor_outputs.jpg" /></a>
+<p>[site wiki=”copter”]
+For Copter see <a class="reference external" href="https://ardupilot.org/copter/docs/connect-escs-and-motors.html#connect-escs-and-motors" title="(in Copter)"><span class="xref std std-ref">Connect ESCs and Motors</span></a>.</p>
+<p>In overview, for copters connect each signal wire from the PDB to the
+main output signal (S) pins by motor number:</p>
+<ul class="simple">
+<li><p>Pin 1 = Motor 1 - - Pin 5 = Motor 5</p></li>
+<li><p>Pin 2 = Motor 2 - - Pin 6 = Motor 6</p></li>
+<li><p>Pin 3 = Motor 3 - - Pin 7 = Motor 7</p></li>
+<li><p>Pin 4 = Motor 4 - - Pin 8 = Motor 8</p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”plane”]
+For planes connect the control channel wires to the main output signal
+pins:</p>
+<ul class="simple">
+<li><p>Pin 1 = Aileron</p></li>
+<li><p>Pin 2 = Elevator</p></li>
+<li><p>Pin 3 = Throttle</p></li>
+<li><p>Pin 4 = Rudder</p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”rover”]
+For Rovers connect the throttle and steering wires to the main output
+signal pins:</p>
+<ul class="simple">
+<li><p>Pin 3 = Throttle</p></li>
+<li><p>Pin 1 = Steering</p></li>
+</ul>
+<p>The skid-steer parameters are used to configure vehicles that have fixed wheels and steer like tank tracks (do not use servos to steer the wheels but rather use differential speed between the left and right wheels). The parameters are: SKID_STEER_OUT and SKID_STEER_IN. When enabled, autopilot’s output RC1 is used for the left track control, and output RC3 is used for right track control.
+[/site]</p>
+</section>
+<section id="connect-other-peripherals">
+<h2>Connect other peripherals<a class="headerlink" href="#connect-other-peripherals" title="Permalink to this heading">¶</a></h2>
+<p>Depending on your hardware there may be any number of other peripherals
+attached, including sensors, cameras, grippers etc. These can be found
+as sub-pages of the topic <a class="reference internal" href="common-optional-hardware.html#common-optional-hardware"><span class="std std-ref">Optional Hardware</span></a>.</p>
+<p>Information about connecting these peripherals to Pixhawk is found in
+the respective pages.</p>
+</section>
+<section id="related-information">
+<h2>Related information<a class="headerlink" href="#related-information" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">Pixhawk Overview</span></a> - includes specifications, pin assignments etc.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-powering-the-pixhawk.html">Powering the Pixhawk</a></li>
+</ul>
+</div>
+<dl class="simple">
+<dt>[site wiki=”copter”]</dt><dd><p>Advanced Pixhawk Quadcopter Wiring Chart &lt;advanced-pixhawk-quadcopter-wiring-chart&gt;</p>
+</dd>
+</dl>
+<p>[/site]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-flight-controller-io.html" class="btn btn-neutral float-left" title="Autopilot Inputs and Outputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-powering-the-pixhawk.html" class="btn btn-neutral float-right" title="Powering the Pixhawk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

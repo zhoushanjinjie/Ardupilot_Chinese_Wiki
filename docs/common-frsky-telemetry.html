@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-frsky-telemetry"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="frsky-telemetry">
+<h1>FrSky Telemetry<a class="headerlink" href="#frsky-telemetry" title="Permalink to this heading">¶</a></h1>
+<p>FrSky telemetry allows you to display ArduPilot information such as flight modes, battery level, and error messages, as well as information from additional FrSky sensors on <a class="reference external" href="https://www.open-tx.org/">OpenTx</a> compatible RC transmitters and even older X9R transmitters (although with more limited capability).</p>
+<dl class="simple">
+<dt>It is particularly useful:</dt><dd><ul class="simple">
+<li><p>for flying without a ground control station (no need for MAVLink telemetry radio),</p></li>
+<li><p>as a backup in case the ground station fails (e.g., loss of MAVLink radio link),</p></li>
+<li><p>when a separate person operates the ground control station,</p></li>
+<li><p>for quick situational awareness by the pilot.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Moreover, some RC transmitters such as the Taranis series, Horus, and T16, can be configured to play sounds, vibrate or perform automatic RC actions based on telemetry information through the highly configurable OpenTX firmware.</p>
+<figure class="align-center" id="id1">
+<a class="reference external image-reference" href="../_images/frsky_requiredhardware_flightdeck.jpg"><img alt="../_images/frsky_requiredhardware_flightdeck.jpg" src="../_images/frsky_requiredhardware_flightdeck.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Common FrSky Telemetry Setup with OpenTX transmitter running <a class="reference internal" href="common-frsky-flightdeck.html#common-frsky-flightdeck"><span class="std std-ref">FlightDeck</span></a> or <a class="reference internal" href="common-frsky-yaapu.html#common-frsky-yaapu"><span class="std std-ref">Yaapu Telemetry Script</span></a>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>before the addition of FrSky telemetry protocols to ArduPilot, it was necessary to use an external converter to convert normal MAVLink telemetry from the Autopilot into FrSky Sport compatible telemetry (See <a class="reference internal" href="common-frsky-mavlink.html#common-frsky-mavlink"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a>), but this is no longer required. However, the <a class="reference external" href="https://www.rcgroups.com/forums/showthread.php?3089648-Mavlink-To-FrSky-Passthrough-Converter">MAV2PT converter</a> is especially useful for converting MAVLink telemetry output from many long-range RC systems for display on an OpenTX transmitter or forwarding via Bluetooth or WiFi to a smarphone or PC running a Ground Control Station.</p>
+</div>
+</section>
+<section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h1>
+<p>In order to use FrSky telemetry, the following steps are required:</p>
+<ul class="simple">
+<li><p>Connect an autopilot telemetry port to an FrSky receiver which has an SPort or Fport interface. This may require a bi-directional inverter depending on which autopilot it being used. See <a class="reference internal" href="common-connecting-sport-fport.html#common-connecting-sport-fport"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a>.</p></li>
+<li><p>Configure the autopilot.</p></li>
+<li><p>Install a LUA script to display the full telemetry. (Although is it possible to display a subset of telemetry values using OpenTX’s built in telemetry screens, it is very limited.)</p></li>
+</ul>
+<section id="connection-diagrams">
+<h2>Connection Diagrams<a class="headerlink" href="#connection-diagrams" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>See</dt><dd><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-connecting-sport-fport.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connecting-sport-fport.html#connecting-to-frsky-sport-and-fport">Connecting to FrSky Sport and FPort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-connecting-sport-fport.html#connections">Connections</a></li>
+</ul>
+</div>
+</dd>
+</dl>
+<p>for connection diagrams.</p>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>Two protocols are available, Repurposed and PassThrough. Repurposed has been superseded by PassThrough since much more telemetry information can be transferred and displayed.</p>
+<p>First set the SERIALxPROTOCOL to “10” for the telemetry port used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SERIAL port numbers do not necessarily directly correspond to UART or TELEM port labels. See the hardware documentation for your <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">autopilot</span></a>.</p>
+</div>
+<p>If you have an F7 or H7 autopilot, and therefore do not need to use an external inverter, you must turn on the inverters for the SERIAL port and also set it to half duplex.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any configuration change to a UART requires a re-boot to take effect.</p>
+</div>
+<p>In general, F4 based autopilots using an external bi-directional inverter can use any UART with the following configuration:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> =10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> =160 (enable pull-up/pull-downs on TX and RX pins for those external inverter circuits that may require it)</p></li>
+</ul>
+<p>F4 based autopilots using an “inverted SPort” output from the receiver can connect it to any  UART’s TX pin with the configuration:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> =10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 4 (Half Duplex)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>F4 based autopilots cannot use the RX pin with an “inverted SPort” output since the SWAP capability is only available in F7/H7 based autopilots.</p>
+</div>
+<p>F7/H7 based autopilots can directly connect to the TX pin of any UART and use this configuration:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> =10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> =  7 (invert TX/RX,Half Duplex)</p>
+<p>OR to the RX pin:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> =10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> =  15 (invert TX/RX,Half Duplex, SWAP TX/RX pins)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some F7/H7 autopilots have level/shifters on their UARTs that cause a delay in Half Duplex operation, like CubeOrange. If the above configuration does not, try setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-options" title="(in Rover)"><span class="xref std std-ref">RC_OPTIONS</span></a> = 8 which will add padding in the protocol to accommodate this. However, using this option when not required will break operation.</p>
+</div>
+<p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#frsky-options" title="(in Rover)"><span class="xref std std-ref">FRSKY_OPTIONS</span></a> bit 0 to “1” to enable sending alternating airspeed and groundspeed data to the display script. The <a class="reference internal" href="common-frsky-yaapu.html#common-frsky-yaapu"><span class="std std-ref">Yaapu FrSky Telemetry Script for OpenTX</span></a> can use this but it may cause other display apps/scripts to alternate the speed value readout.</p>
+</section>
+<section id="display-scripts">
+<h2>Display Scripts<a class="headerlink" href="#display-scripts" title="Permalink to this heading">¶</a></h2>
+<p>Several options are available:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html#flightdeck-frsky-taranis-app">FlightDeck FrSky Taranis App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html#turnkey-packages">Turnkey Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-yaapu.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-yaapu.html#yaapu-frsky-telemetry-script-for-opentx">Yaapu FrSky Telemetry Script for OpenTX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-yaapu.html#installation-and-operation">Installation and Operation</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="turnigy-9xr-pro">
+<h1>Turnigy 9XR Pro<a class="headerlink" href="#turnigy-9xr-pro" title="Permalink to this heading">¶</a></h1>
+<p>This section describes how to enable FrSky telemetry on the Turnigy
+9XR Pro transmitter.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>You will need a transmitter module with support for FrSky telemetry,
+such as the <code class="docutils literal notranslate"><span class="pre">FrSky</span> <span class="pre">XJT</span></code>.  The <a class="reference external" href="https://www.frsky-rc.com/product/djt-2/">DJT</a> also supports telemetry, but you
+will need to use an external cable to connect the telemetry data
+from the module to your transmitter.</p>
+<p>The instructions in this section are specifically for the XJT
+module.</p>
+</li>
+<li><p>You will need to be running a recent version (211 or later) of the
+ErSky9x firmware.  You can find more information about upgrading
+the firmware and about ErSky9x in general from <a class="reference external" href="http://openrcforums.com/forum/viewtopic.php?f=122&amp;t=5575#p79483">the
+documentation</a>.</p></li>
+</ul>
+</section>
+<section id="configuring-ardupilot">
+<h2>Configuring ArduPilot<a class="headerlink" href="#configuring-ardupilot" title="Permalink to this heading">¶</a></h2>
+<p>Ensure that you have the appropriate <code class="docutils literal notranslate"><span class="pre">SERIAL#_PROTOCOL</span></code> parameter
+set to <code class="docutils literal notranslate"><span class="pre">10</span></code> (“passthrough FrSky telemetry”) to select the ArduPilot
+SPORT protocol.  For example, if you have plugged your SmartPort cable
+into the serial 4/5 port on your Pixhawk, set <code class="docutils literal notranslate"><span class="pre">SERIAL4_PROTOCOL</span></code> to
+<code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+<p>Reboot your controller after making this change.</p>
+<p>ErSky9x will also work with protocol <code class="docutils literal notranslate"><span class="pre">4</span></code> (“repurposed FrSky
+telemetry”), but you will not have access to ArduPilot-specific
+information such as the name of the current flight mode or arming
+status.</p>
+</section>
+<section id="configuring-the-9xr-pro">
+<h2>Configuring the 9XR Pro<a class="headerlink" href="#configuring-the-9xr-pro" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Verify that you are running version 211 or later.  Navigate to the <code class="docutils literal notranslate"><span class="pre">Radio</span>
+<span class="pre">Setup</span></code> menu and then select <code class="docutils literal notranslate"><span class="pre">Version</span></code>.  Look at the <code class="docutils literal notranslate"><span class="pre">SVN</span></code>
+field.</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-firmware-version.png"><img alt="../_images/9xrpro-firmware-version.png" src="../_images/9xrpro-firmware-version.png" /></a>
+</figure>
+</div></blockquote>
+<p>Telemetry support is substantially improved in revision 218 and
+later.</p>
+</li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Setup</span></code> menu, then select <code class="docutils literal notranslate"><span class="pre">Protocol</span></code>.  Ensure
+that you have <code class="docutils literal notranslate"><span class="pre">Proto</span></code> set to <code class="docutils literal notranslate"><span class="pre">XJT</span></code>, and <code class="docutils literal notranslate"><span class="pre">Type</span></code> set to <code class="docutils literal notranslate"><span class="pre">D16</span></code>.</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-settings-protocol.png"><img alt="../_images/9xrpro-settings-protocol.png" src="../_images/9xrpro-settings-protocol.png" /></a>
+</figure>
+</div></blockquote>
+<p>In older versions of the firmware, you may see <cite>PXX</cite> instead of
+<cite>XJT</cite>.</p>
+</li>
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Setup</span></code> menu, then select <code class="docutils literal notranslate"><span class="pre">Telemetry</span></code>, and
+then again select <code class="docutils literal notranslate"><span class="pre">Telemetry</span></code> from the popup menu.  Ensure that
+<code class="docutils literal notranslate"><span class="pre">UsrProto</span></code> is set to <code class="docutils literal notranslate"><span class="pre">ArduP</span></code> (for ArduPlane) or <code class="docutils literal notranslate"><span class="pre">ArduC</span></code> (for
+ArduCopter), <code class="docutils literal notranslate"><span class="pre">Telemetry</span> <span class="pre">Com</span> <span class="pre">Port</span></code> (previously <code class="docutils literal notranslate"><span class="pre">FrSky</span> <span class="pre">Com</span> <span class="pre">Port</span></code>)
+is <code class="docutils literal notranslate"><span class="pre">1</span></code>, and <code class="docutils literal notranslate"><span class="pre">Com</span> <span class="pre">Port</span> <span class="pre">Invert</span></code> (previously <code class="docutils literal notranslate"><span class="pre">Invert</span> <span class="pre">Com</span> <span class="pre">1</span></code>) is
+off (unchecked).</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-settings-telem-protocol.png"><img alt="../_images/9xrpro-settings-telem-protocol.png" src="../_images/9xrpro-settings-telem-protocol.png" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-settings-telem-port.png"><img alt="../_images/9xrpro-settings-telem-port.png" src="../_images/9xrpro-settings-telem-port.png" /></a>
+</figure>
+</div></blockquote>
+<p>If you are using something other than ArduPlane or ArduCopter, you
+can set <code class="docutils literal notranslate"><span class="pre">UsrProto</span></code> to <code class="docutils literal notranslate"><span class="pre">FrSky</span></code>.  You will get a more basic
+telemetry display that will be missing things like the graphic
+heading indicator, the name of the current flight mode, and so
+forth.</p>
+</li>
+</ol>
+<p>At this point, you should be receiving extended telemetry on your 9XR
+Pro.  If you navigate to the telemetry home screen (use the up/down
+arrows to switch between screens) you should see standard FrSky
+telemetry values (such as RSSI, receiver voltage, etc) as well as
+extended telemetry, such as flight mode, current measurements, GPS
+information, etc.</p>
+<figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-telem-arducopter.png"><img alt="../_images/9xrpro-telem-arducopter.png" src="../_images/9xrpro-telem-arducopter.png" /></a>
+</figure>
+<p>Use the left/right arrows to switch between available telemetry views:</p>
+<figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-telem-gps.png"><img alt="../_images/9xrpro-telem-gps.png" src="../_images/9xrpro-telem-gps.png" /></a>
+</figure>
+</section>
+<section id="configuring-custom-telemetry-screens">
+<h2>Configuring custom telemetry screens<a class="headerlink" href="#configuring-custom-telemetry-screens" title="Permalink to this heading">¶</a></h2>
+<p>ErSky9x allows you to customize two telemetry display screens with
+your choice of information.  To configure the custom screens, navigate
+to <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Setup</span></code>, then select <code class="docutils literal notranslate"><span class="pre">Telemetry</span></code>, and then select
+<code class="docutils literal notranslate"><span class="pre">Custom</span></code>:</p>
+<figure class="align-center">
+<a class="reference external image-reference" href="../_images/9xrpro-settings-telem-custom.png"><img alt="../_images/9xrpro-settings-telem-custom.png" src="../_images/9xrpro-settings-telem-custom.png" /></a>
+</figure>
+<p><strong>Other Pages Related to FrSky Telemetry</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-mavlink.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-mavlink.html#mavlink-to-frsky-converters">MavLink to FrSky Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-protocol-info.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-protocol-info.html#frsky-telemetry-protocols">FrSky Telemetry Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-protocol-info.html#protocol-information">Protocol Information</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

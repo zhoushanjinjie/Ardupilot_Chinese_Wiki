@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting the Aircraft Up for Tuning &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setting the Aircraft Up for Tuning</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-the-aircraft-up-for-tuning">
+<span id="setting-up-for-tuning"></span><h1>Setting the Aircraft Up for Tuning<a class="headerlink" href="#setting-the-aircraft-up-for-tuning" title="Permalink to this heading">¶</a></h1>
+<p>The following parameters should be set correctly based on the specifications of your aircraft.
+Each one impacts the quality of the tuning process.</p>
+<section id="battery-setting">
+<h2>Battery setting<a class="headerlink" href="#battery-setting" title="Permalink to this heading">¶</a></h2>
+<p>It is very important to ensure that the thrust curve of your VTOL
+motors is as linear as possible. A linear thrust curve means that
+changes in the actual thrust produced by a motor is directly
+proportional to the thrust being demanded by ArduPilot. If your thrust
+curve is badly non-linear then you will never produce a good tune, and
+in some cases may end up with such a bad tune that your vehicle can
+become completely unstable and crash.</p>
+<p>There are 3 common causes of a non-linear thrust curve.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>voltage sag as throttle is increased.</p></li>
+<li><p>incorrect end-point setup in the PWM range you use to your ESCs (see “Motors setup” below)</p></li>
+<li><p>non-linearity in the thrust produced by your propeller, ESC and motor combination</p></li>
+</ul>
+</div></blockquote>
+<p>Start with setting up the voltage range to cope with voltage sag.
+Parameters used to linearise your motor thrust curve.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-bat-volt-max" title="(in Copter)"><span class="xref std std-ref">MOT_BAT_VOLT_MAX</span></a>: 4.2v x No. Cells</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-bat-volt-min" title="(in Copter)"><span class="xref std std-ref">MOT_BAT_VOLT_MIN</span></a>: 3.3v x No. Cells</p></li>
+</ul>
+<p>Next setup the thrust expo. If you are setting up a professional
+aircraft then you should invest in a thrust stand so you can
+accurately measure the true thrust for your motor/ESC/propeller
+combination as you vary the throttle. Then you will adjust the expo
+value along with the endpoints (given by motors setup below) so that the thrust between the endpoints is as linear as possible. Do not trust manufacturer data for the thrust curve as they are frequently inaccurate. See <a class="reference internal" href="motor-thrust-scaling.html#motor-thrust-scaling"><span class="std std-ref">Motor Thrust Scaling</span></a> for details on thrust scaling.</p>
+<p>If you are setting up a hobby grade vehicle then you can use the graph below to estimate the correct <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-thst-expo" title="(in Rover)"><span class="xref std std-ref">MOT_THST_EXPO</span></a> value for your aircraft.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-thst-expo" title="(in Rover)"><span class="xref std std-ref">MOT_THST_EXPO</span></a>: 0.55 for 5 inch props, 0.65 for 10 inch props, 0.75 for 20 inch props  (or larger). This parameter should be derived by thrust stand measurements for best results (don’t trust manufacturer data).</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/tuning-process-instructions-1.hires.png"><img alt="../_images/tuning-process-instructions-1.hires.png" src="../_images/tuning-process-instructions-1.hires.png" /></a>
+</section>
+<section id="motors-setup">
+<h2>Motors setup<a class="headerlink" href="#motors-setup" title="Permalink to this heading">¶</a></h2>
+<p>The motor parameters define the PWM output range sent to the
+ESCs. This is critical to ensure that the entire range of throttle
+values used in flight is within the linear range of your propulsion
+system.</p>
+<p>Parameters used to define the output range sent to the ESC.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-max" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MAX</span></a>: Check ESC manual for fixed range or 2000us</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-min" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MIN</span></a>: Check ESC manual for fixed range or 1000us</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a>: use the <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors-testing-motor-spin-directions"><span class="std std-ref">motor test feature</span></a> to determine a value which will reliably start the motors spinning at a low rpm as an indication of the armed state.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-max" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MAX</span></a>: 0.95</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a>: use the <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors-testing-motor-spin-directions"><span class="std std-ref">motor test feature</span></a> and motor test data, if available, to set the lower range of linear thrust. The default value is usually adequate for hobby uses.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-thst-hover" title="(in Copter)"><span class="xref std std-ref">MOT_THST_HOVER</span></a>: 0.25 or below the expected actual hover thrust percentage (lower is safe)</p></li>
+</ul>
+</section>
+<section id="pid-controller-initial-setup">
+<h2>PID Controller Initial Setup<a class="headerlink" href="#pid-controller-initial-setup" title="Permalink to this heading">¶</a></h2>
+<p>The settings below are meant to get your PID controller acceleration
+and filter settings into the right approximate range for your
+vehicle. These parameters are critical to the tuning process.
+The PID controller default values for axis P/D/I values are usually safe for first test hovers of most vehicles.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-accel-filter" title="(in Rover)"><span class="xref std std-ref">INS_ACCEL_FILTER</span></a>:  10Hz</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a>: 80Hz for 5 inch props, 40Hz for 10 inch props, 20Hz for 20 inch props (or larger)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>: 110000 for 10 inch props, 50000 for 20 inch props, 20000 for 30 inch props</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a>: 110000 for 10 inch props, 50000 for 20 inch props, 20000 for 30 inch props</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a>: 27000 for 10 inch props, 18000 for 20 inch props, 9000 for 30 inch props</p></li>
+</ul>
+<p>For Copter-4.1 (and later):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-fltd-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FLTD</span></a>: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> / 2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-fltt-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FLTT</span></a>: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> / 2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-fltd-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FLTD</span></a>: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> / 2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-fltt-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FLTT</span></a>: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> / 2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-flte-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FLTE</span></a>: 2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-fltt-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FLTT</span></a>: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> / 2</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/tuning-process-instructions-2.hires.png"><img alt="../_images/tuning-process-instructions-2.hires.png" src="../_images/tuning-process-instructions-2.hires.png" /></a>
+<a class="reference external image-reference" href="../_images/tuning-process-instructions-3.hires.png"><img alt="../_images/tuning-process-instructions-3.hires.png" src="../_images/tuning-process-instructions-3.hires.png" /></a>
+<a class="reference external image-reference" href="../_images/tuning-process-instructions-4.hires.png"><img alt="../_images/tuning-process-instructions-4.hires.png" src="../_images/tuning-process-instructions-4.hires.png" /></a>
+</section>
+</section>
+<section id="mission-planner-helper">
+<h1>Mission Planner Helper<a class="headerlink" href="#mission-planner-helper" title="Permalink to this heading">¶</a></h1>
+<p>A tab under SETUP/Mandatory Hardware/Initial Parameter Setup is provided in Mission Planner to setup the above parameters easily.</p>
+<a class="reference external image-reference" href="../_images/mp-initial-copter-param-setup.png"><img alt="../_images/mp-initial-copter-param-setup.png" src="../_images/mp-initial-copter-param-setup.png" /></a>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

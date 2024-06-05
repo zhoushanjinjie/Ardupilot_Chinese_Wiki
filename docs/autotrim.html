@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoTrim &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Thrust Loss and Yaw Imbalance Warnings" href="thrust_loss_yaw_imbalance.html" />
+    <link rel="prev" title="Setting Hover Throttle" href="ac_throttlemid.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-prearm-safety-checks.html">Pre-arm Safety Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arming_the_motors.html">Arming and Disarming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklist.html">Pre-Flight Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_tipsfornewpilots.html">Getting Off the Ground – Tips for New Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_throttlemid.html">Setting Hover Throttle</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Save Trim &amp; Auto Trim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#save-trim">Save Trim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto-trim">Auto Trim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-demonstrations-of-save-trim-and-auto-trim">Video demonstrations of Save Trim and Auto Trim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#desktop-method">Desktop method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thrust_loss_yaw_imbalance.html">Thrust Loss and Yaw Imbalance Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-flying.html">Indoor Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="flying-arducopter.html">First Flight with Copter</a></li>
+      <li class="breadcrumb-item active">AutoTrim</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autotrim">
+<span id="id1"></span><h1>AutoTrim<a class="headerlink" href="#autotrim" title="Permalink to this heading">¶</a></h1>
+<p>Wind of course has a strong effect on your copter and will push it around. However you may also find that while flying in stabilize mode, even in a windless environment your copter tends to always drift away in the same direction. This can largely be corrected using the “Save Trim” or “Automatic Trim” functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For most users this procedure is not necessary because the <a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">accelerometer calibration</span></a> does a good job of setting the trim values.</p>
+</div>
+<section id="save-trim">
+<h2>Save Trim<a class="headerlink" href="#save-trim" title="Permalink to this heading">¶</a></h2>
+<p>Save trim is the simpler method and involves essentially transferring your radio transmitter’s trims to the autopilot (<a class="reference external" href="https://www.youtube.com/watch?v=ayA0uYOqKX4">video demo here</a>).</p>
+<ol class="arabic simple">
+<li><p>Check that your CH7 switch goes above 1800 on the MissionPlanner’s Hardware &gt; Mandatory Hardware &gt; Radio Calibration screen</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/MP_SaveTrim_Ch7PWMCheck.png"><img alt="../_images/MP_SaveTrim_Ch7PWMCheck.png" src="../_images/MP_SaveTrim_Ch7PWMCheck.png" /></a>
+<ol class="arabic simple" start="2">
+<li><p>Set the CH7 Option to Save Trim on the Software &gt; Copter Pids screen and press the “Write Params” button</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/MP_SaveTrim_Ch7.png"><img alt="../_images/MP_SaveTrim_Ch7.png" src="../_images/MP_SaveTrim_Ch7.png" /></a>
+<ol class="arabic simple" start="3">
+<li><p>With your CH7 switch in the off position, fly your copter in Stabilize mode and use your transmitters’s roll and pitch trim to get it flying level</p></li>
+<li><p>Land and put your throttle to zero</p></li>
+<li><p>Release the roll and pitch sticks and switch the CH7 switch high for at least 1 second.  The words “Trim saved” should appear in the MP’s Flight Data screen’s Messages tab</p></li>
+<li><p>Reset your transmitters roll and pitch trims back to the center and fly again and it should fly level now. If it does not repeat steps 3, 4 &amp; 5</p></li>
+</ol>
+</section>
+<section id="auto-trim">
+<h2>Auto Trim<a class="headerlink" href="#auto-trim" title="Permalink to this heading">¶</a></h2>
+<p>With auto trim the roll and pitch trim are captured as you fly in a stable hover.</p>
+<ol class="arabic simple">
+<li><p>Find a wind free environment with sufficient space to fly your copter without crashing into something</p></li>
+<li><p>Put the vehicle in Stabilize mode</p></li>
+<li><p>Hold throttle down and rudder right for 15seconds or until you see the small red, blue and yellow leds flash in a cyclic pattern</p></li>
+<li><p>Fly your copter for about 25 seconds in a stable hover</p></li>
+<li><p>Land and put your throttle to zero and wait for a few seconds (the trims parameters are being saved)</p></li>
+<li><p>Take off again in stabilize mode and check if your copter is flying level now. If not repeat steps 2, 3 and 4</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also test these procedures above are operational on the ground with your battery disconnected. Connect your autopilot to the mission planner and observing the Flight Data screen as you simulate completing the steps above.</p>
+</div>
+<a class="reference external image-reference" href="../_images/MP_SaveTrim_FlightDataScreen.jpg"><img alt="../_images/MP_SaveTrim_FlightDataScreen.jpg" src="../_images/MP_SaveTrim_FlightDataScreen.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can manually set the trim by modifying the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-x" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_X</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-y" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_Y</span></a>. Roll trim is <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-x" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_X</span></a>, Pitch trim is <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-y" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_Y</span></a>. Both values are in radians with left roll and forward pitch being negative numbers.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is nearly impossible to get rid of all drift so that your copter remains completely motionless without any input.</p>
+</div>
+</section>
+<section id="video-demonstrations-of-save-trim-and-auto-trim">
+<h2>Video demonstrations of Save Trim and Auto Trim<a class="headerlink" href="#video-demonstrations-of-save-trim-and-auto-trim" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/5z0zuwicZh8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/e3OF9ih50PU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="desktop-method">
+<h2>Desktop method<a class="headerlink" href="#desktop-method" title="Permalink to this heading">¶</a></h2>
+<p>The trim can also be updated by setting the vehicle level, connecting to
+the Mission Planner (or perhaps other ground stations) and selecting
+Initial Setup, Mandatory Hardware, Accel Calibration and pushing the
+lower “Calibrate Level” button.</p>
+<a class="reference external image-reference" href="../_images/AccelCalibration_MP.png"><img alt="../_images/AccelCalibration_MP.png" src="../_images/AccelCalibration_MP.png" /></a>
+<p>Please note though that making the HUD level while the vehicle is on the
+ground does not necessarily mean it won’t drift horizontally while
+flying because of other small frame issues including the flight
+controller not being perfectly level on the frame and slightly tilted
+motors.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ac_throttlemid.html" class="btn btn-neutral float-left" title="Setting Hover Throttle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="thrust_loss_yaw_imbalance.html" class="btn btn-neutral float-right" title="Thrust Loss and Yaw Imbalance Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

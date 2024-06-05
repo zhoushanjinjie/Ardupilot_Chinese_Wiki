@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZigZag Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="First Flight with Copter" href="flying-arducopter.html" />
+    <link rel="prev" title="Turtle Mode" href="turtle-mode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">ZigZag Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zigzag-mode">
+<span id="id1"></span><h1>ZigZag Mode<a class="headerlink" href="#zigzag-mode" title="Permalink to this heading">¶</a></h1>
+<p>ZigZag mode is a semi-autonomous mode designed to make it easier for a pilot to fly a vehicle back and forth across a field which can be useful for crop spraying</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/_qNmLX4QmPU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ZigZag is available in Copter-4.0 (and higher)</p>
+</div>
+<p>The way it works is:</p>
+<ul class="simple">
+<li><p>A two or preferably three position <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">auxiliary switch</span></a> is set to “ZigZag SaveWP” (i.e. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc7-option" title="(in Rover)"><span class="xref std std-ref">RC7_OPTION</span></a> = 61)</p></li>
+<li><p>The pilot arms the vehicle in <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> mode, takes off and then changes to ZigZag mode (in the future we may make it possible to arm and take-off in ZigZag mode)</p></li>
+<li><p>The vehicle is flown manually (it flies like <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a>) to one side of the field and then the auxiliary switch is moved to the highest or lowest position (it doesn’t matter which) to record that side</p></li>
+<li><p>The vehicle is flown to the other side of the field and the switch is moved to the opposite position</p></li>
+<li><p>The switch can now be used to start the vehicle flying autonomously (at the current height) to either side of the field.  Once the vehicle reaches the other side it will revert to manual control.  The pilot can also regain manual control by moving the auxiliary switch to the middle position or by changing the flight mode.</p></li>
+<li><p>If a downward facing <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">range finder</span></a> is used, the vehicle will follow the terrain when flying.  If the range finder becomes unhealthy while traversing from one side to the other, the vehicle will revert to manual control and come to a stop.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/zigzag-mode.png"><img alt="../_images/zigzag-mode.png" src="../_images/zigzag-mode.png" style="width: 450px;" /></a>
+<p>When flown manually ZigZag uses <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter mode’s</span></a>  parameters.  For example the top speed can be configured with <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#loit-speed" title="(in Copter)"><span class="xref std std-ref">LOIT_SPEED</span></a>.</p>
+<p>When autonomously flying from one side of the field to the other, the <a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">Auto mode</span></a> parameters are used.  For example the top speed can be configured with <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wpnav-speed" title="(in Copter)"><span class="xref std std-ref">WPNAV_SPEED</span></a>..</p>
+<section id="automatic-operation">
+<span id="zigzag-auto"></span><h2>Automatic Operation<a class="headerlink" href="#automatic-operation" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature will be available in Copter-4.1.0</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this function must be enabled with <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#zigz-auto-enable" title="(in Copter)"><span class="xref std std-ref">ZIGZ_AUTO_ENABLE</span></a> = 1, and parameters reloaded, before any parameters are visible and the feature enabled.</p>
+</div>
+<p>After the field’s side points are registered, if you have an RC switch configured with <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 83 (ZigZag Auto Mode), you can automatically cover the field side to side at a programmable distance interval, also enabling a sprayer, if equipped.</p>
+<a class="reference external image-reference" href="../_images/zigzag-auto.png"><img alt="../_images/zigzag-auto.png" src="../_images/zigzag-auto.png" /></a>
+<p>To use:</p>
+<ul class="simple">
+<li><p>Fly to one side of the field and register the ZigZagWP A, as above, then fly to ZigZagWP B and set it.</p></li>
+<li><p>Then switch the ZigZag Auto Mode switch you had setup. The vehicle will proceed as shown in the diagram, automatically enabling a sprayer, if setup. See <a class="reference internal" href="sprayer.html#sprayer"><span class="std std-ref">Crop Sprayer</span></a> for instructions.</p></li>
+<li><p>Upon activation, the vehicle will move in <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#zigz-direction" title="(in Copter)"><span class="xref std std-ref">ZIGZ_DIRECTION</span></a> with respect to its heading for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#zigz-side-dist" title="(in Copter)"><span class="xref std std-ref">ZIGZ_SIDE_DIST</span></a>, then proceed to cross the field until the opposite ZigZagWP is reached. It will then wait for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#zigz-wp-delay" title="(in Copter)"><span class="xref std std-ref">ZIGZ_WP_DELAY</span></a> to allow sprayer to fully stop and then move <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#zigz-side-dist" title="(in Copter)"><span class="xref std std-ref">ZIGZ_SIDE_DIST</span></a> down the side of the field again to proceed back across the area. It will do this for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#zigz-line-num" title="(in Copter)"><span class="xref std std-ref">ZIGZ_LINE_NUM</span></a> times (-1 = infinite until switched out of this mode, =0 will only move to the first field crossing position, but not proceed further).</p></li>
+</ul>
+<p>Moving the ZigZag Auto switch to the low position immediately stops this mode and returns to normal ZIGZAG mode.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="turtle-mode.html" class="btn btn-neutral float-left" title="Turtle Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="flying-arducopter.html" class="btn btn-neutral float-right" title="First Flight with Copter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

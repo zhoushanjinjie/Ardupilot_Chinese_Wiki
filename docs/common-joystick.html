@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joystick/Gamepad &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Joystick/Gamepad</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="joystick-gamepad">
+<span id="common-joystick"></span><h1>Joystick/Gamepad<a class="headerlink" href="#joystick-gamepad" title="Permalink to this heading">¶</a></h1>
+<p>This article explains how you can control your vehicle with a Joystick or Gamepad using the Mission Planner which sends “RC Override” messages to the vehicle.</p>
+<p>Other GCSs may also support “RC overrides” but they are not covered in
+this article.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/joystick_LogitechF310.jpg"><img alt="../_images/joystick_LogitechF310.jpg" src="../_images/joystick_LogitechF310.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Logitech F310 Joystick</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Even if flying with a joystick, you should keep a regular
+transmitter/receiver connected and ready for use as a backup.  In future
+versions of ArduPilot, after more failsafe testing has been completed this recommendation may change.</p>
+</div>
+<section id="what-you-will-need">
+<h2>What you will need<a class="headerlink" href="#what-you-will-need" title="Permalink to this heading">¶</a></h2>
+<p>You will need the following equipment:</p>
+<ul class="simple">
+<li><p>USB joystick or Gamepad such as the <a class="reference external" href="https://www.logitechg.com/en-us/products/gamepads/f310-gamepad.html">Logitech F310</a>
+(shown above).</p></li>
+<li><p>A <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">telemetry connection</span></a>
+between your ground station and vehicle.</p></li>
+<li><p>A laptop computer running <em>Mission Planner</em>.</p></li>
+</ul>
+</section>
+<section id="calibration">
+<h2>Calibration<a class="headerlink" href="#calibration" title="Permalink to this heading">¶</a></h2>
+<p>First you must calibrate the joystick using the Windows joystick/game controller wizard.</p>
+<img alt="../_images/joystick.jpg" src="../_images/joystick.jpg" />
+</section>
+<section id="setup-with-the-mission-planner">
+<h2>Setup with the Mission Planner<a class="headerlink" href="#setup-with-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>Connect your USB joystick/gamepad to the laptop computer</p></li>
+<li><p>Open the <em>Mission Planner Flight Data</em> screen. On the <strong>Actions</strong> tab
+push the <strong>Joystick</strong> button</p>
+<a class="reference external image-reference" href="../_images/joystick_MPSetup.png"><img alt="../_images/joystick_MPSetup.png" src="../_images/joystick_MPSetup.png" /></a>
+</li>
+<li><p>Ensure the Logitech joystick appears in the drop-down</p></li>
+<li><p>The <strong>Enable</strong> button, once pushed, will tell the mission planner to
+start sending commands to the vehicle so for the initial setup do not
+push it.</p></li>
+<li><p>On the “Roll” row, click the <strong>Auto Detect</strong> button and then waggle
+the control you wish to use for roll, left and right.</p></li>
+<li><p>The channel can be reversed with the <em>Reverse</em> checkbox</p></li>
+<li><p>The Expo number should be in the range of -100 to 100</p>
+<ul class="simple">
+<li><p>0 = no expo</p></li>
+<li><p>100 = low response around the middle, very fast response at the
+edges</p></li>
+<li><p>-100 = very fast response around the middle, less response at the
+edges (very few people use negative expo)</p></li>
+</ul>
+</li>
+<li><p>Repeat for <em>Pitch</em>, <em>Throttle</em> and <em>Rudder</em> and push the <strong>Save</strong> button</p></li>
+<li><p>You will likely want to set-up other buttons for <em>Arm</em> and <em>Disarm</em></p></li>
+<li><p>Instead of setting up a stick or button for ch5 (the flight mode
+channel), it is better to set individual buttons to initiate a flight
+mode by selecting <strong>Change Mode</strong> and then push the <strong>Settings</strong>
+button and select the flight mode from the drop-down (see pic above)</p></li>
+<li><p>When done, push the <strong>Save</strong> button</p></li>
+<li><p>In the <strong>CONFIG/TUNING | Full Parameter List</strong>, check that the
+<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sysid-mygcs" title="(in Rover)"><span class="xref std std-ref">SYSID_MYGCS</span></a>
+parameter matches the system ID of your GCS. This parameter limits
+which GCS can send override signals to the vehicle.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<dl class="simple">
+<dt>For Mission Planner the default GCS system ID is 255. The</dt><dd><p>default system ID for APM Mission Planner 2 is 252 (but the GCS will
+automatically set its ID to match <em>SYSID_MYGCS</em> for RC Override
+commands).</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get an error <strong>PreArm: RC not calibrated</strong> (following
+calibration) you will additionally need to manually change <code class="docutils literal notranslate"><span class="pre">RC1_MIN</span></code>
+to 1101 and <code class="docutils literal notranslate"><span class="pre">RC1_MAX</span></code> to 1901 (and then repeat for RC2_, RC3_ and
+RC4_ max/min parameters).</p>
+<p>This error is caused because <em>Mission Planner</em> maps the Joystick exactly
+to the RC min and max range, but the pre-arm checks assume that if the
+values are not at least 1 PWM us off the default value, that calibration
+has not been done. If you have RC calibrated your transmitter/receiver system already, this will not be necessary. DO NOT RC CALIBRATE THE JOYSTICK, it is not the same control mechanism as is used for RC systems. It uses MAVLink override messages.</p>
+</div>
+</section>
+<section id="testing-the-controls-before-flying">
+<h2>Testing the controls before flying<a class="headerlink" href="#testing-the-controls-before-flying" title="Permalink to this heading">¶</a></h2>
+<p>Before flying for the first time you should test that all features work
+well.</p>
+<p>To check the above controls move in the correct direction:</p>
+<ul class="simple">
+<li><p>Click the <strong>Enable</strong> button on the Joystick setup screen to enable
+sending messages to the vehicle</p></li>
+<li><p>Connect your autopilot to the computer with a USB cable</p></li>
+<li><p>Push the Mission Planner’s <strong>Connect</strong> button</p></li>
+<li><p>Go to the <strong>Initial Setup | Mandatory Hardware | Radio
+Calibration</strong> screen and ensure the green bars all move in the
+correct direction.  Remember the bars move in the same direction as
+the sticks except for Pitch which moves in the opposite direction.</p></li>
+<li><p>If any controls are reversed, check the <strong>Reverse</strong> checkbox on the
+Joystick setup screen.</p></li>
+</ul>
+<p>Next test you are able to arm, disarm and switch into the various flight
+modes (not need to connect the battery)</p>
+</section>
+<section id="testing-the-failsafes">
+<h2>Testing the failsafes<a class="headerlink" href="#testing-the-failsafes" title="Permalink to this heading">¶</a></h2>
+<p>All of these tests should be performed on the ground with the battery
+disconnected or at least with the propellers off the vehicle.</p>
+<p><strong>Simulate disabling the joystick in flight with transmitter off</strong> (i.e.
+no failover to regular transmitter):</p>
+<ol class="arabic simple">
+<li><p>Turn regular transmitter off</p></li>
+<li><p>Connect with the mission planner, push Joystick window’s <strong>Enable</strong>
+button and ensure RC overrides are being sent to the vehicle. (use
+Radio Calibration screen or Flight Data’s status screen)</p></li>
+<li><p>Arm vehicle, switch to Stabilize or Loiter mode and raise the throttle</p></li>
+<li><p>Ensure the motors are spinning by checking the Flight Data screen’s
+“ch1out” ~ “ch4out”</p></li>
+<li><p>Push Joystick screen’s <strong>Disable</strong> button</p></li>
+<li><p>“Failsafe” should appear on the HUD and the vehicle should switch to
+“LAND” or “RTL”</p></li>
+<li><p>Repeat the above test but at step #5 actually disconnect the joystick
+from the computer.  The results should be the same.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/joystick_FailsafeTesting1.jpg"><img alt="../_images/joystick_FailsafeTesting1.jpg" src="../_images/joystick_FailsafeTesting1.jpg" /></a>
+<p><strong>Simulate failing over to the regular transmitter/receiver</strong></p>
+<ol class="arabic simple">
+<li><p>Turn the regular transmitter on and ensure you can control the
+vehicle (perhaps by checking the Radio calibration page or the Flight
+Data screen’s Status tab’s “ch1in” ~ “ch8in”).</p></li>
+<li><p>With the regular transmitter leave the vehicle in AltHold mode and
+raise the throttle to mid</p></li>
+<li><p>On the Joystick screen push the <strong>Enable</strong> button</p></li>
+<li><p>Arm the vehicle in STABILIZE mode and raise throttle to full (with
+the Joystick).</p></li>
+<li><p>Check the throttle is at full in the Flight Data screen’s Status tab
+by checking “ch3in” is very high (around 1900 usually)</p></li>
+<li><p>On the Joystick screen push the <strong>Disable</strong> button and check the
+“ch3in” has dropped to a mid value (around 1500)</p></li>
+<li><p>The vehicle should remain in its current flight mode (Stabilize) but
+controls have been returned to the transmitter.  The pilot’s inputs
+should be reflected in the “ch1in” ~ “ch8in” values.  Switch the
+vehicle to AltHold mode by moving the flight mode switch.</p></li>
+</ol>
+<p><strong>Simulate loss of radio contact</strong>:</p>
+<p>If radio contact is lost, the vehicle should respond as if the Joystick
+was “Disabled” or disconnected from the PC.  You can test this by
+repeating the test above but instead of pushing the <strong>Disable</strong> button
+on the Joystick screen, disconnect the radio.  In order to see the
+status of the vehicle you will need to connect two Mission Planner’s
+separately (only possible on Pixhawk).  The Mission Planner with the
+Joystick should be connected through telemetry and the 2nd Mission
+Planner should be connected through a USB connection.</p>
+</section>
+<section id="reducing-lag-in-the-controls">
+<h2>Reducing lag in the controls<a class="headerlink" href="#reducing-lag-in-the-controls" title="Permalink to this heading">¶</a></h2>
+<p>It is nearly impossible to make the Joystick as responsive as a regular
+transmitter but lag can be reduced by:</p>
+<ul>
+<li><p>Reducing the rate of other telemetry data being sent between the
+vehicle and GCS from the MP’s <strong>Config/Tuning | Planner</strong> page</p>
+<a class="reference external image-reference" href="../_images/joystick_ReduceLag_MPRates.png"><img alt="../_images/joystick_ReduceLag_MPRates.png" src="../_images/joystick_ReduceLag_MPRates.png" /></a>
+</li>
+<li><p>If using a SiK Radio or RFD900 Radio these can be put into
+<a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#common-3dr-radio-advanced-configuration-and-technical-information-low-latency-mode"><span class="std std-ref">Low Latency mode as described here</span></a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

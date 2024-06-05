@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS - How it Works &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GPS - How it Works</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gps-how-it-works">
+<span id="common-gps-how-it-works"></span><h1>GPS - How it Works<a class="headerlink" href="#gps-how-it-works" title="Permalink to this heading">¶</a></h1>
+<p>GPS system is a Global Navigation Satellite System (GNSS).</p>
+<a class="reference external image-reference" href="../_images/ag_GPS_Operation_New_low_res.jpg"><img alt="../_images/ag_GPS_Operation_New_low_res.jpg" src="../_images/ag_GPS_Operation_New_low_res.jpg" /></a>
+<p>Most civil GPS receivers are using pseudorange data (C/A code) available
+on GPS L1 channel (1575.42 MHz) and optionally they can receive SBAS
+DGPS corrections giving meter precision.</p>
+<a class="reference external image-reference" href="../_images/gps_satellite_constellation.jpg"><img alt="../_images/gps_satellite_constellation.jpg" src="../_images/gps_satellite_constellation.jpg" /></a>
+<p>Advanced and expensive civil GPS receivers can use the previous method
+plus carrier phase smoothing, carrier phase corrections (RTK) as well as
+L2 channel P(Y) code semi-codeless tracking (1227.60 MHz) for realtime
+local ionospheric corrections giving centimeter or even millimeter
+precision.</p>
+<a class="reference external image-reference" href="../_images/ag_GPS_Segments_low_res.jpg"><img alt="../_images/ag_GPS_Segments_low_res.jpg" src="../_images/ag_GPS_Segments_low_res.jpg" /></a>
+<p>Some even more advanced GNSS receivers can combine DGPS and RTK
+corrections and can receive other GNSS satellite constellations (GLONASS
+and GALILEO) and other channels (L2C, L5…) at the same time to enhance
+precision and fix reliability.</p>
+<p>Military GPS receivers are able to decode the P(Y) code available on L1
+and L2 channels giving ten times more precision in realtime compared to
+a pseudorange basic solution.</p>
+<section id="gps-multipathing">
+<h2>GPS multipathing<a class="headerlink" href="#gps-multipathing" title="Permalink to this heading">¶</a></h2>
+<p>Multipathing is causing GPS position errors that are difficult to detect
+and compensate for. Multiple GNSS receivers are better suited to filter
+out multipathing thanks to a higher number of visible satellites at the
+same time.</p>
+<a class="reference external image-reference" href="../_images/multi_path-full.jpg"><img alt="../_images/multi_path-full.jpg" src="../_images/multi_path-full.jpg" /></a>
+<a class="reference external image-reference" href="../_images/Gps-multipath-efect.jpg"><img alt="../_images/Gps-multipath-efect.jpg" src="../_images/Gps-multipath-efect.jpg" /></a>
+<a class="reference external image-reference" href="../_images/multipath.gif"><img alt="../_images/multipath.gif" src="../_images/multipath.gif" /></a>
+<a class="reference external image-reference" href="../_images/gdifcdgj.bmp"><img alt="../_images/gdifcdgj.bmp" src="../_images/gdifcdgj.bmp" /></a>
+</section>
+<section id="gps-disturbed-signal-propagation">
+<h2>GPS disturbed signal propagation<a class="headerlink" href="#gps-disturbed-signal-propagation" title="Permalink to this heading">¶</a></h2>
+<p>Ionospheric perturbations and magnetic storms (solar activity) can cause
+signal delays. This can be partially compensated using SBAS and L1 / L2
+decoding.</p>
+<a class="reference external image-reference" href="../_images/atmospheric_effects.gif"><img alt="../_images/atmospheric_effects.gif" src="../_images/atmospheric_effects.gif" /></a>
+<a class="reference external image-reference" href="../_images/bjicjgdh1.bmp"><img alt="../_images/bjicjgdh1.bmp" src="../_images/bjicjgdh1.bmp" /></a>
+<p>Decoding L1 and L2 channels at the same time do allow realtime
+ionospheric corrections through a differential technique. Unlike SBAS
+broadcasted ionospheric corrections, this method gives a better match to
+local ionospheric conditions.</p>
+<a class="reference external image-reference" href="../_images/GPS_Satellite_NASA_art-iif.jpg"><img alt="../_images/GPS_Satellite_NASA_art-iif.jpg" src="../_images/GPS_Satellite_NASA_art-iif.jpg" /></a>
+<p>New channels (L2C, L5) for civil use will enhance signal acquisition and
+position precision as soon as new satellites constellations will be
+complete ( 2015 - 2020 ).</p>
+</section>
+<section id="gps-performance-data-for-different-scenarios">
+<h2>GPS performance data for different scenarios<a class="headerlink" href="#gps-performance-data-for-different-scenarios" title="Permalink to this heading">¶</a></h2>
+<p>Those values can be thought as a basis to understand GPS limitations.</p>
+<p>As a general rule only clear sky view is safe enough for Auto missions !</p>
+<p>GPS 3D precision :</p>
+<ul class="simple">
+<li><p>Free Horizon (clear sky view): 2.5 m</p></li>
+<li><p>Extreme Multipath (Backyards or between buildings flights): 26 m</p></li>
+<li><p>Indoor: 55 m</p></li>
+</ul>
+<p>GPS Availability :</p>
+<ul class="simple">
+<li><p>Free Horizon (clear sky view) : 99%</p></li>
+<li><p>Extreme Multipath (Backyards or between buildings flights) : 83 %</p></li>
+<li><p>Indoor : 14 %</p></li>
+</ul>
+</section>
+<section id="dgps-corrections">
+<h2>DGPS corrections<a class="headerlink" href="#dgps-corrections" title="Permalink to this heading">¶</a></h2>
+<p>DGPS corrections are using pseudorange data only. SBAS is a form of DGPS
+correction freely available from one or more geostationary satellites.</p>
+<p>Each region of the world has a localized SBAS system : WAAS for America,
+EGNOS for Europe, MSAS for Japan.</p>
+<p>DGPS corrections give meter precision (free services) or decimeter
+precision (paying services)</p>
+<a class="reference external image-reference" href="../_images/gps_differential_corrections.jpg"><img alt="../_images/gps_differential_corrections.jpg" src="../_images/gps_differential_corrections.jpg" /></a>
+</section>
+<section id="rtk-corrections">
+<h2>RTK corrections<a class="headerlink" href="#rtk-corrections" title="Permalink to this heading">¶</a></h2>
+<p>RTK corrections are using carrier phase informations and needs costly
+advanced GPS as well as a RTK base station or a Network of RTK base
+stations broadcasting corrections over a modem or Internet through the
+RTCM protocol.</p>
+<a class="reference external image-reference" href="../_images/rtk_c.jpg"><img alt="../_images/rtk_c.jpg" src="../_images/rtk_c.jpg" /></a>
+<p>RTK is easier to use with slow motion or static applications (like
+surveying or farming) and give centimeter or millimeter precision.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

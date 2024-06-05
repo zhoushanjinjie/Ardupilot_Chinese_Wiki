@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Triggering using Seagull MAP2 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Triggering using Seagull MAP2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-triggering-using-seagull-map2">
+<span id="common-camera-trigger-seagull-map2"></span><h1>Camera Triggering using Seagull MAP2<a class="headerlink" href="#camera-triggering-using-seagull-map2" title="Permalink to this heading">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/camera-trigger-seagull-map2.png"><img alt="../_images/camera-trigger-seagull-map2.png" src="../_images/camera-trigger-seagull-map2.png" style="width: 450px;" /></a>
+<p>This article shows how connect and configure the <a class="reference external" href="https://www.seagulluav.com/product/seagull-map2/">Seagull MAP2</a> so that ArduPilot can trigger a camera shutter from the pilot’s transmitter or during <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">camera missions</span></a>.  More detailed instructions are provided in the <a class="reference external" href="https://www.seagulluav.com/manuals/Seagull_MAP2-Manual.pdf">Seagull MAP2 Manual</a> and <a class="reference external" href="https://www.seagulluav.com/seagull-map2-support">Seagull MAP2 product support page</a>.</p>
+<p>The list of supported cameras can be found <a class="reference external" href="https://www.seagulluav.com/map-cable-finder/">here on Seagull UAVs Cable Finder page</a></p>
+<p>The board supports two trigger modes which are determined by the servo PWM output set in the <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration</span></a> in Mission Planner:</p>
+<ul class="simple">
+<li><p><strong>AF-T</strong> (“AutoFocus-Trigger”) : 1 second pre-focus followed by trigger</p></li>
+<li><p><strong>IS-T</strong> (“Instant-Trigger”) : instant trigger as soon as camera locks focus</p></li>
+</ul>
+<p>If used with Sony “Multi” cameras, Seagull MAP2 also supports turning the camera on or off  using “Do-Set-Servo” or “Do-Repeat-Servo” commands</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The board also supports triggering from the RC transmitter (this
+is not covered in this article, but is demonstrated in the manual).</p>
+</div>
+<section id="parts-and-hardware-connections">
+<h2>Parts and hardware connections<a class="headerlink" href="#parts-and-hardware-connections" title="Permalink to this heading">¶</a></h2>
+<p>The Seagull MAP2 can be <a class="reference external" href="https://www.seagulluav.com/product/seagull-map2/">purchased from Seagull UAV</a> and comes with a
+servo cable included. The camera cables has to be purchased separately - please use the <a class="reference external" href="https://www.seagulluav.com/map-cable-finder/">Cable Finder</a> page to determine which cable is needed.</p>
+<p>Below is a list of the cables offered by Seagull UAV:</p>
+<ul class="simple">
+<li><p>Canon: E3, N3</p></li>
+<li><p>Sony: Minolta S1, S2 (Multi-Angled), S2 (Multi-Straight)</p></li>
+<li><p>Nikon: DC0, DC2</p></li>
+<li><p>Olympus: UC1, E-system</p></li>
+<li><p>Panasonic: RS1</p></li>
+<li><p>Samsung: NX</p></li>
+<li><p>Fujifilm: RR-80, RR-90</p></li>
+<li><p>Sigma: CR-31</p></li>
+<li><p>Apple: IOS</p></li>
+</ul>
+<p>The 3-pin servo connector should be connected to the autopilot’s rear servor rail.  You can connect to any of Pixhawk’s usable AUX ports, as discussed in <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration in Mission Planner</span></a>.</p>
+<p>On the opposite side of the MAP2, is a 2.5mm jack for connecting the cable for your specific camera.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MAP2 is powered by Pixhawk’s power rail (the middle pin +).
+Ensure that the rail is powered by BEC or other power source ranging
+from 3.5-5.5 Volts in order for MAP2 to function properly.</p>
+</div>
+</section>
+<section id="camera-shutter-configuration-in-mission-planner">
+<h2>Camera shutter configuration in Mission Planner<a class="headerlink" href="#camera-shutter-configuration-in-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration in Mission Planner</span></a> article explains how to
+configure Pixhawk AUX output as a servo camera trigger.</p>
+<p>The parameters used to configure this particular hardware are listed
+below. Note that you have to set different shutter pushed and duration
+values depending on which mode you want to support for camera
+triggering.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM_TRIG_TYPE</span></code>: 0 (Servo).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">(Port)</span></code>: Depends on the connected output - e.g. RC10 for
+AUX2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Pushed</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">AF-T</span></code>: 1300 μS (1200 to 1400 μS).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IS-T</span></code>: 1700 μS (1600 to 1800 μS).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Not</span> <span class="pre">Pushed</span></code>: 1500us (1400 to 1600 μS).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Duration</span></code>: Set the value <strong>“1”</strong> for AF-T mode or <strong>“10”</strong> for
+IS-T mode.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="https://www.seagulluav.com/wp-content/uploads/2016/03/smap2_mp.png"><img alt="https://www.seagulluav.com/wp-content/uploads/2016/03/smap2_mp.png" src="https://www.seagulluav.com/wp-content/uploads/2016/03/smap2_mp.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Camera Setup using Seagull MAP2</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="video-guides">
+<h2>Video Guides<a class="headerlink" href="#video-guides" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner Configuration</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/epjcvfZSepc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Set up transmitter</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/BYQqEgfCCe8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<p>To determine what state <strong>Seagull MAP2</strong> is currently in - simply read the
+output of the “STATE LED” and match it with the “Action” in the table
+below.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="https://www.seagulluav.com/wp-content/uploads/2016/03/smap2_stateled-300x111.png"><img alt="https://www.seagulluav.com/wp-content/uploads/2016/03/smap2_stateled-300x111.png" src="https://www.seagulluav.com/wp-content/uploads/2016/03/smap2_stateled-300x111.png" /></a>
+<figcaption>
+<p><span class="caption-text">MAP2: STATE LED</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The following table shows the STATE LED readout for the different states
+/ modes.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>STATE LED</strong></p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Blinking</strong></p></td>
+<td><p>No Signal - check connections and mode values</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fading</strong></p></td>
+<td><p>Ready - waiting for next command</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Solid on</strong></p></td>
+<td><p>Active in one of the 3 modes – return to “Neutral” before next command</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fade &gt;&gt; Solid on</strong></p></td>
+<td><p>Keep alive mode activated - return to “Neutral” before next command</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Fade &gt;&gt; Solid on</strong></p></td>
+<td><p>AF-T mode activated - return to “Neutral” before next command</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fade &gt;&gt; Solid on</strong> (repeat)</p></td>
+<td><p>Timelapse mode activated - return to “Neutral” before next command</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Blink &gt;&gt; Solid on</strong></p></td>
+<td><p>IS-T mode activated - return to “Neutral” before new command</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Blink &gt;&gt; Solid on</strong></p></td>
+<td><p>Camera On/Off activated (Only Sony “Multi” cameras)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="technical-specifications">
+<span id="common-camera-shutter-triggering-for-sony-multiport-connectors-using-seagull-map-compatible-cameras"></span><h2>Technical specifications<a class="headerlink" href="#technical-specifications" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Weight</strong></p></td>
+<td><p>1.6g ( ~ 12g with cables - depending on cable type )</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dimensions</strong></p></td>
+<td><p>28.6 x 10.3 x 7.7 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Voltage</strong></p></td>
+<td><p>3.5 – 5.5 volts ( 5 volts recommended – <strong>do NOT exceed 5.5 volts !</strong> )</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Current</strong></p></td>
+<td><p>21.75mA max</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Input signal</strong></p></td>
+<td><p>Standard R/C PWM between 1000 – 2000μS</p></td>
+</tr>
+</tbody>
+</table>
+<p>[copywiki destination=”copter,plane,rover”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

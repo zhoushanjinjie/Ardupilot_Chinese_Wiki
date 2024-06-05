@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mateksys F765-Wing &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mateksys F765-WSE" href="common-matekf765-wse.html" />
+    <link rel="prev" title="Mateksys F405-Wing" href="common-matekf405-wing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-pixhackV5-overview.html">CUAV V5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-emlid-edge.html">Emlid Edge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pxfmini.html">Erle PXFmini RPi Zero Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-erle-brain-linux-autopilot.html">Erle ErleBrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini.html">Holybro Kakute H7 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-overview.html">Intel Aero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-rtf.html">Intel Aero RTF vehicle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-se.html">Mateksys F405-SE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405.html">Mateksys F405-STD and variants*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-wing.html">Mateksys F405-Wing</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Mateksys F765-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wse.html">Mateksys F765-WSE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Mateksys F765-Wing</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mateksys-f765-wing">
+<span id="common-matekf765-wing"></span><h1>Mateksys F765-Wing<a class="headerlink" href="#mateksys-f765-wing" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/matekf765-wing.jpg" src="../_images/matekf765-wing.jpg" />
+<p>the above image and some content courtesy of <a class="reference external" href="http://www.mateksys.com/?portfolio=f765-wing">mateksys.com</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this board is available with ArduPilot 4.0 and higher</p>
+</div>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>STM32F765VIT6  ARM (216MHz)</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>InvenSense MPU6000 IMU (accel, gyro) &amp; ICM20602</p></li>
+<li><p>BMP280 barometer (later models use DPS310)</p></li>
+<li><p>Voltage &amp; 132A current sensor</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>9V ~ 36V DC input power</p></li>
+<li><p>5V 2A BEC for peripherals</p></li>
+<li><p>9/12V 2A BEC for video</p></li>
+<li><p>5/6/7.2V 8A BEC for servos</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>7x UARTS</p></li>
+<li><p>12x PWM outputs</p></li>
+<li><p>1x RC input PWM/PPM, SBUS</p></li>
+<li><p>2x I2C ports for external compass, airspeed sensor, etc.</p></li>
+<li><p>SPI4 port</p></li>
+<li><p>USB port</p></li>
+<li><p>6 ADC</p></li>
+<li><p>Dual Switchable Camera inputs</p></li>
+<li><p>Built-in OSD</p></li>
+</ul>
+</li>
+<li><p><strong>Size and Dimensions</strong></p>
+<ul>
+<li><p>54mm x 36mm x 13mm</p></li>
+<li><p>26g</p></li>
+</ul>
+</li>
+</ul>
+<p>See mateksys.com for more <a class="reference external" href="http://www.mateksys.com/?portfolio=f765-wing#tab-id-2">detailed specifications</a> and <a class="reference external" href="http://www.mateksys.com/?portfolio=f765-wing#tab-id-4">wiring diagrams</a> (ArduPilot connections may vary slightly due to different UART usage).</p>
+</section>
+<section id="camera-and-supply-switch">
+<h2>Camera and Supply Switch<a class="headerlink" href="#camera-and-supply-switch" title="Permalink to this heading">¶</a></h2>
+<p>Switching between the two camera inputs, C1 (default on) or C2, and between on (default) and off of Vsw (jumper selectable supply), can be implemented using the Relay function of ArduPilot and assigning the relays to an <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> switch on the transmitter.</p>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">RELAYx_PIN</span></code> to “81” for on/off of Vsw, and to “82” to control the camera switching.
+Then select an RC channel for control (Chx) and set its <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> to the appropriate Relay (1-4) that you had set its pin parameter above.</p>
+<p>For example, use Channel 10 to control the camera switch using Relay 2:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin2" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN2</span></a> = “82”</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc10-option" title="(in Rover)"><span class="xref std std-ref">RC10_OPTION</span></a> = “34” (Relay2 Control)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>setting Relay on/high assigned for Vsw will turn off that supply. Likewise, setting on/high for the Relay assigned for camera, will switch from Camera 1 to Camera 2.</p>
+</div>
+</section>
+<section id="default-uart-order">
+<h2>Default UART order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SERIAL0 = console = USB</p></li>
+<li><p>SERIAL1 = Telemetry1 = UART7 (support CTS and RTS signaling)</p></li>
+<li><p>SERIAL2 = Telemetry2 = USART1</p></li>
+<li><p>SERIAL3 = GPS1 = USART2</p></li>
+<li><p>SERIAL4 = GPS2 = USART3</p></li>
+<li><p>SERIAL5 = USER = UART8</p></li>
+<li><p>SERIAL6 = USER = UART4</p></li>
+<li><p>SERIAL7 = USER = UART6 (TX only unless <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> = 1, then RX available also)</p></li>
+<li><p>SERIAL8 = USER = UART5 (RX only, for ESC telemetry)</p></li>
+</ul>
+<p>Serial port protocols (Telem, GPS, etc.) can be adjusted to personal preferences.</p>
+</section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<p>The Rx6 pin, which by default is mapped to a timer input, can be used for all ArduPilot supported receiver protocols, except CRSF/ELRS and SRXL2 which require a true UART connection. However, FPort, when connected in this manner, will only provide RC without telemetry.</p>
+<p>To allow CRSF and embedded telemetry available in Fport, CRSF, and SRXL2 receivers, the Rx6 pin can also be configured to be used as true UART RX pin for use with bi-directional systems by setting the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> to “1” so it becomes the SERIAL7 port’s RX input pin.</p>
+<p>With this option, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL7_PROTOCOL</span></a> must be set to “23”, and:</p>
+<ul class="simple">
+<li><p>PPM is not supported.</p></li>
+<li><p>SBUS/DSM/SRXL connects to the Rx6 pin, but SBUS requires that the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-options" title="(in Rover)"><span class="xref std std-ref">SERIAL7_OPTIONS</span></a> be set to “3”.</p></li>
+<li><p>FPort requires connection to T6 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-options" title="(in Rover)"><span class="xref std std-ref">SERIAL7_OPTIONS</span></a> be set to “7”.</p></li>
+<li><p>CRSF also requires a Tx6 connection, in addition to Rx6, and automatically provides telemetry. Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-options" title="(in Rover)"><span class="xref std std-ref">SERIAL7_OPTIONS</span></a> to “0”.</p></li>
+<li><p>SRXL2 requires a connection to Tx6 and automatically provides telemetry.  Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-options" title="(in Rover)"><span class="xref std std-ref">SERIAL7_OPTIONS</span></a> to “4”.</p></li>
+</ul>
+<p>Any UART can be used for RC system connections in ArduPilot also, and is compatible with all protocols except PPM. See <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a> for details.</p>
+</section>
+<section id="dshot-capability">
+<h2>Dshot capability<a class="headerlink" href="#dshot-capability" title="Permalink to this heading">¶</a></h2>
+<p>All motor/servo outputs PWM capable, and 1-6 are Dshot capable. However, mixing Dshot and normal PWM operation for outputs is restricted into groups, ie. enabling Dshot for an output in a group requires that ALL outputs in that group be configured and used as Dshot, rather than PWM outputs. The output groups that must be the same (PWM rate or Dshot, when configured as a normal servo/motor output) are: 1/2, 3/4, 5/6, 7/8/9/10, 11/12, and 13(LED).</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>see this list of <a class="reference external" href="http://www.mateksys.com/?page_id=1212">Mateksys Distributors</a></p></li>
+</ul>
+</section>
+<section id="connecting-a-gps-compass-module">
+<h2>Connecting a GPS/Compass module<a class="headerlink" href="#connecting-a-gps-compass-module" title="Permalink to this heading">¶</a></h2>
+<p>This board does not include a GPS or compass so an <a class="reference internal" href="common-positioning-landing-page.html#common-positioning-landing-page"><span class="std std-ref">external GPS/compass</span></a> should be connected in order for autonomous modes to function.</p>
+<p>If the GPS is attached to UART2 TX/RX and powered from the adjacent 4.5V pins, it will be powered when connected via USB, as would the RX if powered from the adjacent 4.5V pins to UART6.</p>
+<p>A battery must be plugged in for power to be provided to the pins marked 5V on the board.</p>
+</section>
+<section id="battery-monitor-configuration">
+<h2>Battery Monitor Configuration<a class="headerlink" href="#battery-monitor-configuration" title="Permalink to this heading">¶</a></h2>
+<p>These settings are set as defaults when the firmware is loaded. However, if they are ever lost, you can manually set the parameters:</p>
+<p>Enable Battery monitor.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> =4</p>
+<p>Then reboot.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> 12</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> 13</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> 11.0</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> 40</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this autopilot uses a high precision current sensor which is sensitive to ESC switching noise. Be sure to use the bypass capacitor provided. In some cases, the ESCs themselves will need additional 200-330uF low ESR capacitors on their power inputs, if they do not incorporate them already. See <a class="reference external" href="http://www.mateksys.com/?p=5712#tab-id-12">Matek FAQs</a> for more information.</p>
+</div>
+</section>
+<section id="alternate-configurations">
+<h2>Alternate Configurations<a class="headerlink" href="#alternate-configurations" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> to “1” to enable RX6 pin as true UART input (see RC Input section above)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> to “2” to change RTS7 and CTS7 pins to GPIO 1 and 2, respectively.</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> to “3” to enable both of the above.</p></li>
+</ul>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p>Firmware for this board can be found <a class="reference external" href="https://firmware.ardupilot.org">here</a> in  sub-folders labeled
+“MatekF765-Wing”.</p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-matekf405-wing.html" class="btn btn-neutral float-left" title="Mateksys F405-Wing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-matekf765-wse.html" class="btn btn-neutral float-right" title="Mateksys F765-WSE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

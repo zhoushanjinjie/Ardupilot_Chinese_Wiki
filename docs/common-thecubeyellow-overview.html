@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cube Yellow Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Holybro Durandal" href="common-durandal-overview.html" />
+    <link rel="prev" title="The Cube Purple Overview" href="common-thecubepurple-overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://arkelectron.com/product/arkv6x/">ARKV6X DS-10 Pixhawk6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pixhawkv6X.html">CUAV Pixhawk v6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-x7-family-overview.html">CUAV X7/X7Pro/X7+/X7+ Pro</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecube-overview.html">CubePilot Cube Black</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeorange-overview.html">CubePilot Cube Orange/+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubepurple-overview.html">CubePilot Cube Purple</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CubePilot Cube Yellow</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">CubePilot Cube Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-durandal-overview.html">Holybro Durandal H7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6X.html">Holybro Pixhawk6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6C.html">Holybro Pixhawk6C/ 6C Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v6.html">Holybro Pix32v6(Pixhawk6C variant)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRo X2.1</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/m10022a.htm">mRo X2.1-777</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">The Cube Yellow Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-cube-yellow-overview">
+<span id="common-thecubeyellow-overview"></span><h1>The Cube Yellow Overview<a class="headerlink" href="#the-cube-yellow-overview" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/Cube_yellow_module.jpg"><img alt="../_images/Cube_yellow_module.jpg" src="../_images/Cube_yellow_module.jpg" style="width: 360px;" /></a>
+<section id="system-features">
+<h2>System Features<a class="headerlink" href="#system-features" title="Permalink to this heading">¶</a></h2>
+<p>The Cube Yellow autopilot is a new model in the Cubepilot ecosystem, designed for hobby users, commercial system integrators and UAS manufacturers the Cube Yellow is based on the Arm STM32F7 series SOC. Sitting directly between the Cube Black and Orange this model offers better performance and newer sensors over the Cube Black while retaining F series SOC compatibility.</p>
+<p>Just like the other models the Yellow is part of a wide ecosystem of autopilot modules and carrier boards. All the Cube models are compatible with all of the carriers which allows users to choose an off the shelf carrier board design that best suits their needs. System designers are able to integrate the Cube directly into their designs via published carrier board specifications.</p>
+</section>
+<section id="cube-yellow-features">
+<h2>Cube Yellow Features<a class="headerlink" href="#cube-yellow-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Faster F7 SOC with 512KB ram</p></li>
+<li><p>Upgraded triple redundant IMU sensors for extra redundancy</p></li>
+<li><p>2 sets of IMU are vibration-isolated mechanically, reducing the effect of frame vibration to state estimation</p></li>
+<li><p>IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs</p></li>
+<li><p>The entire flight management unit(FMU) and inertial management unit(IMU) are housed in a reatively small form factor (a cube).</p></li>
+<li><p>Fully Cubepilot carrierboard compatible, all inputs and outputs go through a 80-pin DF17 connector, allowing a plug-in solution for manufacturers of commercial systems. Manufacturers can design their own carrier boards to suit their specific needs now and in the future.</p></li>
+</ul>
+</section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>STM32F777VIT6 Cortex®-M7 Core (with DPFPU)</p></li>
+<li><p>216 Mhz/512KB RAM/2 MB Flash</p></li>
+<li><p>32 bit STM32F103 failsafe co-processor</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>Three redundant IMUs (accels, gyros and compass)</p></li>
+<li><p>ICM 20649 integrated accelerometer / gyro, MS5611 barometer on base board</p></li>
+<li><p>InvenSense ICM20602 IMU,ICM20948 IMU/MAG, MS5611 barometer on temperature controlled, vibration isolated board</p></li>
+<li><p>All sensors connected via SPI.</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>Redundant power supply with automatic failover</p></li>
+<li><p>Servo rail high-power (7 V) and high-current ready</p></li>
+<li><p>All peripheral outputs over-current protected, all inputs ESD
+protected</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>14x PWM servo outputs (8 from IO, 6 from FMU)</p></li>
+<li><p>S.Bus servo output</p></li>
+<li><p>R/C inputs for CPPM, Spektrum / DSM and S.Bus</p></li>
+<li><p>Analogue / PWM RSSI input</p></li>
+<li><p>5x general purpose serial ports, 2 with full flow control</p></li>
+<li><p>2x I2C ports</p></li>
+<li><p>SPI port (un-buffered, for short cables only not recommended for use)</p></li>
+<li><p>2x CAN Bus interface</p></li>
+<li><p>3x Analogue inputs (3.3V and 6.6V)</p></li>
+<li><p>High-powered piezo buzzer driver (on expansion board)</p></li>
+<li><p>High-power RGB LED (I2C driver compatible connected externally only)</p></li>
+<li><p>Safety switch / LED</p></li>
+<li><p>Optional carrier board for Intel Edison (now obsolete)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-cube-connector-pin-assignments">
+<h2>The Cube connector pin assignments<a class="headerlink" href="#the-cube-connector-pin-assignments" title="Permalink to this heading">¶</a></h2>
+<p>All other specification and external connections remain identical to the original board listed on the Cube Black page.</p>
+</section>
+<section id="cubepilot-ecosystem">
+<h2>Cubepilot Ecosystem<a class="headerlink" href="#cubepilot-ecosystem" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Cubepilot_ecosystem.jpg"><img alt="../_images/Cubepilot_ecosystem.jpg" src="../_images/Cubepilot_ecosystem.jpg" /></a>
+</section>
+<section id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p>For more information and instructions on setting up and using the Cubepilot system see  <a class="reference external" href="https://docs.cubepilot.org/user-guides/">Cubepilot Docs</a></p>
+<p>For technical help and support on the cubepilot system see  <a class="reference external" href="https://discuss.cubepilot.org/">Cubepilot Forum</a></p>
+<p>Company information on Cubpilot can be found at  <a class="reference external" href="http://www.proficnc.com">www.proficnc.com</a></p>
+</section>
+<section id="carrier-board-design">
+<h2>Carrier Board Design<a class="headerlink" href="#carrier-board-design" title="Permalink to this heading">¶</a></h2>
+<p>The reference design files of the standard carrier board are available in <a class="reference external" href="https://github.com/proficnc/The-Cube">github</a>, or <a class="reference external" href="https://github.com/ArduPilot/Schematics/tree/master/ProfiCNC">here</a> ,this serve as a starting point for designers to design their own system based on The Cube autopilot.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Official retailers are listed <a class="reference external" href="http://www.proficnc.com/stores">here</a>.</p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-thecubepurple-overview.html" class="btn btn-neutral float-left" title="The Cube Purple Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-durandal-overview.html" class="btn btn-neutral float-right" title="Holybro Durandal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

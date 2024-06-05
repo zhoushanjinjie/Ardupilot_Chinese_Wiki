@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUAV C-RTK 9P GPS &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CUAV C-RTK 9P GPS</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cuav-c-rtk-9p-gps">
+<span id="common-cuav-c-rtk-9p-gps"></span><h1>CUAV C-RTK 9P GPS<a class="headerlink" href="#cuav-c-rtk-9p-gps" title="Permalink to this heading">¶</a></h1>
+<p>This article mainly introduces C-RTK 9P based on Ublox F9P.
+The C-RTK 9P offers more accurate positional accuracy and shorter convergence times than the Ublox M8P module.
+This description uses the Mission Planner for setup, but you can also use QgroundControl.</p>
+<a class="reference external image-reference" href="../images/c-rtk-9p/c-rtk-9p.jpg"><img alt="../_images/c-rtk-9p.jpg" src="../_images/c-rtk-9p.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot does not currently configure UBlox F9P GPS constellations. User must assure that the GPS is properly configured for his region and application. See <a class="reference internal" href="common-gps-ublox-firmware-update.html#common-gps-ublox-firmware-update"><span class="std std-ref">U-Blox F9P Firmware Update</span></a></p>
+</div>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>RTK Receiver: Ublox F9P</p></li>
+<li><p>Compass : IST8310</p></li>
+<li><p><strong>GNSS</strong></p>
+<ul>
+<li><p>GPS / QZSS,Beidou,Galileo, GLONASS</p></li>
+</ul>
+</li>
+<li><p><strong>GNSS Bands</strong></p>
+<ul>
+<li><p>GPS L1C/A L2C, GLONASS L1OF L2OF, GALILEO E1B/C E5b, BDS B1I B2I, QZSS L1C/A L2C</p></li>
+</ul>
+</li>
+<li><p><strong>Nav. update rate</strong></p>
+<ul>
+<li><p>RTK Up to 20HZ</p></li>
+</ul>
+</li>
+<li><p><strong>Position accuracy</strong></p>
+<ul>
+<li><p>RTK 0.01 m + 1 ppm CEP</p></li>
+</ul>
+</li>
+<li><p><strong>Convergence time</strong></p>
+<ul>
+<li><p>RTK &lt; 10 sec</p></li>
+</ul>
+</li>
+<li><p><strong>Acquisition</strong></p>
+<ul>
+<li><p>Cold starts 24 s</p></li>
+<li><p>Aided starts 2 s</p></li>
+<li><p>Reacquisition 2 s</p></li>
+</ul>
+</li>
+<li><p><strong>Sensitivity</strong></p>
+<ul>
+<li><p>Tracking &amp; Nav -167 dBm</p></li>
+<li><p>Cold starts -148 dBm</p></li>
+<li><p>Hot starts -157 dBm</p></li>
+<li><p>Reacquisition -160 dBm</p></li>
+</ul>
+</li>
+<li><p><strong>Anti-jamming</strong></p>
+<ul>
+<li><p>Active CW detection and removal Onboard band pass ﬂter</p></li>
+</ul>
+</li>
+<li><p><strong>Anti-spoofng</strong></p>
+<ul>
+<li><p>Advanced anti-spoofng algorithms</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>2 UART</p></li>
+<li><p>1 USB</p></li>
+<li><p>1 I2C</p></li>
+<li><p>1 Antenna interface(MMCX)</p></li>
+</ul>
+</li>
+<li><p><strong>Protocols</strong></p>
+<ul>
+<li><p>NMEA</p></li>
+<li><p>UBX binary</p></li>
+<li><p>RTCM version 3.x</p></li>
+<li><p>Supply voltage</p></li>
+<li><p>–40 °C to +85 °C</p></li>
+</ul>
+</li>
+<li><p><strong>Size</strong>
+-  31.5*48*12MM
+-  weight:21g</p></li>
+</ul>
+</section>
+<section id="where-to-buy">
+<h2>Where to buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>You can buy it from <a class="reference external" href="https://www.aliexpress.com/item/4000120384761.html">CUAV store</a>.</p>
+</section>
+<section id="connect-to-pixhawk">
+<h2>Connect to Pixhawk<a class="headerlink" href="#connect-to-pixhawk" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk-9p/connect-to-pixhawk.jpg"><img alt="../_images/connect-to-pixhawk.jpg" src="../_images/connect-to-pixhawk.jpg" /></a>
+</section>
+<section id="connect-to-cuav-v5-or-v5-nano">
+<h2>Connect to CUAV V5+ Or V5 nano<a class="headerlink" href="#connect-to-cuav-v5-or-v5-nano" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk-9p/c-rtk-9p-connection.jpg"><img alt="../_images/c-rtk-9p-connection.jpg" src="../_images/c-rtk-9p-connection.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please use V5+ or V5 nano special cable,10 pin connector plugged into GPS&amp;SAFETY PORT, 6 pin connector plugged into UART 4.</p>
+</div>
+</section>
+<section id="connect-to-others">
+<h2>Connect to Others<a class="headerlink" href="#connect-to-others" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk-9p/c-rtk-9p-connection-to-others.png"><img alt="../_images/c-rtk-9p-connection-to-others.png" src="../_images/c-rtk-9p-connection-to-others.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use a different autopilot, please select the V5+ version kit, which contains a 6 pin to 6pin cable that you can connect to the flight control GPS/GPS2/UART4 interface (it can be connected to Pixhawk2.1, Pixhawk 3 pro, etc).</p>
+</div>
+</section>
+<section id="port-and-led">
+<h2>Port and LED<a class="headerlink" href="#port-and-led" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk-9p/c-rtk-9p-port-and-led.png"><img alt="../_images/c-rtk-9p-port-and-led.png" src="../_images/c-rtk-9p-port-and-led.png" /></a>
+<p><strong>LED status</strong>:</p>
+<p>RTK status: solid (rtk fixed), Blinking (receiving and using RTCM corrections), off
+(otherwise).</p>
+<p>GPS status:solid(no fix),Blinking(GPS FIX).</p>
+<p>PWR status:solid(power input),off( not power  input or vcc is not healthy).</p>
+<a class="reference external image-reference" href="../images/c-rtk-9p/c-rtk-9p-port-and-led2.png"><img alt="../_images/c-rtk-9p-port-and-led2.png" src="../_images/c-rtk-9p-port-and-led2.png" /></a>
+</section>
+<section id="c-rtk-9p-estimated-yaw">
+<h2>C-RTK 9P estimated Yaw<a class="headerlink" href="#c-rtk-9p-estimated-yaw" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Kh_6TynYqEI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://doc.cuav.net/gps/c-rtk/en/c-rtk-9p.html">User guide</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

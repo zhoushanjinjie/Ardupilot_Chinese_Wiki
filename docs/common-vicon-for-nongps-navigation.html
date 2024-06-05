@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using a Vicon indoor positioning system &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using a Vicon indoor positioning system</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-vicon-for-nongps-navigation">[copywiki destination=”copter,rover,blimp”]</p>
+<section id="using-a-vicon-indoor-positioning-system">
+<h1>Using a Vicon indoor positioning system<a class="headerlink" href="#using-a-vicon-indoor-positioning-system" title="Permalink to this heading">¶</a></h1>
+<p>Robotics labs commonly have an indoor flying facility using a Vicon
+indoor positioning system. These systems use infra-red cameras to give
+a high rate (200Hz) position and attitude via a network
+connection. ArduPilot can use this positioning information for precise
+indoor flight.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/XMb4MKi2HSQ" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The Vicon system comes with a SDK that provides APIs for accessing the
+Vicon positioning data. To use the Vicon data with ArduPilot you need
+a tool which can use this API and map it onto MAVLink packets to send
+to ArduPilot.</p>
+<p>There are two types of MAVLink packets that can be used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the GLOBAL_VISION_POSITION_ESTIMATE packet, which provides position
+(NED) and attitude (euler angles).</p></li>
+<li><p>the GPS_INPUT packet which provides position as latitude/longitude,
+altitude, velocity (3D) and yaw data.</p></li>
+</ul>
+</div></blockquote>
+<p>Right now the best approach is to use GPS_INPUT with the GPS yaw
+extension as the velocity data provided by the GPS packet is more
+valuable for good positioning than the attitude information in the
+GLOBAL_VISION_POSITION_ESTIMATE packet. In the future we will support
+a combined VISION MAVLink message which will provide position,
+velocity and attitude in one packet.</p>
+</section>
+<section id="hardware-setup">
+<h2>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this heading">¶</a></h2>
+<p>You will need a low-latency network link from your GCS computer to the
+copter, and from the GCS to your Vicon server. The recommened method
+is to use ethernet to the Vicon server and use a ESP8266 WiFi link
+running <a class="reference external" href="common-esp8266-telemetry">mavest8266</a> on the copter.</p>
+</section>
+<section id="vicon-system-setup">
+<h2>Vicon System Setup<a class="headerlink" href="#vicon-system-setup" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The Vicon system should be correctly calibrated. The origin should be set using the calibration wand. In the Vicon Tracker software, the Z-axis (shown in blue) of the Vicon system world frame should point up. We will call the X-axis (red) as North, and the Y-axis (green) as West.</p></li>
+<li><p>The UAV should have a minimum of 4 reflective markers to ensure an accurate fix. Any reflective surfaces on the UAV should be covered with masking tape to avoid spurious detections.</p></li>
+<li><p>Place the UAV in the Vicon space so that the forward direction of the autopilot is facing ‘North’. (Figure 1)</p></li>
+<li><p>In the Vicon Tracker, select all of the markers and create a new object for the UAV. The coordinate frame of the UAV should then be aligned with the Vicon world frame, so that X is forward, Y is Left and Z is up. (Figure 2)</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/vicon-frame-reference.jpg"><img alt="../_images/vicon-frame-reference.jpg" src="../_images/vicon-frame-reference.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Example of how UAV should be positioned when creating the Vicon Object. The forward direction is aligned with the X-axis.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/vicon-alignment.png"><img alt="../_images/vicon-alignment.png" src="../_images/vicon-alignment.png" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Screenshot from Vicon Tracker software, showing world coordinate frame (bottom left) aligned with UAV coordinate frame. The origin of the object frame should be approximately where the autopilot is located.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These coordinate frame conventions apply to MAVProxy version 1.8.36 and above. Ensure you are using an up-to-date version.</p>
+</div>
+</section>
+<section id="software-setup">
+<h2>Software Setup<a class="headerlink" href="#software-setup" title="Permalink to this heading">¶</a></h2>
+<p>You will need a recent version of ArduPilot on your copter. As of
+September 2019 it is recommended that you use ArduPilot master. The
+recent version is needed to give support for yaw data in the GPS_INPUT
+MAVLink message.</p>
+<p>The setup described below uses the vicon module in MAVProxy to feed
+the Vicon data to your vehicle over MAVLink.</p>
+</section>
+<section id="pyvicon">
+<h2>pyvicon<a class="headerlink" href="#pyvicon" title="Permalink to this heading">¶</a></h2>
+<p>You will need to install the <a class="reference external" href="https://github.com/tridge/pyvicon">pyvicon</a> python package, using a python
+version of at least 3.6. To install pyvicon you will need to also
+install the Vicon SDK, version 1.10 or later, from <a class="reference external" href="https://www.vicon.com/products/software/datastream-sdk">ViconDataStream
+SDK</a></p>
+<p>Note that pyvicon does not build with python2.</p>
+<p>Once you have the SDK setup, you should install pyvicon like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>setup.py<span class="w"> </span>build<span class="w"> </span>install<span class="w"> </span>--user
+</pre></div>
+</div>
+<p>You will also need to add $HOME/.local/bin to your $PATH.</p>
+</section>
+<section id="pymavlink">
+<h2>pymavlink<a class="headerlink" href="#pymavlink" title="Permalink to this heading">¶</a></h2>
+<p>You will need a pymavlink version of at least 2.3.8. Install with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>--user<span class="w"> </span>pymavlink
+</pre></div>
+</div>
+</section>
+<section id="mavproxy-setup">
+<h2>MAVProxy Setup<a class="headerlink" href="#mavproxy-setup" title="Permalink to this heading">¶</a></h2>
+<p>You will need MAVProxy version of at least 1.8.36. Install with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>--user<span class="w"> </span>mavproxy
+</pre></div>
+</div>
+<p>You will also need some other python3 libraries, install with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libgtk-3-dev
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>pathlib2<span class="w"> </span>wxpython<span class="w"> </span>matplotlib
+</pre></div>
+</div>
+<p>Next you should put the IP address of your vicon server in your
+/etc/hosts file, so that you can do “ping vicon”. The name ‘vicon’ is
+used as the default hostname in the MAVProxy vicon module.</p>
+</section>
+<section id="connecting">
+<h2>Connecting<a class="headerlink" href="#connecting" title="Permalink to this heading">¶</a></h2>
+<p>Setup your copter with the WiFi link running at baudrate 921600 and
+with MAVLink2 enabled. If your WiFi adapter is on Telem1, then you
+will need to set:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SERIAL1_PROTOCOL=2</p></li>
+<li><p>SERIAL1_BAUD=921600</p></li>
+</ul>
+</div></blockquote>
+<p>Next start MAVProxy like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mavproxy.py<span class="w"> </span>--master<span class="w"> </span>:14550<span class="w"> </span>--aircraft<span class="w"> </span>MyQuad<span class="w"> </span>--console<span class="w"> </span>--map
+</pre></div>
+</div>
+<p>For more details see the <a class="reference external" href="https://ardupilot.org/mavproxy/index.html#home" title="(in MAVProxy)"><span class="xref std std-ref">MAVProxy documentation</span></a></p>
+</section>
+<section id="key-parameters">
+<h2>Key Parameters<a class="headerlink" href="#key-parameters" title="Permalink to this heading">¶</a></h2>
+<p>You should set the following key parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>EK3_ENABLE=1</p></li>
+<li><p>EK2_ENABLE=0</p></li>
+<li><p>AHRS_EKF_TYPE=3</p></li>
+<li><p>EK3_GPS_TYPE=0</p></li>
+<li><p>EK3_MAG_CAL=5</p></li>
+<li><p>EK3_ALT_SOURCE=2</p></li>
+<li><p>GPS_TYPE=14</p></li>
+<li><p>GPS_DELAY_MS=50</p></li>
+<li><p>COMPASS_USE=0</p></li>
+<li><p>COMPASS_USE2=0</p></li>
+<li><p>COMPASS_USE3=0</p></li>
+</ul>
+</div></blockquote>
+<p>After setting these parameters you should reboot your copter.</p>
+</section>
+<section id="starting-vicon">
+<h2>Starting Vicon<a class="headerlink" href="#starting-vicon" title="Permalink to this heading">¶</a></h2>
+<p>Inside MAVProxy load the vicon module with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>vicon
+</pre></div>
+</div>
+<p>If it doesn’t load correctly then enable debugging with “set moddebug
+3” then try to load the module again.</p>
+<p>Once loaded you set set vicon parameters with “vicon set”. Once you
+are happy with the parameters then do “vicon start”</p>
+<p>The MAVProxy console will then give status information for the Vicon,
+showing position, attitude and messages rates. The vehicle should also
+get GPS lock. It will show up at the GPS coordinates in the vicon
+module settings.</p>
+</section>
+<section id="checking-orientations">
+<h2>Checking Orientations<a class="headerlink" href="#checking-orientations" title="Permalink to this heading">¶</a></h2>
+<p>Use the Vicon status line in the MAVProxy console to check that you
+have the right orientation in the data coming from the Vicon. The VPos
+data is in NED format in meters. The VATT data is euler angles of
+roll, pitch yaw. Carefully check that these values are consistent
+while you rotate and move the vehicle before proceeding.</p>
+</section>
+<section id="test-flight">
+<h2>Test Flight<a class="headerlink" href="#test-flight" title="Permalink to this heading">¶</a></h2>
+<p>You should see ArduPilot first report that EKF3 gets yaw alignment,
+and then that it is using the GPS. After that you should be able to
+arm and fly.</p>
+<p>For a first test flight STABILIZE or ALT_HOLD mode is
+recommended. Then get the flight log from the microSD card and check
+that the EKF3 innovations are low. The position, velocity and yaw
+normalised innovations should all be low (below 0.1).</p>
+<p>Once you have confirmed low innovations you can try a flight in LOITER
+mode.</p>
+</section>
+<section id="tuning">
+<h2>Tuning<a class="headerlink" href="#tuning" title="Permalink to this heading">¶</a></h2>
+<p>If you have significant vibration then you will likely want to
+de-weight the accelerometers and instead tell the EKF to use the vicon
+data more. Try setting EK3_ACC_P_NSE to 2.0 to de-weight the
+accelerometer data. You may find this helps with position and height
+hold.</p>
+<p>For indoor flightw with a Vicon setup and a small quad you can push up
+the accelerations and yaw rate to much higher value than are used in a
+normal quad. Some suggestions for a small racing quad are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>INS_GYRO_FILTER=60</p></li>
+<li><p>INS_ACCEL_FILTER=30</p></li>
+<li><p>ATC_ACCEL_Y_MAX=100000</p></li>
+<li><p>ATC_SLEW_YAW=15000</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="circle-mode">
+<h2>Circle Mode<a class="headerlink" href="#circle-mode" title="Permalink to this heading">¶</a></h2>
+<p>A very useful mode for testing accuracy of flight is <cite>Circle Mode
+&lt;circle-mode&gt;</cite>. To use it indoors try:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CIRCLE_RADIUS=100</p></li>
+<li><p>CIRCLE_RATE=40</p></li>
+</ul>
+</div></blockquote>
+<p>You should also set your RTL_ALT nice and low in case you hit a
+failsafe, or configure a instant disarm switch on your transmitter for
+when things go wrong.</p>
+<p>To fly in circle mode take off in LOITER and then move so you are 1m
+from the center of the room, pointing towards the middle of the
+room. Then switch to Circle mode and the vehicle should start
+circling, keeping its nose pointed at the center of the circle. You
+can try pushing up CIRCLE_RATE to higher values (in degrees/second) as
+you get more confident. The video at the top of this page has
+CIRCLE_RATE=150 for a 150 degree/second circle.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

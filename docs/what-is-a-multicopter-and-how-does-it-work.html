@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多旋翼是什么以及如何工作的？ &mdash; Copter 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Copter Use-Case Overview" href="copter-use-case-overview.html" />
+    <link rel="prev" title="Introducing Copter" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">多旋翼工作原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-the-difference-between-a-multicopter-and-a-uav-drone">多旋翼和无人机的区别是什么？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multicopter-demo-illustrating-manual-and-automatic-control">多旋翼手动和自动控制示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-wind-demonstration">大风演示</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-flight-features.html">飞行功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+      <li class="breadcrumb-item active">多旋翼是什么以及如何工作的？</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="what-is-a-multicopter-and-how-does-it-work">
+<span id="id1"></span><h1>多旋翼是什么以及如何工作的？<a class="headerlink" href="#what-is-a-multicopter-and-how-does-it-work" title="Permalink to this heading">¶</a></h1>
+<p>多旋翼飞行器是一种机械简单的飞行器，其运动由多个向下推进的电机/螺旋桨单元加速或减速来控制。</p>
+<section id="overview">
+<h2>概述<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/3DR-quad-motors-top.jpg"><img alt="../_images/3DR-quad-motors-top.jpg" src="../_images/3DR-quad-motors-top.jpg" /></a>
+<p>多旋翼在空气动力学上是不稳定的，绝对需要一台机载计算机（也称为自动驾驶仪）才能稳定飞行。
+  因此，它们是“线控飞行”系统，如果计算机不工作，你就不能飞行。
+  自动驾驶仪结合了来自小型车载MEM陀螺仪和加速度计（与智能手机中的加速度计相同）的数据，以保持对其方向和位置的准确估计。
+</p>
+<p>上面显示的四旋翼机是最简单的多旋翼机类型，每个电机/螺旋桨的旋转方向与两侧的两个电机相反（即，机架对角的电机的旋转方向相同）。</p>
+<p>四旋翼机可以通过使一侧的两个电机加速而使另一侧的电机减速来控制其滚转和俯仰旋转。
+  因此，例如，如果四旋翼机想向左滚动，它会加快机架右侧的电机速度，并减慢左侧的两个电机速度。同样，如果它想向前旋转，它会加快后两个电机的速度，减慢前两个电机。</p>
+<p>直升机可以通过加速斜对面的两个电机，并减速其他两个电机来向左或向右转弯（也称为“偏航”）。</p>
+<p>水平运动是通过暂时加速/减速一些电机来实现的，这样车辆就朝着所需的行驶方向倾斜，并增加所有电机的总推力，这样飞行器就会向前行驶。一般来说，飞行器倾斜得越多，行驶速度就越快。</p>
+<p>高度是通过同时加速或减速所有电机来控制的。</p>
+</section>
+<section id="what-is-the-difference-between-a-multicopter-and-a-uav-drone">
+<h2>多旋翼和无人机的区别是什么？<a class="headerlink" href="#what-is-the-difference-between-a-multicopter-and-a-uav-drone" title="Permalink to this heading">¶</a></h2>
+<p>当多翼飞机能够自主飞行时，它就变成了无人机或无人机。通常情况下，这意味着获取加速度计和陀螺仪信息，并将其与气压计和GPS数据相结合，以便飞行控制器不仅了解其方向，还了解其位置。</p>
+</section>
+<section id="multicopter-demo-illustrating-manual-and-automatic-control">
+<h2>多旋翼手动和自动控制示例<a class="headerlink" href="#multicopter-demo-illustrating-manual-and-automatic-control" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/GyPqHeg2v0Y" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>演示以<a class="reference internal" href="stabilize-mode.html#stabilize-mode"><span class="std std-ref">Stabilize自稳模式</span></a>开始，该模式提供惯性稳定并允许手动飞行控制。</p>
+<p>在<a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter悬停模式</span></a>下，Copter自动保持位置和高度，但允许手动超控。</p>
+<p><a class="reference internal" href="simpleandsuper-simple-modes.html#simpleandsuper-simple-modes"><span class="std std-ref">Simple简单模式</span></a>
+使Copter能够在不考虑Copter方向（朝向）的情况下飞行</p>
+<p>“Auto Land自动着陆”会使Copter下降，并在着陆时解除发动机。</p>
+</section>
+<section id="high-wind-demonstration">
+<h2>大风演示<a class="headerlink" href="#high-wind-demonstration" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/f8nAF6s-dwY" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>这段视频显示了我们的固件可以让多翼飞机在60到90公里/小时的阵风中运行。这段视频展示了在接近Copter物理极限的条件下的操作，非专家不应尝试。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introducing Copter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="copter-use-case-overview.html" class="btn btn-neutral float-right" title="Copter Use-Case Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多旋翼安全 &mdash; Copter安全</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference Frames" href="reference-frames.html" />
+    <link rel="prev" title="What You Need to Build a MultiCopter" href="what-you-need.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-flight-features.html">飞行功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+      <li class="breadcrumb-item active">多旋翼安全</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multicopter-safety">
+<span id="safety-multicopter"></span><h1>多旋翼安全<a class="headerlink" href="#multicopter-safety" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>你的首要任务必须是人的安全！</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong>由于飞行员错误或硬件或软件故障，可能会发生碰撞。</strong></p></li>
+<li><p><strong>如果你在其他人附近飞行，你会让他们处于危险之中！</strong></p>
+<ol class="arabic simple">
+<li><p>确保自己、观众和直升机之间保持安全距离。</p></li>
+<li><p>情况需要你自己决定与人和财产的“安全距离”。</p></li>
+<li><p>至少要考虑：距离你至少10英尺（3米），但不超过30英尺（10米）。</p></li>
+<li><p>让所有其他人、财产和障碍物远离你的直升机。</p></li>
+<li><p>确保没有人挡在你和你的直升机之间。</p></li>
+<li><p>观众应始终与飞行员保持安全距离。</p></li>
+<li><p>如果有人闯入你确定的“安全”区域之外，请立即降落，在他们离开之前不要起飞。</p></li>
+<li><p>在全功率下，一架平均尺寸的多旋翼飞机可以超过每小时32公里（20英里），可以上升到数百英尺，在电池耗尽之前可以轻松行驶一英里以上。</p></li>
+</ol>
+</li>
+<li><p><strong>如果你飞得太高或离机场太近，你就把有人驾驶的飞机和飞机上的人置于危险之中！</strong></p>
+<ol class="arabic simple">
+<li><p>了解离你最近的机场在哪里，不要在机场附近飞行</p></li>
+</ol>
+</li>
+<li><p><strong>在准备飞行之前，务必确保蓄电池电缆未连接到配电板或线束上。</strong></p>
+<ol class="arabic simple">
+<li><p>在连接蓄电池<strong>之前</strong>，务必打开变送器并确保节气门杆完全放下。</p></li>
+<li><p>着陆后，你应该做的第一件事就是断开电池电缆。</p></li>
+<li><p>断开蓄电池后，方可关闭发射器。</p></li>
+<li><p>当你测试电机时，一定要取下你的道具，你的手、胳膊和脸，你的朋友会感谢你的。</p></li>
+<li><p>当电池连接时，始终假设电机处于待命状态；你可以用短油门脉冲来检查。</p></li>
+<li><p>不要同时拿起模型和收音机，你可能会踩油门。</p></li>
+<li><p>不要试图飞行超过电池的安全容量，这对电池非常有害，可能会导致坠机。</p></li>
+</ol>
+</li>
+<li><p><strong>ArduPilot包括一个电机防护安全功能。</strong></p>
+<ol class="arabic simple">
+<li><p>在电池连接后的飞行前，RC发射器的油门杆需要向下并向右保持几秒钟，以启动电机。</p></li>
+<li><p>着陆后，你的第一反应应该是压低油门并向左保持几秒钟，以“解除防护”电机。解除武装条件可以通过向上移动油门操纵杆来测试，如果电机不移动，则可能解除武装。</p></li>
+<li><p>即使在解除武装的情况下，油门操纵杆也应始终保持在完全放下的位置，飞行时除外。</p></li>
+</ol>
+</li>
+<li><p><strong>习惯于从其他模式切换回稳定模式，并重新启用完全手动控制。</strong></p>
+<ol class="arabic simple">
+<li><p>这是最重要的恢复技术（练习）。</p></li>
+<li><p>稳定模式可以添加简单模式，但如果你这样做了，你应该练习它，直到你熟练为止。</p></li>
+<li><p>在你非常舒适地驾驶直升机之前，不要开始使用“稳定”或“稳定+简单”以外的任何其他模式。</p></li>
+</ol>
+</li>
+<li><p><strong>拥有多余的电力是非常重要的。</strong></p>
+<ol class="arabic simple">
+<li><p>如果动力不足，自动控制可能需要比现有油门更多的油门，从而可能导致不稳定。</p></li>
+<li><p>理想情况下，你的直升机应该能够在大约50%的油门（中杆）下悬停。</p></li>
+</ol>
+</li>
+<li><p><strong>尤其是在你学习的时候，建议你避免使用昂贵、坚硬、锋利的碳纤维道具。</strong></p>
+<ol class="arabic simple">
+<li><p>购买更便宜、更灵活、更易碎的塑料螺旋桨。</p></li>
+<li><p>有些超级碳纤维的切割效果比Ginsu好，虽然它们几乎坚不可摧，但你不是。</p></li>
+</ol>
+</li>
+<li><p><strong>对坠机、着陆不足或未知自动驾驶状态的重要主要反应。</strong></p>
+<ol class="arabic simple">
+<li><p>首先要做的是把毛巾扔到你的直升机螺旋桨上（螺旋桨可能会意外地开始旋转）。</p></li>
+<li><p>然后立即断开蓄电池。</p></li>
+<li><p>一条大毛巾是你最重要的安全设备，其次是灭火器和急救箱。</p></li>
+<li><p>一般来说，使用第一个比使用最后一个要好。</p></li>
+</ol>
+</li>
+<li><p><strong>测试或飞行任何（航路点）导航模式时（使用GPS）：</strong></p>
+<ol class="arabic simple">
+<li><p>在武装和起飞前，请确保您的GPS已“锁定”。</p></li>
+<li><p>检查您在任务规划器上的初始位置是否正确。</p></li>
+<li><p>如果GPS没有准确报告您的原始位置，请重新启动并等待8颗或更多卫星（而不仅仅是3D锁定），然后再次检查。</p></li>
+</ol>
+</li>
+<li><p><strong>始终遵守法律：</strong></p>
+<ol class="arabic simple">
+<li><p>我们对MultiCopter（一般型号）的个人使用不断受到那些担心“无人机”和侵犯隐私的人的攻击。如果你违反了法律，或者侵犯了某人的隐私，或者伤害了他们，你就威胁到了我们个人使用模型的未来。请理解法律和他人的权利，并相应地飞行。</p></li>
+<li><p>大多数国家都有一个著名的模型飞机组织。在美国，这就是<a class="reference external" href="https://www.modelaircraft.org/">AMA</a>。审查AMA<a class="reference external" href="https://www.modelaircraft.org/sites/default/files/105.pdf">安全规范</a>。AMA与美国联邦航空局和其他政府组织合作，制定了（并继续更新）<a class="reference external" href="https://www.modelaircraft.org/system/files/documents/550.pdf">第一人称视角（FPV）</a> 操作规则。如果您在美国（或不在美国），请阅读这些文件！美国医学协会有一个强大的游说团体，将帮助保护我们的权利。参与并支持您国家的模型飞机组织，并帮助保护我们的飞行权。</p></li>
+</ol>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>最重要的是：在Copter人和人之间保持安全距离！</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>这些提示也可以帮助保护您的多翼飞机免受损坏。</p>
+</div>
+<ol class="arabic simple">
+<li><p><strong>避免遥控器控制棒突然或极端偏转。</strong></p>
+<ol class="arabic simple">
+<li><p>以微小的增量移动控制棒，不要“猛拉”它们。</p></li>
+<li><p>如果copter被正确校准和平衡，它应该只需要少量的操纵杆输入来控制高度、方向和速度。</p></li>
+</ol>
+</li>
+<li><p><strong>在没有任何控制输入的情况下，你的copter在水平面上应该或多或少是稳定的。</strong></p>
+<ol class="arabic simple">
+<li><p>如果你正在“对抗”直升机，着陆并修复它——有些地方不对劲——可能需要硬件调整或软件校准。</p></li>
+</ol>
+</li>
+<li><p><strong>要特别小心大油门输入，因为直升机可以很快获得（或失去）高度。</strong></p></li>
+<li><p><strong>因为MultiCopter是对称的，所以特别容易失去视觉方向。</strong></p>
+<ol class="arabic simple">
+<li><p>对于手动飞行模式，保持对Copters方位（朝向）的清晰视觉是成功飞行的最关键部分。</p></li>
+<li><p>尤其是在学习的时候，让你的直升机离你很近以帮助保持视觉方向是非常重要的。</p></li>
+<li><p>一般情况下：距离您超过10英尺（3米），但不超过30英尺（10米）。</p></li>
+<li><p>如果直升机飞得超过100英尺（30米），就很难保持<strong>方向</strong>，很容易坠毁。</p></li>
+<li><p>如果你在稳定模式下飞行时失去了偏航方向，试着只向前飞行，并像汽车一样使用偏航来转向。</p></li>
+<li><p>与其发生<strong>定向</strong>引发的碰撞，或者更糟的是——<strong>飞走</strong>，不如简单地降落。</p></li>
+<li><p>飞行等待通常发生在直升机被命令向飞行员向后倾斜，但在此期间发生了旋转，并且距离太远，失去了方向时。</p></li>
+<li><p>结果：直升机飞得更远，坠毁或丢失。</p></li>
+</ol>
+</li>
+<li><p><strong>始终将稳定模式作为模式切换选项之一。</strong></p></li>
+<li><p><strong>大风或出乎意料的阵风会使飞行变得更加困难。</strong></p>
+<ol class="arabic simple">
+<li><p>大风可能会阻碍前进，或者使直升机旋转，导致你迷失方向。</p></li>
+<li><p>你越高，大风就越有可能成为问题。</p></li>
+<li><p>切换到稳定模式并在达到技能极限之前着陆可以帮助你拯救直升机。</p></li>
+<li><p>避免在高速或高海拔飞行，直到你对手动和自动模式都有了相当大的信心。</p></li>
+<li><p>当在树木或建筑物周围飞行时，很容易失去视觉方向，甚至完全看不见直升机。</p></li>
+<li><p>物体周围的阵风也会使问题恶化。</p></li>
+<li><p>无线电信号也可能丢失。</p></li>
+<li><p>如果你的直升机正在接近一个潜在的干扰物体，请立即切换到稳定模式并降落或将直升机取回你的位置。</p></li>
+</ol>
+</li>
+<li><p><strong>ArduPilot特定的安全模式：RTL、FailSafe和GeoFence。</strong></p>
+<ol class="arabic simple">
+<li><p>如果RTL开始远离你，它可以提供一个安全的<strong>返航</strong>。</p></li>
+<li><p>使用RTL或下降响应在无线电故障时设置<strong>FailSafe</strong>，以挽救您的copter并防止受伤。</p></li>
+<li><p><strong>GeoFence</strong>建立了一个自动飞行周界，迫使您的直升机保持在安全的附近。</p></li>
+<li><p>不要仅仅依赖上述安全模式，始终准备好在自稳模式下收回控制并放下copter。</p></li>
+<li><p>特别是不要依赖上述安全模式来执行您认为危险的操作或训练。</p></li>
+<li><p>这些模式是对良好安全实践的补充，而不是替代。</p></li>
+</ol>
+</li>
+<li><p><strong>在调整或硬件设置后首次起飞时：</strong></p>
+<ol class="arabic simple">
+<li><p>在稳定模式下，非常缓慢地推进油门，直到直升机几乎悬停。</p></li>
+<li><p>如果直升机试图翻转，请将其关闭并纠正问题。</p></li>
+<li><p>电机可能转向错误。</p></li>
+<li><p>或者可能安装了方向错误的支柱。</p></li>
+<li><p>如果它试图绕轴旋转或朝某个方向飞去。</p></li>
+<li><p>Mission Planner中的遥控器或RC设置可能不正确。</p></li>
+<li><p>电机或ESC可能运行不正常。</p></li>
+<li><p>错误的道具可能在错误的马达上。</p></li>
+<li><p>当所有问题都解决后，让直升机悬停在离地面一英尺或2英尺的地方应该相当容易。</p></li>
+<li><p>如果无法实现离地1英尺或2英尺的稳定静止悬停，请着陆并解决问题，直到可以为止。</p></li>
+</ol>
+</li>
+<li><p><strong>当飞行FPV“第一人称视角”（带摄像机）时，将您的模式设置为：稳定、简单和RTL。</strong></p>
+<ol class="arabic simple">
+<li><p>在使用FPV之前，确保RTL正常工作。</p></li>
+<li><p>使用稳定模式飞行FPV。</p></li>
+<li><p>如果你丢失了FPV视频，你可以切换到Simple或RTL来恢复。</p></li>
+</ol>
+</li>
+<li><p><strong>确保你的电池不会掉出来。</strong></p>
+<ol class="arabic simple">
+<li><p>用魔术贴将其固定到位。</p></li>
+<li><p>你也可以在电池下面使用背胶尼龙搭扣。</p></li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>获取可打印的PDF安全表：<a class="reference external" href="https://download.ardupilot.org/downloads/wiki/pdf_guides/MultiCopter_Safety.pdf">MultiCopter_Safety</a></p>
+</div>
+<!--
+<p>The <a class="reference external" href="https://discuss.ardupilot.org/c/arducopter">Copter Forum</a> permits the
+developers to respond to your questions and enables you to research
+similar issues, Please choose the sub-forum that is most appropriate to
+the wiki page and issues you are having.</p>
+-->
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="what-you-need.html" class="btn btn-neutral float-left" title="What You Need to Build a MultiCopter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="reference-frames.html" class="btn btn-neutral float-right" title="Reference Frames" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

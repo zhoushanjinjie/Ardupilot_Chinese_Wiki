@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Helicopter Tips &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traditional Helicopter – ArduPilot Helicopter Ground School" href="traditional-helicopter-configuration.html" />
+    <link rel="prev" title="Dual Helicopter" href="dual-helicopter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#checking-for-high-frequency-vibration">Checking for High Frequency Vibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#possible-false-landing-detections">Possible False Landing Detections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+      <li class="breadcrumb-item active">Traditional Helicopter Tips</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traditional-helicopter-tips">
+<span id="id1"></span><h1>Traditional Helicopter Tips<a class="headerlink" href="#traditional-helicopter-tips" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Be sure to follow the wiki instructions, step by step!</p></li>
+<li><p>Be sure the CG is in line with the main rotor shaft</p></li>
+<li><p>Blade tracking must be within a quarter blade thickness or better to avoid excessive vibration</p></li>
+<li><dl class="simple">
+<dt>Vibration is the arch enemy of Helicopter autopilots!</dt><dd><ul>
+<li><p>Internal Combustion Engines and Turbines can created high frequency vibrations that do not appear in the VIBE logs and can be aliased to low frequencies which can impact EKF and Attitude control (see below for ground tests to check for this). This also often occurs in electric helicopters.</p></li>
+<li><p>The autopilot should be well isolated for vibration. Using autopilots with internal IMU vibration damping and vibration reducing mounts is recommended.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Traditional Helicopter <em>is</em> capable of inverted flight and using full negative collective ranges.</p></li>
+</ul>
+<section id="checking-for-high-frequency-vibration">
+<h2>Checking for High Frequency Vibration<a class="headerlink" href="#checking-for-high-frequency-vibration" title="Permalink to this heading">¶</a></h2>
+<p>High frequency vibrations in this context are vibrations close to the IMU sampling frequency, or its multiples, which will be aliased down into the same range as control inputs for the attitude controllers. Symptoms of high frequency vibration can be that the attitude estimate becomes incorrect causing it to lean significantly even though the pilot is commanding level flight in stabilized modes. In the extreme, it can result in an <a class="reference internal" href="ekf-inav-failsafe.html#ekf-inav-failsafe"><span class="std std-ref">EKF Failsafe</span></a> or even a crash. Excessive vibration can also make altitude hold imprecise or even produce uncontrollable climbs/descents.</p>
+<p>One method of testing this, is to secure the helicopter to the ground, and run up the main rotor, watching the artificial horizon in the ground control station. If it moves away from level, you probably have a vibration issue which needs to be addressed. Testing should be done at various collective levels and rotor speeds. Be careful not to over-stress the helicopter with collective extremes.</p>
+<p>Setup for ground test:</p>
+<ol class="arabic simple">
+<li><p>Secure vehicle to the ground.</p></li>
+<li><p>Temporarily reduce Roll, Pitch, and Yaw  P,I,and D, PIDs to zero. Be sure to restore them after this test!</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-options" title="(in Copter)"><span class="xref std std-ref">ACRO_OPTIONS</span></a> = 2, temporarily, if not being used already.</p></li>
+<li><p>Change to ACRO mode.</p></li>
+<li><p>Arm and engage motor interlock, allowing the vehicle to spool up at 0 degree pitch, watching for any change from level in the GSC of the artificial horizon. Any significant tilt indicates noise is disrupting the attitude estimate and should be investigated and eliminated.</p></li>
+<li><p>Change the target main rotor speed a bit above and below the nominal target using the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-setpoint" title="(in Copter)"><span class="xref std std-ref">H_RSC_SETPOINT</span></a> (or TX throttle curve if using Passthru mode) and repeat.</p></li>
+<li><p>Re-check the blade tracking also while doing this test.</p></li>
+</ol>
+<p>Be sure to also eliminate the possibility of lower frequency vibrations from the main or tail rotors causing the issue. Unlike vibrations near the sampling rate and its harmonics, which cannot be eliminated by software filtering, rotor vibrations can be improved using ArduPilot’s notch filtering feature. See <a class="reference internal" href="common-measuring-vibration.html#common-measuring-vibration"><span class="std std-ref">Measuring Vibration</span></a> and <a class="reference internal" href="common-imu-notch-filtering-helicopter-setup.html#common-imu-notch-filtering-helicopter-setup"><span class="std std-ref">Helicopter Dynamic Notch Filter Setup</span></a>.</p>
+</section>
+<section id="possible-false-landing-detections">
+<h2>Possible False Landing Detections<a class="headerlink" href="#possible-false-landing-detections" title="Permalink to this heading">¶</a></h2>
+<p>Under extreme circumstances (flying in extremely turbulent conditions, for example), it is possible for the firmware, to falsely detect a landing condition, although still flying. This can lead to lack of control in position control modes and even possible disarming. An RC Auxiliary Function (“159”) is provided to allow an RC to enable (needed when actually landing) or disable (to prevent false detects during missions) the landing detection algorithm under pilot control.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dual-helicopter.html" class="btn btn-neutral float-left" title="Dual Helicopter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-configuration.html" class="btn btn-neutral float-right" title="Traditional Helicopter – ArduPilot Helicopter Ground School" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

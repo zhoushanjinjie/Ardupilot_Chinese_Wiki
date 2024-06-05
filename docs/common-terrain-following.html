@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terrain Following &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Terrain Following</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="terrain-following">
+<span id="common-terrain-following"></span><h1>Terrain Following<a class="headerlink" href="#terrain-following" title="Permalink to this heading">¶</a></h1>
+<p>You can use automatic terrain following for fixed wing
+aircraft if you have an autopilot board with local storage (such as the
+Pixhawk). This page explains how terrain following works, how to enable
+it and what its limitations are.</p>
+<p>If using Copter, see <a class="reference external" href="https://ardupilot.org/copter/docs/terrain-following.html#terrain-following" title="(in Copter)"><span class="xref std std-ref">Copter specific terrain following instructions here</span></a>.</p>
+<a class="reference external image-reference" href="../_images/Terrain_TitleImage.png"><img alt="../_images/Terrain_TitleImage.png" src="../_images/Terrain_TitleImage.png" /></a>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading">¶</a></h2>
+<p>Terrain following works by maintaining a terrain database on the microSD
+card on the autopilot which gives the terrain height in meters above sea
+level for a grid of geographic locations. On the autopilot this database
+is stored in the APM/TERRAIN directory on the microSD card.</p>
+<p>The database is populated automatically by the autopilot requesting
+terrain data from the ground station over a MAVLink telemetry link. This
+can happen either during flight planning when the autopilot is connected
+over USB, or during flight when connected over a radio link.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One can directly download terrain data via PC to the SD card using the this <a class="reference external" href="https://terrain.ardupilot.org/">web utility</a>. See below.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The data is only transferred if the autopilot has a GPS lock. So to make sure your missions have the terrain data prior to flight (in case the ground station is not connected during the flight and/or does not have internet connection to obtain the data), be sure that GPS lock is in effect when loading the mission to the autopilot.</p>
+</div>
+<p>Once the terrain data is sent from the GCS to the autopilot it is stored on the
+microSD card so that it is available even when the GCS is not connected.
+This makes it possible for the autopilot to use terrain data to perform
+a terrain following RTL (Return To Launch) even when it is not able to
+talk to the ground station.</p>
+<p>During flight the ArduPilot code automatically pages in the needed
+terrain data from the microSD card into memory as the aircraft
+approaches a new area. It maintains an area of about 7km by 8km in
+memory if the default terrain grid spacing is used.</p>
+<p>In addition to any terrain data for the immediate vicinity of the
+aircraft, ArduPilot also asks the ground station for terrain data for
+any mission waypoints which are loaded, and for any rally points which
+are loaded. This ensures that terrain data is available on the microSD
+card for a whole mission even if the GCS becomes unavailable.</p>
+</section>
+<section id="terrain-following-flight-modes">
+<h2>Terrain Following Flight Modes<a class="headerlink" href="#terrain-following-flight-modes" title="Permalink to this heading">¶</a></h2>
+<p>In Plane terrain following is available in the following flight modes:</p>
+<ul class="simple">
+<li><p>RTL - Return to launch</p></li>
+<li><p>LOITER - circle a point</p></li>
+<li><p>CRUISE - long distance cruising</p></li>
+<li><p>FBWB - speed/height maintenance</p></li>
+<li><p>GUIDED - “fly to” waypoints</p></li>
+<li><p>AUTO - fully autonomous missions</p></li>
+</ul>
+<p>Use of terrain following in RTL, LOITER, CRUISE, FBWB and GUIDED modes
+is controlled by the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-follow" title="(in Plane)"><span class="xref std std-ref">TERRAIN_FOLLOW</span></a> parameter. That parameter defaults
+to off, so no terrain following will be used in those modes. Setting the bitmask in <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-follow" title="(in Plane)"><span class="xref std std-ref">TERRAIN_FOLLOW</span></a> determines which altitude controlled modes terrain following is active. For example, setting it to “10” enables following in FBWB and AUTO.</p>
+<p>Terrain Following in CRUISE and FBWB modes can be disabled with an RC switch assigned <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 86. When enabling (&lt;1200us) or disabling (&gt;1800us) terrain following with the switch, the present altitude will be the target set point either above terrain, or home, respectively. The target altitude can be changed as normal with elevator whether the altitude reference being used is above home or above terrain.</p>
+<p>Use of terrain following in AUTO missions is controlled on a waypoint by
+waypoint basis using the reference frame of the waypoint. Normal (non
+terrain following) waypoints have a “Relative” reference frame, and
+altitudes are specified relative to the home location. Terrain following
+waypoints have a “Terrain” reference frame, and altitudes are relative
+to the ground level given in the terrain database.</p>
+<p>See <a class="reference internal" href="common-understanding-altitude.html#common-understanding-altitude"><span class="std std-ref">Understanding Altitude in ArduPilot</span></a> for altitude definitions.</p>
+</section>
+<section id="uses-of-terrain-following">
+<h2>Uses of Terrain Following<a class="headerlink" href="#uses-of-terrain-following" title="Permalink to this heading">¶</a></h2>
+<p>Terrain following is very useful when flying ArduPilot in areas where
+the terrain may vary significantly. Key uses are:</p>
+<ul class="simple">
+<li><p><strong>Safe RTL</strong>. Being able to come over a hill rather than trying to
+fly through it when you enter RTL in a hilly area is very useful!</p></li>
+<li><p><strong>Aerial Photography.</strong> It is useful to be able to maintain a
+constant altitude over the ground when taking a sequence of aerial
+photos</p></li>
+<li><p><strong>FPV flying.</strong> When flying FPV in CRUISE mode it is useful to
+maintain constant height above the ground so you can spend more time
+enjoying the scenary and less time avoiding hills</p></li>
+</ul>
+</section>
+<section id="sources-of-terrain-data">
+<h2>Sources of Terrain Data<a class="headerlink" href="#sources-of-terrain-data" title="Permalink to this heading">¶</a></h2>
+<p>The ground station is normally responsible for providing the raw terrain data which is sent to the aircraft via MAVLink. Right now only Mission Planner and MAVProxy support the required TERRAIN_DATA and TERRAIN_REQUEST MAVLink messages needed for terrain following download support. If you are using a different ground station , in order to download terrain data you will need to connect using one of those two ground stations in order to allow ArduPilot to load terrain data onto your board on the ground or in flight.  Once it is loaded, it is saved permanently on the microSD card.</p>
+<p>Both MissionPlanner and MAVProxy support the global SRTM database for terrain data.  The ArduPilot SRTM server used by MAVProxy and Mission Planner has 100m grid spacing. Unless the ground control station uses a different server with closer spacing, setting the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-spacing" title="(in Plane)"><span class="xref std std-ref">TERRAIN_SPACING</span></a> parameter lower than 100m provides no better resolution, and only consumes more space on the SD card.</p>
+<p>Terrain Data is downloaded any time you save or connect with a loaded mission with these ground stations, or, if flying, the autopilot will request data if it’s flying into an area not already downloaded, assuming the ground station can provide it. Usually an internet connection is required by the ground station.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While the autopilot will request the terrain data around waypoints and home location, if it is not connected to a GCS that can supply enroute tiles, the autopilot just interpolates between waypoint’s terrain elevation. See below:</p>
+</div>
+<img alt="../_images/terrain-warning.jpg" src="../_images/terrain-warning.jpg" />
+<p>If you are not flying with a GCS that can fetch and supply terrain data as the vehicles flies between waypoints, the you may need to load terrain data covering the flight route and/or area for RTL paths manually.</p>
+<p>You can download a set of terrain data tiles for any anticipated flight area using this <a class="reference external" href="https://terrain.ardupilot.org/">web utility</a>.</p>
+<img alt="../_images/common-terrain-dl-utility.png" src="../_images/common-terrain-dl-utility.png" />
+<p>It will create tiles for the specified radius around a geographic location. Then you can download them, unzip and write in the APM/TERRAIN folder of the SD card.</p>
+<p>You can also download .zip files for entire continents, or individual tiles from <a class="reference external" href="https://terrain.ardupilot.org/continentsdat3/">here</a>.</p>
+</section>
+<section id="terrain-spacing">
+<h2>Terrain Spacing<a class="headerlink" href="#terrain-spacing" title="Permalink to this heading">¶</a></h2>
+<p>The ArduPilot terrain code has a user settable parameter called
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-spacing" title="(in Plane)"><span class="xref std std-ref">TERRAIN_SPACING</span></a> which controls the grid spacing which is used for
+requests for terrain data from the aircraft to the ground station. The
+default <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-spacing" title="(in Plane)"><span class="xref std std-ref">TERRAIN_SPACING</span></a> is 100 meters, but users may set a different
+grid spacing for specialist applications.</p>
+<p>Note that the amount of terrain data kept in memory is directly related
+to the grid spacing. If you decrease the <code class="docutils literal notranslate"><span class="pre">TERRAIN_SPACING</span></code> by a factor of
+2 then the amount of terrain area kept in memory is reduced by a factor
+of 4. It is recommended that you use a <code class="docutils literal notranslate"><span class="pre">TERRAIN_SPACING</span></code> of 100
+meters to prevent the aircraft running off the side of a grid in flight
+and not having data available.</p>
+<p>If the ground station does not have terrain data available at the
+resolution requested by the aircraft then the ground station will
+interpolate as necessary to provide the requested grid size. Currently, MAVPRoxy and Mission Planner can only provide data down to 100m spacing.</p>
+</section>
+<section id="terrain-accuracy">
+<h2>Terrain Accuracy<a class="headerlink" href="#terrain-accuracy" title="Permalink to this heading">¶</a></h2>
+<p>The accuracy of the SRTM database varies over the surface of the earth.
+Typical accuracy is around 10 to 20 meters, although some areas are
+worse. This makes terrain following suitable for aircraft that are
+flying at altitudes of 60 meters or more. Using terrain data for low
+flights is not recommended.</p>
+</section>
+<section id="setting-up-for-terrain-following">
+<h2>Setting up for terrain following<a class="headerlink" href="#setting-up-for-terrain-following" title="Permalink to this heading">¶</a></h2>
+<p>To setup your fixed wing aircraft for terrain following follow these
+steps</p>
+<ul class="simple">
+<li><p>make sure you have Plane 3.0.4 or later loaded</p></li>
+<li><p>make sure you have the latest MissionPlanner installed (version 1.3.9
+or later)</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-enable" title="(in Plane)"><span class="xref std std-ref">TERRAIN_ENABLE</span></a> to 1 and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-follow" title="(in Plane)"><span class="xref std std-ref">TERRAIN_FOLLOW</span></a> to 1</p></li>
+<li><p>connect to your vehicle over USB when you have GPS lock</p></li>
+<li><p>check the FlightData-&gt;Status page in MissionPlanner and look for the
+terrain status data:</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/MP-terrain.png"><img alt="../_images/MP-terrain.png" src="../_images/MP-terrain.png" /></a>
+<p>When the autopilot has finished loading terrain data you should see
+“ter_pend” goes to zero and the current terrain altitude in meters
+showing up in “ter_alt”. The “ter_pend” value is the number of terrain
+blocks that the autopilot is waiting to load from the ground station.</p>
+</section>
+<section id="terrain-look-ahead">
+<h2>Terrain Look-ahead<a class="headerlink" href="#terrain-look-ahead" title="Permalink to this heading">¶</a></h2>
+<p>The terrain following code “looks ahead” of the current position along
+the flight path to try to ensure that the aircraft climbs soon enough to
+avoid upcoming terrain. The amount of look-ahead is controlled by the
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#terrain-lookahd" title="(in Plane)"><span class="xref std std-ref">TERRAIN_LOOKAHD</span></a> parameter, which defaults to 2000 meters. The look-ahead
+is also limited by the distance to the next waypoint in AUTO mode, so
+you need to ensure that you don’t have any legs of your mission which
+include climb rates your aircraft cannot achieve.</p>
+<dl class="simple">
+<dt>The climb rate used in the terrain look-ahead is based on the</dt><dd><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tecs-clmb-max" title="(in Plane)"><span class="xref std std-ref">TECS_CLMB_MAX</span></a> parameter, combined with your current ground speed.</p>
+</dd>
+</dl>
+<p>[copywiki destination=”plane”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

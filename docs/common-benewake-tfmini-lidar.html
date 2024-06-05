@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benewake TFmini / TFmini Plus lidar &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Benewake TFmini / TFmini Plus lidar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="benewake-tfmini-tfmini-plus-lidar">
+<span id="common-benewake-tfmini-lidar"></span><h1>Benewake TFmini / TFmini Plus lidar<a class="headerlink" href="#benewake-tfmini-tfmini-plus-lidar" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="http://en.benewake.com/product/detail/5c345e26e5b3a844c472329c.html">Benewake TFmini lidar</a> and <a class="reference external" href="http://en.benewake.com/product/detail/5c345cd0e5b3a844c472329b.html">TFmini Plus</a> have an indoor range of 12m, an outdoor range of 7m and weigh only (5g).</p>
+<p>More details on both these lidar can be found in the <a class="reference external" href="http://en.benewake.com/download">benewake.com’s downloads area</a></p>
+<img alt="../_images/benewake-tfmini-topimage.jpg" src="../_images/benewake-tfmini-topimage.jpg" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this sensor is available in Copter-3.6 (and higher) and Rover-3.4 (and higher)</p>
+</div>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://en.benewake.com/news/detail/602f56204d839408076b62a3.html">Benewake.com Agents</a></p></li>
+<li><p><a class="reference external" href="https://beixingguangzi.en.alibaba.com/">Benewake’s store on Alibaba.com</a></p></li>
+</ul>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>For a serial connection you can use any spare Serial/UART port.  The diagram below shows how to connect to SERIAL4.</p>
+<img alt="../_images/benewake-tfmini-pixhawk.png" src="../_images/benewake-tfmini-pixhawk.png" />
+<p>If the SERIAL4 port on an autopilot is being used then the following parameters should be set for the first rangefinder:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> = 9 (Lidar)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL4_BAUD</span></a> = 115 (115200 baud)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 20 (Benewake-Serial)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 20 works for TFminiPlus or TFmini, via its UART connection. If TFminiPlus is connected via I2C to the autopilot, use <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 25 (Benewake TFminiPlus-I2C) and also set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-addr" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ADDR</span></a> = 16 (I2C Address of lidar in decimal). <em>The sensor’s default I2C address is 0x10 hexadecimal which is 16 in decimal.</em></p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 30 for TFmini, =10 for TFminiPlus</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = <strong>1000</strong> for indoor use OR <strong>600</strong> for outdoors.  <em>This is the distance in centimeters that the rangefinder can reliably read.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-gndclear" title="(in Rover)"><span class="xref std std-ref">RNGFND1_GNDCLEAR</span></a> = 10 <em>or more accurately the distance in centimetres from the range finder to the ground when the vehicle is landed.  This value depends on how you have mounted the rangefinder.</em></p></li>
+</ul>
+<p>If instead the Telem2 port was used then the serial parameters listed above should instead be:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 9</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 115</p></li>
+</ul>
+<section id="testing-the-sensor">
+<h3>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h3>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

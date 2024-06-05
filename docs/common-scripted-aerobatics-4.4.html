@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripted Aerobatics &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scripted Aerobatics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-scripted-aerobatics-4-4">[copywiki destination=”plane”]</p>
+<section id="scripted-aerobatics">
+<h1>Scripted Aerobatics<a class="headerlink" href="#scripted-aerobatics" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this capability is in ArduPlane 4.2 and higher</p>
+</div>
+<p>ArduPilot has the capability of executing aerobatics from a LUA script. Either via AUTO mode mission items, or via scripts executed in many normal plane flight modes, usually controlled via a transmitter switch and selection RC channels.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this requires a vehicle capable of aerobatic flight, properly tuned pitch,roll, and yaw rate controllers, and the pilot should be capable of safely taking over control (by switch or mode change) the vehicle while in an unusual attitude, if the need arises. The <code class="docutils literal notranslate"><span class="pre">ACRO_x_RATE</span></code> parameters limit the maximum commanded rate for each axis, as in ACRO mode.</p>
+</div>
+<section id="mission-nav-script-time">
+<h2>Mission NAV_SCRIPT_TIME<a class="headerlink" href="#mission-nav-script-time" title="Permalink to this heading">¶</a></h2>
+<p>The SCRIPT_TIME waypoint type allows for a <a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">LUA</span></a> script to take control of the roll/pitch/yaw rates of the vehicle for a time. For protection against lack of an appropriate script being active (ie was not loaded in the APM/Scripts directory of the SD card) to assume control, or LUA script crash due to error, there is a mandatory parameter which provides a maximum time the script can takeover, before the next mission item is executed. An additional layer of protection is provided within the firmware execution of the NAV_SCRIPT_TIME command that requires the script to access it within every 200ms, so the command’s timeout parameter (P2) can be set to 0 (unlimited time out) for longer running aerobatics sequences (&gt; 255 seconds), IF they are known to be otherwise well-behaved and present on the SD card.</p>
+<p>The format of the SCRIPT_TIME item is:</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>
+</td>
+<td>Command ID number, accessible from running script to identify requested maneuver</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td></td>
+<td>Maximum time in seconds (1-255) before next mission item is processed. A value of 0 is unlimited time and should be used only with verified scripts</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>arg1</td>
+<td>Parameter which is accessible from running script for maneuver use a first variable.</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td></td>
+<td>Parameter which is accessible from running script for maneuver use as a second variable.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>arg3</td>
+<td>Parameter which is accessible from running script for maneuver use as a third variable.</td>
+</tr>
+<tr >
+<td><strong>param6</strong></td>
+<td>arg4</td>
+<td>Parameter which is accessible from running script for maneuver use as a fourth variable.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude</td>
+</tr>
+</tbody>
+</table><p>A LUA script would need to be running when the above mission command is encountered to recognize that it needs to take control, and start sending pitch/roll/yaw rate inputs into the autopilot to control its attitude and/or trajectory. It can use the four variable input parameters of the command to control aspects of the maneuver, such as rate of rolls/loops, repeat counts, time for certain segments of the maneuver, etc. An example is provided in the LUA Scripting Applet directory called <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets/Aerobatics/FixedWing">plane_aerobatics.lua</a> for several types of tricks and full aerobatic schedules.</p>
+<p>The execution of a script running during the NAV_SCRIPT_TIME item can easily be interrupted by switching modes out of AUTO.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>returning to AUTO mode would resume the AUTO mission at the last item before switching modes. If this was a NAV_SCRIPT_TIME command it would re-start from the beginning.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>be sure to have valid waypoints before and after a NAV_SCRIPT_TIME sequence of commands in order to establish path for the scripts to use (optionally) and to have sufficient altitude before trying this feature.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if you create your mission, and place the LUA script you intend to use in the /scripts subdirectory of a SITL simulation, you can test the script and the mission without risking your vehicle.</p>
+</div>
+</section>
+<section id="trajectory-precise-plane-aerobatics-lua-script-firmware-4-4-and-higher">
+<h2>Trajectory Precise Plane Aerobatics LUA script (firmware 4.4 and higher)<a class="headerlink" href="#trajectory-precise-plane-aerobatics-lua-script-firmware-4-4-and-higher" title="Permalink to this heading">¶</a></h2>
+<p>A trajectory precise (attempts to track an exact earth referenced geospatial path), plane aerobatics script example is provided in the LUA Scripting Applet directory called <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets/Aerobatics/FixedWing">plane_aerobatics.lua</a> . This LUA applet has a multitude of maneuvers, as well as complete sequences of routines, and the ability to easily create and add new sequence of routines.</p>
+<p>These tricks and sequences can be either run as part of a mission using the NAV_SCRIPT_TIME mission command above, or activated by a switch on the RC transmitter.</p>
+<p>The script provides numerous individual tricks, and a table of their IDs is provided in the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets/Aerobatics/FixedWing/README.md">README.md</a> file. Below is a list, but future expansion is anticipated so check the README:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Arg1</p></th>
+<th class="head"><p>Arg2</p></th>
+<th class="head"><p>Arg3</p></th>
+<th class="head"><p>Arg4</p></th>
+<th class="head"><p>Turnaround</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Figure Eight</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Loop</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td><p>#   loops</p></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Horizontal Rectangle</p></td>
+<td><p>length</p></td>
+<td><p>width</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Climbing Circle</p></td>
+<td><p>radius</p></td>
+<td><p>height</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>vertical Box</p></td>
+<td><p>length</p></td>
+<td><p>height</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Immelmann (FastRoll)</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Straight Roll</p></td>
+<td><p>length</p></td>
+<td><p>num rolls</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Rolling Circle</p></td>
+<td><p>radius</p></td>
+<td><p>num rolls</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Half Cuban Eight</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Half Reverse Cuban Eight</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Cuban Eight</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Humpty Bump</p></td>
+<td><p>radius</p></td>
+<td><p>height</p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Straight Flight</p></td>
+<td><p>length</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Scale Figure Eight</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Immelmann Turn</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Split-S</p></td>
+<td><p>radius</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Upline-45</p></td>
+<td><p>radius</p></td>
+<td><p>height gain</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Downline-45</p></td>
+<td><p>radius</p></td>
+<td><p>height loss</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Stall Turn</p></td>
+<td><p>radius</p></td>
+<td><p>height</p></td>
+<td><p>direction</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Procedure Turn</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td><p>step-out</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Derry Turn</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>Half Climbing Circle</p></td>
+<td><p>radius</p></td>
+<td><p>height</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Laydown Humpty</p></td>
+<td><p>radius</p></td>
+<td><p>height</p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>Barrell Roll</p></td>
+<td><p>radius</p></td>
+<td><p>length</p></td>
+<td><p># spirals</p></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>Straight Hold</p></td>
+<td><p>length</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Partial Circle</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>Eight Point Roll</p></td>
+<td><p>length</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>Multi Point Roll</p></td>
+<td><p>length</p></td>
+<td><p>num points</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>32</p></td>
+<td><p>Side Step</p></td>
+<td><p>radius</p></td>
+<td><p>bank angle</p></td>
+<td></td>
+<td></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+<p>To use as part of a mission, you would insert a SCRIPT_TIME mission item as shown:</p>
+<img alt="../_images/nav_script_time.jpg" src="../_images/nav_script_time.jpg" />
+<p>in the above example, once WP3 is reached the airshow (shown here as “204”, loaded from a shedules file named trick204.txt, see scheduels section below) will execute, and when finished, proceed to WP5.</p>
+<section id="tricks-on-a-switch">
+<h3>Tricks on a Switch<a class="headerlink" href="#tricks-on-a-switch" title="Permalink to this heading">¶</a></h3>
+<p>This applet also provides a means to execute tricks or sequences via an RC Switch in normal modes like ACRO, LOITER, CRUISE, or FBWA.</p>
+</section>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Make sure you have Autotuned your plane and that its capable of doing aerobatics in ACRO mode well (Bixlers and flying wings only can do rolls and loops, generally, since they have insufficient yaw authority and side fuselage area…ie must be able to knife edge for full capability). This includes Autotuning the new YAW rate controller. Enable <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#yaw-rate-enable" title="(in Plane)"><span class="xref std std-ref">YAW_RATE_ENABLE</span></a> and set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#acro-yaw-rate" title="(in Plane)"><span class="xref std std-ref">ACRO_YAW_RATE</span></a> appropriately (90deg/s is a good start). When you Autotune, not only do pitch and roll, but also yaw by exercising the rudder, like pitch and roll.</p></li>
+<li><p>Enable scripting, on an autopilot that is capable (F7 or H7) with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-enable" title="(in Rover)"><span class="xref std std-ref">SCR_ENABLE</span></a> =1, reboot and set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-heap-size" title="(in Rover)"><span class="xref std std-ref">SCR_HEAP_SIZE</span></a> = 250000 (you will need more if other scripts are running also) and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#scr-vm-i-count" title="(in Rover)"><span class="xref std std-ref">SCR_VM_I_COUNT</span></a> = 200000.</p></li>
+<li><p>Copy the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets/FixedWing">plane_aerobatic.lua</a> script into your SD card APM/scripts directory. Use the RAW view and copy to files on the SD card. Reboot.</p></li>
+<li><p>If you want to activate tricks and schedules from an RC switch, assign an RC channel to <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 300 for the trick activation switch (low=disable,mid=show trick number selected, high= do it) and one for 301 which is trick selection. This normally a pot or slider, but can be any switch (which limits the number of tricks to the number of switch positions). Set the <code class="docutils literal notranslate"><span class="pre">TRIK_ENABLE</span></code> to 1 and reboot. Then set <cite>TRIK_COUNT`</cite> parameter to the number of tricks (11 maximum) to be selectable by the trick selection channel. Reboot.</p></li>
+<li><p>For each trick/schedule, set its corresponding <code class="docutils literal notranslate"><span class="pre">TRIKn_ID/ARG1/ARG2/ARG3/ARG4</span></code> parameters. For example, if you wish TRIK3 to be a Vertical Box, 50 meters tall, 100 meters long, with corner radii of 15 meters, set <code class="docutils literal notranslate"><span class="pre">TRIK3_ID</span></code> = 5, <code class="docutils literal notranslate"><span class="pre">TRIK3_ARG1</span></code> = 100, <code class="docutils literal notranslate"><span class="pre">TRIK3_ARG2</span></code> = 50, and <code class="docutils literal notranslate"><span class="pre">TRIK3_ARG3</span></code> = 15. Other TRIK3 argument values are ignored.</p></li>
+<li><p>Setting the activation switch to mid position will identify the trick number selected by the selection channel on the ground station or TX, if running <a class="reference internal" href="common-frsky-yaapu.html#common-frsky-yaapu"><span class="std std-ref">Yaapu</span></a> telemetry.</p></li>
+<li><p>You can abort out of the trick by putting activation switch low, change modes, or set selector to 0. A trick or sequence will also abort if the programmed trajectory is not being met with an error limit. This usually indicates a lack of sufficient vehicle tuning or power.</p></li>
+</ul>
+<p>Remember: ALTITUDE IS YOUR FRIEND! dont attempt your first one below 200feet! and FPV is a good way to try it out first, if you have trouble with seeing the vehicle at that altitude.</p>
+</section>
+<section id="aerom-parameters">
+<h3>AEROM Parameters<a class="headerlink" href="#aerom-parameters" title="Permalink to this heading">¶</a></h3>
+<p>Many new parameters will appear when this script is loaded, which control the tuning of the tricks. See the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets/Aerobatics/FixedWing/README.md">README.md</a> file for up to date information, but a few should be changed from their defaults in most cases:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AEROM_PATH_SCALE</span></code> this is probably the most critical when using the example schedules. Individual tricks in a mission, or a trick on a switch, can adjust the trick dimensions with the TRIKx_ARGy parameters. But the schedules, unless edited, have dimensions suited to high performance pattern planes with significant vertical speed capability. For normal 3D planes or sport planes these are too aggressive and the sequence will probably abort on many tricks, especially in wind. However, if you lower the path scale from “1” (no scaling) to “.75”, more normal 3D planes will be able to execute the schedule. For marginally powered (can barely hover vertically) planes, even a “.5” scale factor, or less, might be required, scaling all radii and lengths of the pattern by 50%.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AEROM_THR_MIN</span></code> should be set to 15-20 (%) to maintain inertia at the bottom of loops, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AEROM_KE_ANG</span></code> most planes need a little boost to the knife edge rudder, so setting this 10 is usually needed</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#trim-arspd-cm" title="(in Plane)"><span class="xref std std-ref">TRIM_ARSPD_CM</span></a>: while the script does NOT use the airspeed sensor, it  uses GPS velocity to track the trajectory and this parameter to set target ground speeds. As such you may wish to set this (even if there is no airspeed sensor) to a “fast” cruise speed within the vehicles capability. Flying on the fast end of cruise helps deal with wind impacts.</p></li>
+</ul>
+</section>
+<section id="schedules">
+<h3>Schedules<a class="headerlink" href="#schedules" title="Permalink to this heading">¶</a></h3>
+<p>The applet also allows loading sequences of tricks to perform contest schedules like F3A or airshows as a single trick which can be executed from a mission or as Trick on a Switch. These are text files of the form <code class="docutils literal notranslate"><span class="pre">trickX.txt</span></code>, where X would be the trick id, and located in the /scripts directory, or the root directory on the SD card where the plane_aerobatics.lua script is stored. These should not be the same number as existing tricks.</p>
+<p>An example for a schedule is included as <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/applets/Aerobatics/FixedWing/trick72.txt">trick72.txt</a> and would be executed as <code class="docutils literal notranslate"><span class="pre">TRIKx_ID</span></code> = 72 via switch or in an AUTO mission command. The schedule will display its “name” when started, and as each trick begins a “message” will sent to the GCS to indicate its start.</p>
+<p>Several sequences, such as F3A, etc. are included in the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets/Aerobatics/FixedWing/Schedules">Schedules folder</a>.
+The above ‘trick72.txt’ is the SuperAirshow Sequence, consisting of Loop/HalfReverseCubanEight/ScaleFigureEight/Immelmann/Roll/Split-S/RollingCircle/HumptyBump/Barrel Rool/Cross Box TopHat/Triangular Loop:</p>
+<img alt="../_images/airshow.png" src="../_images/airshow.png" />
+<p>Adding new basic tricks can also be done via a schedule file. This is shown in the SuperAirShow schedule file where a triangle loop and a crossbox tophat trick have been created and loaded with the schedule sequence.</p>
+</section>
+<section id="trick-file-commands">
+<h3>Trick File Commands<a class="headerlink" href="#trick-file-commands" title="Permalink to this heading">¶</a></h3>
+<p>Several commands can be used within the trick file:</p>
+<ul class="simple">
+<li><p>name: &lt;the name of the Trick&gt;</p></li>
+<li><p>message: &lt;usually the trick name&gt;  displayed as a GCS message. This should be positioned immediately before the trick</p></li>
+<li><p>&lt;trick name&gt; &lt;param1&gt;&lt;parm2&gt;..&lt;param4&gt;   the subroutine name in the plane_aerobatics file that actually performs the trick and its passed parameters</p></li>
+<li><p>align_center:   this will wait to start the following trick until the vehicle is centered, or if beyond the center (in the direction of flight) of the aerobatic box, immediately. The center is where the trick schedule was started.</p></li>
+<li><p>align_box x:  this positions the start of the next trick “x” from the box end in the direction of travel, ie “1” would make the trick be aligned at the box end, while .75 would start it 3/4 the way from center to it. Usually a value of “1” is used.</p></li>
+</ul>
+</section>
+</section>
+<section id="tuning-for-aerobatics">
+<h2>Tuning for Aerobatics<a class="headerlink" href="#tuning-for-aerobatics" title="Permalink to this heading">¶</a></h2>
+<p>Normal ArduPilot Autotune provides a safe, stable PID tune for most vehicles. As such, its not optimized for precision aerobatics which require a tight tune. See below:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html">[copywiki destination=”plane”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#tuning-for-autonomous-aerobatics">Tuning for Autonomous Aerobatics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#setup">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#verifying-the-rate-capabilities">Verifying the Rate Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#autotune">AutoTune</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#check-pids">Check PIDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#confirming-test-flight">Confirming Test Flight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-aerobatics-tuning.html#video-on-log-analysis">Video on Log Analysis</a></li>
+</ul>
+</div>
+</section>
+<section id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this heading">¶</a></h2>
+<p>Using SITL, especially in conjunction with <a class="reference external" href="https://ardupilot.org/dev/docs/sitl-with-realflight.html#sitl-with-realflight" title="(in Dev)"><span class="xref std std-ref">RealFlight</span></a> and a RealFlight model like the <a class="reference external" href="https://github.com/ArduPilot/SITL_Models/tree/master/RealFlight/Released_Models/Planes/Addiction_3D">AddictionX</a>, makes development and debugging much easier without risking a real vehicle. However, simulation can also be done without RealFlight using Mission Planner alone with ArduPilot’s provided 3D plane model.</p>
+<p>Below is a video showing simulation using Mission Planner and the built-in 3D plane simulation:</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/soAGBNPhNQ" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>If you are using RealFlight for simulations, here is how to setup the Addiction 3D model to do scripted trajectory aerobatics:</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/YB_zJ7laF7M" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="script-calls-into-the-firmware">
+<h2>Script Calls into the firmware<a class="headerlink" href="#script-calls-into-the-firmware" title="Permalink to this heading">¶</a></h2>
+<p>Other scripts can be developed which allow control of the vehicle, either via NAV_SCRIPT_TIME mission items or from normal flight modes. The key calls are:</p>
+<ul class="simple">
+<li><p>Enabling scripting control override of roll/pitch/yaw rates and throttle with a specific call “vehicle:nav_scripting_enable(..)” which returns a boolean indicating  success or failure.</p></li>
+<li><p>Obtaining the arguments of a NAV_SCRIPT_TIME command using “vehicle:nav_script_time()” if running while in AUTO mode.</p></li>
+<li><p>Controlling the above rates and throttle with the “vehicle:set_target_throttle_rate_rpy(….)” function, which must be called regularly (at least every second) to set the roll/pitch/yaw rates and throttle percentage. Failure to do so, will disable the control override and return control to the original flight mode. Changing flight modes also disables script control.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

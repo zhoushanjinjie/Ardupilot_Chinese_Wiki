@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-mavlink-high-latency"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="mavlink-high-latency-mode">
+<h1>MAVLink High Latency Mode<a class="headerlink" href="#mavlink-high-latency-mode" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot supports the <a class="reference external" href="https://mavlink.io/en/services/high_latency.html">MAVLink High Latency</a> protocol. This designed for very low bandwidth or high cost links, such as satellite or LoRA.</p>
+<p>Within this protocol, only the <a class="reference external" href="https://mavlink.io/en/messages/common.html#HIGH_LATENCY2">HIGH_LATENCY2</a> MAVLink message is sent once per 5 seconds. Any responses to MAVLink commands or requests (such as command acknowledgements or parameter requests) will be sent too.</p>
+<p>MAVLink High Latency is available as an option on any telemetry port. A typical use case is to have a standard MAVLink telemetry port for initial configuration and system checkout - usually a radio modem or 4G link. A low-bandwidth modem will be connected on a 2nd telemetry port, which the user can activate</p>
+</section>
+<section id="configuration">
+<h1>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Make sure the desired telemetry port protocol is set to option MAVLink High Latency (<code class="docutils literal notranslate"><span class="pre">SERIALn_PROTOCOL</span> <span class="pre">=</span> <span class="pre">43</span></code>)</p></li>
+<li><p>In MAVProxy use the <code class="docutils literal notranslate"><span class="pre">link</span> <span class="pre">hl</span> <span class="pre">on|off</span></code> to enable or disable sending telemetry on the High Latency port</p></li>
+<li><p>In QGroundControl connect using the <code class="docutils literal notranslate"><span class="pre">High</span> <span class="pre">Latency</span></code> option to enable sending telemetry on the High Latency port</p></li>
+<li><p>In Mission Planner, use <code class="docutils literal notranslate"><span class="pre">Actions</span> <span class="pre">-&gt;</span> <span class="pre">Do</span> <span class="pre">Action</span></code> to enable or disable sending telemetry on the High Latency port</p></li>
+</ul>
+</section>
+<section id="notes">
+<h1>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h1>
+<p>MAVLink High Latency will only send very basic, high level information of the vehicle’s position and status.</p>
+<p>The bandwidth requirements of MAVLink High Latency are very minimal - less than 100 bytes/sec in most cases.</p>
+<p>The enable/disable of a High Latency link can be sent over any telemetry link and will enable/disable all High Latency links on the vehicle.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

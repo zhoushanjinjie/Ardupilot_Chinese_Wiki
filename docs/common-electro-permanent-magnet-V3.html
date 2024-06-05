@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electro Permanent Magnet Gripper (OpenGrab EPM v3) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Electro Permanent Magnet Gripper (OpenGrab EPM v3)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="electro-permanent-magnet-gripper-opengrab-epm-v3">
+<span id="common-electro-permanent-magnet-v3"></span><h1>Electro Permanent Magnet Gripper (OpenGrab EPM v3)<a class="headerlink" href="#electro-permanent-magnet-gripper-opengrab-epm-v3" title="Permalink to this heading">¶</a></h1>
+<p>This article shows how to use the <a class="reference external" href="http://nicadrone.com/index.php?id_product=66&amp;controller=product">Electro Permanent Magnet Gripper (OpenGrab EPM v3)</a> with ArduPilot.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The <em>OpenGrab EPM v3</em> (from NicaDrone.com) is a small (less than 4cm x 4cm x 2cm) Electro Permanent Magnet gripper capable of 200N of force meaning it can hold about 15kg of cargo securely.
+The gripping and releasing of the cargo is accomplished by delivering a short pulse to an electromagnet which reverses it’s field.
+Objects that it grips onto should be metal or have the included <a class="reference external" href="http://nicadrone.com/index.php?id_product=15&amp;controller=product">thin steel target square</a> attached to them.</p>
+<p>The device accepts a standard PWM servo input or DroneCAN and uses a 5V power supply.
+A significant amount of power is only required for about 1 second when it first grips or releases the cargo.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ggvm-GQxwaY" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="useful-links">
+<h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.zubax.com/opengrab_epm_v3">Documentation</a></p></li>
+<li><p><a class="reference external" href="https://upverter.com/ctech4285/b9557d6903c36f55/OpenGrab-EPM-V3R4B/">PCB / Schematic</a>  (Revision is printed on PCB).</p></li>
+<li><p><a class="reference external" href="https://github.com/Zubax/opengrab_epm_v3">Source code</a></p></li>
+<li><p><a class="reference external" href="http://NicaDrone.com">Store</a></p></li>
+<li><p><a class="reference external" href="mailto:Andreas&#37;&#52;&#48;NicaDrone&#46;com?Subject=Problems/issues">Report problems/issues</a></p></li>
+</ul>
+</section>
+<section id="connecting-to-a-pixhawk-via-dronecan">
+<h2>Connecting to a Pixhawk via DroneCAN<a class="headerlink" href="#connecting-to-a-pixhawk-via-dronecan" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/OpenGrabEPMV3_2.jpg"><img alt="../_images/OpenGrabEPMV3_2.jpg" src="../_images/OpenGrabEPMV3_2.jpg" /></a>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>When Vin of the EPM drops below 5V the EPM will go into low power mode. Slowing down switching to prevent crashing the power rail.</p></li>
+<li><p>When Vin drops below 4.5V the green status LED will blink fast indicating an error condition.</p></li>
+<li><p>The Pixhawk DroneCAN connector power rail voltage is &lt; 5V.</p></li>
+<li><p>External powering of the EPM is recommended (see image above).</p></li>
+<li><p>EPM DroneCAN cable set is required. <a class="reference external" href="http://nicadrone.com/index.php?id_product=69&amp;controller=product">Clickmate -&gt; DF13</a>.</p></li>
+<li><p>DroneCAN requires termination, terminator included in DroneCAN cable set.</p></li>
+</ul>
+</section>
+<section id="parameter-setup">
+<h2>Parameter setup<a class="headerlink" href="#parameter-setup" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>You need to enable the DroneCAN. The <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN setup page is here</span></a>. You also may check the configurations of the parameters <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-can-id" title="(in Rover)"><span class="xref std std-ref">GRIP_CAN_ID</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#grip-type" title="(in Rover)"><span class="xref std std-ref">GRIP_TYPE</span></a> to set gripper ID and type.</p></li>
+<li><p>Save the configurations and restart the boards. After about 5 seconds the RED CAN LED on the EPM will start blinking. This indicates that CAN frames are being received.</p></li>
+<li><p>Set CH7_OPT: Channel 7 option = 19 (EPM) (Channel 7 - 12 maybe used)</p>
+<a class="reference external image-reference" href="../_images/OpenGrabEPMV3_4.jpg"><img alt="../_images/OpenGrabEPMV3_4.jpg" src="../_images/OpenGrabEPMV3_4.jpg" /></a>
+</li>
+</ol>
+<p>All done! The EPM can be controlled via channel 7 or AUTO mission or MAVLink command.</p>
+</section>
+<section id="connecting-to-a-pixhawk-via-pwm-header">
+<h2>Connecting to a Pixhawk via PWM header<a class="headerlink" href="#connecting-to-a-pixhawk-via-pwm-header" title="Permalink to this heading">¶</a></h2>
+<p>Connect the EPM to the Pixhawk the same as a <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servo</span></a>.</p>
+<a class="reference external image-reference" href="../_images/OpenGrabEPMV3_5.jpg"><img alt="../_images/OpenGrabEPMV3_5.jpg" src="../_images/OpenGrabEPMV3_5.jpg" /></a>
+</section>
+<section id="id1">
+<h2>Parameter setup<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>Set CH7_OPT: Channel 7 option = 19 (EPM) (Channel 7 - 12 maybe used).</p>
+<a class="reference external image-reference" href="../_images/OpenGrabEPMV3_6.jpg"><img alt="../_images/OpenGrabEPMV3_6.jpg" src="../_images/OpenGrabEPMV3_6.jpg" /></a>
+<p>All done. The EPM can be controlled via channel 7 or AUTO Mission or MAVLink command.</p>
+</section>
+<section id="auto-mission">
+<h2>Auto mission<a class="headerlink" href="#auto-mission" title="Permalink to this heading">¶</a></h2>
+<p>Add a <em>Do Gripper</em> command in your mission.</p>
+<a class="reference external image-reference" href="../_images/OpenGrabEPMV3_7.jpg"><img alt="../_images/OpenGrabEPMV3_7.jpg" src="../_images/OpenGrabEPMV3_7.jpg" /></a>
+</section>
+<section id="magnetic-interference-and-board-voltage-check">
+<h2>Magnetic interference and board voltage check<a class="headerlink" href="#magnetic-interference-and-board-voltage-check" title="Permalink to this heading">¶</a></h2>
+<p>The EPM can cause magnetic interference especially while gripping or
+releasing the cargo or if left in the “on” state with no cargo attached.
+Magnetic interference is minimal at a distance of 10 cm</p>
+<p>Testing the EPM impact on the compass is highly recommend when mounted close then 10 cm distance from flight computer</p>
+<p>The EPM’s impact on the compass can be tested in real-time by connecting
+with the Mission Planner. Go to the Flight Data screen and click on the
+“Tuning” checkbox at the bottom, middle.  Double click on the graph that
+appears on the top right and when the “Graph This” window appears select “magfield”.</p>
+<p>Turning the EPM on and off and ensure the magfield length does not change by more than 10%.</p>
+<a class="reference external image-reference" href="../_images/mag_field.jpg"><img alt="../_images/mag_field.jpg" src="../_images/mag_field.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

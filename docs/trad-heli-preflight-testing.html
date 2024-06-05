@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Helicopter - Pre-Flight Testing &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="First Flight Tests" href="traditional-helicopter-first-flight-tests.html" />
+    <link rel="prev" title="Traditional Helicopter First Flights" href="traditional-helicopter-first-flight.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pre-Flight Testing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#test-leaning-the-helicopter-in-stabilize-mode">Test leaning the helicopter in Stabilize mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-the-transmitter-in-stabilize-mode">Test the transmitter in Stabilize mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-first-flight-tests.html">First Flight Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-tuning.html">Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-flight.html">Traditional Helicopter First Flights</a></li>
+      <li class="breadcrumb-item active">Traditional Helicopter - Pre-Flight Testing</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traditional-helicopter-pre-flight-testing">
+<span id="trad-heli-preflight-testing"></span><h1>Traditional Helicopter - Pre-Flight Testing<a class="headerlink" href="#traditional-helicopter-pre-flight-testing" title="Permalink to this heading">¶</a></h1>
+<p>Before your first flight, please follow these pre-flight checks:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The drive should be disconnected on electric helicopters when they are
+being handled. An accidental startup can cause serious injury.</p>
+</div>
+<ul class="simple">
+<li><p>Ensure the USB connector is disconnected from the autopilot</p></li>
+<li><p>Connect the battery to power the autopilot and servos</p></li>
+</ul>
+<section id="test-leaning-the-helicopter-in-stabilize-mode">
+<h2>Test leaning the helicopter in Stabilize mode<a class="headerlink" href="#test-leaning-the-helicopter-in-stabilize-mode" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>By hand, roll the helicopter to the left. The swash plate should lean
+to the right.</p></li>
+<li><p>Roll the helicopter to the right. The swash plate should lean to the
+left.</p></li>
+<li><p>Pitch the helicopter down (i.e. nose down). The swash plate should
+lean backwards.</p></li>
+<li><p>Pitch the helicopter up (i.e. nose up). The swash plate should lean
+forwards.</p></li>
+<li><p>Rotate the helicopter quickly clockwise - the tail servo should move
+as if you had pushed the rudder control left (i.e. it should try to
+fight against the rotation)</p></li>
+<li><p>Rotate the helicopter quickly counter-clockwise - the tail servo
+should move as if you had pushed the rudder control right (i.e. it
+should try to fight against the rotation)</p></li>
+<li><p>Next rotate the helicopter slowly. You should find that in a certain
+direction the rudder stays in the middle.</p></li>
+</ul>
+</section>
+<section id="test-the-transmitter-in-stabilize-mode">
+<h2>Test the transmitter in Stabilize mode<a class="headerlink" href="#test-the-transmitter-in-stabilize-mode" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Using the transmitter, move the roll stick to the left. The
+swashplate should lean slightly to the left.</p></li>
+<li><p>move the roll stick to the right. The swashplate should lean slightly
+to the right.</p></li>
+<li><p>Move the pitch stick forward. The swashplate should lean slightly
+forward.</p></li>
+<li><p>Move the pitch stick back. The swashplate should lean slightly
+backwards.</p></li>
+<li><p>Move the yaw stick to the left or right. The tail should move in the
+same direction (and about the same amount) as when you are in manual
+mode.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-first-flight.html" class="btn btn-neutral float-left" title="Traditional Helicopter First Flights" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-first-flight-tests.html" class="btn btn-neutral float-right" title="First Flight Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

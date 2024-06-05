@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omnibus F7 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ThePeach FCC-K1" href="common-thepeach-k1.html" />
+    <link rel="prev" title="Omnibus F4 Nano V6 and V6.x" href="common-omnibusnanov6.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://aerotenna.com/shop/ocpoc-zynq-mini/">Aerotenna Ocpoc-Zynq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html">[copywiki destination=”copter,plane,rover,blimp”]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#airvolute-dronecore-suite">Airvolute DroneCore.Suite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-airvolute-DroneCore-Suite.html#useful-links">Useful links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-atomrcf405-navi.html">AtomRC F405-NAVI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-navio2-overview.html">Emlid NAVIO2 (Linux)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flywoo-f745.html">Flywoo F745 AIO BL_32/ Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-foxeerf745aio.html">Foxeer Reaper F745-AIO V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-furiousfpv-f35.html">Furious FPV F-35 Lightning and Wing FC-10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef4.html">Holybro Kakute F4*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef4-mini.html">Holybro Kakute F4 Mini*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef7aio.html">Holybro Kakute F7 AIO*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakutef7mini.html">Holybro Kakute F7 Mini* (only V1 and V2 are compatible)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7.html">Holybro Kakute H7 V1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7-v2.html">Holybro Kakute H7 V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini-v13.html">Holybro Kakute H7 Mini v1.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-kakuteh7wing.html">Holybro Kakute H7 Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-ph4mini.html">Holybro Pixhawk 4 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-ph5x.html">Holybro Pixhawk5X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-horizon31-pixc4-jetson.html">Horizon31 PixC4-Jetson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-iflight-beastf7AIO.html">IFlight Beast F7 45A AIO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-iflight-beasth7AIO.html">IFlight BeastH7 AIO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mamba405-mk2.html">Mamba F405 MK2*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#mamba-mk4-f405mini">Mamba MK4 F405Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#pinout">Pinout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#uart-mapping">UART Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#rc-input">RC Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#frsky-telemetry">FrSky Telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#osd-support">OSD Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#dji-video">DJI Video</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#pwm-output">PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#battery-monitoring">Battery Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#compass">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#rssi">RSSI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaf405-mini.html#loading-firmware">Loading Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mamba-basic-mk3.html">Mamba Basic F405 mk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#mamba-h743v4">Mamba H743v4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#specifications">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#pinout">Pinout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#uart-mapping">UART Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#rc-input">RC Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#frsky-telemetry">FrSky Telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#osd-support">OSD Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#pwm-output">PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#battery-monitoring">Battery Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#compass">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#firmware">Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mambaH743v4.html#loading-firmware">Loading Firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixSurveyA1.html">MakeFlyEasy PixSurveyA1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixSurveyA1-IND.html">MakeFlyEasy PixSurveyA1-IND</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixSurveyA2.html">MakeFlyEasy PixSurveyA2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixPilot-V3.html">MakeFlyEasy PixPilot-V3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-makeflyeasy-PixPilot-V6.html">MakeFlyEasy PixPilot-V6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-te.html">Mateksys F405 TE Family</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekh743-wing.html">Mateksys H743-Wing/MINI/SLIM/WLITE</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://www.modalai.com/products/flight-core">ModalAI Flight core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mro-control-zero-F7.html">mRo ControlZero F7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixracer-pro.html">mRo Pixracer Pro (H7)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-mro-nexus.html">mRo Nexus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-omnibusf4pro.html">Omnibus F4 AIO/Pro*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-omnibusnanov6.html">OmnibusNanoV6</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Omnibus F7V2*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thepeach-k1.html">ThePeach FCC-K1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thepeach-r1.html">ThePeach FCC-R1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Omnibus F7</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="omnibus-f7">
+<span id="common-omnibusf7"></span><h1>Omnibus F7<a class="headerlink" href="#omnibus-f7" title="Permalink to this heading">¶</a></h1>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/omnibusf7.png"><img alt="../_images/omnibusf7.png" src="../_images/omnibusf7.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">Above image and some content courtesy of <a class="reference external" href="https://store.myairbot.com/flight-controller/omnibus-f7/omnibusf7v2.html">myairbot.com</a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this board is available with Copter-3.6.0 (and higher)</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to flash memory limitations, this board does not include all ArduPilot features.
+See <a class="reference internal" href="common-limited-firmware.html#common-limited-firmware"><span class="std std-ref">Firmware Limitations</span></a> for details.</p>
+</div>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>STM32F745VG ARM</p></li>
+<li><p>1MB of Flash memory</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>InvenSense MPU6000 IMU (accel, gyro) with vibration isolation</p></li>
+<li><p>InvenSense ICM20608 IMU (accel, gyros, compass) with vibration isolation</p></li>
+<li><p>BMP280 barometer</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>UARTS</p></li>
+<li><p>PWM outputs</p></li>
+<li><p>RC input PWM/PPM, SBUS</p></li>
+<li><p>I2C port for external compass</p></li>
+<li><p>USB port</p></li>
+<li><p>Built-in OSD</p></li>
+<li><p>Voltage and Current sensing inputs (Needs external current sensor)</p></li>
+</ul>
+</li>
+<li><p><strong>Size and Dimensions</strong></p>
+<ul>
+<li><p>36mm x 36mm</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="board-connections">
+<h2>Board Connections<a class="headerlink" href="#board-connections" title="Permalink to this heading">¶</a></h2>
+<p>GPS is attached to UART6</p>
+<p>Telem is available at UART 1</p>
+<p>The shared UART3/I2C pins are enabled by default only for I2C operation to allow external compass or digital airspeed sensor attachment.If at least one device attached externally does not have pull-up resistors, then 2K ohm pull-up resistors will need to be added externally to these pins.</p>
+<p>By setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> to 2, those pins change from I2C to UART3 TX and RX pins.</p>
+<img alt="../_images/omnibusf7-pinout.jpg" src="../_images/omnibusf7-pinout.jpg" />
+</section>
+<section id="default-uart-order">
+<h2>Default UART order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SERIAL0 = console = USB</p></li>
+<li><p>SERIAL1 = Telemetry1 = USART1</p></li>
+<li><p>SERIAL2 = Telemetry2 = USART3 if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> = 2, otherwise these pins are used for I2C pins (firmware 4.1 or later)</p></li>
+<li><p>SERIAL3 = GPS1 = USART6</p></li>
+<li><p>SERIAL4 = GPS2 = USART2 (RX only if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> = 1, otherwise this pin is used for RC input labeled SBUS on board)</p></li>
+<li><p>SERIAL5 = USER = UART7 (RX only, in V2 only)</p></li>
+<li><p>SERIAL6 = not assigned</p></li>
+</ul>
+<p>Serial protocols can be adjusted to personal preferences.</p>
+</section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<p>RC input is configured on the SBUS (UART2_RX) pin. It supports all RC protocols, however for FPort  <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> should be set to 1 with SERIAL4_OPTIONS=15 as described in the <a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">FPort</span></a> section.</p>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>Enable Battery monitor with these settings :</p>
+<p>BATT_MONITOR=4</p>
+<p>Then reboot.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> 13</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-offset" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_OFFSET</span></a> 0.008</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> 12</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> 10.925</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> 58.0 (note, this value is valid if using Matek Systems FCHUB A5 current sensor)…will need to be calibrated to match actual current if using another make of PDB board)</p>
+</section>
+<section id="dshot-capability">
+<h2>Dshot capability<a class="headerlink" href="#dshot-capability" title="Permalink to this heading">¶</a></h2>
+<p>All motor/servo outputs are Dshot and PWM capable. However, mixing Dshot and normal PWM operation for outputs is restricted into groups, ie. enabling Dshot for an output in a group requires that ALL outputs in that group be configured and used as Dshot, rather than PWM outputs. The output groups that must be the same (PWM rate or Dshot, when configured as a normal servo/motor output) are: 1/2, and 3/4.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>available from multiple retailers including <a class="reference external" href="https://store.myairbot.com/flight-controller/omnibus-f7/omninxtf7.html">myairbot.com</a></p></li>
+</ul>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-omnibusnanov6.html" class="btn btn-neutral float-left" title="Omnibus F4 Nano V6 and V6.x" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-thepeach-k1.html" class="btn btn-neutral float-right" title="ThePeach FCC-K1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

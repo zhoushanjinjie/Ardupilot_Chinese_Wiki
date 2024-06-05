@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auxiliary Functions &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Auxiliary Functions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="auxiliary-functions">
+<span id="common-auxiliary-functions"></span><h1>Auxiliary Functions<a class="headerlink" href="#auxiliary-functions" title="Permalink to this heading">¶</a></h1>
+<p>This feature is firmware versions 4.0 and higher. In Copter versions before 4.0 similar functions were implemented using the CHx_OPT parameters. See <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">Auxiliary Function Switches (3.6 and earlier)</span></a> page.</p>
+<p>This page describes how to set up additional features which can be invoked from the transmitter’s auxiliary function switches or from external <a class="reference internal" href="common-buttons.html#common-buttons"><span class="std std-ref">buttons</span></a>.</p>
+<section id="configuring-which-transmitter-channel-is-used">
+<h2>Configuring which transmitter channel is used<a class="headerlink" href="#configuring-which-transmitter-channel-is-used" title="Permalink to this heading">¶</a></h2>
+<p>Any RC input channel can be assigned any auxiliary function. However, the RC channel should not be used by any other function, such as flight mode selection or flight controls. By default, channels 1-4 are used for flight controls (i.e. roll, pitch, throttle, and yaw). The default flight mode channel is 8 for Plane and Rover and 5 for Copter.</p>
+</section>
+<section id="assigning-the-feature">
+<h2>Assigning the Feature<a class="headerlink" href="#assigning-the-feature" title="Permalink to this heading">¶</a></h2>
+<p>The RCx_OPTION parameters control these features. For example, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc7-option" title="(in Rover)"><span class="xref std std-ref">RC7_OPTION</span></a> parameter controls which feature is assigned to RC input 7. Each RC channel has its
+own RCx_OPTION parameter that can be accessed in the full parameter list.</p>
+</section>
+<section id="supported-features">
+<h2>Supported Features<a class="headerlink" href="#supported-features" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>RCx_OPTION value</strong></p></td>
+<td><p><strong>Feature Description</strong></p></td>
+<td><p><strong>Copter</strong></p></td>
+<td><p><strong>Plane</strong></p></td>
+<td><p><strong>Rover</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Do Nothing (Default)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>FLIP</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>SIMPLE mode (Copter)</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>RTL mode</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Save Trim</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Save Waypoint</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Camera Trigger</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Rangefinder</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Fence</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>ResetToArmedYaw</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>SUPERSIMPLE mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Acro Trainer</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Sprayer</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>AUTO mode</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>AUTOTUNE mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>LAND Mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Gripper</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>Parachute Enable</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>Parachute Release</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>Parachute 3 Pos Switch</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>Reset Auto Mission to start</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>Attitude Controller FF</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>Attitude Controller AccLim</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>Retract Mount</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>Relay 1 On/off</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>Landing Gear</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>Lost Vehicle Sound</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>Motor Emergency Stop</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>32</p></td>
+<td><p>Motor Interlock</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>33</p></td>
+<td><p>BRAKE</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>34</p></td>
+<td><p>Relay 2 On/Off</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>Relay 3 On/Off</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>36</p></td>
+<td><p>Relay 4 On/Off</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>37</p></td>
+<td><p>THROW mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>38</p></td>
+<td><p>ADSB Avoidance Enable</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>39</p></td>
+<td><p>Precision Loiter</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>Object Avoidance</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>41</p></td>
+<td><p>Arm Disarm (4.1 and before)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>42</p></td>
+<td><p>SMARTRTL mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>43</p></td>
+<td><p>Inverted Flight</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>44</p></td>
+<td><p>Winch Enable</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>45</p></td>
+<td><p>Winch Control</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>46</p></td>
+<td><p>RC Override Enable</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>47</p></td>
+<td><p>Rsvd for custom function</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>48</p></td>
+<td><p>Rsvd for custom function</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>49</p></td>
+<td><p>Rsvd for custom function</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>Learn Cruise</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>51</p></td>
+<td><p>MANUAL mode</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>52</p></td>
+<td><p>ACRO mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>53</p></td>
+<td><p>STEERING mode</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>54</p></td>
+<td><p>HOLD mode</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>55</p></td>
+<td><p>GUIDED mode</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>56</p></td>
+<td><p>LOITER mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>57</p></td>
+<td><p>FOLLOW mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>58</p></td>
+<td><p>Clear Waypoints</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>59</p></td>
+<td><p>SIMPLE mode (Rover)</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>60</p></td>
+<td><p>ZIGZAG mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>61</p></td>
+<td><p>ZIGZAG mode - Save Waypts</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>62</p></td>
+<td><p>Compass Learn</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>63</p></td>
+<td><p>Sailboat Tack</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>64</p></td>
+<td><p>Reverse Throttle</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>65</p></td>
+<td><p>GPS Disable</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>66</p></td>
+<td><p>Relay 5 On/Off</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>67</p></td>
+<td><p>Relay 6 On/Off</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>68</p></td>
+<td><p>STABILIZE mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>69</p></td>
+<td><p>POSHOLD mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>ALTHOLD mode</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>71</p></td>
+<td><p>FLOWHOLD mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>72</p></td>
+<td><p>CIRCLE mode</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>73</p></td>
+<td><p>DRIFT mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>74</p></td>
+<td><p>Sailboat Motor 3Pos Sw</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>75</p></td>
+<td><p>Surface Tracking Up/Down</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>76</p></td>
+<td><p>STANDBY mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>77</p></td>
+<td><p>TAKEOFF mode</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>78</p></td>
+<td><p>RunCam Control</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>79</p></td>
+<td><p>RunCam OSD Control</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>80</p></td>
+<td><p>Viso Align</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>81</p></td>
+<td><p>Disarm</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>82</p></td>
+<td><p>Q_Assist 3Pos Sw</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>83</p></td>
+<td><p>ZIGZAG Auto</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>84</p></td>
+<td><p>AIRMODE(not a flight mode)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>85</p></td>
+<td><p>Generator</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>86</p></td>
+<td><p>Non Auto Terrain Follow
+Disable</p></td>
+<td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>87</p></td>
+<td><p>CROW Mode Switch</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>88</p></td>
+<td><p>Soaring Enable</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>89</p></td>
+<td><p>Force Flare</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>90</p></td>
+<td><p>EKF Position Source</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>91</p></td>
+<td><p>Airspeed Ratio Calibrate</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>92</p></td>
+<td><p>FBWA Mode</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>94</p></td>
+<td><p>VTX Power</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>95</p></td>
+<td><p>FBWA_TAILDRAGGER</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>96</p></td>
+<td><p>MODE_SWITCH_RESET</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>97</p></td>
+<td><p>WindVane home dir offset</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>102</p></td>
+<td><p>Camera Mode Toggle</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>GPS Disable Yaw
+(testing only!)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>106</p></td>
+<td><p>Disable Airspeed Use</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>107</p></td>
+<td><p>Enable Autotuning</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>108</p></td>
+<td><p>QRTL Mode</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>150</p></td>
+<td><p>CRUISE Mode</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>151</p></td>
+<td><p>TURTLE Mode</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>152</p></td>
+<td><p>SIMPLE mode heading reset</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>153</p></td>
+<td><p>ARM/DISARM (4.2 and higher)</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>154</p></td>
+<td><p>ARM/DISARM with AIRMODE on</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>155</p></td>
+<td><p>TRIM RC/SERVO Save</p></td>
+<td></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>156</p></td>
+<td><p>Torqeedo Error Clear</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>157</p></td>
+<td><p>Force FBWA Long FS Action</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>158</p></td>
+<td><p>Optflow Calibration</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>159</p></td>
+<td><p>Force Flying State</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>160</p></td>
+<td><p>WeatherVane Enable</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>161</p></td>
+<td><p>Turbine Start (Heli)</p></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>162</p></td>
+<td><p>In-Flight FFT AutoSetup</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>163</p></td>
+<td><p>Mount Lock</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>164</p></td>
+<td><p>Pause Streaming Logging</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>165</p></td>
+<td><p>ARM/Motor Emergency Stop</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>166</p></td>
+<td><p>Camera Record Video</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>167</p></td>
+<td><p>Camera Zoom</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>168</p></td>
+<td><p>Camera Manual Focus</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>169</p></td>
+<td><p>Camera Auto Focus</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>170</p></td>
+<td><p>QSTABILIZE mode</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>171</p></td>
+<td><p>指南针校准</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>173</p></td>
+<td><p>Plane AUTO Landing Abort</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Intended as continuous PWM range control inputs:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>RCx_OPTION value</strong></p></td>
+<td><p><strong>Feature Description</strong></p></td>
+<td><p><strong>Copter</strong></p></td>
+<td><p><strong>Plane</strong></p></td>
+<td><p><strong>Rover</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>201</p></td>
+<td><p>ROLL Input</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>202</p></td>
+<td><p>PTCH Input</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>203</p></td>
+<td><p>THROTTLE Input</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>204</p></td>
+<td><p>YAW Input</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>207</p></td>
+<td><p>Mainsail</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>208</p></td>
+<td><p>Flap Control</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>209</p></td>
+<td><p>Forward Throttle</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>210</p></td>
+<td><p>Airbrakes</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>211</p></td>
+<td><p>Walking Robot Height</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>300-307</p></td>
+<td><p>Scripting RC channels</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>201-204 are not implemented, reserved for future use.</p>
+</div>
+</section>
+<section id="description-of-features">
+<h2>Description of Features<a class="headerlink" href="#description-of-features" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in descriptions below, LOW and HIGH for a channel refers to PWM &lt;1200us and &gt;1800us, respectively.</p>
+</div>
+<section id="mode-switches">
+<h3>Mode Switches<a class="headerlink" href="#mode-switches" title="Permalink to this heading">¶</a></h3>
+<p>Any feature ending with “mode” provides the ability to switch the vehicle into that mode by setting the RC channel to high. You can have multiple “mode” option switches and more than one can be high at a time. The last “mode” change switch will determine the current mode, as well as any change of the normal mode switch.</p>
+<p>For example, if you have a “LOITER mode” switch active and then an “AUTO mode” switch is switched high, the mode will change to AUTO. Changing the normal flight mode switch will again change the mode to the new flight mode setting, even though both RCx_OPTION mode switches are high. Lowering an active RCx_OPTION mode switch back to low will return the flight mode to whatever is set on the flight mode channel, but only if the current mode matches the mode set by that switch. Otherwise, it will have no effect.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copter and Rover mode changes are not guaranteed. They may be denied if the conditions required for that mode are not met. For example, changing to LOITER mode in Copter would fail if the GPS lock is not active, whereas in Plane the demanded mode will change and operate as best as it can.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If mapped to a three-position switch then the SUPERSIMPLE mode function will allow <strong>SUPERSIMPLE</strong> and <strong>SIMPLE</strong> modes to be enabled using the high and middle switch positions, respectively (a two-position switch will enable/disable SUPERSIMPLE mode only). <a class="reference internal" href="simpleandsuper-simple-modes.html#simpleandsuper-simple-modes"><span class="std std-ref">See here for more details</span></a>.</p>
+</div>
+<p>Other functions are:</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Flip</strong></td>
+<td><p>The vehicle will flip on its roll or pitch axis depending upon the pilot’s roll and pitch stick position. See <a class="reference internal" href="flip-mode.html#flip-mode"><span class="std std-ref">Flip Mode</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Save Trim</strong></td>
+<td><p>In Rover, a high saves the current steering channel trim, see <a class="reference external" href="https://ardupilot.org/rover/docs/savetrim.html#savetrim" title="(in Rover)"><span class="xref std std-ref">Save Steering Trim</span></a>. In Copter, it adjusts the vehicle level position using the current roll and pitch stick inputs. See details <a class="reference external" href="https://ardupilot.org/plane/docs/auto-trim.html#auto-trim" title="(in Plane)"><span class="xref std std-ref">here</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Save Waypoint</strong></td>
+<td>Save the current location (including altitude) as a waypoint in the
+mission. If in AUTO mode no waypoint will be saved, instead the vehicle will RTL</td>
+</tr>
+<tr>
+<td><strong>Camera Trigger</strong></td>
+<td><p>The camera shutter will be activated. See more details <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">here</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Range Finder</strong></td>
+<td><p><a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">RangeFinder</span></a> is disabled when the switch is in a low position, enabled when in a high position.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Fence</strong></td>
+<td>Fence is disabled when the switch is in a low position, enabled when in a high position.</td>
+</tr>
+<tr>
+<td><strong>Acro Trainer</strong></td>
+<td><p>Turn on automatic leveling in the ACRO flight mode.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Sprayer</strong></td>
+<td><p>Turn on the <a class="reference internal" href="sprayer.html#sprayer"><span class="std std-ref">crop sprayer</span></a> when the switch is pulled high.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Gripper</strong></td>
+<td><p>Operates the <a class="reference internal" href="common-gripper-landingpage.html#common-gripper-landingpage"><span class="std std-ref">gripper</span></a>.  Switch pulled low releases the gripper, high closes or grabs.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Parachute Enable</strong></td>
+<td><p>Enables the automatic release of the <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">parachute</span></a> (this does not immediately trigger the release).</p>
+</td>
+</tr>
+<tr>
+<td><strong>Parachute Release</strong></td>
+<td><p>Immediately triggers the release of the <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">parachute</span></a> as long as the vehicle is not landed or too low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Parachute 3Pos</strong></td>
+<td><p>Switch pulled low disables the <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">parachute</span></a>.  Switch in middle enables the parachute for automatic release.  Switch pulled high triggers release of the parachute as long as the vehicle is not landed or too low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Mission Reset</strong></td>
+<td><p>Reset AUTO to run the first mission command in the command list.</p>
+</td>
+</tr>
+<tr>
+<td><strong>AttCon Feed Forward</strong></td>
+<td>Turns on/off attitude controllers feed forward. For developers only.
+</td>
+</tr>
+<tr>
+<td><strong>AttCon Accel Limits</strong></td>
+<td>Turns on/off attitude controller acceleration limits. For developers only.
+</td>
+</tr>
+<tr>
+<td><strong>Retract Mount</strong></td>
+<td><p>Move the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera mount</span></a> to its retracted position.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay 1 On/Off</strong></td>
+<td><p>Switch pulled low turns off the first <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the first relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Landing Gear</strong></td>
+<td><p>Deploys or Retracts <a class="reference internal" href="common-landing-gear.html#common-landing-gear"><span class="std std-ref">Landing Gear</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>Lost Vehicle Alarm</strong></td>
+<td><p>Plays the <a class="reference external" href="https://download.ardupilot.org/downloads/wiki/pixhawk_sound_files/LostCopter.wav">lost copter alarm</a> though the buzzer</p>
+</td>
+</tr>
+<tr>
+<td><strong>Emergency Stop Motors</strong></td>
+<td><p>Stops motors immediately
+(<a class="reference external" href="https://www.youtube.com/watch?v=-Db4u8LJE5w">video</a>)</p>
+</td>
+</tr>
+<tr>
+<td><strong>Motor Interlock</strong></td>
+<td><p>Motor Interlock controls the way the heliRSC (motor throttle control) output is generated in Traditional Helicopters and HeliQuads. If &gt; 1200us, it enables the Motor Interlock function, below it is disabled. When &lt;1200us, it is similar to what is sometimes referred to as Throttle Hold in RC Helicopter terminology for Traditional Helicopters and HeliQuads. For Mulit-copters, it is used as a motor stop function when &lt;1200us. (<a class="reference external" href="https://youtu.be/-Db4u8LJE5w?t=51">video</a>).</p>
+</td>
+</tr>
+<tr>
+<td><strong>Brake</strong></td>
+<td><p>Invokes the <a class="reference internal" href="brake-mode.html#brake-mode"><span class="std std-ref">Brake flight mode</span></a> when the switch goes high.
+Bringing the switch back to low will return the vehicle to the mode
+indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay2 On/Off</strong></td>
+<td><p>Switch pulled low turns off the second <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the second relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay3 On/Off</strong></td>
+<td><p>Switch pulled low turns off the third <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the third relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay4 On/Off</strong></td>
+<td><p>Switch pulled low turns off the fourth <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the fourth relay.</p>
+<tr>
+<td><strong>Throw</strong></td>
+<td><p>Invokes the <a class="reference internal" href="throw-mode.html#throw-mode"><span class="std std-ref">Throw flight mode</span></a> when the switch goes high.
+Bringing the switch back to low will return the vehicle to the mode
+indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>ADSB-Avoidance</strong></td>
+<td><p>When the switch is high, <a class="reference internal" href="common-ads-b-receiver.html#common-ads-b-receiver"><span class="std std-ref">ADSB avoidance</span></a> (avoidance of manned aircraft) is enabled, otherwise it’s disabled</p>
+</td>
+</tr>
+<tr>
+<td><strong>Precision Loiter</strong></td>
+<td><p>Turns on/off <a class="reference internal" href="precision-landing-with-irlock.html#precision-landing-with-irlock"><span class="std std-ref">Precision Loiter</span></a>.  I.e. holding position above a target in Loiter mode using IR-Lock sensor.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Object Avoidance</strong></td>
+<td><p>When switch is high, avoid objects using <a class="reference internal" href="common-lightware-sf40c-objectavoidance.html#common-lightware-sf40c-objectavoidance"><span class="std std-ref">Lightware SF40c</span></a> or <a class="reference internal" href="common-teraranger-tower-objectavoidance.html#common-teraranger-tower-objectavoidance"><span class="std std-ref">TeraRanger Tower</span></a>. When low, object avoidance is disabled.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Arm/Disarm(4.1 and earlier)</strong></td>
+<td><p>Arms the vehicle if the switch goes high (subject to arming checks).
+Disarms the vehicle if brought low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Inverted Flight</strong></td>
+<td><p>Enabling inverted flight only changes how ArduPilot stabilizes the vehicle. It will stabilize it with a roll of 180 degrees from normal whenever inverted flight is enabled in a stabilized mode. Unless the vehicle is capable of inverted flight, do <strong>NOT</strong> use this option.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Winch Enable</strong></td>
+<td><p>Enables Winch operation.A low on this channel relaxes the winch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Winch Control</strong></td>
+<td><p>Controls the speed and direction of the winch.Low: takeup, Middle: stop, High: unreel</p>
+</td>
+</tr>
+<tr>
+<td><strong>RC Override Enable</strong></td>
+<td><p>This is a 3-position switch that enables (high) or disables (low) the use of RC overrides from the Ground Control Station.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Learn Cruise</strong></td>
+<td><p>This starts the cruise speed and the throttle learning sequence on Rover when switched to high. See <a class="reference external" href="https://ardupilot.org/rover/docs/rover-tuning-throttle-and-speed.html#rover-tuning-throttle-and-speed" title="(in Rover)"><span>Tuning Speed and Throttle</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Clear Waypoints</strong></td>
+<td><p>Clears currently loaded mission waypoints.</p>
+</td>
+<tr>
+<td><strong>Compass Learn</strong></td>
+<td><p>Inflight compass offset learning. See Automatic Offset Calibration section of <a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">Advanced Compass Setup</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Sailboat Tack</strong></td>
+<td><p>Any high to low, or low to high change on this channel will start a tack in the opposite direction to the last tack. See Sailboat <a class="reference external" href="https://ardupilot.org/rover/docs/sailboat-configure.html#sailboat-configure" title="(in Rover)"><span>Configuration and Setup</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Reverse Throttle</strong></td>
+<td><p>When switched high, forces throttle reverse in Plane for steepening descents. Normally, this is controlled by flight mode via the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#use-rev-thrust" title="(in Plane)"><span class="xref std std-ref">USE_REV_THRUST</span></a> parameter. See <a class="reference external" href="https://ardupilot.org/plane/docs/automatic-landing.html#automatic-landing" title="(in Plane)"><span>Automatic Landing</span></a> for more information on the setup of reverse thrust.</p>
+</td>
+</tr>
+<tr>
+<td><strong>GPS Disable</strong></td>
+<td><p>Simulates GPS failure by disabling GPS.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay 5 On/Off</strong></td>
+<td><p>Switch pulled low turns off the third <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the fifth relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay 6 On/Off</strong></td>
+<td><p>Switch pulled low turns off the third <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the sixth relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Sailboat Motor 3Pos Switch</strong></td>
+<td><p>This 3-position switch controls the Sailboat motor. The motor is always used when high, never used when low, and as needed, otherwise.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Surface Tracking Up/Down</strong></td>
+<td><p>This 3-position switch determines if surface tracking via rangefinder is toward the ground (low) or ceiling (high), or disabled, otherwise.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Standby</strong></td>
+<td><p>This puts the autopilot control loops into a soft standby mode so that a parallel, redundant autopilot or companion computer can assume control of the vehicle. The PID loops, position, and altitude controllers are modified such that the autopilot can smoothly resume control of the vehicle when standby is subsequently disabled. Switching of outputs or other peripherals must be done by external circuitry.</p>
+</td>
+</tr>
+<tr>
+<td><strong>RunCam Control</strong></td>
+<td><p>Allows starting and stopping video recording of compatible RunCam cameras. See <a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Support</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>RunCam OSD Control</strong></td>
+<td><p>Enables control of RunCam cameras OSDs. See <a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Support</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>VISO Align</strong></td>
+<td><p>Aligns external Visual Odometry with current autopilot AHRS</p>
+</td>
+</tr>
+<tr>
+<td><strong>Disarm</strong></td>
+<td><p>Disarm the vehicle unconditionally and immediately. Unlike Emergency Stop Motors, which waits for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#disarm-delay" title="(in Copter)"><span class="xref std std-ref">DISARM_DELAY</span></a> in Copter.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Q_Assist 3Pos SW</strong></td>
+<td><p>Low: disable Q_Assist entirely, Middle: Normal Q_Assist operation, High: Q_Assist active at all times. See Assisted Fixed Wing Flight section of <a class="reference external" href="https://ardupilot.org/plane/docs/quadplane-flying.html#quadplane-flying" title="(in Plane)"><span>Flying a QuadPlane</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>ZigZag Mode Auto Enable</strong></td>
+<td><p>Enable automatic zigzag and sprayer in ZIGZAG mode. See <a class="reference internal" href="zigzag-mode.html#zigzag-mode"><span class="std std-ref">ZigZag Mode</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>AIRMODE (not a regular flight mode)</strong></td>
+<td><p>Enables and disables AIRMODE feature. See <a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>Generator</strong></td>
+<td><p>Mode control for Richenpower Hybrid Power Generator</p>
+</td>
+<tr>
+<td><strong>Non Auto Terrain Follow Disable</strong></td>
+<td><p>Disables Terrain Following in CRUISE and FBWB modes</p>
+</td>
+</tr>
+<tr>
+<td><strong>CROW Mode Switch</strong></td>
+<td><p>Selects between different CROW aileron operating modes</p>
+</td>
+</tr>
+   <tr>
+<td><strong>Soaring Enable</strong></td>
+<td><p>Enables Soaring function operating modes</p>
+</td>
+</tr>
+<tr>
+<td><strong>Force Flare</strong></td>
+<td><p>Moves tilt motors to the upright position and optionally sets pitch for flare when landing Tilt Rotor QuadPlanes. Middle: The pilot retains pitch control during a flare. High: Pitch set to <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#land-pitch-cd" title="(in Plane)"><span class="xref std std-ref">LAND_PITCH_CD</span></a>.</p>
+</td>
+</tr>
+   <tr>
+<td><strong>EKF Position Source</strong></td>
+<td><p>Allows switching between up to three source sets manually for EKF3 (only). See <a class="reference internal" href="common-non-gps-to-gps.html#common-non-gps-to-gps"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>Airspeed Ratio Calibrate</strong></td>
+<td><p>Activates calibration of airspeed ratio in flight. Best results occur while executing course changes over 360 degrees over time, as in LOITER mode. See <a class="reference external" href="https://ardupilot.org/plane/docs/calibrating-an-airspeed-sensor.html#calibrating-an-airspeed-sensor" title="(in Plane)"><span>Calibrating an Airspeed Sensor</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>VTX Power</strong></td>
+<td><p>Allows reading up to a 6-position switch for controlling Video Transmitter Power. See <a class="reference internal" href="common-vtx.html#common-vtx"><span class="std std-ref">Video Transmitter Support</span></a>.</p>
+</td>
+</tr>
+   <tr>
+<td><strong>FBWA_TAILDRAGGER</strong></td>
+<td><p>Enables FBWA taildragger takeoff mode holding elevator and tail on the ground until airspeed is reached</p>
+</td>
+</tr>
+<tr>
+<td><strong>MODE_SWITCH_RESET</strong></td>
+<td><p>Forces mode switch to be re-read.</p>
+</td>
+</tr>
+<tr>
+<td><strong>WindVane home direction offset</strong></td>
+<td><p>This is a continuous input channel providing a -45 to +45 degree offset of the initial wind direction when using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#wndvn-type" title="(in Rover)"><span class="xref std std-ref">WNDVN_TYPE</span></a> = 2.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Camera Mode Toggle</strong></td>
+<td><p>Toggle camera mode (Photo/Video/etc.). Ideally, this should be on a momentary switch since only low to high transitions toggle the camera mode. Used only with Solo gimbals presently.</p>
+</td>
+</tr>
+
+<tr>
+<td><strong>GPS Disable Yaw</strong></td>
+<td><p>Disables yaw for testing (advanced users only!)</p>
+</td>
+</tr>
+<tr>
+<td><strong>Disable Airspeed Use</strong></td>
+<td><p>Forces Airspeed Use to be disabled for testing in the air.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Enable Autotuning</strong></td>
+<td><p>Allows tuning without entering AUTOTUNE mode. (i.e. if you place the vehicle in LOITER/AUTO with stick mixing enabled, it can autotune while the vehicle is loitering by using sticks, but enabling autotuning can occur in any mode other than MANUAL.)</p>
+</td>
+</tr>
+<tr>
+<td><strong>SIMPLE mode heading reset</strong></td>
+<td><p>Resets original heading reference to current heading for SIMPLE Mode.</p>
+</td>
+</tr>
+<tr>
+<td><strong>ARM/DISARM (4.2 and higher)</strong></td>
+<td><p>Arms the vehicle if the switch goes high (subject to arming checks).
+Disarms the vehicle unconditionally if brought low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>ARM/DISARM with AIRMODE on</strong></td>
+<td><p>Arms the vehicle if the switch goes high (subject to arming checks) with AIRMODE active. Airmode rc option switch can subsequently enable or disable if it is configured. Disarms the vehicle unconditionally if brought low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>TRIM RC/SERVO Save</strong></td>
+<td><p>Saves current RC input trim and SERVO output trim for pitch. roll, and yaw in Plane and for Steering in Rover.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Torqeedo Error Clear</strong></td>
+<td><p>Clears error condition in Torqeedo motor controller.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Force FBWA as Long FS Action</strong></td>
+<td><p>Forces mode change to FBWA in Long FS, overriding the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fs-long-actn" title="(in Plane)"><span class="xref std std-ref">FS_LONG_ACTN</span></a> parameter value for emergency landings beyond RC control range to prevent normal failasfe action from occurring.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Optflow Calibration</strong></td>
+<td><p>Enables calibration of optical flow parameters.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Force Flying</strong></td>
+<td><p>Disables the landing detection heuristic to prevent false landing detections during a mission or manual flight if sudden Z changes can occur due to wind gusts, etc.</p>
+</td>
+</tr>
+<tr>
+<td><strong>WeatherVane Enable</strong></td>
+<td><p>Enables or disables weathervaning in Quadplane VTOL modes.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Turbine Start (Heli)</strong></td>
+<td><p>When armed and RSC is idle, the high position signals the helicopter rotor speed governor to ramp the throttle to full and back to idle, which signals the turbine engine ECU to initiate the start sequence. The switch must be set back low and the aircraft has to be disarmed to re-enable this feature.</p>
+</td>
+</tr>
+<tr>
+<td><strong>In-Flight FFT AutoSetup</strong></td>
+<td><p>Allows automatic setup of in-flight FFT notch parameters. Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fft-enable" title="(in Rover)"><span class="xref std std-ref">FFT_ENABLE</span></a> =1, takeoff with switch low, hover 30 seconds with switch high,switch low, and land and notch parameters will have been configured.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Mount Lock</strong></td>
+<td><p>If high, locks the heading of all mounts to earth-frame, otherwise, yaw is heading locked to vehicle heading. If pilot controlled positioning is active, the pilot’s inputs changes the heading target appropriately in whatever frame is selected. Without this switch, its vehicle heading.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Pause Streaming Logging</strong></td>
+<td><p>If high, will not log streaming type log messages (sensors,attitudes,ekf,etc.) to allow logging only when desired for autopilots with limited logging capabilites (ie no SD card). Events, mode changes, etc. are still logged. Logging is unaffected if switch is low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>ARM/Motor Emergency Stop</strong></td>
+<td><p>Three position switch. If high, will request arming. If switched to low position, will emergency stop any rotating motor output like the Motor Emergency Stop switch. If switched to middle position, will de-activate the Motor Emergency Stop, but not request an arm condition. This is a safer alternative to ARM/DISARM in that accidental switching to low position will not disarm, and will allow recovery in the air if switched back to middle or high quickly.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Camera Record Video</strong></td>
+<td><p>Controls video recording on some cameras/mounts.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Camera Zoom</strong></td>
+<td><p>Controls camera zoom on some cameras/mounts.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Camera Manual Focus</strong></td>
+<td><p>Changes manual focus on some cameras/mounts.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Camera AutoFocus</strong></td>
+<td><p>Controls autofocus on some cameras/mounts.</p>
+</td>
+</tr>
+<tr>
+<td><strong>指南针校准</strong></td>
+<td><p>Switching to high will behave the same as if the Start button for <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#onboard-calibration"><span class="std std-ref">onboard calibration</span></a> had been pressed. Returning the switch to low will cancel the calibration if still in progress.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Plane AUTO Mode Landing Abort</strong></td>
+<td><p>If switched to the HIGH position, will abort any landing that is currently in progress while in AUTO mode, This includes the VTOL, or fixed wing, landing phase of any AUTO mission, and the <a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-nav-payload-place"><span class="std std-ref">PAYLOAD_PLACE</span></a> mission command. It does not affect the fixed wing approach phase of a VTOL landing, QLAND or QRTL modes.</p>
+</td>
+</tr>
+<tr>
+<td><strong>ROLL Input</strong></td>
+<td><p>ROLL input channel. (replaces RCMAP)</p>
+</td>
+</tr>
+<tr>
+<td><strong>PITCH Input</strong></td>
+<td><p>PITCH input channel. (replaces RCMAP)</p>
+</td>
+</tr>
+<tr>
+<td><strong>THROTTLE Input</strong></td>
+<td><p>THROTTLE input channel. (replaces RCMAP)</p>
+</td>
+</tr>
+<tr>
+<td><strong>YAW Input</strong></td>
+<td><p>YAW input channel. (replaces RCMAP)</p>
+</td>
+</tr>
+<tr>
+<td><strong>Mainstail</strong></td>
+<td><p>This RC channel will drive the output of the MainSail output ( <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> = 89) instead of being
+set from the Throttle Input channel (useful if it has an auxiliary motor using that input). See Sailboat <a class="reference external" href="https://ardupilot.org/rover/docs/sailboat-configure.html#sailboat-configure" title="(in Rover)"><span>Configuration and Setup</span></a> for more information about the main sail setup.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Flaps</strong></td>
+<td><p>This RC channel provides manual control the amount of FLAP deflection and can also be used in conjunction with <a class="reference external" href="https://ardupilot.org/plane/docs/automatic-flaps.html#automatic-flaps" title="(in Plane)"><span>Automatic Flaps</span></a> and/or <a class="reference external" href="https://ardupilot.org/plane/docs/flaperons-on-plane.html#flaperons-on-plane" title="(in Plane)"><span class="xref std std-ref">flaperons</span></a>. (Replaces the old FLAP_IN_CHANNEL parameter)</p>
+</td>
+</tr>
+<tr>
+<td><strong>Forward Throttle </strong></td>
+<td><p>Manual forward motor throttle in QSTABILIZE, QACRO, and QHOVER modes</p>
+</td>
+</tr>
+<tr>
+<td><strong>Airbrakes </strong></td>
+<td><p>Controls deployment of <a class="reference external" href="https://ardupilot.org/plane/docs/airbrakes-on-plane.html#airbrakes-on-plane" title="(in Plane)"><span class="xref std std-ref">Airbrakes</span></a></p>
+</td>
+</tr>
+<tr>
+<td><strong>Walking Robot Height </strong></td>
+<td><p>Input channel for Walking Robot Height. See <a class="reference external" href="https://ardupilot.org/rover/docs/walking-robots.html#walking-robots" title="(in Rover)"><span>Walking Robots</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Scripting RC channels </strong></td>
+<td><p>Allows reading a dedicated RC channel for script inputs</p>
+</td>
+</tr>
+</tbody>
+</table></section>
+</section>
+<section id="check-the-channel-range">
+<h2>Check the channel range<a class="headerlink" href="#check-the-channel-range" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/aux-switch-check.png"><img alt="../_images/aux-switch-check.png" src="../_images/aux-switch-check.png" /></a>
+<p>The configured feature will be triggered when the auxiliary switch’s pwm value becomes higher than 1800.  It will be deactivated when the value falls below 1200.</p>
+<p>You can check the pwm value sent from the transmitter when the switch is high and low using the Mission Planner’s Initial Setup &gt;&gt; Mandatory Hardware &gt;&gt; Radio Calibration screen.  If it does not climb higher than 1800 or lower than 1200, it is best to adjust the servo end points in the transmitter.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

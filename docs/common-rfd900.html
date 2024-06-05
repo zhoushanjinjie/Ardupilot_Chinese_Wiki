@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-rfd900"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="rfd900-radio-modem">
+<h1>RFD900 Radio Modem<a class="headerlink" href="#rfd900-radio-modem" title="Permalink to this heading">¶</a></h1>
+<p>The RFD900 Radio Modem is a high powered 900Mhz, ISM band radio modem
+designed for long range serial communication.  Ranges of <a class="reference external" href="http://www.edgeresearchlab.org/our-projects/edge4-16-feb-2013/rfd900/">15km and much higher have been reported</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Many common autopilots have telemetry port current limits that prevent directly powering RFD900 radios at their full transmit power. You should power high power radios externally or limit their maximum transmit power to an acceptable level.All commonly used autopilots should be able to handle transmit powers of 20dBm.  See the manual of your specific autopilot for the detailed power specifications of each telemetry port. To set the transmit (TX) power see <a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#common-configuring-a-telemetry-radio-using-mission-planner"><span class="std std-ref">Configuring a Telemetry Radio using Mission Planner</span></a>.</p>
+</div>
+<a class="reference external image-reference" href="../_images/RFD900_telemetry_radio.jpg"><img alt="../_images/RFD900_telemetry_radio.jpg" src="../_images/RFD900_telemetry_radio.jpg" /></a>
+</section>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>The hardware is closed source but the <a class="reference external" href="https://github.com/RFDesign/SiK">software is open</a> and is based on the same
+software that runs on the <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Radio</span></a>
+meaning configuration and setup is extremely similar and these radios
+can even be paired with a 900Mhz SiK radio (i.e. you may choose to use
+one RFD900 on the ground, and a SiK radio in the aircraft).</p>
+<p>Frequencies available:</p>
+<ul class="simple">
+<li><p>868Mhz ISM for EU area</p></li>
+<li><p>900Mhz ISM for US area</p></li>
+</ul>
+<p>Users can either acquire a radio modem, antennas and
+cables separately or by getting ready made telemetry set (as seen below).</p>
+<p>The radio and antennas as separate units are available:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://store.rfdesign.com.au/search.php?search_query=rfd900x+modem&amp;x=0&amp;y=0">RFDesign Store, 900Mhz</a></p></li>
+<li><p><a class="reference external" href="https://store.rfdesign.com.au/search.php?search_query=rfd868x+modem&amp;x=0&amp;y=0">RFDesign Store, 868Mhz</a></p></li>
+<li><p><a class="reference external" href="http://www.proficnc.com/52-online-sales">ProfiCNC Store</a></p></li>
+</ul>
+<section id="ready-made-sets">
+<h2>Ready made Sets<a class="headerlink" href="#ready-made-sets" title="Permalink to this heading">¶</a></h2>
+<section id="bask-aerospace">
+<h3>Bask Aerospace<a class="headerlink" href="#bask-aerospace" title="Permalink to this heading">¶</a></h3>
+<p>Bask Aerospace offer the AeroLink range of products that are built to work with all RFDesign modems.
+They offer two different variants that meet the needs of the ground and airside radios.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://baskaerospace.com.au/shop/telemetry/aerolink-base/">AeroLink Base</a></p></li>
+<li><p><a class="reference external" href="https://baskaerospace.com.au/shop/telemetry/aerolink-rfd-adapter-board/">AeroLink RFD Adapter Board</a></p></li>
+</ul>
+<p>The AeroLink RFD Adapter Board makes it easy to power your RFD modem from a separate 5V BEC as recommended above.</p>
+</section>
+<section id="proficnc">
+<h3>ProfiCNC<a class="headerlink" href="#proficnc" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.proficnc.com/52-online-sales">ProfiCNC Store</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="key-features">
+<h1>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Long range &gt;40km depending on antennas and GCS setup</p></li>
+<li><p>2 x RP-SMA RF connectors, diversity switched.</p></li>
+<li><p>1 Watt (+30dBm) transmit power.</p></li>
+<li><p>Transmit low pass filter.</p></li>
+<li><p>&gt; 20dB Low noise amplifier.</p></li>
+<li><p>RX SAW filter.</p></li>
+<li><p>Passive front end band pass filter.</p></li>
+<li><p>Open source firmware / tools, field upgradeable, easy to configure.</p></li>
+<li><p>Small, light weight.</p></li>
+<li><p>Compatible with 3DR / Hope-RF radio modules.</p></li>
+<li><p>License free use in Australia, Canada, USA, NZ.</p></li>
+</ul>
+</section>
+<section id="status-leds">
+<h1>Status LEDs<a class="headerlink" href="#status-leds" title="Permalink to this heading">¶</a></h1>
+<p>The radios have 2 status LEDs, one red and one green. The meaning of the
+different LED states is:</p>
+<ul class="simple">
+<li><p>Green LED blinking - searching for another radio</p></li>
+<li><p>Green LED solid - link is established with another radio</p></li>
+<li><p>Red LED flashing - transmitting data</p></li>
+<li><p>Red LED solid - in firmware update mode</p></li>
+</ul>
+</section>
+<section id="interfaces">
+<h1>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>RF : 2 x RP-SMA connectors</p></li>
+<li><p>Serial: Logic level RS232 (+3.3v nominal, +5v tolerant)</p></li>
+<li><p>Power: +5v, ~800mA max peak (at maximum transmit power)</p></li>
+<li><p>GPIO: 6 General purpose IO (Digital, ADC, PWM capable).</p></li>
+<li><p>Connect as follows:</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/RFD900_Physical_pins.jpg"><img alt="../_images/RFD900_Physical_pins.jpg" src="../_images/RFD900_Physical_pins.jpg" /></a>
+</section>
+<section id="configuring-using-the-mission-planner">
+<h1>Configuring using the Mission Planner<a class="headerlink" href="#configuring-using-the-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>Many users will not need to configure their radios! One case where you
+might do so is when you use your vehicle with others — in which case you
+will need to specify different radio channels (Net ID).</p>
+<p>Mission Planner supports configuring your radios using a simple GUI
+interface. For more information see <a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#common-configuring-a-telemetry-radio-using-mission-planner"><span class="std std-ref">Configuring a Telemetry Radio using Mission Planner</span></a>.</p>
+</section>
+<section id="support-for-different-countries-regions">
+<h1>Support for different countries/regions<a class="headerlink" href="#support-for-different-countries-regions" title="Permalink to this heading">¶</a></h1>
+<p>It is very important that you configure your radios to comply with your
+regional/country regulations for frequency, hopping channels and power
+levels. For information on radio/region frequency ranges and settings,
+see</p>
+<p><a class="reference internal" href="common-telemetry-radio-regional-regulations.html#common-telemetry-radio-regional-regulations"><span class="std std-ref">Telemetry Radio Regional Regulations</span></a>.</p>
+</section>
+<section id="discussion-forum">
+<h1>Discussion Forum<a class="headerlink" href="#discussion-forum" title="Permalink to this heading">¶</a></h1>
+<p>The best place to discuss these radios including set-up issues is on <a class="reference external" href="https://discuss.ardupilot.org/c/hardware-discussion/radios-hardware/101">ArduPilot’s hardware discussion forums</a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

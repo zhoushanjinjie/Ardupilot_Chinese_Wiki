@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADS-B &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ADS-B</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-ads-b-receiver">[copywiki destination=”plane,copter”]</p>
+<section id="ads-b">
+<h1>ADS-B<a class="headerlink" href="#ads-b" title="Permalink to this heading">¶</a></h1>
+<p>This article describes how to attach and configure an ADS-B module so that your aircraft can be aware of, and/or transmit to, other aircraft and air-traffic control nearby. This also allows the pilot on the ground to be aware of nearby manned aircraft and optionally to allow the vehicle to automatically avoid them.</p>
+<blockquote>
+<div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/boe-25OI4bM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div></blockquote>
+<p>ADS-B (aka <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast">Automatic Dependent Surveillance Broadcast</a>) is an air traffic surveillance technology that enables aircraft to be accurately tracked by air traffic controllers and other pilots without the need for conventional radar.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The avoidance features are new features still under development and should be used with caution. It is highly recommended that the RCx_OPTION =38 (ADSB Avoidance En) feature be setup if ADSB avoidance is enabled to allow easy disabling while airborne, if so desired.</p>
+</div>
+<section id="required-hardware">
+<h2>Required Hardware<a class="headerlink" href="#required-hardware" title="Permalink to this heading">¶</a></h2>
+<p>The sensors can be purchased directly from <a class="reference external" href="https://uavionix.com/products/">uAvionix</a> or <a class="reference external" href="https://sagetech.com/">Sagetech</a> or from the following distributors:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>USA: <a class="reference external" href="https://www.unmannedsystemssource.com/shop/atc-devices/pingrx-ads-b-receiver/">Unmanned Systems Source</a></p></li>
+<li><p><a class="reference external" href="http://www.rcubedengineering.com/ecommerce/">R Cubed Engineering</a></p></li>
+<li><p>U.K.: <a class="reference external" href="http://www.unmannedtech.co.uk/">Unmanned Tech</a></p></li>
+<li><p>Germany: <a class="reference external" href="http://www.uav-store.de/ads-b-receivers/">UAV Store</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/adsb_and_pixhawk.png"><img alt="../_images/adsb_and_pixhawk.png" src="../_images/adsb_and_pixhawk.png" /></a>
+<p>The ADSB receivers should be connected to an autopilot’s serial port. The receiver should be mounted so that the antenna is oriented
+vertically.</p>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<p>Set the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-type" title="(in Plane)"><span class="xref std std-ref">ADSB_TYPE</span></a> parameter to match the receiver’s serial communication protocol.</p>
+<p>The serial port to which the receiver is connected should be configured to also match the ADSB receiver’s protocol:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ADSB Protocol</p></th>
+<th class="head"><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-type" title="(in Plane)"><span class="xref std std-ref">ADSB_TYPE</span></a></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">SERIALx_BAUD</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MAVLINK</p></td>
+<td><p>1</p></td>
+<td><p>MAVLink2 (2)</p></td>
+<td rowspan="2"><p>57600</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sagetech</p></td>
+<td><p>2</p></td>
+<td rowspan="3"><p>ADSB (35)</p></td>
+</tr>
+<tr class="row-even"><td><p>UCP</p></td>
+<td><p>3</p></td>
+<td rowspan="2"><p>115200</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sagetech MX</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, if you plugged a uAvionix Ping2020i into a UART designated as SERIAL4 on the autopilot, you would set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> to 2 (meaning MAVLink2)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL4_BAUD</span></a> 57 (meaning 57600)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the specifications for the ADSB receiver may only state MAVLink as the protocol. In that case try MAVLink2, first, and if that does not succeed, use MAVLink as the serial port protocol.</p>
+</div>
+<p>You will need to reboot your board after making those changes.</p>
+<p>To enable streaming the ADSB data to the GCS you’ll want to check your StreamRate param. In some cases it is already set but it’s good to check. These rates are adjustable per telemetry like in the case of having both a high-bandwidth and a low-bandwitdh link attached. The param to adjust the rate would depend on which one your GCS is connected to. In most cases, it is telem1.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr1-adsb" title="(in Rover)"><span class="xref std std-ref">SR1_ADSB</span></a> 5 (meaning 5Hz)</p></li>
+</ul>
+<p>Once operational aircraft within about 50km should appear on the ground
+station map.</p>
+<a class="reference external image-reference" href="../_images/ADSB_MissionPlanner.jpg"><img alt="../_images/ADSB_MissionPlanner.jpg" src="../_images/ADSB_MissionPlanner.jpg" /></a>
+<p>To test the system you can compare with flights shown on
+<a class="reference external" href="https://www.flightradar24.com/">flightradar24.com</a>.</p>
+</section>
+<section id="adsb-out-configuration">
+<h2>ADSB-out configuration<a class="headerlink" href="#adsb-out-configuration" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure you have the correct permissions to be using ADSB hardware that is capable of transmitting. You will be showing up on air-traffic controller airport radar!</p>
+</div>
+<p>The following parameters are used to configure ADS-B out:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-icao-id" title="(in Plane)"><span class="xref std std-ref">ADSB_ICAO_ID</span></a>: ICAO_ID unique vehicle identification number of this aircraft. This is a integer limited to 24bits. If set to 0 then one will be randomly generated. If set to -1 then static information is not sent, transceiver is assumed pre-programmed.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-emit-type" title="(in Plane)"><span class="xref std std-ref">ADSB_EMIT_TYPE</span></a>: ADSB classification for the type of vehicle emitting the transponder signal. Default value is 14 (UAV).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-len-width" title="(in Plane)"><span class="xref std std-ref">ADSB_LEN_WIDTH</span></a>: Aircraft length and width dimension options in Length and Width in meters. In most cases, use a value of 1 for smallest size.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-offset-lat" title="(in Plane)"><span class="xref std std-ref">ADSB_OFFSET_LAT</span></a>: GPS antenna lateral offset. This describes the physical location offset from center of the GPS antenna on the aircraft.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-offset-lon" title="(in Plane)"><span class="xref std std-ref">ADSB_OFFSET_LON</span></a>: GPS antenna longitudinal offset. This is usually set to 1, Applied By Sensor</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-rf-select" title="(in Plane)"><span class="xref std std-ref">ADSB_RF_SELECT</span></a>: Transceiver RF selection for Rx enable and/or Tx enable. This only effects devices that can Tx and/or Rx. Rx-only devices override this to always be Rx-only.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-squawk" title="(in Plane)"><span class="xref std std-ref">ADSB_SQUAWK</span></a>: Squawk/Transponder (Mode 3/A) code that is broadcasted to ATC that is usually assigned by your ATC for a given flight. In the USA/Canada the default squawk code is for VFR which is 1200. Most parts of Europe and Australia use 7000. If an invalid octal number is set then it will be reset to 1200.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-options" title="(in Plane)"><span class="xref std std-ref">ADSB_OPTIONS</span></a>: Allows enabling certain device specific capabilities and to allow “Squawking” emergency codes on certain vehicle failsafes.</p></li>
+</ul>
+<p>In many cases the defaults are OK and you don’t need to change any of these except <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-rf-select" title="(in Plane)"><span class="xref std std-ref">ADSB_RF_SELECT</span></a> which is needed to turn on the transmitter. The <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-rf-select" title="(in Plane)"><span class="xref std std-ref">ADSB_RF_SELECT</span></a> transmit bit is cleared on boot to ensure you’re only trsnamitting when intentionally enabled.</p>
+<p>There are additional MAVLink messages for ADSB in uavionix.xml to allow a GCS to set all of these options. Namely, msg UAVIONIX_ADSB_OUT_CFG and UAVIONIX_ADSB_OUT_DYNAMIC where the _cfg is the only place where you can assign a custom callsign.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mission Planner’s transponder tab will not send correct messages to Sagetech’s XP series transponders. In order to change operating mode, Sagetech’s Engineering GUI can be used to set the transponder to ALT mode to ensure transmission is working with the flight controller.</p>
+</div>
+</section>
+<section id="enabling-manned-vehicle-avoidance">
+<h2>Enabling Manned Vehicle Avoidance<a class="headerlink" href="#enabling-manned-vehicle-avoidance" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot includes a flight mode, AVOID_ADSB, that attempts to avoid manned vehicles based on the ADS-B sensor’s output. Entry into this mode is automatic when avoidance is necessary based on the parameters below. Exit is also automatic when the threat has passed.</p>
+<p>To enable this feature connect with a Ground Station and set the following parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#avd-enable" title="(in Plane)"><span class="xref std std-ref">AVD_ENABLE</span></a>: set to “1” to enable ADS-B based avoidance (param refresh may be necessary after setting this)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#avd-f-dist-xy" title="(in Plane)"><span class="xref std std-ref">AVD_F_DIST_XY</span></a>: the horizontal distance in meters that should be considered a near-miss</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#avd-f-dist-z" title="(in Plane)"><span class="xref std std-ref">AVD_F_DIST_Z</span></a>: the vertical distance in meters above or below the vehicle that should be considered a near-miss</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#avd-f-time" title="(in Plane)"><span class="xref std std-ref">AVD_F_TIME</span></a>: how many seconds in advance of a projected near-miss (based on the vehicle’s current position and velocity) the vehicle should begin the <code class="docutils literal notranslate"><span class="pre">AVD_F_ACTION</span></code>.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#avd-f-action" title="(in Plane)"><span class="xref std std-ref">AVD_F_ACTION</span></a>: controls how the vehicle should respond to a projected near-miss (i.e. 2:Climb Or Descend, 3:Move Horizontally, 4:Move Perpendicularly in 3D, 5:RTL or 6:Hover)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#avd-f-rcvry" title="(in Plane)"><span class="xref std std-ref">AVD_F_RCVRY</span></a>: sets how the vehicle will behave after the vehicle has cleared the near-miss area (i.e. 1 = resume previous flight mode)</p></li>
+</ul>
+<p>Note: there are equivalent “Warn” parameters (i.e. AVD_W_DIST_XY) that can be used to adjust when warnings to the pilot will appear on the ground station.</p>
+<p>In ArduPilot firmware versions 4.0 and later, the entry into this mode can be enabled or disabled via an RC channel switch by setting the channel’s RCx_OPTION = 38 (ADSB Avoidance En). If the RC PWM is &gt;1800us, then entry into this mode is enabled if a threat presents.</p>
+<blockquote>
+<div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/quomxCIPP74" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div></blockquote>
+</section>
+<section id="vehicle-database">
+<h2>Vehicle Database<a class="headerlink" href="#vehicle-database" title="Permalink to this heading">¶</a></h2>
+<p>When enabled, the ADS-B library will store information for up to 50 vehicles detected by the ADS-B receiver but can be further limited using the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-list-max" title="(in Plane)"><span class="xref std std-ref">ADSB_LIST_MAX</span></a> parameter. Due to some experimental work
+in other features, such as EKF2, available RAM may be limited. It is important to note that when ADS-B is disabled (<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#adsb-type" title="(in Plane)"><span class="xref std std-ref">ADSB_TYPE</span></a> = 0) then the memory is released, effectively freeing up about 1KB of RAM. When
+enabled, the detected vehicle list is checked once per second for potential conflicts.</p>
+</section>
+<section id="developer-information-including-simulation">
+<h2>Developer information including Simulation<a class="headerlink" href="#developer-information-including-simulation" title="Permalink to this heading">¶</a></h2>
+<p>The data is transmitted via the <a class="reference external" href="https://mavlink.io/en/messages/common.html#ADSB_VEHICLE">ADSB_VEHICLE message</a>. When
+received by ArduPilot, it is streamed out using the <code class="docutils literal notranslate"><span class="pre">SRx_ADSB</span></code> value where x is the telemetry port number and the
+value is how many vehicles per second to be streamed. If using telem1 the streamrate param would be <code class="docutils literal notranslate"><span class="pre">SR1_ADSB</span></code>. The list will not repeat any faster than 1 second. This
+flexibility is useful to conserve bandwidth on data links but also allow maximum update rate for high-speed links
+such as an on-board companion computer.</p>
+<p>ArduPilot’s SITL includes the simulation of ADS-B enabled aircraft.
+To enable this you must have pymavlink v1.1.70 or greater. If you have
+an older version, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pymavlink</span> <span class="n">MAVProxy</span>
+</pre></div>
+</div>
+<p>Set the number of aircraft to simulate using the <code class="docutils literal notranslate"><span class="pre">SIM_ADSB_COUNT</span></code> parameter. Ping2020 simulation support
+can be enabled by setting parameter <cite>‘SIM_ADSB_TX`</cite>. Other simulation options for ADS-B are present, all
+starting with <code class="docutils literal notranslate"><span class="pre">SIM_ADSB_</span></code>.</p>
+<p>Plugging in a hardware ADS-B receiver to your computer using a USB-to-Serial converter, or using the PingUSB, will allow you to overlay real ADS-B
+traffic into the simulation.  You might invoke SITL in this way to achieve this effect:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sim_vehicle</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">v</span> <span class="n">ArduCopter</span> <span class="o">-</span><span class="n">A</span> <span class="s2">&quot;--uartC uart:$SERIAL_DEVICE:57600&quot;</span>
+</pre></div>
+</div>
+<p>Where SERIAL_DEVICE might be /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A4008ZND-if00-port0 on a Linux system (find a list of valid serial devices with the command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/dev/serial/by-id/*</span></code> or <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/dev/ttyS*</span></code> for a COM port on Cygwin).  Once SITL has started it may be necessary to set the <code class="docutils literal notranslate"><span class="pre">SERIAL3_</span></code> parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:ref:`SERIAL3_PROTOCOL&lt;SERIAL3_PROTOCOL&gt;` 1
+:ref:`SERIAL3_BAUD&lt;SERIAL3_BAUD&gt;` 57600
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

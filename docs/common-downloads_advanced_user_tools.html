@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOWNLOADS: Advanced User Tools &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Commercial Support and Tools" href="common-commercial-support.html" />
+    <link rel="prev" title="Acknowledgements" href="common-acknowledgments.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Advanced user tools (downloads)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#safety">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners-program.html">Partners Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="common-appendix.html">Appendix</a></li>
+      <li class="breadcrumb-item active">DOWNLOADS: Advanced User Tools</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="downloads-advanced-user-tools">
+<span id="common-downloads-advanced-user-tools"></span><h1>DOWNLOADS: Advanced User Tools<a class="headerlink" href="#downloads-advanced-user-tools" title="Permalink to this heading">¶</a></h1>
+<p>The advanced users tools <a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/">can be downloaded from here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all of these tools are “up to date”. For example, vehicle binaries and
+GCS software should be downloaded from their respective locations in the
+<a class="reference external" href="https://firmware.ardupilot.org/">firmware server</a>.</p>
+</div>
+<p>The rest of the article provides an overview of some of the files and the tool licensing.</p>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this heading">¶</a></h2>
+<section id="tarot-gimbal-firmware">
+<h3>Tarot Gimbal firmware<a class="headerlink" href="#tarot-gimbal-firmware" title="Permalink to this heading">¶</a></h3>
+<p>Tarot Gimbal firmware and configuration UI for Windows.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ZYX-BMGC-EN_V1.5.zip">ZYX-BMGC-EN_V1.5.zip</a> (v1.5)</p></li>
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ZYX-BMGC-EN_V1.4.zip">ZYX-BMGC-EN_V1.4.zip</a> (v1.4)</p></li>
+</ul>
+</section>
+<section id="copter-firmware">
+<h3>Copter Firmware<a class="headerlink" href="#copter-firmware" title="Permalink to this heading">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not necessarily the latest!</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ArduCopter_APM_1.0_Firmware_3.2.1.zip">ArduCopter_APM_1.0_Firmware_3.2.1.zip</a></p></li>
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ArduCopter_APM_2.0_Firmware_3.2.1.zip">ArduCopter_APM_2.0_Firmware_3.2.1.zip</a></p></li>
+</ul>
+</section>
+<section id="rover-firmware">
+<h3>Rover Firmware<a class="headerlink" href="#rover-firmware" title="Permalink to this heading">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not necessarily the latest!</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/APMrover2-2.45.zip">APMrover2-2.45.zip</a></p></li>
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/APMrover2-2.46.zip">APMrover2-2.46.zip</a></p></li>
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/APMrover2-2.47.zip">APMrover2-2.47.zip</a></p></li>
+</ul>
+</section>
+<section id="dr-ppm-encoder-v3-manual">
+<h3>3DR PPM Encoder V3 Manual<a class="headerlink" href="#dr-ppm-encoder-v3-manual" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/PPM-Encoder-V3-Manual.pdf">PPM-Encoder-V3-Manual.pdf</a></p>
+<p>VERSION 1
+DATE POSTED     January 29, 2014</p>
+<p>User manual for the third version of the 3DR PPM Encoder module</p>
+</section>
+<section id="usb-driver-for-pixhawk-boards">
+<h3>USB Driver for Pixhawk Boards<a class="headerlink" href="#usb-driver-for-pixhawk-boards" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://firmware.ardupilot.org/Tools/PX4_Windows_Driver/px4_win_drivers.zip">px4_win_drivers.zip</a></p>
+<p>Drivers for Pixhawk Boards
+Date Posted: May 15, 2013</p>
+</section>
+<section id="dr-ublox-configuration-file">
+<h3>3DR-uBlox configuration file<a class="headerlink" href="#dr-ublox-configuration-file" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/3DR-Ublox.txt">3DR-Ublox.txt</a></p>
+<p>DATE POSTED     November 24, 2013</p>
+<p>This file is an extract of :
+ArduPlane-2.73/libraries/AP_GPS/config
+You can use it for configuring CRIUS CN-06 V2 for example.</p>
+</section>
+<section id="apm2-ublox-passthrough">
+<h3>APM2 / Ublox passthrough<a class="headerlink" href="#apm2-ublox-passthrough" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/GPS_UBLOX_passthrough_APM2.hex">GPS_UBLOX_passthrough_APM2.hex</a></p>
+<p>VERSION 1.0
+DATE POSTED     November 24, 2013</p>
+<p>This executable allows the APM2.x to be used as a pass through to the GPS so that U-Center can be used to examine and change the UBlox’s configuration</p>
+</section>
+<section id="arducam-osd-config-for-minimosd-s-firmware-v2-0">
+<h3>ArduCAM OSD Config (For MinimOSD’s Firmware v2.0)<a class="headerlink" href="#arducam-osd-config-for-minimosd-s-firmware-v2-0" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/Config_OSD_20.zip">Config_OSD_20.zip</a></p>
+<p>DATE POSTED     April 29, 2013</p>
+<p>Important NOTE: After install the “ArduCAM OSD Config Tool” remember that you need to update the Character Set. A new one is available on the install folder. From now on it will be always there as “OSD_Charset.mcm”.</p>
+</section>
+<section id="arducopter-apm-1-0-firmware">
+<h3>ArduCopter APM 1.0 Firmware<a class="headerlink" href="#arducopter-apm-1-0-firmware" title="Permalink to this heading">¶</a></h3>
+<p>VERSION 3.2.1
+DATE POSTED     March 18, 2015</p>
+<p>ArduCopter v3.2.1 firmware for APM 1.0. This is the last build of ArduCopter that still fits on the APM 1.0 boards.</p>
+</section>
+<section id="arducopter-apm-2-x-firmware">
+<h3>ArduCopter APM 2.x Firmware<a class="headerlink" href="#arducopter-apm-2-x-firmware" title="Permalink to this heading">¶</a></h3>
+<p>VERSION 3.2.1
+DATE POSTED     March 18, 2015</p>
+<p>ArduCopter v3.2.1 firmware for APM 2.x. This is the last build of ArduCopter that still fits on the APM 2.x boards.</p>
+</section>
+<section id="arduppm-encoder-3dr-manual-v2-3-16-pdf">
+<h3>ArduPPM Encoder 3DR Manual v2.3.16.pdf<a class="headerlink" href="#arduppm-encoder-3dr-manual-v2-3-16-pdf" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/PPM-Encoder-3DR-Manual-v2.3.16.pdf">PPM-Encoder-3DR-Manual-v2.3.16.pdf</a></p>
+<p>VERSION 2.3.16
+DATE POSTED     April 26, 2013</p>
+<p>Manual for the standalone PPM Encoder by 3DR.
+This manual covers firmware version 2.3.16.</p>
+</section>
+<section id="arduppm-v2-3-16-atmega32u2-firmware-for-apm-2-x-recommended-apm2-x">
+<h3>ArduPPM v2.3.16 ATMega32U2 firmware for APM 2.x (recommended APM2.x)<a class="headerlink" href="#arduppm-v2-3-16-atmega32u2-firmware-for-apm-2-x-recommended-apm2-x" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ArduPPM_v2.3.16_ATMega32U2.hex_.zip">ArduPPM_v2.3.16_ATMega32U2.hex_.zip</a></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recommended for all APM 2.x users</p>
+</div>
+<p>DATE POSTED     April 29, 2013</p>
+<p>– New interrupt system that handles certain Futaba receivers better
+(simultaneous changes on groups of R/C channels in fast intervals)
+– Adapted behaviour in case of channel loss:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ch1, roll: set to center (1500us)</p></li>
+<li><p>ch2, pitch: set to center (1500us)</p></li>
+<li><p>ch3, throttle: set to low (900us)</p></li>
+<li><p>ch4, yaw: set to center (1500us)</p></li>
+<li><p>ch5-ch8: retain last value</p></li>
+</ul>
+</div></blockquote>
+<section id="apm-2-x-led-status">
+<h4>APM 2.x LED STATUS:<a class="headerlink" href="#apm-2-x-led-status" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><ul>
+<li><p>RX – OFF = No input signal detected</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>RX – SLOW TOGGLE = Input signal OK</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>RX – FAST TOGGLE = Invalid input signal(s) detected</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>RX – ON = Input signal(s) lost during flight and fail-safe activated</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>TX – OFF= PPM output disabled</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>TX – FAST TOGGLE = PPM output enabled</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>TX – SLOW TOGGLE = PPM pass-trough mode</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="servo-input-pwm-mode">
+<h4>SERVO INPUT (PWM) MODE:<a class="headerlink" href="#servo-input-pwm-mode" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>– PPM output will not be enabled unless a input signal has been detected and verified</p></li>
+<li><p>– Verified inputs are lost during operation (lose servo wire or receiver malfunction):</p></li>
+<li><ul>
+<li><p>The last known value of the lost input channel is kept for ~1 second</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>If the lost input channel is not restored within ~1 second, it will be set to the default fail-safe value (for channel 1-4) or kept at the last value (for channel 5-8)</p></li>
+</ul>
+</li>
+<li><p>– Lost channel signal is restored:</p></li>
+<li><ul>
+<li><p>Normal channel operation is restored using the valid input signal</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ppm-pass-through-mode-signal-pin-2-3-shorted">
+<h4>PPM PASS-THROUGH MODE (signal pin 2&amp;3 shorted):<a class="headerlink" href="#ppm-pass-through-mode-signal-pin-2-3-shorted" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>– PPM output will not be enabled unless a input signal has been detected</p></li>
+<li><p>– Active signal on input channel 1 has been detected:</p></li>
+<li><ul>
+<li><p>Any input level changes will be passed directly to the PPM output (PPM pass-trough)</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>If no input level changes are detected within 250ms:</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>PPM output is enabled and default fail-safe values for all eight channels transmitted</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>Input level change detected again, PPM fail-safe output is terminated and normal PPM pass-through operation is restored</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-copter-and-standalone-ppm-encoder">
+<h3>ArduPPM v2.3.16 ATMega328p firmware for APM1.x Copter and standalone PPM encoder.<a class="headerlink" href="#arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-copter-and-standalone-ppm-encoder" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ArduPPM_v2.3.16_ATMega328p_for_ArduCopter.hex_.zip">ArduPPM_v2.3.16_ATMega328p_for_ArduCopter.hex_.zip</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Do not use with APM 2.x</strong></p>
+<p>DATE POSTED April 29, 2013</p>
+</div>
+<p>This version is dedicated to ArduCopter (CH8 radio passthrough mode disabled).</p>
+<section id="changes">
+<h4>Changes:<a class="headerlink" href="#changes" title="Permalink to this heading">¶</a></h4>
+<p>– New interrupt system that handles certain Futaba receivers better
+(simultaneous changes on groups of R/C channels in fast intervals)
+– Adapted behaviour in case of channel loss:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ch1, roll: set to center (1500μs)</p></li>
+<li><p>ch2, pitch: set to center (1500μs)</p></li>
+<li><p>ch3, throttle: set to low (900μs)</p></li>
+<li><p>ch4, yaw: set to center (1500μs)</p></li>
+<li><p>ch5-ch8: retain last value</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="led-status">
+<h4>LED STATUS:<a class="headerlink" href="#led-status" title="Permalink to this heading">¶</a></h4>
+<p>Normal mode:</p>
+<p>– Error condition (All channels lost or throttle channel lost): blue LED blinks very fast
+– Normal behaviour: blue LED blinks according to throttle position</p>
+</section>
+</section>
+<section id="arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-plane-and-standalone-ppm-encoder">
+<h3>ArduPPM v2.3.16 ATMega328p firmware for APM1.x Plane and standalone PPM encoder.<a class="headerlink" href="#arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-plane-and-standalone-ppm-encoder" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ArduPPM_v2.3.16_ATMega328p_for_ArduPlane.hex_.zip">ArduPPM_v2.3.16_ATMega328p_for_ArduPlane.hex_.zip</a></p>
+<p>DATE POSTED     April 29, 2013</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use with APM 2.x</p>
+</div>
+<p>This version is dedicated to ArduPlane (or ArduRover / Arduboat) (CH8 radio passthrough mode).
+For ArduCopter it is better to use the dedicated version so that CH8 can be fully used without risk to trig radio passthrough mode.</p>
+<section id="id1">
+<h4>Changes:<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<p>– New interrupt system that handles certain Futaba receivers better
+(simultaneous changes on groups of R/C channels in fast intervals)</p>
+<p>– Adapted behaviour in case of channel loss:</p>
+<p>ch1, roll: set to center (1500μs)
+ch2, pitch: set to center (1500μs)
+ch3, throttle: set to low (900μs)
+ch4, yaw: set to center (1500μs)</p>
+<p>ch5-ch8: retain last value</p>
+</section>
+<section id="id2">
+<h4>LED STATUS:<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<p>Normal mode:</p>
+<p>– Error condition (All channels lost or throttle channel lost): blue LED blinks very fast
+– Normal behaviour: blue LED blinks according to throttle position</p>
+<p>Radio Passthrough mode (for ArduPlane only):</p>
+<p>– If throttle position &lt; 1200 μs, status LED is off
+- If throttle position &gt; 1200 μs, status LED is on</p>
+</section>
+</section>
+<section id="arduppm-v2-3-16-atmega32u2-firmware-for-apm-2-x">
+<h3>ArduPPM v2.3.16 ATMega32U2 firmware for APM 2.x<a class="headerlink" href="#arduppm-v2-3-16-atmega32u2-firmware-for-apm-2-x" title="Permalink to this heading">¶</a></h3>
+<p>DATE POSTED     April 29, 2013</p>
+<p>ArduPPM v2.3.16 ATMega32U2 firmware for APM 2.x</p>
+<p>– New interrupt system that handles certain Futaba receivers better
+(simultaneous changes on groups of R/C channels in fast intervals)
+– Adapted behaviour in case of channel loss:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ch1, roll: set to center (1500us)</p></li>
+<li><p>ch2, pitch: set to center (1500us)</p></li>
+<li><p>ch3, throttle: set to low (900us)</p></li>
+<li><p>ch4, yaw: set to center (1500us)</p></li>
+</ul>
+</div></blockquote>
+<p>ch5-ch8: retain last value</p>
+<section id="id3">
+<h4>APM 2.x LED STATUS:<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>RX – OFF = No input signal detected</p></li>
+<li><p>RX – SLOW TOGGLE = Input signal OK</p></li>
+<li><p>RX – FAST TOGGLE = Invalid input signal(s) detected</p></li>
+<li><p>RX – ON = Input signal(s) lost during flight and fail-safe activated</p></li>
+<li><p>TX – OFF= PPM output disabled</p></li>
+<li><p>TX – FAST TOGGLE = PPM output enabled</p></li>
+<li><p>TX – SLOW TOGGLE = PPM pass-trough mode</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>SERVO INPUT (PWM) MODE:<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<p>– PPM output will not be enabled unless a input signal has been detected and verified
+– Verified inputs are lost during operation (lose servo wire or receiver malfunction):
++ The last known value of the lost input channel is kept for ~1 second
++ If the lost input channel is not restored within ~1 second, it will be set to the default fail-safe value (for channel 1-4) or kept at the last value (for channel 5-8)
+– Lost channel signal is restored:
++ Normal channel operation is restored using the valid input signal</p>
+</section>
+<section id="id5">
+<h4>PPM PASS-THROUGH MODE (signal pin 2&amp;3 shorted):<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>– PPM output will not be enabled unless a input signal has been detected</p></li>
+<li><p>– Active signal on input channel 1 has been detected:</p></li>
+<li><ul>
+<li><p>Any input level changes will be passed directly to the PPM output (PPM pass-trough)</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>If no input level changes are detected within 250ms:</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>PPM output is enabled and default fail-safe values for all eight channels transmitted</p></li>
+</ul>
+</li>
+<li><ul>
+<li><p>Input level change detected again, PPM fail-safe output is terminated and normal PPM pass-through operation is restored</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="mediatek-gps-firmware-update-and-utility">
+<h3>MediaTek GPS firmware update and utility<a class="headerlink" href="#mediatek-gps-firmware-update-and-utility" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/MTK_DIYdrones.zip">MTK_DIYdrones.zip</a></p>
+<p>DATE POSTED     April 29, 2013</p>
+</section>
+<section id="minimosd-firmware-v2-0">
+<h3>MinimOSD Firmware v2.0<a class="headerlink" href="#minimosd-firmware-v2-0" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/MinimOSD_20.hex_.zip">MinimOSD_20.hex_.zip</a></p>
+<p>DATE POSTED     April 29, 2013</p>
+<p>Firmware 2.0 for MinimOSD. More powerful than ever!</p>
+<p>Important NOTE: You need to install the newest “ArduCAM OSD Config Tool” and also update the Character Set. A new one is available on the Config Tool’s install folder. From now on it will be always there as “OSD_Charset.mcm”.</p>
+</section>
+<section id="minimosd-firmware-v2-2-beta-new-flight-modes">
+<h3>MinimOSD Firmware v2.2 (Beta) - New Flight Modes<a class="headerlink" href="#minimosd-firmware-v2-2-beta-new-flight-modes" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/MinimOSD_22_hex.zip">MinimOSD_22_hex.zip</a></p>
+<p>DATE POSTED     May 8, 2014</p>
+<p>Firmware 2.2 for MinimOSD. New Flight-modes added for APM Plane and APM Copter.</p>
+<p>Important NOTE: If you were using a firmware older than 2.0, remember of installing the newest “ArduCAM OSD Config Tool” and also update the Character Set. A new one is available on the Config Tool’s install folder. From now on it will be always there as “OSD_Charset.mcm”.</p>
+</section>
+<section id="opticalflow-test-sketch-apm2">
+<h3>OpticalFlow test sketch / APM2<a class="headerlink" href="#opticalflow-test-sketch-apm2" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/AP_OpticalFlow_test.hex">AP_OpticalFlow_test.hex</a></p>
+<p>VERSION 1.0
+DATE POSTED     December 5, 2013</p>
+<p>Optical Flow test sketch for APM2</p>
+</section>
+<section id="px4flow-klt">
+<h3>PX4Flow-KLT<a class="headerlink" href="#px4flow-klt" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/px4flow-klt-06Dec2014.zip">px4flow-klt-06Dec2014.zip</a></p>
+<p>VERSION Beta-06Dec2014
+DATE POSTED     December 6, 2014</p>
+<p>PX4Flow sensor firmware using Lucas-Kanade method for use with ArduPilot</p>
+</section>
+<section id="usb-driver-for-apm-2">
+<h3>USB Driver for APM 2<a class="headerlink" href="#usb-driver-for-apm-2" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/APM_Arduino_Drivers.zip">APM_Arduino_Drivers.zip</a></p>
+<p>DATE POSTED     April 25, 2013</p>
+<p>Arduino USB driver for the Atmega32u2 USB interface chip on APM 2</p>
+</section>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">¶</a></h2>
+<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the <a class="reference external" href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a> for more details.</p>
+</section>
+<section id="safety">
+<h2>Safety<a class="headerlink" href="#safety" title="Permalink to this heading">¶</a></h2>
+<p>Operating a powered vehicle of any kind can be a lot of fun.
+However, nothing will ruin your day at the park more quickly than an accident or running afoul of the law.
+Since we want you to have a great experience, please make sure that you do all of the following:</p>
+<ul class="simple">
+<li><p>Operate within all local laws and regulations.
+For example, in the United States, current regulations require you to operate most UAVs under 400
+foot above ground level, within line of site, and away from obstructions and populated areas.
+Since these regulations vary from place to place, even within the same country, ensure that
+you understand what you need to do to stay compliant.</p></li>
+<li><p>Never operate the vehicle or software in a way that could be dangerous to you, other people, or property.
+Propellers, while rotating, could easily cut you; if a UAV fell on a person or object,
+it could cause injury; a UAV caught in power lines could cause an outage.
+As Ben Franklin said, “An ounce of prevention is worth a pound of cure.”</p></li>
+<li><p>Always keep in mind that software and hardware failures happen.
+Although we design our products to minimize such issues, you should always operate with the understanding that
+a failure could occur at any point of time and without warning.
+As such, you should take the appropriate precautions to minimize danger in case of failure.</p></li>
+<li><p>Never use the software or hardware for manned vehicles.
+The software and hardware we provide is only for use in unmanned vehicles.</p></li>
+</ul>
+<p>[copywiki destination=”copter,plane,rover,planner,planner2,antennatracker,dev,mavproxy,ardupilot”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-acknowledgments.html" class="btn btn-neutral float-left" title="Acknowledgements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-commercial-support.html" class="btn btn-neutral float-right" title="Commercial Support and Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

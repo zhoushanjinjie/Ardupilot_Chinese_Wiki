@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLHeli32 and BLHeli_S ESCs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BLHeli32 and BLHeli_S ESCs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="blheli32-and-blheli-s-escs">
+<span id="common-blheli32-passthru"></span><h1>BLHeli32 and BLHeli_S ESCs<a class="headerlink" href="#blheli32-and-blheli-s-escs" title="Permalink to this heading">¶</a></h1>
+<p>The BLHeli firmware and configuration applications were developed to allow the configuration of ESCs and provide additional features. ESCs with this firmware allow configuring timing, motor direction, LEDs, motor drive frequency, etc.  Before attempting to use BLHeli please follow the <a class="reference internal" href="common-dshot-escs.html#common-dshot-escs"><span class="std std-ref">DShot setup instructions</span></a>.</p>
+<p>This page includes setup instructions for the following features</p>
+<ul class="simple">
+<li><p>Pass-Through support allows the BLHeli application to be used to configure the ESCs while remaining connected to the autopilot</p></li>
+<li><p><a class="reference internal" href="common-dshot-escs.html#blheli32-reversible-dshot"><span class="std std-ref">Reversible DShot</span></a> (aka 3D mode) allows the motor to be spun in either direction</p></li>
+<li><p><a class="reference internal" href="common-esc-telemetry.html#bidir-dshot"><span class="std std-ref">Bi-directional DShot</span></a> allows the ESCs to send RPM back to the autopilot without the need for an additional telemetry connection</p></li>
+<li><p><a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">ESC Telemetry</span></a> allows the ESCs to send RPM, voltage and current information back to the autopilot so that it can be logged, viewed in real-time or even allow the removal of a <a class="reference internal" href="common-esc-telemetry.html#esc-telemetry-based-battery-monitor"><span class="std std-ref">battery monitor</span></a></p></li>
+</ul>
+<p>“BLHeli” covers covers multiple (sometimes competing) projects providing ESCs firmware and accompanying configuration software</p>
+<ul class="simple">
+<li><p>BLHeli was the original open source software that is no longer maintained and is not available on modern ESCs</p></li>
+<li><p><a class="reference external" href="https://github.com/bitdump/BLHeli">BLHeli32</a> is closed source and based on 32bit ARM MCUs.  All modern BLHeli ESCs use BLHeli32</p></li>
+<li><p><a class="reference external" href="https://github.com/bitdump/BLHeli">BLHeli_S</a> is open source and 16bit.  This is no longer actively maintained but the last published version, 16.7, is installed by default on “BLHeli_S” ESCs when shipped from the factory</p></li>
+<li><p><a class="reference external" href="https://jflight.net">BLHeli_S JESC</a> is paid, closed source software and 16bit allowing it to run on lower end hardware</p></li>
+<li><p><a class="reference external" href="https://github.com/mathiasvr/bluejay">BLHeli_S BlueJay</a> is free, open source software and 16bit</p></li>
+</ul>
+<section id="pass-through-support">
+<h2>Pass-Through Support<a class="headerlink" href="#pass-through-support" title="Permalink to this heading">¶</a></h2>
+<p>The Pass-Through feature allows BLHeli32 and BLHeli_S ESCs to be upgraded and configured using the corresponding BLHeliSuite32 or BLHeliSuite application (running on the user’s PC) while the ESCs remain connected to the autopilot.  To use this feature please follow these steps</p>
+<ul>
+<li><p>Download and install <a class="reference external" href="https://github.com/bitdump/BLHeli/releases">BLHeliSuite32</a> (for use with BLHeli32 ESCs), <a class="reference external" href="https://github.com/bitdump/BLHeli">BLHeliSuite</a> (for BLHeli_S ESC) or <a class="reference external" href="https://github.com/jflight-public/jesc-configurator/releases">JESC configurator</a> (for use with BLHeli_S JESC) on your PC</p></li>
+<li><p>Connect your PC to the autopilot using a USB cable and then connect with a ground station (e.g. Mission Planner, QGC).</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-auto" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_AUTO</span></a> to 1 to automatically enable pass-through on all outputs configured as motors (e.g. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVOx_FUNCTION</span></a> = “Motor1”, “Motor2”, etc) for multicopters and quadplanes or throttle (e.g. those with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVOx_FUNCTION</span></a> set to 70 (“throttle”), 73 (“throttle left”) or 74 (“throttle right”)) on rovers.  For most multicopters, quadplanes and rovers this will do the right thing but for planes, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_MASK</span></a> to enable pass-through on the appropriate servo outputs.</p></li>
+<li><p>If your PC is connected to the autopilot using a telemetry radio (instead of using USB cable as recommended above) set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-port" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_PORT</span></a> to the autopilot port connected to the telemetry radio.  Beware that this is does NOT specify the port used for <a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">ESC telemetry</span></a> feedback to your autopilot!</p></li>
+<li><p>If using a safety switch ensure it is pushed (or disabled by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safety-deflt" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETY_DEFLT</span></a> = 0).  (<code class="docutils literal notranslate"><span class="pre">BRD_SAFETYENABLE</span></code> in older firmware versions)</p></li>
+<li><p>Disconnect the ground station (but leave the USB cable connected)</p></li>
+<li><p>Start the ESC configuration software and connect to the autopilot’s COM port by selecting “BLHeli32 Bootloader (Betaflight/Cleanflight)” from the interfaces menu.  Press “Connect” and “Read Setup”.  You should be able to upgrade and configure all connected ESCs</p>
+<a class="reference external image-reference" href="../_images/blhelisuite32.jpg"><img alt="../_images/blhelisuite32.jpg" src="../_images/blhelisuite32.jpg" style="width: 450px;" /></a>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot firmware supports the pass-through protocol with up-to-date BLHeli32 firmware and BLHeliSuite32, or BLHeli_S firmware and BLHeliSuite only.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For pass-through to function, the autopilot must be configured to use one of the DShot protocols.  If you wish to eventually use one of the other protocols (e.g. PWM, OneShot125) that the ESC supports, you may still configure the ESCs using Pass-Through (e.g. change motor directions, set min/max values, etc) but then finally re-configure the autopilot to <em>not</em> use DShot.  Once the autopilot and ESCs are rebooted the ESC should auto-detect that the ESCs are no longer using DShot.</p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/np7xXY_e5sA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

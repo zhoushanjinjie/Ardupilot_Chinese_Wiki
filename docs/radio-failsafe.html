@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radio Failsafe &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Battery Failsafe" href="failsafe-battery.html" />
+    <link rel="prev" title="Failsafe" href="failsafe-landing-page.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Radio Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="failsafe-battery.html">Battery Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gcs-failsafe.html">GCS Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ekf-inav-failsafe.html">EKF Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deadreckoning-failsafe.html">Dead Reckoning Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vibration-failsafe.html">Vibration Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tkoff-rpm-min.html">Dead Motor Takeoff Prevention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="terrain-following.html">Terrain Data Loss Failsafe (see section on loss of terrain data induced RTL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crash_check.html">Crash Check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-parachute.html">Parachute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="failsafe-landing-page.html">Failsafe</a></li>
+      <li class="breadcrumb-item active">Radio Failsafe</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="radio-failsafe">
+<span id="id1"></span><h1>Radio Failsafe<a class="headerlink" href="#radio-failsafe" title="Permalink to this heading">¶</a></h1>
+<p>Copter supports several configurable failsafe options in cases where contact between the Pilot’s RC transmitter and the autopilot’s receiver is lost.  This page explains this failsafe’s setup and testing.  Note the “Radio failsafe” was previously called “Throttle failsafe” because of the way in which some receivers use the throttle channel to signal the loss of contact.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For Single Helicopter, Dual Helicopter and Quad Helicopter frames, Copter 3.6 and earlier in any <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC Mode</span></a> or Copter 4.0 in the RC Passthrough <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-rsc-mode" title="(in Copter)"><span class="xref std std-ref">H_RSC_Mode</span></a> requires the RC receiver channel 8 to hold last value when transmitter signal is lost.  If the receiver sends no signal or does not hold the RC channel 8 value, the motor will be shutdown and the helicopter will crash.</p>
+</div>
+<a class="reference external image-reference" href="../_images/RadioFailsafe_Intro.jpg"><img alt="../_images/RadioFailsafe_Intro.jpg" src="../_images/RadioFailsafe_Intro.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copter also supports other failsafes, including: <a class="reference internal" href="failsafe-battery.html#failsafe-battery"><span class="std std-ref">Battery</span></a>, <a class="reference internal" href="gcs-failsafe.html#gcs-failsafe"><span class="std std-ref">Ground Station</span></a> and <a class="reference internal" href="ekf-inav-failsafe.html#ekf-inav-failsafe"><span class="std std-ref">EKF/DCM failsafes</span></a>. See the <a class="reference internal" href="failsafe-landing-page.html#failsafe-landing-page"><span class="std std-ref">Failsafe</span></a> for more details.</p>
+</div>
+<section id="when-the-failsafe-will-trigger">
+<h2>When the failsafe will trigger<a class="headerlink" href="#when-the-failsafe-will-trigger" title="Permalink to this heading">¶</a></h2>
+<p>If enabled and set-up correctly the radio failsafe will trigger if any of these conditions occur for more than <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-fs-timeout" title="(in Rover)"><span class="xref std std-ref">RC_FS_TIMEOUT</span></a> seconds:</p>
+<ul class="simple">
+<li><p>The pilot turns off the RC transmitter.</p></li>
+<li><p>The vehicle travels outside of RC range and signal is lost.</p></li>
+<li><p>The pilot forces the throttle channel below <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-value" title="(in Rover)"><span class="xref std std-ref">FS_THR_VALUE</span></a> from the transmitter.</p></li>
+<li><p>The receiver loses power (unlikely).</p></li>
+<li><p>The wires connecting the receiver to the autopilot are broken
+(unlikely).</p></li>
+</ul>
+</section>
+<section id="what-will-happen">
+<h2>What will happen<a class="headerlink" href="#what-will-happen" title="Permalink to this heading">¶</a></h2>
+<p>When a radio failsafe is triggered, the copter can be configured via parameters to do nothing, land immediately, RTL, or SmartRTL.  It can also be configured to bypass the failsafe in an Auto Mode mission, or to continue landing if already in a landing phase.</p>
+<ul class="simple">
+<li><p>If the copter is disarmed, no failsafe will take place.</p></li>
+<li><p>If the copter is armed but has landed, the copter will immediately disarm.</p></li>
+<li><p>If the copter is armed in Stabilize or Acro modes, and the throttle input is at minimum, the copter will immediately disarm.</p></li>
+<li><p>Otherwise, the copter will take the actions as configured in the parameters described below.</p></li>
+</ul>
+<p>If the failsafe clears (i.e. transmitter and receiver regain contact) the copter will remain in its failsafe mode. It will <strong>not</strong> automatically return to the flight mode that was active before the failsafe was triggered. This means that if, for example, the vehicle was in Loiter when the failsafe occurred and the flight mode was automatically changed to RTL, even after the transmitter and receiver regained contact, the vehicle would remain in RTL.  If the pilot wished to re-take control in Loiter he/she would need to change your flight mode switch to another position and then back to Loiter.</p>
+</section>
+<section id="receiver-configuration">
+<h2>Receiver Configuration<a class="headerlink" href="#receiver-configuration" title="Permalink to this heading">¶</a></h2>
+<p>By default, most newly purchased receivers will simply not output pulses if contact with the transmitter is lost. However, some low end receivers will be set-up to simply hold all channels at their last known position.  This is not good because the autopilot has no way to know that the Pilot has lost control of the vehicle.  Instead the receiver must be set-up to signal to the autopilot it has lost contact and there are two ways that it can do this (the method depends upon the receiver). Each brand of Transmitter/Receiver is slightly different so please refer to your transmitter’s user manual to determine which method is available and how to set it up.</p>
+<section id="receiver-configuration-for-low-throttle-method">
+<h3>Receiver configuration for low-throttle method<a class="headerlink" href="#receiver-configuration-for-low-throttle-method" title="Permalink to this heading">¶</a></h3>
+<p>The <strong>“Low-Throttle” method</strong> pulls the throttle channel (normally channel 3) to a value below the bottom of its normal range (normally below 1000us).  This method is used by Futaba systems and many older systems.  Below is the setup method for a Futaba T7C Transmitter with R617FS or TFR4-B receiver which uses the “low throttle” method.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/qf8YinLKQww" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Many receivers allow for the failsafe positions to be set either by simply pressing a button on the receiver, or directly from the transmitter. In this case, the transmitter is temporarily adjusted to output a throttle signal below the normal low idle position (if low idle is 1000us, then 990uS would be sent) setting this as the failsafe value for the receiver, then adjusting low stick back to normal idle position. This below throttle idle value is then set for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-value" title="(in Rover)"><span class="xref std std-ref">FS_THR_VALUE</span></a>, as discussed below.</p>
+</section>
+<section id="receiver-configuration-for-no-signal-method">
+<h3>Receiver configuration for No-Signal method<a class="headerlink" href="#receiver-configuration-for-no-signal-method" title="Permalink to this heading">¶</a></h3>
+<p><strong>“No Signal” method</strong> - the receiver stops sending signals to the autopilot.  This is the preferred method and is how most modern FrSky receivers operate. Below is the setup method for a FlySky 9 channel transmitter with FrSky D4R-II receiver which uses the “No Signal” method.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/FhKREgqjCpM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+<section id="parameter-configuration">
+<h2>Parameter Configuration<a class="headerlink" href="#parameter-configuration" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-enable" title="(in Rover)"><span class="xref std std-ref">FS_THR_ENABLE</span></a> parameter can be set in the Mission Planner full parameter list or full parameter tree, or can also be set using the Mission Planner <em>failsafe options</em> dropdown in the Initial Setup &gt;&gt; Mandatory Hardware &gt;&gt; Failsafe menu.</p>
+<ul class="simple">
+<li><p><strong>Disabled</strong> (Value 0) will disable the radio failsafe entirely.</p></li>
+<li><p><strong>Enabled Always RTL</strong> (Value 1) will switch the copter to RTL Mode.  If the GPS position is not usable, the copter will change to Land Mode instead.</p></li>
+<li><p><strong>Enabled Continue with Mission in Auto Mode</strong> (this value has no effect in 4.0 and later with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> parameter replacing function, see below) (Value 2) will ignore the failsafe in an Auto Mode mission. Otherwise, it will behave the same as <em>Enabled Always RTL</em>. This option no longer exists in ArduCopter 4.0. Instead, see the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> parameter for this function. Setting this value in Copter 4.0 and later version will automatically be converted and set to (Value 1) and the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> will be modified to include bit (0) in the bitmask for “Continue if in auto mode on Radio Failsafe”.</p></li>
+<li><p><strong>Enabled Always Land</strong> (Value 3) will switch the copter to Land Mode.</p></li>
+<li><p><strong>Enabled SmartRTL or RTL</strong> (Value 4) will switch the copter to SmartRTL mode. If SmartRTL is not available, the copter will switch to RTL Mode instead.  If the GPS position is not usable, the copter will change to Land Mode instead.</p></li>
+<li><p><strong>Enabled SmartRTL or Land</strong> (Value 5) will switch the copter to SmartRTL mode. If SmartRTL is not available, the copter will switch to Land Mode instead.</p></li>
+<li><p>Any invaild value (Such as accidentally enter 99 as a parameter value) will will behave the same as <strong>Enabled Always LAND</strong></p></li>
+</ul>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-value" title="(in Rover)"><span class="xref std std-ref">FS_THR_VALUE</span></a>  parameter can be set in the Mission Planner full parameter list or full parameter tree, or can also be set using the Mission Planner <em>FS PWM</em> value in the Initial Setup &gt;&gt; Mandatory Hardware &gt;&gt; Failsafe menu.
+-  At least 10 PWM higher than your Channel 3’s PWM value when the throttle stick is fully down and the transmitter is <strong>off</strong>
+-  At least 10 PWM lower than your channel 3’s PWM value when the throttle stick is fully down and the transmitter is <strong>on</strong>
+-  Above 910 PWM</p>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a>  parameter (Copter 4.0 and later) is a bitmask parameter to select one or more options that modify the standard actions of the radio, GCS, and battery failsafe. In the Mission Planner full parameter list or full parameter tree, the handy checkbox popup window is an easy what to set this (and any other bitmask) parameter. Be sure to go to Help &gt; Check Beta Updates to pull the latest parameter definitions first while connected to the internet. The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> bits are as follows:</p>
+<ul class="simple">
+<li><p>bit 0 set: Continue if in auto mode on <a class="reference internal" href="#radio-failsafe"><span class="std std-ref">Radio Failsafe</span></a></p></li>
+<li><p>bit 1 set: Continue if in auto mode on <a class="reference internal" href="gcs-failsafe.html#gcs-failsafe"><span class="std std-ref">Ground Control Station Failsafe</span></a></p></li>
+<li><p>bit 2 set: Continue if in guided mode <a class="reference internal" href="#radio-failsafe"><span class="std std-ref">Radio Failsafe</span></a></p></li>
+<li><p>bit 3 set: Continue if landing on any failsafe</p></li>
+<li><p>bit 4 set: Continue in pilot control on <a class="reference internal" href="gcs-failsafe.html#gcs-failsafe"><span class="std std-ref">Ground Control Station Failsafe</span></a></p></li>
+<li><p>if none of the above are set, then execute the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-enable" title="(in Rover)"><span class="xref std std-ref">FS_THR_ENABLE</span></a> option as configured.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only bitmask bits 0, 2, &amp; 3 affect actions taken during radio failsafe. This parameter also works in conjunction with the battery and GCS failsafe, so ensure you are taking all options into account when setting this parameter.</p>
+</div>
+<p>Below is a screenshot of the Mission Planner Initial Setup &gt;&gt; Mandatory Hardware &gt;&gt; Failsafe menu.</p>
+<a class="reference external image-reference" href="../_images/RadioFailsafe_MPSetup.png"><img alt="../_images/RadioFailsafe_MPSetup.png" src="../_images/RadioFailsafe_MPSetup.png" /></a>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>You can check your failsafe by performing the following tests with the
+autopilot connected to the Mission Planner either via a USB cable or
+telemetry link. You can complete these tests without plugging in your
+LiPo battery but if you do connect a battery you should first remove the
+propellers.</p>
+<p><strong>Test #1 : if using the “Low-Throttle” method, ensure the throttle
+channel drops with loss of radio contact</strong></p>
+<ol class="arabic simple">
+<li><p>Ensure your RC transmitter is on and connected with the throttle all
+the way down and flight mode set to Stabilize</p></li>
+<li><p>The throttle (channel 3) PWM value should be approximately as in
+first illustration below.  Its value may be higher or lower but it
+should definitely be at least 10 higher than the value held in the FS
+PWM field</p></li>
+<li><p>Turn the transmitter off and the throttle PWM value should drop to be
+at least 10 below the FS PWM field value (as in the second
+illustration below) below</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/MPFailsafeSetup1.jpg"><img alt="../_images/MPFailsafeSetup1.jpg" src="../_images/MPFailsafeSetup1.jpg" /></a>
+<p>Test #2 : ensuring motors disarm if in STABILIZE or ACRO with throttle
+at zero</p>
+<ul class="simple">
+<li><p>Switch to stabilize mode, arm your motors but keep your throttle at
+zero. Turn off your transmitter. The motors should disarm immediately
+(red led will start flashing, DISARMED will be displayed in the
+Mission Planner’s Flight Data screen).</p></li>
+</ul>
+<p>Test #3 : ensuring flight mode changes to RTL or LAND when throttle is
+above zero</p>
+<ul class="simple">
+<li><p>Switch to stabilize mode, arm your motors and raise your throttle to
+the mid point. Turn off your transmitter. The Flight Mode should
+switch to RTL if you have a GPS lock or LAND if you do not have a GPS
+lock (the flight mode and GPS lock status are visible in the Mission
+Planner’s flight data screen).</p></li>
+</ul>
+<p>Test #4 : retaking control after the failsafe has cleared</p>
+<ul class="simple">
+<li><p>continuing on from test #3, turn your transmitter back on</p></li>
+<li><p>while the flight mode is still in RTL or LAND and armed, change the
+flight mode switch to another position and then back to stabilize
+mode.  Ensure that the flight mode displayed on the Failsafe page is
+updating appropriately.</p></li>
+</ul>
+<p>Test #5 (optional) : removing power from the receiver</p>
+<ul class="simple">
+<li><p>Switch to stabilize mode, arm your motors and keep your throttle
+above zero.</p></li>
+<li><p>Carefully disconnect the power wires connecting the receiver to the
+autopilot</p></li>
+<li><p>The Flight Mode should switch to RTL or LAND as described in Test #3</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unplug the autopilot so that it is powered down before reattaching
+the receiver’s power</p>
+</div>
+</section>
+<section id="using-the-receiver-to-set-the-flight-mode-do-not-use">
+<h2>Using the receiver to set the flight mode (<strong>DO NOT USE!</strong>)<a class="headerlink" href="#using-the-receiver-to-set-the-flight-mode-do-not-use" title="Permalink to this heading">¶</a></h2>
+<p>Instead of setting up the receiver and autopilot as described
+above (i.e. “Low-Throttle” and “No Signal” methods) the receiver can be
+set-up to set channel 5 (flight mode channel) to a <a class="reference internal" href="flight-modes.html#flight-modes"><span class="std std-ref">flight mode</span></a> slot that has
+been set to RTL.  For example the receiver could be setup to move ch5’s
+pwm value to 1700us which is “Flight Mode 5” which could then be set to
+RTL on the Mission Planner’s Initial Setup &gt;&gt; Mandatory Hardware &gt;&gt;
+Flight Modes screen.</p>
+<p>Although this appears to work it is strongly not recommended because it can result in situations that can lead to a crash. Since the autopilot has no way of knowing that an RC failsafe has occurred, undesired behavior can occur such as overriding other failsafes like low battery or GCS failsafes with mode changes.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="failsafe-landing-page.html" class="btn btn-neutral float-left" title="Failsafe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="failsafe-battery.html" class="btn btn-neutral float-right" title="Battery Failsafe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

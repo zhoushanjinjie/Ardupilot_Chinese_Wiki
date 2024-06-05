@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>遥控器飞行模式设置 &mdash; Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Electronic Speed Controller (ESC) Calibration" href="esc-calibration.html" />
+    <link rel="prev" title="Compass Calibration" href="common-compass-calibration-in-mission-planner.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">遥控器飞行模式设置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flight-modes-configuration">飞行模式配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-the-flight-mode-channel">设置飞行模式通道</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transmitter-configuration">遥控器配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">遥控器飞行模式设置</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rc-transmitter-flight-mode-configuration">
+<span id="common-rc-transmitter-flight-mode-configuration"></span><h1>遥控器飞行模式设置<a class="headerlink" href="#rc-transmitter-flight-mode-configuration" title="Permalink to this heading">¶</a></h1>
+<p>本文展示了如何通过RC发射器设置多达6种自动驾驶控制/飞行模式。</p>
+<section id="flight-modes-configuration">
+<span id="common-rc-transmitter-flight-mode-configuration-flight-modes-configuration"></span><h2>飞行模式配置<a class="headerlink" href="#flight-modes-configuration" title="Permalink to this heading">¶</a></h2>
+<p>开关位置和飞行模式之间的映射在<em>Mission Planner飞行模式</em>屏幕中设置。</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/mp_setup_flight_mode.png"><img alt="../_images/mp_setup_flight_mode.png" src="../_images/mp_setup_flight_mode.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner:Flight Mode Screen (Copter).</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>您可以通过以下操作设置遥控器上可用的飞行模式：</p>
+<ul>
+<li><p>打开遥控器</p></li>
+<li><p>将Pixhawk（或其他自动驾驶仪）连接到<em>Mission Planner</em></p></li>
+<li><p>转到<strong>初始设置|必要硬件|飞行模式</strong>屏幕</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>当你移动遥控器的飞行模式开关时，绿色高亮显示栏将移动到不同的位置。</p>
+</div>
+</li>
+<li><p>使用每行上的下拉菜单为该开关位置选择飞行模式。</p></li>
+<li><p>（Copter）确保至少有一个开关位置留给STABILISE。</p></li>
+<li><p>（Copter）选中该开关位置的 <a class="reference external" href="https://ardupilot.org/copter/docs/simpleandsuper-simple-modes.html#simpleandsuper-simple-modes-simple-mode" title="(in Copter)"><span class="xref std std-ref">简单模式 </span></a> 复选框（可选）。您可以选择设置<a class="reference external" href="https://ardupilot.org/copter/docs/simpleandsuper-simple-modes.html#simpleandsuper-simple-modes-super-simple-mode" title="(in Copter)"><span class="xref std std-ref">Super Simple mode 超级简单模式 </span></a>。如果同时选中“简单模式”和“超级简单模式”复选框，则将使用“超级简单”。</p></li>
+<li><p>完成后，按下<strong>保存模式</strong>按钮。</p></li>
+</ul>
+<p>（Copter）一些模式也可以从<a class="reference external" href="https://ardupilot.org/copter/docs/channel-7-and-8-options.html#channel-7-and-8-options" title="(in Copter)"><span class="xref std std-ref">auxiliary switches辅助开关</span></a>（也称为ch7、ch8选项开关）调用。例如，为RTL设置一个专用开关。</p>
+</section>
+<section id="setting-the-flight-mode-channel">
+<h2>设置飞行模式通道<a class="headerlink" href="#setting-the-flight-mode-channel" title="Permalink to this heading">¶</a></h2>
+<p>飞行模式信道是ArduPilot监控模式变化的输入无线电信道。</p>
+<p>在Copter上，可以使用<a class="reference internal" href="parameters.html#fltmode-ch"><span class="std std-ref">FLTMODE_CH</span></a>参数进行配置。</p>
+</section>
+<section id="transmitter-configuration">
+<h2>遥控器配置<a class="headerlink" href="#transmitter-configuration" title="Permalink to this heading">¶</a></h2>
+<p>遥控器必须发出正确范围内的PWM信号，以便我们将模式映射到开关位置。</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<div class="line-block">
+<div class="line">通常，该范围在1000到2000 us（1.0到2.0 ms）之间。</div>
+<div class="line">ms = 毫秒</div>
+<div class="line">us = 微秒</div>
+</div>
+<blockquote>
+<div><p>可选择模式的正确PWM范围显示在<em>Mission Planner飞行模式</em>屏幕中的每个模式选择下拉列表旁边（请参阅<a class="reference internal" href="#common-rc-transmitter-flight-mode-configuration-flight-modes-configuration"><span class="std std-ref">上面的屏幕截图</span></a>）。</p>
+</div></blockquote>
+</div>
+<p>如果您只想支持三种模式（使用三位开关），那么您可以将变送器配置为针对各个开关位置产生1165、1425和1815 us的PWM脉冲宽度。</p>
+<p>如果您想支持6种模式，则变送器需要发射约1165、1295、1425、1555、1685和1815 us的PWM宽度。通常，这是通过将变送器配置为混合两位开关和三位开关来实现的（总共提供6种模式）。如果有模拟表盘，你也可以使用模拟表盘，但很难可靠地将表盘调到六种不同设置的正确位置。</p>
+<p>以下各节提供的链接显示了如何配置不同制造商的变送器，以及如何测试（在任务规划器中）每个开关设置是否发出适当的PWM信号。</p>
+<section id="test-transmitter-switch-settings">
+<h3>测试遥控器开关设置<a class="headerlink" href="#test-transmitter-switch-settings" title="Permalink to this heading">¶</a></h3>
+<p>您可以使用<em>Mission Planner 校准</em>屏幕来测试每个模式设置的PWM脉冲宽度。</p>
+<p>只需切换遥控器上的模式，并确认所选通道的PWM与所需的PWM值相匹配。下面的屏幕截图假设飞行模式频道设置为Radio 5。</p>
+<a class="reference external image-reference" href="../_images/mp_radio_calibration_ch5_pwm.png"><img alt="../_images/mp_radio_calibration_ch5_pwm.png" src="../_images/mp_radio_calibration_ch5_pwm.png" /></a>
+</section>
+<section id="tutorials-for-specific-rc-hardware">
+<h3>特定RC硬件的教程<a class="headerlink" href="#tutorials-for-specific-rc-hardware" title="Permalink to this heading">¶</a></h3>
+<p>以下是一些用户提供的教程，用于在各种RC系统中实现这一点（或通过两个位置的切换为RC单元添加更多模式）：</p>
+<ul class="simple">
+<li><p><strong>任何基于OpenTX的遥控器：</strong></p></li>
+</ul>
+<p>只需选择两个开关（其中一个必须是三位），并将这些混音添加到车辆使用的适当飞行模式频道上。下面的示例显示了一架飞机的情况，该飞机使用Channel 8作为飞行模式（默认），并使用开关SB在SA开关向上的情况下选择三种飞行模式，并在SA不处于向上位置时通过SB选择另外三种飞行模式。</p>
+<a class="reference external image-reference" href="../_images/OpenTX-flight-mode-setup.jpg"><img alt="../_images/OpenTX-flight-mode-setup.jpg" src="../_images/OpenTX-flight-mode-setup.jpg" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.diydrones.com/forum/topics/how-to-set-up-6-apm-flight-modes-on-1-channel-of-jr-xg8-rc">JR XG8 DMSS</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/how-to-program-6-flight-modes">JR9303</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/forum/topics/six-flight-modes-can-be-done">JR X2720</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/flysky-fs-i6-flight-modes">FlySky FS-I6</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/acmapm-futaba-t8fg-super-mode">Futaba T8FG</a></p></li>
+<li><p><a class="reference external" href="https://www.diydrones.com/profiles/blogs/pixhawk-futaba-t8j-6-modes-configuration-with-2-switches-c-d">Futaba T8J</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/configure-6-flight-modes-for">Futaba T7CP</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/four-modes-switch-for-futaba">Futaba T6EX</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/flight-mode-switching-on-a">Futaba 9ZAP/ZHP</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/getting-six-fly-modes-on-futaba-t10cag-transmitter">Futaba T10CAG</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/futaba-t14-mz-mode-configuration-for-all-6-modes">Futaba T14</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/forum/topics/set-6-point-switch-for-flight-mode-control-in-futaba-t14sg">Futaba T14SG</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/6-positions-for-futaba-9c-super">Futaba 9C Super</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/six-modes-with-graupner-mx-16">Graupner MX-16</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/mode-switch-setup-for-turnigy-1">Turnigy 9x</a>(or
+an even easier way)
+<a class="reference external" href="https://diydrones.com/profiles/blogs/another-way-to-set-modes-on-turnigy-9x">(Here!)</a> - <a class="reference external" href="https://diydrones.com/profiles/blogs/mode-switch-setup-for-turnigy">Turnigy 9x with ER9x firmware</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/change-between-6-modes-with-turnigy-9xr-using-mixing">Turnigy 9XR</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/flysky-fs-i6-flight-modes">Turnigy TGY-I6</a></p></li>
+<li><p><a class="reference external" href="https://www.diydrones.com/forum/topics/quad-goes-to-full-throttle?commentId">Hitech Aurora 9</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/spectrum-dx8-2-switches-1-tx-channel-6-flight-modes?">Spektrum DX8</a>
+(alternate method below)</p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/getting-6-modes-out-of-channel-5-on-a-spektrum-dx7s">Spektrum DX7s</a></p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/dx7-new-version-6-flight-mode-setup-with-pixhawk">Spektrum DX7 Version 6</a></p></li>
+</ul>
+<p>Or <a class="reference external" href="https://diydrones.com/profiles/blogs/6-position-mode-switch-for-apm">build your own six-position switch!</a></p>
+</section>
+<section id="spektrum-dx8-alternate-method">
+<h3>Spektrum DX8 (替代方法)<a class="headerlink" href="#spektrum-dx8-alternate-method" title="Permalink to this heading">¶</a></h3>
+<p>本节介绍了使用Spektrum DX8设置6种模式的替代方法。此方法使用档位开关和飞行模式开关。所有其他开关都可以根据需要进行分配。该方法还允许将每个模式设置在每个模式的脉冲宽度范围的中间，因此微小的变化不会改变模式。使用Mission Planner飞行模式设置来监控这些调整的当前PWM。</p>
+<ol class="arabic">
+<li><p>设置开关（6种模式需要）</p>
+<ul class="simple">
+<li><p>按住滚动条，打开DX8，向下滚动到切换选择，单击滚动条。按如下方式设置开关：</p>
+<ul>
+<li><p>档位=档位（通道5）</p></li>
+<li><p>FMode=Inh未分配给通道-用于与6种模式的档位开关（通道5）混合</p></li>
+</ul>
+</li>
+<li><p>其他你想要的。一种方法如下：</p>
+<ul>
+<li><p>旋钮至aux1=用于摄像机倾斜/调谐的通道6</p></li>
+<li><p>Mix=aux2=通道7，以保存APM配置中的航路点或RTL、自动配平或其他设置。</p></li>
+<li><p>翻板至aux3=通道8用于其他用途</p></li>
+</ul>
+</li>
+<li><p>单击BACK（返回），直到出现正常屏幕，或者关闭电源，然后重新打开电源。</p></li>
+</ul>
+</li>
+<li><p>设置通道5的非混合伺服设置（由档位开关控制的档位通道）</p>
+<p>这将是没有混合的值-F模式开关处于0位置，并将最低脉冲宽度设置为1165 us（模式1），将最高脉冲宽度设置至1815 us（方式6）</p>
+</li>
+</ol>
+<ul>
+<li><p>Click the roller bar, scroll down to Servo Setup, Select the Gear
+channel, Select Sub Trim.</p></li>
+<li><p>Set sub trim to 0</p></li>
+<li><p>Select Travel.</p></li>
+<li><p>Set travel (left, position 0) for 1165 us pulse  (~90%).</p></li>
+<li><p>Set travel (right, position 1 for 1815 us pulse (~74%).</p></li>
+<li><p>Set up Mix 1 to change the Gear Pulse width when F Mode is in
+position 1</p>
+<ul>
+<li><p>Click roller, scroll down to Mixing, click roller, scroll to first
+line under Mix (has xxx &gt; xxx, AIL &gt; RUD, or some other mix
+set),click roller, Select Mix 1, Click roller.</p></li>
+<li><p>Set Mix: Gear &gt; Gear. Gear changes Gear depending on Switch F Mode
+setting</p></li>
+<li><p>Set Offset = 0, Trim = Inh.</p></li>
+<li><p>Set SW = FM 1</p></li>
+<li><p>Set the F Mode switch on the transmitter to position 1.</p></li>
+<li><p>Set the Gear switch on the transmitter to position 0.</p></li>
+<li><p>Set top Rate for pulse width of 1290 us for mode 2  (~-35%)</p>
+<p>(change = 400 us * -90% * -35% = 126 us. Result = 1165 us + 126
+us = 1251 us = mode 2)</p>
+</li>
+<li><p>Set the Gear switch on the transmitter to position 1.</p></li>
+<li><p>Set bottom Rate for pulse width of 1685 us for mode 5  (~– 45%)</p>
+<p>(change = 400 us * +73% *- 45% = -131 us. Result = 1815 us - 131
+us = 1684 us = mode 5)</p>
+</li>
+</ul>
+</li>
+<li><p>Set up a mix 2 to change the Gear Pulse width when F Mode is in
+position 2</p>
+<ul class="simple">
+<li><p>Mix: Gear &gt; Gear.  Gear changes Gear depending on Switch F Mode
+setting.</p></li>
+<li><p>Set Offset = 0, Trim = Inh</p></li>
+<li><p>Set SW = FM2</p></li>
+<li><p>Set the F Mode switch on the transmitter to position 2</p></li>
+<li><p>Set the Gear switch on the transmitter to position 0.</p></li>
+<li><p>Rate top Rate for pulse width of 1425 us for mode 3  (~–72%)
+(change = 400 us * –90% * – 72% = 259 us.  Result = 1165 us +
+259 us = 1424 us = mode 3)</p></li>
+<li><p>Set the Gear switch on the transmitter to position 1.</p></li>
+<li><p>Set bottom Rate for pulse width of 1550 us for mode 4  (~–89%)
+(change = 400 us * +73% * – 89% = -262 us.  Result = 1815 us -
+262 us = 1553 us = mode 4)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-compass-calibration-in-mission-planner.html" class="btn btn-neutral float-left" title="Compass Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="esc-calibration.html" class="btn btn-neutral float-right" title="Electronic Speed Controller (ESC) Calibration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parachute &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Independent Watchdog" href="common-watchdog.html" />
+    <link rel="prev" title="Crash Check" href="crash_check.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="radio-failsafe.html">Radio Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="failsafe-battery.html">Battery Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gcs-failsafe.html">GCS Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ekf-inav-failsafe.html">EKF Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deadreckoning-failsafe.html">Dead Reckoning Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vibration-failsafe.html">Vibration Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tkoff-rpm-min.html">Dead Motor Takeoff Prevention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="terrain-following.html">Terrain Data Loss Failsafe (see section on loss of terrain data induced RTL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crash_check.html">Crash Check</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Parachute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="failsafe-landing-page.html">Failsafe</a></li>
+      <li class="breadcrumb-item active">Parachute</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parachute">
+<span id="common-parachute"></span><h1>Parachute<a class="headerlink" href="#parachute" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../../images/parachute.png"><img alt="../_images/parachute.png" src="../_images/parachute.png" /></a>
+<p>This topic describes how to set up manual and automatic parachute
+release.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A parachute ejection can be dangerous.  This feature should be used with caution</p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/KmjPZIQ9c0A" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Video above is from Henri’s <a class="reference external" href="https://diydrones.com/forum/topics/diy-parachute-deployment-mechanism-for-multicopter">DIYDrones discussion that led to this feature being added to Copter</a>.</p>
+<section id="what-you-will-need">
+<h2>What you will need<a class="headerlink" href="#what-you-will-need" title="Permalink to this heading">¶</a></h2>
+<p>A complete parachute mechanism like one of these:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.skycat.pro/shop/">SkyCat</a></p></li>
+<li><p><a class="reference external" href="http://store.caddrones.com/products">CAD Drones</a></p></li>
+</ul>
+<p>OR if you prefer a DIY solution, parachute release mechanism that can be
+triggered by a PWM signal (i.e. a Servo) and a parachute large enough to
+slow your multicopter’s decent to less than 5m/s. Some recommended
+parachute vendors:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fruitychutes.com/uav_rpv_drone_recovery_parachutes.htm">Fruity Chutes</a></p></li>
+<li><p><a class="reference external" href="https://www.opale-paramodels.com/fr/57-parachutiste-rc">Opale Paramodels</a></p></li>
+<li><p><a class="reference external" href="http://1uas.com/Gears/Parachutes-Protection-System/Mars-Mini">Mars Mini</a></p></li>
+</ul>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>The parachute release mechanism can be triggered from either a Relay or a PWM (i.e. Servo). Be sure that if a Relay pin is used, that the parachute release is active on a high level and that the Relay pin default, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-default" title="(in Rover)"><span class="xref std std-ref">RELAY_DEFAULT</span></a> is OFF or No Change, to avoid triggering the release during initialization, since all GPIOs are forced low during the bootloader period.</p>
+<a class="reference external image-reference" href="../_images/Parachute_Pixhawk.jpg"><img alt="../_images/Parachute_Pixhawk.jpg" src="../_images/Parachute_Pixhawk.jpg" /></a>
+</section>
+<section id="setup-through-the-mission-planner">
+<h2>Setup through the Mission Planner<a class="headerlink" href="#setup-through-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>To configure the parachute release, first connect to the autopilot with Mission
+Planner, and then open the CONFIG-&gt;Full Parameter List tab and
+set the following parameters.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-enabled" title="(in Plane)"><span class="xref std std-ref">CHUTE_ENABLED</span></a> = “1”. Then refresh parameters, or reboot, to see the Chute parameters.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-crt-sink" title="(in Plane)"><span class="xref std std-ref">CHUTE_CRT_SINK</span></a> should be set to the sink rate in m/s that will trigger the chute release.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-alt-min" title="(in Plane)"><span class="xref std std-ref">CHUTE_ALT_MIN</span></a> determines the minimum altitude above HOME that allows parachute release to occur.</p></li>
+</ul>
+<section id="servo-release">
+<h3>Servo Release<a class="headerlink" href="#servo-release" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-type" title="(in Plane)"><span class="xref std std-ref">CHUTE_TYPE</span></a> = “10” to release with a servo</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-servo-on" title="(in Plane)"><span class="xref std std-ref">CHUTE_SERVO_ON</span></a> should be set to the servo position required to release the parachute</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-servo-off" title="(in Plane)"><span class="xref std std-ref">CHUTE_SERVO_OFF</span></a> should be the “resting” servo position.  I.e. the position the servo is in before the parachute is released</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> = “27”. On autopilots with an IOMCU (Outputs labeled MAIN and AUX), <code class="docutils literal notranslate"><span class="pre">SERVO9</span></code> refers to the Pixhawk’s AUX OUT 1. To use AUX OUT2 instead set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo10-function" title="(in Rover)"><span class="xref std std-ref">SERVO10_FUNCTION</span></a> to 27, etc.</p></li>
+</ul>
+</section>
+<section id="relay-release">
+<h3>Relay Release<a class="headerlink" href="#relay-release" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Determine/Configure a pin to be a GPIO (see <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a>).</p></li>
+<li><p>Set that pin number as one of the first four (5 and 6 cannot be used) RELAY functions. ie For GPIO pin 51 using the first RELAY function, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN</span></a> = 51.</p></li>
+<li><p>Since GPIOs are always set low initially during the bootloader period, to avoid accidental release, always use a release mechanism that needs a high output level to trigger and set:</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-default" title="(in Rover)"><span class="xref std std-ref">RELAY_DEFAULT</span></a> = 1 or 2 (low or no change), which determines how RELAY pins are set during the post-bootloader, autopilot initialization period.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-type" title="(in Plane)"><span class="xref std std-ref">CHUTE_TYPE</span></a> = 0,1,2,or 3 to release with RELAY, RELAY2, RELAY3, or RELAY4 functions.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Parachute_MPSetup1.png"><img alt="../_images/Parachute_MPSetup1.png" src="../_images/Parachute_MPSetup1.png" /></a>
+<a class="reference external image-reference" href="../_images/Parachute_MPSetup2.png"><img alt="../_images/Parachute_MPSetup2.png" src="../_images/Parachute_MPSetup2.png" /></a>
+</section>
+<section id="manual-release">
+<h3>Manual Release<a class="headerlink" href="#manual-release" title="Permalink to this heading">¶</a></h3>
+<p>The pilot can manually release the parachute using an RC channel/switch: set an <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> to either 22 (Parachute Release) or 23 (Parachute 3Pos). Either function, when the RC channel is high, above <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-alt-min" title="(in Plane)"><span class="xref std std-ref">CHUTE_ALT_MIN</span></a>, and is armed (Copter) or flying (Plane). See following section for requirements.</p>
+</section>
+<section id="mavlink-command-release">
+<h3>MAVLink Command Release<a class="headerlink" href="#mavlink-command-release" title="Permalink to this heading">¶</a></h3>
+<p>The parachute may also be released/enabled/disabled via Ground Control Station command: MAV_CMD_DO_PARACHUTE (cmd id #208). This command has a parameter1 field that determines the action:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>param1</p></th>
+<th class="head" rowspan="2"><p>Action</p></th>
+</tr>
+<tr class="row-even"></tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p>0</p></td>
+<td rowspan="2"><p>Disable Parachute release</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>1</p></td>
+<td rowspan="2"><p>Enable Parachute release</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>2</p></td>
+<td rowspan="2"><p>Release Parachute</p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<p>This command can be part of an AUTO mission as a DO_PARACHUTE waypoint.</p>
+<p>[site wiki=”plane”]
+Failsafe Action
+—————</p>
+<p>Plane also provides for a parachute release failsafe action for <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fs-long-actn" title="(in Plane)"><span class="xref std std-ref">FS_LONG_ACTN</span></a> and <code class="docutils literal notranslate"><span class="pre">BATTx_FS_CRT_ACT</span></code>.</p>
+</section>
+<section id="parachute-options">
+<h3>Parachute Options<a class="headerlink" href="#parachute-options" title="Permalink to this heading">¶</a></h3>
+<p>Plane provides an option to force the release servo or relay to remain active forever (until reboot) once triggered. This used in high altitude situations where the servo or relay may be frozen due to extremely low temperatures, until lower altitude, and warmer temperatures allow opertion. This can be enabled by setting the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-options" title="(in Plane)"><span class="xref std std-ref">CHUTE_OPTIONS</span></a> bit 0 high.
+[/site]</p>
+</section>
+<section id="rc-disable-enable-of-parachute">
+<h3>RC Disable/Enable of Parachute<a class="headerlink" href="#rc-disable-enable-of-parachute" title="Permalink to this heading">¶</a></h3>
+<p>You can disable or enable the parachute automatic release using an RC channel/switch: set an <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> to 21. A high enables the automatic release function, low disables it. Manual release is unaffected. If set to 23 (Parachute 3Pos), the low position disables, middle position enables auto operation, a high will attempt to force release, as explained above, assuming the enabling conditions described below.</p>
+</section>
+</section>
+<section id="when-will-the-parachute-deploy">
+<h2>When will the parachute deploy?<a class="headerlink" href="#when-will-the-parachute-deploy" title="Permalink to this heading">¶</a></h2>
+<p>When the “Crash Check” feature determines that the vehicle has lost
+attitude control and has begun falling, the motors will be stopped and
+the parachute will deploy automatically.  The following must all be true
+for a full 1 seconds for the crash checker to trigger the parachute
+release:</p>
+<ul class="simple">
+<li><p>The motors are armed (Copter) or flying (Plane)</p></li>
+<li><p>The vehicle is not landed (Copter only)</p></li>
+<li><p>The vehicle is not in FLIP or ACRO flight mode (Copter only)</p></li>
+<li><p>the roll and/or pitch angle of the vehicle is 30 degrees off from the
+target lean angle (Copter only)</p></li>
+<li><p>the barometer shows the vehicle is not climbing (excessive baro noise CAN prevent release in some cases) (Copter &amp; Plane)</p></li>
+<li><p>the vehicle is above the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-alt-min" title="(in Plane)"><span class="xref std std-ref">CHUTE_ALT_MIN</span></a> altitude (Copter &amp; Plane). A value of “0” disables this check.</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/xaw3-oSahtE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="testing-the-chute">
+<h2>Testing the chute<a class="headerlink" href="#testing-the-chute" title="Permalink to this heading">¶</a></h2>
+<p>Depending upon the release mechanism a parachute deployment can be
+dangerous so please take care when performing these tests, removing the
+parachute and vehicle propellers as is appropriate.</p>
+<p>To test manual deployment:</p>
+<ul class="simple">
+<li><p>Enable parachute release, if using a switch to disable release</p></li>
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-alt-min" title="(in Plane)"><span class="xref std std-ref">CHUTE_ALT_MIN</span></a> parameter to zero to disable the minimum
+altitude check</p></li>
+<li><p>Arm the vehicle in stabilize mode and raise the throttle above
+minimum (disconnect motors or remove props) (not required for Plane)</p></li>
+<li><p>Use one of the above manual RC channel switch activation methods or use Mission Planner SERVO/RELAY tab to switch the release Relay, MAVLink command, or set the PWM of the release servo.</p></li>
+</ul>
+<p>You should see the motors stop, the parachute release mechanism activate, and if
+telemetry is attached, “Parachute: Released!” should appear on the
+Flight Data screen’s HUD.</p>
+<p>To test the automatic deployment:</p>
+<ul class="simple">
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-alt-min" title="(in Plane)"><span class="xref std std-ref">CHUTE_ALT_MIN</span></a> parameter to zero to disable the minimum
+altitude check</p></li>
+<li><p>Arm the vehicle in stabilize mode and raise the throttle above
+minimum</p></li>
+<li><p>somehow tilt the vehicle over by at least 30 degrees while lowering it (the barometer shows the vehicle is descending)</p></li>
+</ul>
+<p>After 1 seconds, the motors should stop, the parachute servo will move
+and if Mission Planner is attached, “Parachute: Released” should appear on
+the Flight Data screen’s HUD.</p>
+<p>After the test is complete, return the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#chute-alt-min" title="(in Plane)"><span class="xref std std-ref">CHUTE_ALT_MIN</span></a> to the desired
+altitude (default is 10m)</p>
+<p>[copywiki destination=”copter,plane”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="crash_check.html" class="btn btn-neutral float-left" title="Crash Check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-watchdog.html" class="btn btn-neutral float-right" title="Independent Watchdog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

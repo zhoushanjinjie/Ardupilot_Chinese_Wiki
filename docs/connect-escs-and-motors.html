@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>连接电调和电机 &mdash; Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="[copywiki destination=”plane,copter,rover,blimp”]" href="common-installing-3dr-ublox-gps-compass-module.html" />
+    <link rel="prev" title="Vibration Damping" href="common-vibration-damping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">安装飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">电机编号和方向</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#motor-order-diagrams">电机顺序示意图</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-motor-spin-directions">测试电机旋转方向</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-the-motor-numbering-with-the-mission-planner-motor-test">使用Mission Planner的电机测试检查电机编号</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-a-power-distribution-board">使用分电板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kde-and-other-opto-isolated-escs">KDE (或其它) 光电隔离电调</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pixhawk-esc-issues">Pixhawk电调问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+      <li class="breadcrumb-item active">连接电调和电机</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="connect-escs-and-motors">
+<span id="id1"></span><h1>连接电调和电机<a class="headerlink" href="#connect-escs-and-motors" title="Permalink to this heading">¶</a></h1>
+<p>本章介绍了如何将ESC、电机和螺旋桨连接到飞控上。Pixhawk是一个例子，但其他飞控也以类似的方式连接。</p>
+<p>按电机编号将每个ESC的电源（+）、接地（-）和信号线连接到飞控的主输出引脚。在下面找到您的机架类型，以确定电机的分配顺序。</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/Pixhwak_outputs.jpg"><img alt="../_images/Pixhwak_outputs.jpg" src="../_images/Pixhwak_outputs.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Pixhawk输出引脚（编号）。前4个引脚采用颜色编码，用于连接四轴</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="motor-order-diagrams">
+<h2>电机顺序图<a class="headerlink" href="#motor-order-diagrams" title="Permalink to this heading">¶</a></h2>
+<p>下图显示了每种机架类型的电机顺序。数字指示飞控的哪个输出引脚应连接到每个电机/螺旋桨。螺旋桨方向显示为绿色（顺时针，CW）或蓝色（逆时针，CCW）</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/MOTORS_CW_CCWLegend.jpg"><img alt="../_images/MOTORS_CW_CCWLegend.jpg" src="../_images/MOTORS_CW_CCWLegend.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">电机顺序图</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="quadcopter">
+<h3>四旋翼(Quadcopter)<a class="headerlink" href="#quadcopter" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-quad-x-2d.png"><img alt="../_images/motororder-quad-x-2d.png" src="../_images/motororder-quad-x-2d.png" style="width: 229.20000000000002px; height: 303.2px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-betaflight-x-2d.png"><img alt="../_images/motororder-betaflight-x-2d.png" src="../_images/motororder-betaflight-x-2d.png" style="width: 229.20000000000002px; height: 303.2px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-bf-reversed-x-2d.png"><img alt="../_images/motororder-bf-reversed-x-2d.png" src="../_images/motororder-bf-reversed-x-2d.png" style="width: 229.20000000000002px; height: 303.2px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-dji-x-2d.png"><img alt="../_images/motororder-dji-x-2d.png" src="../_images/motororder-dji-x-2d.png" style="width: 229.20000000000002px; height: 303.2px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-quad-cw-x-2d.png"><img alt="../_images/motororder-quad-cw-x-2d.png" src="../_images/motororder-quad-cw-x-2d.png" style="width: 229.20000000000002px; height: 303.2px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-quad-plus-2d.png"><img alt="../_images/motororder-quad-plus-2d.png" src="../_images/motororder-quad-plus-2d.png" style="width: 285.6px; height: 334.40000000000003px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-quad-v-2d.png"><img alt="../_images/motororder-quad-v-2d.png" src="../_images/motororder-quad-v-2d.png" style="width: 247.20000000000002px; height: 263.6px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-quad-h-2d.png"><img alt="../_images/motororder-quad-h-2d.png" src="../_images/motororder-quad-h-2d.png" style="width: 237.60000000000002px; height: 270.0px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-quad-vtail-2d.png"><img alt="../_images/motororder-quad-vtail-2d.png" src="../_images/motororder-quad-vtail-2d.png" style="width: 258.65px; height: 263.2px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-quad-atail-2d.png"><img alt="../_images/motororder-quad-atail-2d.png" src="../_images/motororder-quad-atail-2d.png" style="width: 260.4px; height: 282.79999999999995px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-Y4a-2d.jpg"><img alt="../_images/motororder-Y4a-2d.jpg" src="../_images/motororder-Y4a-2d.jpg" style="width: 312.0px; height: 384.0px;" /></a>
+</section>
+<section id="tricopter">
+<h3>三旋翼(Tricopter)<a class="headerlink" href="#tricopter" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-tri-a-2d.png"><img alt="../_images/motororder-tri-a-2d.png" src="../_images/motororder-tri-a-2d.png" style="width: 260.8px; height: 323.20000000000005px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-tri-b-2d.png"><img alt="../_images/motororder-tri-b-2d.png" src="../_images/motororder-tri-b-2d.png" style="width: 260.0px; height: 323.6px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>如果尾部舵机的方向因偏航而出现错误，则 <code class="docutils literal notranslate"><span class="pre">RCn_REVERSE</span></code> 
+  RC输入方向或倾斜舵机的 <code class="docutils literal notranslate"><span class="pre">SERVOn_REVERSE</span></code> 
+  参数应设置为1（从0开始），有关详细信息请参阅<a class="reference internal" href="tricopter.html#tricopter"><span class="std std-ref">三旋翼(TriCopter)设置页面</span></a></p>
+</div>
+</section>
+<section id="bicopter">
+<h3>双旋翼(Bicopter)<a class="headerlink" href="#bicopter" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-bicopter.png"><img alt="../_images/motororder-bicopter.png" src="../_images/motororder-bicopter.png" style="width: 285.6px; height: 235.60000000000002px;" /></a>
+</section>
+<section id="hexacopter">
+<h3>六旋翼(Hexacopter)<a class="headerlink" href="#hexacopter" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-hexa-x-2d.png"><img alt="../_images/motororder-hexa-x-2d.png" src="../_images/motororder-hexa-x-2d.png" style="width: 312.40000000000003px; height: 332.40000000000003px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-hexa-cw-x-2d.png"><img alt="../_images/motororder-hexa-cw-x-2d.png" src="../_images/motororder-hexa-cw-x-2d.png" style="width: 312.40000000000003px; height: 332.40000000000003px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-hexa-plus-2d.png"><img alt="../_images/motororder-hexa-plus-2d.png" src="../_images/motororder-hexa-plus-2d.png" style="width: 285.6px; height: 350.8px;" /></a>
+</section>
+<section id="y6">
+<h3>Y6<a class="headerlink" href="#y6" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-y6a-2d.png"><img alt="../_images/motororder-y6a-2d.png" src="../_images/motororder-y6a-2d.png" style="width: 269.5px; height: 312.9px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-y6b-2d.png"><img alt="../_images/motororder-y6b-2d.png" src="../_images/motororder-y6b-2d.png" style="width: 277.54999999999995px; height: 311.15px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-y6f-2d.png"><img alt="../_images/motororder-y6f-2d.png" src="../_images/motororder-y6f-2d.png" style="width: 271.95px; height: 310.79999999999995px;" /></a>
+</section>
+<section id="octocopter">
+<h3>八旋翼(Octocopter)<a class="headerlink" href="#octocopter" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-octo-x-2d.png"><img alt="../_images/motororder-octo-x-2d.png" src="../_images/motororder-octo-x-2d.png" style="width: 311.6px; height: 360.40000000000003px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-octo-plus-2d.png"><img alt="../_images/motororder-octo-plus-2d.png" src="../_images/motororder-octo-plus-2d.png" style="width: 324.0px; height: 365.20000000000005px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-octo-v-2d.png"><img alt="../_images/motororder-octo-v-2d.png" src="../_images/motororder-octo-v-2d.png" style="width: 335.6px; height: 376.8px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-octo-h-2d.png"><img alt="../_images/motororder-octo-h-2d.png" src="../_images/motororder-octo-h-2d.png" style="width: 315.6px; height: 378.8px;" /></a>
+</section>
+<section id="octoquad">
+<h3>OctoQuad<a class="headerlink" href="#octoquad" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-octoquad-x-2d.png"><img alt="../_images/motororder-octoquad-x-2d.png" src="../_images/motororder-octoquad-x-2d.png" style="width: 294.34999999999997px; height: 276.15px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-octoquad-plus-2d.png"><img alt="../_images/motororder-octoquad-plus-2d.png" src="../_images/motororder-octoquad-plus-2d.png" style="width: 288.75px; height: 300.65px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-octoquad-v-2d.png"><img alt="../_images/motororder-octoquad-v-2d.png" src="../_images/motororder-octoquad-v-2d.png" style="width: 290.84999999999997px; height: 287.7px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-octoquad-h-2d.png"><img alt="../_images/motororder-octoquad-h-2d.png" src="../_images/motororder-octoquad-h-2d.png" style="width: 295.04999999999995px; height: 274.04999999999995px;" /></a>
+</section>
+<section id="dodecahexacopter">
+<h3>DodecaHexacopter<a class="headerlink" href="#dodecahexacopter" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/motororder-dodecahexa-x-2d.png"><img alt="../_images/motororder-dodecahexa-x-2d.png" src="../_images/motororder-dodecahexa-x-2d.png" style="width: 381.15px; height: 314.29999999999995px;" /></a>
+<a class="reference external image-reference" href="../_images/motororder-dodecahexa-plus-2d.png"><img alt="../_images/motororder-dodecahexa-plus-2d.png" src="../_images/motororder-dodecahexa-plus-2d.png" style="width: 291.2px; height: 328.65px;" /></a>
+</section>
+<section id="custom-frames">
+<span id="connect-escs-and-motors-attach-propellers"></span><h3>自定义机架<a class="headerlink" href="#custom-frames" title="Permalink to this heading">¶</a></h3>
+<p>使用 <a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">lua scripting</span></a>，可以使用多达12个电机配置自定义框架类型。每个电机的滚转、俯仰和偏航系数必须通过脚本计算和加载。
+  这是通过将 <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#frame-class" title="(in Rover)"><span class="xref std std-ref">FRAME_CLASS</span></a> 设置为15-Scripting Matrix来启用的。请参阅： <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/MotorMatrix_setup.lua">plus quad example</a>
+和 <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/MotorMatrix_fault_tolerant_hex.lua">fault tolerant hex example</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>并非所有的飞控都支持脚本，请参阅：<a class="reference internal" href="common-limited-firmware.html#common-limited-firmware"><span class="std std-ref">固件限制</span></a>。</p>
+</div>
+</section>
+<section id="recognizing-clockwise-and-counterclockwise-propellers">
+<h3>识别顺时针和逆时针螺旋桨<a class="headerlink" href="#recognizing-clockwise-and-counterclockwise-propellers" title="Permalink to this heading">¶</a></h3>
+<p>上图显示了两种类型的螺旋桨：顺时针方向（称为pushers推进器）和逆时针方向（也称为pullers拉动器）。最可靠的是通过其形状来识别正确的螺旋桨类型，如下所示。较厚的边缘是沿旋转方向移动的前缘。后缘是更完全的扇形，通常更薄。
+  <a class="reference external" href="../_images/prop-direction.png"><img alt="prop_direction" src="../_images/prop-direction.png" style="width: 450px;" /></a></p>
+</section>
+</section>
+<section id="testing-motor-spin-directions">
+<span id="connect-escs-and-motors-testing-motor-spin-directions"></span><h2>测试电机旋转方向<a class="headerlink" href="#testing-motor-spin-directions" title="Permalink to this heading">¶</a></h2>
+<p>如果您已经完成了<a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">RC校准</span></a>
+和 <a class="reference internal" href="esc-calibration.html#esc-calibration"><span class="std std-ref">电调校准</span></a>，您可以检查您的电机是否沿校正方向旋转：</p>
+<ol class="arabic">
+<li><p>确保你的飞行器上没有螺旋桨！</p></li>
+<li><p>打开遥控器，确保飞行模式开关设置为自稳模式(Stabilize)。</p></li>
+<li><p>连接电池。</p></li>
+<li><p>通过保持油门向下和方向舵右五秒钟解锁飞行器。</p></li>
+<li><p>如果它未能在油门向下和向右的情况下解锁，并且电机不会旋转，则它可能未通过预启动(Pre-Arm)安全检查。</p>
+<ul class="simple">
+<li><p>预启动安全检查故障也会通过红色防护灯双闪然后重复显示。</p></li>
+<li><p>如果预启动检查失败，请转到 <a class="reference internal" href="common-prearm-safety-checks.html#common-prearm-safety-checks"><span class="std std-ref">Prearm 安全检查页面</span></a> 并更正问题或禁用检查，然后再继续。</p></li>
+</ul>
+</li>
+<li><p>当你能成功解锁时，施加少量的油门，观察并记录每个电机的旋转方向。它们应该与上面图像中所示的您选择的帧的方向相匹配。</p></li>
+<li><p>反转任何以错误方向旋转的电机。</p>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<dl class="simple">
+<dt>只需将电调与电机连接的三根线中的任意两个互换即可反转电机方向。</dt><dd>
+</dd>
+</dl>
+</div>
+</li>
+</ol>
+</section>
+<section id="checking-the-motor-numbering-with-the-mission-planner-motor-test">
+<h2>使用Mission Planner的电机测试检查电机编号<a class="headerlink" href="#checking-the-motor-numbering-with-the-mission-planner-motor-test" title="Permalink to this heading">¶</a></h2>
+<p>检查电机是否正确连接的另一种方法是使用Mission Planner初始设置菜单中的“电机”测试。</p>
+<figure class="align-default" id="id4">
+<a class="reference external image-reference" href="../_images/MissionPlanner_MotorTest.png"><img alt="../_images/MissionPlanner_MotorTest.png" src="../_images/MissionPlanner_MotorTest.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: 电机测试(Motor Test)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>当通过MAVLink连接到载具时，您可以点击上面显示的绿色按钮，相应的电机应该旋转五秒钟。字母对应电机编号，如下例所示。</p>
+<ul class="simple">
+<li><p>首先要卸下桨叶！</p></li>
+<li><p>如果没有电机转动，请将“Throttle(油门)%”提高到10%，然后重试。如果不起作用，试试15%</p></li>
+</ul>
+<p>在配置为+形(十字形)的情况下，第一个旋转的电机将是位于正前方的电机，或者在配置为X形的情况中，第一个位于正前方右侧的电机。然后，电机测试将顺时针旋转。</p>
+<a class="reference external image-reference" href="../_images/APM_2_5_MOTORS_QUAD_enc.jpg"><img alt="../_images/APM_2_5_MOTORS_QUAD_enc.jpg" src="../_images/APM_2_5_MOTORS_QUAD_enc.jpg" /></a>
+<p>在X8的情况下，它将首先旋转右前上方的电机，然后旋转右前下方的电机，并以相同的模式继续旋转。</p>
+<p>OctoV将首先旋转右前电机，然后再次顺时针旋转，直到到达左前电机。</p>
+</section>
+<section id="using-a-power-distribution-board">
+<h2>使用分电板<a class="headerlink" href="#using-a-power-distribution-board" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/3dr_power_distribution_board.jpg"><img alt="../_images/3dr_power_distribution_board.jpg" src="../_images/3dr_power_distribution_board.jpg" /></a>
+<p>连接电机输出有两种方法。将电子速度控制器（ESC）直接连接到飞控，或者使用分电板（PDB）。</p>
+<p>使用PDB时，根据电机编号将每个ESC的电源线（+）、接地线（-）和信号线连接到PDB。在下面找到您的机架类型，以确定电机的分配顺序。
+  然后将PDB的信号线连接到飞控的主输出信号引脚（确保电机订单号与控制器上的主输出引脚号匹配）。
+  如果您使用的是电源模块，可以选择将PDB的电源线和地线连接到飞控板。
+  如果您想在电源模块之外或代替电源模块使用这些电缆，或将其用作低电流舵机的公共点，请将接地（-）线连接到主输出接地（-1）引脚，将电源（+）线连接为主输出电源（+）引脚。</p>
+</section>
+<section id="kde-and-other-opto-isolated-escs">
+<h2>KDE (或其它) 光电隔离电调<a class="headerlink" href="#kde-and-other-opto-isolated-escs" title="Permalink to this heading">¶</a></h2>
+<p>KDEXF-UAS和KDEF-UASHV系列是光隔离的，不为外围设备提供BEC电源输出。
+  它们需要+5V为光隔离器供电，虽然Pixhawk可以从伺服导轨供电，但它不能为伺服导轨提供+5V。
+  ESCs必须由BEC或板上未使用的连接器上的跨接导线供电。强烈建议您使用BEC为导轨供电，而不是使用跳线。</p>
+<a class="reference external image-reference" href="../_images/Pixhawk-Correction-to-KDE-ESC2.png"><img alt="../_images/Pixhawk-Correction-to-KDE-ESC2.png" src="../_images/Pixhawk-Correction-to-KDE-ESC2.png" /></a>
+<p>KDE ESCs具有固定的PWM范围，因此您必须使用Mission Planner中的“高级参数”或“全参数设置”页面手动设置每个PWM信号的输出范围，使RCx_MIN为1100，RCx_MAX为1900us。</p>
+</section>
+<section id="pixhawk-esc-issues">
+<h2>Pixhawk电调问题<a class="headerlink" href="#pixhawk-esc-issues" title="Permalink to this heading">¶</a></h2>
+<p>据报道，一些ESC不与Pixhawk合作。</p>
+<p>Pixhawk应该与每一个能与普通RC接收器一起工作的ESC一起工作（因为它发送相同类型的信号），但有一个已知的例外，即<a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/2094">EMAX ESC</a>。</p>
+<p>在大多数情况下，问题是由于接线不正确造成的。始终连接信号和接地。
+  检查ESC类型以决定如何连接+5V线路。对于Pixhawk，您必须连接信号和信号接地，才能使ESC工作。</p>
+<p>有关详细信息，请参阅<a class="reference external" href="https://youtu.be/6C1YG1e2aTo">此视频</a>。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-vibration-damping.html" class="btn btn-neutral float-left" title="Vibration Damping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-installing-3dr-ublox-gps-compass-module.html" class="btn btn-neutral float-right" title="[copywiki destination=”plane,copter,rover,blimp”]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

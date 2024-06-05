@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DR Solo - Initial ArduCopter Install Using Mission Planner &amp; WinSCP &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3DR Solo - Initial ArduCopter Install Using Solex" href="solo_arducopter_solex_install.html" />
+    <link rel="prev" title="3DR Solo - ArduCopter Master Upgrade" href="solo_arducopter_upgrade.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="solo_arducopter_upgrade.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solo_arducopter_upgrade.html#upgrade-process">Upgrade Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solo_arducopter_upgrade.html#first-flight">FIRST FLIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solo_arducopter_upgrade.html#arducopter-parameters">ArduCopter Parameters</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="solo_arducopter_upgrade.html#further-information">Further Information</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3DR Solo - Initial ArduCopter Install Using Mission Planner &amp; WinSCP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solo_arducopter_solex_install.html">3DR Solo - Initial ArduCopter Install Using Solex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solo_battery_calibration.html">3DR Solo - Smart Battery Calibration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="solo_arducopter_upgrade.html">3DR Solo - ArduCopter Master Upgrade</a></li>
+      <li class="breadcrumb-item active">3DR Solo - Initial ArduCopter Install Using Mission Planner &amp; WinSCP</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dr-solo-initial-arducopter-install-using-mission-planner-winscp">
+<span id="solo-arducopter-other-install"></span><h1>3DR Solo - Initial ArduCopter Install Using Mission Planner &amp; WinSCP<a class="headerlink" href="#dr-solo-initial-arducopter-install-using-mission-planner-winscp" title="Permalink to this heading">¶</a></h1>
+<p>These are detailed instructions for the installation of ArduCopter on the 3DR Solo using Mission Planner and WinSCP. <strong>Your solo should be in safe working order before you start</strong>. It should not be malfunctioning or unreliable before you even begin. It must be up to date with the latest 3DR firmware. You cannot do this with a straight out of the box Solo. You must go through the full pre-flight update first on a new Solo.  Once your Solo is up to date and working well, you’re ready to begin this process.</p>
+<p>This method is somewhat complicated compared to using Solex. But this does work. Please read carefully and follow all steps in order.</p>
+<p>These instructions use <a class="reference external" href="https://winscp.net/eng/download.php">WinSCP</a> for moving files to/from the companion computer and your PC. But the settings and process are basically the same for <a class="reference external" href="https://filezilla-project.org/download.php?type=client">Filezilla</a> and other SFTP applications.  The settings and what the directory structures look like are pictured below.</p>
+<blockquote>
+<div><img alt="../_images/solo_winscp_settings.jpg" src="../_images/solo_winscp_settings.jpg" />
+<img alt="../_images/solo_winscp_directories.jpg" src="../_images/solo_winscp_directories.jpg" />
+</div></blockquote>
+<p>These instructions use <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-installation.html#install-mission-planner" title="(in Mission Planner)"><span class="xref std std-ref">The Mission Planner</span></a> ground station application for Windows. The necessary settings for Mission Planner are pictured below. They are in the <em>Config/Tuning &gt; Planner</em> section. You need the <em>layout drop down</em> set for advanced and the <em>connection drop</em> down set for UDP. To connect to the Solo, your PC must be connected to the Solo’s WiFi. To connect with Mission Planner, press the connect button in upper right once you’re ready. Mission Planner will connect to the Solo’s Pixhawk and download all its parameters. Once connected, you will get many more options in config/tuning.</p>
+<blockquote>
+<div><img alt="../_images/solo_mp_settings.jpg" src="../_images/solo_mp_settings.jpg" />
+</div></blockquote>
+<p><strong>Download the zip file</strong> for the version you wish to install from the <a class="reference external" href="https://github.com/ArduPilot/SoloScripts">SoloScripts repository on GitHub</a>. As of this writing, that is <code class="docutils literal notranslate"><span class="pre">ArduCopter_3-5-0.zip</span></code>. Save this zip file somewhere convenient on your PC and unzip it. In the zip, there are several files that will be used throughout this process.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>An ArduCopter firmware file. As of this writing, the file is <code class="docutils literal notranslate"><span class="pre">AC350_Firmware.px4</span></code>.</p></li>
+<li><p>A directory of python files (<code class="docutils literal notranslate"><span class="pre">*.py</span></code>)</p></li>
+<li><p>A wipe firmware file called <code class="docutils literal notranslate"><span class="pre">Wipe_Pixhawk_Firmware.px4</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>1) Update python files before installing Pixhawk!</strong> Before doing anything else, you must load the new python files onto the Solo’s companion computer. Use WinSCP, Filezilla, or other SFTP application as described in the beginning.  Put all the python files (<code class="docutils literal notranslate"><span class="pre">*.py</span></code>) from the zip file into the <strong>/usr/bin/</strong> directory on the Solo, overwriting the ones that are already there. After copying the files, power cycle the solo. The files are compiled on reboot. It will reconnect to the controller upon rebooting. It is critical that this step take places <strong>before</strong> you install the Green Cube in your solo!</p>
+<p><strong>3) Remove the battery tray:</strong> Remove the battery and pop off the GPS cover.  Then unscrew all the small black screws around the battery tray. The battery tray can now be lifted up.  Carefully unplug the GPS from the carrier board.  Set the battery tray aside.</p>
+<blockquote>
+<div><img alt="../_images/solo_battery_tray_screws.jpg" src="../_images/solo_battery_tray_screws.jpg" />
+</div></blockquote>
+<p><strong>4) Lift up the carrier board:</strong> Locate the comparatively large silver screw on the right side toward the front. Unscrew that and set it aside with all the other screws..  The carrier board can now be lifted up very carefully.  You will need to fidget with the wires from the motor pods a bit. Unplugging the front left motor pod from the carrier board can make this easier. The board will need to go up a bit, then shift back, then shift up the rest of the way. The left side can go up higher than the right, which is convenient.  It’s kind of tight and generally annoying.  Be careful not to break the small wires.  Don’t break any of the other wires either.  You will need to get the board high enough up to expose the Pixhawk mounted underneath it.  It’s the black cube looking device.</p>
+<blockquote>
+<div><img alt="../_images/solo_carrier_retainer_screw.jpg" src="../_images/solo_carrier_retainer_screw.jpg" />
+<img alt="../_images/solo_carrier_board_wires.jpg" src="../_images/solo_carrier_board_wires.jpg" />
+</div></blockquote>
+<p><strong>5) Unscrew the stock Pixhawk:</strong> There are 4 very small screws on the top of the carrier board. Unscrew them and set them aside. The stock Pixhawk can now be removed. It will pull down off the carrier board. Set the stock Pixhawk aside somewhere safe. You will want to keep it.</p>
+<blockquote>
+<div><img alt="../_images/solo_pixhawk_screws.jpg" src="../_images/solo_pixhawk_screws.jpg" />
+</div></blockquote>
+<p><strong>6) Install the green cube:</strong> The green cube installs the same way the old one came off.  Plug it into the carrier board from the bottom.  Then put in the four screws.</p>
+<blockquote>
+<div><img alt="../_images/solo_cube_installed.jpg" src="../_images/solo_cube_installed.jpg" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Do not reassemble yet:</strong> It is best to do the initial firmware install with the Solo still opened up. If anything goes wrong, it avoids having to disassemble it again.</p>
+</div>
+</div></blockquote>
+<p><strong>7) Power up the Solo and reconnect to controller:</strong> Put the battery onto the solo. It will just sit atop the carrier board. Obviously you should avoid moving the Solo around too much at this point since the battery can just fall off. So get everything situated first.  Turn on the battery.  The solo will power up as usual. After a short while, the Solo will reconnect with the controller as usual. It will probably give you all kinds of warnings about calibration. This is normal and expected.</p>
+<p><strong>8) Wipe Firmware:</strong> Use WinSCP, Filezilla, or other SFTP application as described in the beginning.  Put the <code class="docutils literal notranslate"><span class="pre">Wipe_Pixhawk_Firmware.px4</span></code> file in the <strong>/firmware/</strong> directory on the Solo. If there are any other <code class="docutils literal notranslate"><span class="pre">.px4</span></code> files in this directory, delete them now, but there really shouldn’t be. Power cycle the solo. It will reboot, then switch into bootloader mode. Normally you will see disco lights while it’s doing this. But if the LED driver isn’t enabled, you may not. Don’t worry. It’s working. Give it 3-5 minutes to process. You may hear some clicks as the Pixhawk reboots. After 3-5 minutes, you will hear some tones signalling completion. It will come back to life, reconnecting with the controller.</p>
+<p><strong>9) Install ArduCopter Firmware:</strong> Use WinSCP, Filezilla, or other SFTP application as described in the beginning.  Put the <em>ArduCopter firmware px4 file</em> (such as <code class="docutils literal notranslate"><span class="pre">AC350_Firmware.px4</span></code>) from the zip file into the <strong>/firmware/</strong> directory on the Solo. If there are any other px4 files in this directory, delete them now, but there really shouldn’t be. Power cycle the solo. It will reboot, then switch into bootloader mode. Normally you will see disco lights while it’s doing this. But if the LED driver isn’t enabled, you may not. Don’t worry. It’s working. Give it 3-5 minutes to process. You may hear some clicks as the Pixhawk reboots. After 3-5 minutes, you will hear some tones signalling completion. It will come back to life, reconnecting with the controller.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the Solo doesn’t seem to complete the firmware installations after about 5 minutes, power off the Solo and power it back on.  A few people have experienced this. It took a few power cycles to get it go through. It is unknown why this happens.  But in those cases, power cycling 1-4 times got it to go.</p>
+</div>
+</div></blockquote>
+<p><strong>10) Reset parameters:</strong> Connect with Mission Planner as described in the beginning. Go to Config/Tuning &gt; Full Parameter List. Press the <em>Reset To Defaults</em> button and acknowledge any prompts.  The Pixhawk will reboot.  Shortly after, the controller will reconnect. You may need to reconnect Mission Planner if it does not reconnect on its own.</p>
+<blockquote>
+<div><img alt="../_images/solo_mp_parameters.jpg" src="../_images/solo_mp_parameters.jpg" />
+</div></blockquote>
+<p><strong>11) Load Solo Parameters:</strong> Connect with Mission Planner as described in the beginning. Go to <em>Config/Tuning &gt; Full Parameter List</em>. Click the <em>Load From File</em> button. Select and the parameters file (<code class="docutils literal notranslate"><span class="pre">*.param</span></code>) from the zip (such as <code class="docutils literal notranslate"><span class="pre">AC350_Solo_Parameters.param</span></code>). Once the file loads, you’ll probably see a lot parameter boxes in Mission Planner turn green, which is normal.  Next, press the <em>Write Params</em> button.  Mission Planner will write all the new parameters to the Pixhawk. Once it is complete, you can disconnect and close Mission Planner.  Power cycle the Solo. It will reboot and reconnect to the controller. You will notice the LEDs now look like an aircraft rather than a car. Installation complete!</p>
+<p><strong>12) Reassemble the Solo:</strong> Once all of the above steps are completed successfully, you can reassemble the Solo. Make sure you don’t have any screws left over.  Make sure all the wires, including the GPS and motor pods, are plugged back in.</p>
+<p><strong>13) Connect and Check:</strong> Turn the Solo back on. Connect with any and all apps you plan to use (3DR, Solex, Side Pilot, etc) and test functionality. Run the turtle/rabbit sliders for speed and pan all the way to rabbit and back down all the way to turtle. These sliders make changes to the parameters. Running the sliders up and down ensure those parameters are set the way they should be. Go through all the settings. Touch everything to set and verify everything. Do not assume these settings stuck from before.</p>
+<p><strong>14) Calibrations:</strong> Once all of this done, you will need to do the 3D Accelerometer Calibration (aka Accel Cal, aka Level Calibration, AKA IMU Calibration) and the compass calibration. Both the 3DR Solo app and Solex v1.4.9 and higher has these calibrations in the menus.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Do the level calibration first on an actual level surface, such as a table. For each orientation, place Solo down gently, and let it settle for about 5 seconds before clicking through to the next one. It must remain perfectly still when you push the button, so hands off the aircraft! Once calibration is complete, you must reboot the Solo.</p></li>
+<li><p>The compass calibration must be done outdoors in an open area, away from structures, vehicles, and other metal objects. This applies to any vehicle running any firmware, not just a Solo, and not just ArduCopter master. Once calibration is complete, you must reboot the Solo.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>15) FLY!</strong> Once all of the above is complete, you are ready to fly!</p>
+<p><a class="reference internal" href="solo_arducopter_upgrade.html#solo-arducopter-first-flight"><span class="std std-ref">Return to the main upgrade page</span></a> for first flight details.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="solo_arducopter_upgrade.html" class="btn btn-neutral float-left" title="3DR Solo - ArduCopter Master Upgrade" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="solo_arducopter_solex_install.html" class="btn btn-neutral float-right" title="3DR Solo - Initial ArduCopter Install Using Solex" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

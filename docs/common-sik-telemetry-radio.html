@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-sik-telemetry-radio"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="sik-telemetry-radio">
+<h1>SiK Telemetry Radio<a class="headerlink" href="#sik-telemetry-radio" title="Permalink to this heading">¶</a></h1>
+<p>A <em>SiK Telemetry Radio</em> is one of the easiest ways to setup a telemetry
+connection between your Autopilot and a ground station. This article
+provides a basic user guide for how to connect and configure your radio.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/3dr_radio_v2.jpg"><img alt="../_images/3dr_radio_v2.jpg" src="../_images/3dr_radio_v2.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">3DR Radio v2 (a consumer implementation of SiKRadio)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page was previously named <em>3DR Radio (version 2)</em> for
+3DRobotics’ trusted high quality implementation of SiK radio. As this
+radio is no longer available from 3DR, the page has been renamed to
+reflect the underlying open source radio platform.</p>
+</div>
+</section>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>A <a class="reference external" href="https://github.com/ArduPilot/SiK">SiK Telemetry Radio</a> is a small,
+light and inexpensive open source radio platform that typically allows
+ranges of better than 300m “out of the box” (the range can be extended
+to several kilometres with the use of a patch antenna on the ground).
+The radio uses <a class="reference external" href="https://github.com/ArduPilot/SiK">open source firmware</a>
+which has been specially designed to work well with MAVLink packets and
+to be integrated with the Mission Planner, Copter, Rover and Plane.</p>
+<p>The radios can be either 915Mhz or 433Mhz and you should purchase the
+model which is <a class="reference internal" href="common-telemetry-radio-regional-regulations.html#common-telemetry-radio-regional-regulations"><span class="std std-ref">appropriate for your country/region</span></a>.</p>
+<p>As the platform is open source, implementation can be purchased from
+many different sources, including ArduPilot Partners:</p>
+<ul class="simple">
+<li><p>Search EBay for <a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=SiK+telemetry+radio&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=3dr+telemetry+radio">SiK Telemetry Radio</a> (be aware, many “clones” have incorrect analog modules and will interoperate fine with themselves, although with reduced range, but not with the original “3DR” design. OEM versions below do not have this issue)</p></li>
+<li><p><a class="reference external" href="https://store.mrobotics.io/product-p/mro-sikv2airgnd-mr.htm">mRo SiK Telemetry Radio</a> (mRobotics)</p></li>
+<li><p><a class="reference external" href="https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html">Holybro SiK Telemetry Radio</a> (Holybro)</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re looking for an alternative, the
+<a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900 Radio Modem</span></a> is highly recommended by many community members
+(The SiK platform was based on the RFD900 and both platforms have
+continued to evolve). It provides a significantly better range.</p>
+</div>
+</section>
+<section id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h1>
+<p>The main features of the SiK Radio are listed below (see the <a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#common-3dr-radio-advanced-configuration-and-technical-information"><span class="std std-ref">Advanced Configuration</span></a>
+for more information):</p>
+<ul class="simple">
+<li><p>Very small size</p></li>
+<li><p>Light weight (under 4 grams without antenna)</p></li>
+<li><p>Available in 900MHz or 433MHz (v2 only) variants</p></li>
+<li><p>Receiver sensitivity to -121 dBm</p></li>
+<li><p>Transmit power up to 20dBm (100mW)</p></li>
+<li><p>Transparent serial link</p></li>
+<li><p>Air data rates up to 250kbps</p></li>
+<li><p>MAVLink protocol framing and status reporting</p></li>
+<li><p>Frequency hopping spread spectrum (FHSS)</p></li>
+<li><p>Adaptive time division multiplexing (TDM)</p></li>
+<li><p>Support for LBT and AFA</p></li>
+<li><p>Configurable duty cycle</p></li>
+<li><p>Built-in error correcting code (can correct up to 25% data bit
+errors)</p></li>
+<li><p>Demonstrated range of several kilometres with a small omni antenna</p></li>
+<li><p>Can be used with a bi-directional amplifier for even more range</p></li>
+<li><p>Open source firmware</p></li>
+<li><p>AT commands for radio configuration</p></li>
+<li><p>RT commands for remote radio configuration</p></li>
+<li><p>Adaptive flow control when used with APM</p></li>
+<li><p>Based on HM-TRP radio modules, with Si1000 8051 micro-controller and
+Si4432 radio module</p></li>
+</ul>
+</section>
+<section id="status-leds">
+<h1>Status LEDs<a class="headerlink" href="#status-leds" title="Permalink to this heading">¶</a></h1>
+<p>The radios have 2 status LEDs, one red and one green. The meaning of the
+different LED states is:</p>
+<ul class="simple">
+<li><p>Green LED blinking - searching for another radio</p></li>
+<li><p>Green LED solid - link is established with another radio</p></li>
+<li><p>Red LED flashing - transmitting data</p></li>
+<li><p>Red LED solid - in firmware update mode</p></li>
+</ul>
+</section>
+<section id="connecting-the-radios">
+<h1>Connecting the radios<a class="headerlink" href="#connecting-the-radios" title="Permalink to this heading">¶</a></h1>
+<p>The radio has interchangeable air and ground modules, meaning that you
+use them as a pair but it does not matter which one goes on the vehicle
+and which remains on the ground.</p>
+<p>The radio has a micro-USB port, and a DF13 six-position port. The
+following sections explain how to connect these to autopilots
+and ground stations.</p>
+<a class="reference external image-reference" href="../_images/3dr_radio_v2.jpg"><img alt="../_images/3dr_radio_v2.jpg" src="../_images/3dr_radio_v2.jpg" /></a>
+<a class="reference external image-reference" href="../_images/3dr-radio-pinout.jpg"><img alt="../_images/3dr-radio-pinout.jpg" src="../_images/3dr-radio-pinout.jpg" /></a>
+<section id="connecting-to-pixhawk">
+<h2>Connecting to Pixhawk<a class="headerlink" href="#connecting-to-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>Use the 6 pin DF13 connector that should have come with the radio to connect the
+radio to your Pixhawk’s “Telem 1” (“Telem 2” or “Serial 4/5” can also be used but the
+default recommendation is “Telem1”).</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3DR_Radio_Pixhawk.jpg"><img alt="../_images/Telemetry_3DR_Radio_Pixhawk.jpg" src="../_images/Telemetry_3DR_Radio_Pixhawk.jpg" /></a>
+</section>
+<section id="connecting-to-a-pc">
+<h2>Connecting to a PC<a class="headerlink" href="#connecting-to-a-pc" title="Permalink to this heading">¶</a></h2>
+<p>Connecting the radio to your Windows PC is as simple as connecting the
+micro USB cable (which should have been included with the radio) to your
+PC. The necessary drivers should be installed automatically and the
+radio will appear as a new “USB Serial Port” in the Windows Device
+Manager under Ports (COM &amp; LPT). The Mission Planner’s COM Port
+selection drop-down should also contain the same new COM port.</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3drRadio_DeviceManagerAndMP.jpg"><img alt="../_images/Telemetry_3drRadio_DeviceManagerAndMP.jpg" src="../_images/Telemetry_3drRadio_DeviceManagerAndMP.jpg" /></a>
+<p>To connect the radios:</p>
+<ul class="simple">
+<li><p>Select the new COM port, set the baud rate drop down (which appears
+between the COM port and Connect buttons) to 57600.</p></li>
+<li><p>Press the <strong>Connect</strong> button and if the two radios connect
+successfully you should be able to lean your vehicle left and right
+and see its attitude update on the MP’s Flight Data screen’s
+artificial horizon.</p></li>
+</ul>
+</section>
+<section id="connecting-to-an-android-tablet">
+<h2>Connecting to an Android tablet<a class="headerlink" href="#connecting-to-an-android-tablet" title="Permalink to this heading">¶</a></h2>
+<p>Connecting the radio to an Android tablet using the L shaped micro USB
+cable (which should have been included with the radio). Then follow the
+directions in your <a class="reference internal" href="common-choosing-a-ground-station.html#common-choosing-a-ground-station"><span class="std std-ref">preferred Ground Station app</span></a>.</p>
+<a class="reference external image-reference" href="../_images/Telemetry_3DR_Radio_Tablet.jpg"><img alt="../_images/Telemetry_3DR_Radio_Tablet.jpg" src="../_images/Telemetry_3DR_Radio_Tablet.jpg" /></a>
+</section>
+</section>
+<section id="configuring-using-the-mission-planner">
+<span id="common-sik-telemetry-radio-configuring-using-the-mission-planner"></span><h1>Configuring using the Mission Planner<a class="headerlink" href="#configuring-using-the-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>Many users will not need to configure their radios! One case where you
+might do so is when you use your vehicle with others — in which case you
+will need to specify different radio channels (Net ID).</p>
+<p>Mission Planner supports configuring your radios using a simple GUI
+interface. For more information see <a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#common-configuring-a-telemetry-radio-using-mission-planner"><span class="std std-ref">Configuring a Telemetry Radio using Mission Planner</span></a>.</p>
+</section>
+<section id="updating-the-firmware">
+<h1>Updating the Firmware<a class="headerlink" href="#updating-the-firmware" title="Permalink to this heading">¶</a></h1>
+<p>You can check the firmware version (latest version is <a class="reference external" href="https://firmware.ardupilot.org/SiK/stable/">here</a> ) using the GUI tool mentioned in the previous section and update if necessary with  <a class="reference internal" href="common-3dr-radio-v1.html#sik-firmware-update"><span class="std std-ref">these instructions</span></a></p>
+</section>
+<section id="expected-range">
+<h1>Expected range<a class="headerlink" href="#expected-range" title="Permalink to this heading">¶</a></h1>
+<p>Typical range achieved with the radios using standard configuration and
+antenna is around 500m, but the range varies a lot depending on noise
+sources and antenna setup.</p>
+<section id="diagnosing-range-issues">
+<h2>Diagnosing range issues<a class="headerlink" href="#diagnosing-range-issues" title="Permalink to this heading">¶</a></h2>
+<p>The first thing you should do when diagnosing range issues is the “one
+meter test”. Setup the two radios one meter apart and look at the local
+and remote RSSI. You should get a value of over 190 for a standard SiK
+radio. If you don’t then your antennas may be faulty or your radios may
+have been damaged. If you have ever run the radios without an antenna
+attached them the radio may have been damaged.</p>
+<p>If that test passes then have a look at your local and remote RSSI and
+noise from a flight. See the <a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#common-3dr-radio-advanced-configuration-and-technical-information-diagnosing-range-problems"><span class="std std-ref">advanced setup page</span></a>
+for detailed information on diagnosing range issues using telemetry
+logs.</p>
+</section>
+</section>
+<section id="improving-the-range">
+<h1>Improving the range<a class="headerlink" href="#improving-the-range" title="Permalink to this heading">¶</a></h1>
+<p>The range can be improved by:</p>
+<ul class="simple">
+<li><p>Using an inexpensive 900Mhz yagi antenna on the ground like <a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=p2380057.m570.l1313.TR1.TRC0.A0.H0.X900mhz+yagi.TRS2&amp;_nkw=900mhz+yagi&amp;_sacat=0">these</a>  perhaps mounted on an <a class="reference external" href="https://ardupilot.org/antennatracker/index.html#home" title="(in AntennaTracker)"><span class="xref std std-ref">Antenna Tracker</span></a></p></li>
+<li><p>Replace at least one of the two radios with a higher powered
+<a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900</span></a></p></li>
+<li><p>Reduce the <code class="docutils literal notranslate"><span class="pre">AirRate</span></code> parameter which will increase range but at the
+expense of the rate of the data transfer.</p></li>
+</ul>
+<p>The graph below shows the ground and remote receiver strength vs
+distance from home (in meters) for a test flight of a <em>3DR Radio</em> (SiK
+implementation) on a SkyFun plane. The ground based radio was attached
+to a 3.5dB flat patch antenna. The SkyFun had a small ‘wire’ antenna.
+The graph shows the vehicle reached a distance of nearly 3km and the
+link was completely maintained throughout the flight.</p>
+<a class="reference external image-reference" href="../_images/3DR-915-txpower2-64kbps-ECC.jpg"><img alt="../_images/3DR-915-txpower2-64kbps-ECC.jpg" src="../_images/3DR-915-txpower2-64kbps-ECC.jpg" /></a>
+<p>Although anecdotal, another user provided a Tlog showing a good link
+kept while the vehicle was 4.5km from the base station, using default
+radio settings for a 3DR 900 radio. The plane used a small omni antenna,
+and a 8dB patch antenna on the ground station.</p>
+</section>
+<section id="support-for-different-countries-regions">
+<h1>Support for different countries/regions<a class="headerlink" href="#support-for-different-countries-regions" title="Permalink to this heading">¶</a></h1>
+<p>It is very important that you configure your radios to comply with your
+regional/country regulations for frequency, hopping channels and power
+levels. For information on radio -&gt; region frequency ranges and
+settings, see</p>
+<p><a class="reference internal" href="common-telemetry-radio-regional-regulations.html#common-telemetry-radio-regional-regulations"><span class="std std-ref">Telemetry Radio Regional Regulations</span></a>.</p>
+</section>
+<section id="dr-radio-discussion-forum">
+<h1>3DR Radio Discussion Forum<a class="headerlink" href="#dr-radio-discussion-forum" title="Permalink to this heading">¶</a></h1>
+<p>The best place to get involved with the development or tuning of these
+radios is the <a class="reference external" href="https://discuss.ardupilot.org/c/hardware-discussion/radios-hardware">SiK Radios forum</a>. Join in on the
+forum to help make these radios even better!</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

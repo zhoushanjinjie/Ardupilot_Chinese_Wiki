@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serial Passthrough &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Serial Passthrough</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-serial-passthrough">[copywiki destination=”copter,plane,rover”]</p>
+<section id="serial-passthrough">
+<h1>Serial Passthrough<a class="headerlink" href="#serial-passthrough" title="Permalink to this heading">¶</a></h1>
+<p>“Serial Passthrough” allows the autopilot to route serial protocol messages between serial ports on the autopilot including the USB port.  This can be used to configure a sensors or devices (which have a serial interface) without disconnecting it from the autopilot using a USB connection. It is also possible to pass data from any serial port to another serial port.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is available in Copter-4.0 (and higher), Plane-3.10, Rover-3.6 (and higher)</p>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The sensor or device (with a serial interface) should already be connected to one of the autopilot’s serial ports.  Ideally it should already be working.</p></li>
+<li><p>Connect the autopilot to a PC using a USB cable and connect with a Ground Station (i.e. Mission Planner, QGC, etc).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On most F7 and H7 boards, a second USB virtual serial port also appears when you connect via USB to the autopilot and is assigned the last SERIALx port in ArduPilot for SLCAN use. This can also be used for serial device configuration by changing <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial-pass1" title="(in Rover)"><span class="xref std std-ref">SERIAL_PASS1</span></a> to that port’s number. This allows the autopilot to remain connected to a Ground Control Station, and still use passthrough to a sensor for configuration simultaneously on the PC via its configuration program.</p>
+</div>
+<ul class="simple">
+<li><p>Disable the sensor driver’s use of the serial port by setting <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to -1 (“None”).</p></li>
+<li><p>Be sure to set each port’s baud rate appropriately using the <code class="docutils literal notranslate"><span class="pre">SERIALx_BAUD</span></code> parameters. The rates may be different for each port. ArduPilot will do the buffering.  For example, if attempting passthrough to the first GPS, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial3-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL3_BAUD</span></a> should normally be set to 230400 but you may check the GPS driver’s “autobauding” by looking at the ground stations Message window soon after startup.</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/serial-passthrough-gps-baud.png"><img alt="../_images/serial-passthrough-gps-baud.png" src="../_images/serial-passthrough-gps-baud.png" style="width: 300px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>The default for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial-pass1" title="(in Rover)"><span class="xref std std-ref">SERIAL_PASS1</span></a> (the first serial port to be interconnected) defaults to SERIAL0, the primary USB port.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial-passtimo" title="(in Rover)"><span class="xref std std-ref">SERIAL_PASSTIMO</span></a> to a length of time (in seconds) that gives you enough time to connect with the sensor’s configuration software.  30 to 60 seconds is a good choice</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial-pass2" title="(in Rover)"><span class="xref std std-ref">SERIAL_PASS2</span></a> to the number of the serial port connected to the sensor.  I.e. “2” if the sensor is connected to Telem2/Serial2.</p></li>
+<li><p>Press the “Disconnect” button on the ground station but leave the USB cable from the PC to the autopilot connected.</p></li>
+<li><p>Open the sensor’s configuration software and connect to the autopilot’s COM port.  If all goes well the configuration software should work as it does when the PC is directly connected to the sensor</p></li>
+<li><p>After you are done, remember to restore the <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to its original value to re-enable the sensor</p></li>
+</ul>
+<p>If the configuration fails to connect there are some things to try:</p>
+<ul class="simple">
+<li><p>Some configuration software will not allow connecting to the autopilot’s COM port by default but may have a option to display all available COM ports</p></li>
+<li><p>If no serial messages are received from the PC the timeout will expire and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial-pass2" title="(in Rover)"><span class="xref std std-ref">SERIAL_PASS2</span></a> will revert to -1</p></li>
+</ul>
+</section>
+<section id="video">
+<h2>Video<a class="headerlink" href="#video" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/7dE4rOXeHnA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

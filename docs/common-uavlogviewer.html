@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UAV LogViewer &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Advanced Configuration" href="common-advanced-configuration.html" />
+    <link rel="prev" title="Logs" href="common-logs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-logs.html">Logs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-logs.html#topics-related-to-logging-and-analysis">Topics related to logging and analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-logs.html#tools-for-log-analysis">Tools for log analysis</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html">MAVExplorer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/planner/">MissionPLanner</a></li>
+<li class="toctree-l4"><a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://plot.dronee.aero/">Dronee Plotter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UAV LogViewer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#what-to-do-if-you-have-an-issue">What to do if you have an issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#vehicle-will-not-arm">Vehicle Will Not Arm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#copter-common-problems">Copter Common Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#free-ram-issues">Free RAM issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#h7-autopilot-will-not-initialize">H7 AutoPilot Will Not Initialize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-when-problems-arise.html">When Problems Arise</a></li>
+          <li class="breadcrumb-item"><a href="common-logs.html">Logs</a></li>
+      <li class="breadcrumb-item active">UAV LogViewer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uav-logviewer">
+<span id="common-uavlogviewer-rst"></span><h1>UAV LogViewer<a class="headerlink" href="#uav-logviewer" title="Permalink to this heading">¶</a></h1>
+<p>This utility provides an easy to use viewer for ArduPilot dataflash and telemetry logs. Data can be plotted and even manipulated, and the flight visually re-flown in 3D. It is accessed <a class="reference external" href="http://plot.ardupilot.org">here</a> and is web based, although most of the computations are done locally in the web browser. Both Chrome/Chromium and FireFox are supported browsers.</p>
+<section id="initial-screen">
+<h2>Initial Screen<a class="headerlink" href="#initial-screen" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/logviewer-initial-screen.png" src="../_images/logviewer-initial-screen.png" />
+<p>Upon accessing, this panel is presented. You can “Open (a) Sample” file to experiment with, or load an ArduPilot .tlog or .bin  log file, either by drag and drop or by clicking to obtain a file explorer dialog to select the file.</p>
+</section>
+<section id="main-screen">
+<h2>Main Screen<a class="headerlink" href="#main-screen" title="Permalink to this heading">¶</a></h2>
+<p>Once a log is loaded, if it has GPS data, it will display this screen:</p>
+<a class="reference external image-reference" href="../_images/logviewer-3d-screen.png"><img alt="../_images/logviewer-3d-screen.png" src="../_images/logviewer-3d-screen.png" /></a>
+<p>which is the 3D flight viewer. You can replay the flight in 3D by pressing the “play” button, or “pause”, “reverse”, or  change playback “speed”. Various map tools/options are in the upper right corner.</p>
+<p>In the upper left are setup menu buttons for the Plot (whose options are shown already), 3D panel, and additional widgets for parameters, log messages, and a joystick visualizer for the first four RC channels.</p>
+<section id="d-view-options">
+<h3>3D View Options<a class="headerlink" href="#d-view-options" title="Permalink to this heading">¶</a></h3>
+<img alt="../_images/logviewer-3d-setup.png" src="../_images/logviewer-3d-setup.png" />
+<p>In this panel, you can change the camera mode in 3D playback, if waypoints and/or trajectory is shown, the size of the vehicle in the display, and the data source used for showing the trajectory.</p>
+</section>
+<section id="plot-options">
+<h3>Plot Options<a class="headerlink" href="#plot-options" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../_images/logviewer-plot-example1.png"><img alt="../_images/logviewer-plot-example1.png" src="../_images/logviewer-plot-example1.png" /></a>
+<p>This is one of the most powerful features of the viewer. This allows you to select which log values are plotted. You can search for an individual field to  plot, eg for CTUN.NavRoll you would type “Nav”) or just navigate thru to the message with that field. Here we have plotted CTUN.NavRoll, CTUN.Roll,CTUN.NavPitch, and CTUN.Pitch.The Navigation controller’s desired roll and pitch versu actual. ( For a complete list of log messages, see: <a class="reference external" href="https://ardupilot.org/copter/docs/logmessages.html">Copter Log Messages</a> , <a class="reference external" href="https://ardupilot.org/plane/docs/logmessages.html">Plane Log Messages</a> , or <a class="reference external" href="https://ardupilot.org/rover/docs/logmessages.html">Rover Log Messages</a> ).</p>
+</section>
+<section id="presets">
+<h3>Presets<a class="headerlink" href="#presets" title="Permalink to this heading">¶</a></h3>
+<p>Above the “Plot Individual Field” dropdown, is a “Presets” dropdown with many commonly used combinations of data plots already pre-configured.</p>
+</section>
+<section id="plot-features">
+<h3>Plot Features<a class="headerlink" href="#plot-features" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>When each field is added, a Y axis number is assigned, and the data autoscaled and centered. This can be changed by hovering over the axis and scrolling to change scale, or clicking and moving the origin. If you wish to automatically align and scale several fields to one another, just set the y axis number to be the same. They will remain together from that point on.</p></li>
+<li><p>You can change the color code by clicking the color swatch.</p></li>
+<li><p>You can remove a data plot by clicking the trash can icon.</p></li>
+<li><p>You can even create and plot expressions that use the fields by “Add Expression” button. See ` Graph Expressions for MavExplorer &lt;<a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html#graph-expressions">https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html#graph-expressions</a>&gt;`__ for examples of using expressions in a plot analysis.</p></li>
+<li><p>You can also save the present plot and its setup using the “Save Preset” button. These are persistent from session to session. A preset can be removed by tbd.</p></li>
+<li><p>Using the slider bars on the timeline under the main graphs, you can narrow or expand the plot region of the lob and move its center on the log timeline. Note that the 3D graph follows.</p></li>
+<li><p>The mouse cursor will move the 3D plot’s time position. It can also show the exact values of each plot line at its current position.</p></li>
+<li><p>You can dismiss the 3D screen by clicking in the X box in its upper right corner. The entire right side will now be devoted to the plots.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/logviewer-plot-control.png"><img alt="../_images/logviewer-plot-control.png" src="../_images/logviewer-plot-control.png" /></a>
+<ul class="simple">
+<li><p>If you move the mouse to the upper right corner of the plot screen, several options will become visible. You can take a snapshot of the plot area, re-auto scale, zoom, move, change what values appear with the mouse cursor, toggle x/y lines that move with cursor position, etc.</p></li>
+</ul>
+</section>
+</section>
+<section id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this heading">¶</a></h2>
+<p>Three widgets are available when you click the widgets menu at the top left of the screen.</p>
+<img alt="../_images/logviewer-widgets.png" src="../_images/logviewer-widgets.png" />
+<p>These are sizable (bottom right corners) and movable (upper left corner) panels that display the log messages up to the cursor point, the joystick positions (first 4 rc channels), and a searchable parameter list. These can be shown or dismissed with their buttons when in this setup menu. Click “Plot” or “3D” to return to those screens.</p>
+<p>[copywiki destination=”copter,plane,rover,dev,antennatracker,planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-logs.html" class="btn btn-neutral float-left" title="Logs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-advanced-configuration.html" class="btn btn-neutral float-right" title="Advanced Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArduSimple &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ArduSimple</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ardusimple">
+<span id="common-gps-ardusimple"></span><h1>ArduSimple<a class="headerlink" href="#ardusimple" title="Permalink to this heading">¶</a></h1>
+<p>ArduSimple provides a number of UBlox F9P based GNSS receivers that support RTK and GPS-for-Yaw. Using RTK allows ArduPilot with centimeter level accuracy which is much more accurate than a normal GPS.</p>
+<p>The simpleRTK2B system has two receiver modules which plug together and the simpleRTK3b is a single integrated unit.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ardusimple.com/">ArduSimple website</a></p></li>
+</ul>
+</section>
+<section id="pin-map">
+<h2>Pin Map<a class="headerlink" href="#pin-map" title="Permalink to this heading">¶</a></h2>
+<p>The system is connected to the autopilot via one of its UARTs.</p>
+<p>The JST-GH connector is following the Pixhawk standard:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1: 5V_IN</p></li>
+<li><p>2: ZED-F9P UART1 RX (3.3V level)</p></li>
+<li><p>3: ZED-F9P UART1 TX (3.3V level)</p></li>
+<li><p>4,5: Not connected</p></li>
+<li><p>6: GND</p></li>
+</ul>
+</div></blockquote>
+<p>Please note that the board only includes GPS and doesn’t include compass.</p>
+<a class="reference external image-reference" href="../_images/ardusimple_connector.png"><img alt="../_images/ardusimple_connector.png" src="../_images/ardusimple_connector.png" style="width: 450px;" /></a>
+</section>
+<section id="wiring-and-connections">
+<h2>Wiring and Connections<a class="headerlink" href="#wiring-and-connections" title="Permalink to this heading">¶</a></h2>
+<p>All ArduSimple GNSS models come with a JST GH 6-pin connector/cable that is compatible with the Pixhawk family and many other autopilots.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The cables/connectors may be modified to connect to other autopilot boards, using the Pin Map information provided above.</p>
+</div>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>For normal GPS only operation, ArduPilot’s GPS parameter defaults will work for any serial port configured for <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 5.</p>
+<p>For GPS-for-Yaw, please refer to <a class="reference internal" href="common-gps-for-yaw.html#common-gps-for-yaw"><span class="std std-ref">GPS-for-Yaw</span></a>, but ArduSimple provides detailed setup guides for each system on their website:</p>
+<p><a class="reference external" href="https://www.ardusimple.com/ardupilot-simplertk2bheading-configuration/">simpleRTK2B instructions</a></p>
+<p><a class="reference external" href="https://www.ardusimple.com/ardupilot-simplertk3b-heading-configuration/">simpleRTK3B instructions</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot does not currently configure UBlox F9P GPS constellations. User must assure that the GPS is properly configured for his region and application. See <a class="reference internal" href="common-gps-ublox-firmware-update.html#common-gps-ublox-firmware-update"><span class="std std-ref">U-Blox F9P Firmware Update</span></a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

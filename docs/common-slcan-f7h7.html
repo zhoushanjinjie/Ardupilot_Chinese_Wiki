@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLCAN Access on F7/H7 Based Autopilots &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SLCAN Access on F7/H7 Based Autopilots</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="slcan-access-on-f7-h7-based-autopilots">
+<span id="common-slcan-f7h7"></span><h1>SLCAN Access on F7/H7 Based Autopilots<a class="headerlink" href="#slcan-access-on-f7-h7-based-autopilots" title="Permalink to this heading">¶</a></h1>
+<p>Enabling SLCAN allows the autopilot to connect to CANBUS through USB on PC.
+It allows viewing, configuration and software updates of devices connected to the CANBUS.
+There are two different applications for using SLCAN to modify DroneCAN device parameters: DroneCAN GUI or Mission Planner. But first, the SLCAN interface must be enabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SLCAN access via COM port is disabled when armed to lower cpu load. Use SLCAN via MAVLink instead. The MAVLink method is generally preferred in any case.</p>
+</div>
+<section id="slcan-interface">
+<h2>SLCAN Interface<a class="headerlink" href="#slcan-interface" title="Permalink to this heading">¶</a></h2>
+<p>The ArduPilot firmware provides two software USB interfaces, accessed simultaneously from the single physical USB connector. In  Mission Planner, you will see two COM ports assigned to the autopilot (if not, see Troubleshooting section below). One is for the SLCAN interface, the other for the normal MAVLink based Ground Control Station (GCS) connection.</p>
+<p>In firmware 4.0 and earlier, they will be indistinguishable in the Mission Planner COM port selection box until you try to connect to the GCS with the SLCAN port that has been enabled for SLCAN protocol. (In later firmware versions, together with using the latest <a class="reference external" href="https://firmware.ardupilot.org/Tools/MissionPlanner/driver.msi">Mission Planner driver set</a> , each port will be clearly labeled.)</p>
+<p>The port that will not connect (if already configured for SLCAN protocol, however, default is usually for MAVLink protocol so it can connect normally) is the SLCAN interface. This COM port is associated with a SERIALx port in the autopilot parameters. This SERIALx port will be the highest numbered port in the parameter list.</p>
+<p>If both COM ports connect to Mission Planner, then the SLCAN protocol has not been set on that port and must be changed to use SLCAN.</p>
+</section>
+<section id="configuring-slcan-serialx-port">
+<h2>Configuring SLCAN SERIALx PORT<a class="headerlink" href="#configuring-slcan-serialx-port" title="Permalink to this heading">¶</a></h2>
+<p>Set CAN_SLCAN_CPORT = 1, if not already set or = 2 if you want to examine devices on a second CAN bus, if the autopilot provides it.</p>
+<p>Connect to Mission Planner. In the Full Parameters list set the highest numbered <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to 22 and reboot. Now only the non SLCAN USB COM port will connect to Mission Planner and the SLCAN port will be ready for use.</p>
+</section>
+<section id="making-changes-to-dronecan-devices">
+<h2>Making Changes to DroneCAN Devices<a class="headerlink" href="#making-changes-to-dronecan-devices" title="Permalink to this heading">¶</a></h2>
+<p>Once SLCAN has been enabled, you can use <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-initial-setup.html#dronecan-uavcan-slcan" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a>  to make changes immediately to device parameters or firmware update.</p>
+<p><a class="reference internal" href="common-uavcan-gui.html#common-uavcan-gui"><span class="std std-ref">DroneCAN GUI tool</span></a> can also be used</p>
+<p>here is an example video of configuring a DroneCAN power monitor device:</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/5bUyms6UPao" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<p>Occasionally, Windows will only present one COM port in Mission Planner. In that case, you may still be able to connect to Mission Planner and change the parameters, if the COM port Windows has chosen to display is the autopilot port with MAVLink protocol selected.  However, you will most likely need to load the composite USB driver in order to obtain both COM ports, as shown in <a class="reference internal" href="common-connect-mission-planner-autopilot.html#loading-composite-usb"><span class="std std-ref">these instructions</span></a>, once the SLCAN port protocol has been enabled.</p>
+<p>If you reboot the autopilot, the composite Windows USB driver may be unloaded and the process repeated upon re-attachment.</p>
+<p>If the SLCAN port has been configured, and if only one USB COM port appears, it may not be the normal MAVLink protocol port (usually SERIAL0) and you will not be able to connect Mission Planner. You can either re-enable the Composite Driver each time you attach, as above, or simply revert the SLCAN port to MAVLink protocol once attached with the Composite driver and subsequently use the single COM port Windows presents when connecting to Mission Planner.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

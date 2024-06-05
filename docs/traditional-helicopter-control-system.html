@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General ArduCopter Attitude Controller Description &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Preparing for Tuning" href="traditional-helicopter-tuning-preparing.html" />
+    <link rel="prev" title="Traditional Helicopter – Tuning" href="traditional-helicopter-tuning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-first-flight-tests.html">First Flight Tests</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="traditional-helicopter-tuning.html">Tuning</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Arducopter Control System Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-preparing.html">Preparing for Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-manual-tuning.html">Manual Tuning Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-autotune.html">AutoTune Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-other-topics.html">Additional Tuning Topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-flight.html">Traditional Helicopter First Flights</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-tuning.html">Traditional Helicopter – Tuning</a></li>
+      <li class="breadcrumb-item active">General ArduCopter Attitude Controller Description</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="general-arducopter-attitude-controller-description">
+<span id="traditional-helicopter-control-system"></span><h1>General ArduCopter Attitude Controller Description<a class="headerlink" href="#general-arducopter-attitude-controller-description" title="Permalink to this heading">¶</a></h1>
+<p>Users should generally understand the flight control laws before tuning. At
+a high level, the ArduCopter control laws are designed as a model following
+architecture where the software converts the pilot or autopilot’s input into a demanded
+attitude (Stabilized Modes) or a pilot demanded axial rate (Acro mode) and controls the
+aircraft to achieve that demanded value.</p>
+<p>It has two controllers (attitude and rate) that work together to ensure the actual aircraft
+is following the demanded pitch and roll rates and attitudes.</p>
+<p>The pilot’s commands are limited by the amount of acceleration that can be
+commanded through the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a> for pitch and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a> for roll.</p>
+<p>The initial responsiveness (crispness/sluggishness) of the aircraft to the pilot
+input can be adjusted through the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a> parameter. The pilot input and these parameters are used to determine the rate required to achieve the demanded response
+that is fed to the rate controller.</p>
+<p>The attitude controller is used to ensure the actual attitude of the aircraft
+matches the demanded attitude of the autopilot. It uses the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-pit-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_PIT_P</span></a> in pitch and the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-rll-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_RLL_P</span></a> in roll to determine a rate proportional to the difference between demanded and current attitude that is
+fed to the rate controller to drive the aircraft to the demanded attitude.</p>
+<p>The rate controller receives the demanded rate resulting
+from the pilot input and/or the rate from the attitude controller and determines
+the swashplate commands required to achieve that rate. The rate controller
+uses a PID control algorithm with a feed forward path to control the aircraft and
+achieve the demanded rate.</p>
+<p>The feed forward path uses the input rate and applies
+the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FF</span></a> gain for pitch and
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FF</span></a> gain for roll to
+determine its portion of the swashplate command. The PID algorithm uses the
+error between the measured rate and input demanded rate to determine its portion of the
+swashplate command. These are summed and sent to the mixing unit where the servo
+positions are determined.</p>
+<p>So this tuning method uses the FF gain initially to ensure the requested rates
+match the actual rates.  However the rates can vary from the requested due to
+disturbances and inaccuracies. The P, I, and D gains (<code class="docutils literal notranslate"><span class="pre">ATC_RAT_x_P/I/D</span></code>) are then used to correct any disturbances that cause the actual rates to deviate from the requested rates.</p>
+<p>Error between demanded and measured rates is multiplied by the P term. The D term determines the rate of error change and adds a correction based on that, providing faster response to quickly occurring errors and providing dampening to control overshoots, like shock absorbers on a car.</p>
+<p>Since there may be systemic offsets (like CG errors or mechanical trim imperfections) resulting in some long term errors to achieving the demanded rates, an integrator accumulates all errors over time, and provides an additional correction via the I gain. I gain is multiplied by the integrator and summed with the other outputs of the rate controller to form the input to the swashplate.</p>
+<a class="reference external image-reference" href="../_images?heli-pid-loop.png"><img alt="../_images/heli-pid-loop.png" src="../_images/heli-pid-loop.png" /></a>
+<p>The integrator maximum I path contribution is limited by the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-imax-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_IMAX</span></a> in roll and
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-imax-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_IMAX</span></a> in pitch.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-tuning.html" class="btn btn-neutral float-left" title="Traditional Helicopter – Tuning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-tuning-preparing.html" class="btn btn-neutral float-right" title="Preparing for Tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Helicopter Notch Filter Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Moving Vehicle Initialization" href="common-moving-vehicle-initialization.html" />
+    <link rel="prev" title="How it works" href="common-imu-fft-how-it-works.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#determining-notch-filter-center-frequency">Determining Notch Filter Center Frequency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#notch-filter-control-types">Notch Filter Control Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#number-of-harmonics-filtered">Number of Harmonics Filtered</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#fft-dynamic-harmonic-notch-frequency-tracking">FFT Dynamic Harmonic Notch Frequency Tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#checking-notch-filter-effectiveness">Checking Notch Filter Effectiveness</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-imu-notch-filtering.html#double-triple-notch">Double/Triple-Notch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-imu-notch-filtering.html">Managing Gyro Noise with the Dynamic Harmonic Notch Filters</a></li>
+      <li class="breadcrumb-item active">Traditional Helicopter Notch Filter Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-imu-notch-filtering-helicopter-setup">[copywiki destination=”copter,plane”]</p>
+<section id="traditional-helicopter-notch-filter-setup">
+<h1>Traditional Helicopter Notch Filter Setup<a class="headerlink" href="#traditional-helicopter-notch-filter-setup" title="Permalink to this heading">¶</a></h1>
+<p>Perform the <a class="reference internal" href="common-imu-batchsampling.html#common-imu-notch-filtering-flight-and-post-flight-analysis"><span class="std std-ref">Determination of Noise Frequencies</span></a> analysis explained in the Throttle based setup section. From the FFT you should see spikes at the frequency of your rotor speed in Hz (RPM/60) and harmonics of that frequency.  In the image below, the rotor speed is 25hz.  Note that the next two biggest spikes occur at 50 Hz and 100 Hz.</p>
+<a class="reference external image-reference" href="../_images/imu-batchsampling-fft-mp3.png"><img alt="../_images/imu-batchsampling-fft-mp3.png" src="../_images/imu-batchsampling-fft-mp3.png" style="width: 450px;" /></a>
+<p>In most cases, only the rotor speed frequency, the second harmonic and 4th harmonic. Use the dynamic harmonic notch setup below if you have an ESC or RPM sensor for rotor speed. Otherwise use the static harmonic notch setup below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There will most likely be another spike at the tail rotor frequency at the main rotor frequency X the tail rotor speed up gear ratio. This is will usually be attenuated by the harmonic notch setup since its often a close to a harmonic of the main rotor frequency.</p>
+</div>
+<section id="static-harmonic-notch">
+<h2>Static Harmonic Notch<a class="headerlink" href="#static-harmonic-notch" title="Permalink to this heading">¶</a></h2>
+<p>If there is not an RPM sensor, the harmonic notch reference frequency will be set and will not change.  If the rotor speed in RPM based on settings of the ESC governor or the internal RSC governor is known, then that value converted to Hz would be used to set the harmonic notch reference frequency.  So here are the settings for the static harmonic notch.  Note that the parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> is set to zero for the static harmonic notch.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_ENABLE</span></a> = 1 to enable the harmonic notch</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> = 0 to set the harmonic notch reference value for the static harmonic notch</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a> = Rotor Speed in Hz to set the harmonic notch reference frequency</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-bw" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_BW</span></a> = 10 to set the harmonic notch bandwidth</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a> = 11 to set 1st, 2nd, and 4th harmonics</p></li>
+</ul>
+</section>
+<section id="dynamic-harmonic-notch">
+<h2>Dynamic Harmonic Notch<a class="headerlink" href="#dynamic-harmonic-notch" title="Permalink to this heading">¶</a></h2>
+<p>If there is an RPM sensor set up on RPM 1, the harmonic notch reference frequency can be set dynamically using the RPM 1 sensor (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> = 2).  The harmonic notch reference frequency parameter, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a>, is used to indicate the lowest rotor speed for which the RPM sensor should be used to dynamically set the harmonic notch reference frequency.  It is recommended that this be set to half of the governed rotor speed.</p>
+<p>First, ensure that the RPM 1 data is valid and scaled to the rotor speed using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm1-scaling" title="(in Rover)"><span class="xref std std-ref">RPM1_SCALING</span></a> parameter.  Then set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> parameter to 1 which will enable the dynamic setting of the harmonic notch.  The harmonic notch feature will automatically scale the RPM sensor data to Hz.  If for some reason the RPM sensor can not be set to the rotor speed, then the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> parameter can be used to scale the RPM Sensor data.  For example, let’s say the RPM sensor was measuring engine RPM which was geared at 10 to 1 to the rotor RPM.  Then the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> parameter would be set to 0.1 to scale the RPM sensor data for the rotor RPM.  So here are the settings for the dynamic harmonic notch.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_ENABLE</span></a> = 1 to enable the harmonic notch</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-ref" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_REF</span></a> = 1 to set the harmonic notch reference value to the RPM sensor data.
+RPM sensor data is automatically scaled to Hz.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-freq" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_FREQ</span></a> = half of governed Rotor Speed in Hz to set the lower bound of the
+dynamic harmonic notch reference frequency.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-bw" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_BW</span></a> = 10 to set the harmonic notch bandwidth</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a> = 11 to set 1st, 2nd, and 4th harmonics</p></li>
+</ul>
+</section>
+<section id="checking-harmonic-notch-effectiveness">
+<h2>Checking Harmonic Notch Effectiveness<a class="headerlink" href="#checking-harmonic-notch-effectiveness" title="Permalink to this heading">¶</a></h2>
+<p>After setting up the harmonic notch, the effect on the control signal data can be checked using the instructions for <a class="reference internal" href="common-imu-batchsampling.html#common-imu-notch-filtering-post-configuration-flight-and-post-flight-analysis"><span class="std std-ref">Post Configuration Confirmation Flight and Post-Flight Analysis</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-imu-fft-how-it-works.html" class="btn btn-neutral float-left" title="How it works" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-moving-vehicle-initialization.html" class="btn btn-neutral float-right" title="Moving Vehicle Initialization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

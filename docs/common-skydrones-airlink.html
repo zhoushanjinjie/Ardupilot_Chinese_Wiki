@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sky-Drones AIRLink Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sky-Drones AIRLink Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sky-drones-airlink-overview">
+<span id="common-skydrones-airlink"></span><h1>Sky-Drones AIRLink Overview<a class="headerlink" href="#sky-drones-airlink-overview" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/airlink-main.jpg" src="../_images/airlink-main.jpg" />
+<p><a class="reference external" href="https://sky-drones.com/airlink">AIRLink</a> stands for Artificial Intelligence &amp; Remote Link. The unit includes a cutting-edge drone autopilot, AI mission computer and LTE connectivity unit. AIRLink helps to reduce the time to market for new drone manufacturers from years and months down to weeks.</p>
+<section id="system-features">
+<h2>System Features<a class="headerlink" href="#system-features" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/airlink-3in1.png" src="../_images/airlink-3in1.png" />
+<p>SmartAP AIRLink has two computers and integrated LTE Module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The flight control computer (autopilot) has a triple-redundant vibration-dampened and temperature-stabilized IMU.</p></li>
+<li><p>The powerful AI mission computer enables advanced drone software features like computer vision and obstacle avoidance, digital HD video streaming, and payload data streaming.</p></li>
+<li><p>LTE and WiFi connectivity modules provide permanent broadband internet connection which is enabler for remote workflows.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Feature highlights</strong></p>
+<blockquote>
+<div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/VcBx9DLPN54" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div></blockquote>
+</section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><strong>Sensors</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>3x Accelerometers, 3x Gyroscopes, 3x Magnetometers, 3x Pressure sensorss</p></li>
+<li><p>GNSS, Rangefinders, Lidars, Optical Flow, Cameras</p></li>
+<li><p>3x-redundant IMU</p></li>
+<li><p>Vibration dampening</p></li>
+<li><p>Temperature stabilization</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Flight Controller</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>STM32F7, ARM Cortex M7 with FPU, 216 MHz, 2MB Flash, 512 kB RAM</p></li>
+<li><p>STM32F1, I/O co-processor</p></li>
+<li><p>Ethernet, 10/100 Mbps</p></li>
+<li><p>LAN with AI Mission Computer</p></li>
+<li><p>8x UARTs: Telemetry 1, Telemetry 2 (AI Mission Computer), Telemetry 3, GPS 1, GPS 2, Extra UART, Serial Debug Console, IO</p></li>
+<li><p>2x CAN: CAN1, CAN2</p></li>
+<li><p>USB with MAVLink</p></li>
+<li><p>Serial console for debugging</p></li>
+<li><p>RC Input, SBUS input, RSSI input, PPM input</p></li>
+<li><p>16x PWM servo outputs (8 from IO, 8 from FMU)</p></li>
+<li><p>3x I2C ports</p></li>
+<li><p>High-powered piezo buzzer driver</p></li>
+<li><p>High-power RGB LED</p></li>
+<li><p>Safety switch / LED option</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>AI Mission Computer</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>6-Core CPU: Dual-Core Cortex-A72 + Quad-Core Cortex-A53</p></li>
+<li><p>GPU Mali-T864, OpenGL ES1.1/2.0/3.0/3.1</p></li>
+<li><p>VPU with 4K VP8/9, 4K 10bits H265/H264 60fps Decoding</p></li>
+<li><p>Remote power control, software reset, power down, RTC Wake-Up, sleep mode</p></li>
+<li><p>RAM Dual-Channel 4GB LPDDR4</p></li>
+<li><p>16GB eMMC</p></li>
+<li><p>MicroSD up to 256GB</p></li>
+<li><p>Ethernet 10/100/1000 Native Gigabit</p></li>
+<li><p>WiFi 802.11a/b/g/n/ac, Bluetooth</p></li>
+<li><p>USB 3.0 Type C</p></li>
+<li><p>2x Video: 4-Lane MIPI CSI (FPV Camera) and 4-Lane MIPI CSI with HMDI Input (Payload Camera)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>LTE Connectivity Module</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>4G LTE UMTS/HSPA(+), GSM/GPRS/EDGE</p></li>
+<li><p>1x External slot, 1x Integrated eSIM</p></li>
+<li><p>LTE Antenna, 2x2 MIMO</p></li>
+<li><p>Bands: Europe, North America, Australia, Japan, Other</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="set-content">
+<h2>Set content<a class="headerlink" href="#set-content" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/lex7axW8WQg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></div></blockquote>
+<p>SmartAP AIRLink set includes everything needed to setup the system and get prepared for the flight. Standard set contains:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1x AIRLink Enterprise unit</p></li>
+<li><p>1x FPV camera with CSI cable</p></li>
+<li><p>1x WiFi antenna with MMCX connector</p></li>
+<li><p>2x LTE antenna with MMCX connector</p></li>
+<li><p>1x HDMI to mini HDMI cable1x set of cables (7 cables for all connectors)</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="https://sky-drones.com/sets/airlink-telemetry-set.html">AIRLink Telemetry</a> based on the Microhard LAN/IP-based RF micromodule is available as an add-on and is fully compatible with AIRLink.</p>
+</section>
+<section id="editions">
+<h2>Editions<a class="headerlink" href="#editions" title="Permalink to this heading">¶</a></h2>
+<p>AIRLink editions offer different integration levels required by drone manufacturers: Enterprise and Core. AIRLink Enterprise is ideal for a quick start, evaluation and prototyping while Core is optimised for deep integration and mid-high volume manufacturing.</p>
+<p><strong>AIRLink Enterprise</strong></p>
+<img alt="../_images/airlink-enterprise.jpg" src="../_images/airlink-enterprise.jpg" />
+<p>SmartAP AIRLink’s Enterprise edition is intended for prototyping and low to medium volume drone production. Quick and easy installation thanks to the dedicated mounting holes and integrated heatsink for power dissipation.</p>
+<p><strong>AIRLink Core</strong></p>
+<p>SmartAP AIRLink’s Core edition is intended for medium to high volume production and deep integration with customer’s hardware. It weighs only 89 g and can be attached to a metal frame for optimum cooling.</p>
+<img alt="../_images/airlink-core.jpg" src="../_images/airlink-core.jpg" />
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Parameter </th>
+<th>AIRLink Enterprise </th>
+<th>AIRLink Core </th>
+</tr>
+<tr>
+<td>Enclosure</td>
+<td>Aluminum, with integrated heatsink and fan mounting option.</td>
+<td>External heatsink or reasonable power dissipation should be provided by the design.</td>
+</tr>
+<tr>
+<td>Dimensions</td>
+<td>L103 x W61 x H37 mm</td>
+<td>L100 x W57 x H22 mm</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td>198 g</td>
+<td>89 g</td>
+</tr>
+<tr>
+<td>Ambient temperature</td>
+<td>-40°C-..+50°C</td>
+<td>-40°C-..+50°C</td>
+</tr>
+</tbody>
+</table></section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Easy to mount</strong></p></li>
+</ul>
+<img alt="../_images/airlink-easy-to-mount.jpg" src="../_images/airlink-easy-to-mount.jpg" />
+<ul class="simple">
+<li><p><strong>FPV camera comes as standard</strong></p></li>
+</ul>
+<img alt="../_images/airlink-fpv-camera.jpg" src="../_images/airlink-fpv-camera.jpg" />
+</section>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h2>
+<p><strong>Left side</strong></p>
+<img alt="../_images/airlink-interfaces-left.jpg" src="../_images/airlink-interfaces-left.jpg" />
+<p>Left side interfaces:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Power input with voltage &amp; current monitoring</p></li>
+<li><p>AI Mission Computer micro SD card</p></li>
+<li><p>Flight Controller micro SD card</p></li>
+<li><p>AI Mission Computer USB Type-C</p></li>
+<li><p>PPM input, SBUS output, RSSI monitor</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>POWER - JST GH SM10B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>12V</td>
+<td>IN</td>
+<td>+12V</td>
+<td>Main power input</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12V</td>
+<td>IN</td>
+<td>+12V</td>
+<td>Main power input</td>
+</tr>
+<tr>
+<td>3</td>
+<td>12V</td>
+<td>IN</td>
+<td>+12V</td>
+<td>Main power input</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BAT_CURRENT</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Battery current monitoring</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BAT_VOLTAGE</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Battery voltage monitoring</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3V3</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>3.3V output</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PWR_KEY</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Power key input</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+<tr>
+<td>9</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+<tr>
+<td>10</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>CPU SD card - microSD</strong></p></li>
+<li><p><strong>CPU USB - USB Type C</strong></p></li>
+<li><p><strong>RC Connector - JST GH SM06B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>5V output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PPM_IN</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>PPM input</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RSSI_IN</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>RSSI input</td>
+</tr>
+<tr>
+<td>4</td>
+<td>FAN_OUT</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Fan output</td>
+</tr>
+<tr>
+<td>5</td>
+<td>SBUS_OUT</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>SBUS output</td>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>FMU SD card - microSD</strong></p></li>
+</ul>
+<p><strong>Right side</strong></p>
+<img alt="../_images/airlink-interfaces-right.jpg" src="../_images/airlink-interfaces-right.jpg" />
+<p>Right side interfaces:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ethernet port with power output</p></li>
+<li><p>Telemetry port</p></li>
+<li><p>Second GPS port</p></li>
+<li><p>Spare I2C / UART port</p></li>
+<li><p>Flight controller USB Type-C</p></li>
+<li><p>Micro SIM Card</p></li>
+<li><p>HDMI input port (payload camera)</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>ETHERNET - JST GH SM08B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Radio module power supply</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Radio module power supply</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ETH_TXP</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Ethernet transmit positive</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ETH_TXN</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Ethernet transmit negative</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ETH_RXP</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Ethernet receive positive</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ETH_RXN</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Ethernet receive negative</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>TEL3 - JST GH SM06B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>USART2_TX</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Telemetry 3 TX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>USART2_RX</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Telemetry 3 RX</td>
+</tr>
+<tr>
+<td>4</td>
+<td>USART2_CTS</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Telemetry 3 CTS</td>
+</tr>
+<tr>
+<td>5</td>
+<td>USART2_RTS</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Telemetry 3 RTS</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>I2C3 / UART4 - JST GH SM06B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>USART4_TX</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>UART 4 TX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>USART4_RX</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>UART 4 RX</td>
+</tr>
+<tr>
+<td>4</td>
+<td>I2C3_SCL</td>
+<td>I/O</td>
+<td>+3.3V</td>
+<td>I2C3 Clock</td>
+</tr>
+<tr>
+<td>5</td>
+<td>I2C3_SDA</td>
+<td>I/O</td>
+<td>+3.3V</td>
+<td>I2C3 Data</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>GPS2 - JST GH SM06B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>USART8_TX</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>UART 8 TX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>USART8_RX</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>UART 8 RX</td>
+</tr>
+<tr>
+<td>4</td>
+<td>I2C2_SCL</td>
+<td>I/O</td>
+<td>+3.3V</td>
+<td>I2C2 Clock</td>
+</tr>
+<tr>
+<td>5</td>
+<td>I2C2_SDA</td>
+<td>I/O</td>
+<td>+3.3V</td>
+<td>I2C2 Data</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>FMU USB - USB Type C</strong></p></li>
+<li><p><strong>SIM Card - micro SIM</strong></p></li>
+<li><p><strong>HDMI - mini HDMI</strong></p></li>
+</ul>
+<p><strong>Front side</strong></p>
+<img alt="../_images/airlink-interfaces-front.jpg" src="../_images/airlink-interfaces-front.jpg" />
+<p>Front side interfaces:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Main GNSS and compass port</p></li>
+<li><p>Main telemetry port</p></li>
+<li><p>CSI camera input</p></li>
+<li><p>CAN 1</p></li>
+<li><p>CAN 2</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>TEL1 - JST GH SM06B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>USART7_TX</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Telemetry 1 TX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>USART7_RX</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Telemetry 1 RX</td>
+</tr>
+<tr>
+<td>4</td>
+<td>USART7_CTS</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Telemetry 1 CTS</td>
+</tr>
+<tr>
+<td>5</td>
+<td>USART7_RTS</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Telemetry 1 RTS</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>GPS1 - JST GH SM10B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>USART1_TX</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>GPS 1 TX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>USART1_RX</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>GPS 1 RX</td>
+</tr>
+<tr>
+<td>4</td>
+<td>I2C1_SCL</td>
+<td>I/O</td>
+<td>+3.3V</td>
+<td>Mag 1 Clock</td>
+</tr>
+<tr>
+<td>5</td>
+<td>I2C1_SDA</td>
+<td>I/O</td>
+<td>+3.3V</td>
+<td>Mag 1 Data</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SAFETY_BTN</td>
+<td>IN</td>
+<td>+3.3V</td>
+<td>Safety button</td>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>SAFETY_LED</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>Safety LED</td>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>+3V3</td>
+<td>OUT</td>
+<td>+3.3V</td>
+<td>3.3V output</td>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>BUZZER</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Buzzer output</td>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>CAN1 - JST GH SM04B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CAN1_H</td>
+<td>I/O</td>
+<td>+5V</td>
+<td>CAN 1 High (120Ω)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CAN1_L</td>
+<td>I/O</td>
+<td>+5V</td>
+<td>CAN 1 Low (120Ω)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>CAN2 - JST GH SM04B-GHS-TB</strong></p></li>
+</ul>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Pin number </th>
+<th>Pin name </th>
+<th>Direction </th>
+<th>Voltage </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>OUT</td>
+<td>+5V</td>
+<td>Power supply output</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CAN2_H</td>
+<td>I/O</td>
+<td>+5V</td>
+<td>CAN 2 High (120Ω)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CAN2_L</td>
+<td>I/O</td>
+<td>+5V</td>
+<td>CAN 2 Low (120Ω)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td></td>
+<td></td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p><strong>CAMERA - FPC 30 pin, 0.5mm pitch</strong></p></li>
+</ul>
+<p><strong>Rear side</strong></p>
+<img alt="../_images/airlink-interfaces-back.jpg" src="../_images/airlink-interfaces-back.jpg" />
+<p>Rear side interfaces:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SBUS input</p></li>
+<li><p>16 PWM output channels</p></li>
+<li><p>2x LTE antenna sockets (MIMO)</p></li>
+<li><p>WiFi antenna socket (AP &amp; Station modes)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="uart-order">
+<h2>UART Order<a class="headerlink" href="#uart-order" title="Permalink to this heading">¶</a></h2>
+<p>AIRLink has a large number of internal and external serial ports:</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Serial </th>
+<th>UART </th>
+<th>Function </th>
+</tr>
+<tr>
+<td>Serial 0</td>
+<td>USB</td>
+<td>Console</td>
+</tr>
+<tr>
+<td>Serial 1</td>
+<td>UART 7</td>
+<td>Telemetry 1</td>
+</tr>
+<tr>
+<td>Serial 2</td>
+<td>UART 5</td>
+<td>Telemetry 2 (used internally with Mission Computer)</td>
+</tr>
+<tr>
+<td>Serial 3</td>
+<td>USART 1</td>
+<td>GPS 1</td>
+</tr>
+<tr>
+<td>Serial 4</td>
+<td>UART 8</td>
+<td>GPS 2</td>
+</tr>
+<tr>
+<td>Serial 5</td>
+<td>USART 3</td>
+<td>Debug console (internal connector)</td>
+</tr>
+<tr>
+<td>Serial 6</td>
+<td>USART 2</td>
+<td>Telemetry 3</td>
+</tr>
+<tr>
+<td>Serial 7</td>
+<td>UART 4</td>
+<td>External UART</td>
+</tr>
+</tbody>
+</table></section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/airlink-rc-input.jpg" src="../_images/airlink-rc-input.jpg" />
+<p>RC input is configured on the SBUS pin and is connected to IO MCU via an inverter internally.
+For PPM receivers please use RC Connector PPM pin located on the left side of the unit.</p>
+</section>
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading">¶</a></h2>
+<p>AIRLink has 16 PWM ouputs. Main outputs 1-8 and connected to IO MCU. AUX outputs 1-8 are connected to FMU.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Output </th>
+<th>Timer </th>
+<th>Channel </th>
+</tr>
+<tr>
+<td>AUX 1</td>
+<td>Timer 1</td>
+<td>Channel 4</td>
+</tr>
+<tr>
+<td>AUX 2</td>
+<td>Timer 1</td>
+<td>Channel 3</td>
+</tr>
+<tr>
+<td>AUX 3</td>
+<td>Timer 1</td>
+<td>Channel 2</td>
+</tr>
+<tr>
+<td>AUX 4</td>
+<td>Timer 1</td>
+<td>Channel 1</td>
+</tr>
+<tr>
+<td>AUX 5</td>
+<td>Timer 4</td>
+<td>Channel 2</td>
+</tr>
+<tr>
+<td>AUX 6</td>
+<td>Timer 4</td>
+<td>Channel 3</td>
+</tr>
+<tr>
+<td>AUX 7</td>
+<td>Timer 12</td>
+<td>Channel 1</td>
+</tr>
+<tr>
+<td>AUX 8</td>
+<td>Timer 12</td>
+<td>Channel 2</td>
+</tr>
+</tbody>
+</table><p>DShot capabiltiy can be used on the first four AUX pins.</p>
+</section>
+<section id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p>For more information and instructions on setting up and using the AIRLink system see  <a class="reference external" href="https://docs.sky-drones.com/airlink/">AIRLink Documentation</a></p>
+<p>For technical help, support and customization please get in touch at <a class="reference external" href="https://sky-drones.com/contact-us">Sky-Drones contact page</a></p>
+<p>More information can be found at  <a class="reference external" href="https://sky-drones.com">www.sky-drones.com</a></p>
+<p>Frequently asked questions are answered in <a class="reference external" href="https://docs.sky-drones.com/airlink/faq">FAQ</a></p>
+</section>
+<section id="reference-design">
+<h2>Reference design<a class="headerlink" href="#reference-design" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/airlink-reference-design.png" src="../_images/airlink-reference-design.png" />
+<p>AIRLink CAD model is available <a class="reference external" href="https://docs.sky-drones.com/airlink/cad-model">here</a>.</p>
+<p>AIRLink Reference design can be provided by request. Get in touch at <a class="reference external" href="https://sky-drones.com/contact-us">Sky-Drones contact page</a></p>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p>Firmware for AIRLink can be found <a class="reference external" href="https://firmware.ardupilot.org/">here</a> in sub-folders labeled “AIRLink”.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Purchase from the original Sky-Drones Store <a class="reference external" href="https://sky-drones.com/sets/airlink-enterprise-set.html">here</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Worldwide shipping with 1-2 days order processing time</p></li>
+<li><p>Distributors information coming soon</p></li>
+</ul>
+</div></blockquote>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

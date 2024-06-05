@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stabilize Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="System Identification Mode" href="systemid-mode.html" />
+    <link rel="prev" title="Sport Mode" href="sport-mode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Stabilize Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="stabilize-mode">
+<span id="id1"></span><h1>Stabilize Mode<a class="headerlink" href="#stabilize-mode" title="Permalink to this heading">¶</a></h1>
+<p>Stabilize mode allows you to fly your vehicle manually, but self-levels
+the roll and pitch axis.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re learning to fly, try <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">Alt Hold</span></a> or
+<a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> instead of
+Stabilize. You’ll have fewer crashes if you don’t need to concentrate on
+too many controls at once.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While stabilize mode does not necessarily require GPS, switching to RTL in case of emergency does. Make sure you do have a reliable
+position estimate prior to arming, most commonly provided by 3D GPS fix with sufficient HDOP.</p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Pilot’s roll and pitch input control the lean angle of the copter.
+When the pilot releases the roll and pitch sticks the vehicle
+automatically levels itself.</p></li>
+<li><p>Pilot will need to regularly input roll and pitch commands to keep
+the vehicle in place as it is pushed around by the wind.</p></li>
+<li><p>Pilot’s yaw input controls the rate of change of the heading.  When
+the pilot releases the yaw stick the vehicle will maintain its
+current heading.</p></li>
+<li><p>Pilot’s throttle input controls the average motor speed meaning that
+constant adjustment of the throttle is required to maintain
+altitude.  If the pilot puts the throttle completely down the motors
+will go to their minimum rate (MOT_SPIN_ARMED) and if the vehicle
+is flying it will lose attitude control and tumble. However, this behavior can be changed
+by enabling <a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a></p></li>
+<li><p>The throttle sent to the motors is automatically adjusted based on
+the tilt angle of the vehicle (i.e. increased as the vehicle tilts
+over more) to reduce the compensation the pilot must do as the
+vehicle’s attitude changes.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always switch into a manual mode such as stabilize if the
+autopilot fails to control the vehicle. Maintaining control of your
+copter is your responsibility.</p>
+</div>
+</section>
+<section id="airmode">
+<h2>AirMode<a class="headerlink" href="#airmode" title="Permalink to this heading">¶</a></h2>
+<p>Stabilize mode can be setup to provide full stabilization at idle throttle. See <a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a></p>
+</section>
+<section id="tuning">
+<span id="stabilize-mode-tuning"></span><h2>Tuning<a class="headerlink" href="#tuning" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-tuning.html#common-tuning"><span class="std std-ref">Tuning</span></a> for complete tuning topics.</p>
+<p>Using <a class="reference internal" href="autotune.html#autotune"><span class="std std-ref">AutoTune</span></a> may allow you to automatically determine the best Stabilize and Rate PID values. It is highly suggested running AutoTune on your vehicle rather
+than manually adjusting PIDs. However, see <a class="reference internal" href="ac_rollpitchtuning.html#ac-rollpitchtuning"><span class="std std-ref">Manual tuning of Roll and Pitch</span></a> for roll and pitch manual tuning.</p>
+<section id="other-important-parameters">
+<h3>Other important parameters<a class="headerlink" href="#other-important-parameters" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#angle-max" title="(in Copter)"><span class="xref std std-ref">ANGLE_MAX</span></a> controls the maximum lean angle which by default is 4500
+(i.e. 45 degrees)</p></li>
+<li><p>ANGLE_RATE_MAX controls the maximum requested rotation rate in the
+roll and pitch axis which by default is 18000 (180deg/sec).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a> controls how quickly copter rotates based on a pilot’s
+yaw input.  The default of 4.5 commands a 200 deg/sec rate of
+rotation when the yaw stick is held fully left or right.  Higher
+values will make it rotate more quickly.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sport-mode.html" class="btn btn-neutral float-left" title="Sport Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="systemid-mode.html" class="btn btn-neutral float-right" title="System Identification Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

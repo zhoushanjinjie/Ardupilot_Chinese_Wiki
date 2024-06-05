@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeagleBone Blue &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Open Board Architecture for Linux - OBAL Overview" href="common-obal-overview.html" />
+    <link rel="prev" title="ThePeach FCC-R1" href="common-thepeach-r1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://github.com/mirkix/BBBMINI">BBBMini** (Linux)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Beagle Bone Blue (Linux)</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://bluerobotics.com/store/comm-control-power/control/navigator/">Blue Robotics Navigator** (Linux)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-obal-overview.html">Obal Board (Linux)</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/PocketPilot/PocketPilot">PocketPilot** (Linux)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">BeagleBone Blue</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="beaglebone-blue">
+<span id="common-beagle-bone-blue"></span><h1>BeagleBone Blue<a class="headerlink" href="#beaglebone-blue" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference external" href="https://beagleboard.org/blue">BeagleBone Blue</a> (BBBlue) is a complete, Linux-enabled robotics computer.
+Community-supported and fully open-source, the real-time performance, flexible networking and rich set of robotics-oriented peripherals make building mobile robots quick and affordable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copter support was added in Copter-3.5.</p>
+</div>
+<a class="reference external image-reference" href="../_images/beagle-bone-blue-annotated.png"><img alt="../_images/beagle-bone-blue-annotated.png" src="../_images/beagle-bone-blue-annotated.png" style="width: 800px;" /></a>
+<a class="reference external image-reference" href="../_images/beagle-bone-blue-details.jpg"><img alt="../_images/beagle-bone-blue-details.jpg" src="../_images/beagle-bone-blue-details.jpg" style="width: 800px;" /></a>
+<p>Confer the <a class="reference external" href="https://github.com/beagleboard/beaglebone-blue/blob/master/BeagleBone_Blue_sch.pdf">schematic(s)</a> from <a class="reference external" href="https://github.com/beagleboard/beaglebone-blue/">BBBlue repo</a> for more details.</p>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>1GHz ARM Cortex-A8</p></li>
+<li><p>2×32-bit 200-MHz programmable real-time units (PRUs)</p></li>
+<li><p>512MB DDR3 RAM integrated</p></li>
+<li><p>4GB 8-bit eMMC flash</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>MPU9250 for accelerometers, gyroscope and internal compass (I2C)</p></li>
+<li><p>BMP280 barometer</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>Wifi (802.11bgn)</p></li>
+<li><p>Bluetooth 4.1 and BLE</p></li>
+<li><p>8x ESC/Servo out (6v), 4x DC motor out</p></li>
+<li><p>USB 2.0 client and host</p></li>
+<li><p>11x programmable LEDs</p></li>
+<li><p>2x buttons</p></li>
+<li><p>1.8V analog</p></li>
+<li><p>SPI, I2C, UART</p></li>
+<li><p>2-cell LiPo support with balancing, 9-18V charger input</p></li>
+</ul>
+</li>
+<li><p><strong>OS</strong></p>
+<ul>
+<li><p>Linux (Debian)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h2>
+<section id="preparing-bbblue-with-linux">
+<h3>Preparing BBBlue with linux<a class="headerlink" href="#preparing-bbblue-with-linux" title="Permalink to this heading">¶</a></h3>
+<p>Download the latest buster-console image from <a class="reference external" href="https://rcn-ee.net/rootfs/bb.org/testing/">https://rcn-ee.net/rootfs/bb.org/testing/</a> (<a class="reference external" href="https://rcn-ee.net/rootfs/bb.org/testing/2021-12-01/buster-console/bone-debian-10.11-console-armhf-2021-12-01-1gb.img.xz">bone-debian-10.11-console-armhf-2021-12-01-1gb.img.xz</a> used in this example).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case this image does not exist anymore or is outdated, go to <a class="reference external" href="https://rcn-ee.net/rootfs/bb.org/testing/">https://rcn-ee.net/rootfs/bb.org/testing/</a> and look for the most recent folder that contains a <code class="docutils literal notranslate"><span class="pre">...-console</span></code> folder with image - it contains all we need and is usually around 150 MB. The <code class="docutils literal notranslate"><span class="pre">...-iot</span></code> could also be used but is bigger. Basically just look for the smallest and most recent <code class="docutils literal notranslate"><span class="pre">bone-...</span></code> image, as you can always install more software if needed.</p>
+</div>
+<p>Flash image onto SD card.</p>
+<p>Insert SD card in BBBlue and power up using a suitable USB cable at the micro USB bus.</p>
+<p>Connect via SSH (<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">debian&#64;192.168.7.2</span></code> on Windows and <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">debian&#64;192.168.6.2</span></code> on Mac/Linux).
+The password should be <code class="docutils literal notranslate"><span class="pre">temppwd</span></code>. It is given at the command prompt.</p>
+<p>Connect BBBlue to the internet using a shared internet connection over USB (see chapter <a class="reference internal" href="#connect-bbblue-to-the-internet">Connect BBBlue to the internet</a>).</p>
+<p>On the BBBlue configure gateway and nameserver.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">interfaces</span>
+</pre></div>
+</div>
+<p>Then paste the following lines under <code class="docutils literal notranslate"><span class="pre">iface</span> <span class="pre">lo</span> <span class="pre">inet</span> <span class="pre">loopback</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span> <span class="n">usb0</span> <span class="n">inet</span> <span class="n">static</span>
+<span class="n">address</span> <span class="mf">192.168.7.2</span>
+<span class="n">netmask</span> <span class="mf">255.255.255.252</span>
+<span class="n">network</span> <span class="mf">192.168.7.0</span>
+<span class="n">gateway</span> <span class="mf">192.168.7.1</span>
+<span class="n">post</span><span class="o">-</span><span class="n">up</span> <span class="n">route</span> <span class="n">add</span> <span class="n">default</span> <span class="n">gw</span> <span class="mf">192.168.7.1</span>
+<span class="n">dns</span><span class="o">-</span><span class="n">nameservers</span> <span class="mf">192.168.7.1</span>
+</pre></div>
+</div>
+<p>Next, configure the Host (Linux or Windows):</p>
+<p><strong>Windows:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Press</span> <span class="n">CTRL</span> <span class="o">+</span> <span class="n">R</span> <span class="o">&gt;</span> <span class="n">Type</span> <span class="n">ncpa</span><span class="o">.</span><span class="n">cpl</span> <span class="ow">and</span> <span class="n">hit</span> <span class="n">Enter</span><span class="o">.</span>
+<span class="n">Find</span> <span class="n">your</span> <span class="n">real</span> <span class="n">Ethernet</span> <span class="ow">or</span> <span class="n">Wifi</span> <span class="n">Adapter</span> <span class="ow">and</span> <span class="n">right</span> <span class="n">click</span> <span class="o">&gt;</span> <span class="n">Properties</span>
+<span class="n">Select</span> <span class="n">the</span> <span class="n">Tab</span> <span class="s2">&quot;Sharing&quot;</span> <span class="o">&gt;</span> <span class="n">Tick</span> <span class="n">the</span> <span class="n">first</span> <span class="n">checkbox</span> <span class="ow">and</span> <span class="n">select</span> <span class="n">the</span> <span class="n">BBBlue</span> <span class="n">ethernet</span> <span class="n">connection</span>
+<span class="n">Press</span> <span class="n">OK</span>
+<span class="n">Select</span> <span class="n">the</span> <span class="n">BBBlue</span> <span class="n">ethernet</span> <span class="n">connection</span> <span class="ow">and</span> <span class="n">right</span> <span class="n">click</span> <span class="o">&gt;</span> <span class="n">Properties</span>
+<span class="n">Double</span> <span class="n">click</span> <span class="s2">&quot;Internet Protocol, Version 4 (TCP/IPv4)</span>
+<span class="n">Set</span> <span class="n">the</span> <span class="n">IP</span> <span class="n">Address</span> <span class="n">to</span> <span class="mf">192.168.7.1</span>
+<span class="n">Set</span> <span class="n">DNS</span> <span class="n">server</span> <span class="n">to</span> <span class="mf">8.8.8.8</span>
+<span class="n">Press</span> <span class="n">OK</span>
+</pre></div>
+</div>
+<p><strong>Linux:</strong></p>
+<p>Host computer’s command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ifconfig</span>
+</pre></div>
+</div>
+<p>use this output to figure out which is your internet connected network adapter and replace in the following ‘wlan0’ by the name of it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">sysctl</span> <span class="n">net</span><span class="o">.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">ip_forward</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">sudo</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">t</span> <span class="n">nat</span> <span class="o">-</span><span class="n">A</span> <span class="n">POSTROUTING</span> <span class="o">-</span><span class="n">o</span> <span class="n">wlan0</span> <span class="o">-</span><span class="n">j</span> <span class="n">MASQUERADE</span>
+<span class="n">sudo</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">A</span> <span class="n">FORWARD</span> <span class="o">-</span><span class="n">m</span> <span class="n">conntrack</span> <span class="o">--</span><span class="n">ctstate</span> <span class="n">RELATED</span><span class="p">,</span><span class="n">ESTABLISHED</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="n">sudo</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">A</span> <span class="n">FORWARD</span> <span class="o">-</span><span class="n">i</span> <span class="n">usb0</span> <span class="o">-</span><span class="n">o</span> <span class="n">wlan0</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+</pre></div>
+</div>
+<p>Reboot the BBBlue and then reconnect again using SSH</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p>Eliminate the necessity for the user to enter the sudoer password:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;debian ALL=(ALL) NOPASSWD: ALL&quot;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sudoers</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">debian</span> <span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+</pre></div>
+</div>
+<p>Install locales (a lot of programs complain otherwise) and set them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">locales</span>
+<span class="n">sudo</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">reconfigure</span> <span class="n">locales</span>
+</pre></div>
+</div>
+<p>Choose a locale (e.g. en_US.UTF-8 = English, United States, UTF8). This may take a while.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">dist</span><span class="o">-</span><span class="n">upgrade</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">git</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">cpufrequtils</span>
+</pre></div>
+</div>
+<p>Set CPU profile to “Performance”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s/GOVERNOR=&quot;ondemand&quot;/GOVERNOR=&quot;performance&quot;/g&#39;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">cpufrequtils</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-up-ardupilot">
+<h3>Setting up ArduPilot<a class="headerlink" href="#setting-up-ardupilot" title="Permalink to this heading">¶</a></h3>
+<p>The following instructions show how to setup ArduPlane. It is the same for other vehicle types just replace <code class="docutils literal notranslate"><span class="pre">plane</span></code> by e.g. <code class="docutils literal notranslate"><span class="pre">copter</span></code> etc. (see <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md">Building ArduPilot</a>). It is also possible to setup multiple vehicle types on the same system.</p>
+<p>Create an empty service file so that ardupilot automatically starts on boot and runs in the background:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">arduplane</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>Paste following text. And replace <code class="docutils literal notranslate"><span class="pre">&lt;target</span> <span class="pre">IP</span> <span class="pre">address&gt;</span></code> with the IP address of the telemetry receiving computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">ArduPlane</span> <span class="n">Service</span>
+<span class="n">After</span><span class="o">=</span><span class="n">networking</span><span class="o">.</span><span class="n">service</span>
+<span class="n">StartLimitIntervalSec</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Conflicts</span><span class="o">=</span><span class="n">arducopter</span><span class="o">.</span><span class="n">service</span> <span class="n">ardurover</span><span class="o">.</span><span class="n">service</span> <span class="n">antennatracker</span><span class="o">.</span><span class="n">service</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">/</span><span class="n">arduplane</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyO1</span> <span class="o">-</span><span class="n">A</span> <span class="n">udp</span><span class="p">:</span><span class="o">&lt;</span><span class="n">target</span> <span class="n">IP</span> <span class="n">address</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">14550</span> <span class="o">-</span><span class="n">B</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">ttyS2</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">failure</span>
+<span class="n">RestartSec</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ardupilot</span>
+</pre></div>
+</div>
+<p>Download the latest ArduPilot binary for the <code class="docutils literal notranslate"><span class="pre">blue</span></code> target/FC from <a class="reference external" href="https://firmware.ardupilot.org/">https://firmware.ardupilot.org/</a> (<a class="reference external" href="https://firmware.ardupilot.org/Plane/stable-4.1.6/blue/arduplane">Plane/stable-4.1.6/blue/arduplane</a> used in this example). Copy this file to <cite>/usr/bin/ardupilot/</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">/</span><span class="n">arduplane</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">firmware</span><span class="o">.</span><span class="n">ardupilot</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Plane</span><span class="o">/</span><span class="n">stable</span><span class="o">-</span><span class="mf">4.1.6</span><span class="o">/</span><span class="n">blue</span><span class="o">/</span><span class="n">arduplane</span>
+</pre></div>
+</div>
+<p>Alternatively there are other possible sources like the <a class="reference external" href="https://custom.ardupilot.org/">https://custom.ardupilot.org/</a> build server or you can compile it yourself (see <a class="reference internal" href="#cross-compiling-ardupilot-from-source">Cross compiling ArduPilot from source</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case this image does not exist anymore or is outdated, go to <a class="reference external" href="https://firmware.ardupilot.org/">https://firmware.ardupilot.org/</a> and look for the vehicle type you want. Then look for the firmware you want - usually the most recent <code class="docutils literal notranslate"><span class="pre">stable</span></code> - and within that folder look for <code class="docutils literal notranslate"><span class="pre">blue</span></code>. In this folder you will find some text files and the firmware binary/executable.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">0755</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">/</span><span class="n">a</span><span class="o">*</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">arduplane</span><span class="o">.</span><span class="n">service</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p>Your BBBlue is now ready to connect to a Ground Control Station (e.g. <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-installation.html">MissionPlanner</a> or  <a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a> )</p>
+<p>When establishing a connection select UDP on port 14550.</p>
+<p>More information can be found in section <a class="reference internal" href="#connect-bbblue-to-a-ground-station-software">Connect BBBlue to a Ground Station Software</a></p>
+</section>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this heading">¶</a></h2>
+<section id="connect-bbblue-to-the-internet">
+<h3><cite>Connect BBBlue to the internet</cite><a class="headerlink" href="#connect-bbblue-to-the-internet" title="Permalink to this heading">¶</a></h3>
+<section id="via-wifi">
+<h4>Via Wifi<a class="headerlink" href="#via-wifi" title="Permalink to this heading">¶</a></h4>
+<p>Connect the BBBlue to an available access point - this does NOT setup the BBBlue to act as access point itself.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">connmanctl</span> <span class="n">services</span> <span class="o">|</span> <span class="n">grep</span> <span class="s1">&#39;YOUR_SSID&#39;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">Po</span> <span class="s1">&#39;wifi_[^ ]+&#39;</span>
+<span class="n">cat</span> <span class="o">&gt;/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">connman</span><span class="o">/</span><span class="n">wifi</span><span class="o">.</span><span class="n">config</span>
+</pre></div>
+</div>
+<p>One line at a time, we’re writing a file line by line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">service_</span><span class="o">&lt;</span><span class="n">OUTPUT</span><span class="o">-</span><span class="n">FROM</span><span class="o">-</span><span class="n">CONNMANCTL</span><span class="o">-</span><span class="n">COMMAND</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="n">Type</span> <span class="o">=</span> <span class="n">wifi</span>
+<span class="n">Security</span> <span class="o">=</span> <span class="n">wpa2</span>
+<span class="n">Name</span> <span class="o">=</span> <span class="n">YOUR_SSID</span>
+<span class="n">Passphrase</span> <span class="o">=</span> <span class="n">YOUR_WIFI_PASSWORD</span>
+</pre></div>
+</div>
+<p>CTRL + C, should save File contents. Make sure to add a new line (press Enter) after Passphrase = <strong>*</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p>Again, ssh into the BBBlue at the former IP.</p>
+<p>Obtain the IP of the BBBlue wifi interface:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ip</span> <span class="n">addr</span>
+</pre></div>
+</div>
+<p>ssh by wifi into the BBBlue.</p>
+</section>
+<section id="via-shared-internet-connection">
+<h4>Via shared internet connection<a class="headerlink" href="#via-shared-internet-connection" title="Permalink to this heading">¶</a></h4>
+<p>Refer to <a class="reference internal" href="#quick-start">Quick Start</a></p>
+</section>
+</section>
+<section id="cross-compiling-ardupilot-from-source">
+<h3><cite>Cross compiling ArduPilot from source</cite><a class="headerlink" href="#cross-compiling-ardupilot-from-source" title="Permalink to this heading">¶</a></h3>
+<p>Generally you can compile ArduPilot on the BBBlue itself. But this takes a lot of time (several hours) and a lot of space (you need to maximize/grow the partition on the SD card to fit) and is therefore not recommended.</p>
+<p>Install Ubuntu 20.04 64-Bit as build machine (e.g. can be VM or github action).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recurse</span><span class="o">-</span><span class="n">submodules</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">ardupilot</span>
+</pre></div>
+</div>
+<p>use either the stable tag <code class="docutils literal notranslate"><span class="pre">ArduPlane-stable</span></code> or the current Plane branch <code class="docutils literal notranslate"><span class="pre">Plane-4.1</span></code> (in the moment both refer to Plane-4.1.6) - make sure to use a <code class="docutils literal notranslate"><span class="pre">stable</span></code> version</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">environment_install</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">prereqs</span><span class="o">-</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">Plane</span><span class="o">-</span><span class="mf">4.1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">waf</span> <span class="n">configure</span> <span class="o">--</span><span class="n">board</span><span class="o">=</span><span class="n">blue</span>
+<span class="o">./</span><span class="n">waf</span> <span class="n">plane</span>
+</pre></div>
+</div>
+<p>binary is located in <code class="docutils literal notranslate"><span class="pre">build/blue/bin/</span></code>.</p>
+</section>
+<section id="kernel-configuration">
+<h3>Kernel configuration<a class="headerlink" href="#kernel-configuration" title="Permalink to this heading">¶</a></h3>
+<p>In this section we update the kernel. There are two types of kernels: Real-time and regular (default). In this guide we will configure the real-time kernel v5.10 RT. Refer to <a class="reference external" href="https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Kernel_Options">elinux.org/Beagleboard</a>  if you wish to use different version or type.</p>
+<p>Update local scripts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">scripts</span> <span class="o">&amp;&amp;</span> <span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>Update kernel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">update_kernel</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">bone</span><span class="o">-</span><span class="n">rt</span><span class="o">-</span><span class="n">kernel</span> <span class="o">--</span><span class="n">lts</span><span class="o">-</span><span class="mi">5_10</span>
+</pre></div>
+</div>
+<p>Specify device tree binary to be used at startup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s/#dtb=/dtb=am335x-boneblue.dtb/g&#39;</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">uEnv</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="pru-drivers">
+<h3>PRU Drivers<a class="headerlink" href="#pru-drivers" title="Permalink to this heading">¶</a></h3>
+<p>There are two types of drivers available for the PRU’s (Programmable Realtime Units): RProc and UIO. RProc is enabled by default. In this example we’re using UIO instead of RProc. If you don’t want to change to UIO, ignore setting the <code class="docutils literal notranslate"><span class="pre">uboot_overlay_pru=</span></code> section.</p>
+<p>Open uEnv.txt for editing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">uEnv</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Set <code class="docutils literal notranslate"><span class="pre">uboot_overlay_pru=AM335X-PRU-UIO-00A0.dtbo</span></code>.</p>
+<p>Finally reboot the board to finalize configuration.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p>Test to see if the device tree blob (DTB) is loaded</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lsmod</span> <span class="o">|</span><span class="n">grep</span> <span class="n">uio</span>
+</pre></div>
+</div>
+<p>It should show something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uio_pruss</span>       <span class="mi">4928</span> <span class="mi">0</span>
+<span class="n">uio_pdrv_genirq</span> <span class="mi">3539</span> <span class="mi">0</span>
+<span class="n">uio</span>             <span class="mi">8822</span> <span class="mi">2</span> <span class="n">uio_pruss</span><span class="p">,</span><span class="n">uio_pdrv_genirq</span>
+</pre></div>
+</div>
+</section>
+<section id="flash-sd-card-to-emmc">
+<h3>Flash SD card to eMMC<a class="headerlink" href="#flash-sd-card-to-emmc" title="Permalink to this heading">¶</a></h3>
+<p>You can use the following steps to copy everything over to the eMMC. This way the SD card can be removed or used for other purposes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">uEnv</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Uncomment the line <code class="docutils literal notranslate"><span class="pre">#cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh</span></code></p>
+<p>It should now be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmdline</span><span class="o">=</span><span class="n">init</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">eMMC</span><span class="o">/</span><span class="n">init</span><span class="o">-</span><span class="n">eMMC</span><span class="o">-</span><span class="n">flasher</span><span class="o">-</span><span class="n">v3</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Save the file and <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">reboot</span></code></p>
+<p>The flashing process will immediately start on reboot. <strong>This process can take up 15 minutes (Usually 5 minutes). Wait until all flashing LEDs are OFF (Only power LED is on).</strong></p>
+<p><strong>Once done, remove power and then remove the SD card.</strong></p>
+<p>Power it up again and it should boot as usual.</p>
+<section id="check-if-booted-from-emmc-or-sd-card">
+<h4>Check if booted from eMMC or SD card<a class="headerlink" href="#check-if-booted-from-emmc-or-sd-card" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">tiomapconf</span>
+</pre></div>
+</div>
+<p>Boot from eMMC:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">omapconf</span> <span class="n">read</span> <span class="mh">0x44E10040</span>
+<span class="mi">0040033</span><span class="n">C</span>
+</pre></div>
+</div>
+<p>Boot from microSD (boot button pressed):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">omapconf</span> <span class="n">read</span> <span class="mh">0x44E10040</span>
+<span class="mi">00400338</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="connect-bbblue-to-a-ground-station-software">
+<h3><cite>Connect BBBlue to a Ground Station Software</cite><a class="headerlink" href="#connect-bbblue-to-a-ground-station-software" title="Permalink to this heading">¶</a></h3>
+<section id="via-built-in-bluetooth">
+<h4>Via built-in Bluetooth<a class="headerlink" href="#via-built-in-bluetooth" title="Permalink to this heading">¶</a></h4>
+<p>In order to use the built-in Bluetooth connection as MAVLink some steps are required. First, we need a Python script that provides a rfcomm bluetooth service. The script also creates a virtual serial port (/dev/pts/0) which we will specify as ardupilot telemetry channel later. Everything that is sent or received to or from the virtual serial port will be redirected over bluetooth to our client application or ardupilot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pybluez</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pyserial</span>
+
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span>
+<span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Paste the following script</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import os, pty, serial, time
+from bluetooth import *
+import threading
+
+def receive(client, master):
+    try:
+        while True:
+            received_data = os.read(master, 1024)
+            client.send(received_data)
+    except:
+        print(&quot;cannot receive, connection closed&quot;)
+
+def send(client, master):
+    try:
+        while True:
+            data = client.recv(1024) #128
+            written = os.write(master, data)
+    except:
+        print(&quot;cannot send, connection closed&quot;)
+
+def start_server_and_listen(master):
+    service_uuid = &quot;00001101-0000-1000-8000-00805F9B34FB&quot;
+    server = BluetoothSocket(RFCOMM)
+    server.bind((&quot;&quot;, PORT_ANY))
+    server.listen(1)
+    port = server.getsockname()[1]
+    advertise_service(server, &quot;BBBlue-MAVLink&quot;, service_id = service_uuid, service_classes = [servi$
+    client, client_info = server.accept()
+    receive_thread = threading.Thread(target=receive, args=(client, master))
+    send_thread = threading.Thread(target=send, args=(client, master))
+    receive_thread.start()
+    send_thread.start()
+    receive_thread.join()
+    send_thread.join()
+    server.close()
+    client.close()
+
+master, slave = pty.openpty()
+s_name = os.ttyname(slave)
+print(s_name)
+ser = serial.Serial(port=s_name, baudrate=57600, stopbits=serial.STOPBITS_TWO)
+
+while 1:
+    try:
+        start_server_and_listen(master)
+    except:
+        print(&quot;Exception occured, restarting server...&quot;)
+
+client.close()
+server.close()
+</pre></div>
+</div>
+<p>Next we create a systemd service for this script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>And paste the following text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">Bluetooth</span> <span class="n">Serial</span> <span class="n">Service</span>
+<span class="n">After</span><span class="o">=</span><span class="n">networking</span><span class="o">.</span><span class="n">service</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Type</span><span class="o">=</span><span class="n">simple</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">always</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">.</span><span class="n">py</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>We now have to adjust the previously created ardupilot service. Open the service file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">arduplane</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>It’s mandatory that the bluetooth-serial.service starts before ardupilot. We can replace the After=[…] to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">After</span><span class="o">=</span><span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>to achieve this behaviour.</p>
+<p>Next let’s adjust the communication channel to our newly created virtual serial port:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">/</span><span class="n">arduplane</span> <span class="o">-</span><span class="n">A</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">pts</span><span class="o">/</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Enable service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">bluetooth</span><span class="o">-</span><span class="n">serial</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>Save the file and reboot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p>Now it’s time to connect our bluetooth capable device to the BBBlue. On Windows add a regular Bluetooth device and select “beaglebone”.</p>
+<p>After pairing a new virtual COM-Port should appear.</p>
+<p>You can now use this COM-Port as connection for your ground control software e.g. QGroundControl or Mission Planner.</p>
+<p>If there are, for some reason, two COM-Ports just test both of them until you find the correct one.</p>
+</section>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<section id="rcoutputaiopru-cpp-sigbus-error-generated">
+<h3>RCOutputAioPRU.cpp:SIGBUS error generated<a class="headerlink" href="#rcoutputaiopru-cpp-sigbus-error-generated" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/imfatant/test/issues/16#issuecomment-477725439">https://github.com/imfatant/test/issues/16#issuecomment-477725439</a></p>
+<p>For me the <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dd</span> <span class="pre">if=/dev/zero</span> <span class="pre">of=/dev/mmcblk1</span> <span class="pre">bs=1M</span> <span class="pre">count=10</span></code> did the trick.</p>
+<p>Careful: The uboot_overlay_pru version in this Github comment is outdated. Use the instructions above for reference.</p>
+</section>
+<section id="check-system-config">
+<h3>Check system config<a class="headerlink" href="#check-system-config" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">version</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">current</span></code> config should look like this (Use diffchecker or similar tool):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="p">:[</span><span class="mi">1583</span><span class="n">f354594aabfaff08dee2a4aabdfe61433024</span><span class="p">]</span>
+<span class="n">eeprom</span><span class="p">:[</span><span class="n">A335BNLTBLA21736EL001182</span><span class="p">]</span>
+<span class="n">model</span><span class="p">:[</span><span class="n">TI_AM335x_BeagleBone_Blue</span><span class="p">]</span>
+<span class="n">dogtag</span><span class="p">:[</span><span class="n">BeagleBoard</span><span class="o">.</span><span class="n">org</span> <span class="n">Debian</span> <span class="n">Buster</span> <span class="n">Console</span> <span class="n">Image</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">01</span><span class="p">]</span>
+<span class="n">bootloader</span><span class="p">:[</span><span class="n">microSD</span><span class="o">-</span><span class="p">(</span><span class="n">push</span><span class="o">-</span><span class="n">button</span><span class="p">)]:[</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0</span><span class="p">]:[</span><span class="n">U</span><span class="o">-</span><span class="n">Boot</span> <span class="n">SPL</span> <span class="mf">2019.04</span><span class="o">-</span><span class="n">g923f8b8</span> <span class="p">(</span><span class="n">Oct</span> <span class="mi">26</span> <span class="mi">2021</span> <span class="o">-</span> <span class="mi">14</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">57</span> <span class="o">+</span><span class="mi">0000</span><span class="p">)]:[</span><span class="n">location</span><span class="p">:</span> <span class="n">dd</span> <span class="n">MBR</span><span class="p">]</span>
+<span class="n">bootloader</span><span class="p">:[</span><span class="n">microSD</span><span class="o">-</span><span class="p">(</span><span class="n">push</span><span class="o">-</span><span class="n">button</span><span class="p">)]:[</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0</span><span class="p">]:[</span><span class="n">U</span><span class="o">-</span><span class="n">Boot</span> <span class="mf">2019.04</span><span class="o">-</span><span class="n">g923f8b8</span><span class="p">]:[</span><span class="n">location</span><span class="p">:</span> <span class="n">dd</span> <span class="n">MBR</span><span class="p">]</span>
+<span class="n">bootloader</span><span class="p">:[</span><span class="n">eMMC</span><span class="o">-</span><span class="p">(</span><span class="n">default</span><span class="p">)]:[</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk1</span><span class="p">]:[</span><span class="n">U</span><span class="o">-</span><span class="n">Boot</span> <span class="n">SPL</span> <span class="mf">2019.04</span><span class="o">-</span><span class="n">g923f8b8</span> <span class="p">(</span><span class="n">Oct</span> <span class="mi">26</span> <span class="mi">2021</span> <span class="o">-</span> <span class="mi">14</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">57</span> <span class="o">+</span><span class="mi">0000</span><span class="p">)]:[</span><span class="n">location</span><span class="p">:</span> <span class="n">dd</span> <span class="n">MBR</span><span class="p">]</span>
+<span class="n">bootloader</span><span class="p">:[</span><span class="n">eMMC</span><span class="o">-</span><span class="p">(</span><span class="n">default</span><span class="p">)]:[</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk1</span><span class="p">]:[</span><span class="n">U</span><span class="o">-</span><span class="n">Boot</span> <span class="mf">2019.04</span><span class="o">-</span><span class="n">g923f8b8</span><span class="p">]:[</span><span class="n">location</span><span class="p">:</span> <span class="n">dd</span> <span class="n">MBR</span><span class="p">]</span>
+<span class="n">UBOOT</span><span class="p">:</span> <span class="n">Booted</span> <span class="n">Device</span><span class="o">-</span><span class="n">Tree</span><span class="p">:[</span><span class="n">am335x</span><span class="o">-</span><span class="n">boneblue</span><span class="o">.</span><span class="n">dts</span><span class="p">]</span>
+<span class="n">UBOOT</span><span class="p">:</span> <span class="n">Loaded</span> <span class="n">Overlay</span><span class="p">:[</span><span class="n">AM335X</span><span class="o">-</span><span class="n">PRU</span><span class="o">-</span><span class="n">RPROC</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="n">TI</span><span class="o">-</span><span class="mi">00</span><span class="n">A0</span><span class="o">.</span><span class="n">kernel</span><span class="p">]</span>
+<span class="n">UBOOT</span><span class="p">:</span> <span class="n">Loaded</span> <span class="n">Overlay</span><span class="p">:[</span><span class="n">BB</span><span class="o">-</span><span class="n">ADC</span><span class="o">-</span><span class="mi">00</span><span class="n">A0</span><span class="o">.</span><span class="n">kernel</span><span class="p">]</span>
+<span class="n">kernel</span><span class="p">:[</span><span class="mf">4.19.94</span><span class="o">-</span><span class="n">ti</span><span class="o">-</span><span class="n">r68</span><span class="p">]</span>
+<span class="n">device</span><span class="o">-</span><span class="n">tree</span><span class="o">-</span><span class="n">override</span><span class="p">:[</span><span class="n">dtb</span><span class="o">=</span><span class="n">am335x</span><span class="o">-</span><span class="n">boneblue</span><span class="o">.</span><span class="n">dtb</span><span class="p">]</span>
+<span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">uEnv</span><span class="o">.</span><span class="n">txt</span> <span class="n">Settings</span><span class="p">:</span>
+<span class="n">uboot_overlay_options</span><span class="p">:[</span><span class="n">enable_uboot_overlays</span><span class="o">=</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">uboot_overlay_options</span><span class="p">:[</span><span class="n">uboot_overlay_pru</span><span class="o">=</span><span class="n">AM335X</span><span class="o">-</span><span class="n">PRU</span><span class="o">-</span><span class="n">UIO</span><span class="o">-</span><span class="mi">00</span><span class="n">A0</span><span class="o">.</span><span class="n">dtbo</span><span class="p">]</span>
+<span class="n">uboot_overlay_options</span><span class="p">:[</span><span class="n">enable_uboot_cape_universal</span><span class="o">=</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">pkg</span> <span class="n">check</span><span class="p">:</span> <span class="n">to</span> <span class="n">individually</span> <span class="n">upgrade</span> <span class="n">run</span><span class="p">:</span> <span class="p">[</span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">--</span><span class="n">only</span><span class="o">-</span><span class="n">upgrade</span> <span class="o">&lt;</span><span class="n">pkg</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="n">pkg</span><span class="p">:[</span><span class="n">bb</span><span class="o">-</span><span class="n">cape</span><span class="o">-</span><span class="n">overlays</span><span class="p">]:[</span><span class="mf">4.14.20210821.0</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">buster</span><span class="o">+</span><span class="mi">20210821</span><span class="p">]</span>
+<span class="n">pkg</span><span class="p">:[</span><span class="n">bb</span><span class="o">-</span><span class="n">customizations</span><span class="p">]:[</span><span class="mf">1.20211201.1</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">buster</span><span class="o">+</span><span class="mi">20211201</span><span class="p">]</span>
+<span class="n">pkg</span><span class="p">:[</span><span class="n">bb</span><span class="o">-</span><span class="n">usb</span><span class="o">-</span><span class="n">gadgets</span><span class="p">]:[</span><span class="mf">1.20211012.0</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">buster</span><span class="o">+</span><span class="mi">20211012</span><span class="p">]</span>
+<span class="n">pkg</span><span class="p">:[</span><span class="n">bb</span><span class="o">-</span><span class="n">wl18xx</span><span class="o">-</span><span class="n">firmware</span><span class="p">]:[</span><span class="mf">1.20210922.2</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">buster</span><span class="o">+</span><span class="mi">20211007</span><span class="p">]</span>
+<span class="n">pkg</span><span class="p">:[</span><span class="n">kmod</span><span class="p">]:[</span><span class="mi">26</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">WARNING</span><span class="p">:</span><span class="n">pkg</span><span class="p">:[</span><span class="n">librobotcontrol</span><span class="p">]:[</span><span class="n">NOT_INSTALLED</span><span class="p">]</span>
+<span class="n">pkg</span><span class="p">:[</span><span class="n">firmware</span><span class="o">-</span><span class="n">ti</span><span class="o">-</span><span class="n">connectivity</span><span class="p">]:[</span><span class="mi">20190717</span><span class="o">-</span><span class="mi">2</span><span class="n">rcnee1</span><span class="o">~</span><span class="n">buster</span><span class="o">+</span><span class="mi">20200305</span><span class="p">]</span>
+<span class="n">groups</span><span class="p">:[</span><span class="n">debian</span> <span class="p">:</span> <span class="n">debian</span> <span class="n">adm</span> <span class="n">kmem</span> <span class="n">dialout</span> <span class="n">cdrom</span> <span class="n">floppy</span> <span class="n">audio</span> <span class="n">dip</span> <span class="n">video</span> <span class="n">plugdev</span> <span class="n">users</span> <span class="n">systemd</span><span class="o">-</span><span class="n">journal</span> <span class="nb">input</span> <span class="n">bluetooth</span> <span class="n">netdev</span> <span class="n">gpio</span> <span class="n">admin</span> <span class="n">tisdk</span> <span class="n">weston</span><span class="o">-</span><span class="n">launch</span> <span class="n">cloud9ide</span><span class="p">]</span>
+<span class="n">cmdline</span><span class="p">:[</span><span class="n">console</span><span class="o">=</span><span class="n">ttyS0</span><span class="p">,</span><span class="mi">115200</span><span class="n">n8</span> <span class="n">bone_capemgr</span><span class="o">.</span><span class="n">uboot_capemgr_enabled</span><span class="o">=</span><span class="mi">1</span> <span class="n">root</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0p1</span> <span class="n">ro</span> <span class="n">rootfstype</span><span class="o">=</span><span class="n">ext4</span> <span class="n">rootwait</span> <span class="n">coherent_pool</span><span class="o">=</span><span class="mi">1</span><span class="n">M</span> <span class="n">net</span><span class="o">.</span><span class="n">ifnames</span><span class="o">=</span><span class="mi">0</span> <span class="n">lpj</span><span class="o">=</span><span class="mi">1990656</span> <span class="n">rng_core</span><span class="o">.</span><span class="n">default_quality</span><span class="o">=</span><span class="mi">100</span> <span class="n">quiet</span><span class="p">]</span>
+<span class="n">dmesg</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">remote</span>
+<span class="p">[</span>   <span class="mf">26.835790</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc0</span><span class="p">:</span> <span class="n">wkup_m3</span> <span class="ow">is</span> <span class="n">available</span>
+<span class="p">[</span>   <span class="mf">26.901553</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc0</span><span class="p">:</span> <span class="n">powering</span> <span class="n">up</span> <span class="n">wkup_m3</span>
+<span class="p">[</span>   <span class="mf">26.901586</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc0</span><span class="p">:</span> <span class="n">Booting</span> <span class="n">fw</span> <span class="n">image</span> <span class="n">am335x</span><span class="o">-</span><span class="n">pm</span><span class="o">-</span><span class="n">firmware</span><span class="o">.</span><span class="n">elf</span><span class="p">,</span> <span class="n">size</span> <span class="mi">217148</span>
+<span class="p">[</span>   <span class="mf">26.901840</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc0</span><span class="p">:</span> <span class="n">remote</span> <span class="n">processor</span> <span class="n">wkup_m3</span> <span class="ow">is</span> <span class="n">now</span> <span class="n">up</span>
+<span class="p">[</span>   <span class="mf">28.464026</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc1</span><span class="p">:</span> <span class="mi">4</span><span class="n">a334000</span><span class="o">.</span><span class="n">pru</span> <span class="ow">is</span> <span class="n">available</span>
+<span class="p">[</span>   <span class="mf">28.480195</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc2</span><span class="p">:</span> <span class="mi">4</span><span class="n">a338000</span><span class="o">.</span><span class="n">pru</span> <span class="ow">is</span> <span class="n">available</span>
+<span class="n">dmesg</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">pru</span>
+<span class="p">[</span>   <span class="mf">28.464026</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc1</span><span class="p">:</span> <span class="mi">4</span><span class="n">a334000</span><span class="o">.</span><span class="n">pru</span> <span class="ow">is</span> <span class="n">available</span>
+<span class="p">[</span>   <span class="mf">28.464212</span><span class="p">]</span> <span class="n">pru</span><span class="o">-</span><span class="n">rproc</span> <span class="mi">4</span><span class="n">a334000</span><span class="o">.</span><span class="n">pru</span><span class="p">:</span> <span class="n">PRU</span> <span class="n">rproc</span> <span class="n">node</span> <span class="n">pru</span><span class="o">@</span><span class="mi">4</span><span class="n">a334000</span> <span class="n">probed</span> <span class="n">successfully</span>
+<span class="p">[</span>   <span class="mf">28.480195</span><span class="p">]</span> <span class="n">remoteproc</span> <span class="n">remoteproc2</span><span class="p">:</span> <span class="mi">4</span><span class="n">a338000</span><span class="o">.</span><span class="n">pru</span> <span class="ow">is</span> <span class="n">available</span>
+<span class="p">[</span>   <span class="mf">28.480412</span><span class="p">]</span> <span class="n">pru</span><span class="o">-</span><span class="n">rproc</span> <span class="mi">4</span><span class="n">a338000</span><span class="o">.</span><span class="n">pru</span><span class="p">:</span> <span class="n">PRU</span> <span class="n">rproc</span> <span class="n">node</span> <span class="n">pru</span><span class="o">@</span><span class="mi">4</span><span class="n">a338000</span> <span class="n">probed</span> <span class="n">successfully</span>
+<span class="n">dmesg</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">pinctrl</span><span class="o">-</span><span class="n">single</span>
+<span class="p">[</span>    <span class="mf">0.975434</span><span class="p">]</span> <span class="n">pinctrl</span><span class="o">-</span><span class="n">single</span> <span class="mf">44e10800</span><span class="o">.</span><span class="n">pinmux</span><span class="p">:</span> <span class="mi">142</span> <span class="n">pins</span><span class="p">,</span> <span class="n">size</span> <span class="mi">568</span>
+<span class="n">dmesg</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">gpio</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">helper</span>
+<span class="n">END</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="video-of-bbblue-flying-copter-3-5">
+<h2>Video of BBBlue flying Copter-3.5<a class="headerlink" href="#video-of-bbblue-flying-copter-3-5" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/v2xWtlyYrtE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/8bVc9X869pw" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="more-links">
+<h2>More Links<a class="headerlink" href="#more-links" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://discuss.ardupilot.org/t/beaglebone-blue-released-linux-enabled-autopilot-for-80/15772">Blog post announcing support</a></p></li>
+<li><p><a class="reference external" href="https://github.com/beagleboard/beaglebone-blue/wiki/Accessories">BeagleBone recommended accessories page</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mirkix/ardupilotblue">Mirkix’s instructions on loading Copter to BeagleBone Blue</a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/building-for-beaglebone-black-on-linux.html#building-for-beaglebone-black-on-linux">Building ArduPilot for BeagleBone Black on Linux — Dev documentation</a></p></li>
+<li><p><a class="reference external" href="https://beagleboard.org/static/librobotcontrol/networking_wifi.html">Robot Control Library: Networking WiFi</a></p></li>
+<li><p><a class="reference external" href="https://muonic.wordpress.com/2019/04/09/setting-up-the-beagleboneblue-for-the-first-time/">Setting up the BeagleBoneBlue for the first time – muonic</a></p></li>
+<li><p><a class="reference external" href="https://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Flashing_eMMC">Beagleboard:BeagleBoneBlack Debian - eLinux.org</a></p></li>
+<li><p><a class="reference external" href="https://github.com/beagleboard/beaglebone-blue/wiki/Pinouts">Pinouts · beagleboard/beaglebone-blue Wiki</a></p></li>
+<li><p><a class="reference external" href="https://github.com/imfatant/test">ArduPilot Blue - A beginner’s guide</a></p></li>
+<li><p><a class="reference external" href="https://inst.eecs.berkeley.edu/~ee192/sp21/files/GettingStartedBBBL.pdf">EE192 Getting Started with the Beaglebone Blue</a></p></li>
+<li><p><a class="reference external" href="https://github.com/drtrigon/ardupilot-beagle-bone-blue-binaries/">How to compile using a github action workflow</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md">Building ArduPilot</a></p></li>
+<li><p><a class="reference external" href="https://catch22eu.github.io/website/beaglebone/beaglebone-pru-uio/">Enabling the UIO PRU driver in recent kernels</a></p></li>
+<li><p><a class="reference external" href="http://www.ofitselfso.com/BeagleNotes/Enabling_the_UIO_Drivers_on_the_Beaglebone_Black.php">Enabling the UIO Drivers on the Beaglebone Black</a></p></li>
+</ul>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-thepeach-r1.html" class="btn btn-neutral float-left" title="ThePeach FCC-R1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-obal-overview.html" class="btn btn-neutral float-right" title="Open Board Architecture for Linux - OBAL Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

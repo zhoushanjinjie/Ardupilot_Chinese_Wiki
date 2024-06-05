@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>External LEDs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">External LEDs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="external-leds">
+<span id="common-external-leds"></span><h1>External LEDs<a class="headerlink" href="#external-leds" title="Permalink to this heading">¶</a></h1>
+<p>An external LED or LED Display can be added by connecting it to the autopilot’s
+I2C port or, in 4.0 and later versions, if a serially programmed device, via an output using the SERVOx_FUNCTION for that output. DroneCAN LEDs on the CANBUS are also supported (See <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a> ).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the same grouping restrictions which apply to setting outputs to different PWM rates and/or DShot, apply to LEDs also since the timer associated with each group of outputs cannot be used for different rates. See also  <a class="reference internal" href="common-brushless-escs.html#mixing-escs"><span class="std std-ref">Mixing ESC Protocols</span></a></p>
+</div>
+<section id="rgb-leds-displays-with-i2c-connection">
+<h2>RGB LEDs/Displays with I2C Connection<a class="headerlink" href="#rgb-leds-displays-with-i2c-connection" title="Permalink to this heading">¶</a></h2>
+<p>Two types of I2C devices are supported: I2C connected RGB LEDS using an LED driver chip and OLED displays.</p>
+<p>RGB LEDs/drivers supported are:</p>
+<ul class="simple">
+<li><p>Toshiba LEDs (no longer manufactured)</p></li>
+<li><p>PCA9685 driver</p></li>
+<li><p>NCP5623 driver</p></li>
+</ul>
+<p>OLED Displays supported are SSH1106 and SSD1306 with 128x64 pixel displays. See <a class="reference internal" href="common-display-onboard.html#common-display-onboard"><span class="std std-ref">Onboard Display</span></a> for more information.</p>
+<a class="reference internal image-reference" href="../_images/ssh1106.jpg"><img alt="../_images/ssh1106.jpg" src="../_images/ssh1106.jpg" style="width: 450px;" /></a>
+<p>Because most users use an external <a class="reference internal" href="common-positioning-landing-page.html#common-positioning-landing-page"><span class="std std-ref">GPS and Compass module</span></a>, an I2C splitter is recommended, such as shown below. The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-types" title="(in Rover)"><span class="xref std std-ref">NTF_LED_TYPES</span></a> parameter should be set to the controller type used.</p>
+<a class="reference external image-reference" href="../_images/ExternalLED_PixhawkLED.jpg"><img alt="../_images/ExternalLED_PixhawkLED.jpg" src="../_images/ExternalLED_PixhawkLED.jpg" /></a>
+</section>
+<section id="serially-connected-devices">
+<h2>Serially Connected Devices<a class="headerlink" href="#serially-connected-devices" title="Permalink to this heading">¶</a></h2>
+<p>Currently, ArduPilot supports Neopixel and ProfiLED RGB LED strings. They can be used for NTF notifications from the autopilot on status and warnings like other RGB LEDs, or be programmed in unlimited ways using LUA scripts on the autopilot’s SD card. For use with scripting the output function must be set to a scripting output function (94 - 109) the script then assignees this output to LEDs. See <a class="reference external" href="https://ardupilot.org/rover/docs/common-lua-scripts.html#common-lua-scripts" title="(in Rover)"><span>Lua Scripts</span></a> for more use examples using LUA scripts.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ytW538e_cQw" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>Serial LEDs require a whole pwm group, more information about your autopilot’s PWM groups can be found on it’s <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">hardware page</span></a>. To check that the desired outputs have been setup correctly look for the PWM types message in your GCS’s messages tab. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-serial-led-neopixel.html">NeoPixel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-serial-led-ProfiLED.html">ProfiLED</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure the output is configures as normal PWM instead of a GPIO output. Flight controllers with a IOMCU can only use the AUX outputs for connecting serial LEDs. To check that the desired outputs have been setup correctly look for the PWM types message in your GCS’s messages tab. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a></p>
+</div>
+</section>
+<section id="ntf-led-meaning">
+<h2>NTF LED Meaning<a class="headerlink" href="#ntf-led-meaning" title="Permalink to this heading">¶</a></h2>
+<p>The meaning of the colors and flash patterns are shown in <a class="reference internal" href="common-leds-pixhawk.html#common-leds-pixhawk"><span class="std std-ref">LEDs Meaning</span></a> if the <code class="docutils literal notranslate"><span class="pre">standard</span></code> default protocol is set for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-override" title="(in Rover)"><span class="xref std std-ref">NTF_LED_OVERRIDE</span></a>.</p>
+<p>The brightness and number of LEDs can be controlled by modifying the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-bright" title="(in Rover)"><span class="xref std std-ref">NTF_LED_BRIGHT</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-len" title="(in Rover)"><span class="xref std std-ref">NTF_LED_LEN</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

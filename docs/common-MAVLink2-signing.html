@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp,planner”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp,planner”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp-planner">
+<span id="common-mavlink2-signing"></span><h1>[copywiki destination=”plane,copter,rover,blimp,planner”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp-planner" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="mavlink2-signing">
+<h1>MAVLink2 Signing<a class="headerlink" href="#mavlink2-signing" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot and Mission Planner have the ability to add security to over-the-air MAVLink transmissions by adding packet signing using an encrypted key. This does NOT encrypt the data, just merely controls if the autopilot will respond to MAVLink commands or not.</p>
+<p>When active in the autopilot, any non-USB serial port can be configured only to respond to MAVLink command requests from Mission Planner if they contain the passkey. This prevents other Ground Control Stations (GCS) that do not know the passkey from reading or writing parameters and sending commands. Something that is possible otherwise.</p>
+<p>Telemetry downlink data is unaffected.</p>
+<p>USB connections are unaffected, allowing full connection to an autopilot using an unknown passkey and allowing the user to erase (disable signing) or change the passkey it uses.</p>
+</section>
+<section id="configuration">
+<h1>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Make sure the telemetry port protocol is set to option = 2 (MAVLink2). Communication with any serial port using MAVLink 1 is not protected.</p></li>
+<li><p>In Mission Planner, connect the autopilot, use the SETUP menu  and the Advanced submenu, and press “Mavlink Signing”</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/signing.jpg"><img alt="../_images/signing.jpg" src="../_images/signing.jpg" /></a>
+<p>The dialog will show a list of all the passkeys already setup for Mission Planner.</p>
+<ul class="simple">
+<li><p>This dialog can be used to create new keys using the <code class="docutils literal notranslate"><span class="pre">ADD</span></code> button.A key may be removed from the list by selecting and pressing delete on the PC and then the <code class="docutils literal notranslate"><span class="pre">SAVE</span></code> button5350. You can also do this while unconnected.</p></li>
+<li><p>To setup the autopilot to use a key from the list, press the <code class="docutils literal notranslate"><span class="pre">USE</span></code> button on a key while connected.</p></li>
+</ul>
+<p>You can check if the link is now signing by clicking “Stats…” under the comm port drop down box used for selecting which port to connect.</p>
+<ul class="simple">
+<li><p>To remove and disable signing for a connected autopilot, press the <code class="docutils literal notranslate"><span class="pre">Disable</span> <span class="pre">Signing</span></code> button.</p></li>
+</ul>
+</section>
+<section id="use">
+<h1>Use<a class="headerlink" href="#use" title="Permalink to this heading">¶</a></h1>
+<p>Once the autopilot is using signing, USB connections are unaffected, but any link via a SERIAL port using MAVLink2 protocol will only respond to MAVLink commands if they are signed with the key the autopilot is using. But links will still receive telemetry updates even if they are not using singing with the active key.</p>
+<p>When you connect Mission Planner over a link that is signing, it will see if it has the correct key stored in its keys table that you would have setup previously. If it does, the connection will use that key and commands will be acted upon by the autopilot, including parameter download at connection. If you connect, but parameter download does not occur, then the key was not present. Add the key, and re-connect.</p>
+<p>[copywiki destination=”plane,copter,rover,planner”]</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

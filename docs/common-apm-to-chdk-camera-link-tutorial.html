@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Shutter Triggering using CHDK &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Shutter Triggering using CHDK</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-shutter-triggering-using-chdk">
+<span id="common-apm-to-chdk-camera-link-tutorial"></span><h1>Camera Shutter Triggering using CHDK<a class="headerlink" href="#camera-shutter-triggering-using-chdk" title="Permalink to this heading">¶</a></h1>
+<p>This article explains how to set up camera shutter triggering for Canon
+Cameras that support the <a class="reference external" href="http://chdk.wikia.com/wiki/CHDK">Canon Hacker Development Kit</a> (CHDK).</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot allows you to
+<a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">configure a servo or relay output as the control signal for the camera shutter</span></a>
+so that it can be used in
+<a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">Camera Missions</span></a>.
+Additional hardware is required to convert the shutter activation signal
+to the format expected by the particular camera.</p>
+<p>This article explains how to set up the shutter-trigger for Canon
+Cameras that support the <em>Canon Hacker Development Kit</em> (CHDK). The
+method connects the ArduPilot output to the camera using a *custom
+cable*, and causes a script running on the camera to take pictures when
+the <em>relay</em> output voltage goes high.</p>
+<p>At the end of the article is a
+<a class="reference internal" href="#common-apm-to-chdk-camera-link-tutorial-chdk-cables-for-purchase"><span class="std std-ref">list of cables that you can purchase</span></a>
+instead of using the custom cable (please extend this list if you find another appropriate cable).</p>
+<p>The article covers both Pixhawk and APM2.x.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/CHDK_APM2_to_camera_connection.jpeg"><img alt="../_images/CHDK_APM2_to_camera_connection.jpeg" src="../_images/CHDK_APM2_to_camera_connection.jpeg" /></a>
+<figcaption>
+<p><span class="caption-text">APM Connected to a Canon SX260 HS using a custom cable</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also possible to use a
+<a class="reference internal" href="#common-apm-to-chdk-camera-link-tutorial-using-a-servo-instead-of-a-relay"><span class="std std-ref">servo output instead of a relay</span></a>.</p>
+</div>
+</section>
+<section id="chkd-and-ardupilot-integration">
+<h2>CHKD and ArduPilot integration<a class="headerlink" href="#chkd-and-ardupilot-integration" title="Permalink to this heading">¶</a></h2>
+<p>CHDK is an experimental (and free) development tool, which temporarily
+patches (supported) <em>Canon cameras</em> so that they can be controlled using
+scripts. The scripts are able to take pictures, control the camera zoom,
+set the focus, and access many other camera features.</p>
+<p>Scripts can also read the camera USB port voltage and execute different
+instructions/functions based on the signal pulse-length. When using a
+relay, the script can be very simple — all it needs to do is check the
+voltage (in a loop), and take a picture when it detects the relay
+voltage go high. More complicated scripts might first set the focus,
+zoom, or preform any other default behaviour.</p>
+<p>The <a class="reference external" href="http://chdk.wikia.com/wiki/CHDK">CHDK Wiki</a> documentation
+explains which cameras are supported, how you install CHDK on you
+camera, and how to install and run scripts.</p>
+</section>
+<section id="cable-for-connecting-to-pixhawk">
+<h2>Cable for connecting to Pixhawk<a class="headerlink" href="#cable-for-connecting-to-pixhawk" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="#common-apm-to-chdk-camera-link-tutorial-chdk-cables-for-purchase"><span class="std std-ref">CHDK cables for purchase</span></a> if
+you just want to buy a cable. This section is useful if you want to
+create your own cable or understand what the cable needs to do.</p>
+</div>
+<p>For Pixhawk you have to modify the APM cable in the following section,
+adding a circuit step the output pin signal voltage from 3.3 to 5 volts.
+This is required because the relay/servo output voltage is approximately
+3.3V while CHDK needs 5V to trigger.</p>
+<p>A circuit and PCB you can use are shown below. 5V should be supplied
+from a BEC (or from a BEC powering the central pin on the AUX output
+rail) because the servo rail itself is not powered.</p>
+<p>1 x BC547 or 2N3904</p>
+<p>1 x BC557 or 2N3906</p>
+<p>2 x 1 K</p>
+<p>1 x 220 ohm</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="https://diydrones.com/forum/topics/using-aux-pins-as-relays-for-chdk?commentId=705844%3AComment%3A1581209"><img alt="http://api.ning.com/files/6A05RJELsODapmzmxrkfVjh3WsYV3VM6gRNmnUfTqO8MDOtaCuWg6baF2UChPaKaq52lXT63W*i-uwbGNqEGfbEczIHGK3ER/3.3vto5vlogiclevelshifterwithtransistorsinproteus.jpg" src="http://api.ning.com/files/6A05RJELsODapmzmxrkfVjh3WsYV3VM6gRNmnUfTqO8MDOtaCuWg6baF2UChPaKaq52lXT63W*i-uwbGNqEGfbEczIHGK3ER/3.3vto5vlogiclevelshifterwithtransistorsinproteus.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">3Vto 5V Shifter Circuit</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="https://diydrones.com/forum/topics/using-aux-pins-as-relays-for-chdk?commentId=705844%3AComment%3A1594680"><img alt="http://api.ning.com/files/iAT0B9wCR3AoT2PagGiqpRaMPAUgnytMSGSeJ7sSKh9gtRNuhdzj01dCdTkRLM2*x0pN58LfGHlqFbKfTThHXPkyjaetHNu-/Pixhawk_35_diag.png" src="http://api.ning.com/files/iAT0B9wCR3AoT2PagGiqpRaMPAUgnytMSGSeJ7sSKh9gtRNuhdzj01dCdTkRLM2*x0pN58LfGHlqFbKfTThHXPkyjaetHNu-/Pixhawk_35_diag.png" /></a>
+<figcaption>
+<p><span class="caption-text">3V to5V Shifter (PCB)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The voltage stepper circuit and PCB above are <a class="reference external" href="https://diydrones.com/forum/topics/using-aux-pins-as-relays-for-chdk?commentId=705844%3AComment%3A1581209">from the community discussion boards</a>.</p>
+</div>
+<p>It is also possible to find pre-built stepper circuits like the
+<a class="reference external" href="https://www.sparkfun.com/products/10968">SparkFun 5V Step-Up Breakout - NCP1402</a> (not tested).</p>
+</section>
+<section id="cable-for-connecting-to-apm">
+<h2>Cable for connecting to APM<a class="headerlink" href="#cable-for-connecting-to-apm" title="Permalink to this heading">¶</a></h2>
+<p>A cable is needed to connect the APM board to the camera USB port. This
+section shows how to modify the USB cable that is supplied with the
+camera, replacing the standard USB connector with a 3-position header
+that can connect to the AMP output port.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example uses the USB Mini-B connector that comes with the
+SX260 HS camera. The same approach should work equally well using the
+supplied cable on any CHDK-supported Canon Powershot camera.</p>
+</div>
+<p>The components used to attach the servo connector to the wire are shown
+below. If you don’t have a crimp tool you can just solder a spare servo
+wire connector instead.</p>
+<figure class="align-default" id="id4">
+<a class="reference external image-reference" href="../_images/Supplies-1024x682.jpg"><img alt="../_images/Supplies-1024x682.jpg" src="../_images/Supplies-1024x682.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">APM CHDK Camera Control Cable: Parts needed</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>We’ll only be using the Mini-B side of this cable, so measure whatever
+length you need from that end depending on how your camera and autopilot
+mount in your airframe. I’ve measured out about 14″ and cut the cable
+completely through. Inside are four wires, we only need the red and
+black wire so cut away the green and white wires. Strip the ends of the
+red and black wires.</p>
+<figure class="align-default" id="id5">
+<a class="reference external image-reference" href="../_images/USB_StrippedWires-1024x682.jpg"><img alt="../_images/USB_StrippedWires-1024x682.jpg" src="../_images/USB_StrippedWires-1024x682.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">CHDK Camera Control Cable:Stripped Wires</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>If you have the crimp tool, crimp and insert the wires into the first
+and third positions of a 3-position header. If you don’t have the crimp
+tool, solder these two wires to the ground and signal wires of a spare
+servo wire. Insert the ground wire into the side with an arrow so you
+can tell which wire is which later on.</p>
+<figure class="align-default" id="id6">
+<a class="reference external image-reference" href="../_images/Connector_Attached-1024x682.jpg"><img alt="../_images/Connector_Attached-1024x682.jpg" src="../_images/Connector_Attached-1024x682.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">CHDK Camera Cable:Attaching the 3-Position Header</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Cover the connector with heatshrink. Be careful with the hot air near
+the connector as it can cause the locking plastic pieces in the
+receptacle to deform.</p>
+<figure class="align-default" id="id7">
+<a class="reference external image-reference" href="../_images/Connector_Heatshrink-1024x682.jpg"><img alt="../_images/Connector_Heatshrink-1024x682.jpg" src="../_images/Connector_Heatshrink-1024x682.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">ACHDK Camera Cable: Connector covered withHeatshrink</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="camera-shutter-configuration-in-mission-planner">
+<h2>Camera shutter configuration in Mission Planner<a class="headerlink" href="#camera-shutter-configuration-in-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration in Mission Planner</span></a> explains how to configure
+a Pixhawk AUX output or the APM2.x A9 pin as a relay camera trigger.
+Connect the cable to the appropriate port as described, and to the
+camera.</p>
+<p>The specific Mission Planner settings required for this CHDK hardware
+are listed below. Note that duration required may be different on some
+cameras:</p>
+<ul class="simple">
+<li><p>Pixhawk:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM_TRIG_TYPE</span></code>: 1 (Relay).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">(Port)</span></code>: RC10 (Name of connected port, in this example
+we use RC10 = AUX2).</p></li>
+</ul>
+</li>
+<li><p>APM2.x:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">(Port)</span></code>: Relay (A9 Pin).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Duration</span></code>: 1 (1/10 second)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CH7_OPT</span></code> : 9 (Optional - enables manual shutter triggering on
+Copter only).</p></li>
+</ul>
+<p>The servo settings are not used for the relay configuration, and can be
+ignored.</p>
+</section>
+<section id="creating-and-installing-the-chdk-script">
+<h2>Creating and installing the CHDK script<a class="headerlink" href="#creating-and-installing-the-chdk-script" title="Permalink to this heading">¶</a></h2>
+<p>One of the simplest scripts you can use is <strong>E38_APM.bas</strong>, which
+simply waits on the relay signal and then takes a picture (originally
+from www.event38.com):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rem</span> <span class="n">Event</span> <span class="mi">38</span> <span class="n">APM</span> <span class="n">Tie</span><span class="o">-</span><span class="n">In</span> <span class="n">Script</span>
+<span class="n">rem</span> <span class="n">Free</span> <span class="n">For</span> <span class="n">Modification</span> <span class="o">&amp;</span> <span class="n">Distribution</span>
+<span class="nd">@title</span> <span class="n">E38_APM</span>
+<span class="nb">print</span> <span class="s2">&quot;Script Started, Listening&quot;</span>
+<span class="n">sleep</span> <span class="mi">1000</span>
+<span class="n">goto</span> <span class="s2">&quot;interval&quot;</span>
+<span class="p">:</span><span class="n">interval</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">get_usb_power</span>
+  <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">then</span> <span class="n">goto</span> <span class="s2">&quot;picture&quot;</span>
+  <span class="n">goto</span> <span class="s2">&quot;interval&quot;</span>
+<span class="p">:</span><span class="n">picture</span>
+  <span class="n">press</span> <span class="s2">&quot;shoot_full&quot;</span>
+  <span class="n">sleep</span> <span class="mi">50</span>
+  <span class="n">release</span> <span class="s2">&quot;shoot_full&quot;</span>
+  <span class="n">goto</span> <span class="s2">&quot;interval&quot;</span>
+<span class="p">:</span><span class="n">terminate</span>
+  <span class="nb">print</span> <span class="s2">&quot;Shut-Down Command Received&quot;</span>
+  <span class="n">sleep</span> <span class="mi">1000</span>
+  <span class="n">shut_down</span>
+</pre></div>
+</div>
+<p>Alternatively you can use a more advanced script to set up the camera
+focus, exposure or other settings before taking the picture. A good
+starting point is the open source <a class="reference external" href="http://chdk.wikia.com/wiki/KAP_UAV_Exposure_Control_Script">KAP UAV Exposure Control Script</a>
+(v3.1). This was used as the basis for the <a class="reference external" href="https://3dr.com/kb/aero-m/">3DR Aero Plane</a> <em>3DR EAI (Exposure-Aperture-ISO)</em>
+script described in the <a class="reference external" href="https://3dr.com/kb/aero-m/">Aero-M Operation Manual</a>.</p>
+<p>The <a class="reference external" href="http://chdk.wikia.com/wiki/CHDK">CHDK Wiki</a> explains how you set
+up CHDK and install and activate scripts for your particular camera.
+Installing scripts is usually as simple as copying them into the
+“scripts” directory on your SD card. You can then activate them by
+navigating to the menu <strong>Miscellaneous Stuff | Remote Parameters</strong> and
+making sure the <strong>Enable Remote</strong> setting is checked.</p>
+<figure class="align-default" id="id8">
+<a class="reference external image-reference" href="../_images/CHDK_Camera_Enable_Remote.jpg"><img alt="../_images/CHDK_Camera_Enable_Remote.jpg" src="../_images/CHDK_Camera_Enable_Remote.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">CHDK: Camera Menu to EnableRemote</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>Load and run your CHDK script. On Copter you should be able to trigger
+the shutter using the CH7 switch.</p>
+<p>On other vehicles set the <code class="docutils literal notranslate"><span class="pre">CAM_TRIGG_DIST</span></code> to 1 or 2 meters. Small
+changes in the GPS readings will cause the distance value to count up
+slowly and it should trigger the shutter every few seconds. If nothing
+happens at all, take your vehicle outside and walk around to make sure
+that some distance is detected. If your camera lens closes and opens
+instead of taking a picture, make sure the CHDK <em>remote enable</em> setting
+is activated on the camera.</p>
+</section>
+<section id="using-a-servo-instead-of-a-relay">
+<span id="common-apm-to-chdk-camera-link-tutorial-using-a-servo-instead-of-a-relay"></span><h2>Using a servo instead of a relay<a class="headerlink" href="#using-a-servo-instead-of-a-relay" title="Permalink to this heading">¶</a></h2>
+<p>It is also possible to trigger the camera shutter using a servo output,
+but that requires additional (and often more expensive) hardware to
+decode the servo’s PWM signal.
+The <a class="reference internal" href="common-chdk-camera-control-tutorial.html#common-chdk-camera-control-tutorial"><span class="std std-ref">CHDK Camera Control Tutorial</span></a> describes a suitable
+PWM-to-voltage pulse cable, and information from which the servo
+settings can be inferred.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="common-chdk-camera-control-tutorial.html#common-chdk-camera-control-tutorial"><span class="std std-ref">CHDK Camera Control Tutorial</span></a> integrates with the
+camera as a “generic servo” rather than as a shutter trigger. This
+approach means that camera triggering is not as well integrated with
+mission planning, but more camera commands can be called.</p>
+</div>
+</section>
+<section id="chdk-cables-for-purchase">
+<span id="common-apm-to-chdk-camera-link-tutorial-chdk-cables-for-purchase"></span><h2>CHDK Cables for purchase<a class="headerlink" href="#chdk-cables-for-purchase" title="Permalink to this heading">¶</a></h2>
+<p>This section is for listing CHDK cables that you can purchase (rather
+than creating your own, as described in this article). Please extend the
+list if you discover more.</p>
+</section>
+<section id="tuffwing-camera-trigger-cable-for-pixhawk">
+<h2>Tuffwing camera trigger cable for Pixhawk<a class="headerlink" href="#tuffwing-camera-trigger-cable-for-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>Tuffwing camera trigger cable for connecting Pixhawk to a CHDK Canon
+PowerShot. This includes circuitry to upscale the Pixhawk 3.3 volt
+signal to 5 volts from the + pin. You’ll need to have an ESC with an BEC
+or UBEC plugged into any of the open AUX or MAIN OUTs on the Pixhawk.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.tuffwing.com/store/store.html#PixHawk_Camera_Trigger_Cable">Purchase from Tuffwing store</a></p></li>
+<li><p><a class="reference external" href="http://www.tuffwing.com/support/pixhawk_camera_trigger_cable.html">Pixhawk Camera Trigger Cable</a>
+(User Guide)</p></li>
+</ul>
+<figure class="align-default" id="id9">
+<a class="reference external image-reference" href="http://www.tuffwing.com/store/store.html#PixHawk_Camera_Trigger_Cable"><img alt="http://www.tuffwing.com/images/pixhawk_trigger_cable.jpg" src="http://www.tuffwing.com/images/pixhawk_trigger_cable.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Tuffwing Pixhawk CHDK Camera Trigger Cable</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

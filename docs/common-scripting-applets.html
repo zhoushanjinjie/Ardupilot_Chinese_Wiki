@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Script Applets &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Script Applets</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-scripting-applets">[copywiki destination=”plane,copter,rover,dev”]</p>
+<section id="script-applets">
+<h1>Script Applets<a class="headerlink" href="#script-applets" title="Permalink to this heading">¶</a></h1>
+<p>These are scripts that require no user editing before use, and can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_Scripting/applets">here</a> . Each of these has a .md file of the same name detailing its capabilities, use, and setup.</p>
+<p>Below is a list of applets and their use as of this writing. More are being added continually.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Applet Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gimbal_Camera_Mode.lua</p></td>
+<td><p>Select auto or manual gimbal/camera control mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heli_IM_COL_Tune.lua</p></td>
+<td><p>Traditional IM_COL_TUNE tuning applet</p></td>
+</tr>
+<tr class="row-even"><td><p>Hexsoon LEDs.lua</p></td>
+<td><p>Hexsoon Multicopter LED control script</p></td>
+</tr>
+<tr class="row-odd"><td><p>MissionSelector.lua</p></td>
+<td><p>Selects between one of three missions on boot depending on switch state</p></td>
+</tr>
+<tr class="row-even"><td><p>ONVIF_Camera_Control.lua</p></td>
+<td><p>CNIF Camera Control</p></td>
+</tr>
+<tr class="row-odd"><td><p>QuadPlane_Low_Alt_FW_mode_prevention.lua</p></td>
+<td><p>Prevents changing to FW at low altitude</p></td>
+</tr>
+<tr class="row-even"><td><p>RockBlock.lua</p></td>
+<td><p>Rockblock modem</p></td>
+</tr>
+<tr class="row-odd"><td><p>Script_Controller.lua</p></td>
+<td><p>Allows selection of multiple scripts and missions on SD Card</p></td>
+</tr>
+<tr class="row-even"><td><p>SmartAudio.lua</p></td>
+<td><p>Smart Audio control</p></td>
+</tr>
+<tr class="row-odd"><td><p>VTOL-quicktune.lua</p></td>
+<td><p>VTOL-quicktuning applet</p></td>
+</tr>
+<tr class="row-even"><td><p>copter-deadreckon-home.lua</p></td>
+<td><p>flies towards home on loss of GPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>forward_flight_motor_shutdown.lua</p></td>
+<td><p>Forward flight motor shutdown</p></td>
+</tr>
+<tr class="row-even"><td><p>motor_failure_test.lua</p></td>
+<td><p>Motor failure testing script</p></td>
+</tr>
+<tr class="row-odd"><td><p>plane_aerobatics.lua(in Aerobatics subdir)</p></td>
+<td><p>Autonomous trajectory precise aerobatics</p></td>
+</tr>
+<tr class="row-even"><td><p>plane_package_place.lua</p></td>
+<td><p>Quadplane payload place script</p></td>
+</tr>
+<tr class="row-odd"><td><p>plane_ship_landing.lua</p></td>
+<td><p>Script to automate moving vehicle landing with a beacon</p></td>
+</tr>
+<tr class="row-even"><td><p>runcam_on_arm.lua</p></td>
+<td><p>Starts/stops video recording on arm/disarm</p></td>
+</tr>
+<tr class="row-odd"><td><p>sport_aerobatics.lua(in Aerobatics subdir)</p></td>
+<td><p>Autonomous rate based aerobatics</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

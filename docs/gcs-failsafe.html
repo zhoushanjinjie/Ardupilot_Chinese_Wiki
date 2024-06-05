@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GCS Failsafe &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="EKF Failsafe" href="ekf-inav-failsafe.html" />
+    <link rel="prev" title="Battery Failsafe" href="failsafe-battery.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="radio-failsafe.html">Radio Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="failsafe-battery.html">Battery Failsafe</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">GCS Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ekf-inav-failsafe.html">EKF Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deadreckoning-failsafe.html">Dead Reckoning Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vibration-failsafe.html">Vibration Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tkoff-rpm-min.html">Dead Motor Takeoff Prevention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="terrain-following.html">Terrain Data Loss Failsafe (see section on loss of terrain data induced RTL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crash_check.html">Crash Check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-parachute.html">Parachute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="failsafe-landing-page.html">Failsafe</a></li>
+      <li class="breadcrumb-item active">GCS Failsafe</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gcs-failsafe">
+<span id="id1"></span><h1>GCS Failsafe<a class="headerlink" href="#gcs-failsafe" title="Permalink to this heading">¶</a></h1>
+<p>Significant improvements have been made in Copter-4.0 and later for Ground Control Failsafe .</p>
+<p>The Ground Station Control (GCS) failsafe controls how Copter will behave if contact with the GCS is lost.  The GCS failsafe monitors the time since the last MAVLink heartbeat from the GCS.  If no heartbeat is received <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-gcs-timeout" title="(in Rover)"><span class="xref std std-ref">FS_GCS_TIMEOUT</span></a> seconds (Default is 5 seconds), the GCS failsafe event will trigger based on your parameter settings. Note that if no GCS is ever connected, the GCS failsafe will remain inactive regardless of parameter settings.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copter also supports other failsafes: <a class="reference internal" href="radio-failsafe.html#radio-failsafe"><span class="std std-ref">Radio</span></a>, <a class="reference internal" href="failsafe-battery.html#failsafe-battery"><span class="std std-ref">Battery</span></a>, and <a class="reference internal" href="ekf-inav-failsafe.html#ekf-inav-failsafe"><span class="std std-ref">EKF / DCM Check</span></a>.</p>
+</div>
+<section id="when-the-failsafe-will-trigger">
+<h2>When the failsafe will trigger<a class="headerlink" href="#when-the-failsafe-will-trigger" title="Permalink to this heading">¶</a></h2>
+<p>The following situations can cause a loss of GCS MAVLink heartbeat, triggering a GCS failsafe event after <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-gcs-timeout" title="(in Rover)"><span class="xref std std-ref">FS_GCS_TIMEOUT</span></a> seconds:</p>
+<ul class="simple">
+<li><p>The operator turns off or otherwise disconnects the GCS</p></li>
+<li><p>The copter travels beyond the range of the  GCS telemetry radios</p></li>
+<li><p>The GCS telemetry radio on either end loses power</p></li>
+<li><p>Wires connecting the GCS telemetry radio to the autopilot or ground equipment become disconnected</p></li>
+</ul>
+</section>
+<section id="what-will-happen">
+<h2>What will happen<a class="headerlink" href="#what-will-happen" title="Permalink to this heading">¶</a></h2>
+<p>When a GCS failsafe is triggered, the copter can be configured via parameters to do nothing, land immediately, RTL, or SmartRTL.  It can also be configured to bypass the failsafe in an Auto Mode mission, bypass the failsafe in pilot controlled modes, or to continue landing if already in a landing phase.</p>
+<ul class="simple">
+<li><p>If the copter is disarmed, no failsafe will take place.</p></li>
+<li><p>If the copter is armed but has landed, the copter will immediately disarm.</p></li>
+<li><p>If the copter is armed in Stabilize or Acro modes, and the throttle input is at minimum, the copter will immediately disarm.</p></li>
+<li><p>Otherwise, the copter will take the actions as configured in the parameters described below.</p></li>
+</ul>
+<p>If the failsafe clears (i.e. GCS reconnects and MAVLink heartbeat is restored) the copter will remain in its failsafe mode. It will <strong>not</strong> automatically return to the flight mode that was active before the failsafe was triggered. This means that if, for example, the vehicle was in Loiter when the failsafe occurred and the flight mode was automatically changed to RTL, even after the GCS reconnects, the vehicle would remain in RTL.  If the pilot wished to re-take control in Loiter he/she would need to change the flight mode switch to another position and then back to Loiter. This can be done via the re-connected GCS also.</p>
+</section>
+<section id="setting-the-failsafe">
+<h2>Setting the failsafe<a class="headerlink" href="#setting-the-failsafe" title="Permalink to this heading">¶</a></h2>
+<p>In Mission Planner’s  full parameter list or full parameter tree, set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-gcs-enable" title="(in Rover)"><span class="xref std std-ref">FS_GCS_ENABLE</span></a> parameter to:</p>
+<ul class="simple">
+<li><p><strong>Disabled</strong> (Value 0) will disable the GCS failsafe entirely.</p></li>
+<li><p><strong>Enabled Always RTL</strong> (Value 1) will switch the copter to RTL Mode.  If the GPS position is not usable, the copter will change to Land Mode instead.</p></li>
+<li><p><strong>Enabled Continue with Mission in Auto Mode (this value has no effect in 4.0 and later with FS_OPTION parameter replacing function, see below )</strong> (Value 2) will ignore the failsafe in an Auto Mode mission. Otherwise, it will behave the same as <em>Enabled Always RTL</em>. This option no longer exists in Copter 4.0 and later. Instead, see the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> parameter for this function. Setting this value in Copter 4.0 and later version will automatically be converted and set to Value 1 (Always RTL) and the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> bitmask will be modified to include bit (1) for “Continue auto mode mission on GCS failsafe”.</p></li>
+<li><p><strong>Enabled SmartRTL or RTL</strong> (Value 3) will switch the copter to SmartRTL mode. If SmartRTL is not available, the copter will switch to RTL Mode instead.  If the GPS position is not usable, the copter will change to Land Mode instead.</p></li>
+<li><p><strong>Enabled SmartRTL or Land</strong> (Value 4) will switch the copter to SmartRTL mode. If SmartRTL is not available, the copter will switch to Land Mode instead.</p></li>
+<li><p><strong>Enabled Always Land</strong> (Value 5) will switch the copter to Land Mode.</p></li>
+<li><p><strong>Auto DO_LAND_START or RTL</strong> (Value 6) will execute a DO_LAND_START auto mission sequence (see <a class="reference external" href="https://ardupilot.org/plane/docs/do-land-start.html#id1" title="(in Plane)"><span>Using DO_LAND_START</span></a>) or and RTL if no DO_LAND_START sequence exists.</p></li>
+<li><p>Any invalid value (Such as accidentally enter 99 as a parameter value) will will behave the same as <strong>Enabled Always RTL</strong></p></li>
+</ul>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> parameter (Copter 4.0 and later) is a bitmask parameter to select one or more options that modify the standard actions of the radio, GCS, and battery failsafe. In the Mission Planner full parameter list or full parameter tree, the handy checkbox popup window is an easy what to set this (and any other bitmask) parameter. Be sure to go to Help &gt; Check Beta Updates to pull the latest parameter definitions first while connected to the internet. The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-options" title="(in Rover)"><span class="xref std std-ref">FS_OPTIONS</span></a> bits are as follows:</p>
+<ul class="simple">
+<li><p>bit 0 set: Continue if in auto mode on <a class="reference internal" href="radio-failsafe.html#radio-failsafe"><span class="std std-ref">Radio Failsafe</span></a></p></li>
+<li><p>bit 1 set: Continue if in auto mode on <a class="reference internal" href="#gcs-failsafe"><span class="std std-ref">Ground Control Station Failsafe</span></a></p></li>
+<li><p>bit 2 set: Continue if in guided mode <a class="reference internal" href="radio-failsafe.html#radio-failsafe"><span class="std std-ref">Radio Failsafe</span></a></p></li>
+<li><p>bit 3 set: Continue if landing on any failsafe</p></li>
+<li><p>bit 4 set: Continue in pilot control on <a class="reference internal" href="#gcs-failsafe"><span class="std std-ref">Ground Control Station Failsafe</span></a></p></li>
+<li><p>If none of the above are set, then execute the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-gcs-enable" title="(in Rover)"><span class="xref std std-ref">FS_GCS_ENABLE</span></a> option as configured.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only bitmask bits 1, 3, &amp; 4 affect actions taken during GCS failsafe. This parameter also works in conjunction with the battery and radio failsafe, so ensure you are taking all options into account when setting this parameter.</p>
+</div>
+<a class="reference external image-reference" href="../_images/FailsafeAdvPar801.jpg"><img alt="../_images/FailsafeAdvPar801.jpg" src="../_images/FailsafeAdvPar801.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All Failsafe Parameters can be observed or set from the Advanced Parameter List in Mission Planner.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="failsafe-battery.html" class="btn btn-neutral float-left" title="Battery Failsafe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ekf-inav-failsafe.html" class="btn btn-neutral float-right" title="EKF Failsafe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

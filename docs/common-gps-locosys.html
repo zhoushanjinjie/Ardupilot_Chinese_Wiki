@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOCOSYS HAWK R1 &amp; R2 RTK GNSS &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LOCOSYS HAWK R1 &amp; R2 RTK GNSS</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="locosys-hawk-r1-r2-rtk-gnss">
+<span id="common-gps-locosys"></span><h1>LOCOSYS HAWK R1 &amp; R2 RTK GNSS<a class="headerlink" href="#locosys-hawk-r1-r2-rtk-gnss" title="Permalink to this heading">¶</a></h1>
+<p>HAWK R1 and R2 (with compass) is a L1+L5 dual-frequency RTK centimeter-level GNSS receiver designed
+for UAV applications.
+The receiver is capable of concurrently tracking global civil navigation systems, including GPS,
+GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at a time while providing the
+centimeter-level RTK positioning accuracy.</p>
+<a class="reference external image-reference" href="../images/locosys/hawk-a1-LU23031-V2-7.png"><img alt="../_images/hawk-a1-LU23031-V2-7.png" src="../_images/hawk-a1-LU23031-V2-7.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HAWK R1 and R2 GNSS requires L1 and L5 RTCM GNSS correction data for a stable RTK fix</p>
+</div>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Concurrent reception of L1 and L5 band signals</p></li>
+<li><p>Centimeter-level RTK high position accuracy</p></li>
+<li><p>Support GPS, GLONASS, BEIDOU, GALILEO, QZSS</p></li>
+<li><p>Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)</p></li>
+<li><p>Support 135-channel GNSS</p></li>
+<li><p>Fast TTFF at low signal level</p></li>
+<li><p>Free hybrid ephemeris prediction to achieve faster cold start</p></li>
+<li><p>Default 5Hz, up to 10 Hz update rate, SBAS support 5Hz only</p></li>
+<li><p>Build-in super capacitor to reserve system data for rapid satellite acquisition</p></li>
+<li><p>Three LED indicator for Power, Pulse per Second and Data transmit</p></li>
+<li><p>HAWK R2 integrated with IST8310 compass via I2C bus</p></li>
+<li><p>JST-GH cable (Dronecode standard) for direct connection to i.e. Cube Autopilot</p></li>
+</ul>
+</section>
+<section id="frequency">
+<h2>Frequency<a class="headerlink" href="#frequency" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>GPS/QZSS: L1 C/A, L5C</p></li>
+<li><p>GLONASS: L1OF</p></li>
+<li><p>BEIDOU: B1I, B2a</p></li>
+<li><p>GALILEO: E1, E5a</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 UART 230400 bps, 8 data bits, no parity, 1 stop bit</p></li>
+<li><p>1 I2C</p></li>
+<li><p>1 Antenna interface (SMA)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="protocols">
+<h2>Protocols<a class="headerlink" href="#protocols" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>UBX binary UBX-NAV-PVT, UBX-NAV-DOP, UBX-NAV-TIMEGPS</p></li>
+<li><p>RTCM version 3.x</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="supply-voltage">
+<h2>Supply voltage<a class="headerlink" href="#supply-voltage" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>3.3V - 5V</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="size-and-weight">
+<h2>Size and weight<a class="headerlink" href="#size-and-weight" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Size:   46.5*46.5*16 mm without antenna</p></li>
+<li><p>Weight: 26g, 40g with antenna</p></li>
+</ul>
+</div></blockquote>
+<a class="reference external image-reference" href="../images/locosys/hawk-pinout-led.png"><img alt="../_images/hawk-pinout-led.png" src="../_images/hawk-pinout-led.png" /></a>
+</section>
+<section id="led">
+<h2>LED<a class="headerlink" href="#led" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin No</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LED 1</p></td>
+<td><p>TX LED</p></td>
+<td><p>Green, GNSS data transmit indicator</p></td>
+</tr>
+<tr class="row-odd"><td><p>LED 2</p></td>
+<td><p>Power LED</p></td>
+<td><p>Red, Power indicator</p></td>
+</tr>
+<tr class="row-even"><td><p>LED 3</p></td>
+<td><p>PPS_LED</p></td>
+<td><p>Blue, Pulse per Second indicator</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pinout-gnss-connector">
+<h2>Pinout GNSS connector<a class="headerlink" href="#pinout-gnss-connector" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin No</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC</p></td>
+<td><p>DC supply voltage 3.3V ~ 5.0V input</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>GNSS_RX</p></td>
+<td><p>Receive Data Input</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>GNSS_TX</p></td>
+<td><p>Transmit Data Output</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GNSS_PPS</p></td>
+<td><p>GNSS pulse per second, 100ms pulse width, 1.8V DC</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>NC</p></td>
+<td><p>NC</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>NC</p></td>
+<td><p>NC</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>I2C_CLK</p></td>
+<td><p>Magnetometer I2C serial clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>I2C_DAT</p></td>
+<td><p>Magnetometer I2C serial data</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>GND</p></td>
+<td><p>Ground</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pinout-jst-gh-cable-connector-standard-pinout">
+<h2>Pinout JST-GH cable connector (standard pinout)<a class="headerlink" href="#pinout-jst-gh-cable-connector-standard-pinout" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin No</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC</p></td>
+<td><p>DC supply voltage 3.3V ~ 5.0V input</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>GNSS_RX</p></td>
+<td><p>Receive Data Input</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>GNSS_TX</p></td>
+<td><p>Transmit Data Output</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>I2C_CLK</p></td>
+<td><p>Magnetometer I2C serial clock</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>I2C_DAT</p></td>
+<td><p>Magnetometer I2C serial data</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>Ground</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="where-to-buy">
+<h2>Where to buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>You can buy it from <a class="reference external" href="https://www.locosystech.com/en/index.html">LOCOSYS</a>.</p>
+</section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.locosystech.com/en/product/hawk-r1.html">HAWK R1</a></p>
+<p><a class="reference external" href="https://www.locosystech.com/en/product/hawk-r2.html">HAWK R2</a></p>
+<p><a class="reference external" href="https://www.locosystech.com/Templates/att/HAWK%20R1%2CR2%20datasheet_v0.2.pdf?lng=en">Datasheet</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBus Servos &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SBus Servos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbus-servos">
+<span id="common-sbus-output"></span><h1>SBus Servos<a class="headerlink" href="#sbus-servos" title="Permalink to this heading">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/servo-sbus-topimage.png"><img alt="../_images/servo-sbus-topimage.png" src="../_images/servo-sbus-topimage.png" style="width: 450px;" /></a>
+<p><a class="reference external" href="https://www.futabarc.com/servos/sbus.html">Futaba SBus/SBus2 servos</a> accept the serial <a class="reference external" href="https://www.futabarc.com/sbus/">SBus protocol</a> and can be controlled by ArduPilot once connected to the autopilot’s “SB” port or any other serial port.  Up to 16 servos can be daisy chained together meaning that instead of each servo being directly connected to the autopilot, only a single serial connection from the autopilot is required.</p>
+<p>The transmission rate is 100K baud.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Available from many online retailers including <a class="reference external" href="https://www.amazon.com/s/ref=nb_sb_noss?url=srs&amp;field-keywords=s-bus+servo">Amazon.com</a></p></li>
+<li><p>The <a class="reference external" href="https://www.amazon.com/FUTABA-BB1166-CIU-3-USB-Interface/dp/B01I4KQ0QA/ref=sr_1_19?">Futaba CIU-3 USB Interface</a> is also recommended to allow easy configuration of the servos (<a class="reference external" href="http://manuals.hobbico.com/fut/ciu-3-manual.pdf">online manual</a>)</p></li>
+</ul>
+</section>
+<section id="configuring-the-servos">
+<h2>Configuring the Servos<a class="headerlink" href="#configuring-the-servos" title="Permalink to this heading">¶</a></h2>
+<p>Each servo’s ID needs to be set to a number from 1 to 16.  The number chosen should correspond to the servo number used to configure and control the servo from within ArduPilot.  For example if the ID is set to “9”, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-min" title="(in Rover)"><span class="xref std std-ref">SERVO9_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-max" title="(in Rover)"><span class="xref std std-ref">SERVO9_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a>, etc parameters will be used to configure the servo.</p>
+<ul class="simple">
+<li><p>Connect the servo the Futuba CIU-3 USB Interface dongle (<a class="reference external" href="http://manuals.hobbico.com/fut/ciu-3-manual.pdf">online manual</a>) and plug the dongle into a Windows PC.  A prompt should appear to download and install the required drivers</p></li>
+<li><p>Download and install the S-Link software (<a class="reference external" href="https://www.futabarc.com/software-updates.html">search for “S-Link” here</a>)</p></li>
+<li><p>Use S-Link to set each servo’s ID (<a class="reference external" href="http://downloads.hobbico.com/software/fut/S_Link_Manual-ENG.pdf">online instructions</a>)</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/servo-sbus-slink.png"><img alt="../_images/servo-sbus-slink.png" src="../_images/servo-sbus-slink.png" style="width: 450px;" /></a>
+<p><em>image courtesy of Futaba.com</em></p>
+</section>
+<section id="connecting-servos-to-a-autopilot">
+<h2>Connecting Servos to a Autopilot<a class="headerlink" href="#connecting-servos-to-a-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/servo-sbus-pixhawk.png"><img alt="../_images/servo-sbus-pixhawk.png" src="../_images/servo-sbus-pixhawk.png" style="width: 450px;" /></a>
+<p>If using an autopilot with a designated “SBUS out” pin ,connect the servo to that port on the autopilot.  For Cube autopilots use the “SBUSo” port.  For other autopilots without these connectors see the instructions below. The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-sbus-out" title="(in Rover)"><span class="xref std std-ref">BRD_SBUS_OUT</span></a> parameter must be enabled (=1).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On some autopilots, this pin has a shared function with analog RSSI input by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a> to this pin. These functions cannot be used simultaneously.</p>
+</div>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-sbus-rate" title="(in Rover)"><span class="xref std std-ref">SERVO_SBUS_RATE</span></a> controls the update rate to the servos.  The default is 50 Hz but can be set to any value in the range of 25 Hz to 250 Hz</p>
+</section>
+<section id="connecting-servos-to-a-serial-port">
+<h2>Connecting Servos to a Serial Port<a class="headerlink" href="#connecting-servos-to-a-serial-port" title="Permalink to this heading">¶</a></h2>
+<p>SBus servos can also be controlled from any of the autopilot’s serial ports. The protocol uses inverted logic levels (unidirectional: output only) meaning an inverting cable is required when using a standard serial port, if the autopilot is not capable of internally inverting the signals.
+Autopilots using an F7 or H7 processor can internally invert the serial port’s TX pin.
+Below is a diagram showing a simple NPN transistor inverter which will suffice:</p>
+<img alt="../_images/sbus_inverter.png" src="../_images/sbus_inverter.png" />
+<p>Alternatively, a commercial <a class="reference external" href="https://www.amazon.com/Telemetry-Converter-Pixhawk-Taranis-Receiver/dp/B07KJFWTCB">SPort inverter</a> can be used, as shown below:</p>
+<img alt="../_images/inverter.png" src="../_images/inverter.png" />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>do not power the servo from the serial port’s 5V, use the systems servo power bus!</p>
+</div>
+<ul class="simple">
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 15 (“SBUS servo out”) if using Serial2 (normally TELEM2).  For other serial ports use the appropriate <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> parameter.</p></li>
+<li><p>The port’s baud rate parameter (in this case <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> ) will automatically be set to 100,000</p></li>
+<li><p>For F7/H7 processors an inverter is unnecessary, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-options" title="(in Rover)"><span class="xref std std-ref">SERIAL2_OPTIONS</span></a> bit 1  to “1” (TX invert) if connecting to Serial port 2.</p></li>
+</ul>
+</section>
+<section id="sbus-to-pwm-decoders">
+<h2>SBUS to PWM Decoders<a class="headerlink" href="#sbus-to-pwm-decoders" title="Permalink to this heading">¶</a></h2>
+<p>SBus to PWM decoders allow using the SBus interface with regular PWM servos but beware that some decoders including the <a class="reference external" href="https://alofthobbies.com/frsky-sbus-cppm-decoder-with-pins.html">FrSky SBUS &amp; CCPM Decoder</a> generate a fixed PWM output rate (~170 Hz) that may damage analog servos (digital servos should be fine)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

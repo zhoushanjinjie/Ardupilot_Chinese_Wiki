@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading Firmware &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Loading Firmware onto boards without existing ArduPilot firmware" href="common-loading-firmware-onto-chibios-only-boards.html" />
+    <link rel="prev" title="Magnetic Interference" href="common-magnetic-interference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">将固件加载到有ArduPilot固件的板子</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connect-autopilot-to-computer">Connect autopilot to computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-the-com-port">Select the COM port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-firmware">Install firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-beta-and-developer-versions">Using Beta and Developer Versions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#beta">Beta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#latest-developer-version">Latest Developer Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-firmware-build-server">Custom Firmware Build Server</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+      <li class="breadcrumb-item active">Loading Firmware</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-loading-firmware-onto-pixhawk">[copywiki destination=”copter,plane,rover,planner,blimp”]</p>
+<section id="loading-firmware">
+<h1>Loading Firmware<a class="headerlink" href="#loading-firmware" title="Permalink to this heading">¶</a></h1>
+<p>These instructions will show you how to download the latest firmware onto the autopilot hardware that already has ArduPilot firmware installed. This process will use the Mission Planner ground control station. See <a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html#common-loading-firmware-onto-chibios-only-boards"><span class="std std-ref">Loading Firmware onto boards without existing ArduPilot firmware</span></a>.</p>
+<section id="connect-autopilot-to-computer">
+<h2>Connect autopilot to computer<a class="headerlink" href="#connect-autopilot-to-computer" title="Permalink to this heading">¶</a></h2>
+<p>Once you have <a class="reference internal" href="common-install-gcs.html#common-install-gcs"><span class="std std-ref">installed a ground station</span></a> on your computer, connect
+the autopilot using a USB cable as shown
+below. Use a direct USB port on your computer (not a USB hub).</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/pixhawk_usb_connection.jpg"><img alt="../_images/pixhawk_usb_connection.jpg" src="../_images/pixhawk_usb_connection.jpg" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">Pixhawk USB Connection</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Windows should automatically detect and install the correct driver
+software.</p>
+</section>
+<section id="select-the-com-port">
+<h2>Select the COM port<a class="headerlink" href="#select-the-com-port" title="Permalink to this heading">¶</a></h2>
+<p>If using <em>Mission Planner</em> as the GCS, select the COM port drop-down in the upper-right corner of the window near the <strong>Connect</strong> button. Select <strong>AUTO</strong> or the specific port for your board. Set the Baud rate to <strong>115200</strong> as shown. Do not hit <strong>Connect</strong> just yet.</p>
+<a class="reference external image-reference" href="../_images/Pixhawk_ConnectWithMP.png"><img alt="../_images/Pixhawk_ConnectWithMP.png" src="../_images/Pixhawk_ConnectWithMP.png" /></a>
+</section>
+<section id="install-firmware">
+<h2>Install firmware<a class="headerlink" href="#install-firmware" title="Permalink to this heading">¶</a></h2>
+<p>In Mission Planner’s <strong>SETUP | Install Firmware</strong> screen
+select the appropriate icon that matches your vehicle or frame type(i.e. Quad, Hexa).
+Answer <strong>Yes</strong> when it asks you “Are you sure?”.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/Pixhawk_InstallFirmware.jpg"><img alt="../_images/Pixhawk_InstallFirmware.jpg" src="../_images/Pixhawk_InstallFirmware.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Install FirmwareScreen</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Mission Planner will try to detect which board you are using. It may ask you to unplug the board, press OK, and plug it back in to detect the board type.</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/Pixhawk_InstallFirmware2.png"><img alt="../_images/Pixhawk_InstallFirmware2.png" src="../_images/Pixhawk_InstallFirmware2.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Install FirmwarePrompt</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Often you will be presented with a dropdown box of firmware variants for the board, which you can select from (such as bi-directional DShot variants, if available). For boards which share the Pixhawk board id, the list will be extensive, as shown below:</p>
+<a class="reference external image-reference" href="../_images/pixhawk-firmware.png"><img alt="../_images/pixhawk-firmware.png" src="../_images/pixhawk-firmware.png" /></a>
+<p>Select the appropriate firmware for your board. For boards marked “Pixhawk”, Pixhawk1 firmware is usually the best choice.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>some boards labeled as Pixhawk 2.4.x may have sensor substitutions which may lead to pre-arm checks or no secondary IMU. Please see the BARO_OPTIONS parameter for a workaround for a known sensor substitution on some boards of a MS5607 barometer where a MS5611 should be used. IMUs may also be substituted. Where possible, please source autopilots from ArduPilot partners.</p>
+</div>
+<p>If all goes well, you will see a status appear on the bottom right including the words: “erase…”, “program…”, “verify..”, and “Upload Done”. The firmware has been successfully uploaded to the board.</p>
+<p>It usually takes a few seconds for the bootloader to exit and enter the main code after programming or a power-up. Wait to press CONNECT until this occurs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Updating the firmware to a newer version does not alter existing parameters unless the firmware is for a different vehicle, in which case parameters are reset to their default values for that vehicle. However, it is always a good idea to save your parameters to a file using the “Save to File” button on the Mission Planner’s <strong>CONFIG/Full Parameter Tree</strong> tab before any firmware updates, just in case of any issues while updating. Do not apply all parameters after upgrading to a new version as some parameters might have a different meaning.</p>
+</div>
+</section>
+<section id="using-beta-and-developer-versions">
+<h2>Using Beta and Developer Versions<a class="headerlink" href="#using-beta-and-developer-versions" title="Permalink to this heading">¶</a></h2>
+<section id="beta">
+<h3>Beta<a class="headerlink" href="#beta" title="Permalink to this heading">¶</a></h3>
+<p>Prior to <code class="docutils literal notranslate"><span class="pre">Stable</span></code> releases, <code class="docutils literal notranslate"><span class="pre">Beta</span></code> versions are released. These may be used if you wish to try newer features or help the developers flight test new code. Since these are “beta” versions, there may still be bugs. This is possible even in Stable release firmware. However, a Beta release has been tested by the development team, and already flight tested. This release allows a wider user base to final test the firmware before releasing as <code class="docutils literal notranslate"><span class="pre">Stable</span></code>. Experienced ArduPilot users are encouraged to test fly this firmware and provide feedback.</p>
+<p>Mission Planner has an option on the <strong>Install Firmware</strong> page to upload this release, but later <code class="docutils literal notranslate"><span class="pre">Stable</span></code> releases may already be available. Be sure to check the normal vehicle upload option first.</p>
+</section>
+<section id="latest-developer-version">
+<h3>Latest Developer Version<a class="headerlink" href="#latest-developer-version" title="Permalink to this heading">¶</a></h3>
+<p>This reflects the current state of the development branch of the ArduPilot code. It has been reviewed by the development team, passed all automated test suites, and in most cases test flown. This code gets built daily and is available for testing by experienced users. This corresponds to an “alpha” release, and may have bugs, although very rarely “crash inducing”. Very shortly after an addition that changes or introduces a feature is added, the <a class="reference internal" href="common-master-features.html#common-master-features"><span class="std std-ref">Upcoming Features</span></a> section of the Wiki is updated with information about the addition or change.</p>
+<p>This code must be manually downloaded from the <a class="reference external" href="https://firmware.ardupilot.org">Firmware Downloads</a> page as <code class="docutils literal notranslate"><span class="pre">latest</span></code> for your particular board, and then uploaded using Mission Planner’s “Load Custom Firmware” option on its <strong>Install Firmware Page</strong></p>
+</section>
+<section id="custom-firmware-build-server">
+<h3>Custom Firmware Build Server<a class="headerlink" href="#custom-firmware-build-server" title="Permalink to this heading">¶</a></h3>
+<p>ArduPilot is currently experimentally testing a custom firmware build server that will allow users to generate firmware builds for their autopilots with selectable features. Since all 1MB flash sized boards now have feature restrictions to allow the code to fit, this will give a path to enable a user to select which features will or will not be included, giving some flexibility to users of 1MB autopilots.</p>
+<p>The server is located <a class="reference external" href="https://custom.ardupilot.org">here</a></p>
+<p>It allows creating a custom build, which can be downloaded, and flashed to the autopilot using Mission Planner’s “Load Custom Firmware” option on its <strong>Install Firmware Page</strong></p>
+<section id="firmware-limitations">
+<h4>Firmware Limitations<a class="headerlink" href="#firmware-limitations" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>For a list of what features are <strong>not</strong> included in the current “latest” firmware for any given autopilot, see <a class="reference external" href="https://ardupilot.org/rover/docs/binary-features.html#binary-features" title="(in Rover)"><span class="xref std std-ref">this page</span></a>.</p></li>
+<li><p>All the feature options currently <strong>not</strong> included in the 1MB autopilots, by default, are on the list of options on the Custom Firmware Build Server. There are also many features still included in the 1MB autopilots that may not be required for your application. So it is possible to create a build that includes some of the currently excluded features while removing some of the unneeded features. The list of feature options will be continuously expanded, allowing other large features to be dropped and more restricted features added to the custom build. For example, not including QuadPlane features will save space for Planes not requiring it. Drivers and peripheral support may be individually selected, allowing only those used to be in the code thus allowing other features to be included in the custom firmware.</p></li>
+<li><p>Current build is from the daily master branch only (“latest”). In the future, Stable and Beta branches will be selectable.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>You can test the firmware is working on a basic level by switching to the <em>Mission Planner Flight Data</em> screen and pressing the <strong>Connect</strong> button. The HUD should update as you tilt the board.</p>
+<p><a class="reference internal" href="common-connect-mission-planner-autopilot.html#common-connect-mission-planner-autopilot"><span class="std std-ref">连接Mission Planner和飞控</span></a> has more
+information on connecting to Mission Planner.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-magnetic-interference.html" class="btn btn-neutral float-left" title="Magnetic Interference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-loading-firmware-onto-chibios-only-boards.html" class="btn btn-neutral float-right" title="Loading Firmware onto boards without existing ArduPilot firmware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

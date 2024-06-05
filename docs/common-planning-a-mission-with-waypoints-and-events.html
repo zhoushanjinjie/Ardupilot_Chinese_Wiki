@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning a Mission with Waypoints and Events &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Planning a Mission with Waypoints and Events</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="planning-a-mission-with-waypoints-and-events">
+<span id="common-planning-a-mission-with-waypoints-and-events"></span><h1>Planning a Mission with Waypoints and Events<a class="headerlink" href="#planning-a-mission-with-waypoints-and-events" title="Permalink to this heading">¶</a></h1>
+<p>This page describes generic waypoint setup for all types of vehicles.</p>
+<p>[site wiki=”rover”]
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Rover users: For a simpler Rover specific guide to setting up
+waypoints please see :ref:`Learning a Mission &lt;rover:learning-a-mission&gt;`.
+</pre></div>
+</div>
+<p>[/site]</p>
+<section id="setting-the-home-position">
+<span id="common-planning-a-mission-with-waypoints-and-events-setting-the-home-position"></span><h2>Setting the Home Position<a class="headerlink" href="#setting-the-home-position" title="Permalink to this heading">¶</a></h2>
+<p>For <strong>Copter</strong>, <strong>Plane</strong> and <strong>Rover</strong> the home position is set as the location where the vehicle
+was armed. This means if you execute an RTL, it will return to
+the location where it was armed, so arm your vehicle in the location you
+want it to return to, or use a rally point to setup an alternative return point.</p>
+</section>
+<section id="video-produce-and-save-a-multi-waypoint-mission">
+<h2>Video: Produce and save a Multi-waypoint Mission<a class="headerlink" href="#video-produce-and-save-a-multi-waypoint-mission" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/HAjkuJdjZw4" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="video-load-an-already-saved-multi-waypoint-mission">
+<h2>Video: Load an already saved Multi-waypoint Mission<a class="headerlink" href="#video-load-an-already-saved-multi-waypoint-mission" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/nBq8YHShkVU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h2>
+<p>In the screenshot below, a Copter mission starts with an auto takeoff to
+20 meters altitude; then goes to WP 2 rising to 100 meters altitude on
+the way, then waits 10 seconds; then the craft will proceed to WP 3
+(descending to 50 meters altitude on the way), then returns to launch.
+After reaching the launch position, the craft will land.
+The mission assumes that the launch position is set at the home
+position.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/mp_mission_planning.jpg"><img alt="../_images/mp_mission_planning.jpg" src="../_images/mp_mission_planning.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planning Example</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>You can enter waypoints and other commands (see the
+<a class="reference internal" href="#common-planning-a-mission-with-waypoints-and-events-mission-commands"><span class="std std-ref">Mission commands</span></a>
+section below for more information). In
+the dropdown menus on each row, select the command you want. The column
+heading will change to show you what data that command requires. Lat and
+Lon can be entered by clicking on the map. Altitude is relative to your
+launch altitude/home position, so if you set 100m, for example, it will
+fly 100m above you.</p>
+<p><strong>Default Alt</strong> is the default altitude when entering new waypoints. See <a class="reference internal" href="common-understanding-altitude.html#common-understanding-altitude"><span class="std std-ref">Understanding Altitude in ArduPilot</span></a> for altitude definitions.</p>
+<p><strong>Verify height</strong> means that the Mission Planner will use Google Earth
+topology data to adjust your desired altitude at each waypoint to
+reflect the height of the ground beneath. So if your waypoint is on a
+hill, if this option is selected the <em>Mission Planner</em> will increase
+your ALT setting by the height of the hill. This is a good way to make
+sure you don’t crash into mountains!</p>
+<p>Once you are done with your mission, select <strong>Write</strong> and it will be
+sent to APM and saved in EEPROM. You can confirm that it’s as you wanted
+by selecting <strong>Read</strong>.</p>
+<p>You can save multiple mission files to your local hard drive by
+selecting <strong>Save WP File</strong> or read in files with <strong>Load WP File</strong> in the
+right-click menu:</p>
+<a class="reference external image-reference" href="../_images/mp_save_waypoints.jpg"><img alt="../_images/mp_save_waypoints.jpg" src="../_images/mp_save_waypoints.jpg" /></a>
+</section>
+<section id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Prefetch: You can cache map data so you don’t need Internet access at
+the field. Click the <strong>Prefetch</strong> button, and hold down <strong>Alt</strong> to
+draw a box to download the selected imagery of a location.</p></li>
+<li><p>Grid: This allows you to draw a polygon (right click) and
+automatically create waypoints over the selected area. Note that it
+does not do “island detection”, which means if you have a big polygon
+and a little one inside of that, the little one will not be excluded
+from the big one
+(see <a class="reference external" href="http://wiki.openstreetmap.org/wiki/Relation:multipolygon">this</a> for
+more). Also, in the case of any polygon that partialy doubles backs
+on itself (like the letter U), the open area in the center will be
+included as part of the flyover.</p></li>
+<li><p>Setting your home location to the current location is easy, just
+click <strong>Home Location</strong> above where you enter your home location, and
+it will set your home location to the current coordinates.</p></li>
+<li><p>You can measure the distance between waypoints by right-clicking at
+one end and selecting Measure Distance. Then right-click on the other
+end and select <strong>Measure Distance</strong> again. A dialog box will open
+with the distance between the two points.</p></li>
+</ul>
+</section>
+<section id="auto-grid">
+<h2>Auto grid<a class="headerlink" href="#auto-grid" title="Permalink to this heading">¶</a></h2>
+<p>You can also have the <em>Mission Planner</em> create a mission for you, which
+is useful for function like mapping missions, where the aircraft should
+just go back and forth in a “lawnmower” pattern over an area to collect
+photographs.</p>
+<p>To do this, in the right-click menu select Polygon and draw a box around
+the area you want to map. Then select Auto WP, Grid. Follow the dialog
+box process to select altitude and spacing. The <em>Mission Planner</em> will
+then generate a mission that looks something like this:</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/mp_auto_mission_grid.jpg"><img alt="../_images/mp_auto_mission_grid.jpg" src="../_images/mp_auto_mission_grid.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner auto-generated grid</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mission-commands">
+<span id="common-planning-a-mission-with-waypoints-and-events-mission-commands"></span><h2>Mission commands<a class="headerlink" href="#mission-commands" title="Permalink to this heading">¶</a></h2>
+<p><em>Mission Planner</em> provides a filtered list of the commands appropriate
+for the current vehicle type, and adds column headings for the
+parameters that need user-supplied values. These include navigation
+commands to travel to waypoints and loiter in the vicinity, DO commands
+to execute specific actions (for example taking pictures), and condition
+commands that can control when DO commands are able to run.</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/MissionList_LoiterTurns.png"><img alt="../_images/MissionList_LoiterTurns.png" src="../_images/MissionList_LoiterTurns.png" /></a>
+<figcaption>
+<p><span class="caption-text">Example: LOITER_TURNS command withheadings for number of turns, direction, and location to loiteraround.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The full set of mission commands supported by all ArduPilot platforms
+are listed in <a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#common-mavlink-mission-command-messages-mav-cmd"><span class="std std-ref">MAVLink Mission Command Messages (MAV_CMD)</span></a>. This
+includes the full name of each command (as defined in the protocol
+definition), information about which parameters are supported, and also
+the corresponding <em>Mission Planner</em> column headings.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mission Planner uses a cut-down version of the full command name.
+For example, commands like MAV_CMD_NAV_WAYPOINT,
+MAV_CMD_CONDITION_DISTANCE, MAV_CMD_DO_SET_SERVO are listed in MP
+as WAYPOINT, CONDITION_DISTANCE and DO_SET_SERVO respectively.</p>
+</div>
+<p>[site wiki=”copter”]
+There is also a Copter-specific <a class="reference external" href="https://ardupilot.org/copter/docs/mission-command-list.html#mission-command-list" title="(in Copter)"><span class="xref std std-ref">Copter Mission Command List</span></a>.
+[/site]</p>
+</section>
+<section id="end-of-mission">
+<h2>End of Mission<a class="headerlink" href="#end-of-mission" title="Permalink to this heading">¶</a></h2>
+<p>When the mission list is completed, Copter will loiter at the last waypoint indefinitely until a mode change or disarm (as when landing), Rover will hold, but Plane will RTL unless the last mission item is unlimited loiter or turns, or a landing.</p>
+</section>
+<section id="mission-reset">
+<h2>Mission Reset<a class="headerlink" href="#mission-reset" title="Permalink to this heading">¶</a></h2>
+<p>On Copter and Rover, the mission is reset to the beginning of the mission list every disarm. On Plane, it is reset similarly, except in AUTO mode which does not reset on disarm and leaves the “mission pointer” on the last mission item to be performed. For all vehicles, any landing mission item, when the landing is completed, will not advance to the next mission item. The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mis-options" title="(in Rover)"><span class="xref std std-ref">MIS_OPTIONS</span></a> parameter, bit 2, can be set to continue onward in the mission list after landing.</p>
+<p>One can set an <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> switch function (“24”) to reset the mission item pointer to the beginning of the mission list at any time.</p>
+<p>Also, the mission can be set to reset upon any entry into AUTO mode with the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mis-restart" title="(in Rover)"><span class="xref std std-ref">MIS_RESTART</span></a> parameter. Default (0) is to resume the mission when re-entering AUTO mode.</p>
+</section>
+<section id="mis-options">
+<h2><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mis-options" title="(in Rover)"><span class="xref std std-ref">MIS_OPTIONS</span></a><a class="headerlink" href="#mis-options" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mis-options" title="(in Rover)"><span class="xref std std-ref">MIS_OPTIONS</span></a> parameter bits can be set to modify how missions function:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ref:<cite>MIS_OPTIONS&lt;MIS_OPTIONS&gt;</cite> bit</p></th>
+<th class="head"><p>Option</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Clears the loaded mission on boot. Must be loaded after each boot.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 (Plane only)</p></td>
+<td><p>Use distance to land calculation on battery failsafe. See <a class="reference external" href="https://ardupilot.org/plane/docs/do-land-start.html#id1" title="(in Plane)"><span>Using DO_LAND_START</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Continue after landing. Advances mission item pointer to next mission item after landing complete. If no item exists, RTL.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mission-re-wind">
+<h2>Mission Re-Wind<a class="headerlink" href="#mission-re-wind" title="Permalink to this heading">¶</a></h2>
+<p>The behavior of returning to a mission sequence when interrupted by a mode change is described in the <a class="reference external" href="https://ardupilot.org/rover/docs/common-mission-rewind.html#common-mission-rewind" title="(in Rover)"><span>Mission Rewind on Resume</span></a> section.</p>
+</section>
+<section id="mission-size">
+<h2>Mission Size<a class="headerlink" href="#mission-size" title="Permalink to this heading">¶</a></h2>
+<p>The number of mission items which can be stored in the autopilot is limited to approximately 650 waypoints. If you need to have longer missions, then you can set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-sd-mission" title="(in Rover)"><span class="xref std std-ref">BRD_SD_MISSION</span></a> parameter to create a file on the SD Card to store more. This can be set up to a maximum of 64 (kB) which would allow a total of over 4,000 waypoints in a mission.</p>
+</section>
+<section id="how-to-prefetch-a-stored-mission-map">
+<h2>How to prefetch a stored Mission Map<a class="headerlink" href="#how-to-prefetch-a-stored-mission-map" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/1s8gsXTdPY8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="occasionally-you-will-see-some-really-big-numbers">
+<h2>Occasionally You will see some really big Numbers<a class="headerlink" href="#occasionally-you-will-see-some-really-big-numbers" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/J5ClTnggZKk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>[copywiki destination=”copter,plane,rover,planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

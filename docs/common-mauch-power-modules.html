@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAUCH Power Monitor &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MAUCH Power Monitor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mauch-power-monitor">
+<span id="common-mauch-power-modules"></span><h1>MAUCH Power Monitor<a class="headerlink" href="#mauch-power-monitor" title="Permalink to this heading">¶</a></h1>
+<p>This page explains how to set up the
+<a class="reference external" href="https://www.mauch-electronic.com/#webs-bin-563c137b7add4cb229080f55">MAUCH</a>
+power monitors HS-050-xx* (50A), HS-100-xx (100A) and HS-200-xx* (200A)
+to measure battery voltage and current consumption.  For information on purchasing, please see the <a class="reference external" href="https://www.mauch-electronic.com/apps/webstore/">MAUCH Electronics</a> website.</p>
+<p>(*xx is the indicator for: LV = Vow Voltage 2-6S, maximum 28V HV = High
+Voltage 4-14S, maximum 60V).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These monitors use a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect">hall-effect</a> current
+sensor. These are much more accurate across the whole current range than
+sensors using a shunt resistor, consume very little power, and are
+unaffected by operating temperature.</p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.mauch-electronic.com/#webs-bin-563c137b7add4cb229080f55">MAUCH</a>
+has a number of PMs, which are compatible with Pixhawk, APM, Pixhawk
+lite, AUAV-X2, DroTek und CUAV Pixhack. The sensors boards are capable
+of delivering 100A continuous current for HS-100-V2 and 200A for the
+HS-200-V2 (without any time limit). The maximum burst current is
+<a class="reference external" href="mailto:1200A&#37;&#52;&#48;25'C">1200A<span>&#64;</span>25’C</a> and <a class="reference external" href="mailto:800A&#37;&#52;&#48;85'C">800A<span>&#64;</span>85’C</a> for 1 second.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/mauch_power_module.jpg"><img alt="../_images/mauch_power_module.jpg" src="../_images/mauch_power_module.jpg" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-text">MAUCH Power Monitor</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>Sensor Board:</strong></p>
+<ul class="simple">
+<li><p>Current sensor is a “true hall sensor” up to 50A (HS-050-LV/HV),100A
+(HS-100-LV/HV) or 200A (HS-200- LV/HV)</p></li>
+<li><p>Continuous current 200A for HS-200-xx and 100A for HS-050-xx /
+HS-100-xx</p></li>
+<li><p>Over current: <a class="reference external" href="mailto:1200A&#37;&#52;&#48;25'C">1200A<span>&#64;</span>25’C</a> or <a class="reference external" href="mailto:900A&#37;&#52;&#48;85'C">900A<span>&#64;</span>85’C</a> (all sensors)</p></li>
+<li><p>Ultra-low noise power supply (LP2985-4.0) for current sensor and
+offset shifting circuit.</p></li>
+<li><p>Microchip MCP601 operational amplifier for offset shifting.</p></li>
+<li><p>LiPo voltage measurement with 1% resistor divider in factor 9:1 (LV)
+and 18:1 (HV)</p></li>
+<li><p>Supply voltage to Pixhawk / APM = 5.35V/3A (with attached LV- or
+HV-BEC)</p></li>
+<li><p>Bright LED as power on indicator (blue LED for 200A / green LED for
+100A / yellow for 50A)</p></li>
+<li><p>2x10cm / AWG12 cable soldered to current sensor as standard size (Up
+to AWG8 possible).</p></li>
+</ul>
+<p><strong>Low Voltage: 2-6S BEC</strong></p>
+<ul class="simple">
+<li><p>Input 2-6S LiPo / max. 28V</p></li>
+<li><p>Output 5.35V / 3A -&gt; +/- 0.05V –&gt; Ripple 10mV (0.2%) at 1.5A output
+current.</p></li>
+<li><p>Input wrong polarity protection, as well as Panasonic FM 220uF/35V
+input capacitor to prevent burn out.</p></li>
+<li><p>10cm 4 pole silicone cable to sensor board with DF-13 connector.</p></li>
+<li><p>47mm x 18mm x 11mm / 8g with cables and shrinking tube.</p></li>
+</ul>
+<p><strong>High Voltage: 4-14S HYB-BEC</strong></p>
+<ul class="simple">
+<li><p>Input: 4S-14S LiPo / max, 60VOutput: 5.3V / 3A -&gt; +/- 0.05V -&gt; Ripple
+80uV (0.00008V) at 1.5A output current.</p></li>
+<li><p>Panasonic FM input capacitors to prevent burn out.</p></li>
+<li><p>10cm 4 pole silicone cable to sensor board with DF-13 connector.</p></li>
+<li><p>53mm x 21mm x 14mm / 20g with cables and shrinking tube.</p></li>
+</ul>
+<p>There is more information about hall current sensors and these PMs in
+this blog post: <a class="reference external" href="https://diydrones.com/forum/topics/safety-first-100a-200a-hall-sensor-mit-bec-for-pixhawk-apm">Safety First: 100A &amp; 200A Hall Sensor with BEC for Pixhawk / APM</a>.</p>
+</section>
+<section id="connecting-the-pm-to-an-autopilot-board">
+<h2>Connecting the PM to an autopilot board<a class="headerlink" href="#connecting-the-pm-to-an-autopilot-board" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/MauchPowerModuleWiring.jpg"><img alt="../_images/MauchPowerModuleWiring.jpg" src="../_images/MauchPowerModuleWiring.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">MAUCH Power Module, BEC, PixhawkWiring</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="setup-through-mission-planner">
+<h2>Setup through Mission Planner<a class="headerlink" href="#setup-through-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="common-power-module-configuration-in-mission-planner.html#common-power-module-configuration-in-mission-planner"><span class="std std-ref">Power Monitor Configuration in Mission Planner</span></a>
+explains in more detail how to configure a Power Module and get low
+battery alerts from Mission Planner.</p>
+<p>The MAUCH PM’s are not available in the Sensor selection list (at time
+of writing) so you will need to select <strong>Other</strong> and perform a manual
+calibration. Because the PM uses hall sensors you can ignore the
+recommendation to calibrate the sensor at &gt;3Amps.</p>
+<p>Each sensor board comes with an final test result, which indicates the
+calibration values for voltage and current measurement.</p>
+<ul class="simple">
+<li><p>On the <em>Mission Planner</em>’s <strong>INITIAL SETUP | Optional Hardware |
+Battery Monitor</strong> screen set the <strong>Sensor</strong> to <strong>Other</strong>.</p></li>
+<li><p>Enter the voltage divider from the final test result and press
+<strong>TAB</strong> or click out of the field. Then the <em>calculated battery
+voltage</em> should be within a few millivolt of the actual battery
+voltage.</p></li>
+<li><p>Enter the <strong>Amperes per volt</strong> from the final test result (A/V) and
+press <strong>TAB</strong> or click out of the field.</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/MissionPlanner_BatteryConfigurationMauch.jpg"><img alt="../_images/MissionPlanner_BatteryConfigurationMauch.jpg" src="../_images/MissionPlanner_BatteryConfigurationMauch.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">MissionPlanner: Battery Monitor Configuration for MAUCH Power Monitor</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rangefinders (landing page) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rangefinders (landing page)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rangefinders-landing-page">
+<span id="common-rangefinder-landingpage"></span><h1>Rangefinders (landing page)<a class="headerlink" href="#rangefinders-landing-page" title="Permalink to this heading">¶</a></h1>
+<p>Copter/Plane/Rover support a number of different rangefinders including Lidars (which use lasers or infra-red beams for distance measurements), 360 degree Lidars (which can detect obstacles in multiple directions) and Sonars (which use ultrasonic sound). This category also includes Maxbotix Sonar and Pulsed Light LED range finders. These devices can be used for measuring distance near to  the ground for precision landings and altitude control, water depth, or object distance as proximity sensors for <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a>. Vision systems (see <a class="reference internal" href="common-realsense-depth-camera.html#common-realsense-depth-camera"><span class="std std-ref">Intel RealSense Depth Camera</span></a>) can also be used for Object Avoidance.</p>
+<p>A forward facing rangefinders can also be used for Obstacle Avoidance. See Rangefinder <a class="reference internal" href="common-rangefinder-setup.html#common-rangefinder-setup"><span class="std std-ref">Setup Overview</span></a> to know more.</p>
+<p>[site wiki=”plane”]
+.. tip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>If you get a &quot;Bad LiDAR Health&quot; message in *Mission Planner* this
+is caused because the rangefinder isn&#39;t enabled for landing.  This is
+done through the ``RNGFND_LANDING`` parameter and if set you should see
+the message disappear.
+</pre></div>
+</div>
+<p>[/site]</p>
+<p>[site wiki=”copter”]
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Downward facing rangefinders are automatically used in flight modes which have height control, such
+as Altitude Hold, Loiter and PosHold Mode.  The data from the sensor
+will be used until you exceed ``RNGFNDx_MAX_CM``, after that it switches to
+the barometer.
+
+Copter includes support for :ref:`Terrain Following &lt;terrain-following&gt;` in Auto mode.
+
+Copter can also use rangefinders for :ref:`Object Avoidance &lt;common-object-avoidance-landing-page&gt;`.
+</pre></div>
+</div>
+<p>[/site]</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">RNGFNDx_MAX_CM</span></code> must be set to a tested, appropriate value.  If <code class="docutils literal notranslate"><span class="pre">RNGFNDx_MAX_CM</span></code> is set to a value
+greater than the range of the sensor, the autopilot will not respond correctly to the
+data provided.</p>
+</div>
+<p>Follow the links below (or in sidebar) for configuration information
+based upon your set-up.</p>
+<a class="reference external image-reference" href="../_images/RangeFinder_LandingPageImage_4.jpg"><img alt="../_images/RangeFinder_LandingPageImage_4.jpg" src="../_images/RangeFinder_LandingPageImage_4.jpg" /></a>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-setup.html">Rangefinder Setup Overview</a></li>
+</ul>
+</div>
+<p>[site wiki=”copter,rover”]</p>
+<blockquote>
+<div><p>Proximity Sensors &lt;common-proximity-landingpage&gt;</p>
+</div></blockquote>
+<p>[/site]</p>
+<section id="unidirectional-rangefinders">
+<h2>Unidirectional Rangefinders<a class="headerlink" href="#unidirectional-rangefinders" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-aerotenna-usd1.html">Ainstein US-D1 Radar Altimeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-wasp200-lidar.html">Attollo Engineering Wasp200</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-avanon-laserint.html">Avionics Anonymous DroneCAN LIDAR Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-benewake-tf02-lidar.html">Benewake TF02 / TF03</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-benewake-tfmini-lidar.html">Benewake TFmini / TFmini Plus / TF-Luna</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-lidarlite.html">Garmin Lidar-Lite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-gy-us42.html">GY-US42 Sonar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-hondex-sonar.html">Hondex Sonar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-hcsr04.html">HC-SR04 Sonar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-jsn-sr04t.html">JSN-SR04T Sonar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-leddar-one-lidar.html">LeddarTech Leddar One</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-leddartech-leddarvu8-lidar.html">LeddarTech LeddarVu8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-lightware-sf10-lidar.html">LightWare SF10 / SF11 Lidar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-lightware-lw20-lidar.html">LightWare SF20 / LW20 Lidar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-sf02.html">Lightware SF02 Lidar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-maxbotixi2c.html">Maxbotix I2C Sonar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rangefinder-maxbotix-analog.html">Maxbotix Analog Sonar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-vl53l0x-lidar.html">ST VL53L0X / VL53L1X Lidar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-teraranger-one-rangefinder.html">TeraRanger One/EVO Rangefinders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-teraranger-neo.html">TeraRanger NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-underwater-sonars-landingpage.html">Underwater Sonar</a></li>
+</ul>
+</div>
+</section>
+<section id="omnidirectional-proximity-rangefinders">
+<h2>Omnidirectional Proximity Rangefinders<a class="headerlink" href="#omnidirectional-proximity-rangefinders" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-lightware-sf40c-objectavoidance.html">Lightware SF40/C (360 degree)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-lightware-sf45b.html">Lightware SF45/B (350 degree)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rplidar-a2.html">RPLidar A2 360 degree laser scanner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-teraranger-tower-objectavoidance.html">TerraRanger Tower/ Tower EVO (360 degree)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.cygbot.com/_files/ugd/f5911d_726a54fc4f6644bcbec0d9b00236ffda.pdf">Cygbot D1 (120 degree)</a></li>
+</ul>
+</div>
+<p>[site wiki=”copter,rover”]
+Vision Based Sensors
+====================</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-realsense-depth-camera.html">Intel Realsense Depth Camera</a></li>
+</ul>
+</div>
+<p>[/site]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

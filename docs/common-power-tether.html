@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home-Made Power Tether &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Home-Made Power Tether</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="home-made-power-tether">
+<span id="common-power-tether"></span><h1>Home-Made Power Tether<a class="headerlink" href="#home-made-power-tether" title="Permalink to this heading">¶</a></h1>
+<p>For Maker-Faire 2017, the Cube Autopilot team needed a power tether for the ArduCopter-following-ArduRover demonstration.  Plans to use a commercially-available tether collapsed so Mr Challinger and Mr Wurzbach made a DIY tether in just 24h.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The equipment described here deals with high power electronics which can damage electrical equipment and even kill people if not done properly.  Please be confident in your abilities before attempting to replicate this project.</p>
+</div>
+<section id="demonstration">
+<h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/eV7bp9pxVE0" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="parts-used">
+<h2>Parts used<a class="headerlink" href="#parts-used" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>AC to DC Power Supply Single Output 27 Volt 56 Amp (<a class="reference external" href="http://www.jameco.com/z/RSP-1500-27-Mean-Well-AC-to-DC-Power-Supply-Single-Output-27-Volt-56-Amp-1-512kw_694946.html">like this one</a>)</p></li>
+<li><p>600 Watt Surface Mount Transient Voltage Suppressor (<a class="reference external" href="https://www.jameco.com/z/NMBJ24A-13-F-Diodes-Zetex-600-Watt-Surface-Mount-Transient-Voltage-Suppressor_1542371.html">like this one</a>)</p></li>
+<li><p>Capacitor Snap 10000 uF 50 Volt 20% 105c (<a class="reference external" href="https://www.jameco.com/z/EC10K50LP-R-Capacitor-Snap-10000-uF-50-Volt-20-105c-Large-Can-Aluminum-Electronic_157738.html">like this one</a>)</p></li>
+<li><p>25ft extension cord</p></li>
+<li><p>40ft 14AWG twisted pair for power (we used silicone insulation for abrasion resistance)</p></li>
+<li><p>40ft 30AWG twisted pair for remote voltage sense (same)</p></li>
+</ul>
+</section>
+<section id="construction">
+<h2>Construction<a class="headerlink" href="#construction" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Trim the output voltage to 24v</p></li>
+<li><p>Use a 6s battery capable of powering the drone on its own</p></li>
+<li><p>Sense wires, battery, caps and TVS should be connected on drone end of power wire</p></li>
+<li><p>The cathode of the TVS (the side with the white line) goes on the positive lead.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

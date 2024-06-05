@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Tuning &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced Tuning</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-tuning">
+<span id="tuning"></span><h1>Advanced Tuning<a class="headerlink" href="#advanced-tuning" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this page has been superseded and is now ARCHIVED.</p>
+</div>
+<p>This article provides an overview of how to tune various Copter parameters.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The default <a class="reference external" href="https://en.wikipedia.org/wiki/PID_controller">PID gains</a> are meant for
+the 3DR IRIS although they work on a wide variety of frames.  Still, to get optimal
+performance you may need to adjust them which can be done through the
+<em>Mission Planner</em>’s <strong>Config/Tuning | Copter Pids</strong> screen.  The screen
+shot below shows the most important parameters for Roll/Pitch (yellow),
+Yaw (orange), <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">Altitude hold</span></a> (green),
+<a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> (pink) and
+<a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">Waypoint navigation</span></a>
+(blue).</p>
+<a class="reference external image-reference" href="../_images/Tuning_CommonThingsToChange.png"><img alt="../_images/Tuning_CommonThingsToChange.png" src="../_images/Tuning_CommonThingsToChange.png" /></a>
+<p>The most important parameter to get right is the Rate Roll P (and by
+default Rate Pitch P is locked to the same value) as discussed
+<a class="reference internal" href="ac_rollpitchtuning.html#ac-rollpitchtuning"><span class="std std-ref">here</span></a>.</p>
+<p>Normally it’s best to start by tuning the Rate Roll/Pitch P in Stabilize
+mode then move onto tuning altitude hold in AltHold mode, then Loiter
+(which often needs no tuning) and finally the waypoint navigation
+performance in Auto mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://diydrones.com/forum/topics/arducopter-tuning-guide">Dave C’s AC2.8.1 tuning guide</a>
+has good information for tuning for rate roll and pitch but altitude hold,
+Loiter and navigation has changed dramatically since AC2.8.1 so those
+sections are no longer valid.</p>
+</div>
+</section>
+<section id="roll-pitch-tuning">
+<h2>Roll/Pitch tuning<a class="headerlink" href="#roll-pitch-tuning" title="Permalink to this heading">¶</a></h2>
+<p>The Stabilize Roll/Pitch and Rate Roll/Pitch parameters, highlighted in
+yellow in the screen shot above control the roll pitch response.</p>
+<p>The Rate parameters which convert the desired rotation rate into a motor
+output are the most important.  The <a class="reference internal" href="ac_rollpitchtuning.html#ac-rollpitchtuning"><span class="std std-ref">Rate Roll and Pitch P tuning page</span></a> has the
+most information on tuning them.</p>
+<p>The Stabilize Roll/Pitch P converts the desired angle into a desired
+rotation rate which is then fed to the Rate controller.</p>
+<ul class="simple">
+<li><p>A higher value will make the copter more responsive to roll/pitch
+inputs, a lower value will make it smoother</p></li>
+<li><p>If set too high, the copter will oscillate on the roll and/or pitch
+axis</p></li>
+<li><p>If set too low the copter will become sluggish to inputs</p></li>
+</ul>
+<p>More information on tuning the roll and pitch can be found on the
+<a class="reference internal" href="stabilize-mode.html#stabilize-mode-tuning"><span class="std std-ref">Stabilize mode page’s Tuning section</span></a>.</p>
+<p>An objective view of the overall Roll and Pitch performance can be seen
+by graphing the <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">dataflash log’s</span></a>
+ATT message’s Roll-In vs Roll and Pitch-In vs Pitch. The “Roll” (i.e.
+actual roll) should closely follow the “Roll-In” while in Stabilize or
+AltHold modes. Pitch should similarly closely follow Pitch-In.</p>
+<p>Alternatively you may wish to try tuning both the rate and stabilize
+(i.e. angular) parameters using the <a class="reference internal" href="autotune.html#autotune"><span class="std std-ref">AutoTune feature</span></a>.</p>
+</section>
+<section id="yaw-tuning">
+<h2>Yaw tuning<a class="headerlink" href="#yaw-tuning" title="Permalink to this heading">¶</a></h2>
+<p>The Stabilize Yaw and Rate Yaw parameters, highlighted in orange in the
+screen shot above control the yaw response. It’s rare that the yaw
+requires much tuning.</p>
+<p>Similar to roll and pitch if either Stabilize Yaw P or Rate Yaw P is too
+high the copter’s heading will oscillate. If they are too low the copter
+may be unable to maintain its heading.</p>
+<p>As mentioned on the <a class="reference internal" href="stabilize-mode.html#stabilize-mode-tuning"><span class="std std-ref">Stabilize mode’s tuning section</span></a>,
+the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a> parameter controls how quickly copter rotates based on
+a pilot’s yaw input.  The default of 4.5 commands a 200 deg/sec rate of
+rotation when the yaw stick is held fully left or right.  Higher values
+will make it rotate more quickly.</p>
+</section>
+<section id="altitude-tuning">
+<h2>Altitude Tuning<a class="headerlink" href="#altitude-tuning" title="Permalink to this heading">¶</a></h2>
+<p>The Altitude hold related tuning parameters are highlighted in green in
+the screen shot above.</p>
+<p>The Altitude Hold P is used to convert the altitude error (the
+difference between the desired altitude and the actual altitude) to a
+desired climb or descent rate.  A higher rate will make it more
+aggressively attempt to maintain its altitude but if set too high leads
+to a jerky throttle response.</p>
+<p>The Throttle Rate (which normally requires no tuning) converts the
+desired climb or descent rate into a desired acceleration up or down.</p>
+<p>The Throttle Accel PID gains convert the acceleration error (i.e the
+difference between the desired acceleration and the actual acceleration)
+into a motor output.  The 1:2 ratio of P to I (i.e. I is twice the size
+of P) should be maintained if you modify these parameters.  These values
+should never be increased but for very powerful copters you may get
+better response by reducing both by 50% (i.e P to 0.5, I to 1.0).</p>
+<p>See the <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">Altitude Hold flight mode page</span></a> for more information.</p>
+</section>
+<section id="loiter-tuning">
+<h2>Loiter Tuning<a class="headerlink" href="#loiter-tuning" title="Permalink to this heading">¶</a></h2>
+<p>Generally if Roll and Pitch are tuned correctly,  the
+<a class="reference internal" href="common-diagnosing-problems-using-logs.html#common-diagnosing-problems-using-logs-gps-glitches"><span class="std std-ref">GPS</span></a>
+and <a class="reference internal" href="common-diagnosing-problems-using-logs.html#common-diagnosing-problems-using-logs-compass-interference"><span class="std std-ref">compass</span></a>
+are set-up and performing well and <a class="reference internal" href="common-diagnosing-problems-using-logs.html#common-diagnosing-problems-using-logs-vibrations"><span class="std std-ref">vibration levels</span></a>
+are acceptable, Loiter does not require much tuning but please see the
+<a class="reference internal" href="loiter-mode.html#loiter-mode-tuning"><span class="std std-ref">Loiter Mode</span></a> page for more details on tunable
+parameters including the horizontal speed.</p>
+</section>
+<section id="in-flight-tuning">
+<h2>In-flight tuning<a class="headerlink" href="#in-flight-tuning" title="Permalink to this heading">¶</a></h2>
+<p>See the <a class="reference internal" href="common-transmitter-tuning.html#common-transmitter-tuning"><span class="std std-ref">Transmitter based tuning</span></a> page for details.</p>
+</section>
+<section id="filter-tuning">
+<h2>Filter tuning<a class="headerlink" href="#filter-tuning" title="Permalink to this heading">¶</a></h2>
+<p>Copters are often affected by vibration and tuning the various software filters available is critical to achieving an overall tune.
+A guide on tuning the various notch filters available can be found on the <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering"><span class="std std-ref">Notch Filtering wiki page</span></a>.</p>
+</section>
+<section id="video-introduction-to-pids">
+<h2>Video introduction to PIDs<a class="headerlink" href="#video-introduction-to-pids" title="Permalink to this heading">¶</a></h2>
+<p>PIDs (Proportional - Integral - Derivative) are the method used by our
+firmware to continuously stabilize the vehicle</p>
+<ul class="simple">
+<li><p>Proportional = Immediate Correction: The further off you are the
+bigger the correction you make.</p></li>
+<li><p>Integral = Over time or steady state correction: If we are failing to
+make progress add additional correction.</p></li>
+<li><p>Derivative = Take it Easy correction: Is the correction going to
+fast? if it is slow it down (dampen) it a bit to avoid overshoot.</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/l03SioQ9ySg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/sDd4VOpOnnA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><hr class="docutils" />
+<a class="reference external image-reference" href="https://freespacesolutions.com.au/tuning/"><img alt="../_images/banner-freespace.png" src="../_images/banner-freespace.png" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

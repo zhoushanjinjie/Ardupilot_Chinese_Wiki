@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESC Telemetry &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ESC Telemetry</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="esc-telemetry">
+<span id="common-esc-telemetry"></span><h1>ESC Telemetry<a class="headerlink" href="#esc-telemetry" title="Permalink to this heading">¶</a></h1>
+<p id="blheli32-esc-telemetry">If the ESC has this capability, it allows monitoring and logging of performance data that previously required additional sensors (like power modules and RPM sensors). The detailed data provided by every ESC allows real-time decisions and individual ESC or motor performance tuning and failure analysis. Note that a given ESC may or may not have a specific sensor type’s data transmitted via telemetry. It is common for 4 in 1 escs to provide voltage and current sensors but not transmit the data via telemetry, but rather by direct connection to the autopilot. Check the ESC data sheet and connection information for details.</p>
+<p>Telemetry data may be conveyed to the autopilot either by a separate wire connection to an autopilot’s UART RX pin or across the signal wire used to convey motor speed information (Bi-Directional DShot) or CAN messages for CAN based ESCs. For non-CAN ESCs, this capability is available primarily in selected BLHeli ESCs running stock or BlueJay firmware. But it is possible for an ESC not to implement the BLHeli firmware and still provide this capability. Currenly, ArduPilot only supports this for BLHeli/BlueJay telemetry compatible ESCs.</p>
+<p>ESC telemetry of motor rpm is especially useful for controlling the center frequency of harmonic notch filters to control noise. See <a class="reference external" href="https://ardupilot.org/plane/docs/common-esc-telem-based-notch.html#common-esc-telem-based-notch" title="(in Plane)"><span>ESC Telemetry Based Harmonic Notch Setup</span></a> for more information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot does not currently support the polling of the ESCs for telemetry data via throttle idle messages over the signal line in non DShot protocols.</p>
+</div>
+<section id="connecting-the-escs-telemetry-wire">
+<h2>Connecting the ESCs Telemetry wire<a class="headerlink" href="#connecting-the-escs-telemetry-wire" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/dshot-pixhawk.jpg"><img alt="../_images/dshot-pixhawk.jpg" src="../_images/dshot-pixhawk.jpg" style="width: 600px;" /></a>
+<p>Connect all ESC telemetry wires to a single serial port’s RX pin on the autopilot (above diagram uses Serial5 as an example).  A pin or wire for ESC telemetry is pre-soldered on most BLHeli32 ESCs. If the wire isn’t pre-soldered you will need to solder it yourself. CubePilot serial port pinsouts can be found <a class="reference internal" href="common-thecube-overview.html#common-thecube-overview"><span class="std std-ref">here</span></a>.</p>
+<p>Set the following parameters to enable BLHeli32 telemetry feedback to the autopilot’s serial port:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-protocol" title="(in Rover)"><span class="xref std std-ref">SERIALx_PROTOCOL</span></a> 16 (= ESC telemetry) where “x” is the autopilot serial port number connected to the ESCs telemetry wire.  The mapping between serial port numbering and UART physical ports for you autopilot should be documented in its description page linked <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">here</span></a>.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-trate" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_TRATE</span></a> defaults to 10 and normally does not need to be changed. this enables telemetry at a 10Hz update rate from the ESC.  If using the <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering"><span class="std std-ref">harmonic notch feature</span></a> this can be raised to 100.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-poles" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_POLES</span></a> defaults to 14 which applies to the majority of brushless motors and normally does not need to be changed.  Adjust as required if you’re using motors with a pole count other than 14 to calculate true motor shaft RPM from ESC’s e-field RPM.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>using the rpm value reported using single wire telemetry for the center frequency adjustment of the <a class="reference internal" href="common-imu-notch-filtering.html#common-imu-notch-filtering"><span class="std std-ref">harmonic notch feature</span></a>  works well, but the responsiveness is slower than using telemetry provided by Bi_directional DShot. See  next section.</p>
+</div>
+</section>
+<section id="bi-directional-dshot">
+<h2>Bi-directional DShot<a class="headerlink" href="#bi-directional-dshot" title="Permalink to this heading">¶</a></h2>
+<p>Newer versions of BLHeli32 (32.7 and higher) and BLHeli_S (16.73 and higher) support returning motor RPM values over the DShot signal line. Supporting bi-directional DShot requires exclusive use of one or more DMA channels and thus not all versions of ArduPilot support it. Versions that support bi-directional DShot natively are listed below.  For other autopilots please load the ArduPilot firmware version ending in “-bdshot”.</p>
+<ul class="simple">
+<li><p>BeastF7, BeastF7v2, BeastH7, BeastH7v2</p></li>
+<li><p>FlywooF745, FlywooF745Nano</p></li>
+<li><p>KakuteF4Mini, KakuteF7Mini, KakuteH7Mini</p></li>
+</ul>
+<p>Only the lowest 4 DShot capable servo outputs can be used.  For autopilots with an IOMCU (e.g. Pixhawk, CubeOrange) this means AUX1 to AUX4 can be used.  For Pixracer and other autopilots without a separate IOMCU coprocessor this means outputs 1 to 4 can be used.</p>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h3>
+<p>First ensure that you have an appropriate version of BLHeli32 or BLHeli_S installed on your ESCs. The majority of ESCs do not come pre-installed with these versions. The official 32.7 version of BLHeli32 supports bi-directional DShot. Official versions of BLHeli_S do not support bi-directional DShot, you will need to either buy a version from <a class="reference external" href="https://jflight.net/index.php?route=common/home&amp;language=en-gb">BLHeli_S JESC</a> or use <a class="reference external" href="https://github.com/mathiasvr/bluejay">BLHeli_S BlueJay</a> . If you try and enable bi-directional DShot with the wrong firmware version then unpredictable motor operation can occur. ESC rpm telemetry is especially useful for controlling the center frequencies of harmonic notch noise filters, see <a class="reference external" href="https://ardupilot.org/plane/docs/common-esc-telem-based-notch.html#common-esc-telem-based-notch" title="(in Plane)"><span>ESC Telemetry Based Harmonic Notch Setup</span></a></p>
+<a class="reference external image-reference" href="../_images/blheli-version-check.png"><img alt="../_images/blheli-version-check.png" src="../_images/blheli-version-check.png" style="width: 450px;" /></a>
+<p>Set the following parameters to enable BLHeli32 and BLHeli_S bi-directional DShot:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-bdmask" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_BDMASK</span></a>: a bitmap used to enable BLHeli32 or BLHeli_S bi-directional DShot support. On autopilots without IOMCU this would normally be set to 15 to indicate four active channels. On autopilots with an IOMCU this can be set to 3840 to indicate four active AUX channels (bi-directional DShot will only work on the AUX outputs).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-blh-poles" title="(in Rover)"><span class="xref std std-ref">SERVO_BLH_POLES</span></a> defaults to 14 which applies to the majority of brushless motors and normally does not need to be changed. Adjust as required if you’re using motors with a pole count other than 14 to calculate true motor shaft RPM from ESC’s e-field RPM (small motors might have 12 poles).</p></li>
+</ul>
+</section>
+</section>
+<section id="esc-telemetry-logging-and-reporting">
+<h2>ESC Telemetry Logging and Reporting<a class="headerlink" href="#esc-telemetry-logging-and-reporting" title="Permalink to this heading">¶</a></h2>
+<p>The autopilot requests status information from one ESC at a time, cycling between them. This information is logged to the onboard log’s ESCn messages and can be viewed in any <a class="reference internal" href="common-logs.html#common-logs"><span class="std std-ref">ArduPilot compatible log viewer</span></a>.</p>
+<ul class="simple">
+<li><p>RPM</p></li>
+<li><p>Voltage</p></li>
+<li><p>Current</p></li>
+<li><p>Temperature</p></li>
+<li><p>Total Current</p></li>
+</ul>
+<p>The RCOU messages are also written to the onboard logs which hold the requested output level sent to the ESCs expressed as a number from 1000 (meaning stopped) to 2000 (meaning full output).</p>
+<p>This data can also be viewed in real-time using a ground station.  If using the Mission Planner go to the Flight Data screen’s status tab and look for esc1_rpm.</p>
+<a class="reference external image-reference" href="../_images/dshot-realtime-esc-telem-in-mp.jpg"><img alt="../_images/dshot-realtime-esc-telem-in-mp.jpg" src="../_images/dshot-realtime-esc-telem-in-mp.jpg" style="width: 450px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sending BLHeli32 telemetry data to the GCS requires the telemetry connection use MAVLink2.  ArduPilot uses MAVLink2 by default on the USB port but if another port is used it may be necessary to set the SERIALx_PROTOCOL parameter to 2 (where “x” is the serial port number used for the telemetry connection).</p>
+</div>
+<p>In addition, some telemetry values can be displayed on the integrated <a class="reference internal" href="common-osd-overview.html#common-osd-overview"><span class="std std-ref">on-board OSD</span></a>, if your autopilot has one.</p>
+</section>
+<section id="use-as-battery-monitor">
+<span id="esc-telemetry-based-battery-monitor"></span><h2>Use as Battery Monitor<a class="headerlink" href="#use-as-battery-monitor" title="Permalink to this heading">¶</a></h2>
+<p>By setting a battery monitor instance to BLHeli32 ESC type (for example <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-monitor" title="(in Rover)"><span class="xref std std-ref">BATT2_MONITOR</span></a> = 9), all connected BLHeli32 ESCs with connected telemetry wiring to the configured autopilot serial port, will be aggregated as a single source. The voltages reported will be averaged, the currents totaled, and the consumed current accumulated.</p>
+<span class="target" id="bidir-dshot"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

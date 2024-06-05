@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoTune &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AutoTune</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autotune">
+<span id="id1"></span><h1>AutoTune<a class="headerlink" href="#autotune" title="Permalink to this heading">¶</a></h1>
+<p>AutoTune attempts to automatically tune the Stabilize P, Rate P and D, and maximum rotational accelerations to provide the highest response without significant overshoot. Copter needs to be “basically” flyable in <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">AltHold mode</span></a> before attempting to use AutoTune as the feature needs to be able to “twitch” the copter in the roll and pitch axis.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>AutoTune is not always able to determine a good tune for the vehicle and may result in gains that lead to an unflyable vehicle that may crash.  Please follow the <a class="reference internal" href="tuning-process-instructions.html#tuning-process-instructions"><span class="std std-ref">Tuning Process Instructions</span></a> before attempting to use AutoTune. After following those instructions, and have <a class="reference internal" href="evaluating-the-aircraft-tune.html#evaluating-the-aircraft-tune"><span class="std std-ref">evaluated your initial tune</span></a>, should to try AutoTune.</p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/js2GzeRysAc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>There a number of problems that can prevent AutoTune from providing a good tune including:</p>
+<ul class="simple">
+<li><p>Strong wind</p></li>
+<li><p>High levels of gyro noise</p></li>
+<li><p>Non-linear ESC response caused by incorrect value of <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-thst-expo" title="(in Rover)"><span class="xref std std-ref">MOT_THST_EXPO</span></a></p></li>
+<li><p>Flexible frame or payload mount</p></li>
+<li><p>Overly flexible vibration isolation mount</p></li>
+<li><p>Very low setting for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a></p></li>
+<li><p>Overloaded propellers or motors</p></li>
+</ul>
+<section id="setup-before-flying-in-autotune-mode">
+<h2>Setup before flying in AutoTune mode<a class="headerlink" href="#setup-before-flying-in-autotune-mode" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Set up one flight mode switch position to be AltHold.</p></li>
+<li><p>Set an RC channel <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Function</span></a> switch or an <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">Auxiliary Function Switch</span></a> (prior to version 4.0) to AutoTune to allow you to turn the auto tuning on/off with the a switch.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>you can also set the AUTOTUNE flight mode as a mode on your flight mode switch to activate AutoTune</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Remove the camera gimbal or any other parts of the frame that could wobble in flight</p></li>
+<li><p>Select which combination of axis (roll, pitch, yaw) you wish to tune using the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-multi" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a> parameter</p></li>
+<li><p>Set the autotune’s aggressiveness using the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-aggr" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AGGR</span></a> parameter (0.1=agressive, 0.075=medium, 0.050=weak), normally start with the default 0.1.</p></li>
+<li><p>For large copters (with props at least 13inch or 33cm diameter) set the Rate Roll and Pitch filters to 10hz, these are: <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-fltt-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FLTT</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-fltd-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FLTD</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-fltt-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FLTT</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-fltd-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FLTD</span></a>, (in Copter-3.4 they are ATC_RAT_RLL_FILT and ATC_RAT_PIT_FILT)</p></li>
+<li><p>It is recommended to enable <a class="reference internal" href="current-limiting-and-voltage-scaling.html#current-limiting-and-voltage-scaling"><span class="std std-ref">battery voltage scaling of PID gains</span></a></p></li>
+</ol>
+</section>
+<section id="how-to-invoke-autotune">
+<h2>How to invoke AutoTune<a class="headerlink" href="#how-to-invoke-autotune" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Wait for a calm day and go to a large open area.</p></li>
+<li><p>Ensure the ch7 or ch8 switch, if used, is in the LOW position.</p></li>
+<li><p>Take off and put the copter into AltHold mode at a comfortable
+altitude.</p></li>
+<li><p>Face the vehicle so that it will twitch at 90degrees from the direction the wind is blowing (i.e. if tuning Roll first, point the vehicle into the wind)</p>
+<a class="reference external image-reference" href="../_images/autotune_copterwind.png"><img alt="../_images/autotune_copterwind.png" src="../_images/autotune_copterwind.png" style="width: 500px;" /></a>
+</li>
+<li><p>Set the ch7/ch8 switch to the HIGH position, or switch to AUTOTUNE mode, to engage auto tuning:</p>
+<ul class="simple">
+<li><p>You will see it twitch about 20 degrees left and right for a few
+minutes, then it will repeat forward and back.</p></li>
+<li><p>Use the roll and pitch stick at any time to reposition the copter
+if it drifts away (it will use the original PID gains during
+repositioning and between tests).  When you release the sticks it
+will continue auto tuning where it left off.</p></li>
+<li><p>Move the ch7/ch8 switch into the LOW position, or change flight mode if using AUTOTUNE flight mode, at any time to
+abandon the autotuning and return to the origin PIDs.</p></li>
+<li><p>Make sure that you do not have any trim set on your transmitter or
+the autotune may not get the signal that the sticks are centered.</p></li>
+</ul>
+</li>
+<li><p>When the tune completes the copter will change back to the original
+PID gains.</p></li>
+<li><p>Put the ch7/ch8 switch into the LOW position then back to the HIGH
+position to test the tuned PID gains, or if using the AUTOTUNE flight mode, switch out and then back into that mode.</p></li>
+<li><p>Put the ch7/ch8 switch into the LOW position, or switch out of AUTOTUNE flight mode, to fly using the
+original PID gains.</p></li>
+<li><p>If you are happy with the autotuned PID gains, leave the ch7/ch8
+switch in the HIGH position, or switch back into AUTOTUNE flight mode and land and disarm to save the PIDs
+permanently.</p>
+<p>If you DO NOT like the new PIDS, switch ch7/ch8 LOW or out of AUTOTUNE flight mode, to return to the
+original PIDs. The gains will not be saved when you disarm.</p>
+</li>
+</ol>
+<p>If you find after performing an AutoTune that the vehicle feels overly twitchy when flying Stabilize, AltHold or PosHold (but ok in more
+autonomous modes like Loiter, RTL, Auto) try increasing the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a> parameter to 0.25.  This smooths out the pilot’s input.
+Alternatively try reducing the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-aggr" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AGGR</span></a> parameter (it should always be in the range 0.05 to 0.10) and try again.</p>
+<p>If the vehicle feels sloppy after the AutoTune, try increasing the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-aggr" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AGGR</span></a> parameter as high as 0.10 and attempt the autotune again.</p>
+</section>
+<section id="invoke-autotune-with-position-hold">
+<h2>Invoke AutoTune with Position Hold<a class="headerlink" href="#invoke-autotune-with-position-hold" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A better tune can often be achieved by invoking AutoTune from AltHold as described above instead of from Loiter or PosHold as described below. Using AUTOTUNE flight mode also has this possible disadvantage.</p>
+</div>
+<p>AutoTune performs a weak position hold if invoked from Loiter or PosHold flight modes (as opposed to AltHold) while doing an autotune. If using the AUTOTUNE flight mode, this weak position hold is also used.</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/autotune_from_loiter.png"><img alt="../_images/autotune_from_loiter.png" src="../_images/autotune_from_loiter.png" style="width: 400px;" /></a>
+</div></blockquote>
+<ul class="simple">
+<li><p>The vehicle will gently lean (up to 10 degrees) towards a “target point” which is initially set to the vehicle’s location at the moment AutoTune was invoked.</p></li>
+<li><p>The pilot can reposition the vehicle using the roll, pitch, yaw or throttle sticks.  The target position will be reset to the vehicle’s location at the moment the pilot releases the roll and pitch sticks.</p></li>
+<li><p>The altitude is maintained with the altitude hold controller so the
+vehicle will attempt to hold its current altitude when the sticks
+are placed with 10% of mid-throttle. It will climb or descend at up
+to 2.5m/s (this speed is adjustable with the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-speed-up" title="(in Copter)"><span class="xref std std-ref">PILOT_SPEED_UP</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-speed-dn" title="(in Copter)"><span class="xref std std-ref">PILOT_SPEED_DN</span></a>
+parameters). The acceleration used to establish these speeds is set by <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-accel-z" title="(in Copter)"><span class="xref std std-ref">PILOT_ACCEL_Z</span></a>.</p></li>
+<li><p>In order to twitch perpendicular to the wind direction, the vehicle may suddenly rotate in either direction up to 90 degrees as it drifts 5m (or more) from the target location.</p></li>
+<li><p>If there is little or no wind, the vehicle’s gentle position control may mean it moves back and forth, ping ponging around the target point changing yaw each time it strays more than 5m from the target.  In these cases it may be more comfortable to revert the simpler AltHold based AutoTune.</p></li>
+</ul>
+</section>
+<section id="if-autotune-fails">
+<h2>If AutoTune fails<a class="headerlink" href="#if-autotune-fails" title="Permalink to this heading">¶</a></h2>
+<p>If AutoTune has failed you will need to do a manual tune.</p>
+<p>Some signs that AutoTune has been successful are (besides DataFlash logs and Ground Control Station messages):</p>
+<ul class="simple">
+<li><p>An increase in the values of <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-pit-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_PIT_P</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-rll-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_RLL_P</span></a>.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a> are larger than <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-min-d" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_MIN_D</span></a>.</p></li>
+</ul>
+<p>AutoTune will attempt to tune each axis as tight as the aircraft can tolerate. In some aircraft this can be unnecessarily responsive. A guide for most aircraft:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-pit-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_PIT_P</span></a> should be reduced from 10 to 6</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-rll-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_RLL_P</span></a> should be reduced from 10 to 6</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-yaw-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_YAW_P</span></a> should be reduced from 10 to 6</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a> should be reduced from 1 to 0.5</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_I</span></a>: <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a> x 0.1</p></li>
+</ul>
+<p>These values should only be changed if AutoTune produces higher values. Small aerobatic aircraft may prefer to keep these values as high as possible.</p>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>In Copter-3.3 (and higher) AutoTune can be setup as a flight-mode.  Switching into or out of the AutoTune flight mode responds in the same way as raising or lowering a ch7/ch8 aux switch high assigned the AutoTune function.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-axes-ac-autotune-multi" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AXES</span></a> allows control of which axis are to be tuned.  This is useful if the vehicle’s battery life is not long enough to complete all 3-axis).  “1” = tune roll, “2” = tune pitch, “4” = tune yaw.  Add these numbers together to tune multiple axis in a single session (i.e. “7” = tune all axis)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-aggr" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AGGR</span></a>: Should be in the range of 0.05 to 0.10.  Higher values will produce a more aggressive tune but sometimes results in gains that are too high.  More specifically this parameter controls the threshold for D-term bounce back and P-term overshoot. This affects the tuning noise immunity (a higher value is more tolerant to flex in the frame or other disturbances that could trick the tuning algorithm).  High values also leads to a tune that rejects external disturbances better.  Lower values result in a tune that is more responsive to pilot input.</p></li>
+<li><p>The full list of parameters that may be updated by AutoTune</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Roll angular P gain <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-rll-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_RLL_P</span></a></p></li>
+<li><p>Roll rate P, I and D gains <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_P</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_I</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a></p></li>
+<li><p>Roll max acceleration <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a></p></li>
+<li><p>Pitch angular P gain <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-pit-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_PIT_P</span></a></p></li>
+<li><p>Pitch rate P, I and D gains <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_P</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_I</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a></p></li>
+<li><p>Pitch max acceleration <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a></p></li>
+<li><p>Yaw angular P gain <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-yaw-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_YAW_P</span></a></p></li>
+<li><p>Yaw rate P, I gain <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_I</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_D</span></a></p></li>
+<li><p>Yaw rate filter <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-fltt-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FLTT</span></a>, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-flte-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FLTE</span></a> (in AC3.6: ATC_RAT_YAW_FLT)</p></li>
+<li><p>Yaw max acceleration <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a></p></li>
+<li><p>Roll and pitch axis rate feed-forward is enabled (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rate-ff-enab" title="(in Copter)"><span class="xref std std-ref">ATC_RATE_FF_ENAB</span></a>)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>After you have a good tune, you may wish to increase <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-thr-mix-max" title="(in Copter)"><span class="xref std std-ref">ATC_THR_MIX_MAX</span></a>  to 0.9 (default is 0.5) to increase prioritization of attitude control over throttle.  This can reduce the pitch overshoot sometimes seen (especially on copters with large propellers) in AltHold if the vehicle suddenly slows after performing fast forward flight.  In this situation wind catches under the propellers providing lift but also disturbs the vehicle’s attitude leading to a conflict between throttle and attitude control.  The danger in increasing this parameter’s value is that if the rate gains are later raised so high that the vehicle oscillates badly it may be difficult for the vehicle to descend (because it will prioritize trying to correct the attitude oscillations and never reduce throttle sufficiently).</p></li>
+<li><p>AutoTune can <strong>request very large and fast changes in output</strong>s to the motors which can cause ESC sync issues especially when using SimonK firmware and/or low KV motors (under 500KV). See this <a class="reference external" href="https://www.youtube.com/watch?v=hBUBbeyLe0Q">video showing a test</a> which recreates a sync problem.</p></li>
+<li><p>For best results the copter shouldn’t be allowed to build up too much horizontal speed. This can be prevented by applying a quick correction between tests (twitches) to stop the vehicle from flying too fast.</p></li>
+<li><p>Be advised that AutoTune will engage from Stabilize, so don’t accidentally flip your AutoTune switch until you are in AltHold and ready to begin the procedure.</p></li>
+<li><p>As a general rule, for Pitch and Roll, P and I should be equal, and D should be 1/10th P. For Yaw, I should be 1/10th P and D = 0, in most cases.</p></li>
+</ul>
+</section>
+<section id="common-problems">
+<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>If the vehicle will not start tuning (i.e. it won’t twitch) even though it is in AutoTune mode then the problem is likely that the roll, pitch, yaw or throttle sticks are not exactly in the middle. It may help to increase the deadzone on the RC input by increasing <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc1-dz" title="(in Rover)"><span class="xref std std-ref">RC1_DZ</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc2-dz" title="(in Rover)"><span class="xref std std-ref">RC2_DZ</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc3-dz" title="(in Rover)"><span class="xref std std-ref">RC3_DZ</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc4-dz" title="(in Rover)"><span class="xref std std-ref">RC4_DZ</span></a> to 50 (or higher).</p></li>
+<li><p>If the AutoTune produces an overly twitchy vehicle try reducing the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-aggr" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AGGR</span></a> parameter (should never be below 0.05) and perform the AutoTune again.</p></li>
+<li><p>If the AutoTune produces a sloppy vehicle, try increasing the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#autotune-aggr" title="(in Copter)"><span class="xref std std-ref">AUTOTUNE_AGGR</span></a> parameter (should never be above 0.1) and perform the AutoTune again.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When reporting issues with AutoTune please include a description of your frame and a dataflash log of the flight.</p>
+</div>
+</section>
+<section id="dataflash-logging">
+<h2>Dataflash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h2>
+<p>ATUN (auto tune overview) and ATDE (auto tune details) messages are
+written to the dataflash logs. Some details of the contents of those
+messages can be found on the <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner-message-details-copter-specific"><span class="std std-ref">Downloading and Analyzing Data Logs in Mission Planner</span></a> wiki page.</p>
+</section>
+<section id="ground-control-station-messages">
+<h2>Ground Control Station Messages<a class="headerlink" href="#ground-control-station-messages" title="Permalink to this heading">¶</a></h2>
+<p>For each axis there are several phases to the tune. Rate PIDs are adjusted first, then ANGLE parameters. Progress messages during these phases are sent to the GCS (and recorded in the Dataflash logs).</p>
+<p>Typical sequence during tuning might be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">09</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">33</span>       <span class="n">AutoTune</span><span class="p">:</span> <span class="n">Twitch</span>
+<span class="mi">09</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">34</span>       <span class="n">AutoTune</span><span class="p">:</span> <span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="n">Rate</span> <span class="n">P</span> <span class="n">Up</span>\
+<span class="mi">09</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">34</span>       <span class="n">AutoTune</span><span class="p">:</span> <span class="n">WFL</span> <span class="p">(</span><span class="n">Rate</span><span class="p">(</span><span class="n">P</span><span class="p">))</span> <span class="p">(</span><span class="mf">15.13040</span> <span class="o">&gt;</span> <span class="mf">10.00000</span><span class="p">)</span>
+<span class="mi">09</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">34</span>       <span class="n">AutoTune</span><span class="p">:</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.052298</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.005232</span>
+<span class="mi">09</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">34</span>       <span class="n">AutoTune</span><span class="p">:</span> <span class="n">success</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span>
+</pre></div>
+</div>
+<p>This is during Pitch Rate P adjustment, indicating a twitch is about to happen as the P is being tried at an increased value of 0.052298, but first it is waiting until it gets back to level from the last twitch (WFL= Waiting for level), and then it reports that the result of this twitch is within targets and successful. But this has to occur 4 times in a row, before moving on to the next phase.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During YAW rate phase of tuning, the messages will show a value for “d” that is not ATC_RAT_YAW_D, which is usually 0, but rather it’s the value of ATC_RAT_YAW_FLTE, that is being changed.</p>
+</div>
+<p>Anytime the process is interrupted by pilot stick movements, the</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">09</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">38</span>       <span class="n">AUTOTUNE</span><span class="p">:</span> <span class="n">pilot</span> <span class="n">overrides</span> <span class="n">active</span>
+</pre></div>
+</div>
+<p>message appears.</p>
+<p>If you stopped the tune  and dis-armed while still in AUTOTUNE, and an axis tune has completed, you will get a message showing that the new gains have been saved for that axis. If there is not a message to this effect, but think you finished at least one axis, then you probably dis-armed while not in AUTOTUNE mode, and did not actually save them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">09</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">48</span>       <span class="n">AutoTune</span><span class="p">:</span> <span class="n">Saved</span> <span class="n">gains</span> <span class="k">for</span> <span class="n">Pitch</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you do happen to accidentally discard a sessions AUTOTUNE values by disarming when not in AUTOTUNE, you can examine the dataflash log for the GCS messages it sent during tune and manually set them on the bench.</p>
+</div>
+<hr class="docutils" />
+<a class="reference external image-reference" href="https://freespacesolutions.com.au/"><img alt="../_images/banner-freespace.png" src="../_images/banner-freespace.png" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

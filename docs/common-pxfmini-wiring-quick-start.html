@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived Topic: PXFmini Wiring Quick Start &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived Topic: PXFmini Wiring Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-topic-pxfmini-wiring-quick-start">
+<span id="common-pxfmini-wiring-quick-start"></span><h1>Archived Topic: PXFmini Wiring Quick Start<a class="headerlink" href="#archived-topic-pxfmini-wiring-quick-start" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PXFmini uses JST-GH connectors instead of DF13. This is the latest adoption made by the DroneCode Foundation</p>
+</div>
+<a class="reference external image-reference" href="../_images/jst.jpg"><img alt="../_images/jst.jpg" src="../_images/jst.jpg" /></a>
+<p>This article provides high level information about how to power
+<a class="reference internal" href="common-pxfmini.html#common-pxfmini"><span class="std std-ref">PXFmini</span></a> and connect its most important peripherals.</p>
+<section id="pxfmini-wiring-chart">
+<span id="common-pxfmini-wiring-quick-start-pxfmini-wiring-chart"></span><h2>PXFmini Wiring Chart<a class="headerlink" href="#pxfmini-wiring-chart" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PXFmini_intro.jpg"><img alt="../_images/PXFmini_intro.jpg" src="../_images/PXFmini_intro.jpg" /></a>
+<p>[site wiki=”copter”]
+Copter users should also see the
+<a class="reference external" href="http://docs.erlerobotics.com/erle_robots/erle_copter">official setup documentation</a>.
+[/site]</p>
+</section>
+<section id="power-pxfmini">
+<h2>Power PXFmini<a class="headerlink" href="#power-pxfmini" title="Permalink to this heading">¶</a></h2>
+<p>PXFmini is typically powered via its “power” port, as shown in the
+picture below. The power port simultaneously powers PXFmini and
+reads voltage and current analog measurements.</p>
+<p>It can be also powered using a BEC, you just need to connect to the PWM rail.</p>
+<p>Additionally, for developing/configuration purposes, it can be powered
+using a micro USB charger (2A recommended).</p>
+<a class="reference external image-reference" href="../_images/PXFmini_Power_modes.jpg"><img alt="../_images/PXFmini_Power_modes.jpg" src="../_images/PXFmini_Power_modes.jpg" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always use a power module to feed PXFmini while flying your
+drone</p>
+</div>
+</section>
+<section id="hdmi-connector">
+<h2>HDMI Connector<a class="headerlink" href="#hdmi-connector" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>If you wish to work straight under your Linux based autopilot, you can use the HDMI connector</dt><dd><p>and make your own configurations:</p>
+</dd>
+</dl>
+<a class="reference external image-reference" href="../_images/PXFmini_GettingStarted4.jpg"><img alt="../_images/PXFmini_GettingStarted4.jpg" src="../_images/PXFmini_GettingStarted4.jpg" /></a>
+</section>
+<section id="connect-remote-control-inputs">
+<h2>Connect remote control inputs<a class="headerlink" href="#connect-remote-control-inputs" title="Permalink to this heading">¶</a></h2>
+<p>PXFmini is compatible with PPM remote control (RC) receivers. For
+traditional single-wire-per-channel (PWM) receivers a PPM encoder can be
+used to convert the receiver outputs to PPM-SUM.</p>
+<p>For more information see <a class="reference internal" href="common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2.html#common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2"><span class="std std-ref">Compatible RC Transmitter and Receiver Systems (Erle-Brain 2)</span></a>. The PXFmini is compatible with the tecnology used in Erle-Brain 2.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/FRSkyTaranis.jpg"><img alt="../_images/FRSkyTaranis.jpg" src="../_images/FRSkyTaranis.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">FRSky Taranis Transmitter</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gps-compass">
+<h2>GPS+Compass<a class="headerlink" href="#gps-compass" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="hhttps://erlerobotics.com/blog/product/gpscompass-ublox-neo-m8n-gps-with-compass-kit/">uBlox GPS + Compass Module</a>
+is the recommended GPS for PXFmini. The GPS port is connected with
+the six-position DF13 cable, and the Compass port is connected to the
+I2C port with the four-position JST-GH cable, as shown in the next image:</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/PXFmini_GPS.jpg"><img alt="../_images/PXFmini_GPS.jpg" src="../_images/PXFmini_GPS.jpg" /></a>
+</figure>
+</section>
+<section id="connect-motors">
+<h2>Connect Motors<a class="headerlink" href="#connect-motors" title="Permalink to this heading">¶</a></h2>
+<p>Use the PWM rail in order to connect them:</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/PXFmini_PWM.jpg"><img alt="../_images/PXFmini_PWM.jpg" src="../_images/PXFmini_PWM.jpg" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware of how you connect ESCs wires to PWM rail. The signal
+wire (white or orange color) should be connected at the top, the ground
+wire (black or brown color) at the bottom.</p>
+</div>
+<p>[site wiki=”copter”]</p>
+<p>For Copter see <a class="reference external" href="https://ardupilot.org/copter/docs/connect-escs-and-motors.html#connect-escs-and-motors" title="(in Copter)"><span class="xref std std-ref">Connect ESCs and Motors</span></a>.</p>
+<p>In overview, for copters connect each signal wire from the PDB to the
+main output signal (S) pins by motor number:</p>
+<ul class="simple">
+<li><p>Pin 1 = Motor 1 - - Pin 5 = Motor 5</p></li>
+<li><p>Pin 2 = Motor 2 - - Pin 6 = Motor 6</p></li>
+<li><p>Pin 3 = Motor 3 - - Pin 7 = Motor 7</p></li>
+<li><p>Pin 4 = Motor 4 - - Pin 8 = Motor 8</p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”plane”]</p>
+<p>For planes connect the control channel wires to the main output signal
+pins:</p>
+<ul class="simple">
+<li><p>Pin 1 = Aileron</p></li>
+<li><p>Pin 2 = Elevator</p></li>
+<li><p>Pin 3 = Throttle</p></li>
+<li><p>Pin 4 = Rudder</p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”rover”]</p>
+<p>For Rovers connect the throttle and steering wires to the main output
+signal pins:</p>
+<ul class="simple">
+<li><p>Pin 3 = Throttle</p></li>
+<li><p>Pin 1 = Steering</p></li>
+</ul>
+<p>[/site]</p>
+</section>
+<section id="usb-ports">
+<h2>USB ports<a class="headerlink" href="#usb-ports" title="Permalink to this heading">¶</a></h2>
+<p>You could attach different dongle/devices to the USB ports that includes Raspberry Pi 2/3/Zero:</p>
+<section id="wifi-dongle">
+<h3>WiFi dongle<a class="headerlink" href="#wifi-dongle" title="Permalink to this heading">¶</a></h3>
+<p>Use a (regular or high gain) WiFi dongle to create a hotspot that can,
+for example, be used for sending telemetry data and commands to a Ground
+Station.  If you use the <a class="reference external" href="http://docs.erlerobotics.com/brains/os_images">images</a> provided
+by Erle Robotics, they automatically generate a WiFi hotspot.</p>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/PXFmini_wifi.jpg"><img alt="../_images/PXFmini_wifi.jpg" src="../_images/PXFmini_wifi.jpg" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Edimax AC (regular and high gain) are the officially supported
+dongles. These can be purchased from Erle-Brain with your
+autopilot/vehicle.</p>
+</div>
+</section>
+<section id="bluetooth-dongle">
+<h3>Bluetooth dongle<a class="headerlink" href="#bluetooth-dongle" title="Permalink to this heading">¶</a></h3>
+<p>Use a Bluetooth dongle to connect additional devices, such as joysticks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to configure BlueTooth interface to make it
+work</p>
+</div>
+</section>
+</section>
+<section id="connect-other-peripherals">
+<h2>Connect other peripherals<a class="headerlink" href="#connect-other-peripherals" title="Permalink to this heading">¶</a></h2>
+<p>Depending on your hardware there may be any number of other peripherals
+attached, including sensors, cameras, grippers etc. These can be found
+as sub-pages of the topic <a class="reference internal" href="common-optional-hardware.html#common-optional-hardware"><span class="std std-ref">Optional Hardware</span></a>.</p>
+<p>More information in <a class="reference external" href="http://erlerobotics.com/docs/Artificial_Brains_and_Autopilots/Additional_Sensors/Lidar.html">official documentation</a>.</p>
+</section>
+<section id="related-information">
+<h2>Related information<a class="headerlink" href="#related-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://docs.erlerobotics.com/">Erle Robotics official documentation</a> includes
+additional information about how to use PXFmini.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-compatible-rc-transmitter-and-receiver-systems-erle-brain-2.html">Compatible RC Transmitter and Receiver Systems (Erle-Brain 2)</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

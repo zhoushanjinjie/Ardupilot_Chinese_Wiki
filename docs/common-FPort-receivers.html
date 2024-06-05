@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NAVIO2 Assembly and Wiring Quick Start" href="common-navio2-wiring-and-quick-start.html" />
+    <link rel="prev" title="[copywiki destination=”plane,copter,rover,blimp”]" href="common-jumperT16pro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#gps-compass">GPS/Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#rc-input">RC input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-flight-controller-wiring.html#motor-servo-connections">Motor/Servo Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#ublox-gps-compass-module">UBlox GPS + Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#connecting-the-autopilot">Connecting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#mounting-the-gps-module">Mounting the GPS Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#setup-in-mission-planner">Setup in Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#led-indicators">LED Indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+          <li class="breadcrumb-item"><a href="common-flight-controller-wiring.html">Typical Autopilot Wiring Connections</a></li>
+          <li class="breadcrumb-item"><a href="common-rc-systems.html">Radio Control Systems</a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-fport-receivers"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="fport-receivers">
+<h1>FPort Receivers<a class="headerlink" href="#fport-receivers" title="Permalink to this heading">¶</a></h1>
+<p>Support for FPort/FPort2 will be in firmware revs 4.1 and later.</p>
+<p>FPort protocol combines SBus RC control information being sent to the autopilot with bi-directional telemetry information to/from the autopilot on a single wire high baud rate bus.</p>
+<p>Many FRSky X series and R series receivers have this capability, either natively or with firmware upgrade.</p>
+<p>Connection to the autopilot and configuration varies from autopilot to autopilot since their UART capabilities vary. Most F4 cpu based autopilots do not have controllable inverters in front of the UART TX and RX, and require either an external bi-directional inverter, as SPort connections do or the use of the “un-inverted FPort pad/pin” some receivers provide since the FPort protocol has opposite signaling levels than normal UART operation.
+Most F7 and H7 autopilots, on the other hand, have internal inverters, and can be directly connected from the receiver’s FPort to their UARTs TX input line.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot supports both 16 and 24 channels FPort2 but telemetry is enabled only for 16 channels mode.</p>
+</div>
+</section>
+<section id="telemetry-protocol">
+<h1>Telemetry protocol<a class="headerlink" href="#telemetry-protocol" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot will send telemetry data to the receiver over Fport using the <a class="reference internal" href="common-frsky-passthrough.html#common-frsky-passthrough"><span class="std std-ref">Passthrough telemetry</span></a> protocol. To get sensors to show up in OpenTX you have to install and enable a script which can display Passthrough telemetry, such as  <a class="reference internal" href="common-frsky-yaapu.html#common-frsky-yaapu"><span class="std std-ref">Yaapu FrSky Telemetry Script for OpenTX</span></a>. Otherwise the only sensor that will be discovered would be GPS.</p>
+</section>
+<section id="connection-diagrams">
+<h1>Connection Diagrams<a class="headerlink" href="#connection-diagrams" title="Permalink to this heading">¶</a></h1>
+<p>See <a class="reference internal" href="common-connecting-sport-fport.html#common-connecting-sport-fport"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a> for connection diagrams.</p>
+</section>
+<section id="ardupilot-configuration">
+<h1>ArduPilot Configuration<a class="headerlink" href="#ardupilot-configuration" title="Permalink to this heading">¶</a></h1>
+<p>Configuration depends on the autopilot and connection method.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any configuration change to a UART requires a re-boot to take effect. Reminder: UART numbers do not necessarily map to SERIALx numbers. Check the <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">board’s description</span></a></p>
+</div>
+<p>In general, F4 based autopilots using an external bi-directional inverter can use any UART with the following configuration:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 23</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 160 (enable pull-up/pull-downs on TX and RX pins for those external inverter circuits that may require it, won’t affect those that do not need it)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSSI_TYPE</span></code> =3</p></li>
+</ul>
+<p>F4 based autopilots using an “un-inverted FPort” output from the receiver can connect it to any UART’s TX pin with the configuration:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 23</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 4 (Half Duplex), or = 132 (Half Duplex, TX Pull-up) if receiver does not have sufficient drive on the “un-inverted” output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSSI_TYPE</span></code> =3</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>F4 based autopilots cannot use the RX pin with an “un-inverted FPort” output since the SWAP capability is only available in F7/H7 based autopilots and Half Duplex requires connection the UART TX pin.</p>
+</div>
+<p>F7/H7 based autopilots can directly connect to the TX pin of any UART and use this configuration:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> =23</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> =  7 (invert TX/RX, Half Duplex) if using “un-inverted” FPort signal, then = 4 since inversion is not required)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSSI_TYPE</span></code> =3</p>
+<p>OR to the RX pin:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> =23</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> =  15 (invert TX/RX,Half Duplex, SWAP TX/RX pins)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSSI_TYPE</span></code> =3</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some F7/H7 autopilots have level/shifters on their UARTs that cause a delay in Half Duplex operation, like CubeOrange. If the above configuration does not, try setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-options" title="(in Rover)"><span class="xref std std-ref">RC_OPTIONS</span></a> = 8 which will add padding in the protocol to accommodate this. However, using this option when not required will break operation.</p>
+</div>
+</section>
+<section id="enhanced-configurations">
+<h1>Enhanced Configurations<a class="headerlink" href="#enhanced-configurations" title="Permalink to this heading">¶</a></h1>
+<p>Since many autopilots have a UART tied to the normal RC input pin for that autopilot which has been disabled, partially or totally, to allow that pins use as a GPIO for RC protocol decodes, including the PWM based ones, several boards now have alternate pin assignment which can be selected with the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> parameter. This allows the use of those previously disabled UARTs for FPort, without consuming an additional UART.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Several autopilots (e.g. Pixhawkx, Cube, etc.) that use an IOMCU co-processor do not have alternate configurations allowing the use of the RCIN pin. A serial port must be used, as described above.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CUAVv5Nano can use its normal RCinput for FPort. Setup configuration for SERIAL5 for a normal F7/H7 autopilot, as above.</p>
+</div>
+<p>The following autopilots have this capability using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> =1 :</p>
+<section id="matekf405">
+<h2>MatekF405<a class="headerlink" href="#matekf405" title="Permalink to this heading">¶</a></h2>
+<p>UART2 RX/TX can now be tied to receiver FPort through external SPort/FPort bi-directional inverter.</p>
+<ul class="simple">
+<li><p>Configure SERIAL5 as above for F4 autopilots</p></li>
+</ul>
+</section>
+<section id="matekf405-wing">
+<h2>MatekF405-Wing<a class="headerlink" href="#matekf405-wing" title="Permalink to this heading">¶</a></h2>
+<p>UART2 RX/TX can now be tied to receiver FPort through external SPort/FPort bi-directional inverter.</p>
+<ul class="simple">
+<li><p>Configure SERIAL7 as above for F4 autopilots</p></li>
+</ul>
+</section>
+<section id="matekf765-wing">
+<h2>MatekF765-Wing<a class="headerlink" href="#matekf765-wing" title="Permalink to this heading">¶</a></h2>
+<p>UART6 RX can now be tied to receiver FPort. This board requires a unique configuration:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a>  =1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL7_PROTOCOL</span></a> =23</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-options" title="(in Rover)"><span class="xref std std-ref">SERIAL7_OPTIONS</span></a> =15</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-options" title="(in Rover)"><span class="xref std std-ref">RC_OPTIONS</span></a> =8 (depending on receiver and its firmware rev, this may not be necessary)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> =3</p></li>
+</ul>
+</section>
+<section id="kakutef7-and-kakutef7mini">
+<h2>KakuteF7 and KakuteF7Mini<a class="headerlink" href="#kakutef7-and-kakutef7mini" title="Permalink to this heading">¶</a></h2>
+<p>The normal RC input, UART6 RX, can now be used for FPort with the following configuration:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> =1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial6-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL6_PROTOCOL</span></a> =23</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial6-options" title="(in Rover)"><span class="xref std std-ref">SERIAL6_OPTIONS</span></a> =15</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span class="xref std std-ref">RSSI_TYPE</span></a> =3</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-jumperT16pro.html" class="btn btn-neutral float-left" title="[copywiki destination=”plane,copter,rover,blimp”]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-navio2-wiring-and-quick-start.html" class="btn btn-neutral float-right" title="NAVIO2 Assembly and Wiring Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

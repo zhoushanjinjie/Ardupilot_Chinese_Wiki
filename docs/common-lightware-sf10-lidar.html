@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LightWare SF10 and SF11 Lidar &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LightWare SF10 and SF11 Lidar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lightware-sf10-and-sf11-lidar">
+<span id="common-lightware-sf10-lidar"></span><h1>LightWare SF10 and SF11 Lidar<a class="headerlink" href="#lightware-sf10-and-sf11-lidar" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://lightware.co.za/collections/lidar-rangefinders">Lightware SF10 and SF11</a> series of laser rangefinders are particularly lightweight, and provide fast and accurate distance measurements.
+Although slightly more expensive than other rangefinders, members of the dev team have had good success with them.
+The series includes a number of models:
+<a class="reference external" href="http://pixhawkstore.com.au/sf10-a-lightware-25m-laser-altimeter/">SF10/A</a> (25m),
+<a class="reference external" href="http://pixhawkstore.com.au/sf10-b-lightware-50m-laser-altimeter/">SF10/B</a> (50m),
+SF10/C (100m) and
+<a class="reference external" href="https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m">SF11/C</a> (120m)</p>
+<p><a class="reference external" href="../_images/SF10-B.jpg"><img alt="SF10-B" src="../_images/SF10-B.jpg" /></a></p>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the AutoPilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>The diagram below shows the sensor output pins and a conveniently colour-coded cable (normally included or <a class="reference external" href="http://documents.lightware.co.za/LW%20000_135%20-%20Main%20cable%20type%201%20assembly%20-%20Rev%200.pdf">see spec here</a>) which is used to connect to the autopilot. <a class="reference internal" href="#sf10-serial-connection"><span class="std std-ref">Serial</span></a>, <a class="reference internal" href="#sf10-i2c-connection"><span class="std std-ref">I2C</span></a> and <a class="reference internal" href="#sf10-analog-connection"><span class="std std-ref">Analog</span></a> connections are possible but we recommended using <a class="reference internal" href="#sf10-serial-connection"><span class="std std-ref">Serial</span></a> if possible especially if using cables that are 30cm or longer.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The serial connection is recommended when using longer cables</p>
+</div>
+<figure class="align-default" id="id1">
+<img alt="../_images/RangeFinder_SF10_Output_Pins.png" src="../_images/RangeFinder_SF10_Output_Pins.png" />
+<figcaption>
+<p><span class="caption-text">SF10 Rangefinder: Output Pins</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="http://documents.lightware.co.za/LW%20000_135%20-%20Main%20cable%20type%201%20assembly%20-%20Rev%200.pdf"><img alt="../_images/SF10_Rangefinder_main-cable-type-1-35-cm.jpg" src="../_images/SF10_Rangefinder_main-cable-type-1-35-cm.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Main cable for SF10 Rangefinder</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="serial-connection">
+<span id="sf10-serial-connection"></span><h3>Serial connection<a class="headerlink" href="#serial-connection" title="Permalink to this heading">¶</a></h3>
+<p>For a serial connection you can use any spare UART. Connect the RX line
+of the UART to the TX line of the Lidar, and the TX line of the UART to
+the RX line of the Lidar. Also connect the GND and 5V lines. You do not
+need flow control pins.</p>
+<p>The diagram below shows how to connect to SERIAL4.</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/Pixhawk_Rangefinder_SF10_Serial.jpg"><img alt="../_images/Pixhawk_Rangefinder_SF10_Serial.jpg" src="../_images/Pixhawk_Rangefinder_SF10_Serial.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Pixhawk and SF10Rangefinder: Serial Connection (SERIAL4)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>You then need to setup the serial port and rangefinder parameters. If
+you have used the SERIAL4/5 port on the Pixhawk then you would set the
+following parameters in the case of the first rangefinder(this is done in the <em>Mission Planner</em>
+<strong>Config/Tuning | Full Parameter List</strong> page):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL4_PROTOCOL</span></a> = 9 (Lidar)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial4-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL4_BAUD</span></a> = 115 (115200 baud)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 8 (LightWareSerial)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 5</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = <strong>2500</strong> (for SF10A), <strong>5000</strong> (for SF10B), <strong>10000</strong> (for SF10C) or <strong>12000</strong> (for SF11C).  <em>This is the distance in centimeters that the rangefinder can reliably read. The value depends on the model of the lidar.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-gndclear" title="(in Rover)"><span class="xref std std-ref">RNGFND1_GNDCLEAR</span></a> = 10 <em>or more accurately the distance in centimetres from the range finder to the ground when the vehicle is landed.  This value depends on how you have mounted the rangefinder.</em></p></li>
+</ul>
+<p>If you instead were using the Telem2 port on the Pixhawk then you would set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 9, and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 115</p>
+<p>Lightware lidars manufactured before May 2018 shipped with a default baud rate of 19200. If your device was produced before this date, you will need to set the baud rate to 19200 (Parameter value 19). Alternatively, you may reconfigure your lightware device to use a baudrate of 115200 using the Lightware Terminal application and use the settings above.</p>
+</section>
+<section id="i2c-connection">
+<span id="sf10-i2c-connection"></span><h3>I2C connection<a class="headerlink" href="#i2c-connection" title="Permalink to this heading">¶</a></h3>
+<p>Connect the SDA line of the Lidar to the SDA line of the I2C port on the Pixhawk, and the SCL line of the Lidar to the SCL line of the I2C port. Also connect the GND and 5V lines.</p>
+<figure class="align-default" id="id4">
+<a class="reference external image-reference" href="../_images/Pixhawk_Rangefinder_SF10_I2C.jpg"><img alt="../_images/Pixhawk_Rangefinder_SF10_I2C.jpg" src="../_images/Pixhawk_Rangefinder_SF10_I2C.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Pixhawk and SF10 Rangefinder: I2CConnection</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>You then need to configure the rangefinder parameters as shown below
+(this is done in the <em>Mission Planner</em> <strong>Config/Tuning | Full Parameter
+List</strong> page):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 7 (LightWareI2C)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-addr" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ADDR</span></a> = 102 (I2C Address of lidar in decimal).  <em>Please note that this setting is in decimal and not hexadecimal as shown in the lidar settings screen. The default address is 0x66 which is 102 in decimal.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 5</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = <strong>2500</strong> (for SF10A), <strong>5000</strong> (for SF10B), <strong>10000</strong> (for SF10C) or <strong>12000</strong> (for SF11C).  <em>This is the distance in centimeters that the rangefinder can reliably read. The value depends on the model of the lidar.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-gndclear" title="(in Rover)"><span class="xref std std-ref">RNGFND1_GNDCLEAR</span></a> = 10 <em>or more accurately the distance in centimetres from the range finder to the ground when the vehicle is landed.  This value depends on how you have mounted the rangefinder.</em></p></li>
+</ul>
+<p>It may be necessary to enable the sensor’s “I2C compatibility mode (Pixhawk)”.  This can be done by connecting the lidar to your PC using a USB cable, then download <a class="reference external" href="https://lightwarelidar.com/pages/lightware-studio">Lightware Studio</a>, connect and check the checkbox shown below</p>
+<a class="reference external image-reference" href="../_images/lightware-sf11c-studio.png"><img alt="../_images/lightware-sf11c-studio.png" src="../_images/lightware-sf11c-studio.png" style="width: 450px;" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default I2C address was 85 (0x55 in hexadecimal) on older LightWare rangefinders.
+This was changed to prevent conflict with another device on ArduPilot.
+Please check your rangefinder system settings to determine what your I2C address is.</p>
+</div>
+</section>
+<section id="analog-connection">
+<span id="sf10-analog-connection"></span><h3>Analog connection<a class="headerlink" href="#analog-connection" title="Permalink to this heading">¶</a></h3>
+<p>The SF10’s Analog Out pin (5) should be connected to the Pixhawk’s 3.3V
+ADC (analog to digital converter).  The Pixhawk will provide the
+regulated 5V power supply needed by the sensor using the 5V and GND pins
+of the ADC connector.</p>
+<figure class="align-default" id="id5">
+<a class="reference external image-reference" href="../_images/Pixhawk_Rangefinder_SF10_Analog.jpg"><img alt="../_images/Pixhawk_Rangefinder_SF10_Analog.jpg" src="../_images/Pixhawk_Rangefinder_SF10_Analog.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Pixhawk and SF10 Rangefinder:Analog Connection</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>You then need to setup the ADC and rangefinder parameters as shown below
+(this is done in the <em>Mission Planner</em> <strong>Config/Tuning | Full Parameter
+List</strong> page):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 1 (Analog)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pin" title="(in Rover)"><span class="xref std std-ref">RNGFND1_PIN</span></a> = 14 (2nd pin of 3.3V ADC connector)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> = <strong>9.76</strong> (for SF10A), <strong>19.531</strong> (for SF10B), <strong>39.06</strong> (for SF10C), <strong>46.87</strong> (for SF11C)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 5</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = <strong>2000</strong> (for SF10A), <strong>4500</strong> (for SF10B), <strong>9500</strong> (for SF10C) or <strong>11500</strong> (for SF11C).  <em>This is the distance in centimeters that the rangefinder can reliably read. The value depends on the model of the lidar.  Note the range is 5m less than using Serial or I2C protocols so that out-of-range can be reliably detected</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-gndclear" title="(in Rover)"><span class="xref std std-ref">RNGFND1_GNDCLEAR</span></a> = 10 <em>or more accurately the distance in centimetres from the range finder to the ground when the vehicle is landed.  This value depends on how you have mounted the rangefinder.</em></p></li>
+</ul>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> value depends on the voltage on the rangefinders output pin at the maximum range. By default the SF10/B will output 2.56V at 50m, so the scaling factor is 50m / 2.56v ≈ 19.53 (the analog
+distance range for each of the rangefinder variants can be found in the <a class="reference external" href="http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%2011.pdf">SF10 Manual</a>).
+The manual explains how you can confirm and change the maximum output range/voltage.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We highly recommend that you tune the <code class="docutils literal notranslate"><span class="pre">RNGFND1_SCALING</span></code> value by
+comparing the output against a known distance.</p>
+</div>
+</section>
+</section>
+<section id="testing-the-sensor">
+<h2>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copter 用例概述 &mdash; Copter 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flight Features" href="copter-flight-features.html" />
+    <link rel="prev" title="What is a MultiCopter and How Does it Work?" href="what-is-a-multicopter-and-how-does-it-work.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">用例概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#still-and-video-photography">拍照片和拍视频</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first-person-view-fpv">第一人称主视角(FPV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disaster-response">灾害应对</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-and-rescue">搜救</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agricultural-applications">农业应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forest-fire-mitigation">森林火灾缓解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hazard-danger-mitigation">危险/危险缓解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-mapping-and-gis-geographic-information-systems">3D地图和GIS（地理信息系统）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspection-verification-and-sample-collection">检验、验证和样品采集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload-based-applications">基于有效载荷的应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-applications">其他应用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="copter-flight-features.html">飞行功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+      <li class="breadcrumb-item active">Copter用例概述</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copter-use-case-overview">
+<span id="id1"></span><h1>Copter用例概述<a class="headerlink" href="#copter-use-case-overview" title="Permalink to this heading">¶</a></h1>
+<p>本文概述了Copter的一些主要用例。</p>
+<section id="overview">
+<h2>概述<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Copter自动驾驶仪提供了一个稳定的飞行平台，可以对车辆的位置、速度、方向和动作进行精确的手动和自动控制。使用以下自动驾驶
+  <a class="reference internal" href="flight-modes.html#flight-modes"><span class="std std-ref">飞行/控制模式</span></a>可获得支持的控制行为：</p>
+<ul class="simple">
+<li><p>
+<a class="reference internal" href="stabilize-mode.html#stabilize-mode"><span class="std std-ref">Stabilize(自稳)</span></a>，
+<a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">Alt Hold(定高)</span></a> 和
+<a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter(悬停)</span></a>
+等手动飞行模式提供了不同类型的稳定功能，使飞行器更容易飞行和定位。其他手动模式，如
+<a class="reference internal" href="ac2_followme.html#ac2-followme"><span class="std std-ref">Follow Me</span></a>和
+<a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">RTL (Return-to-Launch)</span></a>，
+会自动执行需要复杂手动调整的任务。
+</p></li>
+<li><p><a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">AUTO 模式</span></a>允许您运行复杂的任务，您可以使用
+  <a class="reference internal" href="common-choosing-a-ground-station.html#common-choosing-a-ground-station"><span class="std std-ref">地面控制站</span></a>进行定义。</p></li>
+<li><p>车上的配套计算机可以与Copter通信/控制Copter（例如，使用<a class="reference external" href="https://github.com/dronekit/dronekit-python/">DroneKit-Python</a>），并执行计算机视觉等计算密集型低延迟任务。
+</p></li>
+</ul>
+<p>这种稳定性和精度，以及手动和自动控制方面的灵活性，使Copter成为许多无人机应用的理想平台。</p>
+<p>本文概述了一些主要用例，特别强调了那些需要照片/视频检查或在难以到达的地方交付有效载荷的用例。</p>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p><a class="reference internal" href="common-use-cases-and-applications.html#common-use-cases-and-applications"><span class="std std-ref">用例和应用程序</span></a>一节介绍了其他用例和信息。</p>
+</div>
+</section>
+<section id="still-and-video-photography">
+<h2>拍照片和拍视频<a class="headerlink" href="#still-and-video-photography" title="Permalink to this heading">¶</a></h2>
+<p>Copter可以让您轻松到达难以（或不可能）到达的地点并拍摄照片/视频。出于这个原因，摄影应用程序是目前开发程度最高的用例。</p>
+<p>Copter为摄影提供了一个稳定的平台，无刷相机万向节提供了额外的稳定性和对相机位置（相对于车辆）的独立控制。Copter支持相机友好的飞行模式，如
+  <a class="reference internal" href="ac2_followme.html#ac2-followme"><span class="std std-ref">Follow Me</span></a>，并允许您在特定的兴趣区域控制/维护相机目标。
+</p>
+<p>3DR Solo等先进系统使用在配套计算机上运行的<a class="reference external" href="https://dronekit.io/">DroneKit Python</a>实现了更先进的车辆/摄像头控制（“智能拍摄”）。</p>
+</section>
+<section id="first-person-view-fpv">
+<h2>第一人称主视角(FPV)<a class="headerlink" href="#first-person-view-fpv" title="Permalink to this heading">¶</a></h2>
+<p><em>第一人称视角</em>允许您从实际机上飞行员的角度驾驶直升机。这个用例在主题
+<a class="reference internal" href="common-fpv-first-person-view.html#common-fpv-first-person-view"><span class="std std-ref">第一人称主视角(FPV)</span></a>中进行了讨论。</p>
+</section>
+<section id="disaster-response">
+<h2>灾害响应<a class="headerlink" href="#disaster-response" title="Permalink to this heading">¶</a></h2>
+<p>Copters可以在发生重大灾害（火灾、洪水、龙卷风、地震、火山爆发等）时帮助拯救生命/提供救济。</p>
+<p>它们在搜索和调查任务以及提供低重量关键物资、信息和援助方面特别有用。他们可以相对便宜地完成这项工作，而不会危及更多的生命（腾出其他资源进行实际恢复）。</p>
+</section>
+<section id="search-and-rescue">
+<h2>搜救<a class="headerlink" href="#search-and-rescue" title="Permalink to this heading">¶</a></h2>
+<p>Copter为寻找失踪的个人和团体提供了一个极好的平台。车辆可以执行网格搜索并拍照，以便在车上（使用配套计算机）或稍后进行分析。Copter可以在难以到达的地区进行搜索，由于成本低，可能会大量使用。</p>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>固定翼飞行器的射程比Copter大得多，可能更适合搜索地面覆盖率低的大面积区域。</p>
+</div>
+</section>
+<section id="agricultural-applications">
+<h2>农业应用<a class="headerlink" href="#agricultural-applications" title="Permalink to this heading">¶</a></h2>
+<p>农业检测是无人机应用的一个不断发展的领域。示例包括：</p>
+<ul class="simple">
+<li><p>瓷砖和排水检查</p></li>
+<li><p>谷仓屋顶和筒仓检查</p></li>
+<li><p>灌溉枢纽检查</p></li>
+<li><p>农作物保险索赔的冰雹和牛损检查</p></li>
+<li><p>驱赶以农作物为食的害虫野生动物</p></li>
+<li><p>在你的私人土地上巡逻</p></li>
+<li><p>找到失踪的牛（这是热敏相机派上用场的地方）</p></li>
+<li><p>业主视频登记</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<p>这有望成为多旋翼最重要和最早被民用的用途之一。一个好处是在私人土地上飞行时限制较少。</p>
+</div>
+</section>
+<section id="forest-fire-mitigation">
+<h2>森林火灾缓解<a class="headerlink" href="#forest-fire-mitigation" title="Permalink to this heading">¶</a></h2>
+<p>Copter在火灾监测和探测方面具有巨大潜力（使用红外相机、飞机或Copter无人机，即使在茂密的树木覆盖下，也可以探测小型营地火灾）。</p>
+</section>
+<section id="hazard-danger-mitigation">
+<h2>危险/灾害缓解<a class="headerlink" href="#hazard-danger-mitigation" title="Permalink to this heading">¶</a></h2>
+<p>更普遍地说，Copter和Plane作为使用飞机、直升机或地面服务进行巡逻的一种具有成本效益的替代方案，可用于其他灾害缓解。</p>
+<p>它们已经被用于海滩地区的鲨鱼巡逻，没有理由不被类似地用于任何其他“巡逻”活动。</p>
+</section>
+<section id="d-mapping-and-gis-geographic-information-systems">
+<h2>3D地图和GIS（地理信息系统）<a class="headerlink" href="#d-mapping-and-gis-geographic-information-systems" title="Permalink to this heading">¶</a></h2>
+<p>Copter是一个有效的3D地图平台，具有广泛的潜在应用。有关详细信息，请参见主题<a class="reference internal" href="common-3d-mapping.html#common-3d-mapping"><span class="std std-ref">3D Mapping</span></a>。</p>
+</section>
+<section id="inspection-verification-and-sample-collection">
+<h2>检验、验证和样品采集<a class="headerlink" href="#inspection-verification-and-sample-collection" title="Permalink to this heading">¶</a></h2>
+<p>建筑和建筑检查/验证可能是增长最快的无人机用例，因为无需建造昂贵的脚手架和其他安全基础设施，就可以检查施工质量和条件，这有着明显的好处。Copter同样适用于轮廓分析、排水和验证是否遵守计划。</p>
+<p>Copter还可用于难以到达或危险区域的样本采集（这要求车辆配备小型探针或其他样本设备）。
+  <a class="reference external" href="https://permalink.lanl.gov/object/tr?what=info:lanl-repo/lareport/LA-UR-13-23300">Modcopter样本采集系统</a>是一个优秀的政府支持的学生项目，用于获取各种样本。 
+</p>
+</section>
+<section id="payload-based-applications">
+<h2>基于有效载荷的应用<a class="headerlink" href="#payload-based-applications" title="Permalink to this heading">¶</a></h2>
+<p>Copter适用于运送低质量的应急物资，包括漂浮设备、通信设备、防鲨剂等。</p>
+<p>目前正在积极调查其他商业应用，包括作物喷洒和包裹递送。</p>
+</section>
+<section id="other-applications">
+<h2>其他应用<a class="headerlink" href="#other-applications" title="Permalink to this heading">¶</a></h2>
+<p>Copters正在许多其他应用中使用或考虑：</p>
+<ul class="simple">
+<li><p>从山顶到山顶的电力线的初始“引导线”架线。</p></li>
+<li><p>涂漆、修补和维护。</p></li>
+<li><p>树木修剪和喷洒。</p></li>
+<li><p>建筑和家庭清洁。</p></li>
+</ul>
+<p><a class="reference internal" href="common-use-cases-and-applications.html#common-use-cases-and-applications"><span class="std std-ref">用例和应用程序</span></a>一节介绍了更多详细信息和附加用例信息。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="what-is-a-multicopter-and-how-does-it-work.html" class="btn btn-neutral float-left" title="What is a MultiCopter and How Does it Work?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="copter-flight-features.html" class="btn btn-neutral float-right" title="Flight Features" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

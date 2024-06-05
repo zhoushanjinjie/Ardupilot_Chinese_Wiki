@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STorM32 Gimbal Controller &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">STorM32 Gimbal Controller</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="storm32-gimbal-controller">
+<span id="common-storm32-gimbal"></span><h1>STorM32 Gimbal Controller<a class="headerlink" href="#storm32-gimbal-controller" title="Permalink to this heading">¶</a></h1>
+<p>The STorM32-BGC is a relatively low-cost 3-axis brushless gimbal
+controller that can communicate with ArduPilot (Copter, Plane and Rover)
+using MAVLink or a proprietary serial protocol.</p>
+<ul class="simple">
+<li><p>SToRM32 gimbals with I2C setups and firmware v0.96 should use the SToRM32 Serial driver</p></li>
+<li><p>SToRM32 NT gimbals running firmware above v0.96 should use the SToRM32 MAVLink driver</p></li>
+</ul>
+<section id="where-to-buy">
+<h2>Where to buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Please refer to the <a class="reference external" href="http://www.olliw.eu/storm32bgc-wiki/Main_Page">STorM32-BGC wiki pages</a> for more detailed information including where the gimbals can be purchased.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some v1.3x boards has been found to cause significant RF interference on the 433mhz and 915mhz band.
+Use with caution, if you are using either 433/915mhz control or telemetry.</p>
+</div>
+</section>
+<section id="connecting-the-gimbal-to-the-autopilot">
+<h2>Connecting the gimbal to the autopilot<a class="headerlink" href="#connecting-the-gimbal-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhawk_SToRM32_connections.jpg"><img alt="../_images/pixhawk_SToRM32_connections.jpg" src="../_images/pixhawk_SToRM32_connections.jpg" /></a>
+<p>Connect one of the  autopilot’s serial port’s TX, RX and GND pins to the gimbal’s UART port as shown above.  The autopilot’s serial port’s VCC, RTS and CTS pins should not be connected</p>
+</section>
+<section id="setup-if-using-mavlink-protocol">
+<span id="common-storm32-gimbal-configuring-the-gimbal"></span><h2>Setup if using MAVLink protocol<a class="headerlink" href="#setup-if-using-mavlink-protocol" title="Permalink to this heading">¶</a></h2>
+<p>In addition to the regular gimbal configuration described on the
+<a class="reference external" href="http://www.olliw.eu/storm32bgc-wiki/Getting_Started">STorM32-BGC wiki</a>, the
+MAVlink heartbeats should be enabled through OlliW’s o323BGCTool’s
+<strong>Tools | Expert Tool</strong> screen as shown below.</p>
+<a class="reference external image-reference" href="../_images/SToRM32_enableMavlink.png"><img alt="../_images/SToRM32_enableMavlink.png" src="../_images/SToRM32_enableMavlink.png" /></a>
+<p>Using a ground station (e.g. Mission Planner) set the following parameters.  These setting assume Autopilot’s serial2 is being used.  If another serial port is being used replace the “2” in the parameter name with the appropriate serial port number.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 115 (115200 bps).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 1 (MAVLink1) or 2 (MAVLink2)</p></li>
+<li><p>Optionally set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser2-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER2_RTSCTS</span></a> = 0 to disable serial flow control</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/SToRM32_MP_Serial2Baud_new.png"><img alt="../_images/SToRM32_MP_Serial2Baud_new.png" src="../_images/SToRM32_MP_Serial2Baud_new.png" /></a>
+<p>if the first mount is being used, set the following parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> = 4 (SToRM32 MAVLink) and reboot the autopilot</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-min" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-max" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-min" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-max" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MAX</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-min" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-max" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MAX</span></a> to match your gimbal’s range.</p></li>
+<li><p>Optionally set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc6-option" title="(in Rover)"><span class="xref std std-ref">RC6_OPTION</span></a> = 213 to control the gimbal’s pitch from the transmitter’s ch6 tuning knob.</p></li>
+</ul>
+<p>The screenshot below shows a setup in which the gimbal has:</p>
+<ul class="simple">
+<li><p>360 of yaw rotation (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-min" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MIN</span></a> = -180, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-max" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MAX</span></a>  = 179)</p></li>
+<li><p>60 degrees (both left and right) of roll (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-min" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MIN</span></a> = -60, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-max" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MAX</span></a>  = +60)</p></li>
+<li><p>Can point straight down (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-min" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MIN</span></a> = -9000)</p></li>
+<li><p>Can point straight up (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-max" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MAX</span></a> = +90)</p></li>
+<li><p>Gimbal’s pitch is controlled by the transmitter’s channel 6 tuning knob</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/SToRM32_MP_MountParams.png"><img alt="../_images/SToRM32_MP_MountParams.png" src="../_images/SToRM32_MP_MountParams.png" /></a>
+</section>
+<section id="setup-if-using-storm32-serial-protocol">
+<h2>Setup if using SToRM32 Serial protocol<a class="headerlink" href="#setup-if-using-storm32-serial-protocol" title="Permalink to this heading">¶</a></h2>
+<p>To use the serial protocol use all the same settings as above except:</p>
+<ul class="simple">
+<li><p>When <a class="reference internal" href="#common-storm32-gimbal-configuring-the-gimbal"><span class="std std-ref">Configuring the Gimbal</span></a> controller set the “MAVLink configuration” parameter to “no heartbeat”</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 8 (SToRM32 Gimbal Serial).  If another serial port is connected to the gimbal replace “2” with the serial port number</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> = 5 (SToRM32 Serial)</p></li>
+</ul>
+</section>
+<section id="control-and-testing">
+<h2>Control and Testing<a class="headerlink" href="#control-and-testing" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">Gimbal / Mount Controls</span></a> for details on how to control the gimbal using RC, GCS or Auto mode mission commands</p>
+</section>
+<section id="resistor-issue-on-some-boards">
+<h2>Resistor issue on some boards<a class="headerlink" href="#resistor-issue-on-some-boards" title="Permalink to this heading">¶</a></h2>
+<p>Some in-depth analysis <a class="reference external" href="https://www.rcgroups.com/forums/showthread.php?2494532-Storm32-with-Pixhawk-over-serial-connection/page5">here on rcgroups</a>
+turned up that some STorM32 boards need resistor #4 (shown in pic below)
+shorted (i.e. a wire soldered over the top of the resistor to turn it
+into a regular wire) in order for the gimbal controllers messages to get
+through to the Pixhawk.</p>
+<a class="reference external image-reference" href="../_images/Gimbal_SToRM32_resistorFix.jpg"><img alt="../_images/Gimbal_SToRM32_resistorFix.jpg" src="../_images/Gimbal_SToRM32_resistorFix.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

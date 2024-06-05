@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-esp8266-telemetry"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="esp8266-wifi-telemetry">
+<h1>ESP8266 wifi telemetry<a class="headerlink" href="#esp8266-wifi-telemetry" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/esp8266-telemetry.jpg"><img alt="../_images/esp8266-telemetry.jpg" src="../_images/esp8266-telemetry.jpg" /></a>
+<p>The ESP8266 wifi module is an inexpensive programmable wifi modules available from many sources.  It also comes included with most <a class="reference internal" href="common-pixracer-overview.html#common-pixracer-overview"><span class="std std-ref">Pixracers</span></a>.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://www.adafruit.com/product/2471">adafruit HUZZAH ESP8266 breakout board</a> is recommended because it can be connected to an autopilot without the need for 3.3V regulator or level shifters.</p>
+</section>
+<section id="connecting-to-an-autopilot">
+<h2>Connecting to an autopilot<a class="headerlink" href="#connecting-to-an-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/esp8266-telemetry-pixhawk.jpg"><img alt="../_images/esp8266-telemetry-pixhawk.jpg" src="../_images/esp8266-telemetry-pixhawk.jpg" /></a>
+<p>If connected to Serial1/Telem1 these parameters should be set on the autopilot (if using another telemetry port, replace the “1” in the parameter name with the telemetry port’s number):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL1_PROTOCOL</span></a> = 2 (MAVLink2) or 1 (MAVLink1)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL1_BAUD</span></a> = 921 (921600 baud)</p></li>
+</ul>
+<p>If you have problems connecting, it may help to set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser1-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER1_RTSCTS</span></a> = 0 to disable flow control although this is not normally necessary</p>
+</section>
+<section id="connecting-from-a-ground-station">
+<h2>Connecting from a Ground Station<a class="headerlink" href="#connecting-from-a-ground-station" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>load the MAVESP8266 firmware to the device if you haven’t already (see below)</p></li>
+<li><p>on your PC, open the wifi network connections screen and select the wifi access point (SSID “ArduPilot” or “PixRacer” with a lower case password “ardupilot” or “pixracer” respectively)</p></li>
+<li><p>on the ground station, set the connection type to UDP and press “Connect”</p></li>
+</ul>
+<p>If all is well the ground station will connect, download parameters and the HUD should move as the vehicle is moved.</p>
+</section>
+<section id="flashing-the-device-with-the-mavesp8266-firmware">
+<h2>Flashing the device with the MAVESP8266 firmware<a class="headerlink" href="#flashing-the-device-with-the-mavesp8266-firmware" title="Permalink to this heading">¶</a></h2>
+<p>We recommend flashing the ArduPilot specific version of MAVESP8266 (<a class="reference external" href="https://firmware.ardupilot.org/Tools/MAVESP8266/latest/">binaries</a>, <a class="reference external" href="https://github.com/tridge/mavesp8266">source code</a>) over the original <a class="reference external" href="https://github.com/dogmaphobic/mavesp8266">MAVESP8266</a> because it includes two additional features:</p>
+<ul class="simple">
+<li><p>mavlink2 support</p></li>
+<li><p>subsequent firmware uploads can be done over wifi</p></li>
+<li><p>simple configuration web interface</p></li>
+</ul>
+<p>An <a class="reference external" href="https://www.sparkfun.com/products/9717">FTDI Cable like this one from SparkFun</a> is required for at least the first time the firmware is upload to the device.</p>
+<p>If you are using the Adafruit HUZZAH ESP8266 board and are flashing from a Windows PC then you should:</p>
+<ul>
+<li><p>solder a 6pin header to the narrow end of the board that has the TX, RX, VCC and GND pins</p></li>
+<li><p>connect the device to your computer using the FTDI cable</p></li>
+<li><p>put the device into bootloader mode by pressing both the Reset and GPIO0 buttons, then release the Reset button followed by the GPIO0 button.  the red LED should remain dimly lit.</p></li>
+<li><p>download the ArduPilot specific version of MAVESP8266 from <a class="reference external" href="https://firmware.ardupilot.org/Tools/MAVESP8266/latest/">this directory</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Tools/MAVESP8266/latest/firmware-esp01_1m.bin">firmware-esp01_1m.bin</a> is for boards with 1MB of flash (most boards)</p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Tools/MAVESP8266/latest/firmware-esp01.bin">firmware-esp01.bin</a> is for boards with only 512KB of flash (very old boards)</p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Tools/MAVESP8266/latest/firmware-esp12e.bin">firmware-esp12e.bin</a> is for boards with 4MB of flash</p></li>
+</ul>
+</li>
+<li><p>Windows users should download and run the NodeMCU flasher (<a class="reference external" href="https://github.com/nodemcu/nodemcu-flasher/blob/master/Win64/Release/ESP8266Flasher.exe">64bit</a> or <a class="reference external" href="https://github.com/nodemcu/nodemcu-flasher/blob/master/Win32/Release/ESP8266Flasher.exe">32bit</a>)</p>
+<ul>
+<li><p>on the Advanced page ensure the Flash size is set to 4MByte</p></li>
+<li><p>on the Config page push the gear and select the firmware downloaded above</p></li>
+<li><p>on the Operation page select the “COM Port” and push the “Flash” button.  If successful the blue bar will slowly stretch from left to right and the icon on the bottom left will turn green.</p>
+<a class="reference external image-reference" href="../_images/esp8266-telemetry-flash.jpg"><img alt="../_images/esp8266-telemetry-flash.jpg" src="../_images/esp8266-telemetry-flash.jpg" /></a>
+</li>
+</ul>
+</li>
+<li><p>Mac users should use the <a class="reference external" href="https://github.com/espressif/esptool">esptool</a></p>
+<ul>
+<li><p>First, find the COM of your connected device by using the following command line in the terminal. The USB COM port that the ESP8266 is attached will appear something  “/dev/ttyusbserial-A600eto2”</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>/dev/tty<span class="se">\.</span>*
+</pre></div>
+</div>
+</li>
+<li><p>Next, you need to erase all content in your ESP8266. Put the ESP8266 in bootloader mode, and run this command in your terminal window, replacing the <em>COM</em> with the ESP8266 COM port you found previously above</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>esptool.py<span class="w">   </span>--baud<span class="w"> </span><span class="m">921600</span><span class="w">  </span>--port<span class="w"> </span>COM<span class="w"> </span>erase_flash
+</pre></div>
+</div>
+</li>
+<li><p>Finally,  flash the board with the correct expected firmware: Put your device in bootloader mode again, and use the following command, again replacing the <em>COM</em> with the  port you used in the previous command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>esptool.py<span class="w">   </span>--baud<span class="w"> </span><span class="m">921600</span><span class="w">  </span>--port<span class="w"> </span>COM<span class="w"> </span>write_flash<span class="w">  </span>--flash_mode<span class="w"> </span>dio<span class="w"> </span>--flash_size<span class="w"> </span>detect<span class="w"> </span>0x0<span class="w"> </span>firmware-XXXX.bin
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Linux users should use the <a class="reference external" href="https://github.com/espressif/esptool">esptool</a></p></li>
+</ul>
+</section>
+<section id="changing-the-wifi-ssid-and-password">
+<h2>Changing the Wifi SSID and Password<a class="headerlink" href="#changing-the-wifi-ssid-and-password" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>connect from your PC to the wifi access point (initial access point ID is “ArduPilot”, and password is “ardupilot”)</p></li>
+<li><p>open a browser to <a class="reference external" href="http://192.168.4.1/">192.168.4.1</a> and a simple web interface will appear like below</p></li>
+<li><p>click on the “Setup” link</p></li>
+<li><p>set the “AP SSID” and “AP Password” fields (both must be between 8 and 16 characters), push the “Save” button and reboot the device</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/esp8266-telemetry-web-setup.png"><img alt="../_images/esp8266-telemetry-web-setup.png" src="../_images/esp8266-telemetry-web-setup.png" /></a>
+</div></blockquote>
+</li>
+</ul>
+<p>Thanks to <a class="reference external" href="https://rays-blog.de/2016/10/21/224/adding-wi-fi-telemetry-to-pixhawk-flight-controller-with-esp8266-module/">Ray’s blog</a> which was the source for some of this page’s advice.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

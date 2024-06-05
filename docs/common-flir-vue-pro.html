@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLIR Vue Pro &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FLIR Vue Pro</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flir-vue-pro">
+<span id="common-flir-vue-pro"></span><h1>FLIR Vue Pro<a class="headerlink" href="#flir-vue-pro" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://www.flir.com/products/vue-pro/">FLIR Vue Pro</a> infrared camera supports MAVLink which allows the camera to add position and attitude information to each image stored on its internal SD card</p>
+<a class="reference internal image-reference" href="../_images/flir-vue-pro.png"><img alt="../_images/flir-vue-pro.png" src="../_images/flir-vue-pro.png" style="width: 400px;" /></a>
+<p><em>image courtesy of flir.com</em></p>
+<p>Some of these instructions are based on information from the <a class="reference external" href="https://www.flir.com/globalassets/imported-assets/document/436-0013-10-vue-pro-and-r-user-guide.pdf">FLIR Vue Pro User Guide</a> and <a class="reference external" href="http://www.tuffwing.com/support/Flir_Vue_Pro_Pixhawk_Installation.html">Tuffwing.com</a></p>
+<section id="recommended-hardware">
+<h2>Recommended Hardware<a class="headerlink" href="#recommended-hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Flir Vue Pro is available directly from <a class="reference external" href="https://www.flir.com/products/vue-pro/">flir.com</a></p></li>
+<li><p><a class="reference external" href="https://www.flir.com/products/4142156_cable-accessory-port/">Flir Cable Accessory Cable</a> (for Pixhawk1 using DF13 connectors) or <a class="reference external" href="http://www.tuffwing.com/store/store.html#flir_vue_cable">Tuffwing.com’s Flir Vue Pro trigger and geotag cable</a> (for most other autopilots using JST connectors)</p></li>
+</ul>
+</section>
+<section id="connecting-and-configuring">
+<h2>Connecting and Configuring<a class="headerlink" href="#connecting-and-configuring" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/flir-vue-pro-pixhawk.png"><img alt="../_images/flir-vue-pro-pixhawk.png" src="../_images/flir-vue-pro-pixhawk.png" style="width: 450px;" /></a>
+<p>Plug one end of the accessory cable into the camera’s 7-pin DF13 connector (found next to the micro USB port) and then the other 6-pin connector to one of the autopilot’s telemetry ports.  In this example Telem2 is used.</p>
+<p>Set the following parameters on the autopilot (assuming Telem2/Serial2 is used):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 1 (MAVLink 1)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 57 (57200 baud)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr2-position" title="(in Rover)"><span class="xref std std-ref">SR2_POSITION</span></a> = 5 to send the vehicle’s position to the camera at 5hz</p></li>
+</ul>
+<p>To allow triggering the taking of pictures during a mission or from a transmitter’s auxiliary switch connect the “P3” 3-pin servo connector to the one of the autopilot’s servo outputs.  In this example AUX OUT 1 (aka SERVO9) is used.  Then set the following parameters (Assuming the Camera1 instance):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> = 10 (Camera Trigger)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#cam1-servo-on" title="(in Rover)"><span class="xref std std-ref">CAM1_SERVO_ON</span></a> = 1900</p></li>
+<li><p><cite>CH8_OPT`</cite> or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> = 9 (Camera Trigger) to enable triggering from transmitter switch 8</p></li>
+</ul>
+</section>
+<section id="configure-the-phone">
+<h2>Configure the Phone<a class="headerlink" href="#configure-the-phone" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://www.tuffwing.com/support/Flir_Vue_Pro_Pixhawk_Installation.html">As described on Tuffwing.com</a>, install the Flir UAS app on your phone (<a class="reference external" href="https://play.google.com/store/apps/details?id=com.flir.vuepro&amp;hl=en">android</a> or <a class="reference external" href="https://itunes.apple.com/us/app/flir-uas/id1051901140?mt=8">iPhone</a>), power up the camera and connect from your phone using BlueTooth.  Set the following options for the Accessory Port:</p>
+<ul class="simple">
+<li><p>Serial Protocol: MAVLink</p></li>
+<li><p>Serial Data Rate: 57600</p></li>
+<li><p>Channel 1 : MAVLink TX</p></li>
+<li><p>Channel 3: Record Start/Stop</p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Power up the camera and autopilot in a location where the vehicle can get a GPS lock.</p></li>
+<li><p>Connect with a ground station (like Mission Planner) and check that the vehicle appears on the map</p></li>
+<li><p>If the serial connection between the autopilot and camera is working then shortly after the camera is powered on, it will begin sending heartbeats to the autopilot and ground station which, if using the Mission Planner, will make it appear as “CAMERA” in the top-right drop-down.  Selecting the CAMERA will not work though because the camera does not respond to requests for parameters</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/flir-vue-pro-mp.png"><img alt="../_images/flir-vue-pro-mp.png" src="../_images/flir-vue-pro-mp.png" /></a>
+<ul class="simple">
+<li><p>Trigger taking a picture using the transmitter’s auxiliary switch or by right-mouse-button-clicking on the map and selecting “Trigger Camera NOW”.  The camera should beep</p></li>
+<li><p>Connect the camera to your computer using a USB cable (or remove the camera’s SD card) and check that an image has been captured</p></li>
+<li><p>Check the file properties to ensure the latitude, longitude and altitude have been recorded with the image</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/flir-vue-pro-exif.png"><img alt="../_images/flir-vue-pro-exif.png" src="../_images/flir-vue-pro-exif.png" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

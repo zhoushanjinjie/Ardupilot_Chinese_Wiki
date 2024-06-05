@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Triggering using StratosnapperV2 &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Triggering using StratosnapperV2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-triggering-using-stratosnapperv2">
+<span id="common-camera-trigger-stratosnapperv2"></span><h1>Camera Triggering using StratosnapperV2<a class="headerlink" href="#camera-triggering-using-stratosnapperv2" title="Permalink to this heading">¶</a></h1>
+<p>This tutorial shows how connect the <a class="reference external" href="https://www.mjmulticopter.com/strato-snapper-v2.html">Stratosnapper V2</a> (with an IR Module) to a Sony NEX5 so that its shutter can be triggered from the pilot’s transmitter or during <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">camera missions</span></a>.</p>
+<section id="where-to-buy">
+<h2>Where To Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>This device is becoming increasingly rare but can still be found on <a class="reference external" href="https://www.mjmulticopter.com/strato-snapper-v2.html">mjmulticopter.com</a> and <a class="reference external" href="https://www.ebay.com/itm/Strato-Snapper-V2-Control-For-Drone-Photography-Camera-Zoom-Or-Switch/312473455984">ebay</a></p>
+</section>
+<section id="parts-and-hardware-connections">
+<h2>Parts and hardware connections<a class="headerlink" href="#parts-and-hardware-connections" title="Permalink to this heading">¶</a></h2>
+<p>The diagram below shows the required parts and general cabling. This
+includes the Pixhawk, IR Trigger device (<em>Stratosnapper</em>), IR LED and
+camera, and the BEC to power the <em>Stratosnapper</em>.</p>
+<a class="reference external image-reference" href="../_images/generalhwconnectionscheme.jpg"><img alt="../_images/generalhwconnectionscheme.jpg" src="../_images/generalhwconnectionscheme.jpg" style="width: 450px;" /></a>
+<a class="reference external image-reference" href="../_images/Pixhawklargeview.jpg"><img alt="../_images/Pixhawklargeview.jpg" src="../_images/Pixhawklargeview.jpg" style="width: 450px;" /></a>
+<section id="pixhawk-board">
+<h3>Pixhawk board<a class="headerlink" href="#pixhawk-board" title="Permalink to this heading">¶</a></h3>
+<p>Pixhawk has 6 AUX ports that may be used for triggering the camera (see
+AUX1-AUX6 = RC9-RC14). This tutorial uses port 2/AUX2, as shown in the
+diagram below:</p>
+<a class="reference external image-reference" href="../_images/Pixhawkdetailview.jpg"><img alt="../_images/Pixhawkdetailview.jpg" src="../_images/Pixhawkdetailview.jpg" style="width: 450px;" /></a>
+</section>
+<section id="ir-trigger-device">
+<h3>IR trigger device<a class="headerlink" href="#ir-trigger-device" title="Permalink to this heading">¶</a></h3>
+<p>The <em>Stratosnapper</em> with its inputs/outputs is shown below. The servo
+inputs can be push-buttons, sticks, two or three-way switches, etc.
+These are configured using a GUI configuration utility from your PC via
+USB.</p>
+<a class="reference external image-reference" href="../_images/stratosnapper2cables.jpg"><img alt="../_images/stratosnapper2cables.jpg" src="../_images/stratosnapper2cables.jpg" style="width: 450px;" /></a>
+<p>Note the two servo leads are connected on the input side of
+<em>Stratosnapper</em>; one of these is to power the IR module.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is not possible to power the IR module (or any other device)
+from the Pixhawk AUX ports. You must either power provide a separate BEC
+to power the IR device or power the Pixhawk outputs rail with a BEC and
+power the device off that.</p>
+</div>
+<p>The control signal from Pixhawk can be assigned to any of the 4 servo
+inputs.</p>
+<a class="reference external image-reference" href="../_images/camera-trigger-stratosnapperv2-pic1.jpg"><img alt="../_images/camera-trigger-stratosnapperv2-pic1.jpg" src="../_images/camera-trigger-stratosnapperv2-pic1.jpg" /></a>
+<p>The output of the <em>Stratosnapper</em> is shown below. It connects to an IR
+cable, which in turn triggers a IR led that must be placed in front of
+your camera IR sensor:</p>
+<a class="reference external image-reference" href="../_images/camera-trigger-stratosnapperv2-pic2.jpg"><img alt="../_images/camera-trigger-stratosnapperv2-pic2.jpg" src="../_images/camera-trigger-stratosnapperv2-pic2.jpg" /></a>
+</section>
+<section id="ir-led-positioning-and-camera-gimbal">
+<h3>IR LED positioning and camera gimbal<a class="headerlink" href="#ir-led-positioning-and-camera-gimbal" title="Permalink to this heading">¶</a></h3>
+<p>The Sony NEX5 is held in a 2-axis stabilized brushless gimbal (NEX5 not
+shown). Here below a zoomed view of the IR LED positioning and gimbal:</p>
+<a class="reference external image-reference" href="../_images/camera-trigger-stratosnapperv2-mounted.jpg"><img alt="../_images/camera-trigger-stratosnapperv2-mounted.jpg" src="../_images/camera-trigger-stratosnapperv2-mounted.jpg" /></a>
+<p>The IR LED works well even in bright sunlight (verified in the field).
+It also works some distance from the sensor (no problem within 5inches
+of the Sony NEX5 sensor) and in any orientation with respect to the
+sensor.</p>
+</section>
+</section>
+<section id="camera-shutter-configuration-in-mission-planner">
+<h2>Camera shutter configuration in Mission Planner<a class="headerlink" href="#camera-shutter-configuration-in-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Shutter Configuration in Mission Planner</span></a> article explains how to
+configure Pixhawk AUX output as a servo camera trigger.</p>
+<p>The parameters used to configure this Stratosnapper/IR/NEX5 hardware are
+listed below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CAM_TRIG_TYPE</span></code>: 0 (Servo).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">(Port)</span></code>: RC10 (AUX2).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Pushed</span></code>: 1800</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Not</span> <span class="pre">Pushed</span></code>: 1100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutter</span> <span class="pre">Duration</span></code>: 10 (1 second)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Servo</span> <span class="pre">Limits</span> <span class="pre">Max</span></code>: 1900</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Servo</span> <span class="pre">Limits</span> <span class="pre">Min</span></code>: 1100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CH7_OPT</span></code> : 9 (Optional - enables manual shutter triggering on
+Copter only).</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/missionplannercameragimbalscreen.jpg"><img alt="../_images/missionplannercameragimbalscreen.jpg" src="../_images/missionplannercameragimbalscreen.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Camera GimbalSetup Screen</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ir-device-configuration-stratosnapper-v2">
+<h2>IR device configuration (Stratosnapper V2)<a class="headerlink" href="#ir-device-configuration-stratosnapper-v2" title="Permalink to this heading">¶</a></h2>
+<p>Every IR device has its own configuration method. <em>Stratosnapper</em> comes
+with a simple GUI interface to define which PWM values will trigger what
+port.</p>
+<p>The IR device configuration is explained in this video</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/67660032" style="border: 0; height: 430px; width: 400px">
+</iframe></div></section>
+<section id="testing-and-mission-planning">
+<h2>Testing and mission planning<a class="headerlink" href="#testing-and-mission-planning" title="Permalink to this heading">¶</a></h2>
+<p>Once a camera trigger has been defined it can be used in <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">Camera Control and Auto Missions</span></a> to take pictures and make area surveys.</p>
+<p>The configuration in this article was tested when creating the <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner-survey-grid-example"><span class="std std-ref">Survey (Grid) Example</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

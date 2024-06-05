@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyRocket &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SkyRocket Videos" href="skyrocket-videos.html" />
+    <link rel="prev" title="3DR Solo - Smart Battery Calibration" href="solo_battery_calibration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SkyRocket</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#discussion">Discussion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toy-mode">Toy Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-info">More Info</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-videos.html">Videos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-hardware.html">Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-throw.html">Throw Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-gcs.html">Using other Ground Stations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-software.html">Uploading Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+      <li class="breadcrumb-item active">SkyRocket</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="skyrocket">
+<span id="id1"></span><h1>SkyRocket<a class="headerlink" href="#skyrocket" title="Permalink to this heading">¶</a></h1>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/skyrocket-skyvipergpsdrone.png"><img alt="../_images/skyrocket-skyvipergpsdrone.png" src="../_images/skyrocket-skyvipergpsdrone.png" /></a>
+</div></blockquote>
+<p>A number of SkyRocket drones use ArduPilot as flight control software.
+This page provides details for advanced users and potential developers on these RTF drones.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Journey drones that SkyRocket sells starting end of 2021 are not supported by
+ArduPilot. See <a class="reference external" href="https://discuss.ardupilot.org/t/is-the-sky-viper-journey-se-copter-transmitter-pair-user-upgradeable-to-ardupilot/79275">this ArduPilot forum thread</a>.</p>
+</div>
+<p><strong>2017 models</strong></p>
+<p>The <em>Sky Viper v2450GPS Drone with Autopilot and GPS</em> is on sale through <a class="reference external" href="https://www.walmart.com/ip/Sky-Viper-Streaming-Drone-with-GPS/797973157">Walmart</a>, <a class="reference external" href="https://www.amazon.com/Sky-Viper-v2450GPS-Streaming-Autopilot/dp/B072HH13VQ/ref=lp_13203361011_1_6">Amazon</a> and Costco in the US, Australia, Canada, Chile, France, German, Holland, Lithuania, Mexico, New Zealand, Serbia, UK since October 2017.</p>
+<p>SkyRocket sells a variety of different drones.
+Of the 2017 models, only the V2450GPS Streaming drone (which will have a white shell) is capable of running ArduPilot.</p>
+<p><strong>2018 models</strong></p>
+<p>In August 2018, SkyRocket released three new ArduPilot powered drones, the Fury, Scout, and Journey.
+The Fury and Scout utilize “SurfaceScan”, built on ArduPilot’s OpticalFlow feature, to allow for indoor flight stability and position holding, unprecedented in this price range.
+The Journey, with GPS rather than OpticalFlow, takes lessons learned from the V2450GPS and builds on those for a solid re-release for the full GPS-enabled ArduPilot experience. The flight parameters and firmware for both the Scout and Journey can be easily modified as the user sees fit through the embedded wifi access point, powered by APWeb or using your favorite ground control software.
+Much of the information on this page, which was written for the V2450GPS, will at least partially apply to these new models, with updates annotated as they are discovered.</p>
+<p><strong>2021 models</strong></p>
+<p>The Journey is not sold anymore. Instead a Sky Viper Journey SE is shipped. Resellers might still have the Journey listed but have been observed to ship the Journey SE.</p>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h2>
+<p>We have a <a class="reference external" href="https://discuss.ardupilot.org/c/arducopter/skyviper">SkyViper section</a> on the ArduPilot discussion forum. Have a look there to see what people are up to and ask questions.</p>
+<p>More developer specific information including how to compile the sonix and ardupilot firmware can be found on the <a class="reference external" href="https://ardupilot.org/dev/docs/skyviper.html">developer wiki</a>.</p>
+</section>
+<section id="toy-mode">
+<h2>Toy Mode<a class="headerlink" href="#toy-mode" title="Permalink to this heading">¶</a></h2>
+<p>The Skyviper has Toy Mode set by default. Toy Mode handles the following functions, specific to the Sky Viper 2450GPS:</p>
+<ul class="simple">
+<li><p>Handles the button presses from the transmitter</p></li>
+<li><p>Magically trims the sticks when they’re idle and the SV is disarmed</p></li>
+<li><p>Toggles the fence on and off depending on the situation</p></li>
+<li><p>Basically, if GPS is “good”, the fence is armed, if GPS is “not good”, the fence is disarmed (for obvious reasons)</p></li>
+<li><p>Toy Mode also handles moving you between ALT_HOLD and LOITER automatically depending on GPS Status.</p></li>
+<li><p>Handles the LED bling (source: peterbarker)</p></li>
+<li><p>Toy Mode automatically adjusts the thrust based on voltage</p></li>
+<li><p>Toy Mode processes an arming script when armed using the throttle control to prevent sudden climbs (idles motors for a moment before increasing speed)</p></li>
+<li><p>Performs some automatic Compass tuning if needed</p></li>
+</ul>
+</section>
+<section id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>STM32 CPU</p></li>
+<li><p>5x serial ports</p></li>
+<li><p>1x I2C</p></li>
+<li><p>1x SPI</p></li>
+<li><p>ICM20789 IMU including 3-axis accelerometer, gyro and barometer</p></li>
+<li><p>Ublox M8 GPS</p></li>
+<li><p>1S battery (4.2V max, replacement batteries are readily available on Amazon and other places)</p></li>
+<li><p>brushed motors; 8.5x20mm with a kV between 16,000 and 17,000 as measured.</p></li>
+<li><p>The small pinion is 13T and the larger one is 73T, which provides a gear ratio of approximately 5.6</p></li>
+<li><p>the camera can be manually adjusted to point forward, down or anywhere in between</p></li>
+<li><p>2.4Ghz wifi for telemetry and video</p></li>
+<li><p>145g</p></li>
+<li><p>flight time of about 11min</p></li>
+<li><p>top speed of between 8m/s ~ 10m/s</p></li>
+<li><p>video streaming uses a Sonix board with ARM CPU running FreeRTOS and OmniVision OV9732 chip</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/skyrocket-flight-controller.png"><img alt="../_images/skyrocket-flight-controller.png" src="../_images/skyrocket-flight-controller.png" /></a>
+<p><a class="reference external" href="https://www.suasnews.com/">sUAS news</a> interview with Tridge and Matt (from SkyRocket):</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3RdEELDIeVs" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="more-info">
+<h2>More Info<a class="headerlink" href="#more-info" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket-videos.html">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket-hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket-throw.html">Throw Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket-gcs.html">Using other Ground Stations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyrocket-software.html">Uploading Software</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="solo_battery_calibration.html" class="btn btn-neutral float-left" title="3DR Solo - Smart Battery Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skyrocket-videos.html" class="btn btn-neutral float-right" title="SkyRocket Videos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

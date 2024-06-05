@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:PX4IO Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:PX4IO Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-px4io-overview">
+<span id="common-px4io-overview"></span><h1>Archived:PX4IO Overview<a class="headerlink" href="#archived-px4io-overview" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED</strong></p>
+<p>The PX4FMU (“PX4”) is end of life and is not generally available for purchase
+- ditto this companion board! This article is made available for existing users.</p>
+</div>
+<ul class="simple">
+<li><p>The PX4-IO board Contains its own on board microcontroller and stacks
+with the PX4-FMU board.</p></li>
+<li><p>Built in Brownout proof direct battery input power supply.</p></li>
+<li><p>8 High speed servo PWM outputs.</p></li>
+<li><p>Futaba SBUS or PPM-SUM serial servo output.</p></li>
+<li><p>Futaba SBUS, PPM-SUM or Spektrum serial inputs from your receiver.</p></li>
+<li><p>Two user assignable relays, two 1/2 amp 5 volt outputs and an analog
+input port.</p></li>
+<li><p>All power inputs are reverse polarity protected.</p></li>
+<li><p>All power outputs are current limited.</p></li>
+<li><p>All logic inputs and outputs are ESD protected.</p></li>
+<li><p>All PX4IO boards use positive retention DF13 connectors and a variety
+of connectors.</p></li>
+<li><p>Wires with pre-crimped sockets and pre-made cables are available
+inexpensively for the PX4-IO from 3DRobotics.</p></li>
+</ul>
+<section id="the-bottom-of-the-px4io-board">
+<h2>The Bottom of the PX4IO Board<a class="headerlink" href="#the-bottom-of-the-px4io-board" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4io-bottom.jpg"><img alt="../_images/PX4io-bottom.jpg" src="../_images/PX4io-bottom.jpg" /></a>
+<ul class="simple">
+<li><p>Note the Red Circled item above is ferrite L1.</p></li>
+<li><p>For high power servos you can remove L1 to allow you to supply power
+from an external power supply to a servo connector center pin.</p></li>
+</ul>
+</section>
+<section id="the-top-of-the-px4io-board">
+<h2>The Top of the PX4IO Board<a class="headerlink" href="#the-top-of-the-px4io-board" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4io-top.jpg"><img alt="../_images/PX4io-top.jpg" src="../_images/PX4io-top.jpg" /></a>
+</section>
+<section id="a-brief-description-of-the-px4io-board">
+<h2>A Brief Description of the PX4IO Board<a class="headerlink" href="#a-brief-description-of-the-px4io-board" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4IOdiagram.jpg"><img alt="../_images/PX4IOdiagram.jpg" src="../_images/PX4IOdiagram.jpg" /></a>
+</section>
+<section id="the-px4io-board-connector-pin-assignments">
+<h2>The PX4IO Board Connector pin assignments<a class="headerlink" href="#the-px4io-board-connector-pin-assignments" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4IOconnectors.jpg"><img alt="../_images/PX4IOconnectors.jpg" src="../_images/PX4IOconnectors.jpg" /></a>
+</section>
+<section id="the-px4io-board-stacks-on-top-of-the-px4-fmu-board">
+<h2>The PX4IO Board Stacks On Top of the PX4-FMU board<a class="headerlink" href="#the-px4io-board-stacks-on-top-of-the-px4-fmu-board" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4-STACK1.jpg"><img alt="../_images/PX4-STACK1.jpg" src="../_images/PX4-STACK1.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

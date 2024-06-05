@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane">
+<span id="common-efi"></span><h1>[copywiki destination=”plane”]<a class="headerlink" href="#copywiki-destination-plane" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="electronic-fuel-injectors">
+<h1>Electronic Fuel Injectors<a class="headerlink" href="#electronic-fuel-injectors" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/efi.jpg" src="../_images/efi.jpg" />
+<p>Photo courtesy of <a class="reference external" href="https://www.lutanefi.com/en/products/uavengine">Lutan Engineering</a></p>
+<p>ArduPilot provides support for several types of electronic fuel injection controllers for <a class="reference internal" href="common-ice.html#common-ice"><span class="std std-ref">internal combustion engines</span></a>. Both CAN and Serial communication interfaces to the EFI are supported.</p>
+<p>Most units provide status information on RPM, Fuel flow, consumption, temperature, etc.</p>
+<p>This information is reported in the autopilot logs via the EFI, EFI2, and ECYL log messages. Real time data is sent in the EFI MAVLink messages for monitoring by the GCS.</p>
+<p>The following units have been tested and are supported:</p>
+<ul class="simple">
+<li><p>MegaSquirt Serial</p></li>
+<li><p>NWPMU CAN bus</p></li>
+<li><p>Lutan Serial</p></li>
+<li><p>DroneCAN (adapted versions of the above serial units)</p></li>
+<li><p>PiccoloCAN (<a class="reference external" href="https://www.currawong.aero/ecu/">Currawong’s ECU</a> and <a class="reference external" href="https://power4flight.com/uav-engine-products/uav-engine-control-units/intelliject-efi/">IntelliJect EFI</a>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition, ArduPilot allows the addition of new EFI controller drivers via <a class="reference external" href="https://ardupilot.org/rover/docs/common-lua-scripts.html#common-lua-scripts" title="(in Rover)"><span>Lua Scripts</span></a>. For examples, see the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/drivers/EFI_HFE.md">HFE CAN EFI driver</a> or the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/drivers/EFI_SkyPower.md">SkyPower CAN driver</a></p>
+</div>
+</section>
+<section id="serial-setup">
+<h1>Serial Setup<a class="headerlink" href="#serial-setup" title="Permalink to this heading">¶</a></h1>
+<p>For the example below, the unit will assumed to be attached to SERIAL5 of the autopilot.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#efi-type" title="(in Rover)"><span class="xref std std-ref">EFI_TYPE</span></a>: MegaSquirt = 1, Lutan = 3</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL5_PROTOCOL</span></a> = 24 (Serial EFI))</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL5_BAUD</span></a> = 115 (115.2Kbaud)</p></li>
+</ul>
+</section>
+<section id="nwpmu-setup">
+<h1>NWPMU Setup<a class="headerlink" href="#nwpmu-setup" title="Permalink to this heading">¶</a></h1>
+<p>For the example below, the unit will be assumed to be attached to the first CAN port.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#efi-type" title="(in Rover)"><span class="xref std std-ref">EFI_TYPE</span></a> = 2 (NWPMU)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 (first driver)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 6 (EFI_NWPMU)</p></li>
+</ul>
+</section>
+<section id="dronecan-setup">
+<h1>DroneCAN Setup<a class="headerlink" href="#dronecan-setup" title="Permalink to this heading">¶</a></h1>
+<p>For the example below, the unit will be assumed to be attached to the first CAN port.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#efi-type" title="(in Rover)"><span class="xref std std-ref">EFI_TYPE</span></a> = 5 (DroneCAN)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 (first driver)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 1 (DroneCAN)</p></li>
+</ul>
+</section>
+<section id="piccolocan-setup">
+<h1>PiccoloCAN Setup<a class="headerlink" href="#piccolocan-setup" title="Permalink to this heading">¶</a></h1>
+<p>For the example below, the unit will be assumed to be attached to the first CAN port.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#efi-type" title="(in Rover)"><span class="xref std std-ref">EFI_TYPE</span></a> = 6 (Currawong-ECU)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#efi-fuel-dens" title="(in Rover)"><span class="xref std std-ref">EFI_FUEL_DENS</span></a>: Fuel density to calculate fuel consumption</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 (first driver)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 4 (PiccoloCAN)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-pc-ecu-id" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PC_ECU_ID</span></a>: Node ID to send throttle commands (Set to 0 to only receive telemetry)</p></li>
+</ul>
+</section>
+<section id="using-a-battery-monitor-to-report-fuel-flow-and-consumption">
+<h1>Using a Battery Monitor to Report Fuel Flow and Consumption<a class="headerlink" href="#using-a-battery-monitor-to-report-fuel-flow-and-consumption" title="Permalink to this heading">¶</a></h1>
+<p>If an EFI is used in the system, either thru a LUA driver or the built-in drivers above, the fuel flow and consumption can be monitored using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = 27. The fuel flow in liters/hour will be reported as amps, while the fuel consumed in milliliters will be reported as mah.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the MAVLink command to reset the fuel consumed does not work with this monitor.</p>
+</div>
+</section>
+<section id="displaying-efi-telemetry-in-mission-planner">
+<h1>Displaying EFI telemetry in Mission Planner<a class="headerlink" href="#displaying-efi-telemetry-in-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>The following EFI telemetry is available in the Mission Planner. Just right click in the DATA screens HUD display and select <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">Items</span></code>. Then select what data to display.</p>
+<a class="reference external image-reference" href="../_images/mp_efi_hud_items.jpg"><img alt="../_images/mp_efi_hud_items.jpg" src="../_images/mp_efi_hud_items.jpg" /></a>
+</section>
+<section id="using-the-efi-rpm-in-ardupilot">
+<h1>Using the EFI RPM in ArduPilot<a class="headerlink" href="#using-the-efi-rpm-in-ardupilot" title="Permalink to this heading">¶</a></h1>
+<p>The EFI’s rpm telemetry can be used as the autopilot’s RPM sensor, for display in the GCS as above, or for use with the harmonic notch filter.</p>
+<p>First, set either RPM1 or RPM2 sensor as being sourced from the EFI (examples will use RPM1):</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm1-type" title="(in Rover)"><span class="xref std std-ref">RPM1_TYPE</span></a> = 3 (EFI)</p></li>
+<li><p>then setup the <a class="reference external" href="https://ardupilot.org/plane/docs/common-rpm-based-notch.html#common-rpm-based-notch" title="(in Plane)"><span>RPM Sensor Based Dynamic Notch Setup</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

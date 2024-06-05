@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixhawk 6C 6C Mini Flight Controller &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pix32v6 Flight Controller" href="common-holybro-pix32v6.html" />
+    <link rel="prev" title="Pixhawk 6X Flight Controller" href="common-holybro-pixhawk6X.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://arkelectron.com/product/arkv6x/">ARKV6X DS-10 Pixhawk6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pixhawkv6X.html">CUAV Pixhawk v6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-x7-family-overview.html">CUAV X7/X7Pro/X7+/X7+ Pro</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecube-overview.html">CubePilot Cube Black</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeorange-overview.html">CubePilot Cube Orange/+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubepurple-overview.html">CubePilot Cube Purple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeyellow-overview.html">CubePilot Cube Yellow</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">CubePilot Cube Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-durandal-overview.html">Holybro Durandal H7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6X.html">Holybro Pixhawk6X</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Holybro Pixhawk6C/ 6C Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v6.html">Holybro Pix32v6(Pixhawk6C variant)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRo X2.1</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/m10022a.htm">mRo X2.1-777</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Pixhawk 6C 6C Mini Flight Controller</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pixhawk-6c-6c-mini-flight-controller">
+<span id="common-holybro-pixhawk6c"></span><h1>Pixhawk 6C 6C Mini Flight Controller<a class="headerlink" href="#pixhawk-6c-6c-mini-flight-controller" title="Permalink to this heading">¶</a></h1>
+<p>Pixhawk6C is the latest update to the successful family of Pixhawk® autopilots made by Holybro, featuring STM32H7 cpus, vibration isolation of IMUs, redundant IMUs, and IMU heating. It comes in two form factors. The 6C Mini reduces the size and has a built-in PWM motor/servo header, at the expense of a bit fewer ports.</p>
+<a class="reference external image-reference" href="../_images/Pixhawk6C.png"><img alt="../_images/Pixhawk6C.png" src="../_images/Pixhawk6C.png" style="width: 320px;" /></a>
+<a class="reference external image-reference" href="../_images/Pixhawk6C-Mini.jpg"><img alt="../_images/Pixhawk6C-Mini.jpg" src="../_images/Pixhawk6C-Mini.jpg" style="width: 320px;" /></a>
+<section id="where-to-buy">
+<h2>Where To Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>The Pixhawk6 autopilots are sold by <a class="reference external" href="https://shop.holybro.com/c/flight-controllers_0456">Holybro</a></p>
+</section>
+<section id="features-of-pixhawk6-series">
+<h2>Features of Pixhawk6 Series<a class="headerlink" href="#features-of-pixhawk6-series" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Pixhawk 6X</p></th>
+<th class="head"><p>Pixhawk 6C/Mini</p></th>
+<th class="head"><p>Pix32 v6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>Key Design Point</p></td>
+<td><p>Additional Redundancy</p></td>
+<td><p>Low profile</p></td>
+<td><p>Cost effective</p></td>
+</tr>
+<tr class="row-odd"><td><p>Modular design, allowing
+customized baseboard</p></td>
+<td><p>Cost effective</p></td>
+<td><p>Modular design,
+allowing customized
+baseboard</p></td>
+</tr>
+<tr class="row-even"><td><p>Processor</p></td>
+<td><p>STM32H753</p></td>
+<td colspan="2"><p>STM32H743</p></td>
+</tr>
+<tr class="row-odd"><td><p>Clock Speed</p></td>
+<td colspan="3"><p>480 MHz</p></td>
+</tr>
+<tr class="row-even"><td><p>IO Processor</p></td>
+<td colspan="3"><p>STM32F103</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMU Redundancy</p></td>
+<td><p>Triple</p></td>
+<td><p>Double</p></td>
+<td><p>Double</p></td>
+</tr>
+<tr class="row-even"><td><p>IMU Temperature
+Control</p></td>
+<td colspan="3"><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Barometer
+Redundancy</p></td>
+<td><p>Double</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Power Monitor</p></td>
+<td><p>I2C</p></td>
+<td><p>Analog</p></td>
+<td><p>Analog</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWM Outputs</p></td>
+<td><p>8 Main, 8 FMU</p></td>
+<td><p>8 Main, 8/6 FMU</p></td>
+<td><p>8 Main, 6 FMU</p></td>
+</tr>
+<tr class="row-even"><td><p>UART</p></td>
+<td><p>8</p></td>
+<td><p>7 / 4</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN Bus</p></td>
+<td colspan="3"><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>GPS/Compass Ports</p></td>
+<td colspan="3"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>UART Flow Control</p></td>
+<td><p>3 Ports</p></td>
+<td><p>2/1 Ports</p></td>
+<td><p>2 Ports</p></td>
+</tr>
+<tr class="row-even"><td><p>Additional I2C</p></td>
+<td colspan="3"><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ethernet Support</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>SPI Port</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>A/D</p></td>
+<td><p>6.6V,3.3V,RSSI</p></td>
+<td><p>RSSI</p></td>
+<td><p>RSSI</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-mapping">
+<h2>UART Mapping<a class="headerlink" href="#uart-mapping" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>SERIAL0 -&gt; USB</p></li>
+<li><p>SERIAL1 -&gt; UART7 (Telem1) RTS/CTS pins</p></li>
+<li><p>SERIAL2 -&gt; UART5 (Telem2) RTS/CTS pins</p></li>
+<li><p>SERIAL3 -&gt; USART1 (GPS1)</p></li>
+<li><p>SERIAL4 -&gt; UART8 (GPS2)</p></li>
+<li><p>SERIAL5 -&gt; USART2 (Telem3) RTS/CTS pins (not included on 6C Mini)</p></li>
+<li><p>SERIAL6 -&gt; USART3 (USER) (Debug p)</p></li>
+<li><p>SERIAL7 -&gt; USB (can be used for SLCAN with protocol change)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<p>The RCIN pin, which by default is mapped to a timer input, can be used for all ArduPilot supported receiver protocols, except CRSF/ELRS and SRXL2 which require a true UART connection. However, FPort, when connected in this manner, will only provide RC without telemetry.</p>
+<p>To allow CRSF and embedded telemetry available in Fport, CRSF, and SRXL2 receivers, a full UART, such as SERIAL5 (UART3) would need to be used for receiver connections. Below are setups using Serial6. For the 6C Mini, SERIAL1 - SERIAL4 would need to be used.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL5_PROTOCOL</span></a> should be set to “23”.</p></li>
+<li><p>FPort would require <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-options" title="(in Rover)"><span class="xref std std-ref">SERIAL5_OPTIONS</span></a> be set to “15”.</p></li>
+<li><p>CRSF would require <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-options" title="(in Rover)"><span class="xref std std-ref">SERIAL5_OPTIONS</span></a> be set to “0”.</p></li>
+<li><p>SRXL2 would require <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-options" title="(in Rover)"><span class="xref std std-ref">SERIAL5_OPTIONS</span></a> be set to “4” and connects only the TX pin.</p></li>
+</ul>
+<p>Any UART can be used for RC system connections in ArduPilot also, and is compatible with all protocols except PPM. See <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a> for details.</p>
+</section>
+<section id="pwm-output">
+<h2>PWM Output<a class="headerlink" href="#pwm-output" title="Permalink to this heading">¶</a></h2>
+<p>The Pixhawk6C supports up to 16 PWM outputs. All 16 outputs
+support all normal PWM output formats. All FMU outputs (marked “FMU PWM Output”) also support DShot.</p>
+<p>The 8 FMU PWM outputs are in 4 groups:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PWM 1, 2, 3 and 4 in group1</p></li>
+<li><p>PWM 5 and 6 in group2</p></li>
+<li><p>PWM 7 and 8 in group3 (not 6C Mini)</p></li>
+</ul>
+</div></blockquote>
+<p>FMU outputs within the same group need to use the same output rate and protocol. If
+any output in a group uses DShot then all channels in that group need
+to use DShot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>to use BDShot capability on outputs 1-8, use the firmware in the “Pixhawk6C-bdshot” folder on the <a class="reference external" href="https://firmware.ardupilot.org">Firmware Server</a></p>
+</div>
+</section>
+<section id="battery-monitoring">
+<h2>Battery Monitoring<a class="headerlink" href="#battery-monitoring" title="Permalink to this heading">¶</a></h2>
+<p>The board has 2 dedicated power monitor ports with a 6 pin
+connector. The Pixhawk6C uses analog power monitors on these ports.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = 4</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> = 8</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> = 4</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> = 18.182</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> = 36.364</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT2_VOLT_PIN</span></a> = 5</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT2_CURR_PIN</span></a> = 14</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT2_VOLT_MULT</span></a> = 18.182</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT2_AMP_PERVLT</span></a> = 36.364</p></li>
+</ul>
+</section>
+<section id="compass">
+<h2>Compass<a class="headerlink" href="#compass" title="Permalink to this heading">¶</a></h2>
+<p>The Pixhawk6C/Mini has a built-in compass. Due to potential
+interference, the autopilot is usually used with an external I2C compass as
+part of a GPS/Compass combination.</p>
+</section>
+<section id="gpios">
+<h2>GPIOs<a class="headerlink" href="#gpios" title="Permalink to this heading">¶</a></h2>
+<p>The FMU PWM outputs can be used as GPIOs (relays, buttons, RPM etc). To use them you need to set the output’s <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to -1. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> page for more information.</p>
+<p>The numbering of the GPIOs for PIN variables in ArduPilot is:</p>
+<p>FMU pins:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PWM1 50</p></li>
+<li><p>PWM2 51</p></li>
+<li><p>PWM3 52</p></li>
+<li><p>PWM4 53</p></li>
+<li><p>PWM5 54</p></li>
+<li><p>PWM6 55</p></li>
+<li><p>PWM7 56 (not 6C Mini)</p></li>
+<li><p>PWM8 57 (not 6C Mini)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="analog-inputs">
+<h2>Analog inputs<a class="headerlink" href="#analog-inputs" title="Permalink to this heading">¶</a></h2>
+<p>The Pixhawk6C has an analog RSSI input pin:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Analog 3.3V RSSI input pin = 103</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="connectors">
+<h2>Connectors<a class="headerlink" href="#connectors" title="Permalink to this heading">¶</a></h2>
+<p>Unless noted otherwise all connectors are JST GH</p>
+<p>See <a class="reference external" href="https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout">Pixhawk6C pinout</a></p>
+<p>or <a class="reference external" href="https://docs.holybro.com/autopilot/pixhawk-6c-mini/pixhawk-6c-mini-ports">Pixhawk6C Mini pinout</a></p>
+</section>
+<section id="loading-firmware">
+<h2>Loading Firmware<a class="headerlink" href="#loading-firmware" title="Permalink to this heading">¶</a></h2>
+<p>The board comes pre-installed with an ArduPilot compatible bootloader,
+allowing the loading of xxxxxx.apj firmware files with any ArduPilot
+compatible ground station.</p>
+<p>Firmware for these boards can be found <a class="reference external" href="https://firmware.ardupilot.org">here</a> in  sub-folders labeled “Pixhawk6C”.</p>
+</section>
+<section id="layout-and-dimensions">
+<h2>Layout and Dimensions<a class="headerlink" href="#layout-and-dimensions" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference external" href="https://docs.holybro.com/autopilot/pixhawk-6c/dimensions">Pixhawk6C dimensions</a>
+[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-holybro-pixhawk6X.html" class="btn btn-neutral float-left" title="Pixhawk 6X Flight Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-holybro-pix32v6.html" class="btn btn-neutral float-right" title="Pix32v6 Flight Controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

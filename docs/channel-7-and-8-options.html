@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auxiliary Function Switches (3.6 and earlier) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Auxiliary Function Switches (3.6 and earlier)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="auxiliary-function-switches-3-6-and-earlier">
+<span id="channel-7-and-8-options"></span><h1>Auxiliary Function Switches (3.6 and earlier)<a class="headerlink" href="#auxiliary-function-switches-3-6-and-earlier" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this article is deprecated and ARCHIVED</p>
+</div>
+<p>This article shows how to set up which features are invoked from the transmitter’s auxiliary function switches prior to Copter-4.0.</p>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>By default the auxiliary switches are disabled but you can assign
+features using the <em>Mission Planner</em>’s <strong>Config/Tuning | Extended
+Tuning</strong> screen or by setting the CH7_OPT,  CH8_OPT, CH9_OPT,
+CH10_OPT , CH11_OPT, or CH12_OPT parameters directly.</p>
+<a class="reference external image-reference" href="../_images/MPchan7options.jpg"><img alt="../_images/MPchan7options.jpg" src="../_images/MPchan7options.jpg" /></a>
+<p>Here are the options:</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Flip</strong></td>
+<td>Vehicle will flip on its roll or pitch axis depending upon the pilot's roll and pitch stick position.
+Vehicle will rise for 1 second and then rapidly flip. The vehicle will not flip again until the switch is
+brought low and back to high. Give yourself at least 10m of altitude before trying flip for the first time!
+</td>
+</tr>
+<tr>
+<td><strong>Simple Mode</strong></td>
+<td><p>The copter moves left, right, forward and back as if it were facing in
+the same direction as when it took off regardless of the copter’s
+heading. <a class="reference internal" href="simpleandsuper-simple-modes.html#simpleandsuper-simple-modes"><span class="std std-ref">See here for more details</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>RTL</strong></td>
+<td><p>Invokes the <a class="reference internal" href="rtl-mode.html#rtl-mode"><span class="std std-ref">Return-to-Launch</span></a> flight mode when switch is pulled high.
+Bringing switch back to low will return the vehicle to the mode indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Save Trim</strong></td>
+<td><p>Adjust the vehicle level position using the current roll and pitch stick
+inputs. See details <a class="reference external" href="autotrim">here</a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Save WP</strong></td>
+<td>Save the current location (including altitude) as a waypoint in the
+mission. If in AUTO mode no waypoint will be saved, instead the vehicle will RTL</td>
+</tr>
+<tr>
+<td><strong>Camera Trigger</strong></td>
+<td><p>Camera shutter will be activated. See more details
+<a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">here</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Range Finder</strong></td>
+<td><p><a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">RangeFinder</span></a> is disabled when switch is in low position, enabled when in high position.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Fence</strong></td>
+<td>Fence is disabled when switch is in low position, enabled when it high position.</td>
+</tr>
+<tr>
+<td><strong>Super Simple Mode</strong></td>
+<td><p>Similar to simple mode except controls are relative to the home
+position. Move the pitch stick forward and the copter will fly away from
+home, pull pitch back and it will return. Move roll stick left or right
+and the copter to orbit home regardless of the copter’s actual
+heading. <a class="reference internal" href="simpleandsuper-simple-modes.html#simpleandsuper-simple-modes"><span class="std std-ref">See here for more details</span></a>.</p>
+<p>If mapped to a three-position switch then the function will allow
+Super-Simple <strong>and Simple</strong> modes to be enabled using the high and
+middle switch positions, respectively (a two-position switch will
+enable/disable Super Simple mode only).</p>
+</td>
+</tr>
+<tr>
+<td><strong>Acro Trainer</strong></td>
+<td><p>Turn on automatic leveling in the <a class="reference internal" href="acro-mode.html#acro-mode"><span class="std std-ref">ACRO</span></a> flight mode.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Sprayer</strong></td>
+<td><p>Turn on the <a class="reference internal" href="sprayer.html#sprayer"><span class="std std-ref">crop sprayer</span></a> when switch is pulled high.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Auto</strong></td>
+<td><p>Invokes the <a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">Auto</span></a> flight mode when switch is pulled high.
+Bringing switch back to low will return the vehicle to the mode indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>AutoTune</strong></td>
+<td><p>Invokes the <a class="reference internal" href="autotune.html#autotune"><span class="std std-ref">AutoTune</span></a> flight mode when switch is pulled high.
+Bringing switch back to low will return the vehicle to the mode indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Land</strong></td>
+<td><p>Invokes the <a class="reference internal" href="land-mode.html#land-mode"><span class="std std-ref">Land</span></a> flight mode when switch is pulled high.
+Bringing switch back to low will return the vehicle to the mode indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Gripper</strong></td>
+<td><p>Operates the <a class="reference internal" href="common-gripper-landingpage.html#common-gripper-landingpage"><span class="std std-ref">gripper</span></a>.  Switch pulled low releases the gripper, high closes or grabs.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Parachute Enable</strong></td>
+<td><p>Enables the automatic release of the <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">parachute</span></a> (this does not immediately trigger the release).</p>
+</td>
+</tr>
+<tr>
+<td><strong>Parachute Release</strong></td>
+<td><p>Immediately triggers the release of the <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">parachute</span></a> as long as the vehicle is not landed or too low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Parachute 3Pos</strong></td>
+<td><p>Switch pulled low disables the <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">parachute</span></a>.  Switch in middle enables the parachute for automatic release.  Switch pulled high triggers release of the parachute as long as vehicle is not landed or too low.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Mission Reset</strong></td>
+<td><p>Reset <a class="reference internal" href="auto-mode.html#auto-mode"><span class="std std-ref">Auto</span></a> to run the first mission command in the command list.</p>
+</td>
+</tr>
+<tr>
+<td><strong>AttCon Feed Forward</strong></td>
+<td>Turns on/off attitude controllers feed forward. For developers only.
+</td>
+</tr>
+<tr>
+<td><strong>AttCon Accel Limits</strong></td>
+<td>Turns on/off attitude controller acceleration limits. For developers only.
+</td>
+</tr>
+<tr>
+<td><strong>Retract Mount</strong></td>
+<td><p>Move the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera mount</span></a> to its retracted position.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay On/Off</strong></td>
+<td><p>Switch pulled low turns off the first <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the first relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay2 On/Off</strong></td>
+<td><p>Switch pulled low turns off the second <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the second relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay3 On/Off</strong></td>
+<td><p>Switch pulled low turns off the third <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the third relay.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Relay4 On/Off</strong></td>
+<td><p>Switch pulled low turns off the fourth <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relay</span></a>, pulled high turns on the fourth relay.</p>
+</td>
+</tr>
+<tr>
+<td><p><a class="reference internal" href="landing-gear.html#landing-gear"><span class="std std-ref">Landing Gear</span></a></p>
+</td>
+<td>Retracts/Deploys landing gear.
+</td>
+</tr>
+<tr>
+<td><strong>Lost Copter Alarm</strong></td>
+<td><p>Plays the <a class="reference external" href="https://download.ardupilot.org/downloads/wiki/pixhawk_sound_files/LostCopter.wav">lost copter alarm</a>
+though the buzzer</p>
+</td>
+</tr>
+<tr>
+<td><strong>Emergency Stop Motors</strong></td>
+<td><p>Stops motors immediately
+(<a class="reference external" href="https://www.youtube.com/watch?v=-Db4u8LJE5w">video</a>).</p>
+</td>
+</tr>
+<tr>
+<td><strong>Motor Interlock</strong></td>
+<td><p>Opposite of Emergency stop (above) in that switch must be ON for motors
+to spin (<a class="reference external" href="https://youtu.be/-Db4u8LJE5w?t=51">video</a>).</p>
+</td>
+</tr>
+<tr>
+<td><strong>Brake</strong></td>
+<td><p>Invokes the <a class="reference internal" href="brake-mode.html#brake-mode"><span class="std std-ref">Brake flight mode</span></a> when switch goes high.
+Bringing switch back to low will return the vehicle to the mode
+indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Throw</strong></td>
+<td><p>Invokes the <a class="reference internal" href="throw-mode.html#throw-mode"><span class="std std-ref">Throw flight mode</span></a> when switch goes high.
+Bringing switch back to low will return the vehicle to the mode
+indicated by the ch5 flight mode switch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>ADSB-Avoidance</strong></td>
+<td><p>When switch is high, <a class="reference internal" href="common-ads-b-receiver.html#common-ads-b-receiver"><span class="std std-ref">ADSB avoidance</span></a> (avoidance of manned aircraft) is enabled, when switch is low, disabled.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Precision Loiter</strong></td>
+<td><p>Turns on/off <a class="reference internal" href="precision-landing-with-irlock.html#precision-landing-with-irlock"><span class="std std-ref">Precision Loiter</span></a>.  I.e. holding position above a target in Loiter mode using IR-Lock sensor.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Object Avoidance</strong></td>
+<td><p>When switch is high, avoid objects using <a class="reference internal" href="common-lightware-sf40c-objectavoidance.html#common-lightware-sf40c-objectavoidance"><span class="std std-ref">Lightware SF40c</span></a> or <a class="reference internal" href="common-teraranger-tower-objectavoidance.html#common-teraranger-tower-objectavoidance"><span class="std std-ref">TeraRanger Tower</span></a>.</p>
+</td>
+</tr>
+<tr>
+<td><strong>Arm/Disarm</strong></td>
+<td><p>Arms the vehicle if the switch goes high (subject to arming checks).
+Disarms the vehicle if brought low.</p>
+</td>
+</tr>
+</tbody>
+</table></section>
+<section id="check-ch7-ch8-pwm-values-reach-1800">
+<h2>Check Ch7 &amp; Ch8 PWM values reach 1800<a class="headerlink" href="#check-ch7-ch8-pwm-values-reach-1800" title="Permalink to this heading">¶</a></h2>
+<p>Your channel 7 and/or channel 8 pwm value must reach at least 1800 PWM
+or the auxiliary function will not be activated. You can check that it
+surpasses this threshold using the Mission Planner’s radio config page.</p>
+<a class="reference external image-reference" href="../_images/MPCH7checkPWMrange.jpg"><img alt="../_images/MPCH7checkPWMrange.jpg" src="../_images/MPCH7checkPWMrange.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

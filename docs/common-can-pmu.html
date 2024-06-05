@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUAV CAN/DroneCAN Power Module &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CUAV CAN/DroneCAN Power Module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cuav-can-dronecan-power-module">
+<span id="common-can-pmu"></span><h1>CUAV CAN/DroneCAN Power Module<a class="headerlink" href="#cuav-can-dronecan-power-module" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/can-pmu/can-pmu.jpg"><img alt="../_images/can-pmu.jpg" src="../_images/can-pmu.jpg" /></a>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>CUAV’s CAN/DroneCAN PMU is a drone power management module with built-in STM32F4 processor running CUAV’s ITT compensation algorithm to accurately measure the voltage and current of the drone’s battery. It supports 6~62V voltage input, and the POWER output port can output 5V/ 8A. It uses advanced CAN bus communication and supports the standard <a class="reference external" href="https://dronecan.org/">DroneCAN</a> protocol. Each PMU is factory calibrated to ensure good consistency and high accuracy.</p>
+</section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor:</strong> STM32F412</p></li>
+<li><p><strong>Voltage Input:</strong> 6~62V (2S-15S)</p></li>
+<li><p><strong>Max Current:</strong> 110A</p></li>
+<li><p><strong>Voltage Accuracy:</strong> ±0.05V</p></li>
+<li><p><strong>Current Accuracy:</strong> ±0.1A</p></li>
+<li><p><strong>Resolution:</strong> 0.01A/V</p></li>
+<li><p><strong>Max Output Power:</strong> 6000W for 90s</p></li>
+<li><p><strong>Max Continuous Power:</strong> 5000W</p></li>
+<li><p><strong>Power Port Output:</strong> 5.4V/5A</p></li>
+<li><p><strong>Protocol:</strong> DroneCAN</p></li>
+<li><p><strong>Operating Temp:</strong> -20~+100℃</p></li>
+<li><p><strong>Supports firmware upgrade</strong></p></li>
+<li><p><strong>No calibration required</strong></p></li>
+<li><p><strong>Connector Types:</strong></p>
+<ul>
+<li><p>8mm female bullet power connectors (XT-90 battery and ESC cables provided)</p></li>
+<li><p>Autopilot Power: Molex 6 pin 1.5mm #5025850670 (CUAV V5 cable provided)</p></li>
+<li><p>CAN: 4 pin JST-GH (cable provided)</p></li>
+</ul>
+</li>
+<li><p><strong>Physical Dimensions:</strong></p>
+<ul>
+<li><p>Size:46.5mm * 38.5mm * 22.5mm</p></li>
+<li><p>Weight:76g</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="buy">
+<h2>Buy<a class="headerlink" href="#buy" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://store.cuav.net/index.php">CUAV store</a></p>
+<p><a class="reference external" href="https://www.aliexpress.com/item/4000369700535.html">Aliexpress</a></p>
+</section>
+<section id="pinouts">
+<h2>Pinouts<a class="headerlink" href="#pinouts" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/can-pmu/can-pmu-pinouts-en.png"><img alt="../_images/can-pmu-pinouts-en.png" src="../_images/can-pmu-pinouts-en.png" /></a>
+<a class="reference external image-reference" href="../_images/can-pmu/can-pmu-pinouts-en2.png"><img alt="../_images/can-pmu-pinouts-en2.png" src="../_images/can-pmu-pinouts-en2.png" /></a>
+</section>
+<section id="connecting-to-the-system">
+<h2>Connecting to the System<a class="headerlink" href="#connecting-to-the-system" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/can-pmu/can-pmu-connection-en.png"><img alt="../_images/can-pmu-connection-en.png" src="../_images/can-pmu-connection-en.png" /></a>
+<ul class="simple">
+<li><p>Connect the autopilot’s DroneCAN port the module’s CAN interface.</p></li>
+<li><p>Using a CUAV V5 series power cable, connect the module’s Power interface to one of the V5 Autopilot’s power interfaces.</p></li>
+</ul>
+</section>
+<section id="enable-can-pmu">
+<h2>Enable CAN PMU<a class="headerlink" href="#enable-can-pmu" title="Permalink to this heading">¶</a></h2>
+<p>Set the following parameters in the Mission planner’s full parameter list and restart after writing:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> to 1 if attached to CAN bus1  port or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p2-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P2_DRIVER</span></a> to 1 if attached to CAN bus2 port</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> or <code class="docutils literal notranslate"><span class="pre">BATT_MONITORx</span></code> to 8 enable a DroneCAN battery monitor on the appropriate battery monitor port.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/can-pmu/mp-set.png"><img alt="../_images/mp-set.png" src="../_images/mp-set.png" /></a>
+</section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://manual.cuav.net/power-module/CAN-PMU.pdf">CAN PMU Manual</a></p>
+<p><a class="reference external" href="http://doc.cuav.net/power-module/can-pmu">CUAV docs</a></p>
+<p><a class="reference external" href="https://new.uavcan.org/">DroneCAN</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用动态谐波陷波滤波器处理陀螺噪声 &mdash; Copter 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="[copywiki destination=”copter,plane”]" href="common-throttle-based-notch.html" />
+    <link rel="prev" title="Motor Thrust Scaling" href="motor-thrust-scaling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">飞行功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">围栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">避障</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">地形跟随（自动、引导等）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">表面跟踪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">电机推力缩放</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">陷波滤波</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#determining-notch-filter-center-frequency">确定陷波滤波器中心频率</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notch-filter-control-types">陷波滤波器控制类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-harmonics-filtered">滤波谐波数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fft-dynamic-harmonic-notch-frequency-tracking">FFT动态谐波陷波频率跟踪</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-notch-filter-effectiveness">检查陷波滤波器的有效性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#double-triple-notch">双倍/三倍陷波</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">移动载具初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">无GPS导航</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">随风向改变方位和风力保持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">飞行功能</a></li>
+      <li class="breadcrumb-item active">用动态谐波陷波滤波器处理陀螺噪声</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-imu-notch-filtering"> </p>
+<section id="managing-gyro-noise-with-the-dynamic-harmonic-notch-filters">
+<h1>用动态谐波陷波滤波器处理陀螺噪声<a class="headerlink" href="#managing-gyro-noise-with-the-dynamic-harmonic-notch-filters" title="Permalink to this heading">¶</a></h1>
+<p>正如<a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">减振</span></a>主题下所讨论的，为了实现对飞机的可预测控制，ArduPilot自动驾驶仪安装中的振动管理极其重要。通常情况下，自动驾驶仪的安装采用内部或外部机械减振，以消除最严重的振动。然而，机械阻尼只能做到这一点，必须使用软件滤波来消除进一步的噪音。</p>
+<p>对于自动驾驶仪来说，振动噪声看起来像是自动驾驶仪为了控制飞机而必须补偿的任何其他干扰（例如风、湍流、控制链路斜率等）。这防止了姿态控制回路的最佳调谐和性能下降。</p>
+<p>ArduPilot为噪声提供了两种过滤机制。由<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-accel-filter" title="(in Rover)"><span class="xref std std-ref">INS_ACCEL_FILTER</span></a>控制的加速度计信号上的低通滤波器，以及由<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a>控制的陀螺仪信号上的谐波陷波滤波器。, and Harmonic Notch Filters on the gyro signals.</p>
+<p>如<a class="reference internal" href="common-measuring-vibration.html#common-measuring-vibration"><span class="std std-ref">测量振动</span></a>部分所述，基本上有两类噪声/振动：在陀螺仪/加速度计采样带宽内产生的噪声和在带宽内出现并可能导致“倾斜”的频率以上的噪声。混叠噪声必须通过改进的安装或框架刚度从源头上消除，但上述滤波器可以处理其他滤波器。</p>
+<p>对于多旋翼机和QuadPlanes，几乎所有的振动都源于电机的旋转频率。对于直升机和飞机，振动与主旋翼/螺旋桨速度有关。</p>
+<p>ArduPilot支持两个陷波滤波器，其滤波器频率可以与电机的电机旋转频率或直升机的转子速度相关联，并在一次频率及其谐波处提供陷波。</p>
+<p>虽然低通滤波器可以有效地减少这种噪声的影响，但具有低频设置点会产生大量的相位滞后，从而降低在振荡发生之前调谐的积极性，从而导致较差的调谐。</p>
+<p>对于基于陀螺仪的速率控制器，这降低了它们对快速扰动的响应能力。如果陀螺仪低通滤波器可以设置得更高，则引起的相位滞后更低，并且调谐可以更积极。但这允许更多的噪音和振动，有效地抵消了增益。启用谐波陷波滤波器中的一个或两个可以针对电机产生的噪声，从而可以设置以下低通的更高频率，从而实现更紧密的调谐。</p>
+<p>谐波陷波是通过将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_ENABLE</span></a>=1设置为第一陷波，将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_ENABLE</span></a>=1设置为第二陷波来整体启用的。重新启动后，将显示所有相关参数。</p>
+<p>提供了在不同推力条件下动态调整陷波中心频率以跟踪电机速度的各种方法，即动态谐波陷波滤波。</p>
+<section id="determining-notch-filter-center-frequency">
+<h2>确定陷波滤波器中心频率<a class="headerlink" href="#determining-notch-filter-center-frequency" title="Permalink to this heading">¶</a></h2>
+<p>在实际设置动态陷波滤波器之前，必须首先确定希望被拒绝的频率。如果使用<a class="reference internal" href="common-throttle-based-notch.html#common-throttle-based-notch"><span class="std std-ref">基于油门的动态陷波设置</span></a>，这一点至关重要。虽然其他方法不需要先验的知识，但它仍然值得作为滤波器有效性的滤波器后激活分析的比较点</p>
+<p>有关此步骤，请参阅<a class="reference internal" href="common-imu-batchsampling.html#common-imu-batchsampling"><span class="std std-ref">IMU批量采样器的振动测量页面</span></a>。一旦确定了噪声频率，就可以设置陷波滤波器。</p>
+</section>
+<section id="notch-filter-control-types">
+<h2>陷波滤波器控制类型<a class="headerlink" href="#notch-filter-control-types" title="Permalink to this heading">¶</a></h2>
+<p>动态陷波滤波器操作的关键是控制其中心频率。有五种方法可用于执行此操作：</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> = 0。动态陷波频率控制已禁用。中心频率是固定的并且是静态的。通常在传统直升机中使用，带有转子速度的外部调速器，可集成在ESC中，也可单独用于ICE电机。</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> = 1。（默认）基于油门位置，其中悬停油门的频率通过分析日志确定，然后使用高于此频率的油门位置变化来跟踪噪声频率的增加。请注意，油门参考仅适用于QuadPlanes中的垂直起降电机，而不适用于前向电机，并且在仅固定翼飞行模式下无效。有关更多设置详细信息，请参阅<a class="reference internal" href="common-throttle-based-notch.html#common-imu-notch-filtering-throttle-based-setup"><span class="std std-ref">基于油门的进一步设置</span></a>。</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> = 2。基于RPM传感器，其中外部<a class="reference internal" href="common-rpm.html#common-rpm"><span class="std std-ref">RPM 传感器</span></a>用于确定电机频率，从而确定凹口的主振动源频率。常用于使用ArduPilot机头调速器功能的传统直升机（见<a class="reference internal" href="common-imu-notch-filtering-helicopter-setup.html#common-imu-notch-filtering-helicopter-setup"><span class="std std-ref">直升机</span></a>）。有关更多设置说明，请参阅<a class="reference internal" href="common-rpm-based-notch.html#common-rpm-based-notch"><span class="std std-ref">RPM 传感器</span></a>。</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> = 3。基于ESC遥测，其中ESC提供用于设置中心频率的电机转速信息。如果前向电机ESCs报告RPM，这也可用于固定翼飞行中的前向电机。这需要您的ESC正确配置为通过一个<a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">串行端口</span></a>支持BLHeli遥测。有关进一步的设置说明，请参阅<a class="reference internal" href="common-esc-telem-based-notch.html#common-esc-telem-based-notch"><span class="std std-ref">ESC遥测</span></a>。如果<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_OPTS</span></a>或<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_OPTS</span></a>（如果第二组陷波被启用）具有位1设置，则将为每个电机创建一组陷波，跟踪其RPM遥测，否则，所有电机的平均频率将设置中心频率。</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a> = 4。如果你的自动驾驶仪支持它（即闪光超过2MB，请参阅<a class="reference internal" href="common-limited-firmware.html#common-limited-firmware"><span class="std std-ref">autopilot硬件的固件限制</span></a>），飞行中FFT，在飞行中进行FFT，以确定主要噪声频率并调整陷波的中心频率以匹配。如果自动驾驶仪能够运行这一功能，这可能是最好的模式。该模式也适用于仅固定翼的飞机。有关进一步的设置说明，请参阅<a class="reference internal" href="common-imu-fft.html#common-imu-fft"><span class="std std-ref">飞行中FFT</span></a>。</p></li>
+</ol>
+<p>对于第二个凹口，独立地重复以上所有内容，并以<code class="docutils literal notranslate"><span class="pre">INS_HNTC2_</span></code>而不是<code class="docutils literal notranslate"><span class="pre">INS_HNTCH_</span></code>为前缀。以下内容将解释第一组槽口的设置。</p>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>只有一个滤波器可以是模式4（FFT）。</p>
+</div>
+</section>
+<section id="number-of-harmonics-filtered">
+<h2>滤波谐波数<a class="headerlink" href="#number-of-harmonics-filtered" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a>设置为启用最多三个谐波（中心频率的倍数）陷波。对于ESC <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a>跟踪，每个电机将获得一组这样的凹口。如果八旋翼机设置了所有三个谐波，则会产生8 x 3=24个陷波滤波器。启用三重陷波（见下文）将产生72个滤波器！这肯定会导致过多的cpu负载和性能问题。其他模式仅提供一组谐波陷波。</p></li>
+</ul>
+<p>始终只启用实际需要的谐波陷波滤波器数量，并特别注意使用ESC（<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-mode" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_MODE</span></a>=3）跟踪模式时启用的内容。</p>
+</section>
+<section id="fft-dynamic-harmonic-notch-frequency-tracking">
+<h2>FFT动态谐波陷波频率跟踪<a class="headerlink" href="#fft-dynamic-harmonic-notch-frequency-tracking" title="Permalink to this heading">¶</a></h2>
+<p>FFT模式跟踪将基频设置为最大噪声峰值。通常，当启用多个谐波陷波滤波器时，每个谐波的中心频率被锁定到第一滤波器的基频，作为整数倍，如<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a>所确定的。<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_OPTS</span></a>或<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_OPTS</span></a>的设置位1将使每个谐波滤波器能够单独跟踪最大噪声峰值。</p>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>设置陷波选项的比特1也将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a>的默认值改变为1而不是其正常的3。这是为了保持与以前的fimware版本的向后兼容性。在设置了<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a>的第1位之后，可以将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-hmncs" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_HMNCS</span></a>设置回3，或任何需要的值。</p>
+</div>
+</section>
+<section id="checking-notch-filter-effectiveness">
+<h2>检查陷波滤波器的有效性<a class="headerlink" href="#checking-notch-filter-effectiveness" title="Permalink to this heading">¶</a></h2>
+<p>一旦设置了陷波滤波器，就可以通过再次测量滤波器输出的频谱（这是IMU传感器的新输入）来检查它们的有效性。请参阅使用<a class="reference internal" href="common-imu-batchsampling.html#common-imu-batchsampling"><span class="std std-ref">IMU批量采样器测量振动</span></a>页面。</p>
+</section>
+<section id="double-triple-notch">
+<h2>双倍/三倍陷波<a class="headerlink" href="#double-triple-notch" title="Permalink to this heading">¶</a></h2>
+<p>所使用的软件陷波滤波器非常“尖峰”，相对较窄，但在其中心处衰减良好。在较大的直升机上，电机的噪声分布相当脏，覆盖的频率范围比单陷波滤波器覆盖的频率更广。为了解决这种情况，可以将谐波陷波配置为两个或三个陷波，从而提供更宽的显著衰减范围。若要使用此功能，请将<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-opts" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_OPTS</span></a>设置为“1”（用于双级），将其设置为“16”（用于三级）。</p>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>由于添加了三级凹口选项，因此不再推荐使用双凹口选项。对于双陷波，最大衰减在中心频率的两侧，因此在具有非常明显峰值的小型飞机上，使用它们通常会适得其反。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>每个凹口都有一些CPU成本，所以如果你配置多个凹口，你的飞机上可能会有很多凹口。例如，使用ESC遥测的三个单（无谐波）陷波将导致每个电机3个陷波或总共12个陷波。例如，对于F4 cpus，这应该是可以接受的，但是启用具有<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntc2-enable" title="(in Rover)"><span class="xref std std-ref">INS_HNTC2_ENABLE</span></a>或多个谐波陷波的第二组三陷波可能会导致问题。</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="motor-thrust-scaling.html" class="btn btn-neutral float-left" title="Motor Thrust Scaling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-throttle-based-notch.html" class="btn btn-neutral float-right" title="[copywiki destination=”copter,plane”]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

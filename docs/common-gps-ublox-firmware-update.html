@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>U-Blox F9P Firmware Update &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">U-Blox F9P Firmware Update</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="u-blox-f9p-firmware-update">
+<span id="common-gps-ublox-firmware-update"></span><h1>U-Blox F9P Firmware Update<a class="headerlink" href="#u-blox-f9p-firmware-update" title="Permalink to this heading">¶</a></h1>
+<p>The U-Blox F9 GPS is an L1/L2 RTK GPS that can provide high accuracy positioning and can also be used for <a class="reference internal" href="common-gps-for-yaw.html#common-gps-for-yaw"><span class="std std-ref">GPS-for-Yaw</span></a>.  This documents how to upgrade the firmware on the GPS.</p>
+<section id="firmware-upgrade-procedure">
+<h2>Firmware Upgrade Procedure<a class="headerlink" href="#firmware-upgrade-procedure" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p><a class="reference external" href="https://www.u-blox.com/en/product/u-center">Download u-center from u-blox.com</a> and install on your PC (Windows only)</p></li>
+<li><p>Open the <a class="reference external" href="https://www.u-blox.com/en/product/zed-f9p-module#tab-documentation-resources">u-Blox ZED-F9P website</a></p></li>
+<li><p>Scroll down and click on the “Documentation &amp; resources” button</p></li>
+<li><p>Scroll down to the “Firmware Update” section and download the latest firmware (“ZED-F9P HPG 1.13 firmware” as of Oct 2020)</p></li>
+<li><p>Connect the GPS to your PC using a USB cable</p></li>
+<li><p>Open u-center, select the COM port and connect</p>
+<a class="reference external image-reference" href="../_images/gps-ublox-f9p-ucenter-connect.png"><img alt="../_images/gps-ublox-f9p-ucenter-connect.png" src="../_images/gps-ublox-f9p-ucenter-connect.png" style="width: 450px;" /></a>
+</li>
+<li><p>Check the GPS’s current firmware version by selecting View, Messages View, UBX, MON, VER</p>
+<a class="reference external image-reference" href="../_images/gps-ublox-f9p-check-version.png"><img alt="../_images/gps-ublox-f9p-check-version.png" src="../_images/gps-ublox-f9p-check-version.png" style="width: 450px;" /></a>
+</li>
+<li><p>If the version is lower than the latest (especially if lower than 1.13) then upgrade the firmware</p>
+<ul class="simple">
+<li><p>Select Tools, Firmware Update</p></li>
+<li><p>The Firmware image field should be the .bin file downloaded above</p></li>
+<li><p>Check the “Use this baudrate for update” checkbox and select 115200 from the drop-down</p></li>
+<li><p>Ensure the other checkboxes are as shown below</p></li>
+<li><p>Push the green GO button on the bottom left</p></li>
+<li><p>“Firmware Update SUCCESS” should be displayed if the update was successful</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/gps-ublox-f9p-firmware-update.png"><img alt="../_images/gps-ublox-f9p-firmware-update.png" src="../_images/gps-ublox-f9p-firmware-update.png" style="width: 450px;" /></a>
+</li>
+</ul>
+</section>
+<section id="configure-satellite-constellations">
+<h2>Configure Satellite Constellations<a class="headerlink" href="#configure-satellite-constellations" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot does not automatically configure the F9’s enabled constellations so this should be set manually using u-center as shown below</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/gps-ublox-f9p-satellite-config.png"><img alt="../_images/gps-ublox-f9p-satellite-config.png" src="../_images/gps-ublox-f9p-satellite-config.png" style="width: 450px;" /></a>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

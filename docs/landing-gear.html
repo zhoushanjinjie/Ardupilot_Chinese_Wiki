@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived: Landing Gear &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived: Landing Gear</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note" id="landing-gear">
+<p class="admonition-title">Note</p>
+<p>This information is superceded by <a class="reference internal" href="common-landing-gear.html#common-landing-gear"><span class="std std-ref">Landing Gear/ Retractable Camera Mount</span></a></p>
+</div>
+<section id="archived-landing-gear">
+<h1>Archived: Landing Gear<a class="headerlink" href="#archived-landing-gear" title="Permalink to this heading">¶</a></h1>
+<p>Copter supports retractable Landing Gear activated by a servo mechanism
+(like these sold by <a class="reference external" href="https://hobbyking.com/en_us/quanum-600-class-quick-release-universal-retractable-gear-set-680uc-pro-hexa-copter.html?___store=en_us">Hobby King</a>).
+The gear can be manually retracted/deployed with an auxiliary switch.
+The gear will also automatically deploy during landing.</p>
+<p>There is some simple logic controlling the operation beyond simply
+responding to retract/deploy commands from the controller.  If the
+system is booted up and the landing gear control switch is in
+the retract position, the landing gear will not retract.  This is done
+to prevent damage to the landing gear or airframe should the switch be
+accidentally left in the retract position on start-up.  In this case,
+the landing gear will not retract until the switch is first moved to the
+deploy position, and then back to the retract position.</p>
+<p>The landing gear will automatically deploy when the flight mode is changed to Land,
+during the final landing phase of RTL mode, and when a Land command is executed in AUTO mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for landing gear was introduced in AC 3.3</p>
+</div>
+<a class="reference external image-reference" href="../_images/LandingGear_HobbyKing.jpg"><img alt="../_images/LandingGear_HobbyKing1.jpg" src="../_images/LandingGear_HobbyKing1.jpg" /></a>
+<section id="connecting-to-the-pixhawk">
+<h2>Connecting to the Pixhawk<a class="headerlink" href="#connecting-to-the-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>Most retractable landing gear will require just a single PWM cable to
+connected to one of the AUX outputs on the back of the Pixhawk (AUX1 ~
+AUX4).</p>
+<a class="reference external image-reference" href="../_images/LandingGear_Pixhawk.jpg"><img alt="../_images/LandingGear_Pixhawk.jpg" src="../_images/LandingGear_Pixhawk.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The signal wire (usually white) should be connected to the lower most “S” pin.</p>
+</div>
+</section>
+<section id="setup-through-the-mission-planner">
+<h2>Setup through the Mission Planner<a class="headerlink" href="#setup-through-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>Use the Mission Planner’s Full Parameter List (or equivalent) to set the
+following parameters:</p>
+<ul class="simple">
+<li><p>If using AC3.5 (or higher) set <code class="docutils literal notranslate"><span class="pre">SERVOn_FUNCTION</span> <span class="pre">to</span> <span class="pre">29</span></code> “Landing Gear”, where <strong>n</strong> is the number for
+the connected servo (e.g. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> for AUX1, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo10-function" title="(in Rover)"><span class="xref std std-ref">SERVO10_FUNCTION</span></a> for AUX2 etc.)</p></li>
+<li><p>If using AC3.4.6 (or lower) set <code class="docutils literal notranslate"><span class="pre">RCn_FUNCTION</span> <span class="pre">to</span> <span class="pre">29</span></code> “Landing Gear”, where <strong>n</strong> is the number for the connected servo (e.g. <code class="docutils literal notranslate"><span class="pre">RC9_FUNCTION</span> <span class="pre">&lt;RC9_FUNCTION&gt;</span></code> for AUX1, <code class="docutils literal notranslate"><span class="pre">RC10_FUNCTION</span> <span class="pre">&lt;RC10_FUNCTION&gt;</span></code> for AUX2 etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LGR_SERVO_DEPLOY</span> <span class="pre">&lt;LGR_SERVO_DEPLOY&gt;</span></code>
+— servo PWM value required to deploy the landing gear.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LGR_SERVO_RTRACT</span> <span class="pre">&lt;LGR_SERVO_RTRACT&gt;</span></code>
+— servo PWM value required to retract the landing gear.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/LandingGear_PixhawkSetup1.png"><img alt="../_images/LandingGear_PixhawkSetup1.png" src="../_images/LandingGear_PixhawkSetup1.png" /></a>
+<figcaption>
+<p><span class="caption-text">MissionPlanner: Landing Gear Configuration</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Set an <a class="reference internal" href="channel-7-and-8-options.html#channel-7-and-8-options"><span class="std std-ref">auxiliary switch</span></a> to “Landing Gear” in order to enable manual control (i.e. set CH7_OPT or CH8_OPT to “29”)</p>
+<p>When the switch is in the “low” position the gear will be deployed, “high” will be retracted, “middle” is a neutral position that will not change the gear’s state.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/LandingGear_PixhawkSetup2.png"><img alt="../_images/LandingGear_PixhawkSetup2.png" src="../_images/LandingGear_PixhawkSetup2.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Setting Manual Landing Gear Control</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

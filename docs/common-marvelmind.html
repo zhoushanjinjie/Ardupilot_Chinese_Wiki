@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marvelmind for Non-GPS navigation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ModalAI VOXL" href="common-modalai-voxl.html" />
+    <link rel="prev" title="Intel RealSense T265" href="common-vio-tracking-camera.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-vio-tracking-camera.html">Intel RealSense T265</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MarvelMind Beacons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-modalai-voxl.html">ModalAI VOXL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-nooploop.html">Nooploop Beacons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+      <li class="breadcrumb-item active">Marvelmind for Non-GPS navigation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="marvelmind-for-non-gps-navigation">
+<span id="common-marvelmind"></span><h1>Marvelmind for Non-GPS navigation<a class="headerlink" href="#marvelmind-for-non-gps-navigation" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,rover,blimp”]</p>
+<p>This article explains how a <a class="reference external" href="https://marvelmind.com/">MarvelMind</a> system can be a short-range substitute for a GPS allowing position control modes like Auto and Guided.
+See the <a class="reference external" href="https://marvelmind.com/pics/marvelmind_navigation_system_manual.pdf">user manual</a> for more details on the system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support was added in Copter-3.6 and Rover-3.3.
+This wiki page is a work-in-progress.</p>
+</div>
+<a class="reference external image-reference" href="../_images/marvel-mind.jpg"><img alt="../_images/marvel-mind.jpg" src="../_images/marvel-mind.jpg" /></a>
+<p><em>image courtesy of marvelmind.com</em></p>
+<section id="required-hardware">
+<h2>Required Hardware<a class="headerlink" href="#required-hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://marvelmind.com/product/starter-set-hw-v4-9-plastic-housing/">Marvelmind Starter Set</a></p></li>
+</ul>
+</section>
+<section id="marvelmind-settings">
+<h2>Marvelmind Settings<a class="headerlink" href="#marvelmind-settings" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Ensure the Marvelmind is firmware version 5.77 (or higher) and enable the ‘Raw Distances Data’ in the Dashboard</p></li>
+<li><p>Set the stationary beacon with the lowest address as the origin in your dashboard.</p></li>
+<li><p>The height of every stationary beacon, from the ground, must be set on the dashboard.</p></li>
+<li><p>The hedge should be set to output Marvelmind Protocol at baud rate of 115200.</p></li>
+</ul>
+</section>
+<section id="connecting-to-an-autopilot">
+<h2>Connecting to an autopilot<a class="headerlink" href="#connecting-to-an-autopilot" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Ensure that Copter-3.6 (or higher) or Rover-3.3 is loaded onto the autopilot and connect with a Ground Station (i.e. Mission Planner).</p></li>
+<li><p>Enable the <a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html#common-apm-navigation-extended-kalman-filter-overview"><span class="std std-ref">EKF3 as described here</span></a></p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">EK3_ALT_SOURCE</span></code> to 3 (means using Marvelmind for altitude)</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">EK3_GPS_TYPE</span></code> to 3 (means Inhibit GPS use)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-type" title="(in Rover)"><span class="xref std std-ref">BCN_TYPE</span></a> to 2 (means using Marvelmind system)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-latitude" title="(in Rover)"><span class="xref std std-ref">BCN_LATITUDE</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-longitude" title="(in Rover)"><span class="xref std std-ref">BCN_LONGITUDE</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-alt" title="(in Rover)"><span class="xref std std-ref">BCN_ALT</span></a> to match your actual location.  Getting these values exactly correct is not particularly important although getting it close is required in order for the compass’s declination to be correctly looked up from the small database held within ArduPilot.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-orient-yaw" title="(in Rover)"><span class="xref std std-ref">BCN_ORIENT_YAW</span></a> to the heading from the origin beacon to the 2nd beacon.  One way to capture this value is to stand at the origin holding the vehicle so that it’s nose points towards the second beacon.  Read the vehicle’s heading from the HUD and enter this value into <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#bcn-orient-yaw" title="(in Rover)"><span class="xref std std-ref">BCN_ORIENT_YAW</span></a></p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> to 0 to disable the GPS</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> to -9 to disable the GPS arming check</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL1_BAUD</span></a> to 115 to set telemetry1’s baud rate to 115200 (if using Telem2 set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> instead)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL1_PROTOCOL</span></a> to 13 to enable receiving data from the marvelmind (If using Telem2 set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> instead)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser1-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER1_RTSCTS</span></a> to 0 to ensure telem1 does not use flow control (If using Telem2 set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser2-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER2_RTSCTS</span></a> instead, not required if using Serial4/5)</p></li>
+</ul>
+</section>
+<section id="ground-testing">
+<h2>Ground Testing<a class="headerlink" href="#ground-testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect the Autopilot to a ground station</p></li>
+<li><p>Click on ‘freeze map’ on the dashboard</p></li>
+<li><p>After about 1 minute the vehicle’s position should jump to the latitude, longitude you input during the configuration step (above)</p></li>
+<li><p>Check that the vehicle’s position is relatively stable (i.e. moving around less than one meter)</p></li>
+<li><p>Walk the vehicle around between the beacons and ensure that its position on the map updates correctly</p></li>
+</ul>
+</section>
+<section id="dataflash-logging">
+<h2>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h2>
+<p>The distance to the beacons can be found in the dataflash log’s BCN message’s D0, D1, D2, D3 fields.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-vio-tracking-camera.html" class="btn btn-neutral float-left" title="Intel RealSense T265" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-modalai-voxl.html" class="btn btn-neutral float-right" title="ModalAI VOXL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

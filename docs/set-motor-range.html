@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting Motor Range &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Failsafe" href="failsafe-landing-page.html" />
+    <link rel="prev" title="Electronic Speed Controller (ESC) Calibration" href="esc-calibration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">配置电机范围（可选）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#measuring-the-deadzone">Measuring the deadzone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-spin-armed-and-min-throttle">Setting Spin-Armed and Min Throttle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">Setting Motor Range</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-motor-range">
+<span id="set-motor-range"></span><h1>Setting Motor Range<a class="headerlink" href="#setting-motor-range" title="Permalink to this heading">¶</a></h1>
+<p>Most ESCs have a dead zone at the bottom of their range.  This page outlines how to test the size of the range and then set the spin-when-armed and min throttle values appropriately.</p>
+<p>Although not required, advanced users may wish to take the next step by measuring and adjusting the <a class="reference internal" href="motor-thrust-scaling.html#motor-thrust-scaling"><span class="std std-ref">motor thrust curve</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please complete the <a class="reference internal" href="esc-calibration.html#esc-calibration"><span class="std std-ref">ESC calibration</span></a> before setting the motor range</p>
+</div>
+<section id="measuring-the-deadzone">
+<h2>Measuring the deadzone<a class="headerlink" href="#measuring-the-deadzone" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>Remove the propellers from the vehicle</p></li>
+<li><p>Connect the LiPo battery</p></li>
+<li><p>Connect the autopilot to the Mission Planner using a USB cable or telemetry</p></li>
+<li><p>Open the Mission Planner’s Initial Setup &gt;&gt; Optional Hardware &gt;&gt; Motor Test page</p>
+<a class="reference external image-reference" href="../_images/MissionPlanner_MotorTest.png"><img alt="../_images/MissionPlanner_MotorTest.png" src="../_images/MissionPlanner_MotorTest.png" /></a>
+</li>
+<li><p>Increase the “Throttle %” field and push each of the “Test motor” buttons to determine what percentage is required for each of the motors to spin.  If all ESCs are from the same manufacturer they will likely all have similar dead zones, but having one or two different by 1% ~ 2% is common.  Pick the highest percentage of all the motors - we will use this below.</p></li>
+</ul>
+</section>
+<section id="setting-spin-armed-and-min-throttle">
+<h2>Setting Spin-Armed and Min Throttle<a class="headerlink" href="#setting-spin-armed-and-min-throttle" title="Permalink to this heading">¶</a></h2>
+<p>By default, when the vehicle is armed but not flying, the motors will spin at a slightly slower than normal speed.  This speed can be configured using <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> parameter (For older versions check MOT_SPIN_ARMED).
+Once the vehicle is flying, we want to ensure that we never output a value that causes the motors to stop spinning, this lower limit can be configured <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a> parameter.</p>
+<ul class="simple">
+<li><p>set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> parameter to <strong>(the percentage discovered above + 2%) / 100</strong>.  I.e. if you found the deadzone of the ESCs was 7%, set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> to 0.09 (i.e (7 + 2) / 100).</p></li>
+<li><p>set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a> parameter to at least 0.03 higher than <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a>.  I.e. if <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> was 0.09, set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a> to 0.12.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a> even higher than recommended above is acceptable if we want to account for voltage drop of the battery, but setting it too high reduces the lower range of the motors which reduces control which could be important, especially on powerful copters with a low hover throttle.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-max" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MAX</span></a> parameter to account for the very top of the ESC/motor range which generally produces no additional thrust.  By default this value is 0.95 (i.e. top 5% of the range produces no additional thrust).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if ESC RPM telemetry is being used, the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tkoff-rpm-min" title="(in Copter)"><span class="xref std std-ref">TKOFF_RPM_MIN</span></a> parameter could be set slightly below the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> parameter to prevent takeoff attempts, and subsequent flips on takeoff, if one or more motors are not spinning.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="esc-calibration.html" class="btn btn-neutral float-left" title="Electronic Speed Controller (ESC) Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="failsafe-landing-page.html" class="btn btn-neutral float-right" title="Failsafe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windspeed Estimation and Baro Compensation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Windspeed Estimation and Baro Compensation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="windspeed-estimation-and-baro-compensation">
+<span id="airspeed-estimation"></span><h1>Windspeed Estimation and Baro Compensation<a class="headerlink" href="#windspeed-estimation-and-baro-compensation" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot’s <a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html#common-apm-navigation-extended-kalman-filter-overview"><span class="std std-ref">EKF</span></a> can estimate the windspeed a multicopter is flying in without requiring an airspeed sensor.  This can be useful information for the pilot but it can also be used to compensate for wind related barometer interference.  This interference can occur on vehicles where the autopilot is exposed to the open air and can lead to the vehicle climbing or descending a few meters especialy after slowing down from fast-forward flight.</p>
+<p>The mechanism and setup are explained below.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/xVVtvVuZGQE" style="border: 0; height: 345px; width: 560px">
+</iframe></div><section id="calculate-the-body-drag-coefficient">
+<h2>Calculate the Body Drag Coefficient<a class="headerlink" href="#calculate-the-body-drag-coefficient" title="Permalink to this heading">¶</a></h2>
+<p>Weigh the vehicle including the battery.  The weight should be expressed in kg.</p>
+<p>Measure the front and side area of the vehicle in m^2 using one of the methods below</p>
+<ul>
+<li><p>Take two pictures of the vehicle (one of the front, one of the side) from a few meters away</p></li>
+<li><p>Measure the surface area in cm^2 using one of these online tools:</p>
+<ul>
+<li><p>Use <a class="reference external" href="https://yomotherboard.com/add-grid-to-image/">this free online tool</a> to overlay a grid on the image.  Scale the size of the grid squares to match the known width or length of the vehicle (in cm).  Count the total number of squares which include parts of the vehicle (do not including propeller blades).  This is the area in cm^2</p>
+<a class="reference external image-reference" href="../_images/windspeed-drag-coef-iris.png"><img alt="../_images/windspeed-drag-coef-iris.png" src="../_images/windspeed-drag-coef-iris.png" style="width: 450px;" /></a>
+</li>
+<li><p><a class="reference external" href="https://www.sketchandcalc.com/">SketchAndCalc</a> offers a free trial (1hr only) and makes it relatively easy to scale and then measure the area (in cm^2) of a polygon drawn over the vehicle</p>
+<a class="reference external image-reference" href="../_images/windspeed-drag-coef-iris-sketchandcalc.jpg"><img alt="../_images/windspeed-drag-coef-iris-sketchandcalc.jpg" src="../_images/windspeed-drag-coef-iris-sketchandcalc.jpg" style="width: 450px;" /></a>
+</li>
+</ul>
+</li>
+<li><p>Divide the area by 10,000 to convert from cm^2 to m^2</p></li>
+</ul>
+<p>Update the drag coefficient parameters</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-drag-bcoef-x" title="(in Rover)"><span class="xref std std-ref">EK3_DRAG_BCOEF_X</span></a> = mass in kg / frontal area in m^2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-drag-bcoef-y" title="(in Rover)"><span class="xref std std-ref">EK3_DRAG_BCOEF_Y</span></a> = mass in kg / side area in m^2</p></li>
+</ul>
+<p>For the IRIS shown above:</p>
+<ul class="simple">
+<li><p>Weight: 1.45kg</p></li>
+<li><p>Frontal area: 203 cm^2 = 0.0203 m^2</p></li>
+<li><p>Side area: 217 cm^2 = 0.0217 m^2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-drag-bcoef-x" title="(in Rover)"><span class="xref std std-ref">EK3_DRAG_BCOEF_X</span></a> = 1.45kg / 0.0203 m^2 = 71.4</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-drag-bcoef-y" title="(in Rover)"><span class="xref std std-ref">EK3_DRAG_BCOEF_Y</span></a> = 1.45kg / 0.0217 m^2 = 66.8</p></li>
+</ul>
+</section>
+<section id="calculate-the-propeller-drag-coefficient">
+<h2>Calculate the Propeller Drag Coefficient<a class="headerlink" href="#calculate-the-propeller-drag-coefficient" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-drag-mcoef" title="(in Rover)"><span class="xref std std-ref">EK3_DRAG_MCOEF</span></a> should be calculated after performing a flight test as described <a class="reference external" href="https://youtu.be/xVVtvVuZGQE?t=1421">here in the video</a>.</p>
+<ol class="arabic simple">
+<li><p>Fly in a low wind conditions in a wide open space</p></li>
+<li><p>Optionally set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-disarmed" title="(in Rover)"><span class="xref std std-ref">LOG_DISARMED</span></a> = 1 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-replay" title="(in Rover)"><span class="xref std std-ref">LOG_REPLAY</span></a> = 1 to allow post flight tuning with <a class="reference external" href="https://ardupilot.org/dev/docs/testing-with-replay.html#testing-with-replay" title="(in Dev)"><span class="xref std std-ref">Replay</span></a></p></li>
+<li><p>Arm and takeoff in <a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a> mode (this ensures the EKF has a good position estimate) and fly to the middle of the testing area</p></li>
+<li><p>Switch to <a class="reference internal" href="altholdmode.html#altholdmode"><span class="std std-ref">AltHold</span></a> and let the vehicle drift downwind to establish the wind direction and speed</p></li>
+<li><p>Yaw the vehicle so the nose faces into the wind and apply full forward pitch until the vehicle has finished accelerating upwind</p></li>
+<li><p>Release the pitch stick and allow the vehicle to decelerate and then drift back to the starting line</p></li>
+<li><p>Reposition the vehicle to a comfortable position</p></li>
+<li><p>Yaw the vehicle 90 deg (e.g. clockwise) to the wind and apply full left roll stick until the quad has finished accelerating.  Release the stick and allow the vehicle to again decelerate and drift back downwind to the starting line</p></li>
+<li><p>Reposition the vehicle to a comfortable position</p></li>
+<li><p>Repeat step 8 but with the vehicle facing backwards into the wind (pilot should pull back on the pitch stick to accelerate into the wind)</p></li>
+<li><p>Repeat step 8 but with the vehicle’s right side facing into the wind (pilot should apply full right roll to accelerate into the wind)</p></li>
+<li><p>Download the <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">onboard logs</span></a> for analysis as described in the video</p></li>
+</ol>
+<p>The final value for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-drag-mcoef" title="(in Rover)"><span class="xref std std-ref">EK3_DRAG_MCOEF</span></a> is normally between 0.1 and 1.0.</p>
+</section>
+<section id="viewing-windspeed-and-direction-in-real-time">
+<h2>Viewing Windspeed and Direction in Real-Time<a class="headerlink" href="#viewing-windspeed-and-direction-in-real-time" title="Permalink to this heading">¶</a></h2>
+<p>Once enabled, the estimated wind speed is sent to the ground station in real-time via the <a class="reference external" href="https://mavlink.io/en/messages/ardupilotmega.html#WIND">WIND</a> mavlink message.  If using Mission Planner, on the Data page, select the “Quick” tab, double-click on any number shown and select “wind_dir” or “wind_vel”.</p>
+<a class="reference external image-reference" href="../_images/windspeed-mp.png"><img alt="../_images/windspeed-mp.png" src="../_images/windspeed-mp.png" style="width: 450px;" /></a>
+</section>
+<section id="viewing-windspeed-recorded-in-the-onboard-logs">
+<h2>Viewing Windspeed recorded in the Onboard Logs<a class="headerlink" href="#viewing-windspeed-recorded-in-the-onboard-logs" title="Permalink to this heading">¶</a></h2>
+<p>The EKF’s wind speed estimate is recorded in the onboard log XKF2 message’s VWN and VWE fields</p>
+<a class="reference external image-reference" href="../_images/windspeed-log.png"><img alt="../_images/windspeed-log.png" src="../_images/windspeed-log.png" style="width: 450px;" /></a>
+</section>
+<section id="barometer-position-error-compensation">
+<h2>Barometer Position Error Compensation<a class="headerlink" href="#barometer-position-error-compensation" title="Permalink to this heading">¶</a></h2>
+<p>Once wind estimation has been enabled, it can be used to compensate for the wind’s effect on each barometer in each of four directions (foward, back, left right).  The method to calculate each parameter’s value is discussed <a class="reference external" href="https://youtu.be/xVVtvVuZGQE?t=3486">here in the video</a>.</p>
+<p>Perform a test flight</p>
+<ul class="simple">
+<li><p>Fly the vehicle nose-first into the wind, then tail-first, then right-side first, then left-side first</p></li>
+<li><p>Land and download the <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">onboard logs</span></a></p></li>
+</ul>
+<p>Calculate the position error coefficient for each direction</p>
+<ul class="simple">
+<li><p>Calculate the air density (in kg/m^3) using an online calculator (<a class="reference external" href="https://www.density.co.uk/calculators/density-of-air">like this one</a>)</p></li>
+<li><p>Calculate the static pressure error (in Pa) = -height * gravity * air density</p></li>
+<li><p>Calculate the dynamic pressure = 0.5 * air density * airspeed^2</p></li>
+<li><p>Position error coefficient = static pressure error / dynamic pressure.  This value should be between -1 and +1</p></li>
+</ul>
+<p>Enable the compensation and copy the calculated position error coefficients into the appropriate parameters.  Below are the parameters for the first barometer.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-enable" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_ENABLE</span></a> = 1 to enable and then reboot the autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-fwd" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_FWD</span></a>: Pressure error coefficient in positive X direction (forwards)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-bck" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_BCK</span></a>: Pressure error coefficient in negative X direction (backwards)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-rgt" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_RGT</span></a>: Pressure error coefficient in positive Y direction (right)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-lft" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_LFT</span></a>: Pressure error coefficient in positive Y direction (left)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-up" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_UP</span></a>: Pressure error coefficient in positive Z direction (climbing)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro1-wcf-dn" title="(in Rover)"><span class="xref std std-ref">BARO1_WCF_DN</span></a>: Pressure error coefficient in negative Z direction (descending)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

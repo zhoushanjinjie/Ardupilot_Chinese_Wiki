@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Underwater Sonar (Analog) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Underwater Sonar (Analog)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="underwater-sonar-analog">
+<span id="common-underwater-sonar-analog"></span><h1>Underwater Sonar (Analog)<a class="headerlink" href="#underwater-sonar-analog" title="Permalink to this heading">¶</a></h1>
+<p>This page details the setup of a low-cost analog underwater sonar (aka “fish finder”) and a digitizer to convert the analog readings into NMEA 0183 which can be read by ardupilot.  This setup allows measuring the depth of the water below a boat.  The sensor described has a maximum claimed a range of 300m and a relatively wide beam of 22deg.</p>
+<p>These instructions were provided by <a class="reference external" href="https://discuss.ardupilot.org/t/mapping-a-lake-with-ardupilot/32401/34">OlavA at the bottom of this ardupilot.org blog post</a></p>
+<img alt="../_images/underwater-sonar-analog.png" src="../_images/underwater-sonar-analog.png" />
+<p><em>images courtesy of lowarnace.com and actisense.com</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this sensor was added to Rover-3.4.</p>
+</div>
+<section id="recommended-hardware">
+<h2>Recommended Hardware<a class="headerlink" href="#recommended-hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.lowrance.com/lowrance/type/sonar-transducers/hst-wsbl/">Lowrance HST-WSBL 83/200 kHz Transom Mount Transducer</a> available from many retailers including <a class="reference external" href="https://www.amazon.com/Lowrance-HST-WSBL-Transom-Mount-Transducer/dp/B000KKB5YK">amazon.com</a>.  Other sensors may also work.</p></li>
+<li><p><a class="reference external" href="https://www.actisense.com/product/dst-2/">DST-2 200kHz digitizer</a> available from <a class="reference external" href="https://www.actisense.com/where-to-buy/">many retailers</a> including <a class="reference external" href="https://www.navstore.com/actisense-dst-2-200-active-dst-module-200-khz.html">Navstore.com</a> (<a class="reference external" href="http://www.actisense.com/media/?product=dst-2&amp;type=downloads">manuals here</a>)</p></li>
+</ul>
+</section>
+<section id="connecting-and-configuring">
+<h2>Connecting and Configuring<a class="headerlink" href="#connecting-and-configuring" title="Permalink to this heading">¶</a></h2>
+<p>The image below shows the pin-out of an airmar analog transducer, but the pinout is the same as for the Lowrance HST-WSBL</p>
+<img alt="../_images/underwater-sonar-analog-airman-pinout.jpg" src="../_images/underwater-sonar-analog-airman-pinout.jpg" />
+<p>The Lowrance HST-WSBL pins should be connected to the pins on the right side of the DST-2, as shown below.   Note that the Lowrance HST-WSBL does not have a speed sensor so only pins 1 and 4-7 should be connected</p>
+<img alt="../_images/underwater-sonar-analog-connection-table.png" src="../_images/underwater-sonar-analog-connection-table.png" />
+<p>The DST-2 requires a 10V to 28V power source, meaning it can be powered from a 3S or 4S lipo battery.</p>
+<p>Next pins on the left side of the DST-2 (serial and RS-232 output) should be connected to the autopilot’s telemetry/serial input. The easiest connection method is to connect the DST-2’s 5V serial output directly to the telemetry port of the autopilot’s Tx, Rx, and common ground.  It is best to check the DST-2 docs before connecting but below shows how the telemetry pins from a Pixhawk (or another autopilot) should be connected to the pins on the left side of the DST-2.</p>
+<img alt="../_images/underwater-sonar-analog-wiring.png" src="../_images/underwater-sonar-analog-wiring.png" />
+<p>Connect with a ground station to the autopilot and set the following parameters (these settings assume the first sensor is connected to Telem2/Serial2)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 9 (Lidar)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 4 (4800 baud)</p></li>
+</ul>
+<p>Then the following range finder related parameters should be set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 17 (NMEA)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 13</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = 30000 (i.e. 300m).  <em>This is the distance in centimeters that the rangefinder can reliably read.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-orient" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ORIENT</span></a> = 25 (i.e. down) if mounted on a boat</p></li>
+</ul>
+<section id="testing-the-sensor">
+<h3>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h3>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

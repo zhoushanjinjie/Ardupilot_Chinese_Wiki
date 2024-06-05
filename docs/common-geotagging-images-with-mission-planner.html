@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geotagging Images with Mission Planner &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Geotagging Images with Mission Planner</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="geotagging-images-with-mission-planner">
+<span id="common-geotagging-images-with-mission-planner"></span><h1>Geotagging Images with Mission Planner<a class="headerlink" href="#geotagging-images-with-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>This article shows how to Geo-tag images, using <em>Mission Planner</em> to
+inject data from telemetry logs into their EXIF tags.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Geo-tagging images makes it easier to photo-merge the many pictures
+taken during a <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">camera mission</span></a>,
+and is important for applications including photogrammetry, orthophoto
+generation, 3D terrain modeling etc.</p>
+<p><em>Mission Planner</em> provides two methods for geotagging your photos from a
+mission log:</p>
+<ol class="arabic">
+<li><p><strong>CAM messages from dataflash log</strong></p>
+<p>ArduPilot can trigger a camera during pre-programmed missions or by
+RC activation using the <code class="docutils literal notranslate"><span class="pre">DO_DIGICAM_CONTROL</span></code> or
+<code class="docutils literal notranslate"><span class="pre">DO_SET_CAM_TRIGG_DIST</span></code> commands. Corresponding CAM messages are
+stored in the dataflash log, and can be used by Mission Planner to
+add accurate geotag information to images.</p>
+</li>
+<li><p><strong>Time offset (image timestamp to log timestamp)</strong></p>
+<p>This method uses the time difference between the camera internal
+clock and system clock to determine where in the log each image was
+taken and get the GPS information. Typically users must tune the
+offset value in order to find a sensible result.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<dl class="simple">
+<dt>This method is less accurate. It is used when there is no</dt><dd><p>connection between camera and autopilot.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if your camera has a built-in GPS you <em>may</em> find this
+approach provide more accurate information than the built-in GPS.</p>
+</div>
+</section>
+<section id="geotagging-images">
+<h2>Geotagging images<a class="headerlink" href="#geotagging-images" title="Permalink to this heading">¶</a></h2>
+<section id="common-pre-steps">
+<h3>Common pre-steps<a class="headerlink" href="#common-pre-steps" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>Open Mission Planner and press <strong>Ctrl+F</strong>. This will open a hidden
+screen like the one shown below.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/geotag_temp_form-v2.png"><img alt="../_images/geotag_temp_form-v2.png" src="../_images/geotag_temp_form-v2.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Temp Screen (Ctrl +F)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the button <strong>Geo ref images</strong>. It will give you access to the
+<em>Geo Tagging</em> tool</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/geotag_overview-v2.png"><img alt="../_images/geotag_overview-v2.png" src="../_images/geotag_overview-v2.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Geo Ref Images Screen</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the button <strong>Browse Log</strong> and select the log (<strong>.tlog</strong> or
+<strong>.log)</strong> of the flight related to the shooting session.</p></li>
+<li><p>Click the button <strong>Browse Directory</strong> and select the folder where
+your aerial pictures were downloaded from your camera.</p>
+<p>Notice that the camera picture folder can contain other files apart
+from the pictures. However in terms of pictures, it must contain just
+the ones belonging to the flight.</p>
+</li>
+</ul>
+<p>The next steps depend on whether you’re using CAM Messages or a time
+offset.</p>
+</section>
+<section id="cam-messages">
+<h3>CAM messages<a class="headerlink" href="#cam-messages" title="Permalink to this heading">¶</a></h3>
+<p>In order to process CAM messages, the mission file had to be defined to
+use remote camera trigger by means of any of the available mission
+commands (CAM_TRIGG_DISTANCE, DO_DIGICAM_CONTROL, etc).</p>
+<ul class="simple">
+<li><p>Select the <strong>CAM Message</strong> method if it is not selected in the
+<em>Geotag Mode</em> section.</p></li>
+<li><p>Enter Shutter Lag value (in milliseconds) if you know it. If not
+leave it with 0</p></li>
+<li><p>Check that Log offsets are correct according to your log version
+(usually these are OK)</p></li>
+<li><p>Enter FOV information if needed</p></li>
+<li><p>Select <strong>Use AMSL Alt</strong> checkbox if you want absolute altitude.
+Otherwise, uncheck</p></li>
+<li><p>Click <strong>Pre-process</strong></p></li>
+</ul>
+<p>If pre-processing works correctly, you will see <code class="docutils literal notranslate"><span class="pre">Done</span></code> displayed at
+the end of the <em>Process Messages Area</em>.</p>
+<a class="reference external image-reference" href="../_images/geotag_cam_processing_1_no_shutter_AMSL_total.png"><img alt="../_images/geotag_cam_processing_1_no_shutter_AMSL_total.png" src="../_images/geotag_cam_processing_1_no_shutter_AMSL_total.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most common problem in this processing mode is having a
+discrepancy between the number of CAM messages in log and the number of
+pictures in the folder. If the tool finds that they are different, it
+will output an error message and abort.</p>
+</div>
+<p>The final step is to “sanity check” the proposed picture location using
+the <strong>Location Kml</strong> button (See <a class="reference internal" href="#common-geotagging-images-with-mission-planner-common-post-steps"><span class="std std-ref">Common Post-steps</span></a> below).</p>
+</section>
+<section id="time-offset">
+<h3>Time offset<a class="headerlink" href="#time-offset" title="Permalink to this heading">¶</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you haven’t flown yet, one useful trick is to synchronize camera
+and system time.</p>
+</div>
+<ul>
+<li><p>Select the <strong>Time Offset</strong> method if it is not selected in the
+<em>Geotag Mode</em> section.</p></li>
+<li><p>Click on <strong>Estimate Offset</strong> button</p>
+<p>The tool will calculate (as explained in previous section) the time
+difference between the first picture and the first GPS time in the
+log.</p>
+</li>
+<li><p>Copy the calculated offset printed in the <em>Process Messages Area</em> and
+paste it into the field <em>Seconds offset</em></p>
+<p>Take a look at the following picture:</p>
+<a class="reference external image-reference" href="../_images/geotag_offset_calculation.jpg"><img alt="../_images/geotag_offset_calculation.jpg" src="../_images/geotag_offset_calculation.jpg" /></a>
+</li>
+<li><p>Click <strong>Pre-process</strong></p></li>
+</ul>
+<p>If pre-processing works correctly, you will see <code class="docutils literal notranslate"><span class="pre">Done</span></code> displayed at
+the end of the <em>Process Messages Area</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most common problem when using this method is the use of an
+inaccurate time offset. Remember that the estimated time offset is just
+a starting point!</p>
+<p>The Geotag tool will output a warning if pictures are discovered that
+are not found in the autopilot log - see picture below:</p>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/geotag_offset_problem.png"><img alt="../_images/geotag_offset_problem.png" src="../_images/geotag_offset_problem.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Images not found in log at specified offset</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+<p>The final step is to “sanity check” the proposed picture location using
+the <strong>Location Kml</strong> button (See <a class="reference internal" href="#common-geotagging-images-with-mission-planner-common-post-steps"><span class="std std-ref">Common Post-steps</span></a> below). If the proposed locations are
+not correct, add or subtract some seconds to the <em>Offset Time</em> and
+repeat.</p>
+</section>
+<section id="common-post-steps">
+<span id="common-geotagging-images-with-mission-planner-common-post-steps"></span><h3>Common post-steps<a class="headerlink" href="#common-post-steps" title="Permalink to this heading">¶</a></h3>
+<p>The remaining steps are to check that proposed picture locations are
+acceptable and write location information to the picture’s EXIF data:</p>
+<ul>
+<li><p>Click on the <strong>Location Kml</strong> button. Google Earth will open and show
+the proposed picture locations (as shown below):</p>
+<a class="reference external image-reference" href="../_images/geotag_google_earth_review.jpg"><img alt="../_images/geotag_google_earth_review.jpg" src="../_images/geotag_google_earth_review.jpg" /></a>
+</li>
+<li><p>Check that they are OK. If you used <em>CAM Message</em> mode, there
+shouldn’t be any problem (iIf there is, just order pictures
+alphabetically and check that the first picture in the list is also
+the oldest one). If you used <em>Time Offset</em>, just try adding or
+subtracting seconds to time offset.</p></li>
+<li><p>If everything is OK, click on <strong>GeoTag Images</strong> button and wait to
+see the processing message <code class="docutils literal notranslate"><span class="pre">Geo</span> <span class="pre">tagging</span> <span class="pre">FINISHED</span></code>.</p></li>
+</ul>
+<p>Geotagged files can be found in <em>geotagged</em> folder inside the original
+pictures folder</p>
+</section>
+</section>
+<section id="interface-overview">
+<h2>Interface overview<a class="headerlink" href="#interface-overview" title="Permalink to this heading">¶</a></h2>
+<p>The <em>Mission Planner Geo Ref Images</em> screen is shown below:</p>
+<a class="reference external image-reference" href="../_images/geotag_overview_explained.jpg"><img alt="../_images/geotag_overview_explained.jpg" src="../_images/geotag_overview_explained.jpg" /></a>
+<section id="files-selection">
+<h3>Files selection<a class="headerlink" href="#files-selection" title="Permalink to this heading">¶</a></h3>
+<p>This is where the user has to select the log location and camera
+pictures folder</p>
+</section>
+<section id="geotag-mode">
+<h3>Geotag mode<a class="headerlink" href="#geotag-mode" title="Permalink to this heading">¶</a></h3>
+<p>As explained above, there are two options. CAM Messages and Time offset.</p>
+</section>
+<section id="time-offset-estimation-and-shutter-lag">
+<h3>Time offset estimation and shutter lag<a class="headerlink" href="#time-offset-estimation-and-shutter-lag" title="Permalink to this heading">¶</a></h3>
+<p>This section is only relevant if <em>Time Offset</em> mode has been selected.</p>
+<p>The time offset needs to be estimated by comparing the first picture
+time and the first GPS time in the log. Once the user clicks the
+<strong>Estimate Offset</strong> button, the tool will calculate time offset and
+print the result in the <em>Process Messages</em> section at the bottom of the
+window:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offset</span> <span class="n">Estimation</span> <span class="o">=</span> <span class="mi">1</span><span class="n">st_Picture_Time</span> <span class="o">-</span> <span class="mi">1</span><span class="n">st_GPS_Time_Logged</span>
+</pre></div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>If CAM Message is selected, the Shutter Lag option is available. Note
+that GPS positions are stored at 5Hz by default (if using 3DR GPS) so
+they are recorded every 200ms.</p></li>
+<li><p>If Shutter Lag is less than 100ms, then GPS position is taken from
+current CAM Message.</p></li>
+<li><p>If Shutter Lag is bigger than 100ms, the GPS position is taken from
+200ms ahead in log.</p></li>
+</ul>
+</section>
+<section id="item-offsets-in-log">
+<h3>Item offsets in log<a class="headerlink" href="#item-offsets-in-log" title="Permalink to this heading">¶</a></h3>
+<p>This section allows the user to tell the tool where specific information
+can be found in the log. There are three messages whose offsets need to
+be defined</p>
+<ul class="simple">
+<li><p>CAM</p></li>
+<li><p>GPS</p></li>
+<li><p>ATT</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Item offsets are preset to the values for the last stable APM
+release.</p>
+</div>
+<p><strong>Example of how to find out item offset in a message line within a
+log</strong></p>
+<p>Lets take a look at the GPS Line Format definition at the beginning of a
+log:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FMT</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="n">GPS</span><span class="p">,</span> <span class="n">BIHBcLLeeEefI</span><span class="p">,</span> <span class="n">Status</span><span class="p">,</span><span class="n">TimeMS</span><span class="p">,</span><span class="n">Week</span><span class="p">,</span><span class="n">NSats</span><span class="p">,</span><span class="n">HDop</span><span class="p">,</span><span class="n">La6t</span><span class="p">,</span><span class="n">Lng</span><span class="p">,</span><span class="n">RelAlt</span><span class="p">,</span><span class="n">Alt</span><span class="p">,</span><span class="n">Spd</span><span class="p">,</span><span class="n">GCrs</span><span class="p">,</span><span class="n">VZ</span><span class="p">,</span><span class="n">T</span>
+</pre></div>
+</div>
+<p>The field with the number <strong>1</strong> is the one after the
+<code class="docutils literal notranslate"><span class="pre">Units-definition-word</span></code>.</p>
+<p>In our case, the <code class="docutils literal notranslate"><span class="pre">Units-definition-word</span></code> is <code class="docutils literal notranslate"><span class="pre">BIHBcLLeeEefI</span></code>. So the
+field with number <strong>1</strong> is <strong>Status</strong></p>
+<p>From this we should have:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TimeMS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Week</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">Lat</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="fov-and-altitude-reference">
+<h3>FOV and altitude reference<a class="headerlink" href="#fov-and-altitude-reference" title="Permalink to this heading">¶</a></h3>
+<p>This is where the user can define the Field of View (FOV) and
+orientation information. This information is incorporated into the
+result files but it is not used or stored in the picture EXIF data.</p>
+<p>The <strong>AMSL Alt</strong> checkbox allows to select either AGL Altitude (Above
+Ground Level) or AMSL Altitude (Above Mean Sea Level).</p>
+</section>
+<section id="action-buttons">
+<h3>Action buttons<a class="headerlink" href="#action-buttons" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Pre-process</strong> - When this button is clicked, Geotag tool will try
+to extract and calculate pictures positions</p></li>
+<li><p><strong>Location Kml</strong> - When this button is clicked, Geotag tool will open
+Google Earth and show pictures position on a map so the user can
+check their correct positioning.</p></li>
+<li><p><strong>GeoTag Images</strong> - If everything was correct in previous steps and
+pictures are well positioned in the map, this button will write the
+position information in the EXIF data of every picture</p></li>
+</ul>
+</section>
+<section id="process-messages">
+<h3>Process messages<a class="headerlink" href="#process-messages" title="Permalink to this heading">¶</a></h3>
+<p>This is the place where the tool will output information</p>
+</section>
+</section>
+<section id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">¶</a></h2>
+<p>This section contains links to additional information/information for
+working with specific cameras:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://tuffwing.com/support/geotag_gopro_images_with_pixhawk_log.html">Geotag GoPro Images with a Pixhawk Log File</a> (tuffwing.com)</p></li>
+</ul>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">¶</a></h2>
+<p>This tutorial was created to show you how does it work. Original work
+from Sandro Benigno and Guto Santaella updated by Jesus Alvarez.</p>
+<p>[copywiki destination=”copter,plane,rover,planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

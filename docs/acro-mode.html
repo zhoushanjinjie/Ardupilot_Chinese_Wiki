@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acro Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Altitude Hold Mode" href="altholdmode.html" />
+    <link rel="prev" title="Flight Modes" href="flight-modes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Acro Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="acro-mode">
+<span id="id1"></span><h1>Acro Mode<a class="headerlink" href="#acro-mode" title="Permalink to this heading">¶</a></h1>
+<p>Acro mode uses the RC sticks to control the angular velocity
+of the copter in each axis. Release the sticks and the vehicle will maintain its
+current attitude and will not return to level (attitude hold). Acro mode is useful for
+aerobatics such as flips or rolls, or FPV when smooth and fast control
+is desired. Raising the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-gyro-filter" title="(in Rover)"><span class="xref std std-ref">INS_GYRO_FILTER</span></a> cutoff frequency and retuning may allow better responsiveness, but appropriate harmonic notch filtering to prevent noise impacts must be setup prior to retuning.
+See <a class="reference external" href="https://ardupilot.org/plane/docs/common-imu-notch-filtering.html#common-imu-notch-filtering" title="(in Plane)"><span>Managing Gyro Noise with the Dynamic Harmonic Notch Filters</span></a>  for more information.</p>
+<p>Pure rate mode stabilization, utilizing only the gyros with no attitude feedback from the accelerometers, can be forced by setting bit 1 of <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-options" title="(in Copter)"><span class="xref std std-ref">ACRO_OPTIONS</span></a> to one. Attitude will still have an open loop correction applied in this mode, similar to “heading hold” tail gyros, but attitude can drift over time.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The throttle is completely manual with no compensation for tilt angle
+of the vehicle. If the pilot puts the throttle completely down the
+motors will go to their minimum rate and stabilization will cease.However, this behavior
+can be changed by enabling <a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a></p></li>
+<li><p>Copter includes an Acro Trainer functionality that can be
+turned on/off to make learning to fly Acro easier.</p></li>
+<li><p>Stick inputs are interpreted in the “body frame” (as opposed to Sport
+mode in which they are “earth frame”). The difference between “body
+frame” and “earth frame” is most obvious when the vehicle is leaned
+over. For example when pitched forward at 45 degrees, when left yaw
+is applied if using an earth frame controller (i.e. Sport mode) the
+copter will maintain its pitch and roll angles as its heading
+changes. With a body frame controller like Acro it will rotate about
+the vehicle’s vertical axis meaning the pitch angle will become the
+roll angle and the roll angle will become the pitch angle.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Acro is the most difficult flight mode to master and you can
+look forward to crashing multiple times before you get the hang of
+it. While Acro mode does not necessarily require GPS, switching to RTL in case of emergency does. Make sure you do have a reliable
+position estimate prior to arming, most commonly provided by 3D GPS fix with sufficient HDOP.</p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/tC0mF-N5z0Q" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>The above video was filmed in ACRO mode
+using <a class="reference internal" href="common-fpv-first-person-view.html#common-fpv-first-person-view"><span class="std std-ref">FPV goggles</span></a>.</p>
+</section>
+<section id="airmode">
+<h2>AirMode<a class="headerlink" href="#airmode" title="Permalink to this heading">¶</a></h2>
+<p>Acro mode can be setup to provide full stabilization at idle throttle. See <a class="reference internal" href="airmode.html#airmode"><span class="std std-ref">AirMode</span></a></p>
+</section>
+<section id="acro-trainer">
+<span id="acro-mode-acro-trainer"></span><h2>Acro Trainer<a class="headerlink" href="#acro-trainer" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-trainer" title="(in Copter)"><span class="xref std std-ref">ACRO_TRAINER</span></a> parameter can be set to:</p>
+<ul class="simple">
+<li><p>0 = disabled. This means the pilot operates in full Rate control with
+no automatic leveling nor angle-limiting performed by the autopilot.</p></li>
+<li><p>1 = automatic leveling. The vehicle will automatically return to the
+level when the pilot releases the sticks. The aggressiveness with
+which it returns to level can be controlled with the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-roll" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_ROLL</span></a>
+and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-pitch" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_PITCH</span></a> parameters. The default of 1.0 will cause it to
+return to level at up to 30deg/sec. Higher values will make it return
+more quickly.</p></li>
+<li><p>2 (Default) = automatic leveling and lean angle limited. Includes the
+automatic leveling as option #1 but in addition the vehicle will not
+lean more than 45 degrees (this angle can be configured with the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#angle-max" title="(in Copter)"><span class="xref std std-ref">ANGLE_MAX</span></a> parameter).</p></li>
+</ul>
+<p>The trainer can be enabled/disabled using the Ch7/Ch8 switches or a channel setup via its <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> parameter.  With a
+3 position switch the off position (i.e. PWM &lt; 1200) will disable the
+trainer, middle position will enable option #1 (automatic leveling) and
+the top position (i.e. PWM &gt; 1800) will enable option #2 (leveling and
+lean angle limited). With a 2 position switch only options #0 (disabled)
+and option #2 (leveling &amp; limited) are possible.</p>
+<a class="reference external image-reference" href="../_images/MP_Ch7_AcroTrainer.png"><img alt="../_images/MP_Ch7_AcroTrainer.png" src="../_images/MP_Ch7_AcroTrainer.png" /></a>
+</section>
+<section id="traditional-helicopters">
+<h2>Traditional Helicopters<a class="headerlink" href="#traditional-helicopters" title="Permalink to this heading">¶</a></h2>
+<p>For Traditional Helicopters, this modes operates the same. However, experienced pilots might find that this mode has a slightly robotic feel, and attitude jumps as it lifts from the skids that they are not familiar with. In Copter-4.0 and later, a “Virtual Flybar” feature has been introduced, that simulates the classic feel of a flybar helicopter. By setting the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-roll" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_ROLL</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-pitch" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_PITCH</span></a> parameters to non-zero values, this feature takes effect.</p>
+<p>The Virtual Flybar will add decay term to the attitude controller to bleed off accumulated differences between the current attitude and accumulated commanded attitude, if the copter has not quickly obtained it, such as when sitting on the ground but stick inputs are being given. Otherwise, when the helicopter clears it will jump to the accumulated commanded attitude when skids clear, perhaps surprisingly. This is familiar to Multicopter pilots.</p>
+<p>Values for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-roll" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_ROLL</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-bal-pitch" title="(in Copter)"><span class="xref std std-ref">ACRO_BAL_PITCH</span></a> parameters ~ 2, will usually give good results.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is not active when <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-trainer" title="(in Copter)"><span class="xref std std-ref">ACRO_TRAINER</span></a> is active</p>
+</div>
+</section>
+<section id="tuning-parameters">
+<h2>Tuning Parameters<a class="headerlink" href="#tuning-parameters" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE</span></a> controls the rotation rate for the roll and pitch axis. The default,
+4.5, will command a 200deg/sec rotation rate. Higher values lead to
+higher rotation rates, lower to slower rotation rates.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a> controls the rotation rate for the yaw axis. The default, 4.5, like
+roll and pitch, will command a 200deg/sec rotation rate.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-expo" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_EXPO</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-expo" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_EXPO</span></a> are
+an amount of Exponential to apply to the pilots stick inputs that
+only applies to ACRO mode. By default, ACRO mode is much more
+responsive, even in the center-sticks positions, than the other
+modes, so this parameter allows the pilot to fine-tune stick response
+in the control to match what they feel when they are in other modes
+such as Stabilize, AltHold, PosHold, etc. The default value of 0
+applies 30% expo to Roll and Pitch demands from the pilot.</p></li>
+</ul>
+</section>
+<section id="advanced-tuning-parameters">
+<h2>Advanced Tuning Parameters<a class="headerlink" href="#advanced-tuning-parameters" title="Permalink to this heading">¶</a></h2>
+<p>After you have become very confident with flying in ACRO mode, you may
+want to go deeper in to tuning it based on your vehicle’s performance
+characteristics. These parameters should be adjusted by advanced users
+only with the intent of removing “bounce” after very fast roll or flip
+maneuvers on a vehicle that you are confident is very well tuned. Note
+that these parameters are global parameters that apply to all flight
+modes, not just ACRO.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-r-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_R_MAX</span></a> and
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_P_MAX</span></a>: Maximum
+acceleration in roll/pitch axis measured in Centi-degres/sec/sec.
+Let’s say you have a highly nimble quadcopter and you have your
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-rp-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_RP_RATE</span></a> parameter set to 9, which translates to a roll request of
+~400deg/sec. The copter is not physically capable of going from
+0deg/sec to 400deg/sec without a brief moment of acceleration. During
+that time, error is building up in the controller in order to get you
+to 400deg/sec. When you let off the sticks, that error can still be
+present, resulting in an overshoot of desired attitude, followed by a
+bounce-back. This parameter can be tuned to help remove that error
+during the maneuver and soften if not remove the bounce-back. Note
+that this is completely different from tuning the Rate D terms for
+Pitch and Roll, and should come only after those terms are properly
+tuned.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-y-max" title="(in Copter)"><span class="xref std std-ref">ATC_ACCEL_Y_MAX</span></a>: Maximum acceleration in Yaw axis measured in
+Centi-degress/sec/sec. Same principle as <code class="docutils literal notranslate"><span class="pre">ATC_ACCEL_R_MAX</span></code> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-accel-p-max" title="(in Copter)"><span>ATC_ACCEL_P_MAX: Acceleration Max for Pitch</span></a>
+but on the YAW axis based on the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a> parameter value
+(likely a much lower, more attainable value.)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-thr-mix-man" title="(in Copter)"><span class="xref std std-ref">ATC_THR_MIX_MAN</span></a>: Balance between attitude and throttle control. This
+value can be increased to improve attitude control when the throttle is cut for better Airmode handling,
+however a stable tune is essential before it can be increased.</p></li>
+</ul>
+</section>
+<section id="user-videos">
+<h2>User Videos<a class="headerlink" href="#user-videos" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/dnygfyvXmL4" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/rJUpmGjbU8k" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/42iS9d-Lrqw" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="flight-modes.html" class="btn btn-neutral float-left" title="Flight Modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="altholdmode.html" class="btn btn-neutral float-right" title="Altitude Hold Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

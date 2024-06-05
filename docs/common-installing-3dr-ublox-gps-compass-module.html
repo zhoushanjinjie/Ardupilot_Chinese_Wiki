@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Magnetic Interference" href="common-magnetic-interference.html" />
+    <link rel="prev" title="Connect ESCs and Motors" href="connect-escs-and-motors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ublox-gps-compass-module">UBlox GPS + Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-the-autopilot">Connecting the Autopilot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-connecting-to-pixhawk">Example: Connecting to Pixhawk</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-gps-module">Mounting the GPS Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-in-mission-planner">Setup in Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#led-indicators">LED Indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-installing-3dr-ublox-gps-compass-module"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="ublox-gps-compass-module">
+<h1>UBlox GPS + Compass Module<a class="headerlink" href="#ublox-gps-compass-module" title="Permalink to this heading">¶</a></h1>
+<p>A UBlox GPS + Compass module is the most commonly used GPS for ArduPilot compatible autopilots.
+There are many versions of these modules available from various manufacturers, the recommended models are <a class="reference internal" href="common-positioning-landing-page.html#common-positioning-landing-page"><span class="std std-ref">here</span></a>.</p>
+<p>ArduPilot automatically configures the GPS soon after startup so there is no need for any GPS related calibration.  The <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">compass must be calibrated</span></a> however.</p>
+<a class="reference external image-reference" href="../_images/GPS_TopAndSide.jpg"><img alt="../_images/GPS_TopAndSide.jpg" src="../_images/GPS_TopAndSide.jpg" /></a>
+</section>
+<section id="connecting-the-autopilot">
+<h1>Connecting the Autopilot<a class="headerlink" href="#connecting-the-autopilot" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_iamges/gps-connection.jpg" id="common-installing-3dr-ublox-gps-compass-module-connecting-to-pixhawk"><img alt="../_images/gps-connection.jpg" src="../_images/gps-connection.jpg" /></a>
+<section id="example-connecting-to-pixhawk">
+<h2>Example: Connecting to Pixhawk<a class="headerlink" href="#example-connecting-to-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>Connect the GPS’s 6-pin DF13 connector to the Pixhawk’s “GPS” port and
+the compass’s 4-pin connector to the I2C port.  Alternatively the
+compass can be first connected through an <code class="docutils literal notranslate"><span class="pre">I2C</span> <span class="pre">splitter</span></code>
+if other I2C devices are to be attached.</p>
+<a class="reference external image-reference" href="../_images/pixhawk_with_dual_gps.jpg"><img alt="../_images/pixhawk_with_dual_gps.jpg" src="../_images/pixhawk_with_dual_gps.jpg" /></a>
+<p>Details on how to setup and use a 2nd GPS can be found on the <a class="reference internal" href="common-gps-blending.html#common-gps-blending"><span class="std std-ref">GPS Blending page</span></a> page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The baud rate is set by the UBlox driver (setting <code class="docutils literal notranslate"><span class="pre">SERIAL4_BAUD</span> <span class="pre">=</span> <span class="pre">38</span></code> is ignored).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot supports many attached compasses, but only up to 3 compasses can be used during operation. See <a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">Advanced Compass Setup</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="mounting-the-gps-module">
+<h1>Mounting the GPS Module<a class="headerlink" href="#mounting-the-gps-module" title="Permalink to this heading">¶</a></h1>
+<p>This module permits the GPS to be mounted separately from the flight
+control module so that it can have the best clear (view) of the sky and
+allows the compass to be distanced from interfering magnetic fields.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The recommended orientation is to mount the module with the arrow
+facing toward the front of the vehicle and in the same direction as the
+arrow on the autopilot.</p>
+</div>
+<p>When mounting the GPS+Compass module:</p>
+<ul class="simple">
+<li><p>Place the module on the outside of your vehicle (in an elevated
+position if appropriate) with a clear view of the sky, as far as
+possible from the motors and ESCs, with the arrow facing forward.</p></li>
+<li><p>Distance the module from DC power wiring and the batteries by at
+least 10cm.  Use of a GPS mast is highly recommended.</p></li>
+</ul>
+<img alt="../_images/gps-mast.jpg" src="../_images/gps-mast.jpg" />
+<ul class="simple">
+<li><p>Place the module clear of nearby iron containing metallic objects.
+(Use nylon or non magnetic stainless steel hardware and nylon or
+aluminum standoffs to mount the module).</p></li>
+<li><p>Twist power and ground wires where possible.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/GPS_sampleMoutning.jpg"><img alt="../_images/GPS_sampleMoutning.jpg" src="../_images/GPS_sampleMoutning.jpg" /></a>
+</section>
+<section id="setup-in-mission-planner">
+<h1>Setup in Mission Planner<a class="headerlink" href="#setup-in-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">Compass Calibration in Mission Planner</span></a> explains the
+simplest way to calibrate a compass mounted in the recommended
+orientation (arrows for autopilot and compass facing to front of
+vehicle).</p>
+<p><a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">Advanced Compass Setup</span></a> contains more
+detailed instructions for calibrating a compass if, for example, it has
+been mounted at some other orientation.</p>
+</section>
+<section id="led-indicators">
+<h1>LED Indicators<a class="headerlink" href="#led-indicators" title="Permalink to this heading">¶</a></h1>
+<p>The 3DR GPS+Compass module has two LED indicators: one for power (solid
+red) and one for GPS lock (flashing blue). Most GPS have an led indicator for 3D GPS lock acquisition.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>LEDs:</strong></p></td>
+<td><p><strong>Behavior:</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Power</p></td>
+<td><p>Solid <strong>red</strong> when powered</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPS lock</p></td>
+<td><p>Flashing <strong>blue</strong> when 3D GPS lock acquired</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="advanced-configuration">
+<h1>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this heading">¶</a></h1>
+<p>Advanced configuration of the UBlox GPS’s internal settings is
+documented in <a class="reference internal" href="common-ublox-gps.html#common-ublox-gps"><span class="std std-ref">UBlox GPS Configuration</span></a>. But this is never used by the average user. ArduPilot automatically configures the gps during initialization.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="connect-escs-and-motors.html" class="btn btn-neutral float-left" title="Connect ESCs and Motors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-magnetic-interference.html" class="btn btn-neutral float-right" title="Magnetic Interference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

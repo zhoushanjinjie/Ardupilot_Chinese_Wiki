@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-telemetry-rockblock"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="rockblock-satellite-modem">
+<h1>RockBLOCK Satellite Modem<a class="headerlink" href="#rockblock-satellite-modem" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is only available on ArduPilot 4.4 or later and requires a flight controller that supports <a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">LUA Scripts</span></a></p>
+</div>
+<a class="reference external image-reference" href="../_images/RockBLOCK-9603-Angled.jpg"><img alt="../_images/RockBLOCK-9603-Angled.jpg" src="../_images/RockBLOCK-9603-Angled.jpg" /></a>
+<p>The <a class="reference external" href="https://www.groundcontrol.com/en/product/rockblock-9603-compact-plug-and-play-satellite-transmitter/">RockBLOCK</a> satellite
+modem allows for a global (including polar regions) MAVLink connection to an ArduPilot vehicle. This uses the
+<a class="reference external" href="https://www.iridium.com/services/iridium-sbd/">Iridium SBD data service</a>.</p>
+<p>Due to the very low datarate of the RockBLOCK, there are a few key limitations:</p>
+<ul class="simple">
+<li><p>A single <a class="reference external" href="https://mavlink.io/en/messages/common.html#HIGH_LATENCY2">HIGH_LATENCY2</a> packet will be sent every <code class="docutils literal notranslate"><span class="pre">RCK_PERIOD</span></code> sec. This will give basic position and status information.</p></li>
+<li><p>No heartbeats, statustexts, parameters and waypoints will be sent from the vehicle to the GCS.</p></li>
+<li><p>The RockBLOCK only sends a subset of command MAVlink messages (see below list) from the GCS to Vehicle. Parameters and waypoints will not be sent.</p></li>
+<li><p>Only 1 command message can be sent per <code class="docutils literal notranslate"><span class="pre">RCK_PERIOD</span></code> from the GCS to vehicle. Any additional commands will overwrite the previous command</p></li>
+</ul>
+<p>In practice, this means the RockBLOCK can only be used whilst monitoring a vehicle during automated flight modes. Any sort
+of manual control (outside of low-rate GUIDED mode “fly to” locations) is not possible.</p>
+<p>The RockBLOCK has a latency of 20-60 seconds and is only able to send 1 message per 30 second period (or greater). This period is
+configurable via the <code class="docutils literal notranslate"><span class="pre">RCK_PERIOD</span></code> parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any modem using the Iridium 9602 or 9603 chipset <em>should</em> work, though only the RockBLOCK 9603N modem has been tested.</p>
+</div>
+</section>
+<section id="supported-mavlink-command-messages">
+<h1>Supported MAVLink command messages<a class="headerlink" href="#supported-mavlink-command-messages" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>CMD_NAV_RETURN_TO_LAUNCH</p></li>
+<li><p>CMD_NAV_LAND</p></li>
+<li><p>CMD_NAV_TAKEOFF</p></li>
+<li><p>CMD_NAV_VTOL_TAKEOFF</p></li>
+<li><p>CMD_NAV_VTOL_LAND</p></li>
+<li><p>CMD_DO_SET_MODE</p></li>
+<li><p>CMD_MISSION_START</p></li>
+<li><p>CMD_COMPONENT_ARM_DISARM</p></li>
+<li><p>CMD_CONTROL_HIGH_LATENCY</p></li>
+</ul>
+</section>
+<section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h1>
+<p>Due to limitations of the RockBLOCK web service, all packets in the Vehicle to GCS direction need to go via a public-facing web service.
+See <a class="reference external" href="https://docs.rockblock.rock7.com/docs/integration-with-application">here</a> for details.
+For the purposes of this configuration, the free <a class="reference external" href="https://io.adafruit.com/">adafruit.io</a> service is used.</p>
+<ol class="arabic simple">
+<li><p>Connect the RockBLOCK modem to a spare UART on the flight controller. Only the +5V, RX, TX and GND lines need to be connected</p></li>
+<li><p>Ensure the modem is activated in your RockBLOCK account</p></li>
+<li><p>Create a <a class="reference external" href="https://learn.adafruit.com/using-the-rockblock-iridium-modem/forwarding-messages">new feed on adafuit.io</a>. Ensure the Feed History is OFF and a webhook is active. Connect this feed to your RockBLOCK account.</p></li>
+<li><p>Copy the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/applets/RockBlock.lua">Ardupilot RockBLOCK Lua script</a> to the flight controller’s SD card.</p></li>
+<li><p>Ensure <a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">LUA Scripts</span></a> are enabled and the RockBLOCK UART is set as a scripting UART.</p></li>
+<li><p>Run the RockBLOCK gateway <a class="reference external" href="https://github.com/stephendade/rockblock2mav">rockblock2mav.py</a> on the GCS to send/receive telemetry on 127.0.0.1:16000. Ensure the GCS software is connected to this ip/port.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>QGroundControl and Mission Planner have very limited support for RockBLOCK MAVLink telemetry. It is highly recommended to use MAVProxy, which fully supports this telemetry.</p>
+</div>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Enable <a class="reference internal" href="common-MAVLink-high-latency.html#common-mavlink-high-latency"><span class="std std-ref">High Latency</span></a> mode on the flight controller to start RockBLOCK mailbox checks.</p></li>
+<li><p>The RockBLOCK will do a mailbox check every <code class="docutils literal notranslate"><span class="pre">RCK_PERIOD</span></code> seconds. It will send one <a class="reference external" href="https://mavlink.io/en/messages/common.html#HIGH_LATENCY2">HIGH_LATENCY2</a> message and recieve one message from the GCS at this time.</p></li>
+<li><p>Disable <a class="reference internal" href="common-MAVLink-high-latency.html#common-mavlink-high-latency"><span class="std std-ref">High Latency</span></a> mode on the flight controller to stop RockBLOCK mailbox checks.</p></li>
+</ol>
+</section>
+<section id="data-costs">
+<h1>Data Costs<a class="headerlink" href="#data-costs" title="Permalink to this heading">¶</a></h1>
+<p>Compared to terrestrial services (such as 4G Celluar), the RockBLOCK data costs are expensive.</p>
+<p>Current data costs are available from the <a class="reference external" href="https://docs.rockblock.rock7.com/docs/iridium-contract-costs">RockBlock website</a>.</p>
+<p>1 RockBLOCK credit is used per MAVLink message. So, for example, if the RockBLOCK
+was configured to send 1 <code class="docutils literal notranslate"><span class="pre">HIGH_LATENCY2</span></code> message every 30 seconds that would give a data usage of
+60 credits per hour. If any commands are sent from the GCS to the vehicle via the RockBLOCK, they should be added too.
+For example, if 5 commands are sent in the same hour, 5 credits are used. Combining both sent and recieved messages,
+a total of 65 credits per hours are used.</p>
+</section>
+<section id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h1>
+<p>The following parameters are available to control the script:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RCK_FORCEHL</p></td>
+<td><p>Automatically enables High Latency mode if not already enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCK_PERIOD</p></td>
+<td><p>When in High Latency mode, send RockBLOCK updates every RCK_PERIOD seconds</p></td>
+</tr>
+<tr class="row-even"><td><p>RCK_DEBUG</p></td>
+<td><p>Sends RockBLOCK debug text to GCS via statustexts</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCK_ENABLE</p></td>
+<td><p>Enables the modem transmission</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

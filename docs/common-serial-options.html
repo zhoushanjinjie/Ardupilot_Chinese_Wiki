@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serial Port Configuration Options &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Serial Port Configuration Options</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="serial-port-configuration-options">
+<span id="common-serial-options"></span><h1>Serial Port Configuration Options<a class="headerlink" href="#serial-port-configuration-options" title="Permalink to this heading">¶</a></h1>
+<p>This page describes the configuration options for the serial ports. Currently, some of these options are supported only on specific autopilots.</p>
+<section id="logical-serial-port-to-physical-uart-assignment">
+<h2>Logical Serial Port to Physical UART Assignment<a class="headerlink" href="#logical-serial-port-to-physical-uart-assignment" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot Serialx Port numbering is logical, rather than physical. Which UART or USART port is assigned to a Serial Port is determined by the autopilot’s hardware definition file.
+Serial Port 0 is always assigned to the USB port, but others can vary. Check its  <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">description page</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>more serial ports may be shown in the parameters than exist on a given controller. Check its  <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">description page</span></a></p>
+</div>
+<p>By default the protocols/expected peripheral for each port is shown below:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>any supported protocol/peripheral can be used by any port by changing its <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> parameter</p>
+</div>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Serial 0</p></td>
+<td><p>USB port, MAVLink2 protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>Serial 1</p></td>
+<td><p>Telemetry port 1, MAVLink1 protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial 2</p></td>
+<td><p>Telemetry port 2, MAVLink1 protocol</p></td>
+</tr>
+<tr class="row-even"><td><p>Serial 3</p></td>
+<td><p>GPS1 port</p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial 4</p></td>
+<td><p>GPS2 port</p></td>
+</tr>
+<tr class="row-even"><td><p>Serial 5</p></td>
+<td><p>USER port, disabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial 6</p></td>
+<td><p>USER port, disabled</p></td>
+</tr>
+<tr class="row-even"><td><p>Serial 7</p></td>
+<td><p>USER port, disabled</p></td>
+</tr>
+</tbody>
+</table>
+<p>Often cased autopilots will have the designation “TELEM1”, “GPS”, etc. marked on the case, otherwise, the autopilot <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">description page</span></a>  should provide the mapping to SERIALx Port</p>
+</section>
+<section id="serialx-protocol">
+<h2>SERIALx_PROTOCOL<a class="headerlink" href="#serialx-protocol" title="Permalink to this heading">¶</a></h2>
+<p>The serial ports support many different kinds of interfaces and peripheral. The <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> parameter determines what type of device/interface is expected.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Value</th>
+<th>Protocol</th>
+</tr>
+<tr>
+<td>-1</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>1</td>
+<td><p>MAVLink1, See <a class="reference internal" href="common-telemetry-port-setup.html#common-telemetry-port-setup"><span class="std std-ref">Telemetry Setup</span></a></p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><p>MAVLink2, See <a class="reference internal" href="common-telemetry-port-setup.html#common-telemetry-port-setup"><span class="std std-ref">Telemetry Setup</span></a></p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><p>FrSky D, See <a class="reference internal" href="common-frsky-telemetry.html#common-frsky-telemetry"><span class="std std-ref">FrSky Telemetry</span></a></p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><p>FrSky SPort, See <a class="reference internal" href="common-frsky-telemetry.html#common-frsky-telemetry"><span class="std std-ref">FrSky Telemetry</span></a></p>
+</td>
+<tr>
+<td>5</td>
+<td><p>GPS, See <a class="reference internal" href="common-gps-how-it-works.html#common-gps-how-it-works"><span class="std std-ref">GPS</span></a> and <a class="reference internal" href="common-positioning-landing-page.html#common-positioning-landing-page"><span class="std std-ref">Devices</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>7</td>
+<td><p>Alexmos Gimbal Serial, See <a class="reference internal" href="common-simplebgc-gimbal.html#common-simplebgc-gimbal"><span class="std std-ref">Alexmos Gimbal</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>8</td>
+<td><p>SToRM32 Gimbal Serial, See <a class="reference internal" href="common-storm32-gimbal.html#common-storm32-gimbal"><span class="std std-ref">SToRM32 Gimbal</span></a></p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><p>Rangefinder, See <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">Rangefinders</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>10</td>
+<td><p>FrSky SPort Passthrough (OpenTX), See <a class="reference internal" href="common-frsky-passthrough.html#common-frsky-passthrough"><span class="std std-ref">FrSky Passthrough Telemetry</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>11</td>
+<td><p>Lidar360, See <a class="reference internal" href="common-rangefinder-landingpage.html#common-rangefinder-landingpage"><span class="std std-ref">360 Lidars here</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>13</td>
+<td><p>Beacon, See <a class="reference internal" href="common-non-gps-navigation-landing-page.html#common-non-gps-navigation-landing-page"><span class="std std-ref">Non-GPS Navigation</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>14</td>
+<td><p>Volz Servo, See <a class="reference internal" href="common-servo-volz.html#common-servo-volz"><span class="std std-ref">Volz Servos</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>15</td>
+<td><p>SBus Servo, See <a class="reference internal" href="common-sbus-out.html#common-sbus-output"><span class="std std-ref">SBus Servos</span></a></p>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td><p>ESC Telemetry, See <a class="reference external" href="https://ardupilot.org/rover/docs/common-esc-telemetry.html#blheli32-esc-telemetry" title="(in Rover)"><span class="xref std std-ref">blheli32-esc-telemetry</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>17</td>
+<td><p>Devo Telemetry</p>
+</td>
+</tr>
+   <tr>
+<td>18</td>
+<td><p>OpticalFlow, See <a class="reference internal" href="common-optical-flow-sensors-landingpage.html#common-optical-flow-sensors-landingpage"><span class="std std-ref">Optical Flow Sensors</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>19</td>
+<td><p>RobotisServo, See <a class="reference internal" href="common-servo-robotis.html#common-servo-robotis"><span class="std std-ref">Robotis Servos</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>20</td>
+<td>
+     NMEA Output, NEMA Output stream from GPS</td>
+</tr>
+<tr>
+<td>21</td>
+<td><p>WindVane, See <a class="reference external" href="https://ardupilot.org/rover/docs/wind-vane.html#wind-vane" title="(in Rover)"><span>Wind Vane</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>22</td>
+<td><p>SLCAN</p>
+</td>
+</tr>
+   <tr>
+<td>23</td>
+<td><p>RC Input, See <a class="reference internal" href="common-flight-controller-wiring.html#common-flight-controller-wiring"><span class="std std-ref">Typical Autopilot Wiring Connections</span></a></p>
+</td>
+</tr>
+   <tr>
+<td>24</td>
+<td><p>MegaSquirt EFI, see <a class="reference external" href="http://megasquirt.info/">MegaSquirt EFI</a></p>
+</td>
+</tr>
+<tr>
+<td>25</td>
+<td><p>LTM Telemetry, see <a class="reference internal" href="common-ltm-telemetry.html#common-ltm-telemetry"><span class="std std-ref">LTM Telemetry</span></a></p>
+</td>
+</tr>
+<tr>
+<td>26</td>
+<td><p>Runcam see <a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Support</span></a></p>
+</td>
+</tr>
+<tr>
+<td>27</td>
+<td><p>HOTT Telem see <a class="reference internal" href="common-hott-telemetry.html#common-hott-telemetry"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p>
+</td>
+</tr>
+<tr>
+<td>28</td>
+<td><p>Scripting see <a class="reference external" href="https://ardupilot.org/rover/docs/common-lua-scripts.html#common-lua-scripts" title="(in Rover)"><span>Lua Scripts</span></a></p>
+</td>
+</tr>
+<tr>
+<td>29</td>
+<td><p>Crossfire Receiver <a class="reference internal" href="common-tbs-rc.html#common-tbs-rc"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p>
+</td>
+</tr>
+<tr>
+<td>30</td>
+<td><p>Generator see <a class="reference internal" href="common-richenpower-generator.html#common-richenpower-generator"><span class="std std-ref">RichenPower Generator</span></a></p>
+</td>
+</tr>
+<tr>
+<td>31</td>
+<td><p>Winch</p>
+</td>
+</tr>
+<tr>
+<td>32</td>
+<td><p>MSP Telemetry see <a class="reference internal" href="common-msp-overview.html#common-msp-overview"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a></p>
+</td>
+</tr>
+<tr>
+<td>33</td>
+<td><p>DJI FPV telemetry see <a class="reference internal" href="common-msp-osd-overview.html#common-msp-osd-overview"><span class="std std-ref">MSP OSD</span></a></p>
+</td>
+</tr>
+<tr>
+<td>34</td>
+<td><p>Serial Airspeed sensor</p>
+</td>
+</tr>
+<tr>
+<td>35</td>
+<td><p>Serial ADSB receiver</p>
+</td>
+</tr>
+<tr>
+<td>36</td>
+<td><p>External AHRS</p>
+</td>
+</tr>
+ <tr>
+<td>37</td>
+<td><p>Smart Audio</p>
+</td>
+</tr>
+</tbody>
+</table></section>
+<section id="serialx-options-parameter">
+<h2>SERIALx_OPTIONS Parameter<a class="headerlink" href="#serialx-options-parameter" title="Permalink to this heading">¶</a></h2>
+<p>Every serial port has in addition, to its baud rate (<code class="docutils literal notranslate"><span class="pre">SERIALx_BAUD</span></code>) and protocol format (<code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code>), the ability to invert its RX input and/or TX data, operate in half-duplex mode, and/or swap its RX and TX inputs.</p>
+<p>For example, for direct connection to FRSky SPort telemetry, normally inverters and diode OR externally would be required. With SERIALx_OPTIONS bitmask set to 7, direct connection to the SPort can be accomplished from a serial port.</p>
+<section id="bitmask-options">
+<h3>Bitmask Options<a class="headerlink" href="#bitmask-options" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>if bit 0 is set, then RX data received is inverted internally.</p></li>
+<li><p>if bit 1 is set, the TX data is inverted before outputting.</p></li>
+<li><p>if bit 2 is set, then HalfDuplex operation using the TX pin is implemented.</p></li>
+<li><p>if bit 3 is set, then the TX and RX pins are effectively swapped internally.</p></li>
+<li><p>if bit 4 is set, then the RX pin has a weak pull down resistor activated.</p></li>
+<li><p>if bit 5 is set, then the RX pin has a weak pull up resistor activated.</p></li>
+<li><p>if bit 6 is set, then the TX pin has a weak pull down resistor activated.</p></li>
+<li><p>if bit 7 is set, then the TX pin has a weak pull up resistor activated.</p></li>
+<li><p>if bit 8 is set, then the RX has no DMA activated (assuming DMA is available on this UART)</p></li>
+<li><p>if bit 9 is set, then the TX has no DMA activated (assuming DMA is available on this UART)</p></li>
+<li><p>if bit 10 is set, then MAVLink forwarding will not be active on this UART port.</p></li>
+<li><p>if bit 11 is set, then the hardware FIFO in H7 autopilots is disabled</p></li>
+<li><p>if bit 12 is set, the GCS are prevented from changing the MAVLink message stream rates set by the <code class="docutils literal notranslate"><span class="pre">SRx_...</span></code> parameters.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HalfDuplex is supported on all ChiBiOS based autopilots, but inversion and swap are only supported on boards with F7 or H7 microprocessors.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

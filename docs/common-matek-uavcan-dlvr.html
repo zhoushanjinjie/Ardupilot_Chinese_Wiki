@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matek DroneCAN DLVR-10 Airspeed Sensor &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Matek DroneCAN DLVR-10 Airspeed Sensor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matek-dronecan-dlvr-10-airspeed-sensor">
+<span id="common-matek-uavcan-dlvr"></span><h1>Matek DroneCAN DLVR-10 Airspeed Sensor<a class="headerlink" href="#matek-dronecan-dlvr-10-airspeed-sensor" title="Permalink to this heading">¶</a></h1>
+<p>The Matek ASPD-DLVR is a DLVR-10 sensor with a CAN/DroneCAN or I2C interface. The DLVR airspeed sensors are the highest precision, lowest temperature drift sensors currently supported in ArduPilot. It can also be used to attach a GPS and/or Compass and present them to the autopilot as DroneCAN peripherals.</p>
+<img alt="../_images/matek-uavcan-dlvr.jpg" src="../_images/matek-uavcan-dlvr.jpg" />
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ArduPilot AP_Periph F303 CAN node</p></li>
+<li><p>DLVR-L10D Airspeed Sensor</p></li>
+<li><dl class="simple">
+<dt>CAN bootloader LED, Blue</dt><dd><ul>
+<li><p>Fast blinking,  No communication between CAN node and Flight Controllers</p></li>
+<li><p>Slow blinking, Communicating between CAN node and Flight Controllers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>3.3V Power LED, Red</p></li>
+</ul>
+<p>Interfaces:</p>
+<ul class="simple">
+<li><p>CAN JST-GH connector,  DroneCAN Protocol</p></li>
+<li><p>I2C JST-GH connector,  for interfacing DLVR-L10D in I2C mode (I2C address 0x28)</p></li>
+<li><p>Solder pads for UART1, Firmware update for non-CAN systems</p></li>
+<li><p>Solder pads for UART2, Optional for external GPS</p></li>
+<li><p>Solder pads for UART3, Future expansion for MSP Protocol</p></li>
+<li><p>Solder pads for I2C and CAN,for optional Compass and CAN daisy-chaining</p></li>
+</ul>
+<p>Specifications:</p>
+<ul class="simple">
+<li><p>Input voltage range: 4~6V</p></li>
+<li><p>Power consumption: 60mA</p></li>
+<li><p>Operating Temperatures: -20°C to 85°C</p></li>
+<li><p>Pressure Range:  2500Pa (± 10 inH2O)</p></li>
+<li><p>Burst Pressure: 75kPa</p></li>
+<li><p>Speed Range: ±250 km/h</p></li>
+<li><p>Size: 22mmx22mmx12.5mm</p></li>
+<li><p>Weight: 4g</p></li>
+</ul>
+</section>
+<section id="connector-pinouts">
+<h2>Connector Pinouts<a class="headerlink" href="#connector-pinouts" title="Permalink to this heading">¶</a></h2>
+<p>CAN Port (additional CAN devices can be daisy-chained from this device using the solder pads on the back, see diagrams below)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Voltage/Tolerance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>CAN_H</p></td>
+<td><p>CAN bus</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>CAN_L</p></td>
+<td><p>CAN bus</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+<p>I2C Port to Autopilot for use in place of CAN (enabled by unsoldering two zero ohm resistors, see diagram below.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Solder pad I2C bus on rear is for attaching an external compass when this port is NOT enabled, and it will be presented to the AutoPilot as a DroneCAN compass.</p>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Voltage/Tolerance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>I2C SDA</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>I2C SCL</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+<p>UART3 (Future MSP Port)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Voltage/Tolerance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>TX (data out)</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RX (Data in)</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart2-via-solder-pads-on-rear">
+<h2>UART2 (via solder pads on rear)<a class="headerlink" href="#uart2-via-solder-pads-on-rear" title="Permalink to this heading">¶</a></h2>
+<p>Can be used to attach a GPS and present it to the autopilot as a DroneCAN device</p>
+</section>
+<section id="uart1-via-solder-pads-on-rear">
+<h2>UART1 (via solder pads on rear)<a class="headerlink" href="#uart1-via-solder-pads-on-rear" title="Permalink to this heading">¶</a></h2>
+<p>For future firmware upgrades in systems not using CAN/DroneCAN</p>
+</section>
+<section id="wiring-diagrams">
+<h2>Wiring Diagrams<a class="headerlink" href="#wiring-diagrams" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/matek-uavcan-dlvr-wiring.jpg" src="../_images/matek-uavcan-dlvr-wiring.jpg" />
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<section id="dronecan-mode">
+<h3>DroneCAN Mode<a class="headerlink" href="#dronecan-mode" title="Permalink to this heading">¶</a></h3>
+<p>Verify the following parameters are set on your autopilot via your ground station.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 (assuming its on the first CAN bus of the autopilot)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> = 8 (DroneCAN)</p></li>
+</ul>
+<p>if optional GPS is connected to UART2, then set</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 (DroneCAN) or if it will be the secondary GPS, set instead</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type2" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE2</span></a> = 9 (DroneCAN)</p></li>
+<li><p>Reboot</p></li>
+</ul>
+<p>Make sure the DroneCAN compass driver is not disabled if an optional external Compass is connected to the rear I2C pads:. (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-typemask" title="(in Rover)"><span class="xref std std-ref">COMPASS_TYPEMASK</span></a> bit 9 should not be set).</p>
+</section>
+<section id="i2c-mode">
+<h3>I2C Mode<a class="headerlink" href="#i2c-mode" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> = 9 (DLVR-10)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-use" title="(in Rover)"><span class="xref std std-ref">ARSPD_USE</span></a> = 1 to enable using the sensor on autopilots external I2C bus</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if your autopilot has more than one I2C bus or presents its internal bus externally, may need to set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-bus" title="(in Rover)"><span class="xref std std-ref">ARSPD_BUS</span></a> for the one you connect to on the autopilot.</p>
+</div>
+</section>
+<section id="firmware-update">
+<h3>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this heading">¶</a></h3>
+<p>Firmware may be updated in the future to include the option of MSP connectivity. See <a class="reference external" href="http://www.mateksys.com/?portfolio=aspd-dlvr#tab-id-4">here</a>  for instructions for using the firmware update UART1 pads, or if using DroneCAN, see instructions <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-initial-setup.html#dronecan-uavcan-slcan" title="(in Mission Planner)"><span class="xref std std-ref">here</span></a></p>
+</section>
+<section id="where-to-buy">
+<h3>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.mateksys.com/?portfolio=aspd-dlvr#tab-id-1">Matek</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,dev”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,dev”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-dev">
+<span id="common-lua-binding-syntax"></span><h1>[copywiki destination=”plane,copter,rover,dev”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-dev" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="decoding-the-lua-binding-descriptions">
+<h1>Decoding the LUA Binding Descriptions<a class="headerlink" href="#decoding-the-lua-binding-descriptions" title="Permalink to this heading">¶</a></h1>
+<p>This is not exhaustive, nor complete, but attempts to help users decode the use of bindings that have not yet been fully documented in the <a class="reference external" href="https://ardupilot.org/rover/docs/common-lua-scripts.html#common-lua-scripts" title="(in Rover)"><span>Lua Scripts</span></a> page.</p>
+</section>
+<section id="aliases">
+<h1>Aliases<a class="headerlink" href="#aliases" title="Permalink to this heading">¶</a></h1>
+<p>Most methods have an alias defined to specify its binding group. For example, the calls bound from the AP_AHRS library, have an alias defined as “ahrs” by the description line in its group:</p>
+<p><code class="docutils literal notranslate"><span class="pre">singleton</span> <span class="pre">AP_AHRS</span> <span class="pre">alias</span> <span class="pre">ahrs</span></code></p>
+<p>so that using its call to retrieve current roll is accessed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roll</span> <span class="o">=</span> <span class="n">ahrs</span><span class="p">:</span><span class="n">get_roll</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h1>
+<p>The majority of bindings are methods used to get information into and out of the running ArduPilot firmware. In the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/generator/description/bindings.desc">bindings.desc</a> file listing these, each are grouped by their association with the underlying ArduPilot code module’s “*.h”header file. A method usually has the form of:</p>
+<p><strong>singleton &lt;binding group name&gt; method &lt;method name&gt; &lt;function type&gt; &lt;argument types/ranges&gt;</strong></p>
+<ul class="simple">
+<li><p>&lt;method name&gt; is the name of the function to call</p></li>
+<li><p>&lt;function type&gt; type of C++ function that is being called.</p></li>
+<li><p>&lt;argument types/ranges&gt; variable type returned or, type and range for variable used as input to C++ function being called. These are best understood by referencing the C++ function in the code being called and correlating them to the function’s arguments.</p></li>
+</ul>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<p>Perhaps the easiest way to describe the above is to show some examples, in order of increasing complexity of arguments:</p>
+<section id="in-the-ap-arming-group">
+<h3>In the AP_Arming group:<a class="headerlink" href="#in-the-ap-arming-group" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">singleton</span> <span class="pre">AP_Arming</span> <span class="pre">method</span> <span class="pre">is_armed</span> <span class="pre">boolean</span></code></p>
+<p>binds the public variable in AP_Arming.h:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">is_armed</span><span class="p">();</span>
+<span class="n">returning</span> <span class="n">a</span> <span class="n">boolean</span> <span class="k">for</span> <span class="n">armed</span>
+</pre></div>
+</div>
+</section>
+<section id="in-the-ap-baro-group">
+<h3>In the AP_Baro group:<a class="headerlink" href="#in-the-ap-baro-group" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">singleton</span> <span class="pre">AP_Baro</span> <span class="pre">method</span> <span class="pre">get_temperature</span> <span class="pre">float</span></code></p>
+<p>binds to the function in AP_Baro.h:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span> <span class="n">get_temperature</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="n">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">get_temperature</span><span class="p">(</span><span class="n">_primary</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">returning</span> <span class="n">a</span> <span class="nb">float</span> <span class="n">of</span> <span class="n">the</span> <span class="n">baro</span> <span class="n">temperature</span> <span class="k">for</span> <span class="n">primary</span> <span class="n">barometer</span>
+</pre></div>
+</div>
+</section>
+<section id="in-the-ap-relay-group">
+<h3>In the AP_Relay group:<a class="headerlink" href="#in-the-ap-relay-group" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">singleton</span> <span class="pre">AP_Relay</span> <span class="pre">method</span> <span class="pre">on</span> <span class="pre">void</span> <span class="pre">uint8_t</span> <span class="pre">0</span> <span class="pre">AP_RELAY_NUM_RELAYS</span></code></p>
+<p>binds to the function in AP_Relay.h:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">on</span><span class="p">(</span><span class="n">uint8_t</span> <span class="n">instance</span><span class="p">)</span> <span class="p">{</span> <span class="nb">set</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">returning</span> <span class="n">nothing</span><span class="p">,</span> <span class="n">but</span> <span class="n">setting</span> <span class="n">Relay</span> <span class="n">instance</span> <span class="n">ON</span><span class="p">,</span> <span class="n">where</span> <span class="n">instance</span>
+<span class="ow">is</span> <span class="n">an</span> <span class="n">unsigned</span> <span class="mi">8</span> <span class="n">bit</span> <span class="n">integer</span> <span class="n">between</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">AP_RELAY_NUM_RELAYS</span> <span class="p">(</span><span class="n">currently</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">singleton</span> <span class="pre">AP_Relay</span> <span class="pre">method</span> <span class="pre">enabled</span> <span class="pre">boolean</span> <span class="pre">uint8_t</span> <span class="pre">0</span> <span class="pre">AP_RELAY_NUM_RELAYS</span></code></p>
+<p>binds to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">enabled</span><span class="p">(</span><span class="n">uint8_t</span> <span class="n">instance</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">instance</span> <span class="o">&lt;</span> <span class="n">AP_RELAY_NUM_RELAYS</span> <span class="o">&amp;&amp;</span> <span class="n">_pin</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="n">returning</span> <span class="n">a</span> <span class="n">boolean</span> <span class="k">if</span> <span class="n">the</span> <span class="n">relay</span> <span class="n">instance</span> <span class="n">provided</span> <span class="n">has</span> <span class="n">been</span> <span class="n">setup</span>
+</pre></div>
+</div>
+</section>
+<section id="in-the-ap-ahrs-group">
+<h3>In the AP_AHRS group:<a class="headerlink" href="#in-the-ap-ahrs-group" title="Permalink to this heading">¶</a></h3>
+<p>An example that takes advantage that a LUA variable can have a value or be NULL , having no value:</p>
+<p><code class="docutils literal notranslate"><span class="pre">singleton</span> <span class="pre">AP_AHRS</span> <span class="pre">method</span> <span class="pre">get_variances</span> <span class="pre">boolean</span> <span class="pre">float'Null</span> <span class="pre">float'Null</span> <span class="pre">float'Null</span></code>
+<code class="docutils literal notranslate"><span class="pre">Vector3f'Null</span> <span class="pre">float'Null</span></code></p>
+<p>binding to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">get_variances</span> <span class="o">-</span> <span class="n">provides</span> <span class="n">the</span> <span class="n">innovations</span> <span class="n">normalized</span> <span class="n">using</span> <span class="n">the</span> <span class="n">innovation</span> <span class="n">variance</span> <span class="n">where</span> <span class="n">a</span> <span class="n">value</span> <span class="n">of</span> <span class="mi">0</span>
+<span class="o">//</span> <span class="n">indicates</span> <span class="n">perfect</span> <span class="n">consistency</span> <span class="n">between</span> <span class="n">the</span> <span class="n">measurement</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">EKF</span> <span class="n">solution</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">value</span> <span class="n">of</span> <span class="mi">1</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">maximum</span>
+<span class="o">//</span> <span class="n">inconsistency</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">accepted</span> <span class="n">by</span> <span class="n">the</span> <span class="nb">filter</span>
+<span class="o">//</span> <span class="n">boolean</span> <span class="n">false</span> <span class="ow">is</span> <span class="n">returned</span> <span class="k">if</span> <span class="n">variances</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">available</span>
+<span class="n">virtual</span> <span class="nb">bool</span> <span class="n">get_variances</span><span class="p">(</span><span class="nb">float</span> <span class="o">&amp;</span><span class="n">velVar</span><span class="p">,</span> <span class="nb">float</span> <span class="o">&amp;</span><span class="n">posVar</span><span class="p">,</span> <span class="nb">float</span> <span class="o">&amp;</span><span class="n">hgtVar</span><span class="p">,</span> <span class="n">Vector3f</span> <span class="o">&amp;</span><span class="n">magVar</span><span class="p">,</span> <span class="nb">float</span> <span class="o">&amp;</span><span class="n">tasVar</span><span class="p">)</span> <span class="n">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+<span class="n">returning</span> <span class="n">multiple</span> <span class="n">values</span><span class="p">,</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">which</span> <span class="n">can</span> <span class="n">be</span> <span class="n">NULL</span><span class="o">.</span>
+<span class="n">In</span> <span class="n">this</span> <span class="n">case</span> <span class="n">the</span> <span class="n">C</span><span class="o">++</span> <span class="n">function</span> <span class="ow">is</span> <span class="n">boolean</span><span class="p">,</span> <span class="n">but</span> <span class="n">since</span> <span class="n">the</span> <span class="n">returns</span> <span class="n">have</span> <span class="s1">&#39;NULL specified,</span>
+<span class="n">the</span> <span class="n">C</span><span class="o">++</span> <span class="k">return</span> <span class="n">of</span> <span class="n">a</span> <span class="n">boolean</span> <span class="ow">is</span> <span class="n">ignored</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">returned</span> <span class="n">values</span> <span class="n">can</span> <span class="n">have</span> <span class="n">NULL</span> <span class="n">value</span><span class="o">.</span>
+<span class="n">Note</span> <span class="n">that</span> <span class="n">this</span> <span class="n">call</span> <span class="n">returns</span> <span class="n">many</span> <span class="n">values</span> <span class="p">(</span><span class="n">arguments</span> <span class="n">are</span> <span class="n">variable</span> <span class="n">pointers</span><span class="p">)</span> <span class="ow">and</span> <span class="n">has</span> <span class="n">no</span> <span class="nb">input</span>
+<span class="n">variables</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In order to see how this would be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">velVar</span><span class="p">,</span> <span class="n">posVar</span><span class="p">,</span><span class="n">hgtVar</span><span class="p">,</span><span class="n">magVar</span><span class="p">,</span> <span class="n">tasVar</span> <span class="o">=</span> <span class="n">ahrs</span><span class="p">:</span><span class="n">get_variances</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">velVar</span> <span class="n">then</span>
+  <span class="n">newVar</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">velVar</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>note that velVar could have a value of 0 and still the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement test would be true in the LUA script.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

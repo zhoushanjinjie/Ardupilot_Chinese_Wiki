@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maxbotix Analog Sonar &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Maxbotix Analog Sonar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="maxbotix-analog-sonar">
+<span id="common-rangefinder-maxbotix-analog"></span><h1>Maxbotix Analog Sonar<a class="headerlink" href="#maxbotix-analog-sonar" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference external" href="https://www.maxbotix.com/product-category/xl-maxsonar-ez-products/">XL-Maxbotix-EZ</a>
+line of analog sonars (XL-MaxSonar-EZ0, EZ4 and EZL0) are relatively
+inexpensive, short range (7m to 10m) range finder primarily designed for
+indoor use but which has been successfully used outdoors on Copter and
+Rover.  These are the predecessors to <a class="reference internal" href="common-rangefinder-maxbotixi2c.html#common-rangefinder-maxbotixi2c"><span class="std std-ref">I2C sonar</span></a>.</p>
+<p>The <a class="reference external" href="https://www.maxbotix.com/Ultrasonic_Sensors/MB1240.htm">EZ4</a>
+(recommended) has the narrowest beam providing the best noise resistance
+while the <a class="reference external" href="https://www.maxbotix.com/Ultrasonic_Sensors/MB1200.htm">EZ0</a> has the
+widest beam and higher sensitivity.  The long range
+<a class="reference external" href="https://www.maxbotix.com/Ultrasonic_Sensors/MB1260.htm">EZL0</a> has the
+same sensitivity as the EZ0 but a 10m range (as opposed to 7m).</p>
+<section id="connecting-to-the-pixhawk">
+<h2>Connecting to the Pixhawk<a class="headerlink" href="#connecting-to-the-pixhawk" title="Permalink to this heading">¶</a></h2>
+<p>The sonar should be connected to the Pixhawk’s ADC 3.3V port as shown
+below. The Pixhawk will provide the regulated 5V power supply the sonar
+requires.</p>
+<a class="reference external image-reference" href="../_images/RangeFinder_MaxbotixAnalog_Pixhawk.jpg"><img alt="../_images/RangeFinder_MaxbotixAnalog_Pixhawk.jpg" src="../_images/RangeFinder_MaxbotixAnalog_Pixhawk.jpg" /></a>
+</section>
+<section id="setup-through-the-mission-planner">
+<h2>Setup through the mission planner<a class="headerlink" href="#setup-through-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>please first connect with the Mission Planner and then open the
+Config/Tuning &gt;&gt; Full Parameter List page and set the following
+parameters (example shown if first rangefinder:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-pin" title="(in Rover)"><span class="xref std std-ref">RNGFND1_PIN</span></a> = “14” for Pixhawk’s ADC 3.3v pin #2</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = “700” (i.e. 7m max range) if using EZ0 or EZ4,
+“1000” if using EZL0</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-scaling" title="(in Rover)"><span class="xref std std-ref">RNGFND1_SCALING</span></a> = “2.04” (i.e. 7m / 5v) if using EZ0 or EZ4, “4.08”
+(i.e. 10m / 5v) if using EZL0</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = “1” (Analog)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Maxbotix analogue rangefinders according to their data sheets
+output Vcc/1024 volts per centimetre, or 0.488 v/m when supplied
+with 5v (which the ADC 3.3v port supplies), which translates into
+2.04meters per volt. The range is 7.6m according to the datasheet,
+but analog output is limited to 7m. As we can only read up to 3.3v
+then that means 6.75m is the furthest it can really measure.</p>
+</div>
+<a class="reference external image-reference" href="../_images/RangeFinder_MaxbotixAnalog_Pixhawk_MPSetup.png"><img alt="../_images/RangeFinder_MaxbotixAnalog_Pixhawk_MPSetup.png" src="../_images/RangeFinder_MaxbotixAnalog_Pixhawk_MPSetup.png" /></a>
+</section>
+<section id="testing-the-sensor">
+<h2>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

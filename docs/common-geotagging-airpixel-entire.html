@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airpixel Entire for Camera Control and EXIF Geotagging &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Airpixel Entire for Camera Control and EXIF Geotagging</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="airpixel-entire-for-camera-control-and-exif-geotagging">
+<span id="common-geotagging-airpixel-entire"></span><h1>Airpixel Entire for Camera Control and EXIF Geotagging<a class="headerlink" href="#airpixel-entire-for-camera-control-and-exif-geotagging" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="http://shop.airpixel.cz/product/air-commander-entire-r3/"><img alt="https://airpixel.cz/wp-content/uploads/2021/08/entirer3drk_banner.jpg" src="https://airpixel.cz/wp-content/uploads/2021/08/entirer3drk_banner.jpg" style="width: 450px;" /></a>
+<p><a class="reference external" href="https://airpixel.cz/">The Entire</a> is a standalone device for GeoTagging of images in-camera SD card.  GPS data data is read from the autopilot’s serial port (aka MAVLink bus) and is then saved directly into the photos using EXIF. The Entire can also trigger the camera shutter via MAVLink commands, control video recording and zoom and many other commands.</p>
+<ul class="simple">
+<li><p>Photos are tagged (via EXIF) with the lat, lon, altitude and camera angles (read from the gimbal) within the camera</p></li>
+<li><p>GPS position filtering and interpolation for higher accuracy</p></li>
+<li><p>Full HereLink implementation for camera control via MavCam (<a class="reference external" href="https://airpixel.cz/herelink-camera-control-geotagging/">more info</a>)</p></li>
+<li><p>Full Mission Planner implementation via plugin</p></li>
+<li><p>Supports taking pictures by distance flown or at intervals</p></li>
+<li><p>Optionally uses configurable GPS position offset (X,Y,Z) to improve accuracy</p></li>
+<li><p>High accuracy of EXIF saving - 1mm in distance</p></li>
+<li><p>Tagging available for JPG and RAW</p></li>
+<li><p>hot-shoe sync connector for reduced errors</p></li>
+<li><p>GeoTagging is available at the <em>maximum speed of the camera</em> (even lower than 1s)</p></li>
+<li><p>WiFi configuration and simple firmware updates</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://airpixel.cz/photogrammetry/">www.airpixel.cz</a>
+Documentation at <a class="reference external" href="https://airpixel.cz/docs">www.airpixel.cz/docs</a></p>
+<p>[copywiki destination=”copter,plane,rover”]</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

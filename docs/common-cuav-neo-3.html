@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEO 3 GPS &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NEO 3  GPS</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="neo-3-gps">
+<span id="common-cuav-neo-3"></span><h1>NEO 3  GPS<a class="headerlink" href="#neo-3-gps" title="Permalink to this heading">¶</a></h1>
+<p>Neo 3 is a UAV positioning module developed by  CUAV. It integrates industrial-grade compass, barometer, autopilot status light, buzzer, and safety switch all in one package. It has the characteristics of high safety and strong interference resistance.It integrates ublox m9n module and can receive signals from GPS, Galileo, GLONASS and Beidou at the same time.</p>
+<a class="reference external image-reference" href="../_images/neo-3.jpg"><img alt="../_images/neo-3.jpg" src="../_images/neo-3.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NEO 3 is supported in ArduPilot 4.0 firmware (and higher).</p>
+</div>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>STM32F412</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>Compass:IST8310</p></li>
+<li><p>Barometer:MS5611</p></li>
+</ul>
+</li>
+<li><p><strong>RTK Receiver</strong></p>
+<ul>
+<li><p>Ublox M9N</p></li>
+</ul>
+</li>
+<li><p><strong>GNSS Bands</strong></p>
+<ul>
+<li><p>GPS/QZSS L1 C/A,GLONASS L10F ,BeiDou B1I,Galileo E1B/C,SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN</p></li>
+</ul>
+</li>
+<li><p><strong>Number of concurrent GNSS</strong></p>
+<ul>
+<li><p>4 Simultaneous reception of satellite information</p></li>
+</ul>
+</li>
+<li><p><strong>Number of satellites(MAX)</strong></p>
+<ul>
+<li><p>Up to 32</p></li>
+</ul>
+</li>
+<li><p><strong>Nav. update rate</strong></p>
+<ul>
+<li><p>RTK Up to 25HZ</p></li>
+</ul>
+</li>
+<li><p><strong>Position accuracy</strong></p>
+<ul>
+<li><p>Up to 1.5M</p></li>
+</ul>
+</li>
+<li><p><strong>Acquisition</strong></p>
+<ul>
+<li><p>Cold starts 24 s</p></li>
+<li><p>Aided starts 2 s</p></li>
+<li><p>Reacquisition 2 s</p></li>
+</ul>
+</li>
+<li><p><strong>Sensitivity</strong></p>
+<ul>
+<li><p>Tracking &amp; Nav -167 dBm</p></li>
+<li><p>Cold starts -148 dBm</p></li>
+<li><p>Reacquisition -160 dBm</p></li>
+</ul>
+</li>
+<li><p><strong>Protocol</strong></p>
+<ul>
+<li><p>UART+I2C+IO</p></li>
+</ul>
+</li>
+<li><p><strong>Interface Type</strong></p>
+<ul>
+<li><p>GHR-10V-S</p></li>
+</ul>
+</li>
+<li><p><strong>Input voltage</strong></p>
+<ul>
+<li><p>5V</p></li>
+</ul>
+</li>
+<li><p><strong>Operating temperature</strong></p>
+<ul>
+<li><p>-10~70℃</p></li>
+</ul>
+</li>
+<li><p><strong>Size</strong></p>
+<ul>
+<li><p>60x60x16mm</p></li>
+</ul>
+</li>
+<li><p><strong>Weight</strong></p>
+<ul>
+<li><p>33g</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="purchase">
+<h2>Purchase<a class="headerlink" href="#purchase" title="Permalink to this heading">¶</a></h2>
+<p>You can buy it from <a class="reference external" href="https://store.cuav.net">CUAV store</a>.</p>
+</section>
+<section id="connect-to-cuav-v5">
+<h2>Connect to CUAV v5+<a class="headerlink" href="#connect-to-cuav-v5" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/neo-3-connection.png"><img alt="../_images/neo-3-connection.png" src="../_images/neo-3-connection.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The connection to other autopilots is similar.</p>
+</div>
+</section>
+<section id="pinouts">
+<h2>Pinouts<a class="headerlink" href="#pinouts" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/neo3-pinouts.png"><img alt="../_images/neo3-pinouts.png" src="../_images/neo3-pinouts.png" /></a>
+</section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://doc.cuav.net/gps/neo-series-gnss/en/">CUAV docs</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C-RTK2 HP Heading and RTK Module &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">C-RTK2 HP  Heading and RTK Module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="c-rtk2-hp-heading-and-rtk-module">
+<span id="common-cuav-c-rtk2-hp"></span><h1>C-RTK2 HP  Heading and RTK Module<a class="headerlink" href="#c-rtk2-hp-heading-and-rtk-module" title="Permalink to this heading">¶</a></h1>
+<p>C-RTK2 HP is a heading and RTK receiver designed and manufactured by CUAV.
+The difference from F9P is that it only needs one module to realize GPS for yaw. C-RTK2 HP also supports UART and Dronecan connection methods.</p>
+<a class="reference external image-reference" href="../images/c-rtk2-hp/c-rtk2-hp.jpg"><img alt="../_images/c-rtk2-hp.jpg" src="../_images/c-rtk2-hp.jpg" /></a>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Full constellation, multi-frequency GNSS satellite receiver</p></li>
+<li><p>Single module, dual antenna heading and positioning system</p></li>
+<li><p>RM3100 industrial grade Magnetometer (for safety redundancy)</p></li>
+<li><p>Safe and reliable DroneCAN protocol or standard UART serial interface</p></li>
+<li><p>Automatic switching between USB and UART</p></li>
+<li><p>ArduPilot <a class="reference external" href="https://firmware.ardupilot.org/AP_Periph/stable/C-RTK2-HP/">AP Periph Open Source Firmware</a></p></li>
+</ul>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>MCU</p></td>
+<td><p>STM32F4</p></td>
+</tr>
+<tr class="row-even"><td><p>Sensors</p></td>
+<td><p>Compass:RM3100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Receiver</p></td>
+<td><p>UM982 High precision GNSS SOC</p></td>
+</tr>
+<tr class="row-even"><td><p>GNSS</p></td>
+<td><p>BDS/GPS/GLONASS/Galileo/QZSS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Frequency Bands(Master)</p></td>
+<td><p>BDS:B1I/B2I/B3I, GPS:L1(C/A)/L2(P/C)/L5, GLONASS:L1/L2, Galileo: E1/E5a/E5b, QZSS:L1/L2/L5</p></td>
+</tr>
+<tr class="row-even"><td><p>Frequency Bands(Slave)</p></td>
+<td><p>BDS:B1I/B2I/B3I, GPS:L1(C/A)/L2(P/C)/L5, GLONASS:L1/L2, Galileo: E1/E5a/E5b, QZSS:L1/L2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Position accuracy(RMS)</p></td>
+<td><p>3DGPS： <strong>1.5m</strong> (Horizontal, 2.5m（Vertical),
+DGPS： <strong>0.4m</strong> +1PPM（Horizontal), 0.8m+1PPM（Vertical),
+RTK: <strong>0.8cm</strong> +1PPM（Horizontal), 1.5cm+1PPM（Vertical）</p></td>
+</tr>
+<tr class="row-even"><td><p>Heading accuracy (RMS)</p></td>
+<td><p>0.1° using 1m baseline（Distance from Antenna 1 to Antenna 2）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Acquisition</p></td>
+<td><p>Cold starts&lt;30S, Initialization time&lt;5s</p></td>
+</tr>
+<tr class="row-even"><td><p>Data update rate</p></td>
+<td><p>UP to 20hz(default:5hz)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Differential data</p></td>
+<td><p>RTCM3.X</p></td>
+</tr>
+<tr class="row-even"><td><p>Data protocol</p></td>
+<td><p>Dronecan/NMEA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Connectors</p></td>
+<td><p>Master Antenna, Slave Antenna、CAN、UART、DSU、USB</p></td>
+</tr>
+<tr class="row-even"><td><p>Operating Voltage</p></td>
+<td><p>4.7~5.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating temperature</p></td>
+<td><p>-20~85℃</p></td>
+</tr>
+<tr class="row-even"><td><p>Size</p></td>
+<td><p>50*37*17mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Weigh</p></td>
+<td><p>40g</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="purchase">
+<h2>Purchase<a class="headerlink" href="#purchase" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://bit.ly/46fEoGq)">CUAV Alibaba</a></p>
+</section>
+<section id="pinouts">
+<h2>Pinouts<a class="headerlink" href="#pinouts" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk2-hp/pinouts.jpg"><img alt="../_images/pinouts.jpg" src="../_images/pinouts.jpg" /></a>
+</section>
+<section id="hardware-connection-and-ardupilot-setup">
+<h2>Hardware connection and ArduPilot Setup<a class="headerlink" href="#hardware-connection-and-ardupilot-setup" title="Permalink to this heading">¶</a></h2>
+<p>C-RTK2 HP supports connection either via serial or DroneCAN port to the autopilot.</p>
+<section id="dronecan">
+<h3>DroneCAN<a class="headerlink" href="#dronecan" title="Permalink to this heading">¶</a></h3>
+<p>The diagram below shows the C-RTK2-HP being connected via its CAN port to an autopilot’s CAN port.</p>
+<ul class="simple">
+<li><p>setup the autopilot’s CAN port parameters for DroneCAN: <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 (DroneCAN GPS)</p></li>
+</ul>
+<a class="reference external image-reference" href="../images/c-rtk2-hp/c-rtk2-hp-connection-en.jpg"><img alt="../_images/c-rtk2-hp-connection-en.jpg" src="../_images/c-rtk2-hp-connection-en.jpg" /></a>
+</section>
+<section id="serial">
+<h3>Serial<a class="headerlink" href="#serial" title="Permalink to this heading">¶</a></h3>
+<p>The diagram below shows the C-RTK2 HP being connected via its UART2 port to an autopilot’s serial port setup for GPS Protocol.</p>
+<a class="reference external image-reference" href="../images/c-rtk2-hp/c-rtk2-hp-connection-en2.jpg"><img alt="../_images/c-rtk2-hp-connection-en2.jpg" src="../_images/c-rtk2-hp-connection-en2.jpg" /></a>
+<ul class="simple">
+<li><p>set the autopilot’s <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = ‘5’ (be sure any lower numbered port does not use this protocol unless a GPS is attached)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 25 (UnicoreMovingBaseline)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this unit can be used with only its “Master” antenna connected, if desired, but no yaw information should be used. In this case set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 24 (UnicoreMaster)</p>
+</div>
+</section>
+<section id="common-setup">
+<h3>Common Setup<a class="headerlink" href="#common-setup" title="Permalink to this heading">¶</a></h3>
+<p>for either connection method, set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 2 (“GPS”) or 3 (“GPS with Compass Fallback”) if a compass(es) is also in the system.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>C-RTK2 HP provides an RM3100 magnetometer for use as Compass Fallback</p>
+</div>
+<p>Be sure to setup the offset parameters for the antennas, see: <a class="reference internal" href="common-gps-for-yaw.html#antenna-offsets"><span class="std std-ref">Antenna Offsets</span></a></p>
+</section>
+</section>
+<section id="cuav-docs">
+<h2>CUAV docs<a class="headerlink" href="#cuav-docs" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk-series/en/c-rtk2-hp/">C-RTK2 HP</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-connecting-sport-fport"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="connecting-to-frsky-sport-and-fport">
+<h1>Connecting to FrSky Sport and FPort<a class="headerlink" href="#connecting-to-frsky-sport-and-fport" title="Permalink to this heading">¶</a></h1>
+<p>Some FrSky receivers have the ability to relay telemetry data from the vehicle to the transmitter.</p>
+<p>This was done initially via their SPort capability. And later, via an additional new protocol called <a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">FPort</span></a> which also includes the RC data to the autopilot.</p>
+<p>In order to connect to these ports on the FrSky receiver, any UART on the autopilot (normally a “TELEM” port) is used. However, both SPort and FPort are bi-directional protocols and require signal inversion in both directions in order to interface to the autopilot’s UART.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if Sport is being used to send telemetry, then RC data must still be sent to the autopilot via its RCin pin as PPM or SBus from the FrSky receiver. See <a class="reference internal" href="common-flight-controller-wiring.html#common-flight-controller-wiring"><span class="std std-ref">Typical Autopilot Wiring Connections</span></a>.</p>
+</div>
+<p>If the autopilot uses an F7 or H7 processor, then this can be done by appropriately configuring the UART port on the autopilot. However, most F4 based autopilots do not have this capability and required inverters externally. A few F4 autopilots have these on the boards themselves and label the port “FrSky Telem”, but most do not. Those require an added <a class="reference internal" href="#frsky-cables"><span class="std std-ref">bi-directional inverter</span></a> connected between the autopilot and the receiver’s SPort or FPort.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>F4 autopilots with on-board inversion (Pixracer,MindPX V2) default to having the inversion on their ports designated for FRsky telem, only requiring that the TX and RX pins be tied together and connected to the Sport/Fport on the receiver and the appropriate <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> be set for that port.</p>
+</div>
+<p>In addition, some FrSky receivers provide an optional pad with the SPort or FPort already “inverted”, so no external inversion is required if that is used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>The various connection configurations are shown below (FPort is used in the diagrams, but just substitute SPort for the FPort labels in the images when using SPort connections):</strong></p>
+</div>
+</section>
+<section id="connections">
+<h1>Connections<a class="headerlink" href="#connections" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/FPort-wiring-a.jpg"><img alt="../_images/FPort-wiring-a.jpg" src="../_images/FPort-wiring-a.jpg" /></a>
+<ul class="simple">
+<li><p>Fport: <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 23</p></li>
+<li><p>Sport: <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 10</p></li>
+</ul>
+<hr class="docutils" />
+<a class="reference external image-reference" href="../_images/FPort-wiring-b.jpg"><img alt="../_images/FPort-wiring-b.jpg" src="../_images/FPort-wiring-b.jpg" /></a>
+<ul class="simple">
+<li><p>Fport: <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 23, <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 4 (Half Duplex)</p></li>
+<li><p>Sport: <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 10, <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 4 (Half Duplex)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>modifying the receiver to access the “un-inverted” signal may not have enough drive, and/or, require the setting of the UART TX pin’s pull-up resistor. Try using <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 132 in that case.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>getting an “un-inverted” SPort or FPort signal from some receivers by tapping an internal connection may not provide enough drive for reliable operation on some autopilots having protection resistors in series with their UART pins, even when enabling the pull-up resistor on the UART. Contact the autopilot OEM for possible workarounds or use an normal FPort signal and external bi-directional inverter as shown above.</p>
+</div>
+<hr class="docutils" />
+<a class="reference external image-reference" href="../_images/FPort-wiring-c.jpg"><img alt="../_images/FPort-wiring-c.jpg" src="../_images/FPort-wiring-c.jpg" /></a>
+<ul class="simple">
+<li><p>Fport: <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 23, <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 7</p></li>
+<li><p>Sport: <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> = 10, <code class="docutils literal notranslate"><span class="pre">SERIALx_OPTIONS</span></code> = 7 (invert TX/RX, Half Duplex)</p></li>
+</ul>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>F7/H7 boards can have the FPort connected to the UARTs RX pin, instead of the TX pin as shown above, and use the UART’s SWAP option. F4 boards do not have this SWAP capability See <a class="reference internal" href="common-FPort-receivers.html#common-fport-receivers"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a> for more information.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>some autopilots, like the Cube Orange autopilot, have level shifters on their UART pins used on their Telemetry ports. This requires a 10K pulldown resistor externally on the receiver’s SPort signal to work properly.</p>
+</div>
+<section id="bi-directional-inverter-cables">
+<span id="frsky-cables"></span><h2>Bi-Directional Inverter cables<a class="headerlink" href="#bi-directional-inverter-cables" title="Permalink to this heading">¶</a></h2>
+<section id="craft-and-theory-pixhawk-to-frsky-telemetry-cables">
+<h3>Craft and Theory Pixhawk to FrSky Telemetry Cables<a class="headerlink" href="#craft-and-theory-pixhawk-to-frsky-telemetry-cables" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="http://www.craftandtheoryllc.com/product-category/frsky-smartport-telemetry-cables/">Craft and Theory</a> supplies cost-effective all-in-one X-receiver cables with connectors for the various FrSky receivers.</p>
+<figure class="align-center">
+<a class="reference external image-reference" href="http://www.craftandtheoryllc.com/product/telemetry-cable-flightdeck-taranis-opentx-ardupilot-arducopter-pixhawk-2-cube-servo-frsky-smartport-smart-port-df13-jst-gh-serial/"><img alt="../_images/FrSky_Hardware3.jpg" src="../_images/FrSky_Hardware3.jpg" style="width: 50%;" /></a>
+</figure>
+</section>
+<section id="yaapu-telemetry-cable">
+<h3>Yaapu Telemetry Cable<a class="headerlink" href="#yaapu-telemetry-cable" title="Permalink to this heading">¶</a></h3>
+<p>On <a class="reference external" href="https://www.amazon.com/Telemetry-Converter-Pixhawk-Taranis-Receiver/dp/B07KJFWTCB">Amazon</a></p>
+</section>
+<section id="diy-cable-for-smartport">
+<h3>DIY cable for SmartPort<a class="headerlink" href="#diy-cable-for-smartport" title="Permalink to this heading">¶</a></h3>
+<p>You can make your own cable using the following components (Frsky no longer produces, but still is available from some E-Bay sellers):</p>
+<a class="reference external image-reference" href="../_images/Telemetry_FrSky_Pixhawk-SPORT.jpg"><img alt="../_images/Telemetry_FrSky_Pixhawk-SPORT.jpg" src="../_images/Telemetry_FrSky_Pixhawk-SPORT.jpg" /></a>
+<ul class="simple">
+<li><p>TTL-to-RS232 converter such as the <a class="reference external" href="http://www.ebay.com/sch/i.html?_trksid=p2050601.m570.l1313.TR11.TRC1.A0.H0.Xfrsky+ful-1.TRS0&amp;_nkw=frsky+ful-1&amp;_sacat=0&amp;_from=R40">FrSky FUL-1</a></p></li>
+<li><p><a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=frsky+spc+cable&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=spc+cable">SPC cable</a></p></li>
+<li><p><a class="reference external" href="https://www.unmannedtechshop.co.uk/df13-6-position-connector-30cm-pack-of-5/">DF13 6 position connector</a>
+which will be cut and soldered to the TTL-to-RS232 converter</p></li>
+<li><p><a class="reference external" href="http://www.molex.com/molex/products/family?key=picoblade&amp;channel=products&amp;chanName=family&amp;pageTitle=Introduction&amp;parentKey=wire_to_board_connectors">Molex Picoblade</a>
+4 position telemetry wire which will be cut and soldered to the
+TTL-to-RS232 converter (should be included with the receiver)</p></li>
+</ul>
+<p>Or a more compact version using the following components:</p>
+<p>-<a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=m570.l1313&amp;_nkw=max3232+rs-232+to+TTL&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=max3232+breakout&amp;LH_TitleDesc=0">MAX3232 RS-232 to TTL converter breakout board</a></p>
+<p>-Any silicon <a class="reference external" href="https://www.ebay.com/sch/i.html?_from=R40&amp;_trksid=p2334524.m570.l1313.TR4.TRC1.A0.H0.X1n4148.TRS0&amp;_nkw=1n4148&amp;_sacat=0&amp;LH_TitleDesc=0&amp;_osacat=0&amp;_odkw=1n4118&amp;LH_TitleDesc=0">diode</a></p>
+<blockquote>
+<div><figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/DIY_SPort_Cable.jpg"><img alt="../_images/DIY_SPort_Cable.jpg" src="../_images/DIY_SPort_Cable.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">DIY FRSky Smartport adapter cable</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>DO NOT PLUG THE TELEMETRY CABLE TO THE AUTOPILOT OR RECIEVER WHILE POWER IS ON!</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

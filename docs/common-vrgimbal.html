@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:VR Gimbal Controller (3-Axis Open Source) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:VR Gimbal Controller (3-Axis Open Source)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-vr-gimbal-controller-3-axis-open-source">
+<span id="common-vrgimbal"></span><h1>Archived:VR Gimbal Controller (3-Axis Open Source)<a class="headerlink" href="#archived-vr-gimbal-controller-3-axis-open-source" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED</strong></p>
+</div>
+<p>This article explains how to set up and configure the VR Gimbal 3 Axes
+Brushless Gimbal Controller for use with ArduPilot.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://vrgimbal.wordpress.com/">VRGimbal</a>
+(<a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/gimbal-control-board/vrgimbal-2-axis-detail">2-axis</a>
+and
+<a class="reference external" href="http://www.virtualrobotix.it/index.php/en/shop/gimbal-control-board/vrgimbal-3-axis-detail">3-axis</a>
+available) began as a fork of the open source <a class="reference external" href="https://sourceforge.net/projects/brushless-gimbal-brugi/">Martinez 2-axis brushless gimbal controller</a>
+to support the more powerful STM32 CPUs but since then has been mostly
+rewritten and includes significant enhancements including 3-axis support
+and MAVLink for serial communication with the autopilot or
+ground station.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vrgimbal.wordpress.com/quick-start-guide/">Official quick start guide can be found here</a></p></li>
+<li><p><a class="reference external" href="https://code.google.com/archive/p/vrgimbal/source">Code can be found here</a></p></li>
+<li><p>Hardware schematics coming soon</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/KIqWXnAuKPo#t=25" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We do not yet have an recommended affordable 3-axis gimbal for use
+with the VRGimbal.  Testing by the ArduPilot dev team has so far been
+limited to using a Tarot 2-axis gimbal.</p>
+</div>
+</section>
+<section id="connecting-the-vrgimbal-to-the-pixhawk">
+<h2>Connecting the VRGimbal to the Pixhawk<a class="headerlink" href="#connecting-the-vrgimbal-to-the-pixhawk" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/VRGimbal_Wiring1.jpg"><img alt="../_images/VRGimbal_Wiring1.jpg" src="../_images/VRGimbal_Wiring1.jpg" /></a>
+<p>The IMU Sensor should be attached to the top or bottom of the camera so
+that the white arrow points forward.</p>
+<p>The Gimbal controller’s red and black power wires should be connected
+directly to a 3S or 4S battery.</p>
+<p>The Pitch, Roll and Yaw (if present) gimbal motors should be connected
+to MOT1, MOT2 and MOT3 respectively.</p>
+<p>The “RC2” pin (label on the underside of the board) should be connected
+to the Pixhawk’s AUX OUT 1 signal pin (see image above).</p>
+<p>The gound pin which is on the edge of the board near “RC2” should be
+connected to the Pixhawk’s AUX OUT 1 “-” pin (see image above).</p>
+</section>
+<section id="operation">
+<h2>Operation<a class="headerlink" href="#operation" title="Permalink to this heading">¶</a></h2>
+<p>Upon powering the gimbal, the green power light (bottom right in the
+image above) should turn on immediately.  The gimbal should not be
+touched within the first 10seconds after start-up as it will be
+performing an IMU calibration.  Once the calibration is done the red LED
+(immediately left of the green LED) will come on and the controller will
+attempt to stabilize the cmaera.</p>
+<p><strong>LED meanings</strong></p>
+<p>Solid Green LED = power on</p>
+<p>Solid Red LED = calibration complete, stabilizing camera</p>
+</section>
+<section id="configuring-the-gimbal">
+<h2>Configuring the gimbal<a class="headerlink" href="#configuring-the-gimbal" title="Permalink to this heading">¶</a></h2>
+<p>Use a mini USB cable to connect the Gimbal board to your computer
+(Windows only?). If this is the first time you have plugged in the
+dongle you will see a USB device installation window but it will likely
+fail (see “BAD” device driver screen shot below).</p>
+<ol class="arabic">
+<li><p>To update the Maple driver:</p>
+<ul class="simple">
+<li><p>Download the latest driver from
+<a class="reference external" href="http://www.radionav.it/virtualrobotix/fwtools/maple_usb_serial_win.zip">here</a>
+and unzip it to somewhere convenient on your computer</p></li>
+<li><p>In the device manager, right-mouse-button-click on the Maple
+driver and select “Update Driver Software”, then “Browse my
+computer for driver software” and select the folder where you
+unzipped the driver.  Windows 8 machines may complain because the
+driver is not signed, instructions are
+<a class="reference external" href="https://www.makeuseof.com/tag/how-can-i-install-hardware-with-unsigned-drivers-in-windows-8/">here</a>
+on how to get around this.</p></li>
+<li><p>After the driver is installed, if the Maple device appears as COM9
+or higher you will not be able to connect.  The Control Panel’s
+Device Manager can be used to reassign the comport to the COM1 ~
+COM8 range.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/VRGimbal_DeviceManager.png"><img alt="../_images/VRGimbal_DeviceManager.png" src="../_images/VRGimbal_DeviceManager.png" /></a>
+</li>
+<li><p>Download and run the latest VRGimbal UI installation .msi file by
+going to the <a class="reference external" href="https://vrgimbal.wordpress.com/download/">VRGimbal wordpress site and select the top item from the Downloads menu</a>.  At
+the time this wiki page was written it was <a class="reference external" href="https://vrgimbal.wordpress.com/download/vrgimbal-1-13-2/">version 1.13</a>.
+After installation the “VRGimbal GUI” should appear in your start
+menu.</p></li>
+<li><p>Start the VRGimbal GUI from the start menu.</p>
+<a class="reference external image-reference" href="../_images/VRGimbalGUI_PitchAbsolute.png"><img alt="../_images/VRGimbalGUI_PitchAbsolute.png" src="../_images/VRGimbalGUI_PitchAbsolute.png" /></a>
+</li>
+<li><p>Connect the gimbal to your computer with the mini USB cable</p></li>
+<li><p>On the VRGimbalGUI select the COM port and press the <strong>Open</strong> button</p></li>
+<li><p>Click on the <em>Pitch</em> tab, click the <strong>Absolute</strong> checkbox, press
+<strong>Send Config</strong> and <strong>Save to Flash</strong> buttons.</p></li>
+</ol>
+</section>
+<section id="set-up-through-the-mission-planner">
+<h2>Set-up through the mission planner<a class="headerlink" href="#set-up-through-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>The channel 6 tuning knob’s output can be used to control the pitch
+angle of the gimbal by:</p>
+<ul class="simple">
+<li><p>Connect the Pixhawk to the mission planner</p></li>
+<li><p>Open the <strong>Initial Setup | Optional Hardware | Camera Gimbal</strong>
+screen set:</p>
+<ul>
+<li><p>Tilt drop-down to RC9 (equivalent to AUX OUT1)</p></li>
+<li><p>Input Ch drop-down to RC6</p></li>
+<li><p>The “Stabilize Tilt” checkbox should not be checked</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/Gimbal_Tarot_MPsetup.png"><img alt="../_images/Gimbal_Tarot_MPsetup.png" src="../_images/Gimbal_Tarot_MPsetup.png" /></a>
+</section>
+<section id="updating-the-gimbal-software">
+<h2>Updating the gimbal software<a class="headerlink" href="#updating-the-gimbal-software" title="Permalink to this heading">¶</a></h2>
+<p>Please see the <a class="reference external" href="https://vrgimbal.wordpress.com/quick-start-guide/firmware-upgrade/">VRGimbal firmware upgrade wordpress site</a>
+for details.</p>
+</section>
+<section id="common-problems">
+<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Camera is not level.  Perform the accelerometer calibration as
+described at the bottom of <a class="reference external" href="https://vrgimbal.wordpress.com/quick-start-guide/configuration-and-calibration/">this page</a>.</p></li>
+<li><p>Small gimbal motors emit a high pitches squeal.  Connect with the
+VRGimbalGui, Go to the Advanced tab and set the “PWM frequency” to
+High.  Press <strong>Send Config</strong> and <strong>Save to Flash</strong> buttons.</p></li>
+</ul>
+</section>
+<section id="other-open-source-alternatives">
+<h2>Other Open Source Alternatives<a class="headerlink" href="#other-open-source-alternatives" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://sourceforge.net/projects/brushless-gimbal-brugi/">Martinez 2-axis gimbal controllers</a>
+using the original AVR328 chip can be found at retailers including
+<a class="reference external" href="https://hobbyking.com/en_us/2-axis-brushless-camera-gimbal-stabilization-control-board-w-imu.html?___store=en_us">hobbyking</a>.</p>
+<p><a class="reference external" href="http://www.olliw.eu/2013/storm32bgc/?en">OlliW’s STorM3 BGC 3-Axis STM32 based brushless gimbal controller</a> is open source
+hardware, closed source (but free) gimbal firmware and open source
+windows configuration UI.</p>
+<p>Questions about the VRGimbal? Post to the <a class="reference external" href="http://www.virtualrobotix.com/group/vr-gimbal-user-group">VRGimbal User group</a> (not
+directly associated with the DIYDrones or 3dRobotics)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

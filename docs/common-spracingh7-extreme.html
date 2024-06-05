@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPRacing H7 Extreme &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SPRacing H7 Extreme</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spracing-h7-extreme">
+<span id="common-spracingh7-extreme"></span><h1>SPRacing H7 Extreme<a class="headerlink" href="#spracing-h7-extreme" title="Permalink to this heading">¶</a></h1>
+<p>The SPRacingH7 Extreme is an autopilot produced by <a class="reference external" href="http://www.seriouslypro.com/">Seriously Pro Racing</a> .</p>
+<a class="reference external image-reference" href="../_images/SPracing-H7-extreme.jpg"><img alt="../_images/SPracing-H7-extreme.jpg" src="../_images/SPracing-H7-extreme.jpg" style="width: 240px;" /></a>
+<a class="reference external image-reference" href="../_images/SPracing-H7-extreme2.jpg"><img alt="../_images/SPracing-H7-extreme2.jpg" src="../_images/SPracing-H7-extreme2.jpg" style="width: 240px;" /></a>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>STM32F750  ARM 32-bit processor running at 400 MHz</p></li>
+<li><p>OSD: AT7456E</p></li>
+<li><p>128MB Serial NOR flash via QuadSPI for program storage</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>2x ICM20602</p></li>
+<li><p>BMP388 barometer</p></li>
+<li><p>Voltage sensor (2-6S)</p></li>
+<li><p>Current Sensor (110A Continuous/ 130A Maximum)</p></li>
+</ul>
+</li>
+<li><p><strong>Peripheral Connections</strong></p>
+<ul>
+<li><p>7 UARTs</p></li>
+<li><p>Micro SD Card</p></li>
+<li><p>Micro USB</p></li>
+<li><p>I2C</p></li>
+<li><p>Analog RSSI input</p></li>
+<li><p>Camera and VTX</p></li>
+<li><p>Active Buzzer</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>2-6S DC input power</p></li>
+<li><p>5V, 1A BEC for peripherals</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pinout">
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/SPracing-H7-extreme-pinout.jpg"><img alt="../_images/SPracing-H7-extreme-pinout.jpg" src="../_images/SPracing-H7-extreme-pinout.jpg" /></a>
+<a class="reference external image-reference" href="../_images/SPracing-H7-extreme-pinout.png"><img alt="../_images/SPracing-H7-extreme-pinout2.png" src="../_images/SPracing-H7-extreme-pinout2.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>be sure to configure the voltage selection pads for the camera, vtx</p>
+</div>
+</section>
+<section id="vtx-supply-switch">
+<h2>VTX Supply Switch<a class="headerlink" href="#vtx-supply-switch" title="Permalink to this heading">¶</a></h2>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">RELAYx_PIN</span></code> to “81” for on/off of VTX power pad.</p>
+<p>Then select an RC channel for control (Chx) and set its <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> to the appropriate Relay (1-4) that you had set its pin parameter above.</p>
+<p>For example, use Channel 10 to control the power using Relay 2:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#relay-pin2" title="(in Rover)"><span class="xref std std-ref">RELAY_PIN2</span></a> = “81” (Relay 2 is set by default, but can be changed)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc10-option" title="(in Rover)"><span class="xref std std-ref">RC10_OPTION</span></a> = “34” (Relay2 Control)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>setting the above Relay on/high will turn off that supply. If nothing is assigned, default is powered on.</p>
+</div>
+</section>
+<section id="default-uart-order">
+<h2>Default UART order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SERIAL0 = console = USB</p></li>
+<li><p>SERIAL1 = Telemetry1 = USART1 (has DMA) normally RC input</p></li>
+<li><p>SERIAL2 = Telemetry2 = USART2 (has DMA) (only TX pin available)</p></li>
+<li><p>SERIAL3 = GPS1 = USART3 (has DMA)</p></li>
+<li><p>SERIAL4 = GPS2 = UART4 (has DMA)</p></li>
+<li><p>SERIAL5 = USER = UART5 (has DMA)</p></li>
+<li><p>SERIAL6 = USER = USART6 (available instead of PWM outputs 7(TX6) and 8(RX6) if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-alt-config" title="(in Rover)"><span class="xref std std-ref">BRD_ALT_CONFIG</span></a> = 1)</p></li>
+<li><p>SERIAL8 = USER = UART8</p></li>
+</ul>
+<p>Serial port protocols (Telem, GPS, etc.) can be adjusted to personal preferences.</p>
+</section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<p>RC input is configured on the R1 (UART1_RX) pin. It supports all RC protocols except PPM. See <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a> for details for a specific RC system. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL1_PROTOCOL</span></a> is set to “23”, by default, to enable this.</p>
+<ul class="simple">
+<li><p>SBUS/DSM/SRXL connects to the R1 pin but SBUS requires that the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-options" title="(in Rover)"><span class="xref std std-ref">SERIAL1_OPTIONS</span></a> be set to “3”.</p></li>
+<li><p>FPort requires connection to T6 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-options" title="(in Rover)"><span class="xref std std-ref">SERIAL1_OPTIONS</span></a> be set to “7”.</p></li>
+<li><p>CRSF also requires a T1 connection, in addition to R1, and automatically provides telemetry. Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-options" title="(in Rover)"><span class="xref std std-ref">SERIAL1_OPTIONS</span></a> to “0”.</p></li>
+<li><p>SRXL2 requires a connection to T1 and automatically provides telemetry.  Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-options" title="(in Rover)"><span class="xref std std-ref">SERIAL1_OPTIONS</span></a> to “4”.</p></li>
+</ul>
+<p>Any UART can be used for RC system connections in ArduPilot also, and is compatible with all protocols except PPM. See <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a> for details.</p>
+</section>
+<section id="osd-support">
+<h2>OSD Support<a class="headerlink" href="#osd-support" title="Permalink to this heading">¶</a></h2>
+<p>The SPracing H7 Extreme onboard OSD is used by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-type" title="(in Rover)"><span class="xref std std-ref">OSD_TYPE</span></a> 1 (MAX7456 driver).</p>
+</section>
+<section id="smartport-telemetry">
+<h2>SmartPort Telemetry<a class="headerlink" href="#smartport-telemetry" title="Permalink to this heading">¶</a></h2>
+<p>SmartPort (Sport) telemetry setup by default to be connected directly to UART2 TX pin with no external inverters required.</p>
+</section>
+<section id="dshot-capability">
+<h2>Dshot capability<a class="headerlink" href="#dshot-capability" title="Permalink to this heading">¶</a></h2>
+<p>All motor/servo outputs are DShot and PWM capable. Motor outputs 1-4 are bi-directional DShot capable. However, mixing DShot and normal PWM operation for outputs is restricted into groups, ie. enabling DShot for an output in a group requires that ALL outputs in that group be configured and used as DShot, rather than PWM outputs. The output groups that must be the same (PWM rate or DShot, when configured as a normal servo/motor output) are: 1-4, 5/6, 7/8, 9/10.</p>
+</section>
+<section id="battery-monitor-settings">
+<h2>Battery Monitor Settings<a class="headerlink" href="#battery-monitor-settings" title="Permalink to this heading">¶</a></h2>
+<p>These should already be set by default. However, if lost or changed:</p>
+<p>Enable Battery monitor with these parameter settings :</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> 4</p>
+<p>Then reboot.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> 11</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> 10</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> 10.9</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> 28.5</p></li>
+</ul>
+</section>
+<section id="rssi-input">
+<h2>RSSI Input<a class="headerlink" href="#rssi-input" title="Permalink to this heading">¶</a></h2>
+<p>Analog or PWM RSSI Input can be attached to the RSSI pin. Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-ana-pin" title="(in Rover)"><span class="xref std std-ref">RSSI_ANA_PIN</span></a> = 0. adjust other RSSI parameters as needed, see <a class="reference internal" href="common-rssi-received-signal-strength-indication.html#common-rssi-received-signal-strength-indication"><span class="std std-ref">Received Signal Strength Indication (RSSI)</span></a>.</p>
+</section>
+<section id="neopixel-led">
+<h2>NeoPixel LED<a class="headerlink" href="#neopixel-led" title="Permalink to this heading">¶</a></h2>
+<p>The LED output is setup for use with NeoPixel LEDs by default.</p>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p>Firmware for these boards can be found <a class="reference external" href="https://firmware.ardupilot.org">here</a> in  sub-folders labeled “SPracingH7”.</p>
+<section id="loading-firmware">
+<h3>Loading Firmware<a class="headerlink" href="#loading-firmware" title="Permalink to this heading">¶</a></h3>
+<p>Since this board stores the flight control software on external flash the initial firmware load should be done using the <a class="reference external" href="https://github.com/spracing/ssbl">SPRacing SSBL</a> . Please follow the instructions for loading PX4 firmware to load ArduPilot.</p>
+<p>A <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/Tools/scripts/ssbl_uploader.sh">convenient script</a> is also available to perform the required steps.</p>
+<p>It should also be possible to load the ArduPilot firmware and bootloader via DFU &lt;common-loading-firmware-onto-chibios-only-boards&gt;`__ , but doing so will invalidate your warranty.
+[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antenna Design Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simulation" href="common-simulation.html" />
+    <link rel="prev" title="Mission Planner GPS-based Antenna Tracking" href="common-mission-planner-gps-based-antenna-tracking.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mission-planner-gps-based-antenna-tracking.html">Mission Planner Antenna Tracking</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Antenna Design Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-fundamentals">Antenna fundamentals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-radiation-is-polarized">Antenna radiation is polarized</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance-and-matching-issues">Resonance and matching issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-db-watts-and-dbm">Understanding dB, Watts and dBm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mission-planner-gps-based-antenna-tracking.html">Mission Planner Antenna Tracking</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Antenna Design Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-fundamentals">Antenna fundamentals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-radiation-is-polarized">Antenna radiation is polarized</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance-and-matching-issues">Resonance and matching issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-db-watts-and-dbm">Understanding dB, Watts and dBm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mission-planner-gps-based-antenna-tracking.html">Mission Planner Antenna Tracking</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Antenna Design Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-fundamentals">Antenna fundamentals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-radiation-is-polarized">Antenna radiation is polarized</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance-and-matching-issues">Resonance and matching issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-db-watts-and-dbm">Understanding dB, Watts and dBm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-mission-planner-gps-based-antenna-tracking.html">Mission Planner Antenna Tracking</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Antenna Design Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-fundamentals">Antenna fundamentals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#antenna-radiation-is-polarized">Antenna radiation is polarized</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance-and-matching-issues">Resonance and matching issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-db-watts-and-dbm">Understanding dB, Watts and dBm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="common-antenna-tracking.html">Antenna Tracking</a></li>
+      <li class="breadcrumb-item active">Antenna Design Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="antenna-design-overview">
+<span id="common-antenna-design"></span><h1>Antenna Design Overview<a class="headerlink" href="#antenna-design-overview" title="Permalink to this heading">¶</a></h1>
+<p>This article provides an overview of the fundamental principles of
+antenna design. Antenna design is an important factor in using UAVs over
+extended range and where there are obstructed views. While this is not
+directly related to Antenna Tracking/autopilots, it may be
+useful for some readers.</p>
+<a class="reference external image-reference" href="../_images/Cupoblique.jpg"><img alt="../_images/Cupoblique.jpg" src="../_images/Cupoblique.jpg" /></a>
+<a class="reference external image-reference" href="../_images/SideDlinkw.jpg"><img alt="../_images/SideDlinkw.jpg" src="../_images/SideDlinkw.jpg" /></a>
+<section id="antenna-fundamentals">
+<h2>Antenna fundamentals<a class="headerlink" href="#antenna-fundamentals" title="Permalink to this heading">¶</a></h2>
+<p>When we speak of antenna radiation it also includes the reverse, that
+is, the antenna ‘collecting’ radiated energy.</p>
+<p>Any piece of wire will radiate energy when connected to a source of RF (
+Your transmitter or receiver). How WELL it radiates that applied
+energy is dependent on only two factors:</p>
+<ul>
+<li><p>That the antenna is resonant at the same frequency as the radio
+signal applied and</p></li>
+<li><p>That the feedpoint of the antenna is matched to the impedance of the
+attached transmitter energy source.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<dl class="simple">
+<dt>Maximum energy transfer between source and load ( the antenna)</dt><dd><p>occurs ONLY when the load and source impedance’s are equal.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/CrossAntenna.jpg"><img alt="../_images/CrossAntenna.jpg" src="../_images/CrossAntenna.jpg" /></a>
+<p>How well the antenna radiates that energy in any or all directions, if
+the above conditions are met, is then only dependent on the antenna
+design, shape, or style. For example:</p>
+<ul class="simple">
+<li><p>A simple vertical 1/4 wave radiator will radiate a doughnut shaped
+pattern, in all direction of the compass, with low energy upwards and
+downwards, in the direction of the antenna element.</p></li>
+<li><p>A yagi type antenna, on the other hand, ( such as your VHF or UHF TV
+antenna) focuses the energy in a single direction, as would a torch.</p></li>
+</ul>
+<p>Antennas do not have gain:</p>
+<ul class="simple">
+<li><p>They focus the energy to a greater or lesser extent, in a direction
+of design, but do this by robbing energy from other radiating
+directions.</p></li>
+<li><p>Your torch puts more light out the lens end, with nothing out the
+rear end.</p></li>
+<li><p>If you remove the reflector from behind the torch bulb, the light is
+radiated in all directions, omnidirectionally, but is much weaker at
+any distant point than the focused beam.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TrackerHelical.jpg"><img alt="../_images/TrackerHelical.jpg" src="../_images/TrackerHelical.jpg" /></a>
+</section>
+<section id="antenna-radiation-is-polarized">
+<h2>Antenna radiation is polarized<a class="headerlink" href="#antenna-radiation-is-polarized" title="Permalink to this heading">¶</a></h2>
+<p>That is to say, the radiated electromagnetic wave has a net polarization
+plane. This is usually either linear or circular (elliptical
+polarization is also found, but that is simply a mix of the two other
+types)</p>
+<ul class="simple">
+<li><p>A 1/4 wave vertical antenna will radiate linearly, with vertical
+polarization. Placed on its side it will radiate horizontal
+polarization.</p></li>
+<li><p>A Helical antenna (looks like a coil of wire wound in a screw
+fashion) wound clockwise when viewed from behind will radiate
+clockwise circular polarization, and vise versa.</p></li>
+</ul>
+<p>For reception of maximum energy, the transmitting and receiving antennae
+must be identically polarized.</p>
+<ul class="simple">
+<li><p>There is a massive loss of signal ( easily some 30dB, although the
+theoretical loss is infinite) if one attempts to receive a
+horizontally polarized signal with a vertically polarized antenna.</p></li>
+<li><p>Similarly, there are massive losses if trying to receive a circularly
+polarized signal with an antenna of the opposite circular sense.</p></li>
+<li><p>The odd man out is that there is only a 3db loss between an antenna
+that is circularly polarized and one that is linear.</p></li>
+</ul>
+<p>You would use circular polarization if:</p>
+<ul class="simple">
+<li><p>If the two antennas in question could not be made to maintain similar
+attitudes, such as one in a pitching , rolling aircraft, then there
+would be unacceptable signal losses as the aircraft banks and
+pitches.</p></li>
+<li><p>So you could use a vertical on the aircraft, and a helical or
+turnstile, or similar, on the ground segment.</p></li>
+<li><p>This way you would only ever experience a 3db maximum loss. ( all
+assuming good line of sight view).</p></li>
+<li><p>Or you could gain back the 3db loss by fitting a similar circularly
+polarized antenna on the aircraft, giving the best of both worlds.</p></li>
+<li><p>But you actually gain more than that with circular polarization at
+both ends.</p></li>
+</ul>
+<p>Assume first that the two antennas are simple vertical monopoles,
+radiating vertically polarized signals.</p>
+<ul class="simple">
+<li><p>When you are flying, at the flying club, etc, you are probably near
+some metal structures, the ‘hanger’ , cars and other vehicles, etc.</p></li>
+<li><p>All these structures reflect the same energy you are trying to
+receive.</p></li>
+<li><p>In addition, when the aircraft is low and far, the RF transmitted by
+the A/C antenna follows two paths to your receiver - One directly,
+and one via a reflection from the ground, somewhat midway between you
+and the A/C.</p></li>
+<li><p>What happens to the reflected wave is that the polarization is
+changed in unpredictable ways.</p></li>
+<li><p>Your receiver ( and antenna) does not know or care where the received
+energy comes from, so it receives this reflected energy as well.</p></li>
+<li><p>These multitude of received waves add constructively and
+destructively with the main received wave, causing large, short
+duration, signal drop-outs - a sort of ‘flutter’ in the signal.</p></li>
+</ul>
+<p>If both antenna are circularly polarized, however, the picture is quite
+different:</p>
+<ul class="simple">
+<li><p>When the circular polarized waveform is reflected , it REVERSES its
+polarization.</p></li>
+<li><p>When this reversed polarized signal arrives at your receiving antenna
+it is largely rejected and hugely attenuated, so interfering
+minimally with the main received signal.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Ant_in_Bay.jpg"><img alt="../_images/Ant_in_Bay.jpg" src="../_images/Ant_in_Bay.jpg" /></a>
+<a class="reference external image-reference" href="../_images/ACantBay.jpg"><img alt="../_images/ACantBay.jpg" src="../_images/ACantBay.jpg" /></a>
+</section>
+<section id="resonance-and-matching-issues">
+<h2>Resonance and matching issues<a class="headerlink" href="#resonance-and-matching-issues" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>Most simple linear antenna are either of the monopole or dipole form.</p>
+<ul class="simple">
+<li><p>A single monopole ( 1/4 wave vertical for example) or a single
+dipole will only radiate linear polarization.</p></li>
+</ul>
+</li>
+<li><p>Any antenna is only resonant when it is exactly the correct length AT
+the frequency of operation.</p>
+<ul class="simple">
+<li><p>( this does not apply to the class of broadband antenna, such as
+helical antenna, etc.</p></li>
+<li><p>The helical will easily cover an ocatve with good performance).</p></li>
+</ul>
+</li>
+<li><p>At resonance the antenna will exhibit its characteristic feedpoint
+impedance.</p>
+<ul class="simple">
+<li><p>Feedpoint impedance is expressed with two terms, the pure
+resistive part, and the reactive ( j operator) part.</p></li>
+</ul>
+</li>
+<li><p>Most transmitters and receivers terminal impedance are made to be
+50ohms resistive, or very close to that.</p>
+<ul class="simple">
+<li><p>So it stands to reason the antenna must also be 50 Ohm resistive
+to have max energy transfer.</p></li>
+<li><p>However, none of the antenna are that obliging, so we have to do
+some feedpoint matching to meet the criteria.</p></li>
+</ul>
+</li>
+<li><p>A 1/4wave vertical monopole over a ground plane has a resistive feed
+point of around 75ohms.</p>
+<ul class="simple">
+<li><p>A half wave dipole is around 72ohms.</p></li>
+<li><p>As with resistors, placing two dipole in parallel as in the
+IBcrazy turnstile, will result in a feedpoint impedance of 35ohms.</p></li>
+</ul>
+</li>
+<li><p>A 75ohm feed connected to a 50ohm coax and transmitter will exhibit a
+1.5:1 SWR ( the ratio of power going out to power reflected).</p>
+<ul class="simple">
+<li><p>A 1.5:1 SWR means that approx 3% of your transmitter power is not
+being radiated: ( 30milliwatts for a 1watt transmitter).</p></li>
+<li><p>That is not so bad, and we can live with an SWR of 1.5:1 in most
+cases.</p></li>
+</ul>
+</li>
+<li><p>The turnstile antenna is a pair of crossed dipoles, fed 90deg out of
+phase with each other, thereby generating circular polarisation.</p>
+<ul class="simple">
+<li><p>You CANNOT simply connect the dipole in parallel at the coax
+feedpoint though.</p></li>
+<li><p>Apart from the halving of impedance ( which we decided we can live
+with) the radiation pattern and polarization of the antenna will
+be totally destroyed by unwanted radiation from the coax cable.</p></li>
+<li><p>The RF energy, at the dipole connection point, ‘leaks’ out and
+currents then flow down the outer shield of the coax.</p></li>
+<li><p>As mentioned previously, any piece of wire will radiate RF energy,
+and so the coax radiates this energy, and the radiation again adds
+constructively and destructively with the main antenna radiation,
+causes complete distortion and signal nulls in the pattern.</p></li>
+<li><p>This radiation from the coax MUST be prevented.</p></li>
+</ul>
+</li>
+<li><p>This is done by means of a <strong>Balun</strong> transformer. - which is is an
+acronym for ‘<strong>Bal</strong>anced to <strong>Un</strong>balanced transformer’.</p></li>
+<li><p>A dipole is a balanced device - it is electrical equal along each
+element, outwards from the feedpoint. It therefore requires that the
+feedpoint be fed in a balanced fashion.</p>
+<ul class="simple">
+<li><p>Coax cable is a balanced feeder - the shield is at ground
+potential, while the inner core carries the energy.</p></li>
+<li><p>This effectively ( oversimplifying a little) connects the one
+dipole half to the ‘live’ core, and the other half to ‘ground’
+unbalancing the dipole.</p></li>
+<li><p>This causes currents to flow on the coax outer shield, and
+distortion of the dipole radiation pattern.</p></li>
+</ul>
+</li>
+<li><p><strong>Baluns</strong> can be constructed from coax cable, but the accuracy
+required in coax cable length ( they are normally length multiples of
+1/4 wavelength) is very critical, especially in the GHz range - 0.5mm
+can have a great effect.</p></li>
+<li><p>The <strong>turnstile</strong> is not new - it is some 50 to 60 years old, and is
+well researched and published.</p>
+<ul>
+<li><p>Up to the VHF and lower UHF region , the coax balun, with embedded
+impedance match transmission line transformer, is used, along
+these lines:</p>
+<a class="reference external image-reference" href="../_images/turnstile.jpg"><img alt="../_images/turnstile.jpg" src="../_images/turnstile.jpg" /></a>
+</li>
+</ul>
+</li>
+<li><p>For the higher microwave frequencies, a plumbing type version is more
+appropriate.</p>
+<ul>
+<li><p>This is called the <strong>spilt tube</strong> or <strong>split sheath</strong> <strong>balun</strong>,
+and looks like this when used as a feed for a pair of crossed
+dipoles.</p>
+<a class="reference external image-reference" href="../_images/Oblique.jpg"><img alt="../_images/Oblique.jpg" src="../_images/Oblique.jpg" /></a>
+<a class="reference external image-reference" href="../_images/Slit.jpg"><img alt="../_images/Slit.jpg" src="../_images/Slit.jpg" /></a>
+</li>
+</ul>
+</li>
+<li><p>The balun and feed match consists of an outer and an inner tube.</p>
+<ul class="simple">
+<li><p>The ratio of diameters D/d is chosen to give the desired
+impedance:</p></li>
+</ul>
+</li>
+<li><p>D/d = 1.86 for 75ohms, and 1.5 for 50 ohms.</p></li>
+<li><p>Typically the outer tube would be around 8mm for use at 2.4GHz.</p></li>
+<li><p>In order to obtain circular polarisation, I mentioned that the two
+dipole have to be fed 90deg apart ( phase quadrature).</p></li>
+<li><p>This can be done as in the coax balun version above ( inserting an
+extra 1/4wave length of coax in the leg to one dipole gives an extra
+electrical wavelegnth of 90 degerees).</p></li>
+<li><p>Or, this can be achieved by slightly lengthening the one element (
+becomes more inductive) and shortening the other( becomes more
+capacitive) - this also introduces the required phase difference
+between the elements.</p></li>
+<li><p>This can be seen in the images above:</p>
+<ul>
+<li><p>The one element is typically around 0.21 wavelength per half,
+while the other is around 0.25 wavelength.</p></li>
+<li><p>One short and one long element penetrate the outer tube and are
+connected to the inner tube.</p></li>
+<li><p>While the opposite pair of elements are connected only to the
+outer tube.</p></li>
+<li><p>The outer tube is split or slotted ( 0.5mm width slot). The slot
+is approx 0.23 wavelength long.</p>
+<a class="reference external image-reference" href="../_images/End.jpg"><img alt="../_images/End.jpg" src="../_images/End.jpg" /></a>
+<a class="reference external image-reference" href="../_images/Teflon.jpg"><img alt="../_images/Teflon.jpg" src="../_images/Teflon.jpg" /></a>
+</li>
+</ul>
+</li>
+<li><p>The relationship in length between the two dipoles is critical.</p>
+<ul class="simple">
+<li><p>Typically this would be measured on a network analyser and the
+feed impedance of each element set to say R+j45 ohms ( longer
+dipole) and the other to R-j45 ohms.</p></li>
+<li><p>This will give the correct phase relationship between elements.</p></li>
+<li><p>A half mm variation can have a great effect, turning a good
+antenna into a mediocre one..</p></li>
+</ul>
+</li>
+<li><p>The last image above shows a teflon tube.</p>
+<ul class="simple">
+<li><p>This is inserted in the tube from below, and fits snugly inside
+the outer tube, and over the inner tube.</p></li>
+<li><p>This is then slid up and down to adjust the ‘R’ part of R+-jX,
+till the match is a good 50ohms.</p></li>
+<li><p>This does not affect the antenna radiation pattern or
+characteristics.</p></li>
+<li><p>Obtaining a 50ohm impedance match can be done by trimming the
+element lengths as well, at the same time destroying the antenna
+radiation pattern and circularity.</p></li>
+</ul>
+</li>
+<li><p>And that is why it is not so simple to do at home, and why the ‘Hobby
+King’ et al variants sold everywhere are mostly trash.</p>
+<ul class="simple">
+<li><p>You will probably achieve a few km range with those.</p>
+<ul>
+<li><p>Remember, any old piece of wire will radiate.</p></li>
+<li><p>I easily achieve 15km with 500milliwats at 2.4GHz using two
+split sheath balun , properly matched and trimmed, crossed
+dipoles..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>For those interested:</strong></p></li>
+<li><p><strong>References are - RSGB VHF/UHF Manual - page 8.45</strong></p></li>
+<li><p><strong>Modern Antenna Design - Page 255</strong></p></li>
+<li><p>Here are some images of my <strong>split sheath balun</strong> crossed dipoles.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/AntennaDesign_Split_SheathBalunCrossedDdipoles.jpg"><img alt="../_images/AntennaDesign_Split_SheathBalunCrossedDdipoles.jpg" src="../_images/AntennaDesign_Split_SheathBalunCrossedDdipoles.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Split-Sheath Balun Crossed Dipoles</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<a class="reference external image-reference" href="../_images/antenna_split_sheath_balun_crossed_dipoles.jpg"><img alt="../_images/antenna_split_sheath_balun_crossed_dipoles.jpg" src="../_images/antenna_split_sheath_balun_crossed_dipoles.jpg" /></a>
+</li>
+</ul>
+</section>
+<section id="understanding-db-watts-and-dbm">
+<span id="common-antenna-design-understanding-db-watts-and-dbm"></span><h2>Understanding dB, Watts and dBm<a class="headerlink" href="#understanding-db-watts-and-dbm" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Watt">Watt (W)</a> is the standard
+<a class="reference external" href="https://en.wikipedia.org/wiki/International_System_of_Units">SI unit</a>
+for measuring power.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Decibel">decibel (dB)</a> is a
+logarithmic ratio that can be used to describe the non-linear
+differences between signal power values across a range (a positive or
+negative difference means a gain or a loss of the signal). For example,
+you can use a negative dB value to describe the non-linear rate of
+signal loss as as it travels through a conductive medium. The <code class="docutils literal notranslate"><span class="pre">dB</span></code>
+unit is based on log <sub>10</sub> (the “Log” function on a scientific calculator). <a class="reference external" href="https://en.wikipedia.org/wiki/DBm">dBm</a> is an abbreviation for the
+power ratio in decibels (dB) of the measured power referenced to one
+milliwatt (mW). To put it another way, the dBm value is the number of dB
+by which a value exceeds 1mW: 0dBm is 1mW, 1dBm is 1.259mW etc).</p>
+<p>The basic conversion equations are below:</p>
+<ul>
+<li><p><strong>Watt to dBm</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">*</span><span class="n">log10</span><span class="p">([</span><span class="n">signal</span> <span class="ow">in</span> <span class="n">watt</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>dBm to Watt</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10</span><span class="o">^</span><span class="p">([</span><span class="n">ratio</span> <span class="ow">in</span> <span class="n">dBm</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span><span class="o">/</span><span class="mi">1000</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Power calculations expressed in dB or dBm can use simple addition and
+subtraction. For example, consider a radio with an output of 60mW which
+is connected to an antenna with a gain of 14dBi using a 7m cable
+(attenuation 25dB per 100m). We can calculate the output power as shown:</p>
+<p><strong>TX_Power</strong>= 60mW = <strong>0.06W</strong> = <strong>17.78dBm</strong> (using conversions
+above)</p>
+<p><strong>Cable_Loss</strong> = 25dB/100m = 0.25dB per meter * 7 metres
+= <strong>1.75dB</strong></p>
+<p><strong>Antenna_Gain</strong> = <strong>14dBi</strong></p>
+<p><strong>Output_Power</strong> = <strong>TX_Power</strong> - <strong>Cable_Loss</strong> + <strong>Antenna_Gain</strong></p>
+<p><strong>Output_Power</strong> = <strong>17.78</strong> - <strong>1.75</strong> + <strong>14</strong> = <strong>30.03dB</strong> = <strong>1W</strong>
+(using conversions above)</p>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">¶</a></h2>
+<p>Much of this antenna information has been provided by Joe Noci as an
+extension of this discussion: <a class="reference external" href="https://diydrones.com/forum/topics/433-uhf-lrs-antenna-turn-stile">433 UHF LRS Antenna “Turn Stile”</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-mission-planner-gps-based-antenna-tracking.html" class="btn btn-neutral float-left" title="Mission Planner GPS-based Antenna Tracking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-simulation.html" class="btn btn-neutral float-right" title="Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

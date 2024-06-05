@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloading and Analyzing Data Logs in Mission Planner &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Downloading and Analyzing Data Logs in Mission Planner</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="downloading-and-analyzing-data-logs-in-mission-planner">
+<span id="common-downloading-and-analyzing-data-logs-in-mission-planner"></span><h1>Downloading and Analyzing Data Logs in Mission Planner<a class="headerlink" href="#downloading-and-analyzing-data-logs-in-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>Dataflash logs are stored on the autopilot
+and can be download after a flight. By default, they are created after you first
+arm the vehicle. This topic explains how to configure and access
+Dataflash logs.</p>
+<p>Depending on the autopilot type and configuration, the dataflash logs may be saved on a SD card, dataflash chip or streamed over MAVLink telemetry ports. The MAVLink option does require a high-speed telemetry port, typically 921600 baud.</p>
+<p>[copywiki destination=”copter,plane,rover,dev,planner”]</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-telemetry-logs.html#mission-planner-telemetry-logs" title="(in Mission Planner)"><span class="xref std std-ref">Telemetry logs</span></a> (also known as “tlogs”) collect similar information to dataflash logs (see <a class="reference internal" href="common-diagnosing-problems-using-logs.html#common-diagnosing-problems-using-logs"><span class="std std-ref">Diagnosing problems using Logs</span></a> for more information).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your vehicle is having trouble producing dataflash logs - including the infamous “No IO heartbeat” diagnostic message - try a different SD card.  You may also choose to test the card using a dedicated tool, such as <code class="docutils literal notranslate"><span class="pre">H2testw</span></code>.  Low board voltages are also known to cause logging issues.</p>
+</div>
+<section id="logging-parameters">
+<h2>Logging Parameters<a class="headerlink" href="#logging-parameters" title="Permalink to this heading">¶</a></h2>
+<p>Some commonly used parameters are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-backend-type" title="(in Rover)"><span class="xref std std-ref">LOG_BACKEND_TYPE</span></a>: Bitmask for where to save logs to. Common values are “0” to disable logging, “1” (bit 0 set) to log to SD card file, “2”(bit 1 set) to stream over MAVLink and “4”(bit 2 set) to log to board dataflash memory, if equipped.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-bitmask" title="(in Rover)"><span class="xref std std-ref">LOG_BITMASK</span></a>: Bitmask for what items are logged. Normally, use default value, or “0” to disable logging.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-disarmed" title="(in Rover)"><span class="xref std std-ref">LOG_DISARMED</span></a>: Setting to 1 will start logging when power is applied, rather than at the first arming of the vehicle. Useful when debugging pre-arm failures. Setting to 2 will only log on power application other than USB power to prevent logging while setting up on the bench. Setting to 3 will also erase any log in which the vehicle does not proceed to the armed stated. This prevents accumulating numerous logs while configuring on the bench or at the field. See <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-darm-ratemax" title="(in Rover)"><span class="xref std std-ref">LOG_DARM_RATEMAX</span></a> also for managing log file sizes while logging disarmed.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-file-dsrmrot" title="(in Rover)"><span class="xref std std-ref">LOG_FILE_DSRMROT</span></a>: Setting this bit will force the creation of a new log file after disarming, waiting 15 seconds, and then re-arming. Normally, a log will be one file for every power cycle of the autopilot, beginning upon first arm.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-file-mb-free" title="(in Rover)"><span class="xref std std-ref">LOG_FILE_MB_FREE</span></a>: This parameter sets the minimum free space on the logging media before logging begins. If this is not available, then older logs will be deleted to provide it during initialization. Default is 500MB.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-file-ratemax" title="(in Rover)"><span class="xref std std-ref">LOG_FILE_RATEMAX</span></a>: This sets the maximum rate that streaming log messages will be logged to the file backend to limit file sizes. A value of zero(default) means no limit is applied to normal logging, which depends on the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a> value ( 50Hz: Plane, 300Hz: QuadPlane/Rover, 400Hz: Copter, normally). Note that similarly, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-blk-ratemax" title="(in Rover)"><span class="xref std std-ref">LOG_BLK_RATEMAX</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-mav-ratemax" title="(in Rover)"><span class="xref std std-ref">LOG_MAV_RATEMAX</span></a> perform the same optional limiting for the BLOCK logging and MAVLink logging streams, respectively.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you suspect that you are missing logging entries due to excessive logging speed, you can check the DSF.Dp log message for the amount of missed entries.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Logging of the continuously streaming log messages, such as attitude, sensors, etc. can be paused by using the <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> auxiliary function “164” on a transmitter channel. Switching this channel high will pause these messages, but not events, mode changes, warnings, etc. This allows autopilots with limited logging capabilites (ie using Block logging to chip memory and no SD card) to log only when desired during the flight, as during tuning phases or determination of TECs parameters, etc. You can also eliminate unneeded log messages using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-bitmask" title="(in Rover)"><span class="xref std std-ref">LOG_BITMASK</span></a> to reduce log size</p>
+</div>
+<section id="replay-logging">
+<h3>Replay Logging<a class="headerlink" href="#replay-logging" title="Permalink to this heading">¶</a></h3>
+<p>ArduPilot has the ability to log in a fashion that solutions to EKF/AHRS issues can be more easily verified by actually re-playing a log against code changes to see if the solution results in the desired, corrected behavior. This requires that the logs showing the issue to be worked on be made with logging active during disarmed periods (with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-disarmed" title="(in Rover)"><span class="xref std std-ref">LOG_DISARMED</span></a> set to a non-zero value, preferably 3) and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-replay" title="(in Rover)"><span class="xref std std-ref">LOG_REPLAY</span></a> =1 , thereby logging more sensor data than normal.</p>
+</section>
+</section>
+<section id="on-board-dataflash-logging">
+<h2>On-Board DataFlash Logging<a class="headerlink" href="#on-board-dataflash-logging" title="Permalink to this heading">¶</a></h2>
+<p>Some boards do not have SD card interfaces for logging, but rather a limited amount of dataflash, typically 16MB. This saves log files in a manner like a circular buffer. Once the flash is filled, the oldest log file is overwritten with the current logging data. If there is only one file on the flash when space runs out, logging is stopped instead.</p>
+<p>A new log file will be started after boot, upon arming, or, immediately if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-disarmed" title="(in Rover)"><span class="xref std std-ref">LOG_DISARMED</span></a> is 1.</p>
+<p>If <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-file-dsrmrot" title="(in Rover)"><span class="xref std std-ref">LOG_FILE_DSRMROT</span></a> is enabled, any disarm will stop logging and a new file started upon the next arm or immediately if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-disarmed" title="(in Rover)"><span class="xref std std-ref">LOG_DISARMED</span></a> is 1. Otherwise, logging to the current file will resume on a re-arm. Any reboot stops logging to the current file.</p>
+<p>In order to maximize the utility of the limited flash space several things can be done:</p>
+<ul class="simple">
+<li><p>Reduce the things logged using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-bitmask" title="(in Rover)"><span class="xref std std-ref">LOG_BITMASK</span></a>.</p></li>
+<li><p>Eliminate logging the EKF3 messages which are voluminous and usually needed only for problem diagnosis using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-log-level" title="(in Rover)"><span class="xref std std-ref">EK3_LOG_LEVEL</span></a> parameter.</p></li>
+<li><p>Only log when needed during the flight, ie tuning, gathering data for TECS tuning, etc. using an RC Aux switch set to “164” to start and stop log writes.</p></li>
+<li><p>Reduce the logging rate to a slower rate (below 10Hz) by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-blk-ratemax" title="(in Rover)"><span class="xref std std-ref">LOG_BLK_RATEMAX</span></a> which is by default unrestricted.</p></li>
+<li><p>Download and erase the logs each flight and only log one file for a flight</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>some dataflash chips are particularly slow, leading to gaps in the logs. Setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-blk-ratemax" title="(in Rover)"><span class="xref std std-ref">LOG_BLK_RATEMAX</span></a> to a lower value can help eliminate these gaps.</p>
+</div>
+</section>
+<section id="downloading-logs-via-mavlink">
+<span id="common-downloading-and-analyzing-data-logs-in-mission-planner-downloading-logs-via-mavlink"></span><h2>Downloading logs via MAVLink<a class="headerlink" href="#downloading-logs-via-mavlink" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect your vehicle to the ground station using the micro USB cable</p></li>
+<li><p>Open the Mission Planner’s Flight Data screen</p></li>
+<li><p>On the bottom left, select the “DataFlash Logs” tab and push the
+“Download DataFlash Log Via Mavlink” button</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/mission_planner_download_logs.png"><img alt="../_images/mission_planner_download_logs.png" src="../_images/mission_planner_download_logs.png" /></a>
+<p>Then, select the log you want to download. This will save that log to
+your MissionPlanner/logs directory, in a folder named after the vehicle
+type, such as QUADCOPTER.</p>
+</section>
+<section id="automatic-analysis-of-logs">
+<h2>Automatic Analysis of logs<a class="headerlink" href="#automatic-analysis-of-logs" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/MissionPlanner_AutomaticLogAnalysis_Buttons.png"><img alt="../_images/MissionPlanner_AutomaticLogAnalysis_Buttons.png" src="../_images/MissionPlanner_AutomaticLogAnalysis_Buttons.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Start LogAnalysis</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The simplest analysis is to generate a basic automated report that will
+highlight common problem areas. For that, click on “Log Analysis”
+and select a log that you’ve already saved to the MissionPlanner/logs
+directory.  They will be in folders named after the vehicle type, such
+as QUADCOPTER or ROVER. Once you pick the log you want, it will generate
+a report that looks like this:</p>
+<a class="reference external image-reference" href="../_images/Capture3.png"><img alt="../_images/Capture3.png" src="../_images/Capture3.png" /></a>
+</section>
+<section id="manually-review-a-log">
+<h2>Manually review a log<a class="headerlink" href="#manually-review-a-log" title="Permalink to this heading">¶</a></h2>
+<p>For more detailed analysis, click on “Review a Log” and select a log
+that you’ve already saved to the MissionPlanner/logs directory.  Once
+again, they will be in folders named after the vehicle type, such as
+QUADCOPTER or ROVER.</p>
+<section id="steps-to-review-a-log-downloaded-from-the-internet-or-your-vehicle">
+<h3>Steps to review a log downloaded from the internet, or your vehicle<a class="headerlink" href="#steps-to-review-a-log-downloaded-from-the-internet-or-your-vehicle" title="Permalink to this heading">¶</a></h3>
+<p>For DataFlash logs, with a .bin or .log extension:</p>
+<ol class="arabic simple">
+<li><p>Download the log file. Note the place on your computer to which it is downloaded. (For example, it might be C:\Downloads)</p></li>
+<li><p>Open Mission Planner</p></li>
+<li><p>Navigate to the “Flight Data” page (top left)</p></li>
+<li><p>Select the “Dataflash Logs” tab (mid-screen, left side)</p></li>
+<li><p>Select the “Review a Log” button.</p></li>
+<li><p>A standard Windows “select a file” box will let you go find the .bin file that you downloaded, at the place that you downloaded it. (Per the example above, it is in C:\Downloads) Choose that file.</p></li>
+<li><p>After reading the log, a Manual Log Review window will be open, which allows you to plot data from the log for inspection. (see below)</p></li>
+</ol>
+</section>
+<section id="reviewing-the-log-data">
+<h3>Reviewing the log data<a class="headerlink" href="#reviewing-the-log-data" title="Permalink to this heading">¶</a></h3>
+<p>Once you pick the log you want, you will get charts
+such as the below. The basic format of the dataflash is:</p>
+<ul class="simple">
+<li><p>Line numbers appear on the very left side of the viewer</p></li>
+<li><p>Software version and board type appear at the top</p></li>
+<li><p>FMT messages are next which tell the mission planner the column
+headers for each message type</p></li>
+<li><p>PARM rows which show each parameter (in the order in which they
+appear in the eeprom) along with their value at the beginning of the
+flight</p></li>
+<li><p>Flight data messages including GPS, IMU, etc.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/mp_dataflash_format.png"><img alt="../_images/mp_dataflash_format.png" src="../_images/mp_dataflash_format.png" /></a>
+<p>Graph any flight data by first clicking on the appropriate row, you
+should see the column headers update appropriately. Next find the column
+you wish to graph, click on it and then push the “Graph this data”
+button. In the example above the ATT’s Roll-In and Roll data have been
+graphed. The mouse’s scroll wheel can be used to zoom in or out. You may
+also select an area of the graph to zoom in on it. Zoom out by
+right-mouse-button clicking and selecting “Set Scale to Default”.
+<a class="reference external" href="https://www.diydrones.com/profiles/blog/show?id=705844%3ABlogPost%3A801607">Here’s</a>
+a mini tutorial on using this feature. You may also filter on just the
+first column (the flight data message type) by clicking on the first
+column and selecting the message type from the drop-down. This is very
+useful especially for viewing the different flight modes (called “MODE”
+messages) used during the mission. Click the first column again but
+press “Cancel” to clear the filter.</p>
+<a class="reference external image-reference" href="../_images/MissionPlanner_CLI_openDataflashFilter.png"><img alt="../_images/MissionPlanner_CLI_openDataflashFilter.png" src="../_images/MissionPlanner_CLI_openDataflashFilter.png" /></a>
+</section>
+</section>
+<section id="setting-what-data-you-want-recorded">
+<h2>Setting what data you want recorded<a class="headerlink" href="#setting-what-data-you-want-recorded" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#log-bitmask" title="(in Rover)"><span class="xref std std-ref">LOG_BITMASK</span></a> parameter controls what messages are recorded in the logs. The bits differ between vehicles. The image above is for Copter.</p>
+<a class="reference external image-reference" href="../_images/mp_dataflash_log_bitmask.png"><img alt="../_images/mp_dataflash_log_bitmask.png" src="../_images/mp_dataflash_log_bitmask.png" /></a>
+<p>[site wiki=”plane”]</p>
+<section id="bitmask-table-plane">
+<h3>Bitmask Table (Plane)<a class="headerlink" href="#bitmask-table-plane" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>BitMask Name</p></th>
+<th class="head"><p>What is logged if bit is set</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Fast Attitude</p></td>
+<td><p>Attitude &#64; 25Hz</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Medium Attitude</p></td>
+<td><p>Attitude &#64; 10Hz</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>GPS</p></td>
+<td><p>GPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>System Performance</p></td>
+<td><p>CPU,etc. Performance monitoring</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Control Tuning</p></td>
+<td><p>Control Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Navigation Tuning</p></td>
+<td><p>Navigation Data</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>IMU</p></td>
+<td><p>IMU (ACC/Gyro) Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Mission Commands</p></td>
+<td><p>Mission/GCS Commands</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Battery Monitor</p></td>
+<td><p>Battery Monitors data</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Compass</p></td>
+<td><p>Compasses Data</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>TECS</p></td>
+<td><p>Speed/Height Controller Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Camera</p></td>
+<td><p>Camera Data (if present)</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>RC Input &amp; Output</p></td>
+<td><p>RC input/Servo output data</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Rangefinder</p></td>
+<td><p>Rangefinder Data (if present)</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Raw IMU</p></td>
+<td><p>Raw IMU data, unprocessed</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Full Rate Attitude</p></td>
+<td><p>Attitude at <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Video Stabilization</p></td>
+<td><p>GyroFlow Data logs</p></td>
+</tr>
+</tbody>
+</table>
+<p>ATTITUDE logging will occur at highest rate of the selections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the logging of EKF3 data is controlled by the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-log-level" title="(in Rover)"><span class="xref std std-ref">EK3_LOG_LEVEL</span></a> parameter.</p>
+</div>
+<p>[/site]
+[site wiki=”copter”]</p>
+</section>
+<section id="bitmask-table-copter">
+<h3>Bitmask Table (Copter)<a class="headerlink" href="#bitmask-table-copter" title="Permalink to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>BitMask Name</p></th>
+<th class="head"><p>What is logged if bit is set</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Fast Attitude</p></td>
+<td><p>Attitude &#64; <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Medium Attitude</p></td>
+<td><p>Attitude &#64; 10Hz</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>GPS</p></td>
+<td><p>GPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>System Performance</p></td>
+<td><p>CPU,etc. Performance monitoring</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Control Tuning</p></td>
+<td><p>Control Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Navigation Tuning</p></td>
+<td><p>Navigation Data</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>RC Input</p></td>
+<td><p>RC Input data</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>IMU</p></td>
+<td><p>IMU (ACC/Gyro) Data</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Mission Commands</p></td>
+<td><p>Mission/GCS Commands</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Battery Monitor</p></td>
+<td><p>Battery Monitors Data</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>RC Output</p></td>
+<td><p>Servo Output</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Optical Flow</p></td>
+<td><p>Optical Flow Data</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>PID</p></td>
+<td><p>PID controllers Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Compass</p></td>
+<td><p>Compass Data</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Camera</p></td>
+<td><p>Camera Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>Motors</p></td>
+<td><p>Motor Data</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Raw IMU</p></td>
+<td><p>Raw IMU data, unprocessed</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Video Stabilization</p></td>
+<td><p>Attitude at <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>Fast harmonic notch</p></td>
+<td><p>Fast harmonic notch</p></td>
+</tr>
+</tbody>
+</table>
+<p>ATTITUDE logging will occur at highest rate of the selections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the logging of EKF3 data is controlled by the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-log-level" title="(in Rover)"><span class="xref std std-ref">EK3_LOG_LEVEL</span></a> parameter.</p>
+</div>
+<p>[/site]
+[site wiki=”rover”]
+Bitmask Table (Rover)
+———————</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>BitMask Name</p></th>
+<th class="head"><p>What is logged if bit is set</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Fast Attitude</p></td>
+<td><p>Attitude &#64; 400Hz</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Medium Attitude</p></td>
+<td><p>Attitude &#64; 10Hz</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>GPS</p></td>
+<td><p>GPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>System Performance</p></td>
+<td><p>CPU,etc. Performance monitoring</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Throttle</p></td>
+<td><p>Throttle/Speed Control Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Navigation Tuning</p></td>
+<td><p>Navigation Data</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>IMU</p></td>
+<td><p>IMU (ACC/Gyro) Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Mission Commands</p></td>
+<td><p>Mission/GCS Commands</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Battery Monitor</p></td>
+<td><p>Battery Monitors Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Rangefinder</p></td>
+<td><p>Rangefinder Data (if present)</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Compass</p></td>
+<td><p>Compasses Data</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Camera</p></td>
+<td><p>Camera Data (if present)</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Steering</p></td>
+<td><p>Steering rates and targets</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>RC Input &amp; Output</p></td>
+<td><p>RC input/Servo output data</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>Raw IMU</p></td>
+<td><p>Raw IMU data, unprocessed</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>Video Stabilization</p></td>
+<td><p>GyroFlow Data logs</p></td>
+</tr>
+</tbody>
+</table>
+<p>ATTITUDE logging will occur at highest rate of the selections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the logging of EKF3 data is controlled by the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-log-level" title="(in Rover)"><span class="xref std std-ref">EK3_LOG_LEVEL</span></a> parameter.</p>
+</div>
+<p>[/site]</p>
+</section>
+</section>
+<section id="message-details-copter-specific">
+<span id="common-downloading-and-analyzing-data-logs-in-mission-planner-message-details-copter-specific"></span><h2>Message Details (Copter specific)<a class="headerlink" href="#message-details-copter-specific" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many messages are detailed in the <a class="reference external" href="https://ardupilot.org/rover/docs/logmessages.html#logmessages" title="(in Rover)"><span>Onboard Message Log Messages</span></a> page in each vehicle’s wiki section.</p>
+</div>
+<p><strong>ATT (attitude information):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>DesRoll</p></td>
+<td><p>The pilot’s desired roll angle in degrees (roll left is negative, right is positive)</p></td>
+</tr>
+<tr class="row-even"><td><p>Roll</p></td>
+<td><p>The vehicle’s actual roll in degrees (roll left is negative, right is positive)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DesPitch</p></td>
+<td><p>The pilot’s desired pitch angle in degrees (pitch forward is negative, pitch back is positive)</p></td>
+</tr>
+<tr class="row-even"><td><p>Pitch</p></td>
+<td><p>The vehicle’s actual pitch angle in degrees (pitch forward is negative, pitch back is positive)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DesYaw</p></td>
+<td><p>The pilot’s desired heading in degrees with 0 = north</p></td>
+</tr>
+<tr class="row-even"><td><p>Yaw</p></td>
+<td><p>The vehicle’s actual heading in degrees with 0 = north</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErrRP</p></td>
+<td><p>The average size of the roll/pitch error estimate (values between 0 and 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>ErrYaw</p></td>
+<td><p>The average size of the yaw error estimate (values between 0 and 1)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ATUN (auto tune overview):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Axis: 0 = Roll, 1 = Pitch</p></td>
+</tr>
+<tr class="row-even"><td><p>TuneStep</p></td>
+<td><p>0 = Returning towards Level (before
+or after a test), 1 = Testing (i.e.
+performing a twitch to test
+response), 2 = Updating gains
+(twitch completed and gains
+adjusted)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RateMin</p></td>
+<td><p>Minimum recorded rate during this
+test</p></td>
+</tr>
+<tr class="row-even"><td><p>RateMax</p></td>
+<td><p>Maximum recorded rate during this
+test</p></td>
+</tr>
+<tr class="row-odd"><td><p>RPGain</p></td>
+<td><p>Rate P gain value being tested</p></td>
+</tr>
+<tr class="row-even"><td><p>RDGain</p></td>
+<td><p>Rate D gain value being tested</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPGain</p></td>
+<td><p>Stabilize P gain being tested</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ATDE (auto tune step details):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Angle</p></td>
+<td><p>Angle of the copter in centi-degrees for the axis being testedx</p></td>
+</tr>
+<tr class="row-even"><td><p>Rate</p></td>
+<td><p>Rate of rotation of the copter for the axis being tested</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CAM (time and position when camera shutter was activated):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>GPSTime</p></td>
+<td><p>The GPS reported time since epoch in milliseconds</p></td>
+</tr>
+<tr class="row-even"><td><p>Lat</p></td>
+<td><p>The accelerometer + GPS latitude estimate</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lng</p></td>
+<td><p>The accelerometer + GPS longitude estimate</p></td>
+</tr>
+<tr class="row-even"><td><p>Alt</p></td>
+<td><p>The accelerometer + barometer estimated altitude in cm above ground</p></td>
+</tr>
+<tr class="row-odd"><td><p>Roll</p></td>
+<td><p>The vehicle roll angle in centi-degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>Pitch</p></td>
+<td><p>The vehicle pitch angle in centi-degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yaw</p></td>
+<td><p>The vehicle’s heading in centi-degrees</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CMD (commands received from the ground station or executed as part of
+a mission):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>CTot</p></td>
+<td><p>The total number of commands in the mission</p></td>
+</tr>
+<tr class="row-even"><td><p>CNum</p></td>
+<td><p>This command’s number in the mission (0 is always home, 1 is the first command, etc)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CId</p></td>
+<td><p>The <a class="reference external" href="https://mavlink.io/en/messages/common.html">MAVLink message id</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Copt</p></td>
+<td><p>The option parameter (used for many different purposes)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prm1</p></td>
+<td><p>The command’s parameter (used for many different purposes)</p></td>
+</tr>
+<tr class="row-even"><td><p>Alt</p></td>
+<td><p>The command’s altitude in meters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lat</p></td>
+<td><p>The command’s latitude position</p></td>
+</tr>
+<tr class="row-even"><td><p>Lng</p></td>
+<td><p>The command’s longitude position</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>COMPASS (raw compass, offset and compassmot compensation values):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Field</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>MagX, MagY. MagZ</p></td>
+<td><p>Raw magnetic field values for x, y and z axis</p></td>
+</tr>
+<tr class="row-odd"><td><p>OfsX, OfsY, OfsZ</p></td>
+<td><p>Raw magnetic offsets (will only change if COMPASS_LEARN parameter is 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>MOfsX, MOfsY, MOfsZ</p></td>
+<td><p>Compassmot compensation for throttle or current</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CURRENT (battery voltage, current and board voltage information):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>Thr</p></td>
+<td><p>Pilot input throttle from 0 ~ 1000</p></td>
+</tr>
+<tr class="row-odd"><td><p>ThrInt</p></td>
+<td><p>Integrated throttle (i.e. sum of total throttle output for this flight)</p></td>
+</tr>
+<tr class="row-even"><td><p>Volt</p></td>
+<td><p>Battery voltage in volts * 100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Curr</p></td>
+<td><p>Current drawn from the battery in amps * 100</p></td>
+</tr>
+<tr class="row-even"><td><p>Vcc</p></td>
+<td><p>Board voltage</p></td>
+</tr>
+<tr class="row-odd"><td><p>CurrTot</p></td>
+<td><p>Total current drawn from battery</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CTUN (Control, Throttle and altitude information):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>TimeUS</p></td>
+<td><p>Time stamp for messages in microseconds (can be ignored)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ThI</p></td>
+<td><p>The pilot’s throttle in as a number from 0 to 1000</p></td>
+</tr>
+<tr class="row-even"><td><p>ABst</p></td>
+<td><p>Angle Boost: throttle increase (from 0 ~ 1000) as a result of the copter leaning over
+(automatically added to all pilot and autopilot throttle to reduce altitude loss while leaning)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ThO</p></td>
+<td><p>Final throttle output sent to the motors (from 0 ~ 1000). Normally equal to ThrI+ABst while
+in stabilize mode.</p></td>
+</tr>
+<tr class="row-even"><td><p>ThH</p></td>
+<td><p>Estimated throttle required to hover throttle in the range 0 ~ 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>DAlt</p></td>
+<td><p>The Desired Altitude while in AltHold, Loiter, RTL or Auto flight modes.
+It is influenced by EKF origin, which in 3.5.X is corrected by GPS altitude. This behaviour is
+turned off in 3.6.X and can be turned on with EKF_OGN_HGT_MASK.</p></td>
+</tr>
+<tr class="row-even"><td><p>Alt</p></td>
+<td><p>The current EKF Altitude</p></td>
+</tr>
+<tr class="row-odd"><td><p>BAlt</p></td>
+<td><p>Barometer Altitude: The altitude above ground according to the barometer</p></td>
+</tr>
+<tr class="row-even"><td><p>DSAlt</p></td>
+<td><p>Desired distance in cm from ground or ceiling (only visible if Sonar is available)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SAlt</p></td>
+<td><p>Sonar Altitude: the altitude above ground according to the sonar
+(Only visible of Sonar is available)</p></td>
+</tr>
+<tr class="row-even"><td><p>TAlt</p></td>
+<td><p>Terrain altitude (not used by default)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCRt</p></td>
+<td><p>Desired Climb Rate in cm/s</p></td>
+</tr>
+<tr class="row-even"><td><p>CRt</p></td>
+<td><p>Climb Rate in cm/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>N</p></td>
+<td><p>Harmonic notch current center frequency for gyro in Hz</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D32, DU32 (single data values which are either signed 32bit integers
+or unsigned 32bit integers):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>Identification number for the variable. There are only two possible values:</p>
+<ul class="simple">
+<li><p>7 = bit mask of internal state (The meaning of individual bits can be found in the def’n of the
+<a class="reference external" href="https://github.com/ardupilot/ardupilot/blob/master/ArduCopter/Copter.h#L296">ap structure</a></p></li>
+<li><p>9 = simple mode’s initial heading in centi-degrees</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>EKF (Extended Kalman Filter</strong>):</p>
+<p><a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter-interpreting-log-data" title="(in Dev)"><span class="xref std std-ref">Log information here</span></a>
+(Dev Wiki). Overview <a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html#common-apm-navigation-extended-kalman-filter-overview"><span class="std std-ref">here</span></a>.</p>
+<p><strong>ERR (an error message):</strong></p>
+<p>SubSystem and Error codes listed below</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Subsys</th>
+<th>ECode and Description</th>
+</tr>
+<tr>
+<td>2 = Radio</td>
+<td><ul class="simple">
+<li><p>0 = Errors Resolved</p></li>
+<li><p>2 = Late Frame : no updates received from receiver for two seconds</p></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3 = Compass</td>
+<td><ul class="simple">
+<li><p>0 = Errors Resolved</p></li>
+<li><p>1 = Failed to initialise (probably a hardware issue)</p></li>
+<li><p>4 = Unhealthy : failed to read from the sensor</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>5 = Radio Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>6 = Battery Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>8 = GCS Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>9 = Fence Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Altitude fence breach, Failsafe Triggered</p></li>
+<li><p>2 = Circular fence breach, Failsafe Triggered</p></li>
+<li><p>3 = Both Alt and Circular fence breached, Failsafe Triggered</p></li>
+<li><p>4 = Polygon fence breached, Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>10 = Flight mode Change failure</td>
+<td><p>Vehicle was unable to enter the desired flight mode normally because of a bad position estimate</p>
+<p>See <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/ArduCopter/defines.h#L34">flight mode numbers here</a></p>
+</td>
+</tr>
+
+<tr>
+<td>11 = GPS</td>
+<td><ul class="simple">
+<li><p>0 = Glitch cleared</p></li>
+<li><p>2 = GPS Glitch occurred</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>12 = Crash Check</td>
+<td><ul class="simple">
+<li><p>1 = Crash into ground detected.  Normally vehicle is disarmed soon after</p></li>
+<li><p>2 = Loss of control detected.  Normally parachute is released soon after</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>13 = Flip mode</td>
+<td>2 = Flip abandoned (not armed, pilot input or timeout)</td>
+</tr>
+<tr>
+<td>15 = Parachute</td>
+<td><ul class="simple">
+<li><p>2 = Not Deployed, vehicle too low</p></li>
+<li><p>3 = Not Deployed, vehicle landed</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>16 = EKF Check</td>
+<td><ul class="simple">
+<li><p>0 = Variance cleared (position estimate OK)</p></li>
+<li><p>2 = Bad Variance (position estimate bad)</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>17 = EKF Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>18 = Barometer</td>
+<td><ul class="simple">
+<li><p>0 = Errors Resolved</p></li>
+<li><p>4 = Unhealthy : failed to read from the sensor</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>19 = CPU Load Watchdog</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Failsafe Triggered (normally vehicle disarms)</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>20 = ADSB Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = No action just report to Pilot</p></li>
+<li><p>2 = Vehicle avoids by climbing or descending</p></li>
+<li><p>3 = Vehicle avoids by moving horizontally</p></li>
+<li><p>4 = Vehicle avoids by moving perpendicular to other vehicle</p></li>
+<li><p>5 = RTL invoked</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>21 = Terrain Data</td>
+<td>2 = missing terrain data</td>
+</tr>
+
+<tr>
+<td>22 = Navigation</td>
+<td><ul class="simple">
+<li><p>2 = Failed to set destination</p></li>
+<li><p>3 = RTL restarted</p></li>
+<li><p>4 = Circle initialisation failed</p></li>
+<li><p>5 = Destination outside fence</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>23 = Terrain Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Failsafe Resolved</p></li>
+<li><p>1 = Failsafe Triggered (normally vehicle RTLs)</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>24 = EKF Primary changed</td>
+<td><ul class="simple">
+<li><p>0 = 1st EKF has become primary</p></li>
+<li><p>1 = 2nd EKF has become primary</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>25 = Thrust Loss Check</td>
+<td><ul class="simple">
+<li><p>0 = Thrust Restored</p></li>
+<li><p>1 = Thrust Loss Detected (altitude may be prioritised over yaw control)</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>26 = Sensor Failsafe (Sub)</td>
+<td><ul class="simple">
+<li><p>0 = Sensor Failsafe Cleared</p></li>
+<li><p>1 = Sensor Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>27 = Leak Failsafe (Sub)</td>
+<td><ul class="simple">
+<li><p>0 = Leak Failsafe Cleared</p></li>
+<li><p>1 = Leak Detector Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>28 = Pilot Input Timeout Failsafe (Sub only)</td>
+<td><ul class="simple">
+<li><p>0 = Pilot Input Failsafe Cleared</p></li>
+<li><p>1 = Pilot Input Failsafe Triggered</p></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>29 = Vibration Failsafe</td>
+<td><ul class="simple">
+<li><p>0 = Excessive Vibration Compensation De-activated</p></li>
+<li><p>1 = Excessive Vibration Compenstaion Activated</p></li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table><p><strong>EV: (an event number)</strong>. The full list of possible events can be found
+in <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Logger/AP_Logger.h#L94">AP_Logger.h</a>
+but the most common are:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Event No</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Armed</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Disarmed</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Auto Armed (pilot has raised throttle above zero and autopilot is free to take control of throttle)</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>Land Complete</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>Set Home (home location coordinates have been capture)</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>Not Landed (aka Takeoff complete)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>GPA: (Global Position Accuracy)</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>VDop</p></td>
+<td><p>Vertical dilution of precision, a unitless measure of precision
+<a class="reference external" href="https://en.wikipedia.org/wiki/Dilution_of_precision">https://en.wikipedia.org/wiki/Dilution_of_precision</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>HAcc</p></td>
+<td><p>Horizontal Accuracy as reported by the GPS module, in meters</p></td>
+</tr>
+<tr class="row-even"><td><p>VAcc</p></td>
+<td><p>Vertical Accuracy as reported by the GPS module, in meters</p></td>
+</tr>
+<tr class="row-odd"><td><p>SAcc</p></td>
+<td><p>Speed accuracy as reported by the GPS, in m/s/s</p></td>
+</tr>
+<tr class="row-even"><td><p>VV</p></td>
+<td><dl class="simple">
+<dt>Flag to indicate if the GPS is reporting vertical velocity</dt><dd><p>0 No vertical velocity data
+1 GPS has vertical velocity data</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SMS</p></td>
+<td><p>The autopilot time in milliseconds that the accuracy/GPS position data is associated with.</p></td>
+</tr>
+<tr class="row-even"><td><p>Delta</p></td>
+<td><p>The time between when the previous GPS message and the current GPS message was parsed by the
+autopilot, in milliseconds</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>GPS:</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>Status</p></td>
+<td><p>0 = no GPS, 1 = GPS but no fix, 2 = GPS with 2D fix, 3 = GPS with 3D fix</p></td>
+</tr>
+<tr class="row-odd"><td><p>Time</p></td>
+<td><p>The GPS reported time since epoch in milliseconds</p></td>
+</tr>
+<tr class="row-even"><td><p>NSats</p></td>
+<td><p>The number of satellites current being used</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDop</p></td>
+<td><p>A measure of gps precision (1.5 is good, &gt;2.0 is not so good)
+<a class="reference external" href="https://en.wikipedia.org/wiki/Dilution_of_precision">https://en.wikipedia.org/wiki/Dilution_of_precision</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Lat</p></td>
+<td><p>Latitude according to the GPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lng</p></td>
+<td><p>Longitude according to the GPS</p></td>
+</tr>
+<tr class="row-even"><td><p>RelAlt</p></td>
+<td><p>Accelerometer + Baro altitude in meters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alt</p></td>
+<td><p>GPS reported altitude (not used by the autopilot)</p></td>
+</tr>
+<tr class="row-even"><td><p>SPD</p></td>
+<td><p>Horizontal ground speed in m/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>GCrs</p></td>
+<td><p>Ground course in degrees (0 = north)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>IMU (accelerometer and gyro information):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>GyrX, GyrY, GyrZ</p></td>
+<td><p>The raw gyro rotation rates in radians/second</p></td>
+</tr>
+<tr class="row-odd"><td><p>AccX, AccY, AccZ</p></td>
+<td><p>The raw accelerometer values in m/s/s</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mode (flight mode):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>Mode</p></td>
+<td><p>The flight mode displayed as a string (i.e. STABILIZE, LOITER, etc)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ThrCrs</p></td>
+<td><p>Throttle cruise (from 0 ~ 1000) which is the autopilot’s best guess as to what throttle
+is required to maintain a stable hover</p></td>
+</tr>
+<tr class="row-even"><td><p>Rsn</p></td>
+<td><p>Reason for mode change (TX command, failsafe, etc) . The meaning of code values can be found in
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Vehicle/ModeReason.h">ModeReason</a></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>NTUN (navigation information):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>WPDst</p></td>
+<td><p>Distance to the next waypoint (or loiter target) in cm. Only updated while in Loiter, RTL, Auto.</p></td>
+</tr>
+<tr class="row-odd"><td><p>WPBrg</p></td>
+<td><p>Bearing to the next waypoint in degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>PErX</p></td>
+<td><p>Distance to intermediate target between copter and the next waypoint in the latitude direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>PErY</p></td>
+<td><p>Distance to intermediate target between copter and the next waypoint in the longitude direction</p></td>
+</tr>
+<tr class="row-even"><td><p>DVelX</p></td>
+<td><p>Desired velocity in cm/s in the latitude direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>DVelY</p></td>
+<td><p>Desired velocity in cm/s in the longitude direction</p></td>
+</tr>
+<tr class="row-even"><td><p>VelX</p></td>
+<td><p>Actual accelerometer + gps velocity estimate in the latitude direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>VelY</p></td>
+<td><p>Actual accelerometer + gps velocity estimate in the longitude direction</p></td>
+</tr>
+<tr class="row-even"><td><p>DAcX</p></td>
+<td><p>Desired acceleration in cm/s/s in the latitude direction</p></td>
+</tr>
+<tr class="row-odd"><td><p>DAcY</p></td>
+<td><p>Desired acceleration in cm/s/s in the longitude direction</p></td>
+</tr>
+<tr class="row-even"><td><p>DRol</p></td>
+<td><p>Desired roll angle in centi-degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>DPit</p></td>
+<td><p>Desired pitch angle in centi-degrees</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>PM (performance monitoring):</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>FIELD</p></td>
+<td><p>DESCRIPTION</p></td>
+</tr>
+<tr class="row-even"><td><p>NLon</p></td>
+<td><p>Number of long running main loops (i.e. loops that take more than 20% longer
+than they should according to <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sched-loop-rate" title="(in Rover)"><span class="xref std std-ref">SCHED_LOOP_RATE</span></a> - ex. 3ms for 400Hz rate)</p></td>
+</tr>
+<tr class="row-odd"><td><p>NLoop</p></td>
+<td><p>The total number of loops since the last PM message was displayed. This allows you to calculate
+the percentage of slow running loops (which should never be higher than 15%). Note that the
+value will depend on the autopilot clock speed</p></td>
+</tr>
+<tr class="row-even"><td><p>MaxT</p></td>
+<td><p>The maximum time that any loop took since the last PM message. This shouldn’t exceed 120% of
+scheduler loop period, but will be much higher during the interval where the motors are armed</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mem</p></td>
+<td><p>Available memory, in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>Load</p></td>
+<td><p>Percentage (times 10) of the scheduler loop period when CPU is used</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>RCOUT (pwm output to individual RC outputs):</strong></p>
+<p>RC1, RC2, etc : pwm command sent from autopilot to the
+esc/motor/RC output</p>
+</section>
+<section id="viewing-kmz-files">
+<h2>Viewing KMZ FILES<a class="headerlink" href="#viewing-kmz-files" title="Permalink to this heading">¶</a></h2>
+<p>When you download the dataflash log files from the autopilot it will
+automatically create a KMZ file (file with extension .kmz). This file
+can be opened with Google Earth (just double click the file) to view
+your flight in Google Earth. Please see the instructions on the
+<a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-telemetry-logs.html#mission-planner-telemetry-logs-creating-3d-images-of-the-flight-path" title="(in Mission Planner)"><span class="xref std std-ref">Telemetry Logs Page</span></a>
+for additional details.</p>
+</section>
+<section id="video-tutorials">
+<h2>Video tutorials<a class="headerlink" href="#video-tutorials" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/62TmGiwFiDU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/IcVlJCR8N2g" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

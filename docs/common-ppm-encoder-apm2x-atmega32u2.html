@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:PPM Encoder APM 2.x Atmega 32U2 (8 Channel PPM Encoder) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:PPM Encoder APM 2.x Atmega 32U2 (8 Channel PPM Encoder)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-ppm-encoder-apm-2-x-atmega-32u2-8-channel-ppm-encoder">
+<span id="common-ppm-encoder-apm2x-atmega32u2"></span><h1>Archived:PPM Encoder APM 2.x Atmega 32U2 (8 Channel PPM Encoder)<a class="headerlink" href="#archived-ppm-encoder-apm-2-x-atmega-32u2-8-channel-ppm-encoder" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED</strong></p>
+<p>The APM2.x is end of life for use with ArduPilot.
+This article is made available for existing users.</p>
+</div>
+<p>This article describes the PPM Encoder that is embedded in APM2.5/6
+boards. It is provided for use in the (very unlikely) event that the
+encoder needs to be reprogrammed.</p>
+<section id="how-to-flash-the-atmega32u2-ppm-encoder-through-usb">
+<h2>How to flash the Atmega32U2 (PPM encoder) through USB<a class="headerlink" href="#how-to-flash-the-atmega32u2-ppm-encoder-through-usb" title="Permalink to this heading">¶</a></h2>
+<p>If you every find yourself in a situation where your PPM encoder has
+become corrupted for some reason, or you want to upload a new version,
+you can. The PPM encoder (ATMega32-U2) has an special bootloader that
+allows you to flash it without needing a special SPI programmer. The
+32U2 firmware controls the USB connection to the 2560 and is also used
+to convert radio PCM signals to a PPM signal for the 2560.  APM 2.5
+modules shipped before March 4th 2013  have an older version of the
+firmware. Here is a discussion on the
+newer <a class="reference external" href="https://www.diydrones.com/profiles/blogs/new-arduppm-firmware-version-2-3-16-in-the-downloads-section">firmware</a>.</p>
+</section>
+<section id="what-you-need">
+<h2>What you need<a class="headerlink" href="#what-you-need" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Windows XP/Vista/7</p></li>
+<li><p>USB cable</p></li>
+<li><p>Download and install Flip,
+click <a class="reference external" href="http://www.atmel.com/tools/FLIP.aspx">**here**.</a> - The firmware (HEX file) you want to load can be <a class="reference external" href="https://download.ardupilot.org/downloads/wiki/advanced_user_tools/ArduPPM_v2.3.16_ATMega32U2.hex_.zip">downloaded here</a>.</p></li>
+<li><p><em>(The source code, while not necessary if using the compiled code,
+`**can be found
+here*</em> &lt;<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/Tools/ArduPPM/Libraries/PPM_Encoder.h">https://github.com/ArduPilot/ardupilot/blob/master/Tools/ArduPPM/Libraries/PPM_Encoder.h</a>&gt;`__.)*</p></li>
+</ul>
+</section>
+<section id="putting-the-atmega32u2-into-programming-dfu-mode">
+<h2>Putting the Atmega32U2 into programming (DFU) mode<a class="headerlink" href="#putting-the-atmega32u2-into-programming-dfu-mode" title="Permalink to this heading">¶</a></h2>
+<section id="for-the-apm-2-5-board">
+<h3>For the APM 2.5 board<a class="headerlink" href="#for-the-apm-2-5-board" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>First, unscrew the top of your APM 2.5 case, so you can get to the
+pins.</p></li>
+<li><p>After installing flip, connect your APM 2.5 to your computer with
+your USB cable.</p></li>
+<li><p>When turned on, insert a jumper cap into the JP2 port to short it, as
+indicated in the picture below.</p>
+<ul>
+<li><p>This is the same small jumper that came with your APM 2.5 board.</p></li>
+<li><p>If you’re currently using it on the JP1 pins, temporarily move it
+to JP2. When you’re done with the procedures on this page, you can
+move it back to JP1.</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/DFUone1.jpg"><img alt="../_images/DFUone1.jpg" src="../_images/DFUone1.jpg" /></a>
+<ul class="simple">
+<li><p>Use a pair of needle-nosed pliers or a little piece of wire to short
+circuit the GND and RST pins of the Atmega32U2 in order to reset it.</p></li>
+<li><p>You can find those pins broken out in the chip’s ICSP header on the
+edge of the board:</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/DFUtwo1.jpg"><img alt="../_images/DFUtwo1.jpg" src="../_images/DFUtwo1.jpg" /></a>
+<ul class="simple">
+<li><p>After resetting you will hear the USB disconnect/connect sound in
+your Windows computer.</p></li>
+<li><p>Your board should be in DFU mode now and ready to be programmed.</p></li>
+</ul>
+</section>
+<section id="for-the-apm-2-board">
+<h3>For the APM 2 board<a class="headerlink" href="#for-the-apm-2-board" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>After installing flip, connect your APM 2 to your computer with your
+USB cable.</p></li>
+<li><p>When turned on, insert a jumper cap into the JP2 port to short it, as
+indicated in the picture below.</p>
+<ul>
+<li><p>This is the same small jumper that came with your APM 2 board.</p></li>
+<li><p>If you’re currently using it on the JP1 pins, temporarily move it
+to JP2. When you’re done with the procedures on this page, you can
+move it back to JP1.</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/PPMencoder_APM2_jumper.jpg"><img alt="../_images/PPMencoder_APM2_jumper.jpg" src="../_images/PPMencoder_APM2_jumper.jpg" /></a>
+<ul>
+<li><p>Use a little piece of wire to short circuit the GND and RST pins of
+the Atmega32U2 in order to reset it.</p></li>
+<li><p>You can find those pins broken out in the chip’s ICSP header on the
+edge of the board:</p>
+<p><a class="reference external" href="../_images/PPMencoder_APM2_jumper_2.jpg"><img alt="PPMencoder_APM2_jumper_2" src="../_images/PPMencoder_APM2_jumper_2.jpg" /></a></p>
+</li>
+<li><p>After resetting you will hear the USB disconnect/connect sound in
+your Windows computer.</p></li>
+<li><p>Your board should be in DFU mode now and ready to be programmed.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-flip-to-upload-the-firmware">
+<h2>Using FLIP to upload the firmware<a class="headerlink" href="#using-flip-to-upload-the-firmware" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>Open Flip by double clicking the flip icon:</p>
+<p><a class="reference external" href="../_images/flip_icon.jpg"><img alt="image4" src="../_images/flip_icon.jpg" /></a></p>
+</li>
+<li><p>When opened you will see a window like this:</p>
+<p><a class="reference external" href="../_images/flip_main.jpg"><img alt="image5" src="../_images/flip_main.jpg" /></a></p>
+</li>
+<li><p>Press on the icon indicated with a red arrow or just go to the menu
+“Device-&gt;Select” or just press Ctrl+S.</p></li>
+<li><p>Then select Atmega32U2 and click OK. If this doesn’t work, see 3a
+below. <a class="reference external" href="../_images/flip_step3.jpg"><img alt="image6" src="../_images/flip_step3.jpg" /></a></p></li>
+<li><p><em>4a) If you get an alert box that says “AtLibUsbDfu.dll not found”,
+you’ll need to load an updated driver for your board in DFU mode.</em></p>
+<ul class="simple">
+<li><p><em>Go to the Windows Device Manager (in the Control Panel/Hardware
+and Sound) and you should see the Atmega chip highlighted with an
+exclamation point, signifying an error.</em></p></li>
+<li><p><em>Right-click on it, and choose “Update Driver Software”.</em></p></li>
+<li><p><em>Then choose “Browse my computer for driver software” and navigate
+to the “C:\Program Files (x86)\Atmel\Flip 3.4.7\usb” folder
+(if you’re using a different version of Flip, the folder name will
+reflect that version).</em></p></li>
+<li><p><em>Then press Next and it should install the correct driver. Restart
+FLIP and do steps 1-3 again; they should work this time.</em> 4)</p></li>
+<li><p>Click on the icon indicated with an arrow or just go the menu
+“Settings-&gt;Communications-&gt;USB” or just press Ctrl+U and click
+“Open”.</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/flip_step4.jpg"><img alt="../_images/flip_step4.jpg" src="../_images/flip_step4.jpg" /></a>
+<ul class="simple">
+<li><p>If everything is correct you will see the Signature bytes, etc, like
+in the next pic:</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/flip_main_loaded.jpg"><img alt="../_images/flip_main_loaded.jpg" src="../_images/flip_main_loaded.jpg" /></a>
+<ul>
+<li><p><em>Before you upload new firmware you can view the current firmware in
+the buffer. Some PPM firmware versions will have the version embedded
+in the code.  Click [Device] [Read] to download the current memory
+into the buffer and then [Buffer] [Edit] to view. (See Flip manual
+for details.)  The version may be near the end of the code before all
+the FF entries.  Here is a sample of the end of the code segment for
+one version of the PPM firmware.</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">01470</span> <span class="mi">98</span> <span class="mi">08</span> <span class="mi">20</span> <span class="mi">03</span> <span class="n">E8</span> <span class="mi">03</span> <span class="mi">20</span> <span class="mi">03</span> <span class="mi">98</span> <span class="mi">08</span> <span class="mi">20</span> <span class="mi">03</span> <span class="mi">06</span> <span class="mi">09</span> <span class="mi">20</span> <span class="mi">03</span> <span class="o">..</span> <span class="o">...</span> <span class="o">...</span> <span class="o">...</span> <span class="o">.</span>
+<span class="mi">01480</span> <span class="mi">98</span> <span class="mi">08</span> <span class="mi">20</span> <span class="mi">03</span> <span class="mi">98</span> <span class="mi">08</span> <span class="mi">20</span> <span class="mi">03</span> <span class="mi">98</span> <span class="mi">08</span> <span class="mi">20</span> <span class="mi">03</span> <span class="mi">08</span> <span class="mi">52</span> <span class="mi">41</span> <span class="mi">72</span> <span class="o">..</span> <span class="o">...</span> <span class="o">...</span> <span class="o">..</span><span class="n">RAr</span>
+<span class="mi">01490</span> <span class="mi">64</span> <span class="mi">75</span> <span class="mi">50</span> <span class="mi">50</span> <span class="mi">4</span><span class="n">D</span> <span class="mi">76</span> <span class="mi">32</span> <span class="mi">2</span><span class="n">E</span> <span class="mi">33</span> <span class="mi">2</span><span class="n">E</span> <span class="mi">31</span> <span class="mi">36</span> <span class="mi">00</span> <span class="mi">30</span> <span class="mi">20</span> <span class="mi">00</span> <span class="n">duPPMv2</span><span class="mf">.3.16.0</span>    <span class="o">&lt;--</span>  <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">version</span> <span class="n">number</span><span class="o">.</span>
+<span class="mi">014</span><span class="n">A0</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="o">................</span>        <span class="o">&lt;--</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">area</span> <span class="n">without</span> <span class="n">code</span>
+<span class="mi">014</span><span class="n">B0</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="n">FF</span> <span class="o">................</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now lets load the HEX by clicking on the icon indicated with a red
+arrow or go to the menu “File-&gt;Load HEX” or just press Ctrl+L.</p></li>
+<li><p>Choose the HEX file you just downloaded and click OK.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/flip_step6.jpg"><img alt="../_images/flip_step6.jpg" src="../_images/flip_step6.jpg" /></a>
+<ul class="simple">
+<li><p>Now make sure you select all the options on “Operations Flow” box as
+indicated in the picture with a red arrow.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/flip_step7.jpg"><img alt="../_images/flip_step7.jpg" src="../_images/flip_step7.jpg" /></a>
+<ul class="simple">
+<li><p>Now just press the “Run” button indicated with a red arrow and the
+system will upload the new firmware.</p></li>
+<li><p>If you are lucky and have done everything correct you will see a
+green dot in every option as indicated:</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/flip_step8.jpg"><img alt="../_images/flip_step8.jpg" src="../_images/flip_step8.jpg" /></a>
+<ul class="simple">
+<li><p>Now remove the jumper and cycle the power of the APM 2.5 board.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/PPMencoder_APM2_jumper_3.jpg"><img alt="../_images/PPMencoder_APM2_jumper_3.jpg" src="../_images/PPMencoder_APM2_jumper_3.jpg" /></a>
+<ul class="simple">
+<li><p>Your board is ready to go!</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

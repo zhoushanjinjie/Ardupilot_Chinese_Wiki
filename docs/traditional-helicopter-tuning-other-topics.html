@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Additional Tuning Topics &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Autorotation" href="traditional-helicopter-autorotation.html" />
+    <link rel="prev" title="AutoTune" href="traditional-helicopter-autotune.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-first-flight-tests.html">First Flight Tests</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="traditional-helicopter-tuning.html">Tuning</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-control-system.html">Arducopter Control System Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-preparing.html">Preparing for Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-manual-tuning.html">Manual Tuning Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-autotune.html">AutoTune Wiki</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Additional Tuning Topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-flight.html">Traditional Helicopter First Flights</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-tuning.html">Traditional Helicopter – Tuning</a></li>
+      <li class="breadcrumb-item active">Additional Tuning Topics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="additional-tuning-topics">
+<span id="traditional-helicopter-tuning-other-topics"></span><h1>Additional Tuning Topics<a class="headerlink" href="#additional-tuning-topics" title="Permalink to this heading">¶</a></h1>
+<section id="tuning-accel-max-and-feel">
+<h2>Tuning ACCEL MAX and Feel<a class="headerlink" href="#tuning-accel-max-and-feel" title="Permalink to this heading">¶</a></h2>
+<p>The final setting for <code class="docutils literal notranslate"><span class="pre">ATC_ACCEL_x_MAX</span></code> parameters will depend on the size of the
+helicopter.  Large 800-900 class machines will typically be in the 36000-52000
+range; smaller 450-500 class machines will typically be in the 90000-110000
+range. You may want to experiment with the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a> parameter as well to get
+the initial aircraft response the way you like it.  It is recommended to keep the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-input-tc" title="(in Copter)"><span class="xref std std-ref">ATC_INPUT_TC</span></a> parameter between 0.15 and 0.25.  Once this process is complete, the aircraft
+should have the desired feel in snappiness and rate.</p>
+<p>Below is a graph showing an example of Rate Roll Desired vs actual Rate Roll.
+The peak corresponds to a rapid stick input and the amplitude (height) of the
+peaks should be approximately the same with no more than 100 milliseconds
+offset.</p>
+<a class="reference external image-reference" href="../_images/TradHeli_tuning_example1_1.png"><img alt="../_images/TradHeli_tuning_example1_1.png" src="../_images/TradHeli_tuning_example1_1.png" /></a>
+</section>
+<section id="setting-imax-and-ilmi">
+<h2>Setting IMAX and ILMI<a class="headerlink" href="#setting-imax-and-ilmi" title="Permalink to this heading">¶</a></h2>
+<p>The IMAX value limits amount of integrator error that can be stored to counter large
+disturbances in attitude.  In the pitch axis this is set by the integrator error
+required to hold the aircraft attitude at high forward speeds.  The starting
+value is 0.4.  To check this set the value to IMAX = 1, fly the aircraft at the
+maximum desired speed.  Pull the log and look at what the maximum I value is in
+the PIDP message.  Set IMAX for 0.1 above the maximum value.  You could do the
+same for the roll axis but typically 0.4 should be sufficient.  ILMI is set for
+the maximum amount of integrator that you want to retain in a hover to help
+maintain attitude.  It is recommended that this value is no larger than 0.1</p>
+<p>Below is a graph of desired roll attitude vs actual roll attitude for a
+helicopter in high-speed autonomous flight with the ILMI parameters set to zero.
+The effect of the I-gain and IMAX parameters, properly set, will make the
+helicopter track the desired attitude very closely at speed exceeding 5m/s for
+more than 2 seconds (what we call “dynamic flight”). It should be within 1-2
+degrees of desired in dynamic flight. Towards the right side of the graph the
+helicopter came to a stop in hover and the pilot switched to Stabilize flight
+mode. You will notice a discrepancy between the actual and desired roll attitude
+at that point. This is the effect of having ILMI set to zero. The ILMI can be
+considered to be a sort of “auto trim” for hover that will reduce the
+discrepancy between desired and actual pitch and roll attitude when the
+helicopter is not in dynamic flight.</p>
+<a class="reference external image-reference" href="../_images/TradHeli_tuning_example2_1.png"><img alt="../_images/TradHeli_tuning_example2_1.png" src="../_images/TradHeli_tuning_example2_1.png" /></a>
+</section>
+<section id="adjusting-i-gains-for-high-speed-autonomous-flight">
+<h2>Adjusting I-gains For High-Speed Autonomous Flight<a class="headerlink" href="#adjusting-i-gains-for-high-speed-autonomous-flight" title="Permalink to this heading">¶</a></h2>
+<p>Prepare a mission with your ground station software that will fly the
+helicopter, preferably in a figure-8 pattern to make both right and left turns,
+at a speed of 6 m/s. Fly the helicopter on this mission, pull the logs from the
+microSD card and look at the AHRS desired vs actual pitch, roll and yaw
+attitudes in dynamic flight. They should track within 1-2 degrees. If they do
+not, increase the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_I</span></code> value for that axis until they do.</p>
+<p>Now, fly the same mission, but at higher speed of 9-10 m/s, and analyze the logs
+the same way. Make further adjustments to the I-gains and IMAX values as
+required. It is not clear what I-gain values will be required as no two
+helicopters are the same. But I-gain values from 0.25 - 0.38 are common in pitch
+and roll, and 0.18 - 0.30 in yaw. IMAX values of 0.40 - 0.45 are common, however
+refer to the ‘Setting IMAX, and ILMI’ section on how to determine
+what the IMAX value should be.</p>
+</section>
+<section id="preventing-i-term-build-up">
+<h2>Preventing I term Build Up<a class="headerlink" href="#preventing-i-term-build-up" title="Permalink to this heading">¶</a></h2>
+<p>A downside of the I term is that it can build if the vehicle is constrained in its movement, so as not to be able to respond and reduce any long term errors, as when still on the ground. The I term can build to its maximum value and could possibly tip over the vehicle. Two methods are provided to avoid this.</p>
+<p>The first is by restricting by providing a “leak” mechanism (constantly reduced at a specified rate) when on the ground or hover(actually when moving with a GPS speed of less than 5m/s). To prevent the I term from completely disappearing at low speeds or hover, the parameters <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-ilmi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_ILMI</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-ilmi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_ILMI</span></a>, only lets it leak off so much. So the integrator leak along with the leak minimum parameter keep
+enough of the integrator to make it effective in keeping the attitudes matching
+but not so powerful to cause the aircraft to roll over.</p>
+<p>The second is to use ArduPilot’s landing and takeoff detection algorithms to zero the I terms when on the ground, and allow it to operate normally after takeoff.</p>
+<p>Which method is used is determined by the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-options" title="(in Copter)"><span class="xref std std-ref">H_OPTIONS</span></a> bitmask. Setting bit 0 (ie “1” for the parameter value) will use the first method with a leaky integrator. Since this was the only method used in versions prior to 4.1, it is the default method to avoid changes in behavior upon upgrading to version 4.1. But clearing that bit (value = “0”), will use the second method, which is now usually preferred.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-autotune.html" class="btn btn-neutral float-left" title="AutoTune" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-autorotation.html" class="btn btn-neutral float-right" title="Autorotation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

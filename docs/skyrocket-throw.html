@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyRocket Throw Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SkyRocket with other Ground Stations" href="skyrocket-gcs.html" />
+    <link rel="prev" title="SkyRocket Hardware" href="skyrocket-hardware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="skyrocket.html">SkyRocket</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#discussion">Discussion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#toy-mode">Toy Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#hardware">Hardware</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="skyrocket.html#more-info">More Info</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-videos.html">Videos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-hardware.html">Hardware</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Throw Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-gcs.html">Using other Ground Stations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-software.html">Uploading Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="skyrocket.html">SkyRocket</a></li>
+      <li class="breadcrumb-item active">SkyRocket Throw Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="skyrocket-throw-mode">
+<span id="skyrocket-throw"></span><h1>SkyRocket Throw Mode<a class="headerlink" href="#skyrocket-throw-mode" title="Permalink to this heading">¶</a></h1>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/L8xTlBnlu9E" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>The SkyViper is such a small frame that is is great for <a class="reference internal" href="throw-mode.html#throw-mode"><span class="std std-ref">Throw Mode</span></a>.
+If you want to try throw mode then first read the <a class="reference internal" href="throw-mode.html#throw-mode"><span class="std std-ref">throw mode documentation</span></a>.</p>
+<p>Here are some extra tips for throw mode on the SkyViper:</p>
+<ul class="simple">
+<li><p>you can assign throw mode to a button on your TX.
+Go to the web interface at <code class="docutils literal notranslate"><span class="pre">http://192.168.99.1</span></code> and choose the parameters page.
+Then assign throw mode to one of the action buttons. I like
+using ACTION5, which you get by holding the MODE button, then
+pressing the right shoulder button (the one marked with the photo icon)</p></li>
+<li><p>wait till you have full GPS lock (green LED on transmitter is solid)</p></li>
+<li><p>with your skyviper disarmed and on the ground, select throw mode
+with the button you have setup in the first step. You will hear a
+bip-boop-bip sound from the TX</p></li>
+<li><p>now press the “return” button to arm your copter. The motors will
+not start spinning.</p></li>
+<li><p>look at your transmitter LEDs. If the green LED is flashing rapidly
+then you are ready to throw. Do not throw the copter unless the
+green LED is flashing rapidly</p></li>
+<li><p>pickup the copter by one of the legs, keeping fingers clear of the
+propellers</p></li>
+<li><p>throw it as high as you can with one smooth motion</p></li>
+<li><p>do NOT swing your arm back and forward to “wind up” for the throw,
+otherwise the copter may think the throw has been done and will
+start the motors</p></li>
+<li><p>be ready to press the power button on the TX for instant disarm if
+something goes wrong</p></li>
+<li><p>after the throw, the copter will take a few seconds to settle, then
+will automatically switch to LOITER mode for you to fly it</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/YujYnQHEqQw" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="skyrocket-hardware.html" class="btn btn-neutral float-left" title="SkyRocket Hardware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skyrocket-gcs.html" class="btn btn-neutral float-right" title="SkyRocket with other Ground Stations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

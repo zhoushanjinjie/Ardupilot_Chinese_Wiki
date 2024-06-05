@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Flight Tests &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traditional Helicopter – Tuning" href="traditional-helicopter-tuning.html" />
+    <link rel="prev" title="Traditional Helicopter - Pre-Flight Testing" href="trad-heli-preflight-testing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">First Flight Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-spool-up">First Spool Up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-hover">First Hover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hover-trim">Hover Trim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-notch-filtering">Enable Notch Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-tuning.html">Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-flight.html">Traditional Helicopter First Flights</a></li>
+      <li class="breadcrumb-item active">First Flight Tests</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="first-flight-tests">
+<span id="traditional-helicopter-first-flight-tests"></span><h1>First Flight Tests<a class="headerlink" href="#first-flight-tests" title="Permalink to this heading">¶</a></h1>
+<section id="first-spool-up">
+<h2>First Spool Up<a class="headerlink" href="#first-spool-up" title="Permalink to this heading">¶</a></h2>
+<p>Check the CG of helicopter. It should be exactly on the point of the main shaft. If not, adjust battery until it is.</p>
+<p>For the first spool up, before trying to lift into hover, you should verify that the main rotor blades are tracking reasonably well. If not, excessive vibration will be created, perhaps high enough to cause attitude control errors or even cause an <a class="reference internal" href="ekf-inav-failsafe.html#ekf-inav-failsafe"><span class="std std-ref">EKF Failsafe</span></a>.</p>
+<ul class="simple">
+<li><p>Arm the vehicle. If there is a pre-arm failure, resolve it before proceeding. Usually you will need to wait until the GPS obtains lock and the EKF sets its origin as indicated by the ground control station messages (and, of course, the failure to arm!)</p></li>
+<li><p>Before the automatic disarming timing elapses, engage the Motor Interlock switch and/or raise the collective above 1/4 stick (if using passthru RSC mode)to enable Motor Interlock. The rotor should spool up to speed. Usually, one spools up at 0 deg collective pitch setting to avoid stress while on the ground</p></li>
+<li><p>At this point, check that the blades are tracking. If not, adjust a blade’s pitch link to the swashplate and re-try until the plane of both blades is close to identical.</p></li>
+</ul>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3g3hJtBhSJ4" style="border: 0; height: 345px; width: 560px">
+</iframe></div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <a class="reference internal" href="traditional-helicopter-tips.html#traditional-helicopter-tips"><span class="std std-ref">Traditional Helicopter Tips</span></a> for more on vibration issues.</p>
+</div>
+</section>
+<section id="first-hover">
+<h2>First Hover<a class="headerlink" href="#first-hover" title="Permalink to this heading">¶</a></h2>
+<p>Once tracking has been verified, you can do your first test hover. In STABILIZE, repeat the above, but once the rotor has finished spooling up, increase collective slowly and lift off. Be prepared to  put in small cyclic corrections to hover the vehicle in place. If the vehicle seems too unstable in attitude, you might try setting the PID values to those used for beginning the fine tuning of the attitude control loops, discussed in the following section (<a class="reference internal" href="traditional-helicopter-tuning.html#traditional-helicopter-tuning"><span class="std std-ref">Traditional Helicopter – Tuning</span></a> ).</p>
+</section>
+<section id="hover-trim">
+<h2>Hover Trim<a class="headerlink" href="#hover-trim" title="Permalink to this heading">¶</a></h2>
+<p>Trimming the helicopter in pitch and roll axes is an important step to keep the
+aircraft from drifting in modes like Stabilize and Althold.  The trim attitude
+in the roll axis is affected by the tail rotor thrust.  All conventional single-
+rotor helicopters with a torque-compensating tail rotor hover either right skid
+low or left skid low, depending on which way the main rotor turns. The
+ArduCopter software has a parameter, <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-hovr-rol-trm" title="(in Copter)"><span class="xref std std-ref">ATC_HOVR_ROL_TRM</span></a>, to compensate for this phenomenon.
+Dual rotor helicopters have counter rotating rotor systems which mostly cancel the torque.  For these aircraft,
+the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-hovr-rol-trm" title="(in Copter)"><span class="xref std std-ref">ATC_HOVR_ROL_TRM</span></a> should be set to zero.
+Longitudinal CG location will affect the trim attitude in the pitch
+axis.  There is no parameter to tell the autopilot what pitch attitude
+the aircraft hovers with no drift. It always targets zero deg pitch as measured
+by the autopilot. Therefore the actual pitch attitude the aircraft
+hovers may be 5 deg nose high but the autopilot AHRS Trim value is set
+to make it think the attitude is zero deg.</p>
+<p>In order to trim the aircraft, set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-hovr-rol-trm" title="(in Copter)"><span class="xref std std-ref">ATC_HOVR_ROL_TRM</span></a> parameter to zero.
+During the initial setup of the autopilot, the <code class="docutils literal notranslate"><span class="pre">AHRS_TRIM_x</span></code> values are set
+during the accelerometer calibration on the last step that has you level the
+aircraft. For that step you should have made certain that the shaft was
+perfectly straight up in pitch and roll. For this trim procedure, it is
+recommended that you check it and using the method below.</p>
+<p>Measure the actual frame angle (on a portion of the frame that is perpendicular
+to the mainshaft) in pitch and roll with your digital pitch gauge. Connected to
+your ground station software with MavLink, note the pitch and roll angle the
+autopilot is “seeing”. Adjust the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-x" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_X</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-y" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_Y</span></a>
+values so the autopilot “sees” the identical frame angle you measured with the digital pitch gauge.
+You can use the Level Horizon function in your ground station to level the horizon with the helicopter
+at actual level. That function will make the adjustments to the AHRS_TRIM’s for you.</p>
+<p>The above is necessary so we can accurately measure the roll angle to set the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-hovr-rol-trm" title="(in Copter)"><span class="xref std std-ref">ATC_HOVR_ROL_TRM</span></a>. The autopilot now “knows” when the mainshaft is
+perfectly vertical.</p>
+<p>Load the helicopter with its normal payload, and hover the helicopter
+in no-wind conditions in Stabilize flight mode. Land it and pull the log, noting
+the roll angle and pitch angle that you had to hold with the stick to keep the helicopter from
+drifting. Enter the roll angle value in the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-hovr-rol-trm" title="(in Copter)"><span class="xref std std-ref">ATC_HOVR_ROL_TRM</span></a> parameter in centidegrees.
+For a CW turning main rotor if it took 3.5 degrees of right roll to compensate,
+enter 350. Negative values are for a CCW turning main rotor that requires left
+roll to compensate. If the pitch angle was not zero to keep the helicopter from drifting, then enter the pitch attitude
+required for no drift in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-y" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_Y</span></a> in radians (which is the angle in degrees divided by 57.3).
+If it took 2 degrees nose down (-2 deg) to hover then you would enter -0.0349 radians into <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-trim-y" title="(in Rover)"><span class="xref std std-ref">AHRS_TRIM_Y</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use the radio trims at all. Make sure they are at the same position as when the <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">RC校准</span></a> was done.</p>
+</div>
+<p>Your helicopter is now trimmed properly. If you hover the aircraft and it still drifts, check that the aircraft is
+actually holding the hover attitude determined above with the stick centered.  If it does not, then consult the
+Setting ILMI and IMAX section of the <a class="reference internal" href="traditional-helicopter-tuning-other-topics.html#traditional-helicopter-tuning-other-topics"><span class="std std-ref">Additional Tuning Topics</span></a> wiki.
+This trimming procedure makes the difference between a helicopter
+that is difficult to handle vs one that flies with true scale quality and handling.</p>
+</section>
+<section id="enable-notch-filtering">
+<h2>Enable Notch Filtering<a class="headerlink" href="#enable-notch-filtering" title="Permalink to this heading">¶</a></h2>
+<p>Assuming that first low in-place hover was successful, which it should be if you have followed the wiki, you should setup a dynamic harmonic notch filter. Tuning of the control loops, which is the next step, is greatly enhanced if the vehicle’s generated vibrations are attenuated by the filter.</p>
+<p>Follow the instructions in <a class="reference internal" href="common-imu-notch-filtering-helicopter-setup.html#common-imu-notch-filtering-helicopter-setup"><span class="std std-ref">Helicopter Dynamic Notch Filter Setup</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There usually are two rotational vibration sources in Traditional Helicopters, the main rotor and the tail rotor. The tail rotor frequency may appear as if its a harmonic of the main rotor, but not quite at an integer multiple of the main rotor fundamental frequency. For example, if the tail rotor has a 1:3.8 gearing to the main rotor, it will appear near what would be the 4th harmonic of the main rotor, but is slightly lower (ie 3.8x the fundamental of the main rotor). In this case, the harmonic notch setup for the 4th harmonic may still be effective if the bandwidth of the notches, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-hntch-bw" title="(in Rover)"><span class="xref std std-ref">INS_HNTCH_BW</span></a>,are wide enough.</p>
+</div>
+<p>After the harmonic notch is setup, proceed to <a class="reference internal" href="traditional-helicopter-tuning.html#traditional-helicopter-tuning"><span class="std std-ref">Traditional Helicopter – Tuning</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="trad-heli-preflight-testing.html" class="btn btn-neutral float-left" title="Traditional Helicopter - Pre-Flight Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-tuning.html" class="btn btn-neutral float-right" title="Traditional Helicopter – Tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

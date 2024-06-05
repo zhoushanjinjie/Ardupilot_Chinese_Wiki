@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Transmitter Support &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Video Transmitter Support</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="video-transmitter-support">
+<span id="common-vtx"></span><h1>Video Transmitter Support<a class="headerlink" href="#video-transmitter-support" title="Permalink to this heading">¶</a></h1>
+<p>Video transmitter (VTX) support allows the autopilot to control an attached video transmitter. Depending on the VTX and protocol used, components that can be controlled include video band, video channel, transmitter power and pit mode. Supported protocols are SmartAudio, IRC Tramp, and TBS Crossfire (CRSF).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all video transmitters claiming SmartAudio support fully support the specification and some functions may not be provided in that transmitter, or implemented in a non-standard way. Consult the manufacturer’s documentation if questions arise.</p>
+</div>
+<section id="how-to-setup-video-transmitter-support">
+<h2>How to setup video transmitter support<a class="headerlink" href="#how-to-setup-video-transmitter-support" title="Permalink to this heading">¶</a></h2>
+<p>To enable video transmitter support you need to set the following parameters and reboot your autopilot:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-enable" title="(in Rover)"><span class="xref std std-ref">VTX_ENABLE</span></a> to 1 to enable video transmitter support. Although this enables support it will not achieve anything without an appropriate video transmitter protocol enabled, as described below.</p></li>
+</ul>
+<section id="smartaudio">
+<h3>SmartAudio<a class="headerlink" href="#smartaudio" title="Permalink to this heading">¶</a></h3>
+<p>SmartAudio is a one-wire protocol so you will need to connect the SmartAudio pin of your VTX to the TX pin of the serial port you want to use. You will also need to make sure your VTX is configured for SmartAudio control. For example if attached to SERIAL port 5:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL5_PROTOCOL</span></a> to 37 to enable SmartAudio.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-options" title="(in Rover)"><span class="xref std std-ref">SERIAL5_OPTIONS</span></a> to 4 to enable half-duplex which SmartAudio requires. Depending on your video transmitter it might be required to enable the TX_PullDown option, so 68 would be the correct value.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL5_BAUD</span></a> to 4800 to set the SmartAudio baud rate</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/VTX-smartaudio.jpg"><img alt="../_images/VTX-smartaudio.jpg" src="../_images/VTX-smartaudio.jpg" /></a>
+</section>
+<section id="crsf-crossfire">
+<h3>CRSF (Crossfire)<a class="headerlink" href="#crsf-crossfire" title="Permalink to this heading">¶</a></h3>
+<p>CRSF is a bi-directional protocol that requires both TX and RX of a serial port to be connected. Follow the instructions for CRSF telemetry to setup CRSF support (See <a class="reference internal" href="common-tbs-rc.html#common-tbs-rc"><span class="std std-ref">[copywiki destination=”plane,copter,rover,blimp”]</span></a>). If you only wish to use CRSF for VTX support, then (again using SERIAL5 as an example) <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL5_PROTOCOL</span></a> should be set to 29 rather than 23. You will also need to make sure your VTX is configured for CRSF control.</p>
+<p>When using CRSF for both RC/Telem and VTX control it is important to disable “my VTX” support on Open TX transmitters. Follow your transmitters’ instructions. In this scenario, you must connect your autopilot’s UART to your CRSF receiver, and then connect your CRSF receiver to the VTX to forward CRSF commands, you cannot connect to the FC using CRSF directly for both the Receiver and VTX using two UARTs.</p>
+<p>Reboot your autopilot and power your video transmitter. At startup you should see a video message indicating the current video settings. All the video settings are stored in the <code class="docutils literal notranslate"><span class="pre">VTX_x</span></code> parameters and by default these will be changed to reflect the currently configured VTX settings. Once booted you can modify these settings and they will be reflected in the VTX configuration.</p>
+<a class="reference external image-reference" href="../_images/VTX-crsf.jpg"><img alt="../_images/VTX-crsf.jpg" src="../_images/VTX-crsf.jpg" /></a>
+<a class="reference external image-reference" href="../_images/VTX-both.jpg"><img alt="../_images/VTX-both.jpg" src="../_images/VTX-both.jpg" /></a>
+</section>
+<section id="immersionrc-tramp">
+<h3>ImmersionRC Tramp<a class="headerlink" href="#immersionrc-tramp" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Connect the telemtry pin of the video transmitter to the TX pin of the autopilot’s UART used to control it.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial5-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL5_PROTOCOL</span></a> = 44 if using SERIAL5 for connection to VTX</p></li>
+</ul>
+</section>
+<section id="video-transmitter-settings">
+<h3>Video transmitter settings<a class="headerlink" href="#video-transmitter-settings" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-band" title="(in Rover)"><span class="xref std std-ref">VTX_BAND</span></a> to modify the VTX band.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-channel" title="(in Rover)"><span class="xref std std-ref">VTX_CHANNEL</span></a> to modify the VTX channel.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-freq" title="(in Rover)"><span class="xref std std-ref">VTX_FREQ</span></a> to modify the VTX frequency. Band/channel and frequency are mutually exclusive, if you set band and/or channel then the frequency will be automatically updated. If you set the frequency then the band/channel will be automatically updated. Not all frequencies, channels and bands are supported unless the transmitter is unlocked. Please consult local regulations before doing this. If you select an unsupported frequency then the current frequency will not be changed.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-power" title="(in Rover)"><span class="xref std std-ref">VTX_POWER</span></a> to modify the VTX power in mw. Not all transmitters support all power values. In particular in Europe only 25mw is allowed by default. To allow other values the transmitter must be unlocked. If you select a power level that is unsupported by the transmitter then the actual power value will not be changed.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-max-power" title="(in Rover)"><span class="xref std std-ref">VTX_MAX_POWER</span></a> to set the maximum VTX power allowed in mw. This is used by <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 94 which allows the VTX power to be changed via a switch or dial.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-options" title="(in Rover)"><span class="xref std std-ref">VTX_OPTIONS</span></a> to set options on the VTX. The most common option is setting bit 0 which puts the VTX into pit mode, if supported. Other options can be used to reset pitmode upon arming and/or set it upon disarming (bits 1 and 2). The option bits and their actions are shown below:</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#vtx-options" title="(in Rover)"><span class="xref std std-ref">VTX_OPTIONS</span></a> bit</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Directly sets VTX into PIT MODE, if available</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Resets bit 0 above upon arming</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Sets bit 0 above upon disarming</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Unlock: unlocks frequencies and bands on some transmitters</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Add leading zero byte to requests (needed on some transmitters)</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Use 1 stop bit. Needed for some transmitters using non-compliant(iNAV) messaging</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Ignore CRC checks. Needed for some transmitters using non-compliant messaging</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Future (not presently working)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“unlocking” can be done differently, depending on transmitter brand. Also, using unlocked frequencies/power levels may violate local laws and restrictions.</p>
+</div>
+</section>
+<section id="setting-video-transmitter-settings">
+<h3>Setting video transmitter settings<a class="headerlink" href="#setting-video-transmitter-settings" title="Permalink to this heading">¶</a></h3>
+<p>Video transmitter settings can be changed in multiple ways but always go via the <code class="docutils literal notranslate"><span class="pre">VTX_x</span></code> parameters. So any option which advertises VTX control will be setting a <code class="docutils literal notranslate"><span class="pre">VTX_x</span></code> parameter which in turn will interface with the protocol backends. Here are the current ways that video transmitter settings can be modified:</p>
+<ul class="simple">
+<li><p>Parameter modification through your ground station</p></li>
+<li><p>Transmitter power via RC switch (<code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 94). With this setting, the RC channel is interpreted as a 6-position switch (dividing the PWM range 1200 to 1800), and then this is assigned to power values based on the <code class="docutils literal notranslate"><span class="pre">VTX_MAX_POWER</span></code>. For example if max power is 200-499mW, switch positions 0 results in 0mw (pit mode), 1 and 2 result in 25mw, 3 and 4 result in 100mw, and 5 results in 200mw.</p></li>
+<li><p>Parameter modification via the OSD (See <a class="reference internal" href="common-paramosd.html#common-paramosd"><span class="std std-ref">OSD based parameter menu</span></a>)</p></li>
+<li><p>Parameter modification via CRSF OpenTX lua scripts (or OpenTX AgentX lua scripts) - CRSF only</p></li>
+<li><p>Spektrum VTX support. VTX settings on your Spektrum transmitter will be translated by either the DSMX or SRXL2 drivers and the appropriate VTX settings updated</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

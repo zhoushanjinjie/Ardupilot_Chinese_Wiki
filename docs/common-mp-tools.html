@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Planner Advanced Tools &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mission Planner Advanced Tools</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mission-planner-advanced-tools">
+<span id="common-mp-tools"></span><h1>Mission Planner Advanced Tools<a class="headerlink" href="#mission-planner-advanced-tools" title="Permalink to this heading">¶</a></h1>
+<p>Mission Planner has many advanced tools which are normally hidden from the user. These can be accessed via pressing CTRL-F. Many have use only to developers or advanced users, but a few can be useful to regular users.</p>
+<a class="reference external image-reference" href="../_images/mp-ctrl-f.jpg"><img alt="../_images/mp-ctrl-f.jpg" src="../_images/mp-ctrl-f.jpg" /></a>
+<p>Some useful utilities are: MAVLink Inspector, BootLoader Upgrade, MAVLink (Forwarding), and Warning Manager.</p>
+<section id="mavlink-inspector">
+<h2>MAVLink Inspector<a class="headerlink" href="#mavlink-inspector" title="Permalink to this heading">¶</a></h2>
+<p>This allows a real time inspection of the MAVLink values being sent. A user can see any measurement/reading being sent and normally stored in a TLOG, in real time. A user selected number of historical points of a data value can be graphed real-time also.</p>
+<a class="reference external image-reference" href="../_images/mavlink-inspector.jpg"><img alt="../_images/mavlink-inspector.jpg" src="../_images/mavlink-inspector.jpg" /></a>
+</section>
+<section id="bootloader-upgrade">
+<h2>BootLoader Upgrade<a class="headerlink" href="#bootloader-upgrade" title="Permalink to this heading">¶</a></h2>
+<p>Often the boot loader supplied by an autopilot vendor may be out of date. Using this button will automatically update the autopilots bootloader. If it is already current, then no update will occur.</p>
+</section>
+<section id="mavlink">
+<h2>Mavlink<a class="headerlink" href="#mavlink" title="Permalink to this heading">¶</a></h2>
+<p>This allows forwarding of your connected autopilots MAVLink stream via the internet to another user with a public IP address. This is often used by users to help another user debug issues.</p>
+<a class="reference external image-reference" href="../_images/mavlink-forwarding.jpg"><img alt="../_images/mavlink-forwarding.jpg" src="../_images/mavlink-forwarding.jpg" /></a>
+<ol class="arabic simple">
+<li><p>Select this tool</p></li>
+<li><p>Next a dialog will open with drop-downs to allow selection of communication port. For remote connections usually UDP will be chosen. For TCP or UDP, the baud rate selection box is unimportant.</p></li>
+<li><p>Click this box if you want the remote party to be able to change parameters on you autopilot or control it remotely.</p></li>
+<li><p>When “Connect” is selected, depending on communications port, the public IP address of the recipient and port dialogs will open for input.</p></li>
+</ol>
+<p>After this, the remote site should start getting MAVLink packets from your autopilot. They can use whatever ground station they chose to receive them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can forward MAVLink packets to only one location.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>UDP is usually recommended instead of TCP since TCP requires acknowledgment of packets and network delays can slow down Joystick response to the point of causing crashes. UDP will continue to send control commands without waiting for acknowledgment of previous data reception.</p>
+</div>
+<section id="forwarding-locally">
+<h3>Forwarding Locally<a class="headerlink" href="#forwarding-locally" title="Permalink to this heading">¶</a></h3>
+<p>You can also forward locally so that multiple ground control stations can connect to the locally attached autopilot on the same PC. In this case just use the local PC’s localhost ip address of 127.0.0.1. You then can connect another GCS like MAVProxy or QGC on the same PC.</p>
+</section>
+</section>
+<section id="warning-manager">
+<h2>Warning Manager<a class="headerlink" href="#warning-manager" title="Permalink to this heading">¶</a></h2>
+<p>This allows the creation of custom audio warnings based on virtually any measurement/status reading being received over the MAVLink connection to the vehicle.</p>
+<a class="reference external image-reference" href="../_images/mp-warning-manager.jpg"><img alt="../_images/mp-warning-manager.jpg" src="../_images/mp-warning-manager.jpg" /></a>
+<p>You can select an incoming data item from the drop-down list, and compare it against a limit and then have a phrase saved and spoken by Mission Planner.</p>
+<p>[copywiki destination=”planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

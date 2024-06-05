@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”copter,plane,rover,dev”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”copter,plane,rover,dev”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-copter-plane-rover-dev">
+<span id="common-ap-periph-usage-examples"></span><h1>[copywiki destination=”copter,plane,rover,dev”]<a class="headerlink" href="#copywiki-destination-copter-plane-rover-dev" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="dronecan-adapter-setup">
+<h1>DroneCAN Adapter Setup<a class="headerlink" href="#dronecan-adapter-setup" title="Permalink to this heading">¶</a></h1>
+<p>These are several ways that a DroneCAN adapter node running AP_Periph can be used and this page is a small selection of the possibilities. These sections should walk you through setting up the autopilot and the node so that they work together.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DroneCAN Adapter nodes usually come with firmware that supports a subset of ArduPilot’s large peripheral capability. Be sure to check that the firmware supplied supports the peripherals you are attemptime to setup. If not, check the <a class="reference external" href="https://firmware.ardupilot.org/AP_Periph/">Firmware</a>  page for possible alternative firmware for that adapter that may have the capability.</p>
+</div>
+</section>
+<section id="gps-setup">
+<h1>GPS Setup<a class="headerlink" href="#gps-setup" title="Permalink to this heading">¶</a></h1>
+<p>Attach the GPS to a DroneCAN Adapter’s serial port</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 on the autopilot</p></li>
+<li><p>set the DroneCAN adapter’s <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> on which the GPS is connected to 5 (GPS)</p></li>
+</ul>
+</section>
+<section id="compass-setup">
+<h1>Compass Setup<a class="headerlink" href="#compass-setup" title="Permalink to this heading">¶</a></h1>
+<p>Attach the Compass to the DroneCAN Adapter’s external I2C port. It will appear as a normal Compass in ArduPilot and normal <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">compass setup procedures</span></a> would apply.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MatekL431 CAN Adapter comes setup for a SPI connected Compass (RM3100). If an I2C Compass is attached, different firmware must be loaded for it to function.</p>
+</div>
+</section>
+<section id="i2c-airspeed-sensor">
+<h1>I2C Airspeed Sensor<a class="headerlink" href="#i2c-airspeed-sensor" title="Permalink to this heading">¶</a></h1>
+<p>Attach to the I2C bus pinned out from the DroneCAN Adapter.</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> =8 (DroneCAN)</p></li>
+<li><p>set the DroneCAN’s <code class="docutils literal notranslate"><span class="pre">ARSPD_TYPE</span></code> parameter to match the type of airspeed sensor connected.</p></li>
+</ul>
+</section>
+<section id="rangefinder-setup">
+<h1>Rangefinder Setup<a class="headerlink" href="#rangefinder-setup" title="Permalink to this heading">¶</a></h1>
+<p>To use rangefinders, follow the instructions at  <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup Advanced</span></a> to set up the ArduPilot parameters. Using MissionPlanner or DroneCAN Gui, set the parameters on the adaptor node following the instructions for the relevant rangefinder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The orientation of the rangefinder (RNGFND1_ORIENT) must be set to 0 on the adaptor node.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The RNGFNDx_ADDR ArduPilot parameter must be set above 0 and be equal to the number set on the DroneCAN adapter node.</p>
+</div>
+</section>
+<section id="pwm-or-dshot-output-node">
+<h1>PWM or DShot Output Node<a class="headerlink" href="#pwm-or-dshot-output-node" title="Permalink to this heading">¶</a></h1>
+<p>Adapters that have timer outputs available can be used as PWM and DShot output nodes.</p>
+<p>The <a class="reference external" href="https://www.mateksys.com/?portfolio=can-l4-pwm">MatekL431 DroneCAN PWM device</a> is an example of this.</p>
+<p>This can be useful for providing additional servo outputs beyond what the autopilot provides, but is most useful for allowing the ESCs and Sevos to be remotely located, far from the autopilot using the CAN bus to communicate. A maximum of 32 outputs in ArduPilot is possible.</p>
+<p>In addition, the autopilot outputs can be configured for GPIO use, and still allow up to 32 servo/motor outputs to be realized with DroneCAN peripherals.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to use DShot output, the node must have a DShot-capable firmware installed.</p>
+</div>
+<section id="dshot-esc-adapter">
+<h2>DShot ESC Adapter<a class="headerlink" href="#dshot-esc-adapter" title="Permalink to this heading">¶</a></h2>
+<p>In this example, a quadplane with outputs 5-8 used for 4 DShot ESCs with telemetry will be shown. 3 wires from each ESC should be connected to the DroneCAN adapter node: Ground, DShot signal, and serial telemetry. The ground from each ESC should be connected to a ground pad on the DroneCAN node. The signal wires from the 4 ESCs should be connected to the first 4 PWM pads on the node, marked as outputs “1”, “2”, “3”, and “4”. The serial telemetry pin from all 4 ESCs should be all connected to the same UART RX pin on the adapter node.</p>
+<p>On the main autopilot you need to set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_Px_DRIVER</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_Dx_PROTOCOL</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_Dx_UC_ESC_BM</span></a> = 240 or the bitmask of motor outputs</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-of" title="(in Rover)"><span class="xref std std-ref">CAN_Dx_UC_ESC_OF</span></a> = 4 or the offset number to the first ESC output. This makes the transmission of CAN packets much more efficient</p></li>
+</ul>
+<p>On the DroneCAN PWM node you need to set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/AP_Periph-Parameters.html#out1-function" title="(in Dev)"><span class="xref std std-ref">OUTx_FUNCTION</span></a> = 33 + ESC number</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/AP_Periph-Parameters.html#out-blh-mask" title="(in Dev)"><span class="xref std std-ref">OUT_BLH_MASK</span></a> = 15 or a bitmask of which ESCs are active</p></li>
+</ul>
+</section>
+<section id="pwm-output">
+<h2>PWM Output<a class="headerlink" href="#pwm-output" title="Permalink to this heading">¶</a></h2>
+<p>On the main autopilot you need to set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-srv-bm" title="(in Rover)"><span class="xref std std-ref">CAN_Dx_UC_SRV_BM</span></a> to a bitmask of servos you want to send over CAN.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-srv-rt" title="(in Rover)"><span class="xref std std-ref">CAN_Dx_UC_SRV_RT</span></a> to the output rate. This is typically 50 Hz for most servos.</p></li>
+</ul>
+<p>On the CAN node you need to set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/AP_Periph-Parameters.html#out-blh-mask" title="(in Dev)"><span class="xref std std-ref">OUT_BLH_MASK</span></a> = 0 to disable DShot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/AP_Periph-Parameters.html#esc-pwm-type" title="(in Dev)"><span class="xref std std-ref">ESC_PWM_TYPE</span></a> = 0 for normal PWM</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/AP_Periph-Parameters.html#out1-function" title="(in Dev)"><span class="xref std std-ref">OUTx_FUNCTION</span></a> to a value of 50 plus the servo number for each output you want to be enabled as PWM output</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/dev/docs/AP_Periph-Parameters.html#out1-function" title="(in Dev)"><span class="xref std std-ref">OUTx_FUNCTION</span></a> = 0 for any outputs you do not have connected. Do not leave them at the default of 33 + ESC number</p></li>
+</ul>
+<p>For example, if you had an elevator servo on SERVO2 on the main autopilot and you want this to appear on the first output of the CAN node (on the node’s pin marked “1”) then you would set OUT1_FUNCTION = 52 (that is 50 + the servo number on the autopilot). If you wanted a rudder that is on SERVO4 to appear on output 4 then you would set OUT4_FUNCTION=54.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also recommended to set OUTn_MIN to 1000, OUTn_MAX to 2000, and OUTn_TRIM to 1500. That will allow you to use the SERVOn_MIN, SERVOn_MAX, and SERVOn_TRIM values on the main autopilot to control the outputs range and center in the usual way. It is possible to use other values on the node, but it gets more complicated to understand the mapping of the PWM values, so using 1000, 1500, 2000 is recommended. Doing this also means the PWM value in your autopilot logs matches what is output by the node.</p>
+</div>
+</section>
+<section id="combining-dshot-and-pwm-outputs">
+<h2>Combining DShot and PWM outputs<a class="headerlink" href="#combining-dshot-and-pwm-outputs" title="Permalink to this heading">¶</a></h2>
+<p>There are a few rules to follow when combining PWM and DShot outputs on the same node. If you are familiar with doing this on autopilot, it is the same rules. The pins are grouped by timer and all of the pins attached to a timer must be the same type. For example, on the MatekL431 node the first 4 outputs are all on the same timer. This means that those output pins must all be DShot outputs and 1 PWM on the fifth output or the first 4 as PWM and 1 DShot.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

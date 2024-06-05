@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currawong Velocity CAN ESCs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Currawong Velocity CAN ESCs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="currawong-velocity-can-escs">
+<span id="common-velocity-can-escs"></span><h1>Currawong Velocity CAN ESCs<a class="headerlink" href="#currawong-velocity-can-escs" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/velocity-esc.jpg" src="../_images/velocity-esc.jpg" />
+<p>Currawong’s <a class="reference external" href="https://www.currawongeng.com/servos-escs/velocity/">Velocity range of ESCs</a> provide motor control for the aerospace sector, with a high degree of reliability.</p>
+<p>Designed for driving extremely large motors for heavy-lift applications, the Velocity range of ESCs is available in power levels above 20kW</p>
+<ul class="simple">
+<li><p>Up to 18S (75V) battery packs</p></li>
+<li><p>Sustained currents above 300A</p></li>
+<li><p>Compact design</p></li>
+<li><p>Fully isolated communication interface</p></li>
+<li><p>Designed and manufactured in Australia</p></li>
+</ul>
+<p>The Velocity ESC provides a CAN communication interface for commands and telemetry. A traditional digital PWM interface is also supported. They support both PiccoloCAN and DroneCAN protocols.</p>
+<p>Additionally, the Velocity ESC provides an optional hardware interlock for increased operator safety.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Contact <a class="reference external" href="https://www.currawongeng.com/about-us/contact-us/">Currawong Engineering</a> for purchasing details.</p>
+</section>
+<section id="piccolocan-setup">
+<h2>PiccoloCAN Setup<a class="headerlink" href="#piccolocan-setup" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Velocity ESC uses the PiccoloCAN protocol. Originally developed for the Piccolo autopilot, the protocol is now natively supported by ArduPilot</p>
+</div>
+<section id="ardupilot-configuration">
+<h3>ArduPilot Configuration<a class="headerlink" href="#ardupilot-configuration" title="Permalink to this heading">¶</a></h3>
+<p>To enable communication with the Velocity ESCs using PiccoloCAN, the following parameters must be set.</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 4 (PiccoloCAN)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 (First driver) to specify that the ESCs are connected to the CAN1 port</p></li>
+</ul>
+<p>[site wiki=”copter,rover”]
+- Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-min" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MIN</span></a> = 1000 and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-max" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MAX</span></a> = 2000 so ArduPilot uses an output range that matches the ESCs input range
+[/site]
+[site wiki=”copter”]
+- Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> = 0.03 meaning the motors will spin at 3% of full thrust when armed
+- Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a> = 0.05 meaning the motors will spin at no less than 5% of full thrust when flying
+[/site]
+[site wiki=”plane”]
+- Set <code class="docutils literal notranslate"><span class="pre">SERVOx_MIN</span></code> = 1000 and <code class="docutils literal notranslate"><span class="pre">SERVOx_MAX</span></code> = 2000 for each ESC connected (<code class="docutils literal notranslate"><span class="pre">x</span></code> corresponds to the ESC number) so ArduPilot uses an output range that matches the ESCs input range
+[/site]
+- Set <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to each motor channel (e.g. 33 - 40 for motors 1 - 8). This is automatically configured when setting frame class/type. If a motor channel isn’t assigned to a servo output, commands won’t be sent to the associated ESC.</p>
+<p>By default, all configured motor channels are used to send control commands to Velocity ESCs. These control messages are transmitted by the autopilot at a default rate of 50Hz. These parameters can be modified using:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-pc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PC_ESC_BM</span></a> parameter is a bitmask that determines which ESC (motor) channels are transmitted over CAN</p></li>
+<li><p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-pc-esc-rt" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PC_ESC_RT</span></a> parameter determines the rate (Hz) at which commands are sent out to the connected Velocity ESCs</p></li>
+</ul>
+</section>
+<section id="esc-configuration">
+<h3>ESC Configuration<a class="headerlink" href="#esc-configuration" title="Permalink to this heading">¶</a></h3>
+<p>The following configuration settings should be used on the Velocity ESC for operation with Ardupilot:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set Piccolo Node ID to the motor channel the ESC should listen to. Note this may not be the same as the configured servo output number.</p></li>
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">Listen</span> <span class="pre">for</span> <span class="pre">Broadcast</span> <span class="pre">Commands</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="dronecan-setup">
+<h2>DroneCAN Setup<a class="headerlink" href="#dronecan-setup" title="Permalink to this heading">¶</a></h2>
+<section id="id1">
+<h3>ArduPilot Configuration<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>Refer to <a class="reference internal" href="common-uavcan-escs.html#common-uavcan-escs"><span class="std std-ref">DroneCAN ESCs Autopilot Setup</span></a>.</p>
+</section>
+<section id="id2">
+<h3>ESC Configuration<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>To configure the ESC to receive commands from <code class="docutils literal notranslate"><span class="pre">SERVOx</span></code> output, set <code class="docutils literal notranslate"><span class="pre">dronecan.escIndex</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">1</span></code> (e.g. for <code class="docutils literal notranslate"><span class="pre">SERVO5</span></code>, set <code class="docutils literal notranslate"><span class="pre">escIndex</span></code> = 4). Note that this is different to PiccoloCAN, where motor channels are assigned to node ids, rather than servo output channels to the <code class="docutils literal notranslate"><span class="pre">escIndex</span></code>.</p></li>
+<li><p>Telemetry periods can be configured with the <code class="docutils literal notranslate"><span class="pre">dronecan.messagePeriods</span></code> settings.</p></li>
+<li><p>By default, the ESC respects arming messages from the Autopilot. To always software enable the ESC when a command is received, and ignore arming messages, set <code class="docutils literal notranslate"><span class="pre">config.swInhibit</span></code> = 1 (False).</p></li>
+</ul>
+</div></blockquote>
+<p>By default, the Velocity ESC is configured to use Dynamic Node id Allocation (DNA). <code class="docutils literal notranslate"><span class="pre">dronecan.nodeId</span></code> should be set to “0” (to use DNA), unless all devices on the CAN bus are configured to use static IDs.</p>
+<p>Only the DroneCAN specific settings are shown when fetching settings using the DroneCAN protocol. The full suite of Velocity ESC settings can be configured by enabling the <code class="docutils literal notranslate"><span class="pre">show_advanced</span></code> setting.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to configure your motor, and perform ESC and motor validation using PiccoloCAN with CEquip, and swap to DroneCAN, if required, during vehicle integration.</p>
+</div>
+</section>
+</section>
+<section id="logging-and-reporting">
+<h2>Logging and Reporting<a class="headerlink" href="#logging-and-reporting" title="Permalink to this heading">¶</a></h2>
+<p>Velocity ESCs provide comprehensive telemetry information back to the autopilot which is recorded in the autopilot’s onboard log, and can be viewed in any <a class="reference internal" href="common-logs.html#common-logs"><span class="std std-ref">ArduPilot compatible log viewer</span></a>.  This information includes:</p>
+<ul class="simple">
+<li><p>RPM</p></li>
+<li><p>Voltage</p></li>
+<li><p>ESC Temperature</p></li>
+<li><p>Motor current</p></li>
+<li><p>Motor Temperature (when used with an external sensor)</p></li>
+</ul>
+<p>This information (except the motor temperature) can also be viewed in real-time using a ground station.  If using the Mission Planner go to the Flight Data screen’s status tab and look for (e.g.) esc1_rpm.</p>
+<a class="reference external image-reference" href="../_images/dshot-realtime-esc-telem-in-mp.jpg"><img alt="../_images/dshot-realtime-esc-telem-in-mp.jpg" src="../_images/dshot-realtime-esc-telem-in-mp.jpg" style="width: 450px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sending ESC data to the GCS requires using MAVLink2.  Please check the appropriate SERIALx_PROTOCOL parameter is 2 (where “x” is the serial port number used for the telemetry connection).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

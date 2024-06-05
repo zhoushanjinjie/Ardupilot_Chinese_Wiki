@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operation Using Only a Ground Control Station (GCS) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Operation Using Only a Ground Control Station (GCS)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="operation-using-only-a-ground-control-station-gcs">
+<span id="common-gcs-only-operation"></span><h1>Operation Using Only a Ground Control Station (GCS)<a class="headerlink" href="#operation-using-only-a-ground-control-station-gcs" title="Permalink to this heading">¶</a></h1>
+<p>While it is generally recommended that a Radio Control system is employed as primary pilot control means for ArduPilot vehicles, it is not a requirement. It is possible to operate a vehicle using only a Ground Control Station (GCS), with or without joystick input. Setup varies vehicle to vehicle, and is detailed below.</p>
+<section id="capability">
+<h2>Capability<a class="headerlink" href="#capability" title="Permalink to this heading">¶</a></h2>
+<p>If a joystick is connected to the GCS, then almost the same control capabilities are available as with a radio control transmitter/receiver. Mode changes can be assigned to joystick buttons. If an RC transmitter is used as the joystick, then the same control precision can be obtained. Use of low resolution , cheaper “game” style joysticks will usually provide a less than enjoyable experience and use of high quality joystick or use of an RC transmitter as a joystick (OpenTX provides this capability) is highly recommended.</p>
+<p>It is also possible to use only the GCS itself, if only autonomous missions or guided mode operation is desired.</p>
+</section>
+<section id="failsafes">
+<h2>Failsafes<a class="headerlink" href="#failsafes" title="Permalink to this heading">¶</a></h2>
+<p>It is highly recommended that the GCS failsafe be setup for the vehicle, since GCS connectivity is being relied upon exclusively for vehicle control. See <a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span>Plane Failsafe Function</span></a>, <a class="reference internal" href="failsafe-landing-page.html#failsafe-landing-page"><span class="std std-ref">Copter Failsafe</span></a>, or <a class="reference external" href="https://ardupilot.org/rover/docs/rover-failsafes.html#rover-failsafes" title="(in Rover)"><span class="xref std std-ref">Rover Failsafes</span></a>, as appropriate.</p>
+<p>Of course, other failsafes can be setup and utilized as desired in addition to the GCS failsafe.</p>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<section id="plane-and-rover">
+<h3>Plane and Rover<a class="headerlink" href="#plane-and-rover" title="Permalink to this heading">¶</a></h3>
+<p>Both Plane and Rover only require two parameter changes to allow the arming of the vehicle when using only a GCS.</p>
+<ul class="simple">
+<li><p>In Plane, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#thr-failsafe" title="(in Plane)"><span class="xref std std-ref">THR_FAILSAFE</span></a> must be set to zero, while in Rover, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-enable" title="(in Rover)"><span class="xref std std-ref">FS_THR_ENABLE</span></a> must be set to zero.</p></li>
+<li><p>In both Plane and Rover, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc-protocols" title="(in Rover)"><span class="xref std std-ref">RC_PROTOCOLs</span></a> should be set to “0” to prevent accidental detection of noise as an RC source.</p></li>
+</ul>
+<p>The vehicle can then be armed after the GPS has obtained lock and internal initializations have been completed, either by joystick rudder arming (if enabled, see <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-rudder" title="(in Rover)"><span class="xref std std-ref">ARMING_RUDDER</span></a> ) or arming command from the GCS.</p>
+</section>
+<section id="copter">
+<h3>Copter<a class="headerlink" href="#copter" title="Permalink to this heading">¶</a></h3>
+<p>Copter has a few additional safety checks that must be accommodated in order to arm with no RC input.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-enable" title="(in Rover)"><span class="xref std std-ref">FS_THR_ENABLE</span></a> must be set to zero</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> should not include bit 6 (RC check). A value of 65470 will include all other checks. It is not recommended that <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> set for 0 (ARM immediately), since important system checks would be bypassed.</p></li>
+<li><p>assuming that the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rcmap-roll" title="(in Rover)"><span class="xref std std-ref">RCMAP_ROLL</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rcmap-pitch" title="(in Rover)"><span class="xref std std-ref">RCMAP_PITCH</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rcmap-throttle" title="(in Rover)"><span class="xref std std-ref">RCMAP_THROTTLE</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rcmap-yaw" title="(in Rover)"><span class="xref std std-ref">RCMAP_YAW</span></a> parameters are default, then the RC 1 thru 4 channels’ maximum and minimum parameters must be changed slightly. This is because Copter checks to see that the RC calibration has been done. But since no RC is used in the system, this step will not have occurred. Therefore, to emulate that this has happened, the min and max values need to be changed from their defaults of 1100 and 1900, respectively. Values of 1101 and 1901, will do for the <code class="docutils literal notranslate"><span class="pre">RCx_MIN</span></code> and <code class="docutils literal notranslate"><span class="pre">RCx_MAX</span></code> for the roll,pitch, throttle, and yaw RC channels.</p></li>
+</ul>
+<p>The vehicle can then be armed after the GPS has obtained lock and internal initializations have completed, either by joystick rudder arming (if enabled, see <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-rudder" title="(in Rover)"><span class="xref std std-ref">ARMING_RUDDER</span></a> ) or arming command from the GCS.</p>
+<p>However, there is still one more safety check that needs to be cleared. Copter will auto-disarm after a few seconds if the throttle is not raised above idle. If a joystick is used, this is easily accomplished. However, if AUTO or GUIDED operation without a joystick is desired, then after arming, a MISSION START command must be issued in AUTO mode, as shown below for Mission Planner, or a TAKEOFF command be issued from the GCS (in Mission Planner, this is a mouse right button click option) within a few seconds of arming. QGC has a slider button that will arm and start the mission in one swipe.</p>
+<img alt="../_images/mission-start.png" src="../_images/mission-start.png" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

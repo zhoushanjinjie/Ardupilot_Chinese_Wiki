@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>随风向改变方位和风力保持 &mdash; Copter文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Choosing a MultiCopter Frame" href="choosing-a-frame.html" />
+    <link rel="prev" title="Nooploop for Non-GPS Navigation" href="common-nooploop.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">了解Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">多旋翼工作原理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">用例概述</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">飞行功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">围栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">避障</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">地形跟随（自动、引导等）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">表面跟踪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">电机推力缩放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-imu-notch-filtering.html">陷波滤波</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">移动载具初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">无GPS导航</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">随风向改变方位和风力保持</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#active-weathervaning">启用该功能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">选择一款多旋翼机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">构建自己的多旋翼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">多旋翼安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">参考机型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">整机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter简介</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">飞行功能</a></li>
+      <li class="breadcrumb-item active">随风向改变方位和风力保持</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="weathervaning-and-wind-hold">
+<span id="weathervaning"></span><h1>随风向改变方位和风力保持<a class="headerlink" href="#weathervaning-and-wind-hold" title="Permalink to this heading">¶</a></h1>
+<p>在大风中驾驶传统直升机或一些多用途直升机可能会带来挑战。问题是，任何平板表面，如传统直升机的尾翼和吊杆，都提供了大量的表面积供风与之相互作用。这可能导致姿态和位置控制的降低以及电机和ESC的高负载。</p>
+<p>为了减少在垂直起降(VTOL)模式下飞行时风的影响，ArduPilot代码支持主动偏航轴风向标，通过保持车辆指向风中并减少暴露在风中的表面积，可以大大减少风对垂直起降飞行的影响。</p>
+<section id="active-weathervaning">
+<h2>启用该功能<a class="headerlink" href="#active-weathervaning" title="Permalink to this heading">¶</a></h2>
+<p>当飞机在制导和/或自动模式下飞行时，主动变向风的作用是将飞机转向风中。通过将<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-enable" title="(in Copter)"><span class="xref std std-ref">WVANE_ENABLE</span></a>参数设置为非零值并选择在GUIDED和/或AUTO模式下使用，可以启用该功能。默认情况下不启用该功能。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-enable" title="(in Copter)"><span class="xref std std-ref">WVANE_ENABLE</span></a> 值</p></th>
+<th class="head" rowspan="2"><p>风向标方向</p></th>
+</tr>
+<tr class="row-even"></tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p>0</p></td>
+<td rowspan="2"><p>关闭</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>1</p></td>
+<td rowspan="2"><p>逆风（默认）</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>2</p></td>
+<td rowspan="2"><p>逆风或顺风</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>3</p></td>
+<td rowspan="2"><p>侧风</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>4</p></td>
+<td rowspan="2"><p>顺风</p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<p>然后，您还必须通过分别设置<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#guid-options" title="(in Rover)"><span class="xref std std-ref">GUID_OPTIONS</span></a>和/或<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#auto-options" title="(in Copter)"><span class="xref std std-ref">AUTO_OPTIONS</span></a>参数的第7位，为GUIDED和/或AUTO模式启用它。它在任何其他模式下都不会激活。</p>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>启用weathervaning将覆盖任务中的任何偏航特定控制，例如将机头指向ROI目标，或响应MAVLink YAW定位命令。如果启用了飞行员偏航控制，飞行员可以改变偏航，但一旦飞行员输入停止，车辆将偏航回上面设置的风向。</p>
+</div>
+<p>它的工作方式是自动驾驶仪查看控制所需位置所需的滚转和/或俯仰姿态。基本算法是“偏航到滚转/俯仰”。如果飞机需要向右保持滚转以保持位置，则在假设需要向右滚转以逆风保持的情况下（假设机头逆风），飞机将朝该方向转弯。类似地，对于侧风，它将适当地使用俯仰角和偏航，试图使保持位置所需的俯仰为零。</p>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>默认情况下，weathervaning不使用俯仰，只使用滚转。这是为了防止在没有风的情况下，如果悬停姿态没有调整到悬停位置，出现不必要的连续偏航。如果<strong>已</strong>完成此操作，则可以通过将<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-options" title="(in Copter)"><span class="xref std std-ref">WVANE_OPTIONS</span></a>位0设置为“1”来启用变桨驱动的天气变化。如果在风从后面吹的情况下定位（即主要用俯仰而不是滚转），这将加速风化。这不会影响侧风，它总是使用俯仰，悬停配平姿态必须正确设置才能良好操作。</p>
+</div>
+<p>飞机偏航的速度由<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-gain" title="(in Copter)"><span class="xref std std-ref">WVANE_GAIN</span></a>参数决定。它将倾斜角度转换为偏转的度/秒。一个好的开始值是1（1度滚转=1度/秒偏航）。更高的值将使飞机更快地转向滚转。如果该值过高，则偏航可能会出现不稳定和振荡。</p>
+<p>为了应对飞机中的少量配平，有一个额外的参数<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-ang-min" title="(in Copter)"><span class="xref std std-ref">WVANE_ANG_MIN</span></a>，用于控制在使用防风雨前的最小滚转/俯仰水平。这默认为一度。如果你发现你的飞机在无风的情况下也开始偏航，那么你可能需要提高这个值。</p>
+<p>当WeatherVaning处于活动状态时，有许多其他参数可以控制（默认情况下全部禁用）：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-hgt-min" title="(in Copter)"><span class="xref std std-ref">WVANE_HGT_MIN</span></a>: 允许在该高度以上进行防风雨</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-spd-max" title="(in Copter)"><span class="xref std std-ref">WVANE_SPD_MAX</span></a>: 低于该地面速度，允许进行风化</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-velz-max" title="(in Copter)"><span class="xref std std-ref">WVANE_VELZ_MAX</span></a>: 载具仍将尝试风向标的最大爬升或下降速度</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-takeoff" title="(in Copter)"><span class="xref std std-ref">WVANE_TAKEOFF</span></a>: 在自动起飞中覆盖weathervaning方向*</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-land" title="(in Copter)"><span class="xref std std-ref">WVANE_LAND</span></a>: 自动着陆时的方向*</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>要在自动飞行任务或制导模式下仅在起飞和着陆时允许变风，请设置<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-enable" title="(in Copter)"><span class="xref std std-ref">WVANE_ENABLE</span></a>=0，但使用<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-land" title="(in Copter)"><span class="xref std std-ref">WVANE_LAND</span></a>和/或<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wvane-takeoff" title="(in Copter)"><span class="xref std std-ref">WVANE_TAKEOFF</span></a>参数启用变风控制。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">提示</p>
+<p>Weathervaning可通过<a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">RC辅助功能开关</span></a>禁用或启用，选项“160”</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-nooploop.html" class="btn btn-neutral float-left" title="Nooploop for Non-GPS Navigation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="choosing-a-frame.html" class="btn btn-neutral float-right" title="Choosing a MultiCopter Frame" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

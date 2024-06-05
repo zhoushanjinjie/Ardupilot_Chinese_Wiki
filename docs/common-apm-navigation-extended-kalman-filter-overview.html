@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extended Kalman Filter (EKF) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Extended Kalman Filter (EKF)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="extended-kalman-filter-ekf">
+<span id="common-apm-navigation-extended-kalman-filter-overview"></span><h1>Extended Kalman Filter (EKF)<a class="headerlink" href="#extended-kalman-filter-ekf" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/advanced-configuration-ekf.png" src="../_images/advanced-configuration-ekf.png" />
+<p>An Extended Kalman Filter (EKF) algorithm is used to
+estimate vehicle position, velocity and angular orientation based on
+rate gyroscopes, accelerometer, compass, GPS, airspeed and barometric
+pressure measurements.</p>
+<p>The advantage of the EKF over the simpler complementary filter
+algorithms (i.e. “Inertial Nav”), is that by fusing all available measurements it is better
+able to reject measurements with significant errors. This makes the
+vehicle less susceptible to faults that affect a single sensor. An EKF also
+enables measurements from optional sensors such as optical flow and
+laser range finders to be used to assist navigation.</p>
+<p>Current stable versions of ArduPilot use EKF3 as their primary attitude and position estimation source with DCM running quietly in the background.
+If the autopilot has two (or more) IMUs available, two EKF “cores” (i.e. two instances of the EKF) will run in parallel, each using a different IMU.
+At any one time, only the output from a single EKF core is ever used, that core being the one that reports the best health which is determined by the consistency of its sensor data.</p>
+<p>Most users should not need to modify any EKF parameters, but the information below provides some information on those parameters that are most commonly changed.
+More detailed information can be found on the <a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter" title="(in Dev)"><span class="xref std std-ref">developer EKF wiki page</span></a>.</p>
+<section id="should-the-ekf2-or-ekf3-be-used">
+<h2>Should the EKF2 or EKF3 be used?<a class="headerlink" href="#should-the-ekf2-or-ekf3-be-used" title="Permalink to this heading">¶</a></h2>
+<p>In general, we recommend users stick with the EKF3, which is now the default. In addition, 1MB autopilots only have this option due to space limitations. EKF2 can still be used but does not have many of the enhancements of EKF3 such as newer sensor sources including Beacons, Wheel Encoders and Visual Odometry.</p>
+</section>
+<section id="choosing-the-ekf-and-number-of-cores">
+<h2>Choosing the EKF and number of cores<a class="headerlink" href="#choosing-the-ekf-and-number-of-cores" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter-ahrs-ekf-use" title="(in Dev)"><span class="xref std std-ref">AHRS_EKF_USE</span></a>: set to “1” to use the EKF, “0” to use DCM for attitude control and
+inertial nav (Copter-3.2.1) or ahrs dead reckoning (Plane) for position control.  In Copter-3.3 (and higher) this parameter is forced to “1” and cannot be changed.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a>: set to “2” to use EKF2 for attitude and position estimation, “3” for EKF3.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-enable" title="(in Rover)"><span class="xref std std-ref">EK2_ENABLE</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-enable" title="(in Rover)"><span class="xref std std-ref">EK3_ENABLE</span></a>: set to “1” to enable the EKF2 and/or EKF3 respectively.</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-imu-mask" title="(in Rover)"><span class="xref std std-ref">EK2_IMU_MASK</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-imu-mask" title="(in Rover)"><span class="xref std std-ref">EK3_IMU_MASK</span></a>: a bitmask specifying which IMUs (i.e. accelerometer/gyro) to use.  An EKF “core” (i.e. a single EKF instance) will be started for each IMU specified.</p>
+<ul class="simple">
+<li><p>1: starts a single EKF core using the first IMU</p></li>
+<li><p>2: starts a single EKF core using only the second IMU</p></li>
+<li><p>3: starts two separate EKF cores using the first and second IMUs respectively</p></li>
+</ul>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-primary" title="(in Rover)"><span class="xref std std-ref">EK3_PRIMARY</span></a>: selects which “core” or “lane” is used as the primary. A value of 0 selects the first IMU lane in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-imu-mask" title="(in Rover)"><span class="xref std std-ref">EK3_IMU_MASK</span></a>, 1 the second, etc. Be sure that the selected primary lane exists. See Affinity and Lane Switching below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Plane and Rover will fall back from EKF2 or EKF3 to DCM if the EKF becomes unhealthy or the EKF is not fusing GPS data despite the GPS having 3D Lock.
+There is no fallback from EKF3 to EKF2 (or EKF2 to EKF1)</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using the parameters above it is possible to run up to 5 AHRSs in parallel at the same time (DCMx1, EKF2x2, EKF3x2) but this can result in performance problems so if running EKF2 and EKF3 in parallel, set the IMU_MASK to reduce the total number of cores.</p>
+</div>
+</section>
+<section id="affinity-and-lane-switching">
+<h2>Affinity and Lane Switching<a class="headerlink" href="#affinity-and-lane-switching" title="Permalink to this heading">¶</a></h2>
+<p>EKF3 provides the feature of sensor affinity which allows the EKF cores to also use non-primary instances of sensors, specifically, Airspeed, Barometer, Compass (Magnetometer) and GPS. This allows the vehicle to better manage good quality sensors and be able to switch lanes accordingly to use the best-performing one for state estimation. For more details and configuration, refer <a class="reference internal" href="common-ek3-affinity-lane-switching.html#common-ek3-affinity-lane-switching"><span class="std std-ref">EKF3 Affinity and Lane Switching</span></a>.</p>
+</section>
+<section id="gps-non-gps-transitions">
+<h2>GPS / Non-GPS Transitions<a class="headerlink" href="#gps-non-gps-transitions" title="Permalink to this heading">¶</a></h2>
+<p>EKF3 (in ArduPilot 4.1 and higher) supports in-flight switching of sensors which can be useful for transitioning between GPS and Non-GPS environments.  See <a class="reference internal" href="common-non-gps-to-gps.html#common-non-gps-to-gps"><span class="std std-ref">GPS / Non-GPS Transitions</span></a> for more details.</p>
+</section>
+<section id="commonly-modified-parameters">
+<h2>Commonly modified parameters<a class="headerlink" href="#commonly-modified-parameters" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-alt-source" title="(in Rover)"><span class="xref std std-ref">EK2_ALT_SOURCE</span></a> which sensor to use as the primary altitude source</p>
+<ul class="simple">
+<li><p>0 : use barometer (default)</p></li>
+<li><p>1 : use range finder.  <strong>Do not use this option unless the vehicle is being flown indoors where the ground is flat</strong>.  For terrain following please see <a class="reference internal" href="terrain-following.html#terrain-following"><span class="std std-ref">copter</span></a> and <a class="reference internal" href="common-terrain-following.html#common-terrain-following"><span class="std std-ref">plane specific terrain following instructions</span></a> which do not require changing this parameter.</p></li>
+<li><p>2 : use GPS.  Useful when GPS quality is very good and barometer drift could be a problem.  For example if the vehicle will perform long distance missions with altitude changes of &gt;100m.</p></li>
+</ul>
+<p><a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter-ekf-alt-noise" title="(in Dev)"><span class="xref std std-ref">EK2_ALT_M_NSE</span></a>: Default is “1.0”.  Lower number reduces reliance on accelerometers, increases reliance on barometer.</p>
+<p><a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter-ekf-gps-type" title="(in Dev)"><span class="xref std std-ref">EK2_GPS_TYPE</span></a>:
+Controls how GPS is used.</p>
+<ul class="simple">
+<li><p>0 : use 3D velocity &amp; 2D position from GPS</p></li>
+<li><p>1 : use 2D velocity &amp; 2D position (GPS velocity does not contribute
+to altitude estimate)</p></li>
+<li><p>2: use 2D position</p></li>
+<li><p>3 : no GPS (will use <a class="reference external" href="https://ardupilot.org/copter/docs/common-optical-flow-sensors-landingpage.html#common-optical-flow-sensors-landingpage" title="(in Copter)"><span class="xref std std-ref">optical flow</span></a> only if available)</p></li>
+</ul>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-yaw-m-nse" title="(in Rover)"><span class="xref std std-ref">EK2_YAW_M_NSE</span></a>: Controls the weighting between GPS and Compass when calculating the heading.  Default is “0.5”, lower values will cause the compass to be trusted more (i.e. higher weighting to the compass)</p>
+<p>As mentioned above, a more detailed overview of EKF theory and tuning parameters is available on the developer wiki’s <a class="reference external" href="https://ardupilot.org/dev/docs/extended-kalman-filter.html#extended-kalman-filter" title="(in Dev)"><span class="xref std std-ref">Extended Kalman Filter Navigation Overview and Tuning</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

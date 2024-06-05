@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Tuning Instructions &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AutoTune" href="traditional-helicopter-autotune.html" />
+    <link rel="prev" title="Preparing for Tuning" href="traditional-helicopter-tuning-preparing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-preflight-testing.html">Pre-Flight Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-first-flight-tests.html">First Flight Tests</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="traditional-helicopter-tuning.html">Tuning</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-control-system.html">Arducopter Control System Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-preparing.html">Preparing for Tuning</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Manual Tuning Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-autotune.html">AutoTune Wiki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traditional-helicopter-tuning-other-topics.html">Additional Tuning Topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-flight.html">Traditional Helicopter First Flights</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-tuning.html">Traditional Helicopter – Tuning</a></li>
+      <li class="breadcrumb-item active">Manual Tuning Instructions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="manual-tuning-instructions">
+<span id="traditional-helicopter-manual-tuning"></span><h1>Manual Tuning Instructions<a class="headerlink" href="#manual-tuning-instructions" title="Permalink to this heading">¶</a></h1>
+<section id="pitch-and-roll-axes">
+<h2>Pitch and Roll Axes<a class="headerlink" href="#pitch-and-roll-axes" title="Permalink to this heading">¶</a></h2>
+<section id="setting-atc-rat-xxx-ff-and-atc-accel-x-max-parameters-for-desired-pitch-and-roll-response">
+<h3>Setting <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_ACCEL_x_MAX</span></code> Parameters for Desired Pitch and Roll Response<a class="headerlink" href="#setting-atc-rat-xxx-ff-and-atc-accel-x-max-parameters-for-desired-pitch-and-roll-response" title="Permalink to this heading">¶</a></h3>
+<p>In both pitch and roll axes, the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> gain is set so that the actual aircraft
+rate matches the desired rate. To do this, the RATE message in the log is
+required to compare the RATE.PDes and RATE.P log data for pitch and the RATE.RDes and RATE.R
+log data for roll.</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> gains set to 0.15, takeoff and establish a hover
+in Stabilize flight mode, then make some sharp stick inputs in both pitch and
+roll. Land and pull the log from the microSD card and look at the signals in
+a log reviewing software. If the actual rate is more than the desired rate
+then you’ll want to decrease <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code>. If it is less, increase <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code>.</p>
+<p><strong>(to be added…FF calculation directly from log data)</strong></p>
+<p>If the desired and actual rates are offset by some amount, it means that your swash was not
+properly leveled in the setup. In this case, just make sure the change in rate is similar in
+amplitude between desired and actual.  If you get the rates to match and they feel like they
+are too fast, then reduce the <code class="docutils literal notranslate"><span class="pre">ATC_ACCEL_x_MAX</span></code> parameter and repeat the process above to
+match the desired and actual rates.</p>
+<p>If while tuning the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> gain the aircraft starts to oscillate, reduce the
+<code class="docutils literal notranslate"><span class="pre">ATC_ANG_xxx_P</span></code> gain for that axis until the oscillations stop.  However for most
+helicopters the suggested values above should not cause this problem.</p>
+</section>
+<section id="tuning-the-atc-rat-xxx-d-and-atc-rat-xxx-p-gain">
+<h3>Tuning the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gain<a class="headerlink" href="#tuning-the-atc-rat-xxx-d-and-atc-rat-xxx-p-gain" title="Permalink to this heading">¶</a></h3>
+<p>Once you have the heli responding nicely with the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_FF</span></code> gain, now tune the
+PID gains. The rate PID controller provides stability to reject disturbances and
+keep the actual aircraft following the software demanded rates.</p>
+<p>Start with the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> gain.  Use the <a class="reference internal" href="common-transmitter-tuning.html#common-transmitter-tuning"><span class="std std-ref">Transmitter based tuning</span></a> feature of ArduCopter.
+Make the following parameter changes:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune" title="(in Copter)"><span class="xref std std-ref">TUNE</span></a></p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune-min" title="(in Copter)"><span class="xref std std-ref">TUNE_MIN</span></a></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune-max" title="(in Copter)"><span class="xref std std-ref">TUNE_MAX</span></a></p></td>
+<td><p>0.030*</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>for futaba radios this equates to one increment in the knob to 0.001</em></p>
+<p>Adjust the tuning knob until the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a> gains are
+0.001. Lift into a hover and make some sharp stick inputs in roll.  Most
+helicopters will see roll oscillations before they see pitch oscillations.
+That is why roll inputs are suggested.  If it doesn’t shake, increase the gain
+by 0.001 and try it again. At the value where you get rapid shaking, cut
+that value in half and enter it as the final tuning value for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a> and
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a>.  Test hover the heli and make some rapid stick movements in both
+pitch and roll to make sure it’s stable.</p>
+<p>Now tune the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains.  Make the following tuning parameter changes:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune" title="(in Copter)"><span class="xref std std-ref">TUNE</span></a></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune-min" title="(in Copter)"><span class="xref std std-ref">TUNE_MIN</span></a></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#tune-max" title="(in Copter)"><span class="xref std std-ref">TUNE_MAX</span></a></p></td>
+<td><p>0.3*</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>for futaba radios this equates to one increment in the knob to 0.01</em></p>
+<p>Adjust the tuning knob until the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_P</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_P</span></a>  gains are
+0.05. Lift into a hover and roll aggressively from side to side.  If it doesn’t
+shake, increase the gain by 0.01 and try it again. At the value where you get
+rapid shaking, cut that value in half and enter it as the final tuning value
+for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_P</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_P</span></a>.
+Test hover the heli and make some rapid stick movements in both pitch and roll to make sure it’s stable.</p>
+<p>After tuning the <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_D</span></code> and <code class="docutils literal notranslate"><span class="pre">ATC_RAT_xxx_P</span></code> gains the aircraft should feel much smoother. Tune quality can be also checked by viewing the ATT.DesP vs ATT.P and ATT.DesR vs ATT.R log plots:</p>
+<a class="reference external image-reference" href="../_images/roll_tune.jpg"><img alt="../_images/roll_tune.jpg" src="../_images/roll_tune.jpg" /></a>
+</section>
+<section id="setting-the-atc-rat-rll-i-and-atc-rat-pit-i">
+<h3>Setting the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-i-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_I</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-i-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_I</span></a><a class="headerlink" href="#setting-the-atc-rat-rll-i-and-atc-rat-pit-i" title="Permalink to this heading">¶</a></h3>
+<p>It is recommended to set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-i-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_I</span></a> gain equal to the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_FF</span></a> gain and the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-i-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_I</span></a> gain equal to the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FF</span></a> gain.</p>
+</section>
+</section>
+<section id="yaw-axis">
+<h2>Yaw Axis<a class="headerlink" href="#yaw-axis" title="Permalink to this heading">¶</a></h2>
+<section id="setting-atc-rat-yaw-ff">
+<h3>Setting <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_FF</span></a><a class="headerlink" href="#setting-atc-rat-yaw-ff" title="Permalink to this heading">¶</a></h3>
+<p>In most cases, the feedforward required for the yaw axis could be very small or even zero.  To check the feedforward required, hover the helicopter and perform a constant rate 90 deg turn.  Pull the log data and look at the RATE.Yout signal.  Determine the average RATE.Yout during the time the yaw rate (RATE.Y signal) was constant.  Feedforward gain is determined by dividing the average RATE.Yout by the average RATE.Y in rad/s.</p>
+</section>
+<section id="tuning-atc-rat-yaw-d-and-atc-rat-yaw-p">
+<h3>Tuning <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-d-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_D</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a><a class="headerlink" href="#tuning-atc-rat-yaw-d-and-atc-rat-yaw-p" title="Permalink to this heading">¶</a></h3>
+<p>Spool up the heli and hover it no more than .25 meters above ground in Stabilize flight mode and test the
+starting tail settings. If the tail seems “loose” and doesn’t want to hold
+increase the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a>. If the tail slowly wags back and forth, the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a> may be too high. If the tail rapidly shakes side to side reduce the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-yaw-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_YAW_P</span></a>.</p>
+<p>In all cases it is not recommended to adjust <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-ang-yaw-p" title="(in Copter)"><span class="xref std std-ref">ATC_ANG_YAW_P</span></a> below 3.5 or
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-yaw-p-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_YAW_P</span></a> above 0.38. If your helicopter cannot seem to achieve a solid tail
+within those limits you likely have a mechanical problem with the tail - either
+excessive “slop” or play in the linkage, binding of the linkage or a servo
+problem. Correct the problem before proceeding with roll and pitch tuning.</p>
+<p>The tune quality can be checked by examining the logs for ATT.DesYaw vs ATT.Yaw as shown below for an imperfect but flyable tune:</p>
+<a class="reference external image-reference" href="../_images/yaw_tune.jpg"><img alt="../_images/yaw_tune.jpg" src="../_images/yaw_tune.jpg" /></a>
+<p>Note that there is a little overshoot and neutral ringing indicating that the FF or P gain is a little high or there is not enough D and could be improved a bit.</p>
+</section>
+</section>
+<section id="tuning-a-flybar-equipped-head">
+<h2>Tuning a Flybar Equipped Head<a class="headerlink" href="#tuning-a-flybar-equipped-head" title="Permalink to this heading">¶</a></h2>
+<p>The setup of a helicopter with flybar equipped head does not require the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-flybar-mode" title="(in Copter)"><span class="xref std std-ref">H_FLYBAR_MODE</span></a> set to flybar mode.  This parameter only affects
+the ACRO flight mode.  Unless there is a reason passthrough provided by the flybar
+setting in ACRO mode is needed, then it is recommended that <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-flybar-mode" title="(in Copter)"><span class="xref std std-ref">H_FLYBAR_MODE</span></a> is
+left at its default of no flybar.  If you choose to use the flybar mode then the FF gain
+is set as described below.  Otherwise the FF is tuned just like an flybarless head.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For flybar heads, the flybar is a mechanical version of the rate PID loop. So flybar is tuned using only FF in pitch and roll. The rate D and P gains are left set to zero for flybar. I-gain, IMAX, and ILMI are tuned just like FBL.</p>
+</div>
+<p>With a flybar head, where the linkage rate is normally lower, it is recommended
+to start with 0.22 FF for both pitch and roll and you will likely have to go
+higher with FF. But for a flybarless head, FF shouldn’t be more than 0.22
+unless you have really really slow servos or slow linkage rate. With all
+helicopters, the FF gain compensates for differences in servo and linkage
+speed.</p>
+<p>Below is a plot of beginning a tune on a flybar helicopter using the starting
+setting of <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-ff-ac-attitudecontrol-heli" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_FF</span></a> = 0.22. The graph shows the aircraft’s response to
+the rate request of the attitude controller is low, meaning the FF value must
+be increased to achieve proper rate response.</p>
+<a class="reference external image-reference" href="../_images/TradHeli_tuning_example3_1.png"><img alt="../_images/TradHeli_tuning_example3_1.png" src="../_images/TradHeli_tuning_example3_1.png" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-tuning-preparing.html" class="btn btn-neutral float-left" title="Preparing for Tuning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-autotune.html" class="btn btn-neutral float-right" title="AutoTune" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Person View (FPV) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multi-Vehicle Flying" href="common-multi-vehicle-flying.html" />
+    <link rel="prev" title="3d Mapping" href="common-3d-mapping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-use-cases-and-applications.html#use-cases">Use Cases</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-3d-mapping.html">3d Mapping</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">First Person View (FPV)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-multi-vehicle-flying.html">Multi-Vehicle Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-use-cases-and-applications.html#vehicle-types">Vehicle Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="common-use-cases-and-applications.html">Use-Cases and Applications</a></li>
+      <li class="breadcrumb-item active">First Person View (FPV)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="first-person-view-fpv">
+<span id="common-fpv-first-person-view"></span><h1>First Person View (FPV)<a class="headerlink" href="#first-person-view-fpv" title="Permalink to this heading">¶</a></h1>
+<p><em>First Person View</em> provides you with a true pilot’s eye view while
+flying by placing a video camera and transmitter on your vehicle paired
+with a receiver and either an LCD or goggles on the ground.  An optional
+OSD (On Screen Display) helps maintain orientation by providing aircraft
+instrument overlay on your FPV monitor.</p>
+<a class="reference external image-reference" href="../_images/fpv_titleImage.jpg"><img alt="../_images/fpv_titleImage.jpg" src="../_images/fpv_titleImage.jpg" /></a>
+<section id="recommended-parts">
+<h2>Recommended parts<a class="headerlink" href="#recommended-parts" title="Permalink to this heading">¶</a></h2>
+<p>To set up an FPV system on your Copter/Plane equipped vehicle you will
+need:</p>
+<ul class="simple">
+<li><p>Miniature video camera. The variety of cameras increases daily. Most now support resolutions of 600-1200 TVL (TV Lines) and have wide supply range tolerance (5-24V typically). Lens are available from wide-angle (&lt;2.8mm) to ultra-narrow (&gt;5mm). For mini-quads, usually wide angle are used, while for planes, normal field of view/focal lengths (2.8mm-3.6mm) are usually used. A wide selection are easily found by searching the internet for <code class="docutils literal notranslate"><span class="pre">FPV</span> <span class="pre">Camera</span></code>.</p></li>
+<li><p>5.8Ghz 25mw to 200mw video transmitter/receiver pair. Again, supply voltage tolerances now easily accommodate 2s-4s Lipo batteries normally used as vehicle power.</p></li>
+<li><p>OSD (On-Screen-Display). Many autopilots now integrate this function directly. If not, external OSDs like <a class="reference external" href="http://www.holybro.com/product/micro-osd-v2/">MinimOSD</a> can be used. Or, not used at all. However, being able to see the battery status, flight data, etc. makes a much more enjoyable flight!</p></li>
+<li><p>Separate batteries for powering the above are rarely needed now, since most now accommodate the flight pack’s voltage range from full to empty,</p></li>
+</ul>
+<p>In addition you will need a monitor like the <a class="reference external" href="http://www.amazon.com/FlySight-Black-Pearl-Diversity-Integrated/dp/B00KR69WHY">Black Pearl</a>
+or goggles.</p>
+<p><strong>Goggle options:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.fatshark.com/default.html">Fat Shark</a> has a wide range
+of goggles including the “Attitude” and “Dominator” that have been
+proven to work.  Note that some models come with a built in
+transmitter &amp; receiver that would replace the 3DR video kits 5.8 Ghz
+transmitter/receiver pair mentioned above. SkyZone, Eachine, and others also make many models for FPV use.</p></li>
+<li><p>Low cost 320x240 resolution goggles (<a class="reference external" href="https://www.youtube.com/watch?v=tG-4JNpE2fc">example video</a>) are not
+recommended because the higher resolution 640x480 (<a class="reference external" href="https://www.youtube.com/watch?v=ywqacXyjcNw">example video</a>) or SVGA
+goggles provide a much better flying experience.</p></li>
+</ul>
+<p>In addition you may wish to set-up a separate <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a>(perhaps with Go-Pro
+attached) to record the flight in HD.</p>
+</section>
+<section id="connection-diagram">
+<h2>Connection diagram<a class="headerlink" href="#connection-diagram" title="Permalink to this heading">¶</a></h2>
+<p>Here is a wiring diagram <a class="reference external" href="http://beta.ivc.no/wiki/index.php/TBS_Discovery_graphic">created by IVC</a> for a
+TBS Discovery Quadcopter that includes an APM2 and MinimOSD:</p>
+<a class="reference external image-reference" href="../_images/tbs_discovery_install_APM2.6withminimosdtbscore.jpg"><img alt="../_images/tbs_discovery_install_APM2.6withminimosdtbscore.jpg" src="../_images/tbs_discovery_install_APM2.6withminimosdtbscore.jpg" /></a>
+<p>FPV equipment on the vehicle should be placed as far away as possible
+from GPS and RC receiver to reduce the chance of interference.</p>
+</section>
+<section id="minim-osd-setup-through-mission-planner">
+<h2>Minim OSD setup through mission planner<a class="headerlink" href="#minim-osd-setup-through-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>The MinimOSD set-up guide <a class="reference internal" href="common-minim-osd-quick-installation-guide.html#common-minim-osd-quick-installation-guide"><span class="std std-ref">can be found here</span></a>.</p>
+</section>
+<section id="integrated-osd">
+<h2>Integrated OSD<a class="headerlink" href="#integrated-osd" title="Permalink to this heading">¶</a></h2>
+<p>Many autopilots now integrate the <a class="reference internal" href="common-osd-overview.html#common-osd-overview"><span class="std std-ref">OSD function</span></a> on board, eliminating the need for an external device and reducing wiring.</p>
+</section>
+<section id="user-videos-blogs">
+<h2>User Videos / Blogs<a class="headerlink" href="#user-videos-blogs" title="Permalink to this heading">¶</a></h2>
+<p>Richard Evan’s FPV flight footage (recorded from the ground station) of
+his Copter based quadcopter including MinimOSD</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/KQOQYcf4Dbc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Stefan Cenkov’s FPV flight footage (recoded from the ground station) of
+his Plane running on VrBrain including MinimOSD.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/LxjtUl8Fw6o" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Robert Mcintosh’s in <a class="reference external" href="https://diydrones.com/profiles/blogs/the-best-place-to-fly">Lone Pine California</a>
+FPV Flight with HD video footage from GoPro camera</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/70365435" style="border: 0; height: 430px; width: 400px">
+</iframe></div><p>Euan Ramsey’s APM2 powered <a class="reference external" href="https://diydrones.com/profiles/blogs/tbs-disco-apm-mounting-suggestion">TBS Discovery</a>.
+Note the TBS frame spreads the 2 front arms apart so the blades don’t
+interfere with the FPV and allow the camera to easily be mounted in
+front</p>
+</section>
+<section id="safety-warnings-relating-specifically-to-fpv-flight">
+<h2>Safety Warnings Relating Specifically to FPV Flight<a class="headerlink" href="#safety-warnings-relating-specifically-to-fpv-flight" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Because of the limited field-of-view of the FPV camera you may not be
+able to easily see obstacles near the vehicle which may be why the
+<a class="reference external" href="https://www.modelaircraft.org/">Academy of Model Aeronautics</a>
+requires that there be a second person acting as spotter for all FPV
+flights.</p></li>
+<li><p>Be ready for loss of FPV video caused by flying beyond your FPV
+systems limits or interference from structures between you and the
+vehicle. Being able to invoke the vehicle’s RTL mode is a worthwhile safety feature even though most countries require FPV operation within line of sight of the operator.</p></li>
+<li><p>Know and recognize the FPV signal loss warning signs and be ready to
+shed the FPV equipment and retake line-of-sight control at all times.</p></li>
+<li><p>FPV equipment can interfere with the vehicle’s radio or GPS if placed
+too close.</p></li>
+</ul>
+</section>
+<section id="government-local-regulations">
+<h2>Government/Local Regulations<a class="headerlink" href="#government-local-regulations" title="Permalink to this heading">¶</a></h2>
+<p>FPV flight regulations imposed by countries and localities vary greatly and are constantly evolving. Be sure you know the applicable restrictions.
+Also, be aware that FPV transmitters may have restrictions on frequency bands and power that vary from country to country, as well as requirements for licensing.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-3d-mapping.html" class="btn btn-neutral float-left" title="3d Mapping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-multi-vehicle-flying.html" class="btn btn-neutral float-right" title="Multi-Vehicle Flying" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telemetry / Serial Port Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Telemetry / Serial Port Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="telemetry-serial-port-setup">
+<span id="common-telemetry-port-setup"></span><h1>Telemetry / Serial Port Setup<a class="headerlink" href="#telemetry-serial-port-setup" title="Permalink to this heading">¶</a></h1>
+<p>This article shows how to configure the telemetry ports (aka serial ports) on the autopilot.
+The instructions use the Pixhawk but they apply for most autopilots.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>On a Pixhawk there are a total of 5 serial ports.  The default use of each port is:</p>
+<ul class="simple">
+<li><p>The micro USB port (aka Serial0) is used to connect to the ground station using a USB cable.  This should not be connected in flight because the flight code assumes that if it is receiving power through this port that it is on the bench and some <a class="reference external" href="https://ardupilot.org/copter/docs/failsafe-landing-page.html#failsafe-landing-page" title="(in Copter)"><span class="xref std std-ref">failsafes</span></a> (i.e. battery failsafe) are disabled.</p></li>
+<li><p>Telem1 (aka Serial1) is for MAVLink communication and supports flow control.  This should be used especially for high power devices (up to 1 amp) But NOT the <a class="reference internal" href="common-rfd900.html#common-rfd900"><span class="std std-ref">RFD900 telemetry radio</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many non-Pixhawk style autopilots CANNOT supply even 1 amp on their port supply lines. Be sure to verify with autopilots specifications. If not specified, limit current to &lt; 200 ma.</p>
+</div>
+<ul class="simple">
+<li><p>Telem2 (aka Serial2) is for MAVLink communication and supports flow control.</p></li>
+<li><p>GPS (aka Serial3) is for connecting a GPS</p></li>
+<li><p>Serial 4/5 contains two serial connections on a single port.  Serial4 is normally used for a <a class="reference internal" href="common-gps-blending.html#common-gps-blending"><span class="std std-ref">second GPS</span></a>.  Serial5 is a <a class="reference external" href="https://ardupilot.org/dev/docs/interfacing-with-pixhawk-using-the-nsh.html#interfacing-with-pixhawk-using-the-nsh" title="(in Dev)"><span class="xref std std-ref">debug connection</span></a>.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/PixhawkTelem.jpg"><img alt="../_images/PixhawkTelem.jpg" src="../_images/PixhawkTelem.jpg" style="width: 450px;" /></a>
+<p>More details of the exact pins on each port can be found <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="set-up-through-the-ground-station">
+<h2>Set-up through the Ground Station<a class="headerlink" href="#set-up-through-the-ground-station" title="Permalink to this heading">¶</a></h2>
+<p>The telemetry ports can be configured through the ground station by setting the parameters listed below.  If you are using the <em>Mission Planner</em> open the <strong>Config/Tuning | Full Parameter List</strong> page.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> parameters (where “x” is a number from 0 to 4, i.e. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL1_PROTOCOL</span></a>) control the protocol or purpose of the serial port.  You will see on wiki pages including the <a class="reference internal" href="common-lightware-sf10-lidar.html#common-lightware-sf10-lidar"><span class="std std-ref">Lightware Lidar page</span></a> instructions for choosing the appropriate protocol.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_BAUD</span></code> (i.e. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL1_BAUD</span></a>) sets the baud rate or speed of the serial port.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser1-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER1_RTSCTS</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser2-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER2_RTSCTS</span></a> parameters allow enabling or disabling flow control on Telem1 and Telem2.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/MP-Serial2_protocol.png"><img alt="../_images/MP-Serial2_protocol.png" src="../_images/MP-Serial2_protocol.png" /></a>
+</section>
+<section id="mavlink1-mavlink2-and-stream-rates">
+<h2>MAVLink1, MAVLink2 and Stream Rates<a class="headerlink" href="#mavlink1-mavlink2-and-stream-rates" title="Permalink to this heading">¶</a></h2>
+<p>For telemetry ports used for MAVLink communication you may select to use MAVLink1 by setting the <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to “1” or MAVLink2 by setting <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> to “2”.</p>
+<p>MAVLink2 supports “signing” of packets which improves security and flexible length messages so it should be used when possible but some older telemetry radios do not understand MAVLink2 so the default is MAVLink1.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MAVLink2 is required to upload and download complex fences from the Ground Control Station.</p>
+</div>
+<p>As mentioned on the <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-telemetry-logs.html#mission-planner-telemetry-logs" title="(in Mission Planner)"><span class="xref std std-ref">Telemetry Logs page</span></a> the rate messages are sent from the vehicle can be controlled using the <code class="docutils literal notranslate"><span class="pre">SRx_*</span></code> parameters (i.e. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr1-position" title="(in Rover)"><span class="xref std std-ref">SR1_POSITION</span></a>).</p>
+<p>SRx parameters do not directly correlate to the SERIALx port, but rather to the order of the ports which have MAVLink protocol active.</p>
+<p>The Mission Planner’s <strong>Config/Tuning |Planner</strong> screen’s <strong>Telemetry Rates</strong> drop-downs allow a convenient way to set these parameters.</p>
+<a class="reference external image-reference" href="../_images/mp_telemetry_rate.png"><img alt="../_images/mp_telemetry_rate.png" src="../_images/mp_telemetry_rate.png" /></a>
+<p>Due to CPU or bandwidth limitations, the actual rate of the data sent may be lower than the rate requested.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some telemetry systems require specific rates. In order to allow those to be set in the autopilot parameters and not overriden by the GCS, set the rates to “-1” for MP, or use the disable option in QGC. However, do not set these before doing the basic autopilot radio calibration in Mission Planner as it forces new values during the calibration and will not restore them after it is finished.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most ground stations set the desired stream rate by sending the <a class="reference external" href="https://mavlink.io/en/messages/common.html#REQUEST_DATA_STREAM">REQUEST_DATA_STREAM</a> MAVLink message to the vehicle instead of directly setting the parameters mentioned above.  If done this way, Copter <strong>DOES NOT</strong> save the rate changes to eeprom meaning they will not persist over a reboot.</p>
+<p>In practice users may notice that if the vehicle is rebooted but the telemetry connection is not disconnected and reconnected that the data from the vehicle may be much slower or missing.  I.e. the vehicle’s position on the map may not update.  Normally disconnecting/reconnecting with the ground station will resolve this.</p>
+</div>
+<p>See also <a class="reference external" href="https://ardupilot.org/dev/docs/mavlink-requesting-data.html#mavlink-requesting-data" title="(in Dev)"><span class="xref std std-ref">Requesting Data From The Autopilot</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

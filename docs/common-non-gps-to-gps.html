@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-non-gps-to-gps"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="gps-non-gps-transitions">
+<h1>GPS / Non-GPS Transitions<a class="headerlink" href="#gps-non-gps-transitions" title="Permalink to this heading">¶</a></h1>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/MbILnbbWqDg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>ArduPilot 4.1 (and higher) support in-flight transitions between GPS and Non-GPS environments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Non-GPS navigation is available for all vehicles. However, it is not applicable to fast or high flying vehicles such as conventional Planes. QuadPlanes can utilize this when in VTOL operation and close to the ground, as when docking inside a hangar using 3D cameras or beacons.</p>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<p>To enable transitions the EKF3 must be used (the default estimator for 4.1 and higher).  Instructions for enabling EKF3 can be found on the <a class="reference internal" href="common-apm-navigation-extended-kalman-filter-overview.html#common-apm-navigation-extended-kalman-filter-overview"><span class="std std-ref">Extended Kalman Filter page</span></a> but in short it requires setting the following parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-enable" title="(in Rover)"><span class="xref std std-ref">EK3_ENABLE</span></a> = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-enable" title="(in Rover)"><span class="xref std std-ref">EK2_ENABLE</span></a> = 0</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> = 3</p></li>
+</ul>
+<p>Up to three “sets” of sensor sources are supported.  Normally the primary set should be configured for the GPS environment.  Below is the default setup:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 3 (Primary horizontal position from GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 3 (Primary horizontal velocity from GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 1 (Primary vertical position from barometer)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> = 3 (Primary vertical velocity from GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 1 (Primary yaw/heading from compass)</p></li>
+</ul>
+<p>The secondary sensor source set should be configured for the non-GPS environment.  Please refer to the setup instructions for the <a class="reference internal" href="common-non-gps-navigation-landing-page.html#common-non-gps-navigation-landing-page"><span class="std std-ref">non-GPS sensor</span></a> you plan to use.  Below is the setup if using the <a class="reference internal" href="common-vio-tracking-camera.html#common-vio-tracking-camera"><span class="std std-ref">Intel Realsense T265</span></a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src2-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_POSXY</span></a> = 6 (Secondary horizontal position from External Nav)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src2-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_VELXY</span></a> = 6 (Secondary horizontal velocity from External Nav)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src2-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_POSZ</span></a> = 1 (Secondary vertical position from barometer)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src2-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_VELZ</span></a> = 6 (Secondary vertical velocity from External Nav)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src2-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_YAW</span></a> = 6 (Secondary yaw/heading from External Nav)</p></li>
+</ul>
+<p>The fusing of all velocities should be disabled by unchecking the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src-options" title="(in Rover)"><span class="xref std std-ref">EK3_SRC_OPTIONS</span></a> parameter’s “FuseAllVelocities” bit:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src-options" title="(in Rover)"><span class="xref std std-ref">EK3_SRC_OPTIONS</span></a> = 0</p></li>
+</ul>
+<p>The pilot can manually switch between the source sets using a 3-position <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary switch</span></a> configured for “EKF Pos Source” (90).  When the switch is pulled low, the primary source set will be used.  Middle position is for the secondary source set and High is for the tiertiary source set.  If the transmitter’s channel 8 switch is to be used set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> = 90 (EKF Pos Source)</p></li>
+</ul>
+<p><a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">Lua scripts</span></a> can be used to automatically switch between sources based on information from the sensors (i.e. GPS speed accuracy, rangefinder distance, etc) or “innovations” from the EKF (“innovations” are a measure of how close the sensor’s latest sensor data matches the EKF’s estimate).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/ahrs-source.lua">ahrs-source.lua</a> switches between GPS, T265 and optical flow</p></li>
+<li><p><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/ahrs-source-gps-optflow.lua">ahrs-source-gps-optflow.lua</a> switches between GPS and optical flow (AP 4.2 and higher)</p></li>
+<li><p><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/examples/ahrs-source-gps-wheelencoders.lua">ahrs-source-gps-wheelencoders.lua</a> switches between GPS and wheel encoders (AP 4.2 and higher)</p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>First perform a bench test, using the auxiliary switch to manually switch between sources.</p>
+<ul class="simple">
+<li><p>Connect with a ground station and confirm that after switching sources, text messages appear indicating that the EKF has changed sources.  If using Mission Planner these messages will appear in on the Data screen’s Messages tab</p></li>
+<li><p>After changing sources wait 10 seconds to confirm the EKF remains healthy. If using Mission Planner the EKF label on the HUD should remain white</p></li>
+<li><p>Check the vehicle’s horizontal position, altitude and heading using the ground station.  If using GPS with the <a class="reference internal" href="common-vio-tracking-camera.html#common-vio-tracking-camera"><span class="std std-ref">Intel Realsense T265</span></a> you should notice a jump when switching from the T265 to GPS but not when switching from GPS to T265.  This is because the “ExternalNav” position is always updated to match the GPS when the GPS is the primary source set</p></li>
+</ul>
+<p>Next perform a flight test in a safe environment, manually switching between sources.  Be prepared to re-take control in a manual mode such as Stabilize.</p>
+<p>If you plan to automatically switch sources, first walk the vehicle between the GPS and Non-GPS environments to confirm it is switching source sets.  Finally perform a flight test in which the vehicle is flown (or driven) at low speeds between the two environments.  As with previous tests be ready to re-take control in a manual mode such as Stabilize.</p>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h2>
+<p>Events will be logged each time the active source is changed</p>
+<ul class="simple">
+<li><p>Event 85 = Source1 active</p></li>
+<li><p>Event 86 = Source2 active</p></li>
+<li><p>Event 87 = Source3 active</p></li>
+</ul>
+<p>The XKFS message’s SS field shows the active source for each core (0=primary, 1=secondary, 2=tertiary)</p>
+</section>
+<section id="future-improvements">
+<h2>Future Improvements<a class="headerlink" href="#future-improvements" title="Permalink to this heading">¶</a></h2>
+<p>A list of planned improvements to this feature are here on the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/15859">Issues List</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brushed Motors &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Brushed Motors</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="brushed-motors">
+<span id="common-brushed-motors"></span><h1>Brushed Motors<a class="headerlink" href="#brushed-motors" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot supports multiple methods to control brushed motors</p>
+<ul class="simple">
+<li><p>Brushed motor ESCs that support RC PWM input (PWM signals that are 1ms to 2ms in width) are the easiest to use because no special configuration is required and the rest of this document can be ignored.  Most hobby grade RC Car ESCs are of this type</p></li>
+</ul>
+<p>[site wiki=”copter”]
+- “Brushed” motors accept a duty cycle to control the speed but only spin in one direction
+[/site]
+[site wiki=”rover”]
+- “Brushed With Relay” motor drivers accept a duty cycle to control the speed and also have a separate pin used to control direction
+- “Brushed BiPolar” motor drivers accept a duty cycle where 0% duty cycle means full speed in one direction, 100% duty cycle is full speed in the other direction and 50% duty cycle is stopped
+[/site]</p>
+<section id="verified-motor-drivers">
+<h2>Verified Motor Drivers<a class="headerlink" href="#verified-motor-drivers" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.dimensionengineering.com/products/sabertooth2x32">Sabertooth Dual 32A Motor Driver</a> supports “Normal” when the Sabertooth is in RC Mode</p></li>
+<li><p><a class="reference external" href="https://www.pololu.com/product/2991">Pololu G2 High-Power Motor Driver</a> supports “BrushedWithRelay”</p></li>
+<li><p><a class="reference external" href="https://www.pololu.com/product/2990">Pololu DRV8838 Motor Driver</a> supports “BrushedWithRelay”</p></li>
+<li><p><a class="reference external" href="https://www.pololu.com/product/3284">RoboClaw 2x7A Motor Controller</a> supports “Normal” when the Roboclaw is in RC Mode</p></li>
+<li><p><a class="reference external" href="https://www.amazon.com/s?k=l298n+motor+driver">L298N Motor Driver</a> . See also <a class="reference external" href="https://github.com/jazzl0ver/ardupilot-rover-l298n">these setup instructions</a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/skyrocket.html#skyrocket" title="(in Copter)"><span class="xref std std-ref">SkyRocket</span></a> drones use “Brushed” motors</p></li>
+</ul>
+</section>
+<section id="connection-and-configuration">
+<h2>Connection and Configuration<a class="headerlink" href="#connection-and-configuration" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect the motor drivers / ESCs to the autopilot’s output pins just as you would for regular brushless ESCs but note the warning at the bottom regarding mixing brushed outputs with servos</p></li>
+</ul>
+<p>[site wiki=”copter”]
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> = 3 for “Brushed” and reboot the autopilot
+- Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#rc-speed" title="(in Copter)"><span class="xref std std-ref">RC_SPEED</span></a> = 16000 to set the refresh rate to 16k (other values from 1000 to 20000 are possible)
+[/site]
+[site wiki=”rover”]
+- If using “Brushed With Relay” connect the <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relay</span></a> pin(s) to the motor driver’s direction pin(s).  For skid-steering vehicles Relay1 is for the left motor, Relay2 for the right motor
+- Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a> = 3 for “BrushedWithRelay” or “4” for “BrushedBIPolar” and reboot the autopilot
+- <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-freq" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_FREQ</span></a> defaults to 16000 but can be changed to any value from 1000 to 20000 to change the output frequency
+[/site]</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in some ground control stations, attempting to set this parameter above its normal 50 to 490hz range will require the user to acknowledge this “out of range” setup in order to set the parameter. This is to prevent accidental miss-configuration for brushless ESCs.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the autopilot will also control servos (which use regular RC PWM) take care that the servos are not in the same “PWM output group” as any motor outputs.  The grouping is only documented on some of the <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">AutoPilot Hardware Options</span></a> pages but for a regular Pixhawk or Cube autopilot MAIN OUT 1 ~ 4 are in group1 meaning that if any brushed motors are configured for MAIN OUT 1 to 4 then servos must be connected to output 5 or higher</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ArduPilot does not currently support controlling both brushed and brushless <strong>motors</strong> at the same time</p>
+</div>
+<p>[copywiki destination=”copter,rover”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

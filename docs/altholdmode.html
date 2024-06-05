@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altitude Hold Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AirMode" href="airmode.html" />
+    <link rel="prev" title="Acro Mode" href="acro-mode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Altitude Hold Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="altitude-hold-mode">
+<span id="altholdmode"></span><h1>Altitude Hold Mode<a class="headerlink" href="#altitude-hold-mode" title="Permalink to this heading">¶</a></h1>
+<p>In altitude hold mode, Copter maintains a consistent altitude while
+allowing roll, pitch, and yaw to be controlled normally. This page
+contains important information about using and tuning alt hold.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>When altitude hold mode (aka AltHold) is selected, the throttle is
+automatically controlled to maintain the current altitude. Roll, Pitch
+and yaw operate the same as in <a class="reference internal" href="stabilize-mode.html#stabilize-mode"><span class="std std-ref">Stabilize mode</span></a> meaning that
+the pilot directly controls the roll and pitch lean angles and the
+heading.</p>
+<p>Automatic altitude hold is a feature of many other flight modes
+(<a class="reference internal" href="loiter-mode.html#loiter-mode"><span class="std std-ref">Loiter</span></a>,
+<a class="reference internal" href="sport-mode.html#sport-mode"><span class="std std-ref">Sport</span></a>, etc) so the
+information here pertains to those modes as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The autopilot uses a barometer which measures air pressure
+as the primary means for determining altitude (“Pressure Altitude”) and
+if the air pressure is changing in your flight area due to extreme
+weather, the copter will follow the air pressure change rather than
+actual altitude.  When fitted and enabled, a downward facing rangefinder
+such as LiDAR or SONAR will automatically provide even more accurate
+altitude maintenance, up to the limit of the sensor.</p>
+</div>
+</section>
+<section id="controls">
+<span id="altholdmode-controls"></span><h2>Controls<a class="headerlink" href="#controls" title="Permalink to this heading">¶</a></h2>
+<p>The pilot can control the climb or descent rate of the vehicle with the
+throttle stick.</p>
+<ul class="simple">
+<li><p>If the throttle stick is in the middle (40% ~ 60%) the vehicle will
+maintain the current altitude.</p></li>
+<li><p>Outside of the mid-throttle deadzone (i.e. below 40% or above 60%)
+the vehicle will descend or climb depending upon the deflection of
+the stick.  When the stick is completely down the copter will descend
+at 2.5m/s and if at the very top it will climb by 2.5m/s.  These
+speeds can be adjusted with the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-speed-up" title="(in Copter)"><span class="xref std std-ref">PILOT_SPEED_UP</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-speed-dn" title="(in Copter)"><span class="xref std std-ref">PILOT_SPEED_DN</span></a> parameters. The acceleration used to establish these speeds is set by <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#pilot-accel-z" title="(in Copter)"><span class="xref std std-ref">PILOT_ACCEL_Z</span></a>.</p></li>
+<li><p>The size of the deadband can be adjusted with the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#thr-dz" title="(in Copter)"><span class="xref std std-ref">THR_DZ</span></a> parameter.  This param’s value should be between “0” and
+“400” with “0” meaning no deadband.  “100” would produce a deadband
+10% above and below mid throttle (i.e. deadband extends from 40% to
+60% throttle stick position).</p></li>
+</ul>
+<p>Copter allows arming and disarming in altitude hold mode. When
+disarming, the copter may need to rest in the landing position for a few
+seconds to allow the “landing checker” to verify that the copter has
+landed before you are able to disarm.</p>
+</section>
+<section id="tuning">
+<span id="altholdmode-tuning"></span><h2>Tuning<a class="headerlink" href="#tuning" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Tuning_AltHold.png"><img alt="../_images/Tuning_AltHold.png" src="../_images/Tuning_AltHold.png" /></a>
+<p>The Altitude Hold P is used to convert the altitude error (the
+difference between the desired altitude and the actual altitude) to a
+desired climb or descent rate.  A higher rate will make it more
+aggressively attempt to maintain it’s altitude but if set too high leads
+to a jerky throttle response.</p>
+<p>The Throttle Rate (which normally requires no tuning) converts the
+desired climb or descent rate into a desired acceleration up or down.</p>
+<p>The Throttle Accel PID gains convert the acceleration error (i.e the
+difference between the desired acceleration and the actual acceleration)
+into a motor output.  The 1:2 ratio of P to I (i.e. I is twice the size
+of P) should be maintained if you modify these parameters.  These values
+should never be increased but for very powerful copters you may get
+better response by reducing both by 50% (i.e P to 0.5, I to 1.0).</p>
+<a class="reference external image-reference" href="../_images/Alt-Hold-PID-version-3.0.1.jpg"><img alt="../_images/Alt-Hold-PID-version-3.0.1.jpg" src="../_images/Alt-Hold-PID-version-3.0.1.jpg" /></a>
+</section>
+<section id="verifying-althold-performance-with-dataflash-logs">
+<span id="altholdmode-verifying-althold-performance-with-dataflash-logs"></span><h2>Verifying AltHold performance with dataflash logs<a class="headerlink" href="#verifying-althold-performance-with-dataflash-logs" title="Permalink to this heading">¶</a></h2>
+<p>Viewing the altitude hold performance is best done by <a class="reference internal" href="common-downloading-and-analyzing-data-logs-in-mission-planner.html#common-downloading-and-analyzing-data-logs-in-mission-planner"><span class="std std-ref">downloading a dataflash log</span></a>
+from your flight, then open it with the mission planner and graph the
+barometer altitude, desired altitude and inertial navigation based
+altitude estimate.  This data is found in slight different columns
+depending upon the version and board.</p>
+<p>CTUN’s BAlt (baroalt), DAlt (desired alt) and Alt (inertial nav alt estimate)</p>
+<p>The three should track well as shown below.</p>
+<a class="reference external image-reference" href="../_images/Tuning_AltHoldCheck.png"><img alt="../_images/Tuning_AltHoldCheck.png" src="../_images/Tuning_AltHoldCheck.png" /></a>
+</section>
+<section id="common-problems">
+<span id="altholdmode-common-problems"></span><h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>High vibrations can lead to the copter rapidly climbing as soon as
+altitude hold is engaged.  Check the <a class="reference internal" href="common-measuring-vibration.html#common-measuring-vibration"><span class="std std-ref">Measuring Vibration</span></a>
+and <a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">Vibration Dampening</span></a>
+wiki pages for details on how to measure and reduce vibrations.</p></li>
+<li><p>Copter slowly descends or climbs until the pilot retakes control in
+stabilize.  Normally this is caused by not having the throttle stick
+in the mid position.  This commonly happens when the pilot is
+switching into AltHold from a manual flight mode (like Stabilize) on
+a copter that does not hover at mid throttle.  See the <a class="reference internal" href="ac_throttlemid.html#ac-throttlemid"><span class="std std-ref">wiki page related to setting the mid throttle position</span></a>.</p></li>
+<li><p>The motors seem to stop for a moment just as AltHold is engaged but
+then it soon recovers.  This normally occurs when the pilot enters
+AltHold while climbing rapidly.  The target altitude is set at the
+moment the pilot switches into alt hold but because the vehicle is
+rising quickly it flies above the target.  The aggressive altitude
+hold controller then responds by momentarily reducing the motors to
+near minimum until the copter begins falling back to the target
+altitude.  The workaround is to enter AltHold while the copter is
+flying at a stable altitude.</p></li>
+<li><p>Air pressure changes cause the vehicle to drift up or down by a
+couple of meters over longer period of time or for the altitude shown
+on the GCS to be inaccurate by a couple of meters including
+occasional negative altitudes (meaning altitudes below the home
+altitude).</p></li>
+<li><p>Momentary altitude loss of 1m ~ 2m when the copter levels out after a
+high speed forward flight.  This is caused by an aerodynamic effect
+which leads to a momentary low pressure bubble forming on the top of
+the copter where the autopilot is mounted which leads the
+altitude hold controller to believe it is climbing so it responds by
+descending.  There is no cure for this behaviour at the moment
+although increasing the <code class="docutils literal notranslate"><span class="pre">EK2_ALT_M_NSE</span></code> parameter reduces
+the effect but increases the change of Common Problem #1
+listed above. The <code class="docutils literal notranslate"><span class="pre">EK2_ALT_M_NSE</span></code> parameter has a range from 0.1 to
+10.0 and allows increments of 0.1.</p></li>
+<li><p>Altitude hold becomes erratic when the vehicle is close to the ground
+or during landing.  This can be caused by the barometer being
+affected by pressure changes created by prop-wash.  The solution is
+to move the autopilot out of the prop wash effect or shield
+it within an appropriately ventilated enclosure.</p></li>
+<li><p>Sudden altitude changes caused by light striking the barometer.</p></li>
+</ol>
+</section>
+<section id="adequate-power">
+<h2>Adequate Power<a class="headerlink" href="#adequate-power" title="Permalink to this heading">¶</a></h2>
+<p>It is very important that the vehicle has enough power available.
+Without this the AltHold and attitude controllers can require more power
+than is available from one or more motors and will be forced to
+sacrifice some control which could lead to a loss of attitude or
+altitude.</p>
+<p>Ideally the vehicle should be able to hover at about 50% throttle (mid
+stick) and anything higher than 70% is dangerous.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you incorporate expo on your transmitter, that directly
+increases the size of the Alt Hold throttle dead band.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="acro-mode.html" class="btn btn-neutral float-left" title="Acro Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="airmode.html" class="btn btn-neutral float-right" title="AirMode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

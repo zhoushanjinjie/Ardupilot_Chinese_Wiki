@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="UAV LogViewer" href="common-uavlogviewer.html" />
+    <link rel="prev" title="When Problems Arise" href="common-when-problems-arise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#topics-related-to-logging-and-analysis">Topics related to logging and analysis</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tools-for-log-analysis">Tools for log analysis</a><ul>
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html">MAVExplorer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://ardupilot.org/planner/">MissionPLanner</a></li>
+<li class="toctree-l4"><a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://plot.dronee.aero/">Dronee Plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-uavlogviewer.html">UAV LogViewer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#what-to-do-if-you-have-an-issue">What to do if you have an issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#vehicle-will-not-arm">Vehicle Will Not Arm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#copter-common-problems">Copter Common Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#free-ram-issues">Free RAM issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-when-problems-arise.html#h7-autopilot-will-not-initialize">H7 AutoPilot Will Not Initialize</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-when-problems-arise.html">When Problems Arise</a></li>
+      <li class="breadcrumb-item active">Logs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="logs">
+<span id="common-logs"></span><h1>Logs<a class="headerlink" href="#logs" title="Permalink to this heading">¶</a></h1>
+<section id="topics-related-to-logging-and-analysis">
+<h2>Topics related to logging and analysis<a class="headerlink" href="#topics-related-to-logging-and-analysis" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="simple">
+<dt>[site wiki=”plane,copter,dev,planner,rover”]</dt><dd><p>Diagnosing problems using Logs &lt;common-diagnosing-problems-using-logs&gt;
+Dataflash Logs &lt;common-downloading-and-analyzing-data-logs-in-mission-planner&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”plane”]</p>
+<blockquote>
+<div><p>Plane Log Messages &lt;logmessages&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”copter”]</p>
+<blockquote>
+<div><p>Copter Log Messages &lt;logmessages&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”rover”]</p>
+<blockquote>
+<div><p>Rover Log Messages &lt;logmessages&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”antennatracker”]</p>
+<blockquote>
+<div><p>Antenna Tracker Log Messages &lt;logmessages&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”plane”]</p>
+<blockquote>
+<div><p>Log Analysis Case Study: Fly-by-Wire &lt;case-study-fly-by-wire&gt;
+Log Analysis Case Study: Turn Rate Adjustment &lt;case-study-turn-rate&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”plane,copter,rover,dev,planner”]</p>
+<blockquote>
+<div><p>Measuring Vibration &lt;common-measuring-vibration&gt;
+Measuring Vibration with “Batch Sampling” &lt;common-imu-batchsampling&gt;
+Telemetry Logs &lt;<a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-telemetry-logs.html">https://ardupilot.org/planner/docs/mission-planner-telemetry-logs.html</a>&gt;</p>
+</div></blockquote>
+<p>[/site]</p>
+</section>
+<section id="tools-for-log-analysis">
+<h2>Tools for log analysis<a class="headerlink" href="#tools-for-log-analysis" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html">MAVExplorer</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://ardupilot.org/planner/">MissionPLanner</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://qgroundcontrol.com/">QGroundControl</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://plot.dronee.aero/">Dronee Plotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-uavlogviewer.html">UAV LogViewer</a></li>
+</ul>
+</div>
+<p>[copywiki destination=”copter,plane,rover,dev,antennatracker,planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-when-problems-arise.html" class="btn btn-neutral float-left" title="When Problems Arise" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-uavlogviewer.html" class="btn btn-neutral float-right" title="UAV LogViewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

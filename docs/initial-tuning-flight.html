@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Initial Tuning Flight &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Initial Tuning Flight</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="initial-tuning-flight">
+<span id="id1"></span><h1>Initial Tuning Flight<a class="headerlink" href="#initial-tuning-flight" title="Permalink to this heading">¶</a></h1>
+<section id="pilot-s-preparation-for-first-flight">
+<h2>Pilot’s preparation for first flight<a class="headerlink" href="#pilot-s-preparation-for-first-flight" title="Permalink to this heading">¶</a></h2>
+<p>The first takeoff of an untuned multirotor is the most dangerous seconds of the aircraft’s life. This is where the aircraft could be very unstable causing a sudden increase in power when then results in the aircraft jumping into the air, or it may be so poorly tuned that you have insufficient control over the aircraft once it is airborne. The pilot should be extremely diligent during the tuning flights to avoid a situation that could result in injury or damage.</p>
+<p>There are several things that the pilot can do to minimise the risk during the early tuning process:</p>
+<ol class="arabic simple">
+<li><p>The pilot should conduct a motor number and orientation check (see <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors-testing-motor-spin-directions"><span class="std std-ref">Checking the motor numbering with the Mission Planner Motor test</span></a>). Care should be taken to ensure that the correct frame type is selected. Incorrect frame type can result in a very fast yaw rotation or complete loss of control. Take note of the output percentage required to spin the propellers and ensure that:</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-arm" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_ARM</span></a> is set high enough to spin the motors cleanly.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-spin-min" title="(in Copter)"><span class="xref std std-ref">MOT_SPIN_MIN</span></a> is set high enough to spin the motors win a minimal level of thrust.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>All flights after a significant tuning change should be done in Stabilize. Stabilize provides the pilot with significantly more control over the aircraft in the event that the attitude controllers are unstable.</p></li>
+<li><p>The pilot should not take off in AltHold until the altitude controller has been tested in flight. This should be done by taking off in Stabilize and switching to Alt Hold. While Alt Hold is rarely a problem unless the aircraft has a very low hover throttle.</p></li>
+<li><p>For the initial flights the pilot should ensure that these parameters are set:</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-thr-mix-man" title="(in Copter)"><span class="xref std std-ref">ATC_THR_MIX_MAN</span></a> to 0.1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-thst-hover" title="(in Copter)"><span class="xref std std-ref">MOT_THST_HOVER</span></a> to 0.25 (or lower than the expected hover throttle)</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Use a radio and calibrate the radio correctly (see <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">RC校准</span></a>).</p></li>
+<li><p>Configure an Emergency Stop Motors switch and test it (see <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Functions</span></a>).</p></li>
+<li><p>Do tuning flights in low-wind condition and normal weather (no rain and between 15°C/59°F and 25°C/77°F).</p></li>
+<li><p>Practice STABILIZE flight in simulator or on a low-end drone first, you should be confident to be able to takeoff and land with your untuned aircraft.</p></li>
+</ol>
+</section>
+<section id="first-flight">
+<h2>First Flight<a class="headerlink" href="#first-flight" title="Permalink to this heading">¶</a></h2>
+<p>The first take off is the most dangerous time for any multirotor. Care must be taken to ensure the aircraft is not destroyed in the first seconds of flight and nobody is injured.</p>
+<ul class="simple">
+<li><p><strong>Ensure that all spectators are at a safe distance</strong>.</p></li>
+<li><p><strong>Ensure the pilot is at a safe distance and position</strong>.</p></li>
+<li><p>The pilot should refresh themselves on the method used to disarm the aircraft (using <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Functions</span></a> for Motor Interlock or Arm/Disarm may be beneficial).</p></li>
+</ul>
+<p>This flight will allow to setup your aircraft in a “flyable for tuning” state.</p>
+<ol class="arabic simple">
+<li><p>Ensure the aircraft is in STABILIZE mode</p></li>
+<li><p>Arm the aircraft</p></li>
+<li><p>Immediately disarm the aircraft to ensure your disarm procedure is correct</p></li>
+<li><p>Arm the aircraft</p></li>
+<li><p>Slowly increase the throttle looking for signs of oscillation. (long or flexible landing gear may cause some landing gear oscillation that will only go away after the aircraft leaves the ground)</p></li>
+<li><p>As soon as the aircraft lifts off the ground immediately put the aircraft back down as gently as possible</p></li>
+<li><p>Disarm the aircraft</p></li>
+<li><p>Evaluate what you observed to decide if you need to make adjustments to the tuning parameters or if it is safe to take off again</p></li>
+<li><p>Arm and increase the throttle to initiate a takeoff</p></li>
+<li><p>Hover at approximately 1m altitude and apply small (5 degrees) control inputs into roll and pitch</p></li>
+<li><p>Immediately land if any oscillation is observed</p></li>
+</ol>
+<p>Next section will explain how to remove the oscillations.</p>
+<section id="initial-aircraft-tune">
+<h3>Initial aircraft tune<a class="headerlink" href="#initial-aircraft-tune" title="Permalink to this heading">¶</a></h3>
+<p>The first priority when tuning an multirotor aircraft is to establish a stable tune, free of oscillations, that can be used to do further tests.</p>
+<ol class="arabic simple">
+<li><p>Arm the aircraft in STABILIZE</p></li>
+<li><p>Increase the throttle slowly until the aircraft leaves the ground</p></li>
+<li><p>If the aircraft starts to oscillate immediately abort the takeoff and/or land the aircraft</p></li>
+<li><p>Reduce all the following parameters by 50%</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_P</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_I</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-pit-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_PIT_D</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-p-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_P</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-i-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_I</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#atc-rat-rll-d-ac-attitudecontrol-multi" title="(in Copter)"><span class="xref std std-ref">ATC_RAT_RLL_D</span></a></p></li>
+</ol>
+<p>This process is repeated until the aircraft can hover without oscillations being detectable visually or audibly.</p>
+<p>If the aircraft has very long or flexible landing gear then you may need to leave the ground before ground resonance stops.</p>
+<p>Be aware that in this state the aircraft may be very slow to respond to large control inputs and disturbances. The pilot should be extremely careful to put minimal stick inputs into the aircraft to avoid the possibility of a crash.</p>
+</section>
+<section id="test-althold">
+<h3>Test AltHold<a class="headerlink" href="#test-althold" title="Permalink to this heading">¶</a></h3>
+<p>This test will allow to test the altitude controller and ensure the stability of your aircraft.</p>
+<ol class="arabic simple">
+<li><p>Check <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-hover-learn" title="(in Copter)"><span class="xref std std-ref">MOT_HOVER_LEARN</span></a> is set to 2. This will allow the controller to learn by itself the correct hover value when flying.</p></li>
+<li><p>Take off in STABILIZE and increase altitude to 5m. Switch to AltHold and be ready to switch back to STABILIZE. If the aircraft is hovering at a very low hover throttle value you may hear a reasonably fast oscillation in the motors. Ensure the aircraft has spent at least 30 seconds in hover to let the hover throttle parameter converge to the correct value. Land and disarm the aircraft.</p></li>
+<li><p>Set these parameters on ground and preferably disarm  (A confident pilot could set them in flight with GCS or CH6 tuning knob):</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-accz-i" title="(in Copter)"><span class="xref std std-ref">PSC_ACCZ_I</span></a> to 2 x <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-thst-hover" title="(in Copter)"><span class="xref std std-ref">MOT_THST_HOVER</span></a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-accz-p" title="(in Copter)"><span class="xref std std-ref">PSC_ACCZ_P</span></a> to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-thst-hover" title="(in Copter)"><span class="xref std std-ref">MOT_THST_HOVER</span></a></p></li>
+</ul>
+</div></blockquote>
+<p>if AltHold starts to oscillate up and down the position and velocity controllers may need to be reduced by 50%. These values are: <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-posz-p" title="(in Copter)"><span class="xref std std-ref">PSC_POSZ_P</span></a> and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#psc-velz-p" title="(in Copter)"><span class="xref std std-ref">PSC_VELZ_P</span></a>.</p>
+</section>
+</section>
+<section id="harmonic-notch-filtering">
+<h2>Harmonic Notch Filtering<a class="headerlink" href="#harmonic-notch-filtering" title="Permalink to this heading">¶</a></h2>
+<p>After you have a hover without oscillations the next step is to
+get get a good notch filter setup to reduce noise to the  PID
+controllers. A good set of notch filtering parameters is critical to a
+good tune.</p>
+<p>To get a notch filter setup you need to hover your vehicle for at least 30 seconds with no pilot input and with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ins-log-bat-mask" title="(in Rover)"><span class="xref std std-ref">INS_LOG_BAT_MASK</span></a> set to 1. This will enable FFT logging which will
+guide the correct setup of the notch filters. You should then carefully read the <a class="reference external" href="https://ardupilot.org/plane/docs/common-imu-notch-filtering.html#common-imu-notch-filtering" title="(in Plane)"><span>Managing Gyro Noise with the Dynamic Harmonic Notch Filters</span></a> documentation and
+setup a harmonic notch to remove the noise from your gyros.</p>
+<p>Eliminating noise with the notch filters will dramatically improve the quality
+of your tune.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RichenPower Generator &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RichenPower Generator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="richenpower-generator">
+<span id="common-richenpower-generator"></span><h1>RichenPower Generator<a class="headerlink" href="#richenpower-generator" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/richenpower-generator.png" src="../_images/richenpower-generator.png" />
+<p>The RichenPower H2 Hybrid and H2plus Hybrid generators can be used to extend a vehicle’s flight time by charging the battery in flight.  Feedback from the generator including RPM, voltage and current allows the operator to monitor the system via the ground stations.</p>
+<p>A transmitter’s auxiliary switch can be used to control the generator’s speed (stop, idle or run).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the driver for this device is not included by default in the firmware built and available on the <a class="reference external" href="https://firmware.ardupilot.org">Firmware Server</a> . Either the user must build his own firmware with this backend enabled or use the <a class="reference external" href="https://custom.ardupilot.org">Custom Firmware Server</a></p>
+</div>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>The H2 Hybrid and H2plus Hybrid generators can be purchased directly from the <a class="reference external" href="https://www.richenpower.com/shop">RichenPower webstore</a></p>
+</section>
+<section id="connection-and-configuration">
+<h2>Connection and Configuration<a class="headerlink" href="#connection-and-configuration" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/richenpower-generator-pixhawk.png" src="../_images/richenpower-generator-pixhawk.png" />
+<p>The generator’s serial output (“#5”) should be connected to one of the autopilot serial ports (e.g. Telem2)</p>
+<p>The generator’s PWM input (“#6”) should be connected to one of the autopilot’s servo outputs (e.g. “AUX OUT1”, aka servo output9)</p>
+<p>Connect to the autopilot with a ground station and set the following parameters and then reboot the autopilot:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gen-type" title="(in Rover)"><span class="xref std std-ref">GEN_TYPE</span></a> = 3 (RichenPower)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 30 (Generator)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 9 (9600)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 85 (Generator)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> = 42 (Generator Control)</p></li>
+</ul>
+</section>
+<section id="controlling-the-generator">
+<h2>Controlling the Generator<a class="headerlink" href="#controlling-the-generator" title="Permalink to this heading">¶</a></h2>
+<p>Please refer to the generator manual for operating instructions but in short:</p>
+<ul>
+<li><p>The generator can only be started by pulling the ripcord</p></li>
+<li><p>The transmitter’s auxiliary switch can change the speed of the generator:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Low position stops the generator</p></li>
+<li><p>Middle position for idle</p></li>
+<li><p>High position for run (to charge the battery)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Start-up procedure:</p>
+<ul>
+<li><p>Connect battery to generator</p></li>
+<li><p>Connect battery for autopilot</p></li>
+<li><p>Start Ground Station and connect telemetry</p>
+<ul class="simple">
+<li><p>H2 generator light should be off</p></li>
+<li><p>GCS HUD should display, “PreArm: Generator: requested state is not Run”</p></li>
+</ul>
+</li>
+<li><p>Move auxiliary switch to high position to switch generator to “run”</p>
+<ul class="simple">
+<li><p>H2 relay should click</p></li>
+<li><p>H2 Light should be green</p></li>
+<li><p>GCS HUD should display, “PreArm: Generator: warming up (0%)”</p></li>
+<li><p>If using Mission Planner, the generator display should show “Run Status off”</p></li>
+</ul>
+</li>
+<li><p>Check motor is primed by manually pushing the plastic bulb to pump petrol from the tank into the carburetor</p></li>
+<li><p>Pull ripcord to start generator</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Motor should run at low RPM</p></li>
+<li><p>If using Mission Planner, the generator display should show “Run Status WarmingUp”</p></li>
+<li><p>GCS HUD should display, “PreArm: Generator: warming up (100%)”</p></li>
+<li><p>If using Mission Planner, the generator display should show “Run Status Generating”</p></li>
+<li><p>Generator should increase to full throttle</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Arm and takeoff</p></li>
+</ul>
+<p>Shutdown procedure:</p>
+<ul class="simple">
+<li><p>Move auxiliary switch to low position to switch generator to “off”</p></li>
+<li><p>If using Mission Planner, the generator display should show “Run Status Idle”</p></li>
+<li><p>Generator should shut down after about 30 seconds</p></li>
+<li><p>If using Mission Planner, the generator display should show “Run Status Off”</p></li>
+<li><p>Unplug battery from generator</p></li>
+</ul>
+</section>
+<section id="monitoring-from-the-gcs">
+<h2>Monitoring from the GCS<a class="headerlink" href="#monitoring-from-the-gcs" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner has a generator monitor window that appears as soon as GENERATOR MAVLink messages arrive.</p>
+<a class="reference internal image-reference" href="../_images/richenpower-monitor.png"><img alt="../_images/richenpower-monitor.png" src="../_images/richenpower-monitor.png" style="width: 350px;" /></a>
+</section>
+<section id="vibration-isolation">
+<h2>Vibration isolation<a class="headerlink" href="#vibration-isolation" title="Permalink to this heading">¶</a></h2>
+<p>The high vibration from the generator means that <a class="reference internal" href="common-vibration-damping.html#common-vibration-damping"><span class="std std-ref">vibration isolation</span></a> is critical</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

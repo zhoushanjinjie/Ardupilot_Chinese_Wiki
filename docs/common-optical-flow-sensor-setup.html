@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optical Flow Sensor Testing and Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Optical Flow Sensor Testing and Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-optical-flow-sensor-setup">[copywiki destination=”copter,plane,rover”]</p>
+<section id="optical-flow-sensor-testing-and-setup">
+<h1>Optical Flow Sensor Testing and Setup<a class="headerlink" href="#optical-flow-sensor-testing-and-setup" title="Permalink to this heading">¶</a></h1>
+<section id="testing-the-sensor">
+<h2>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>With the sensor connected to the autopilot, connect to the autopilot with the Mission Planner and open the Flight Data screen’s Status tab.  If the sensor is operating you should see non-zero opt_m_x, opt_m_y and opt_qua values.</p>
+<a class="reference external image-reference" href="../_images/PX4Flow_CheckForData_MP.png"><img alt="../_images/PX4Flow_CheckForData_MP.png" src="../_images/PX4Flow_CheckForData_MP.png" /></a>
+</section>
+<section id="calibrating-the-sensor">
+<h2>Calibrating the sensor<a class="headerlink" href="#calibrating-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>#. Connect to your autopilot and ensure that logging while disarmed is enabled by setting <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#log-disarmed" title="(in Copter)"><span class="xref std std-ref">LOG_DISARMED</span></a> to 1
+[site wiki=”rover”]
+#. Ensure the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-hgt-ovr" title="(in Rover)"><span class="xref std std-ref">FLOW_HGT_OVR</span></a> parameter is set to the height of the sensor above ground
+[/site]</p>
+<ol class="arabic">
+<li><p>Find a location with a textured surface and good lighting (natural light or strong incandescent)
+[site wiki=”plane,copter”]</p></li>
+<li><p>Remove Propellers (safety first)</p></li>
+<li><p>Power on the vehicle and hold level away from your body and at eye level</p></li>
+<li><p>Rotate about the vehicle in roll through a range from -15 to +15
+degrees in about a second and then back again. Repeat this 5 to 10
+times. By closing one eye you will be able to keep the centre of the
+sensor stationary against the background while you do the rotation.
+[/site]
+[site wiki=”rover”]</p></li>
+<li><p>Power on the vehicle</p></li>
+<li><p>Rotate the vehicle (keeping it as close to the ground as practical)
+in roll through a range from -15 to +15
+degrees in about a second and then back again. Repeat this 5 to 10
+times. By closing one eye you will be able to keep the centre of the
+sensor stationary against the background while you do the rotation.
+[/site]</p></li>
+<li><p>Repeat  about the vehicle pitch axis.</p></li>
+<li><p>Download the data flash logs and plot the <code class="docutils literal notranslate"><span class="pre">OF.flowX</span></code>, <code class="docutils literal notranslate"><span class="pre">OF.bodyX</span></code>
+and <code class="docutils literal notranslate"><span class="pre">IMU.GyrX</span></code> data. It should look something like this:</p>
+<a class="reference external image-reference" href="../_images/OF-roll-calibration.png"><img alt="../_images/OF-roll-calibration.png" src="../_images/OF-roll-calibration.png" /></a>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">OF.flowX</span></code> is larger or smaller than <code class="docutils literal notranslate"><span class="pre">OF.bodyX</span></code>, then it can
+be adjusted by changing the <code class="docutils literal notranslate"><span class="pre">FLOW_FXSCALER</span></code> parameter</p></li>
+<li><p>IF <code class="docutils literal notranslate"><span class="pre">OF.bodyX</span></code> is uncorrelated or opposite sign to <code class="docutils literal notranslate"><span class="pre">IMU.GyrX</span></code>,
+the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#flow-orient-yaw" title="(in Copter)"><span class="xref std std-ref">FLOW_ORIENT_YAW</span></a> parameter is probably set incorrectly or
+you do not have the flow sensor pointing downwards</p></li>
+<li><p>Plot the <code class="docutils literal notranslate"><span class="pre">OF.flowY</span></code>, <code class="docutils literal notranslate"><span class="pre">OF.bodyYband</span></code>, <code class="docutils literal notranslate"><span class="pre">IMU.GyrY</span></code> data. It should
+look something like this:</p>
+<a class="reference external image-reference" href="../_images/OF-pitch-calibration.png"><img alt="../_images/OF-pitch-calibration.png" src="../_images/OF-pitch-calibration.png" /></a>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">OF.flowY</span></code> is larger or smaller than <code class="docutils literal notranslate"><span class="pre">OF.bodyY</span></code>, then it can
+be adjusted by changing the <code class="docutils literal notranslate"><span class="pre">FLOW_FYSCALER</span></code> parameter</p></li>
+<li><p>IF <code class="docutils literal notranslate"><span class="pre">OF.bodyY</span></code> is uncorrelated or opposite sign to <code class="docutils literal notranslate"><span class="pre">IMU.GyrY</span></code>,
+the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#flow-orient-yaw" title="(in Copter)"><span class="xref std std-ref">FLOW_ORIENT_YAW</span></a> parameter is probably set incorrectly or
+you do not have the flow sensor pointing downwards</p></li>
+</ol>
+<p>[site wiki=”plane,copter”]
+Range Sensor Check
+==================</p>
+<p>Check the <code class="docutils literal notranslate"><span class="pre">EKF5.meaRng</span></code> message in the flashlog from your flow
+sensor calibration test. Check the following:</p>
+<ol class="arabic simple">
+<li><p>There is continuous range measurement.</p></li>
+<li><p>It outputs a range on the ground that is 10cm of the expected value
+(remember that measured range will increase when you roll or pitch
+the vehicle because the laser is then measuring on a slant)</p></li>
+</ol>
+<p>[/site]</p>
+</section>
+<section id="pre-arm-checks">
+<h2>Pre-Arm checks<a class="headerlink" href="#pre-arm-checks" title="Permalink to this heading">¶</a></h2>
+<p>To allow arming and taking off in Loiter without a GPS the GPS arming
+check should be turned off as shown below.  Unchecking “All” and “GPS”
+and leave all other options checked.</p>
+<a class="reference external image-reference" href="../_images/OptFlow_ArmingChecks.png"><img alt="../_images/OptFlow_ArmingChecks.png" src="../_images/OptFlow_ArmingChecks.png" /></a>
+<p>Because optical flow requires good sonar/range finder data when the
+optical flow is enabled, an additional pre-arm check is enforced.</p>
+<p>[site wiki=”plane,copter”]
+<strong>While the vehicle is disarmed you should lift the vehicle straight up
+to at least 50cm but no higher than 2m</strong> (if the rangefinder sees a
+distance of over 2m you will need to restart the autopilot).</p>
+<p>The error message when arming fails this check is “PreArm: check range
+finder”</p>
+<p>This check can be disabled by unchecking the “Parameter/Sonar” arming
+check.</p>
+</section>
+<section id="first-flight">
+<h2>First Flight<a class="headerlink" href="#first-flight" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>For EKF2, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-gps-type" title="(in Rover)"><span class="xref std std-ref">EK2_GPS_TYPE</span></a> = 0; for EKF3, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 0 (we don’t want the optical flow being used by the EKF at this stage)</p></li>
+<li><p>Perform a short test flight hovering in STABILIZE or AltHold for copter, or QSTABILIZE or QHOVER for QuadPlane, at small lean angles at heights ranging from 50cm to 3m with</p></li>
+<li><p>Download the flash log and plot the following in mission planner</p></li>
+<li><p>EKF5.meaRng should correlate with the change in vehicle height</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OF.flowX</span></code> and <code class="docutils literal notranslate"><span class="pre">OF.flowY</span></code> should be varying</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OF.bodyX</span></code> and <code class="docutils literal notranslate"><span class="pre">OF.bodyY</span></code> should be consistent with IMU.GyrX and IMU.GyrY</p></li>
+</ol>
+</section>
+<section id="second-flight">
+<h2>Second Flight<a class="headerlink" href="#second-flight" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You will need at least 15m of clear space around the vehicle to do this flight safely.
+If the optical flow velocity estimates are bad, you will have little warning and the copter may lean to its maximum lean angle very quickly.</p>
+</div>
+<ol class="arabic simple">
+<li><p>For EKF2, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-gps-type" title="(in Rover)"><span class="xref std std-ref">EK2_GPS_TYPE</span></a> = 3; for EKF3, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 5 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 0 to make the EKF ignore GPS and use the flow sensor</p></li>
+<li><p>Ensure you have a loiter and hover mode available on you transmitter.</p></li>
+<li><p>Set “EKF Origin” on Ground Control Station map. In Mission Planner, right click, select “Set Home here”, and choose to set “set EKF origin here”.</p></li>
+<li><p>Take-off in loiter and bring the Copter/QuadPlane to about 1m height</p></li>
+<li><p>If the vehicle starts to accelerate away or there is erratic pitch or roll
+movement, then switch to hover and land. You will need to
+download the log file and share it on <a class="reference external" href="https://discuss.ardupilot.org/c/arducopter">the forums</a> to understand why.</p></li>
+<li><p>If it holds location then congratulations, you have succeeded and can
+now start experimenting with height changes and moving it around in
+the loiter mode</p></li>
+</ol>
+<p>[/site]</p>
+</section>
+<section id="setup-for-normal-operation">
+<h2>Setup for Normal Operation<a class="headerlink" href="#setup-for-normal-operation" title="Permalink to this heading">¶</a></h2>
+<section id="for-ekf2">
+<h3>For EKF2:<a class="headerlink" href="#for-ekf2" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Verify that <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-enable" title="(in Rover)"><span class="xref std std-ref">EK2_ENABLE</span></a> = 1, enabling EKF2</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-flow-delay" title="(in Rover)"><span class="xref std std-ref">EK2_FLOW_DELAY</span></a> depending on your optical flow sensor</p></li>
+<li><p>To only use the optical flow sensor and not use the GPS, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek2-gps-type" title="(in Rover)"><span class="xref std std-ref">EK2_GPS_TYPE</span></a> = 3; to use the GPS with the optical flow sensor, set this to 0.</p></li>
+</ol>
+</section>
+<section id="for-ekf3">
+<h3>For EKF3:<a class="headerlink" href="#for-ekf3" title="Permalink to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EKF3 is enabled and used by default in ArduPilot firmware 4.1 and higher</p>
+</div>
+<ol class="arabic simple">
+<li><p>Verify that <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-enable" title="(in Rover)"><span class="xref std std-ref">EK3_ENABLE</span></a> = 1, enabling EKF3</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ahrs-ekf-type" title="(in Rover)"><span class="xref std std-ref">AHRS_EKF_TYPE</span></a> = 3 to use EKF3</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src-options" title="(in Rover)"><span class="xref std std-ref">EK3_SRC_OPTIONS</span></a> = 0 to disable FuseAllVelocities</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-flow-delay" title="(in Rover)"><span class="xref std std-ref">EK3_FLOW_DELAY</span></a> depending on your optical flow sensor</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 3 (Primary horizontal position from GPS, set this to 0 to only use the optical flow sensor)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 5 (Primary horizontal velocity from OpticalFlow)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 1 (Primary vertical position from barometer)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> = 0 (No primary vertical velocity sensor)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 1 (Primary yaw/heading from compass)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Alternatively, GPS can work with OpticalFlow using EKF source switching.</p></li>
+<li><p>See <a class="reference internal" href="common-non-gps-to-gps.html#common-non-gps-to-gps"><span class="std std-ref">GPS / Non-GPS Transitions</span></a> for information on EKF source switching.</p></li>
+</ul>
+<p>[site wiki=”plane,copter”]
+.. note:: When Copters have an optical flow sensor enabled (along with a rangefinder) and it is specified as the only horizontal position source (e.g. <code class="docutils literal notranslate"><span class="pre">EK3_SRCx_VELXY``=OpticalFlow</span> <span class="pre">and</span> <span class="pre">``EK3_SRCx_POSXY``=None)</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">vehicle</span> <span class="pre">is</span> <span class="pre">flying</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">pilot</span> <span class="pre">controlled</span> <span class="pre">mode</span> <span class="pre">requiring</span> <span class="pre">a</span> <span class="pre">position</span> <span class="pre">estimate</span> <span class="pre">(ie</span> <span class="pre">Loiter</span> <span class="pre">or</span> <span class="pre">PosHold)</span> <span class="pre">the</span> <span class="pre">vehicle</span> <span class="pre">will</span> <span class="pre">not</span> <span class="pre">climb</span> <span class="pre">above</span> <span class="pre">the</span> <span class="pre">rangefinder's</span> <span class="pre">maximum</span> <span class="pre">altitude</span> <span class="pre">specified</span> <span class="pre">in</span> <span class="pre">``RNGFNDx_MAX_CM</span></code>. This is a safety mechanism because otherwise the EKF failsafe would trigger as the vehicle flew out of rangefinder range.</p>
+</section>
+</section>
+<section id="example-video-copter-3-4">
+<h2>Example Video (Copter-3.4)<a class="headerlink" href="#example-video-copter-3-4" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Bzgey8iR69Q" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<hr class="docutils" />
+<section id="inflight-calibration">
+<h2>Inflight Calibration<a class="headerlink" href="#inflight-calibration" title="Permalink to this heading">¶</a></h2>
+<p>Copter-4.2.0 includes an inflight calibration procedure:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RCx_OPTION</span></a> = 158 (Optflow Calibration) to allow starting the calibration from an <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary switch</span></a></p></li>
+<li><p>Setup the EKF3 to use GPS (the default)</p>
+<ul>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 3 (GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 1 (Baro)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 3 (GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> = 3 (GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 1 (Compass)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src-options" title="(in Rover)"><span class="xref std std-ref">EK3_SRC_OPTIONS</span></a> = 0 (Disable FuseAllVelocities)</p></li>
+</ul>
+</li>
+<li><p>Fly the vehicle in Loiter mode to at least 10m (higher is better but stay within the limits of the rangefinder)</p></li>
+<li><p>Pull the auxiliary switch high to start the calibration</p></li>
+<li><p>Use the roll and pitch sticks to rock the vehicle back and forth in both roll and pitch</p></li>
+<li><p>Check the GCS “Messages” tab for output like below confirming the calibration is complete</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FlowCal</span><span class="p">:</span> <span class="n">Started</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">x</span><span class="p">:</span><span class="mi">0</span><span class="o">%</span> <span class="n">y</span><span class="p">:</span><span class="mi">0</span><span class="o">%</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">x</span><span class="p">:</span><span class="mi">66</span><span class="o">%</span> <span class="n">y</span><span class="p">:</span><span class="mi">6</span><span class="o">%</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">x</span><span class="p">:</span><span class="mi">100</span><span class="o">%</span> <span class="n">y</span><span class="p">:</span><span class="mi">74</span><span class="o">%</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">samples</span> <span class="n">collected</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">scalarx</span><span class="p">:</span><span class="mf">0.976</span> <span class="n">fit</span><span class="p">:</span> <span class="mf">0.10</span>   <span class="o">&lt;--</span> <span class="n">lower</span> <span class="s2">&quot;fit&quot;</span> <span class="n">values</span> <span class="n">are</span> <span class="n">better</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">scalary</span><span class="p">:</span><span class="mf">0.858</span> <span class="n">fit</span><span class="p">:</span> <span class="mf">0.04</span>
+<span class="n">FlowCal</span><span class="p">:</span> <span class="n">FLOW_FXSCALER</span><span class="o">=</span><span class="mf">30.00000</span><span class="p">,</span> <span class="n">FLOW_FYSCALER</span><span class="o">=</span><span class="mf">171.0000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Land the vehicle and setup the EKF3 to use OpticalFlow</p>
+<ul>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 0 (None)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 5 (Optical Flow)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 1 (Baro)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> = 0 (None)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 1 (Compass)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src-options" title="(in Rover)"><span class="xref std std-ref">EK3_SRC_OPTIONS</span></a> = 0 (Disable FuseAllVelocities)</p></li>
+</ul>
+</li>
+<li><p>Fly the vehicle again to check performance</p></li>
+</ul>
+<p>An alternative method which avoids the need to land and change EKF3 parameters between calibration and testing is to setup <a class="reference internal" href="common-non-gps-to-gps.html#common-non-gps-to-gps"><span class="std std-ref">GPS/Non-GPS transitions</span></a> so the pilot can manually change between GPS and Optical Flow inflight.  The full parameter list is below assuming the pilot will engage the calibration using RC input 8 (a 2-position switch) and switch between GPS and Optical flow using RC input 9 (a 3-position switch)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> = 158 (Optflow Calibration)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 90 (EKF Pos Source) low is GPS, middle is OpticalFlow, high is unused</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSXY</span></a> = 3 (GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_POSZ</span></a> = 1 (Baro)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELXY</span></a> = 3 (GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_VELZ</span></a> = 3 (GPS)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 1 (Compass)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_POSXY</span></a> = 0 (None)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velxy" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_VELXY</span></a> = 5 (Optical Flow)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-posz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_POSZ</span></a> = 1 (Baro)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-velz" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_VELZ</span></a> = 0 (None)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC2_YAW</span></a> = 1 (Compass)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src-options" title="(in Rover)"><span class="xref std std-ref">EK3_SRC_OPTIONS</span></a> = 0 (Disable FuseAllVelocities)</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use the inflight calibration EKF3 must be enabled.  This is the default for ArduPilot 4.1 and higher</p>
+</div>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Crx97v1bwWo" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>[/site]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gimbal / Mount Controls &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Gimbal / Mount Controls</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gimbal-mount-controls">
+<span id="common-mount-targeting"></span><h1>Gimbal / Mount Controls<a class="headerlink" href="#gimbal-mount-controls" title="Permalink to this heading">¶</a></h1>
+<p>Camera gimbals (aka camera mounts) can be controlled in at least six different ways.  This page provides an overview of these controls and their setup.</p>
+<p>The gimbal’s “mode” defines how it is controlled.  Each ground station (GCS) is different but Mission Planner, for example, has a “Set Mount” button that allows changing the mode.  In many cases the user does not need to directly set the mode, instead this is done automatically as part of responding to a command from the user.</p>
+<a class="reference external image-reference" href="../_images/mount-mp-set-mode.png"><img alt="../_images/mount-mp-set-mode.png" src="../_images/mount-mp-set-mode.png" style="width: 450px;" /></a>
+<p>Below are the 6 supported modes.</p>
+<ol class="arabic" start="0">
+<li><p>Retract Mode: the gimbal will move to the roll, pitch and yaw angles held in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-retract-x" title="(in Rover)"><span class="xref std std-ref">MNT1_RETRACT_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-retract-y" title="(in Rover)"><span class="xref std std-ref">MNT1_RETRACT_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-retract-z" title="(in Rover)"><span class="xref std std-ref">MNT1_RETRACT_Z</span></a> parameters respectively.  Some special gimbal specific behaviours:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="common-gremsy-pixyu-gimbal.html#common-gremsy-pixyu-gimbal"><span class="std std-ref">Gremsy gimbals</span></a> will immediately stop stabilising</p></li>
+<li><p><a class="reference internal" href="common-camera-gimbal.html#common-camera-gimbal"><span class="std std-ref">Servo gimbal</span></a> will move to the specified angles and stop stabilising.  If a retract servo has been set (e.g. <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo10-function" title="(in Rover)"><span class="xref std std-ref">SERVO10_FUNCTION</span></a> = 9 (Mount1Retract)) this servo will move to its minimum position</p></li>
+<li><p><a class="reference internal" href="common-siyi-zr10-gimbal.html#common-siyi-zr10-gimbal"><span class="std std-ref">Siyi gimbals</span></a> do not provide roll control so the roll angle (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-retract-x" title="(in Rover)"><span class="xref std std-ref">MNT1_RETRACT_X</span></a>) is ignored</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Neutral Mode: the gimbal will move to the roll, pitch and yaw angles held in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-neutral-x" title="(in Rover)"><span class="xref std std-ref">MNT1_NEUTRAL_X</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-neutral-y" title="(in Rover)"><span class="xref std std-ref">MNT1_NEUTRAL_Y</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-neutral-z" title="(in Rover)"><span class="xref std std-ref">MNT1_NEUTRAL_Z</span></a> respectively</p></li>
+<li><p>MAVLink Targeting: the gimbal will move according to real-time commands received from the ground stations or Auto mode mission commands</p></li>
+<li><p>RC Targeting: the pilot controls the gimbal in real-time using the RC transmitter</p></li>
+<li><p>GPS Point: same as MAVLink targeting but the gimbal points at a specific location.  Users never need to actively set the gimbal to this mode</p></li>
+<li><p>SysId Target: the gimbal points at another vehicle with a specified MAVLink system id.  Users never need to actively set the gimbal to this mode and there are no known GCSs that support setting the system id</p></li>
+<li><p>Home Location: the gimbal points at home (normally its takeoff location)</p></li>
+</ol>
+<p>The gimbal’s default mode on startup can be set with the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-deflt-mode" title="(in Rover)"><span class="xref std std-ref">MNT1_DEFLT_MODE</span></a> parameter.</p>
+<section id="control-with-an-rc-transmitter-aka-rc-targeting">
+<h2>Control with an RC transmitter (aka RC Targeting)<a class="headerlink" href="#control-with-an-rc-transmitter-aka-rc-targeting" title="Permalink to this heading">¶</a></h2>
+<p>While the gimbal is in “RC Targeting” mode (see above for how to change modes), the pilot can control the gimbal’s target roll, pitch and yaw angles using an RC transmitter channel for each axis. For example:</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc6-option" title="(in Rover)"><span class="xref std std-ref">RC6_OPTION</span></a> = 212 (“Mount1 Roll”) to control the gimbal’s roll angle with RC channel 6</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc7-option" title="(in Rover)"><span class="xref std std-ref">RC7_OPTION</span></a> = 213 (“Mount1 Pitch”) to control the gimbal’s pitch angle with RC channel 7</p></li>
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> = 214 (“Mount1 Yaw”) to control the gimbal’s yaw angle with RC channel 8</p></li>
+<li><p>ensure the RCx_TRIM parameter for each RC input channel used is half way between RCx_MIN and RCx_MAX</p></li>
+</ul>
+<p>By default the RC input specifies the <strong>angle</strong> but this can be changed to <strong>rate</strong> control by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-rc-rate" title="(in Rover)"><span class="xref std std-ref">MNT1_RC_RATE</span></a> to the desired rotation rate in deg/sec.</p>
+<p>By default the yaw control is in “follow” mode (aka “body frame”) meaning that the gimbal’s heading will rotate as the vehicle rotates.  The alternative is “lock” mode (aka “earth frame”) meaning the gimbal’s heading will stay locked onto a particular heading regardless of the vehicle’s yaw.  The pilot can switch between these two modes with an auxiliary switch.</p>
+<ul class="simple">
+<li><p>set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 163 (“Mount Lock”) to switch between “lock” and “follow” mode with RC channel 9</p></li>
+</ul>
+<p>The pilot can retract the gimbal with the “Retract Mount1” auxiliary switch</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc10-option" title="(in Rover)"><span class="xref std std-ref">RC10_OPTION</span></a> = 27 (“Retract Mount1”) to change the gimbal to Retract mode</p></li>
+</ul>
+</section>
+<section id="control-from-a-ground-station-aka-mavlink-targeting">
+<h2>Control from a Ground Station (aka MAVLink Targeting)<a class="headerlink" href="#control-from-a-ground-station-aka-mavlink-targeting" title="Permalink to this heading">¶</a></h2>
+<p>Ground stations can send MAVLink commands to control the gimbal.  While each GCS’s interface is different below are the controls provided by Mission Planner.</p>
+<p>The gimbal’s angles can be controlled as follows</p>
+<ul class="simple">
+<li><p>Set the mode to “MAVLink Targeting” using the Data screen’s Actions tab’s bottom left drop-down and then push the “Set Mount” button (see image above)</p></li>
+<li><p>Use the Payload Control tab to adjust the gimbal’s roll, pitch or yaw angles</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/mount-mp-payload-control.png"><img alt="../_images/mount-mp-payload-control.png" src="../_images/mount-mp-payload-control.png" style="width: 450px;" /></a>
+<ul class="simple">
+<li><p>Use the Aux Function tab to switch the yaw between “follow” and “lock” modes</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/mount-mp-auxfn-mount-lock.png"><img alt="../_images/mount-mp-auxfn-mount-lock.png" src="../_images/mount-mp-auxfn-mount-lock.png" /></a>
+<p>To point the gimbal at a particular location (e.g. lat, lon, alt), on the Data screen, right-mouse-button click on the map and select, “Point Camera Here” and enter an altitude above home</p>
+<a class="reference external image-reference" href="../_images/mount-mp-point-camera-here.png"><img alt="../_images/mount-mp-point-camera-here.png" src="../_images/mount-mp-point-camera-here.png" /></a>
+</section>
+<section id="control-during-auto-mode-missions">
+<h2>Control during Auto mode missions<a class="headerlink" href="#control-during-auto-mode-missions" title="Permalink to this heading">¶</a></h2>
+<p>Commands to control the gimbal are listed on the  <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">Camera Control in Auto Missions</span></a>, <a class="reference internal" href="mission-command-list.html#mission-command-list"><span class="std std-ref">Copter Mission Command List</span></a> and <a class="reference internal" href="common-mavlink-mission-command-messages-mav_cmd.html#common-mavlink-mission-command-messages-mav-cmd"><span class="std std-ref">Mission Commands</span></a> pages</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

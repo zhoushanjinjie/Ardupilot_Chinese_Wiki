@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUAV v5 Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Archived: Emlid Edge" href="common-emlid-edge.html" />
+    <link rel="prev" title="Firmware Limitations on AutoPilot Hardware" href="common-limited-firmware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CUAV V5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-emlid-edge.html">Emlid Edge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pxfmini.html">Erle PXFmini RPi Zero Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-erle-brain-linux-autopilot.html">Erle ErleBrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini.html">Holybro Kakute H7 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-overview.html">Intel Aero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-rtf.html">Intel Aero RTF vehicle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-se.html">Mateksys F405-SE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405.html">Mateksys F405-STD and variants*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-wing.html">Mateksys F405-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wing.html">Mateksys F765-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wse.html">Mateksys F765-WSE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">CUAV v5 Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cuav-v5-overview">
+<span id="common-pixhackv5-overview"></span><h1>CUAV v5 Overview<a class="headerlink" href="#cuav-v5-overview" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/v5-autopilot.jpg"><img alt="../_images/v5-autopilot.jpg" src="../_images/v5-autopilot.jpg" style="width: 360px;" /></a>
+<p>The CUAV v5 is an advanced autopilot designed and made by CUAV.
+The board is based on the FMUv5 open hardware design, with further attribution <a class="reference external" href="https://github.com/cuav/hardware/blob/master/PixHack_v5/README.md">here</a>.
+It is intended primarily for academic and commercial users.</p>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>32-bit ARM Cortex M7 core with DPFPU</p></li>
+<li><p>216 Mhz/512 KB RAM/2 MB Flash</p></li>
+<li><p>32-bit co-processor</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>InvenSense ICM20689 accelerometer / gyroscope</p></li>
+<li><p>Bosch BMI055 accelerometer / gyroscope</p></li>
+<li><p>MS5611 barometer</p></li>
+<li><p>IST8310 magnetometer</p></li>
+</ul>
+</li>
+<li><p><strong>Power</strong></p>
+<ul>
+<li><p>Operating power: 4.3~5.4V</p></li>
+<li><p>USB Input: 4.75~5.25V</p></li>
+<li><p>High-power servo rail, up to 36V
+(servo rail does not power the autopilot)</p></li>
+<li><p>Dual voltage and current monitor inputs</p></li>
+<li><p>CUAV v5 can be triple redundant if power is provided
+to both battery monitor inputs and the USB port</p></li>
+</ul>
+</li>
+<li><p><strong>Interfaces</strong></p>
+<ul>
+<li><p>8 IOMCU PWM servo outputs</p></li>
+<li><p>6 FMU PWM outputs (D-Shot capable)</p></li>
+<li><p>3 dedicated PWM/Capture inputs on FMU</p></li>
+<li><p>S.Bus servo output</p></li>
+<li><p>R/C inputs for CPPM and S.Bus</p></li>
+<li><p>Analogue / PWM RSSI input</p></li>
+<li><p>5x general purpose serial ports</p></li>
+<li><p>4x I2C ports</p></li>
+<li><p>4x SPI buses enabled</p></li>
+<li><p>2x CAN Bus ports</p></li>
+</ul>
+</li>
+<li><p><strong>Other</strong></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Weight: 90g</p></li>
+<li><p>Dimensions: 44mm x 84mm x 12mm</p></li>
+<li><p>Operating temperature: -20 ~ 80°c（Measured value）</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Order from <a class="reference external" href="https://store.cuav.net/index.php">here</a>.
+Official retailers are listed <a class="reference external" href="https://leixun.aliexpress.com/">here</a>.</p>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h2>
+<p>Use the <a class="reference internal" href="common-pixhawk-wiring-and-quick-start.html#common-pixhawk-wiring-and-quick-start"><span class="std std-ref">Pixhawk Wiring QuickStart</span></a> as a general guide.</p>
+<a class="reference external image-reference" href="../_images/v5-pinouts_release.jpg"><img alt="../_images/v5-pinouts_release.jpg" src="../_images/v5-pinouts_release.jpg" /></a>
+</section>
+<section id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p>see more documentation <a class="reference external" href="http://doc.cuav.net/flight-controller/v5-autopilot/en/">here</a></p>
+</section>
+<section id="more-images">
+<h2>More Images<a class="headerlink" href="#more-images" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/pixhackv5_2.jpg"><img alt="../_images/pixhackv5_2.jpg" src="../_images/pixhackv5_2.jpg" style="width: 360px;" /></a>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-limited-firmware.html" class="btn btn-neutral float-left" title="Firmware Limitations on AutoPilot Hardware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-emlid-edge.html" class="btn btn-neutral float-right" title="Archived: Emlid Edge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

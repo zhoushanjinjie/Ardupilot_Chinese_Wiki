@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEO 3 Pro GPS &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NEO 3 Pro GPS</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="neo-3-pro-gps">
+<span id="common-cuav-neo-3-pro"></span><h1>NEO 3 Pro GPS<a class="headerlink" href="#neo-3-pro-gps" title="Permalink to this heading">¶</a></h1>
+<p>NEO 3 pro is DroneCAN standard GPS developed by CUAV. It integrates industrial-grade compass, barometer, autopilot status light, buzzer, and safety switch all in one package. It has the characteristics of high safety and strong interference resistance.It integrates ublox m9n module and can receive signals from GPS, Galileo, GLONASS and Beidou at the same time.</p>
+<a class="reference external image-reference" href="../_images/neo-3-pro.jpg"><img alt="../_images/neo-3-pro.jpg" src="../_images/neo-3-pro.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NEO 3  pro is supported in ArduPilot 4.0 firmware (and higher).</p>
+</div>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Processor</strong></p>
+<ul>
+<li><p>STM32F412</p></li>
+</ul>
+</li>
+<li><p><strong>Sensors</strong></p>
+<ul>
+<li><p>Compass:RM3100</p></li>
+<li><p>Barometer:MS5611</p></li>
+</ul>
+</li>
+<li><p><strong>RTK Receiver</strong></p>
+<ul>
+<li><p>Ublox M9N</p></li>
+</ul>
+</li>
+<li><p><strong>GNSS Bands</strong></p>
+<ul>
+<li><p>GPS/QZSS L1 C/A,GLONASS L10F ,BeiDou B1I,Galileo E1B/C,SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN</p></li>
+</ul>
+</li>
+<li><p><strong>Number of concurrent GNSS</strong></p>
+<ul>
+<li><p>4 Simultaneous reception of satellite information</p></li>
+</ul>
+</li>
+<li><p><strong>Number of satellites(MAX)</strong></p>
+<ul>
+<li><p>Up to 32</p></li>
+</ul>
+</li>
+<li><p><strong>Nav. update rate</strong></p>
+<ul>
+<li><p>RTK Up to 25HZ</p></li>
+</ul>
+</li>
+<li><p><strong>Position accuracy</strong></p>
+<ul>
+<li><p>1.5M(use sbas；default）</p></li>
+<li><p>2.0M(not sbas</p></li>
+</ul>
+</li>
+<li><p><strong>Acquisition</strong></p>
+<ul>
+<li><p>Cold starts 24 s</p></li>
+<li><p>Aided starts 2 s</p></li>
+<li><p>Reacquisition 2 s</p></li>
+</ul>
+</li>
+<li><p><strong>Sensitivity</strong></p>
+<ul>
+<li><p>Tracking &amp; Nav -167 dBm</p></li>
+<li><p>Cold starts -148 dBm</p></li>
+<li><p>Reacquisition -160 dBm</p></li>
+</ul>
+</li>
+<li><p><strong>Protocol</strong></p>
+<ul>
+<li><p>DroneCAN</p></li>
+</ul>
+</li>
+<li><p><strong>Interface Type</strong></p>
+<ul>
+<li><p>GHR-04V-S</p></li>
+</ul>
+</li>
+<li><p><strong>Input voltage</strong></p>
+<ul>
+<li><p>5V</p></li>
+</ul>
+</li>
+<li><p><strong>Operating temperature</strong></p>
+<ul>
+<li><p>-10~70℃</p></li>
+</ul>
+</li>
+<li><p><strong>Size</strong></p>
+<ul>
+<li><p>60x60x16mm</p></li>
+</ul>
+</li>
+<li><p><strong>Weight</strong></p>
+<ul>
+<li><p>33g</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="purchase">
+<h2>Purchase<a class="headerlink" href="#purchase" title="Permalink to this heading">¶</a></h2>
+<p>You can buy it from <a class="reference external" href="https://store.cuav.net/index.php?id_product=111&amp;rewrite=cuav-neo-v2-pro-can-gps&amp;controller=product">CUAV store</a>.</p>
+</section>
+<section id="connect-to-cuav-v5">
+<h2>Connect to CUAV v5+<a class="headerlink" href="#connect-to-cuav-v5" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/neo-3-pro-connection.png"><img alt="../_images/neo-3-pro-connection.png" src="../_images/neo-3-pro-connection.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The connection to other autopilots is similar.</p>
+</div>
+</section>
+<section id="enable-can-port-dronecan-and-configure-for-neo-v2-pro">
+<h2>Enable CAN port, DroneCAN, and Configure for NEO-V2 Pro<a class="headerlink" href="#enable-can-port-dronecan-and-configure-for-neo-v2-pro" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-canbus-setup-advanced.html#common-canbus-setup-advanced"><span class="std std-ref">CAN Bus Setup</span></a> and <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">DroneCAN Setup</span></a> for more information.</p>
+<p>Set the following parameters in all parameter tables of Mission planner and restart after writing</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a>     set to 1.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p2-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P2_DRIVER</span></a>     set to 1.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> set to 1.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d2-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D2_PROTOCOL</span></a> set to 1.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-types" title="(in Rover)"><span class="xref std std-ref">NTF_LED_TYPES</span></a>     set to 231.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a>               set to 9.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/fc-set.png"><img alt="../_images/fc-set.png" src="../_images/fc-set.png" /></a>
+<p>NEO 3 pro is now ready for operation</p>
+</section>
+<section id="slcan-interface">
+<h2>SLCAN Interface<a class="headerlink" href="#slcan-interface" title="Permalink to this heading">¶</a></h2>
+<p>If you need to set up NEO 3 pro or upgrade its firmware, you need to enable SLCAN</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot 4.0 or later firmware supports SLCAN.</p>
+</div>
+<ul class="simple">
+<li><p>Please connect NEO 3 pro to the autopilot’s CAN1 interface.</p></li>
+<li><p>Open mission planner and connect autopilot.</p></li>
+</ul>
+<p>Modify the following parameters in the Full Parameter tab of Mission Planner.</p>
+<p><strong>for CUAV V5+/nano:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-cport" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_CPORT</span></a> set to 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial7-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL7_PROTOCOL</span></a>  set to 22</p></li>
+<li><p>Reboot autopilot</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CUAVV5 / NANO / FMUV5 autopilot running ArduPilot4.0 or later firmware will have two USB interfaces, one is autopilot’s console port (SERIAL0) running MAVLINK  and one is an SLCAN interface port; if there are not two ports showing in the Mission Planner Comm Port drop-down box, please uninstall the driver and reinstall. If you continue to have problems, see <a class="reference internal" href="common-connect-mission-planner-autopilot.html#troubleshooting-composite-connections"><span class="std std-ref">Troubleshooting Composite Connections</span></a></p>
+</div>
+<p><strong>For Pixhawk series / FMUv2 / FMU V3 / FMU V4</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-cport" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_CPORT</span></a> Set to 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-timout" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_TIMOUT</span></a> Set to 0 (no timeout, reboot to return to normal operation)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-sernum" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_SERNUM</span></a> Set to 0</p></li>
+<li><p>Please do not reboot the autopilot until your operation is complete.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>STM32F4 does not support dual virtual USB ports, so  autopilots using STM32F4 processor can only be used for SLCAN after the MAVLink connection on USB is closed; after writing the above settings, the USB interface becomes an SCLAN port; MAVLink connections can be made again after a reboot. Until then the USB connection can be used for SLCAN operations.</p>
+</div>
+</section>
+<section id="neo-v2-internal-configuration">
+<h2>NEO-V2 Internal Configuration<a class="headerlink" href="#neo-v2-internal-configuration" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot supports setting DroneCAN device internal settings through SLCAN, such as modifying node ID; enabling / disabling barometer, etc.</p>
+<a class="reference external image-reference" href="../_images/slcan3.png"><img alt="../_images/slcan3.png" src="../_images/slcan3.png" /></a>
+<ol class="arabic simple">
+<li><p>Select the COMM port corresponding to SLCAN.</p></li>
+<li><p>Select the DroneCAN section under Initial Setup&gt;Optional Hardware tab.</p></li>
+<li><p>Click “SLCAN NODE CAN1”  and</p></li>
+<li><p>Click “Inspector”</p></li>
+<li><p>Change configuration parameters for DroneCAN device</p></li>
+</ol>
+<p><strong>Enable barometer</strong></p>
+<ul class="simple">
+<li><p>Baro_enabled=1, 0=disabled</p></li>
+<li><p>Reboot</p></li>
+</ul>
+<p><strong>Modify device ID</strong></p>
+<ul class="simple">
+<li><p>Modify the CAN_NODE parameter</p></li>
+</ul>
+</section>
+<section id="upgrade-firmware">
+<h2>Upgrade Firmware<a class="headerlink" href="#upgrade-firmware" title="Permalink to this heading">¶</a></h2>
+<p><strong>Method One：</strong>
+Firmware upgrade using Mission planner</p>
+<a class="reference external image-reference" href="../_images/slcan.png"><img alt="../_images/slcan.png" src="../_images/slcan.png" /></a>
+<ol class="arabic simple">
+<li><p>Select the COMM port corresponding to SLCAN.</p></li>
+<li><p>Click “SLCAN NODE CAN1” on the DroneCAN section under Initial Setup&gt;Optional Hardware tab.</p></li>
+<li><p>Click “Update”</p></li>
+<li><p>Select “NO” in the pop-up prompt box (Tes is to select online firmware; No selects local firmware).</p></li>
+<li><p>Select firmware file.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/slcan2.png"><img alt="../_images/slcan2.png" src="../_images/slcan2.png" /></a>
+<ul class="simple">
+<li><p>Wait for the flash process to complete.</p></li>
+</ul>
+<p><strong>Method Two：</strong></p>
+<p>Upgrade with DroneCAN GUI TOOL software</p>
+<p><a class="reference external" href="https://github.com/DroneCAN/gui_tool">DroneCAN GUI TOOL</a>.</p>
+<ul class="simple">
+<li><p>Select the device port corresponding to SLCAN and click “ok”</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan.png"><img alt="../_images/uavcan.png" src="../_images/uavcan.png" /></a>
+<ul class="simple">
+<li><p>Click “√”; then double-click on the device information (marked in Figure 2 below).</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan2.png"><img alt="../_images/uavcan2.png" src="../_images/uavcan2.png" /></a>
+<ul class="simple">
+<li><p>Click “update firmware”, the message box will pop up “yes”.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan3.png"><img alt="../_images/uavcan3.png" src="../_images/uavcan3.png" /></a>
+<ul class="simple">
+<li><p>The mode/heakth/uptime entry becomes “SOftware_update”</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan4.png"><img alt="../_images/uavcan4.png" src="../_images/uavcan4.png" /></a>
+<ul class="simple">
+<li><p>Waiting for firmware write to complete.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/uavcan5.png"><img alt="../_images/uavcan5.png" src="../_images/uavcan5.png" /></a>
+</section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://doc.cuav.net/gps/neo-series-gnss/en/">CUAV docs</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneCAN GUI &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DroneCAN GUI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dronecan-gui">
+<span id="common-uavcan-gui"></span><h1>DroneCAN GUI<a class="headerlink" href="#dronecan-gui" title="Permalink to this heading">¶</a></h1>
+<p>DroneCAN_GUI is a tool that allows viewing, configuration and software updates of nodes
+connected to the BUS.</p>
+<ul class="simple">
+<li><p>Windows: Download <a class="reference external" href="https://firmware.ardupilot.org/Tools/CAN_GUI/">DroneCAN_GUI</a> and install.</p></li>
+<li><p>Linux: python3 -m pip install dronecan_gui_tool dronecan</p></li>
+</ul>
+<p>Before the autopilot can be connected, SLCAN mode must be operational. See <a class="reference internal" href="common-slcan-f4.html#common-slcan-f4"><span class="std std-ref">SLCAN Access on F4 based Autopilots</span></a> or <a class="reference internal" href="common-slcan-f7h7.html#common-slcan-f7h7"><span class="std std-ref">SLCAN Access on F7/H7 Based Autopilots</span></a> for setup information.</p>
+<p>Start DroneCAN GUI and select the correct USB port for the SLCAN interface. The default CAN bus bit rate of 1,000,000 wont  need to be changed unless the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-bitrate" title="(in Rover)"><span class="xref std std-ref">CAN_P1_BITRATE</span></a> or <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p2-bitrate" title="(in Rover)"><span class="xref std std-ref">CAN_P2_BITRATE</span></a> (if using the second autopilot CAN port) has been changed. The Adapter baud rate should match the autopilot’s SERIALx port baud rate. The default value of 115.2KBaud should be correct.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Almost all ArduPilot autopilots use VCP USB connections and Adapter port baud rate value is irrelevant and can be any value.</p>
+</div>
+<img alt="../_images/can_uavcan_gui_baud.png" src="../_images/can_uavcan_gui_baud.png" />
+<p>DroneCAN_GUI tool will start with an interface as the image below.
+Click on tick box next to Local node ID. Leave it unchanged, unless you have another node on the CANBUS with the same address.</p>
+<img alt="../_images/can_uavcan_gui.png" src="../_images/can_uavcan_gui.png" />
+<p>If the node has a bootloader only installed, then firmware will need to be
+uploaded. <code class="docutils literal notranslate"><span class="pre">MAINTENANCE</span></code> will be displayed. Firmware can be found <a class="reference external" href="https://firmware.ardupilot.org/AP_Periph/">here</a> and downloaded for the node.  Click on the button lower right and then double click on <code class="docutils literal notranslate"><span class="pre">org.ardupilot.ap_periph</span></code> as highlighted.</p>
+<img alt="../_images/can_uavcan_gui_upd.png" src="../_images/can_uavcan_gui_upd.png" />
+<p>The following pop up window will appear. Click on update firmware and select the correct file for the node connected.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have trouble updating firmware, trying renaming the firmware filename to something very short, such as “a.bin”. Longer filenames sometimes have difficulty loading.</p>
+</div>
+<img alt="../_images/can_uavcan_gui_pop.png" src="../_images/can_uavcan_gui_pop.png" />
+<p>Once the firmware has finished uploading to node the main window will change to <code class="docutils literal notranslate"><span class="pre">OPERATIONAL</span></code> as per image below. Press the <code class="docutils literal notranslate"><span class="pre">Fetch</span> <span class="pre">All</span></code> button, and double click on the FLASH_BOOTLOADER parameter and enter 1 in the highlighted box. Press <code class="docutils literal notranslate"><span class="pre">Send</span></code> and close the dialog. The address of the node can be changed in this window to avoid conflict with another node on the CANBUS, as well as any DroneCAN device specific parameters.</p>
+<img alt="../_images/can_uavcan_gui_supd.png" src="../_images/can_uavcan_gui_supd.png" />
+<p>A debug message will show complete.</p>
+<img alt="../_images/can_uavcan_gui_supdc.png" src="../_images/can_uavcan_gui_supdc.png" />
+<p>Messages coming through the CANBUS can be viewed using the bus monitor tool in “Tools” menu.</p>
+<img alt="../_images/can_uavcan_gui_mon.png" src="../_images/can_uavcan_gui_mon.png" />
+<p>To return to normal operation, close the DroneCAN_GUI tool.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

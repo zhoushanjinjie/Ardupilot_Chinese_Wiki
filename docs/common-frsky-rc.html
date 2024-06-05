@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="[copywiki destination=”plane,copter,rover,blimp”]" href="common-graupner-rc.html" />
+    <link rel="prev" title="[copywiki destination=”plane,copter,rover,blimp”]" href="common-dragonlink-rc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-mounting-the-flight-controller.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-flight-controller-wiring.html">Autopilot Wiring</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#gps-compass">GPS/Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-flight-controller-wiring.html#rc-input">RC input</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-flight-controller-wiring.html#motor-servo-connections">Motor/Servo Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-navio2-wiring-and-quick-start.html">NAVIO2 (Linux based) Wiring QuickStart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">ESCs and Motors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#ublox-gps-compass-module">UBlox GPS + Compass Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#connecting-the-autopilot">Connecting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#mounting-the-gps-module">Mounting the GPS Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#setup-in-mission-planner">Setup in Mission Planner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#led-indicators">LED Indicators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-installing-3dr-ublox-gps-compass-module.html#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-vibration-damping.html">Vibration Damping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-magnetic-interference.html">Magnetic Interference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-hardware.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="autopilot-assembly-instructions.html">飞控系统安装 Instructions</a></li>
+          <li class="breadcrumb-item"><a href="common-flight-controller-wiring.html">Typical Autopilot Wiring Connections</a></li>
+          <li class="breadcrumb-item"><a href="common-rc-systems.html">Radio Control Systems</a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-frsky-rc"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="frsky-rc-systems">
+<h1>FRSky RC Systems<a class="headerlink" href="#frsky-rc-systems" title="Permalink to this heading">¶</a></h1>
+<section id="frsky-taranis-x9d-plus-qx7-and-x-lite-rc-transmitters">
+<h2>FrSky Taranis X9D Plus, QX7, and X-Lite RC Transmitters<a class="headerlink" href="#frsky-taranis-x9d-plus-qx7-and-x-lite-rc-transmitters" title="Permalink to this heading">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These transmitters are <strong>highly recommended</strong> for all RC uses.</p>
+</div>
+<figure class="align-center" id="id1">
+<a class="reference external image-reference" href="../_images/FrSky_Taranis_Xlite.jpg"><img alt="../_images/FrSky_Taranis_Xlite.jpg" src="../_images/FrSky_Taranis_Xlite.jpg" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Taranis X-Lite</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
+<a class="reference external image-reference" href="../_images/FrSky_Taranis_X7white.jpg"><img alt="../_images/FrSky_Taranis_X7white.jpg" src="../_images/FrSky_Taranis_X7white.jpg" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Taranis QX7</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<a class="reference external image-reference" href="../_images/FrSky_Taranis9XD_Plus.jpg"><img alt="../_images/FrSky_Taranis9XD_Plus.jpg" src="../_images/FrSky_Taranis9XD_Plus.jpg" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-text">Taranis X9D Plus</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Theses transmitters are feature packed for their price. You can buy them from different locations e.g. <a class="reference external" href="http://www.craftandtheoryllc.com/packageq">Craft and Theory</a>, <a class="reference external" href="https://alofthobbies.com/catalogsearch/result/?cat=0&amp;q=X9D">Aloft Hobbies</a> .</p>
+</div>
+<p>The <a class="reference external" href="https://www.frsky-rc.com/product/taranis-q-x7-2/">FrSky Taranis RC Transmitter</a> is a
+high quality <a class="reference external" href="http://www.open-tx.org/downloads.html">OpenTX</a> (open source firmware) enabled RC Transmitter that is compatible with a wide variety of high quality FrSky PPM-Sum and S.Bus compatible receivers.</p>
+<p>One of the major advantages of the Taranis is that it can receive and display telemetry data <strong>directly from ArduPilot</strong> and on-board FrSky telemetry sensors, such as flight mode, GPS status, current drawn and cell voltages, and even ArduPilot messages, that can be added to your vehicle. For more information, see <a class="reference internal" href="common-frsky-telemetry.html#common-frsky-telemetry"><span class="std std-ref">FrSky telemetry</span></a>.</p>
+<p>The Taranis transmitters have integrated ACCST 2.4GHz transmitters that are compatible with X series FrSky receivers such as the very popular X8R or the newer and lighter XSR receivers. <em>This means that an additional JR type transmitter module is not required.</em> If needed, both the Taranis X9D Plus and the Taranis QX7 have JR module bays for external radio transmitters.</p>
+<p>Advantages of the FrSky systems:</p>
+<ul class="simple">
+<li><p>2.4GHz ACCST frequency hopping radio transmitter with range that is sufficient for most VLOS applications</p></li>
+<li><p>Quad Ball Bearing Gimbals</p></li>
+<li><p>Audio Speech Outputs (values, alarms, settings, etc.)</p></li>
+<li><p>Vibration Alerts</p></li>
+<li><p>Receiver Signal Strength Indicator (RSSI) Alerts</p></li>
+<li><p>Open source firmware OpenTx, and a significant user base</p></li>
+<li><p>Flash via USB</p></li>
+<li><p>High visibility LCD screen</p></li>
+<li><p>Reliable and low latency telemetry with matched FrSky receiver</p></li>
+<li><p>Removable MicroSD card to store sounds, voices, models and custom scripts</p></li>
+</ul>
+<p>The Taranis transmitters can run the <a class="reference internal" href="common-frsky-yaapu.html#common-frsky-yaapu"><span class="std std-ref">Yappu Telemetry</span></a></p>
+<a class="reference external image-reference" href="../_images/x9d-taranis.png:width:450px"><img alt="../_images/x9d-taranis.png" src="../_images/x9d-taranis.png" /></a>
+<p>or <a class="reference internal" href="common-frsky-flightdeck.html#common-frsky-flightdeck"><span class="std std-ref">FlightDeck</span></a> telemetry user interface.</p>
+<a class="reference external image-reference" href="http://www.craftandtheoryllc.com/feature"><img alt="../_images/FD-X9-1.jpg" src="../_images/FD-X9-1.jpg" style="width: 450px;" /></a>
+</section>
+<section id="frsky-d-x-r-receivers">
+<h2>FrSky D/X/R Receivers<a class="headerlink" href="#frsky-d-x-r-receivers" title="Permalink to this heading">¶</a></h2>
+<p>FrSky has many compatible receivers. Some ouput PPM, some SBus. Almost all offer telemetry in some form. Any receiver with S.Port offers bi-directional telemetry. For more information about FrSky receiver telemetry, refer to the <a class="reference internal" href="common-frsky-telemetry.html#common-frsky-telemetry"><span class="std std-ref">FrSky telemetry page</span></a>.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/FrSky_x8r.jpg"><img alt="../_images/FrSky_x8r.jpg" src="../_images/FrSky_x8r.jpg" style="width: 300.0px; height: 300.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">FrSky X8R receiver</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="frsky-transmitter-module">
+<h2>FrSky Transmitter Module<a class="headerlink" href="#frsky-transmitter-module" title="Permalink to this heading">¶</a></h2>
+<p>FrSky makes modules for transmitters with JR style auxiliary RF module bays. This allows you to use FrSky receivers and telemetry with Turnigy 9 series, JR, and other transmitters.</p>
+<a class="reference internal image-reference" href="../_images/FrSky_XJT_TX.jpg"><img alt="../_images/FrSky_XJT_TX.jpg" src="../_images/FrSky_XJT_TX.jpg" style="width: 450px;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-dragonlink-rc.html" class="btn btn-neutral float-left" title="[copywiki destination=”plane,copter,rover,blimp”]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-graupner-rc.html" class="btn btn-neutral float-right" title="[copywiki destination=”plane,copter,rover,blimp”]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

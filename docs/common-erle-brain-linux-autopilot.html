@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived Topic: Erle-Brain Linux Autopilot &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Archived Topic: Erle-Brain2 Wiring Quick Start" href="common-erle-brain2-wiring-quick-start.html" />
+    <link rel="prev" title="Archived Topic: PXFmini" href="common-pxfmini.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-pixhackV5-overview.html">CUAV V5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-emlid-edge.html">Emlid Edge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pxfmini.html">Erle PXFmini RPi Zero Shield</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Erle ErleBrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini.html">Holybro Kakute H7 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-overview.html">Intel Aero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-rtf.html">Intel Aero RTF vehicle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-se.html">Mateksys F405-SE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405.html">Mateksys F405-STD and variants*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-wing.html">Mateksys F405-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wing.html">Mateksys F765-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wse.html">Mateksys F765-WSE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Archived Topic: Erle-Brain Linux Autopilot</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-topic-erle-brain-linux-autopilot">
+<span id="common-erle-brain-linux-autopilot"></span><h1>Archived Topic: Erle-Brain Linux Autopilot<a class="headerlink" href="#archived-topic-erle-brain-linux-autopilot" title="Permalink to this heading">¶</a></h1>
+<p>This page presents the <a class="reference external" href="https://erlerobotics.com/blog/product/erle-brain/">Erle-Brain</a> Linux autopilot — an ArduPilot autopilot and <a class="reference external" href="https://ardupilot.org/dev/docs/companion-computers.html#companion-computers" title="(in Dev)"><span class="xref std std-ref">companion computer</span></a> in a single package.</p>
+<p>Currently there are two versions of this Linux based Autopilot and a
+shield:</p>
+<ul class="simple">
+<li><p><em>Erle-Brain 2</em>: The new generation of artificial robotic brains for drones and robots that use DroneCode Foundation Tools, ROS and many other tools.</p></li>
+<li><p><em>PXFmini</em>: An open autopilot shield for the Raspberry Pi, <a class="reference internal" href="common-pxfmini.html#common-pxfmini"><span class="std std-ref">placed here</span></a>.</p></li>
+<li><p><em>Erle-Brain 1 (*Discontinued</em>)*: The first Open-Source Linux Autopilot that runs ArduPilot and ROS natively.</p></li>
+</ul>
+<p>Erle-Brain based drones can be assembled as discussed in the <a class="reference external" href="https://erlerobotics.com/docs/Robots/Erle-Copter/index.html">official documentation</a>.
+Erle-Brain based drones can also be purchased from the Erle Robotics
+official store in both <a class="reference external" href="https://erlerobotics.com/blog/product-category/robots/">ready to use</a> and <a class="reference external" href="https://erlerobotics.com/blog/product-category/robots/kits/">DIY kit</a>
+form.</p>
+<section id="erle-brain-2">
+<h2>Erle-Brain 2<a class="headerlink" href="#erle-brain-2" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://erlerobotics.com/blog/product/erle-brain-v2/">Erle-Brain 2</a>
+is the second generation of Linux-based artificial robotic brain for
+making robots and drones with official support for the Robot Operating
+System (ROS) and access to the app store.</p>
+<p>It combines an embedded Linux computer (Raspberry Pi 2) and a daughter board containing several sensors, IO and power electronics. It is a Linux embedded device that runs ArduPilot as well many other frameworks and services for robotic application development.</p>
+<p>Some <em>Erle-Brain 2</em> features include:</p>
+<ul class="simple">
+<li><p>Linux File Systems (<a class="reference external" href="https://erlerobotics.gitbooks.io/erle-robotics-erle-brain-a-linux-brain-for-drones/content/en/software/update.html">Debian and Ubuntu Snappy Core</a>)</p></li>
+<li><p>WiFi-enabled</p></li>
+<li><p>ROS focus (Indigo available)</p></li>
+<li><p><a class="reference external" href="https://github.com/erlerobot?utf8=%E2%9C%93&amp;query=ros">ROS packages</a>
+for sensors and peripherals</p></li>
+<li><p><a class="reference external" href="http://python.dronekit.io/">DroneKit-Python</a> support</p></li>
+<li><p>Snappy Ubuntu app store supported</p></li>
+<li><p>MAVProxy can automatically bridge MAVLink packets to your WiFi
+network.</p></li>
+<li><p>Sensors: Gravity sensor, gyroscope, digital compass, Pressure sensor
+and tempertature sensor, ADC for battery sensing.</p></li>
+<li><p>Optional WiFi and Bluetooth.</p></li>
+<li><p>Optional Camera: MP Fixed focus lens, 2592 x 1944 pixel static
+images, supports 1080p30, 720p60 and 640x480p60/90 video record.</p></li>
+</ul>
+<p>The following images show the main ports/features available to
+Erle-Brain version 2.</p>
+<a class="reference external image-reference" href="../_images/erlebrain2_1.jpg"><img alt="../_images/erlebrain2_1.jpg" src="../_images/erlebrain2_1.jpg" /></a>
+<a class="reference external image-reference" href="../_images/erlebrain2_2.jpg"><img alt="../_images/erlebrain2_2.jpg" src="../_images/erlebrain2_2.jpg" /></a>
+<p>The next image shows the software characteristics that Erle-Brain 2 can
+handle:</p>
+<figure class="align-default" id="id4">
+<a class="reference external image-reference" href="../_images/dev_stack.jpg"><img alt="../_images/dev_stack.jpg" src="../_images/dev_stack.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Erle-Brain v2Development Stack</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="quick-start">
+<h3>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h3>
+<p>The easiest way to get started is to SSH into Erle-Brain 2 and play
+around with it:</p>
+<section id="if-connected-by-wifi">
+<h4>If connected by WiFi:<a class="headerlink" href="#if-connected-by-wifi" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#password is holaerle.
+$ ssh erle@erle-brain-2.local
+</pre></div>
+</div>
+</section>
+<section id="if-connected-by-ethernet">
+<h4>If connected by Ethernet<a class="headerlink" href="#if-connected-by-ethernet" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#password is holaerle.
+$ ssh erle@erle-brain-2.local
+#Use ifconfig and nmap -sn commands to check the net
+$ ssh erle@192.168.*.*
+#password is holaerle.
+</pre></div>
+</div>
+<p>Get more info in <a class="reference external" href="http://erlerobotics.com/docs/Artificial_Brains_and_Autopilots/Erle-Brain_2/Intro.html">our docs</a></p>
+<p>Erle-Brain can be purchased from the <a class="reference external" href="https://erlerobotics.com/blog/product/erle-brain-v2/">Erle Robotics store</a>.</p>
+</section>
+</section>
+<section id="hardware-setup">
+<h3>Hardware setup<a class="headerlink" href="#hardware-setup" title="Permalink to this heading">¶</a></h3>
+<p>Typical hardware setup for flying drones is:</p>
+<a class="reference external image-reference" href="../_images/Erle-Brain_Componentes.jpg"><img alt="http://erlerobotics.com/docs/img/Artificial_Brains/Erle_Brain2/Hardware/Erle-Brain_Componentes.jpg" src="http://erlerobotics.com/docs/img/Artificial_Brains/Erle_Brain2/Hardware/Erle-Brain_Componentes.jpg" /></a>
+<p>If you wish more info about hardware connections, go to our
+<a class="reference external" href="http://erlerobotics.com/docs/Artificial_Brains_and_Autopilots/Erle-Brain_2/Hardware/Typical_Hardware_Setup.html">docs</a></p>
+</section>
+<section id="building-ardupilot-on-erle-brain-2">
+<h3>Building ArduPilot on Erle-Brain 2<a class="headerlink" href="#building-ardupilot-on-erle-brain-2" title="Permalink to this heading">¶</a></h3>
+<p>Run the following instructions in the bash command prompt to build ArduPilot on Erle-Brain 2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://github.com/erlerobot/ardupilot
+$ cd ardupilot
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ArduCopter
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make erlebrain2 -j4
+</pre></div>
+</div>
+</section>
+<section id="camera">
+<h3>Camera<a class="headerlink" href="#camera" title="Permalink to this heading">¶</a></h3>
+<p>Camera images are fed into ROS directly using the <code class="docutils literal notranslate"><span class="pre">raspicam_node</span></code> that
+it’s automatically launched. To be able to see the images, in your
+Erle-Brain 2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosservice call /camera/start_capture
+</pre></div>
+</div>
+<p>On you Desktop computer (or wherever you wish to visualize the images),
+and after configuring appropriately the <code class="docutils literal notranslate"><span class="pre">ROS_MASTER_URI</span></code> environmental
+variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun image_view image_view image:=/camera/image _image_transport:=compressed
+</pre></div>
+</div>
+<p>Erle-Brain can be purchased from the <a class="reference external" href="https://erlerobotics.com/blog/product/erle-brain-v2/">Erle Robotics store</a>.</p>
+</section>
+</section>
+<section id="erle-brain-1-discontinued">
+<h2>Erle-Brain 1 (<em>Discontinued</em>)<a class="headerlink" href="#erle-brain-1-discontinued" title="Permalink to this heading">¶</a></h2>
+<p><em>Erle-Brain</em> combines an embedded Linux computer (the BeagleBone Black)
+and the PixHawk Fire cape — a daughter board containing several sensors,
+IO and power electronics. It is an open hardware Linux embedded
+device that runs ArduPilot as well many other frameworks and services for
+robotic application development.</p>
+<a class="reference external image-reference" href="../_images/brain-v1.1-focus.jpg"><img alt="../_images/brain-v1.1-focus.jpg" src="../_images/brain-v1.1-focus.jpg" /></a>
+<a class="reference external image-reference" href="../_images/Captura-de-pantalla-2015-04-03-a-las-11.00.37.jpg"><img alt="../_images/Captura-de-pantalla-2015-04-03-a-las-11.00.37.jpg" src="../_images/Captura-de-pantalla-2015-04-03-a-las-11.00.37.jpg" /></a>
+<p>Some <em>Erle-Brain</em> features include:</p>
+<ul class="simple">
+<li><p>Linux File Systems (<a class="reference external" href="https://erlerobotics.gitbooks.io/erle-robotics-erle-brain-a-linux-brain-for-drones/content/en/software/update.html">Debian and Ubuntu Snappy Core</a>)</p></li>
+<li><p>WiFi-enabled</p></li>
+<li><p>ROS focus (Hydromedusa and Indigo available)</p></li>
+<li><p><a class="reference external" href="https://github.com/erlerobot?utf8=%E2%9C%93&amp;query=ros">ROS packages</a>
+for sensors and peripherals</p></li>
+<li><p><a class="reference external" href="http://python.dronekit.io/">DroneKit-Python</a> support</p></li>
+<li><p>Snappy Ubuntu app store supported</p></li>
+<li><p>MAVProxy can automatically bridge MAVLink packets to your WiFi
+network.</p></li>
+<li><p>3 IMUs (LSM9D, MPU9250, MPU6000)</p></li>
+</ul>
+<p>Erle-Brain can be purchased from the <a class="reference external" href="https://erlerobotics.com/blog/product/erle-brain/">Erle Robotics store</a>.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ZbcIjelaFgM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="id1">
+<h3>Quick start<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>The easiest way to get started is to SSH into Erle-Brain and play around
+with it:</p>
+<section id="id2">
+<h4>If connected by WiFi:<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh 11.0.0.1
+</pre></div>
+</div>
+</section>
+<section id="if-connected-by-usb">
+<h4>If connected by USB:<a class="headerlink" href="#if-connected-by-usb" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh 192.168.7.2
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id3">
+<h3>Hardware setup<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<section id="general-setup">
+<h4>General setup<a class="headerlink" href="#general-setup" title="Permalink to this heading">¶</a></h4>
+<a class="reference external image-reference" href="../_images/HardwareSetUp.jpg"><img alt="../_images/HardwareSetUp.jpg" src="../_images/HardwareSetUp.jpg" /></a>
+</section>
+<section id="rc-out-and-in">
+<h4>RC out and in<a class="headerlink" href="#rc-out-and-in" title="Permalink to this heading">¶</a></h4>
+<p><a class="reference external" href="../_images/PWM_setup.jpg"><img alt="PWM_setup" src="../_images/PWM_setup.jpg" /></a></p>
+<p>Please note that the GND is in the lower pin of the header:</p>
+<a class="reference external image-reference" href="../_images/PWMsetup.jpg"><img alt="../_images/PWMsetup.jpg" src="../_images/PWMsetup.jpg" /></a>
+</section>
+<section id="connecting-the-d4r-ii-receiver">
+<h4>Connecting the D4R-II receiver<a class="headerlink" href="#connecting-the-d4r-ii-receiver" title="Permalink to this heading">¶</a></h4>
+<p>Many might be interested in using this popular receiver so here’s an
+image that shows how to do it:</p>
+<a class="reference external image-reference" href="../_images/RCsetup.jpg"><img alt="../_images/RCsetup.jpg" src="../_images/RCsetup.jpg" /></a>
+</section>
+</section>
+<section id="building-ardupilot-on-erle-brain">
+<h3>Building ArduPilot on Erle-Brain<a class="headerlink" href="#building-ardupilot-on-erle-brain" title="Permalink to this heading">¶</a></h3>
+<p>Run the following instructions in the bash command prompt to build ArduPilot on Erle-Brain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install gawk gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://github.com/erlerobot/ardupilot
+$ cd ardupilot
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ArduCopter
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make configure
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make pxf
+</pre></div>
+</div>
+</section>
+</section>
+<section id="snappy-ubuntu-core-store">
+<h2>Snappy Ubuntu Core store<a class="headerlink" href="#snappy-ubuntu-core-store" title="Permalink to this heading">¶</a></h2>
+<p>Erle-Brain comes with full support for <a class="reference external" href="http://www.ubuntu.com/internet-of-things">Snappy Ubuntu Core</a>. Just fetch one of the <a class="reference external" href="http://erlerobotics.com/docs/Artificial_Brains_and_Autopilots/Operating_System_images/Ubuntu.html">available images</a>
+(for the microSD card) and start developing <em>snaps</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>Snappy Ubuntu Core is a new rendition of Ubuntu with transactional
+updates - a minimal server image with the same libraries as today’s
+Ubuntu, but applications are provided through a simpler mechanism.
+The snappy approach is faster, more reliable, and lets us provide
+stronger security guarantees for apps and users — that’s why we call
+them “snappy” applications.</p>
+</div></blockquote>
+<p><a class="reference external" href="../_images/Captura-de-pantalla-2015-04-03-a-las-11.39.07.jpg"><img alt="Captura de pantalla 2015-04-03 a las 11.39.07" src="../_images/Captura-de-pantalla-2015-04-03-a-las-11.39.07.jpg" /></a></p>
+</div>
+<section id="snappy-hello-world-example">
+<h3>Snappy “hello world” example<a class="headerlink" href="#snappy-hello-world-example" title="Permalink to this heading">¶</a></h3>
+<p>The bash commands below show how to install and run a basic “Hello
+World” app using <em>Snappy</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snappy-go install hello-world
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo.hello-world.canonical
+Hello World!
+</pre></div>
+</div>
+<p>Additional information about Snappy Ubuntu Core can be found
+<a class="reference external" href="https://erlerobotics.gitbooks.io/erle-robotics-erle-brain-a-linux-brain-for-drones/content/en/store/appinstall.html">here</a>.</p>
+</section>
+<section id="dronekit">
+<h3>DroneKit<a class="headerlink" href="#dronekit" title="Permalink to this heading">¶</a></h3>
+<p>3DR’s Python DroneKit runs perfectly in Erle-Brain. Full documentation
+for the Kit and API can be found at the
+<a class="reference external" href="http://python.dronekit.io/">python.dronekit.io</a>.</p>
+<p>The commands below summarise how to install the kit and its dependencies
+on Erle-Brain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install pip python-numpy python-opencv python-serial python-pyparsing python-wxgtk2.8
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo pip install droneapi
+</pre></div>
+</div>
+</section>
+<section id="dronekit-hello-world-example">
+<h3>DroneKit “hello world” example<a class="headerlink" href="#dronekit-hello-world-example" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># fetch the code
+$ git clone https://github.com/ArduPilot/droneapi-python.git
+
+$ cd droneapi-python/example
+
+# Start MAVProxy (install if not present)
+$ mavproxy.py --master=udp:192.168.7.2:6000
+
+MANUAL&gt; module load droneapi.module.api
+DroneAPI loaded
+MANUAL&gt;
+</pre></div>
+</div>
+<p>Now run the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MANUAL</span><span class="o">&gt;</span> <span class="n">api</span> <span class="n">start</span> <span class="n">small_demo</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Mode</span><span class="p">:</span> <span class="n">VehicleMode</span><span class="p">:</span><span class="n">MANUAL</span>
+<span class="n">Location</span><span class="p">:</span> <span class="n">Location</span><span class="p">:</span><span class="n">lat</span><span class="o">=</span><span class="mf">21.2938874</span><span class="p">,</span><span class="n">lon</span><span class="o">=-</span><span class="mf">157.8501416</span><span class="p">,</span><span class="n">alt</span><span class="o">=</span><span class="mf">0.189999997616</span><span class="p">,</span><span class="n">is_relative</span><span class="o">=</span><span class="kc">None</span>
+<span class="n">Attitude</span><span class="p">:</span> <span class="n">Attitude</span><span class="p">:</span><span class="o">-</span><span class="mf">0.286077767611</span><span class="p">,</span><span class="o">-</span><span class="mf">3.01412272453</span><span class="p">,</span><span class="mf">0.261489063501</span>
+<span class="n">GPS</span><span class="p">:</span> <span class="n">GPSInfo</span><span class="p">:</span><span class="n">fix</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num_sat</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Param</span><span class="p">:</span> <span class="mf">75.0</span>
+<span class="n">waiting</span> <span class="k">for</span> <span class="n">download</span>
+<span class="n">Requesting</span> <span class="mi">10</span> <span class="n">waypoints</span> <span class="n">t</span><span class="o">=</span><span class="n">Mon</span> <span class="n">Mar</span> <span class="mi">31</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">39</span> <span class="mi">2014</span> <span class="n">now</span><span class="o">=</span><span class="n">Mon</span> <span class="n">Mar</span> <span class="mi">31</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">39</span> <span class="mi">2014</span>
+<span class="n">Home</span> <span class="n">WP</span><span class="p">:</span> <span class="n">MISSION_ITEM</span> <span class="p">{</span><span class="n">target_system</span> <span class="p">:</span> <span class="mi">255</span><span class="p">,</span> <span class="n">target_component</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">seq</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">frame</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">command</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">current</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">autocontinue</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">param1</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">param2</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">param3</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">param4</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="mf">21.2921352386</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="o">-</span><span class="mf">157.848922729</span><span class="p">,</span> <span class="n">z</span> <span class="p">:</span> <span class="mf">89.1800003052</span><span class="p">}</span>
+<span class="n">APIThread</span><span class="o">-</span><span class="mi">0</span> <span class="n">exiting</span><span class="o">...</span>
+<span class="n">APM</span><span class="p">:</span> <span class="n">Non</span><span class="o">-</span><span class="n">Nav</span> <span class="n">command</span> <span class="n">ID</span> <span class="n">updated</span> <span class="n">to</span> <span class="c1">#255 idx=1</span>
+<span class="n">waypoint</span> <span class="mi">1</span>
+<span class="n">AUTO</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="further-documentation">
+<h2>Further documentation<a class="headerlink" href="#further-documentation" title="Permalink to this heading">¶</a></h2>
+<p>More information about Erle-Brain is available in <a class="reference external" href="http://erlerobotics.com/docs/">its official documentation</a> or from <a class="reference external" href="http://forum.erlerobotics.com">Erle Robotics forum</a>.</p>
+<p>[site wiki=”planner”]</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-erle-brain2-wiring-quick-start.html">Erle-Brain2 Wiring Quick Start</a></li>
+</ul>
+</div>
+<p>[/site]</p>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-pxfmini.html" class="btn btn-neutral float-left" title="Archived Topic: PXFmini" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-erle-brain2-wiring-quick-start.html" class="btn btn-neutral float-right" title="Archived Topic: Erle-Brain2 Wiring Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

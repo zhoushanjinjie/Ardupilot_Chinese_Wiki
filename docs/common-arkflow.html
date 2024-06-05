@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARK Flow Open Source Optical Flow and Distance Sensor &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ARK Flow Open Source Optical Flow and Distance Sensor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ark-flow-open-source-optical-flow-and-distance-sensor">
+<span id="common-arkflow"></span><h1>ARK Flow Open Source Optical Flow and Distance Sensor<a class="headerlink" href="#ark-flow-open-source-optical-flow-and-distance-sensor" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,plane,rover”]</p>
+<p>The <a class="reference external" href="https://arkelectron.com/product/ark-flow/">ARK Flow Open Source Optical Flow and Distance Sensor</a> is an open source optical flow sensor including a Broadcom AFBR lidar which uses the CAN protocol to communicate with the autopilot.  This can be used to improve horizontal position control especially in GPS denied environments.</p>
+<a class="reference external image-reference" href="../_images/arkflow/ark_flow.jpg"><img alt="../_images/ark_flow.jpg" src="../_images/ark_flow.jpg" style="width: 450px;" /></a>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/SAbRe1fi7bU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>The sensor is available from <a class="reference external" href="https://arkelectron.com/product/ark-flow/">ARK Electronics</a>.</p>
+</section>
+<section id="connection-to-autopilot">
+<h2>Connection to Autopilot<a class="headerlink" href="#connection-to-autopilot" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.</p></li>
+<li><p>Multiple sensors can be connected by plugging additional sensors into the ARK Flow’s second CAN connector.</p></li>
+<li><p>The recommended mounting orientation is with the connectors on the board pointing towards back of vehicle, as shown in the following picture.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/arkflow/ark_flow_orientation.png"><img alt="../_images/ark_flow_orientation.png" src="../_images/ark_flow_orientation.png" style="width: 450px;" /></a>
+<ul class="simple">
+<li><p>Connect the sensor to the autopilots’ CAN port</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-type" title="(in Rover)"><span class="xref std std-ref">FLOW_TYPE</span></a> = 6 (DroneCAN)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 to enable DroneCAN</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 1 (DroneCAN)</p></li>
+</ul>
+<p>To use the onboard lidar:</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 24 (DroneCAN)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = 3000 to set range finder’s maximum range to 30m</p></li>
+</ul>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="flowhold-mode.html#flowhold-mode"><span class="std std-ref">FlowHold</span></a> does not require the use of a rangefinder</p></li>
+<li><p>Performance can be improved by setting the <a class="reference internal" href="common-sensor-offset-compensation.html#common-sensor-offset-compensation"><span class="std std-ref">sensors position parameters</span></a>.  For example if the sensor is mounted 2cm forward and 5cm below the frame’s center of rotation set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-x" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_X</span></a> to 0.02 and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#flow-pos-z" title="(in Rover)"><span class="xref std std-ref">FLOW_POS_Z</span></a> to 0.05.</p></li>
+</ul>
+</section>
+<section id="testing-and-setup">
+<h2>Testing and Setup<a class="headerlink" href="#testing-and-setup" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference external" href="https://ardupilot.org/rover/docs/common-optical-flow-sensor-setup.html#common-optical-flow-sensor-setup" title="(in Rover)"><span>Optical Flow Sensor Testing and Setup</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

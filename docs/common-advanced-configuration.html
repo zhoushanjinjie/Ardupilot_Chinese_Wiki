@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Configuration &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Peripheral Hardware" href="common-optional-hardware.html" />
+    <link rel="prev" title="UAV LogViewer" href="common-uavlogviewer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">高级配置</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-configuration">
+<span id="common-advanced-configuration"></span><h1>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this heading">¶</a></h1>
+<p>This section will take you through the more advanced configuration and
+tuning options for the vehicle.</p>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="simple">
+<dt>[site wiki=”copter”]</dt><dd><p>Autopilot Output Mapping &lt;common-rcoutput-mapping&gt;
+AutoTune &lt;autotune&gt;
+Auxiliary Function Switches &lt;common-auxiliary-functions&gt;
+Baro Temperature Compensation &lt;common-baro-temp-comp&gt;
+Boat mode &lt;boat-mode&gt;
+Bootloader Update &lt;common-bootloader-update&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”rover”]</p>
+<blockquote>
+<div><p>Autopilot Output Mapping &lt;common-rcoutput-mapping&gt;
+Auxiliary Functions &lt;common-auxiliary-functions&gt;
+Boats with Vectored Thrust &lt;rover-vectored-thrust&gt;
+Bootloader Update &lt;common-bootloader-update&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”plane”]</p>
+<blockquote>
+<div><p>Advanced Failsafe &lt;advanced-failsafe-configuration&gt;
+Autopilot Output Mapping &lt;common-rcoutput-mapping&gt;
+Auxiliary Functions &lt;common-auxiliary-functions&gt;
+Battery Voltage Compensation &lt;battery-voltage-compensation&gt;
+Bootloader Update &lt;common-bootloader-update&gt;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>[/site]</dt><dd><p>BLHeli ESCs &lt;common-blheli32-passthru&gt;
+CAN Bus Setup &lt;common-canbus-setup-advanced&gt;
+Compass Setup (Advanced) &lt;common-compass-setup-advanced&gt;
+Compass-less Operation&lt;common-compassless&gt;</p>
+</dd>
+<dt>[site wiki=”copter”]</dt><dd><p>Current Limiting and Voltage Scaling &lt;current-limiting-and-voltage-scaling&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”plane”]</p>
+<blockquote>
+<div><p>Crash Detection &lt;crash-detect&gt;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>[/site]</dt><dd><p>DroneCAN Setup &lt;common-uavcan-setup-advanced&gt;
+EKF (Extended Kalman Filter) &lt;common-apm-navigation-extended-kalman-filter-overview&gt;
+EKF Affinity &amp; Lane Switching &lt;common-ek3-affinity-lane-switching&gt;
+EKF Sources and Selection &lt;common-ekf-sources&gt;</p>
+</dd>
+<dt>[site wiki=”copter,rover”]</dt><dd><p>Fence Failsafes  &lt;common-geofencing-landing-page&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>Flight Time Recorder &lt;common-flight-time-recorder&gt;</p>
+</dd>
+<dt>[site wiki=”plane”]</dt><dd><p>Flight Options &lt;flight-options&gt;
+Fly-By-Wire Low Altitude Limit &lt;fly-by-wire-low-altitude-limit&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>FPort Setup &lt;common-FPort-receivers&gt;</p>
+</dd>
+<dt>[site wiki=”plane”]</dt><dd><p>GeoFencing Failsafe  &lt;common-geofencing-landing-page&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>GPIOs &lt;common-gpios&gt;
+GPS for Yaw (aka Moving Baseline) &lt;common-gps-for-yaw&gt;
+GPS for Altitude &lt;common-gps-for-alt&gt;
+GPS/Non-GPS Transitions &lt;common-non-gps-to-gps&gt;
+Ground Control Station Only Operation &lt;common-gcs-only-operation&gt;</p>
+</dd>
+<dt>[site wiki=”copter”]</dt><dd><p>Ground Effect Compensation &lt;ground-effect-compensation&gt;
+In-Flight FTT and filter control &lt;common-imu-fft&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>IMU Temperature Calibration &lt;common-imutempcal&gt;
+Independent Watchdog &lt;common-watchdog&gt;</p>
+</dd>
+<dt>[site wiki=”plane”]</dt><dd><p>In-Flight FTT and filter control &lt;common-imu-fft&gt;
+Limiting Maximum Power Draw &lt;batt-watt-max&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>Limit Cycle Prevention &lt;common-servo-limit-cycle-detection&gt;
+LUA Scripting &lt;common-lua-scripts&gt;
+Magnetic Interference &lt;common-magnetic-interference&gt;
+MAVLink2 Packet Signing (Security) &lt;common-MAVLink2-signing&gt;</p>
+</dd>
+<dt>[site wiki=”rover”]</dt><dd><p>Motor Thrust Scaling &lt;rover-motor-thrust-scaling&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”copter”]</p>
+<blockquote>
+<div><p>Motor Thrust Scaling &lt;motor-thrust-scaling&gt;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>[/site]</dt><dd><p>Moving Vehicle Initialization &lt;common-moving-vehicle-initialization&gt;
+Multiple Radio Control Receivers &lt;common-multiple-rx&gt;</p>
+</dd>
+<dt>[site wiki=”copter,rover”]</dt><dd><p>Non-GPS Navigation &lt;common-non-gps-navigation-landing-page&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>Notification Devices (LEDs,Buzzer,etc.) &lt;common-ntf-devices&gt;</p>
+</dd>
+<dt>[site wiki=”copter,plane”]</dt><dd><p>Notch Filter Configuration &lt;common-imu-notch-filtering&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>Object Avoidance &lt;common-object-avoidance-landing-page&gt;</p>
+</dd>
+<dt>[site wiki=”copter,plane,rover”]</dt><dd><p>Optical Flow Sensor &lt;common-optical-flow-sensors-landingpage&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>On Screen Displays (OSD) &lt;common-osd-overview&gt;
+OSD Parameter Editor &lt;common-paramosd&gt;
+Parameter List (Full) &lt;parameters&gt;
+Parameter Reset &lt;common-parameter-reset&gt;
+RC Input Channel Mapping (RCMAP) &lt;common-rcmap&gt;
+RC Options &lt;common-rc-options&gt;
+Redundant Telemetry &lt;common-redundant-telemetry&gt;</p>
+</dd>
+<dt>[site wiki=”plane”]</dt><dd><p>Reverse Thrust Setup&lt;reverse-thrust-setup&gt;</p>
+</dd>
+<dt>[/site]</dt><dd><p>RunCam Camera Configuration and Control &lt;common-camera-runcam&gt;
+Safety Switch &lt;common-safety-switch-pixhawk&gt;
+Sensor Position Offset Compensation &lt;common-sensor-offset-compensation&gt;
+Sensor Testing &lt;common-sensor-testing&gt;
+Serial Port to Port Passthrough &lt;common-serial-passthrough&gt;
+Serial Port Configuration &lt;common-serial-options&gt;</p>
+</dd>
+<dt>[site wiki=”plane”]</dt><dd><p>Ship(Moving Vehicle) Takeoff/Landing &lt;common-ship-landing&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”copter”]</p>
+<blockquote>
+<div><p>Surface Tracking  &lt;terrain-following-manual-modes&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”rover”]</p>
+<blockquote>
+<div><p>Steering Input Type and Reversing Behaviour &lt;rover-steering-input-type-and-reversing-behaviour&gt;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>[/site]</dt><dd><p>Telemetry Port Setup &lt;common-telemetry-port-setup&gt;</p>
+</dd>
+<dt>[site wiki=”copter,planner”]</dt><dd><p>Terrain Following (Autonomous modes) &lt;terrain-following&gt;
+Tuning &lt;common-tuning&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”plane”]</p>
+<blockquote>
+<div><p>Terrain Following &lt;common-terrain-following&gt;
+Transmitter Based Tuning &lt;common-transmitter-tuning&gt;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>[/site]</dt><dd><p>Video Stabilization (Gyroflow) &lt;common-gyroflow&gt;
+Video Transmitter Control &lt;common-vtx&gt;</p>
+</dd>
+<dt>[site wiki=”copter,plane,rover,planner”]</dt><dd><p>UBlox GPS Configuration &lt;common-ublox-gps&gt;</p>
+</dd>
+</dl>
+<p>[/site]
+[site wiki=”plane,planner,rover”]</p>
+<blockquote>
+<div><p>Vibration Damping &lt;common-vibration-damping&gt;</p>
+</div></blockquote>
+<p>[/site]
+[site wiki=”copter”]</p>
+<blockquote>
+<div><p>Windspeed Estimation and Baro Compensation &lt;airspeed-estimation&gt;</p>
+</div></blockquote>
+<p>[/site]</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-uavlogviewer.html" class="btn btn-neutral float-left" title="UAV LogViewer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-optional-hardware.html" class="btn btn-neutral float-right" title="Peripheral Hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

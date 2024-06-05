@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crop Sprayer &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Crop Sprayer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crop-sprayer">
+<span id="sprayer"></span><h1>Crop Sprayer<a class="headerlink" href="#crop-sprayer" title="Permalink to this heading">¶</a></h1>
+<p>Copter includes support for a crop sprayer.  This feature allows an autopilot connected to a PWM operated pump and (optionally) spinner to control the rate of flow of liquid fertilizer based on the vehicle speed.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/O8ZnxkXMv6A" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>Slightly out-of-date video showing a copter using the Sprayer feature (jump to 2:25 to see the sprayer in action).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many boards with only 1MB of flash do not have this feature. See <a class="reference internal" href="common-limited-firmware.html#common-limited-firmware"><span class="std std-ref">Firmware Limitations</span></a> for a list of boards without this capability.</p>
+</div>
+<p>See also <a class="reference internal" href="zigzag-mode.html#zigzag-mode"><span class="std std-ref">Zig-Zag Mode</span></a></p>
+<section id="required-hardware">
+<h2>Required Hardware<a class="headerlink" href="#required-hardware" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><a class="reference external image-reference" href="https://www.nttedt.co.jp/product?pgid=knya72d0-00609f8a-0b97-4818-be16-4d03a6ebf88a"><img alt="../_images/sprayer_EnRoute_AC940D.jpg" src="../_images/sprayer_EnRoute_AC940D.jpg" /></a>
+</div></blockquote>
+<p>A multicopter such as the <a class="reference external" href="https://www.nttedt.co.jp/product?pgid=knya72d0-00609f8a-0b97-4818-be16-4d03a6ebf88a">EnRoute AC 940-D</a> with a PWM controlled pump and optionally a PWM controlled spinning mechanism (EnRoute vehicle does not require this secondary spinner control).</p>
+<p>The pump controls the rate of flow of the fertilizer.</p>
+<p>The optional spinner should be attached to the end of the spraying nozzles and distributes the fertilizer to a wider area.</p>
+</section>
+<section id="enabling-the-sprayer">
+<h2>Enabling the Sprayer<a class="headerlink" href="#enabling-the-sprayer" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect your autopilot to the ground station (i.e. Mission Planner)</p></li>
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#spray-enable" title="(in Rover)"><span class="xref std std-ref">SPRAY_ENABLE</span></a> parameter to 1 and refresh parameters (the sprayer is not a commonly used feature so its other parameters are initially hidden)</p></li>
+<li><p>Connect the pump to one of the autopilot’s PWM outputs (like Pixhawk AUX1) and set the appropriate SERVO*_FUNCTION  or RC*_FUNCTION to 22 (where “*” is the RC output number, i.e. if the pump is connected to a Pixhawk’s AUX1, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo9-function" title="(in Rover)"><span class="xref std std-ref">SERVO9_FUNCTION</span></a> to 22).</p></li>
+<li><p>Connect the optional spinner to another output port and set SERVO*_FUNCTION or RC*_FUNCTION to 23 (i.e. if using a Pixhawk’s AUX2, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo10-function" title="(in Rover)"><span class="xref std std-ref">SERVO10_FUNCTION</span></a> to 23)</p></li>
+<li><p>To allow the pilot to turn on/off the sprayer set an auxiliary switch on an rc channel(<code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code>) to “15”</p></li>
+</ul>
+</section>
+<section id="configuring-the-pump">
+<h2>Configuring the pump<a class="headerlink" href="#configuring-the-pump" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>PWM range used to control the pump and spinner can be configured by setting the SERVO*_MIN/RC*_MIN, SERVO*_MAX/RC*_MAX parameters corresponding to the pwm output channels the pump and spinner are connected to.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#spray-pump-min" title="(in Rover)"><span class="xref std std-ref">SPRAY_PUMP_MIN</span></a> controls the minimum pump rate (expressed as a percentage).  By default this is 0% meaning the pump will completely stop if the vehicle stops.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#spray-pump-rate" title="(in Rover)"><span class="xref std std-ref">SPRAY_PUMP_RATE</span></a> controls the pump rate (expressed as a percentage) when the vehicle is travelling at 1m/s.  By default this is 10%.  The pump rate increases linearly with the vehicle speed meaning by default the pump will reach 100% at 10m/s.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#spray-spinner" title="(in Rover)"><span class="xref std std-ref">SPRAY_SPINNER</span></a> sets the pwm value sent to the spinner when the pump is on.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#spray-speed-min" title="(in Rover)"><span class="xref std std-ref">SPRAY_SPEED_MIN</span></a> sets the minimum vehicle speed (in cm/s) at which the pump will operate.  Default is 100 meaning the pump will begin when the vehicle is travelling at or above 1m/s.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

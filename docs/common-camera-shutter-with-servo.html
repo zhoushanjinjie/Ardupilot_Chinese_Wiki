@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Shutter Configuration &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Shutter Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-shutter-configuration">
+<span id="common-camera-shutter-with-servo"></span><h1>Camera Shutter Configuration<a class="headerlink" href="#camera-shutter-configuration" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot allows you to configure a particular port (servo or relay) as
+the camera trigger, which will then be activated when <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">camera commands are specified in missions</span></a>.</p>
+<p>This article explains what settings you need to configure for both servos and relays.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The servo or relay port signal must be converted into a format
+(infrared, cable or whatever) understood by your particular camera. The
+configuration settings will depend on the hardware that is used to
+perform this conversion. Some useful hardware configurations and
+settings are linked from the section
+<a class="reference internal" href="#common-camera-shutter-with-servo-setting-values-for-different-cameras"><span class="std std-ref">Setting values for different cameras</span></a>.</p>
+</div>
+<section id="shutter-configuration-with-pixhawk-or-iomcu-equipped-autopilots">
+<h2>Shutter configuration with Pixhawk or IOMCU Equipped Autopilots<a class="headerlink" href="#shutter-configuration-with-pixhawk-or-iomcu-equipped-autopilots" title="Permalink to this heading">¶</a></h2>
+<p>Pixhawk has 6 AUX Ports (AUX1-AUX6, referred to as SERVO9-SERVO14 in <em>Mission
+Planner</em>) that can be configured as <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servos</span></a>,
+<a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relays</span></a>, or
+<a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview-pixhawk-digital-outputs-and-inputs-virtual-pins-50-55"><span class="std std-ref">digital inputs or outputs</span></a>.
+The image and configuration below is for the Pixhawk with SERVO10 (labeled RC10/AUX2 on this autopilot) connected to camera control hardware and configured as either a servo or relay.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/Pixhawkdetailview.jpg"><img alt="../_images/Pixhawkdetailview.jpg" src="../_images/Pixhawkdetailview.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Pixhawk Detail View highlighting AUXPorts</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>on autopilots not using an IOMCU (most that do, label outputs as MAIN/AUX), any output can be used for a relay or servo. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> for how to designate an output as a GPIO for relay use.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can monitor and log <em>exactly</em> when the camera was triggered. For more information see the <a class="reference internal" href="#common-camera-shutter-with-servo-enhanced-camera-trigger-logging"><span class="std std-ref">Enhanced camera trigger logging</span></a> section below.</p>
+</div>
+<p>The actual output used for the shutter is set and configured in the SETUP/Optional Hardware/Camera Gimbal screen:</p>
+<blockquote>
+<div><figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/missionplannercameragimbalscreen.jpg"><img alt="../_images/missionplannercameragimbalscreen.jpg" src="../_images/missionplannercameragimbalscreen.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: Camera Gimbal Configuration Screen</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<ul class="simple">
+<li><p>The <strong>Shutter</strong> drop-down list is used to set the connected output for camera
+trigger. Here we have selected SERVO10, which corresponds to AUX2
+on the Pixhawk.</p></li>
+<li><p>The <strong>Duration</strong> setting specifies how long the servo/relay
+will be held in the <strong>Pushed</strong> state when the shutter is activated, in
+tenths of a second. Above the value is 10, so the pushed state is
+held for one second. <strong>Not Pushed</strong> when the shutter is not active.</p></li>
+<li><p><strong>For Servos only (settings ignored for relay outputs):</strong></p>
+<ul>
+<li><p>The Shutter <em>Pushed</em> and <em>Not Pushed</em> settings are the PWM signal
+values that will be sent when the servo is in those states.</p></li>
+<li><p>The <em>Servo Limits</em> setting specifies the range of PWM signal
+values within which the servo will not bind.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mission Planners screen is not up-to-date in that the request to “Please set the Ch7 Option to Camera Trigger” is out of date, and the “transistor” selection in the <em>Shutter</em> drop-down list does nothing.</p>
+</div>
+<ul class="simple">
+<li><p>To set which RC Channel will control the manual shutter release, configure its <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> in the CONFIG/Full Parameter List or CONFIG/User Params to “Camera Trigger”.</p></li>
+</ul>
+</section>
+<section id="enhanced-camera-trigger-logging">
+<span id="common-camera-shutter-with-servo-enhanced-camera-trigger-logging"></span><h2>Enhanced camera trigger logging<a class="headerlink" href="#enhanced-camera-trigger-logging" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot logs TRIG messages when it <em>triggers</em> the camera.  You can additionally set up ArduPilot to log CAM messages when the camera has actually fired, by connecting a <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview-pixhawk-digital-outputs-and-inputs-virtual-pins-50-55"><span class="std std-ref">digital input pin</span></a> on the autopilot to the camera’s hot shoe (consider using <a class="reference external" href="https://www.seagulluav.com/product/seagull-sync2/">Seagulls SYNC2 Shoe Horn Adapter</a>).  This more accurately logs the exact time that pictures are recorded.</p>
+<p>You will need to configure one of the AUX pins as a digital GPIO
+output/input, and connect it to the camera flash hotshoe (a universal
+camera hot shoe is required). The pin should be held for at least 2
+milliseconds for reliable trigger detection.</p>
+<p>The main steps are (example for Camera1 instance):</p>
+<ol class="arabic simple">
+<li><p>Open <em>Mission Planner</em> and then click on <strong>CONFIG/TUNING/Full
+Parameters List</strong></p></li>
+<li><p>Set at least two of the output pins as digital GPIO output/inputs as described in
+<a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a>.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#cam1-feedbak-pin" title="(in Rover)"><span class="xref std std-ref">CAM1_FEEDBAK_PIN</span></a> to the pin number connected to the hotshoe.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#cam1-feedbak-pol" title="(in Rover)"><span class="xref std std-ref">CAM1_FEEDBAK_POL</span></a> to indicate whether the feedback pin (hotshoe voltage) goes high or low when the picture is taken.</p></li>
+</ol>
+</section>
+<section id="setting-values-for-different-cameras">
+<span id="common-camera-shutter-with-servo-setting-values-for-different-cameras"></span><h2>Setting values for different cameras<a class="headerlink" href="#setting-values-for-different-cameras" title="Permalink to this heading">¶</a></h2>
+<p>The actual values needed for servo/relay settings depends on what
+hardware is used to send the shutter signal to the camera. The following
+topics describe the hardware setup and configuration settings for a
+number of specific cameras/camera types:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-camera-trigger-stratosnapperv2.html#common-camera-trigger-stratosnapperv2"><span class="std std-ref">Camera Triggering using Stratosnapper</span></a> -
+shows how to connect to a camera with an IR interface. The
+Stratosnapper can also be used to connect to cameras using other
+cables and protocols</p></li>
+<li><p><a class="reference internal" href="common-apm-to-chdk-camera-link-tutorial.html#common-apm-to-chdk-camera-link-tutorial"><span class="std std-ref">Camera Shutter with Relay and CHDK on APM</span></a> - shows how to set
+up a relay port to send a signal to a Canon camera running CHDK (on
+APM2.x)</p></li>
+</ul>
+<p>If these aren’t suitable for your hardware configuration, we recommend
+you check your hardware manual for information about servo/relay inputs
+that are accepted.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="common-chdk-camera-control-tutorial.html#common-chdk-camera-control-tutorial"><span class="std std-ref">CHDK Camera Control Tutorial</span></a> is not a good
+example of integrating with the camera shutter, because it does not use
+the standard shutter configuration explained in this article. This is
+however a good example of how you can access other features of a Canon
+camera using CHDK (for example, the zoom).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

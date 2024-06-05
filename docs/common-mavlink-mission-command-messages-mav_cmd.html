@@ -1,0 +1,4081 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Commands &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mission Commands</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mission-commands">
+<span id="common-mavlink-mission-command-messages-mav-cmd"></span><h1>Mission Commands<a class="headerlink" href="#mission-commands" title="Permalink to this heading">¶</a></h1>
+<p>This article describes the mission commands that are supported by Copter, Plane and Rover when switched into Auto mode.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a work-in-progress and has not been full reviewed.  A better list for <a class="reference external" href="https://ardupilot.org/copter/docs/mission-command-list.html#mission-command-list" title="(in Copter)"><span class="xref std std-ref">Copter can be found here</span></a></p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The MAVLink protocol defines a large number of
+<a class="reference external" href="https://github.com/ArduPilot/mavlink/blob/master/message_definitions/v1.0/common.xml#L1008">MAV_CMD</a>
+waypoint command types (sent in a <code class="docutils literal notranslate"><span class="pre">MAVLink_mission_item_message</span></code>).
+ArduPilot implements handling for the subset of these commands and
+command-parameters that are <em>most relevant</em> and meaningful for each of
+the vehicles. Unsupported commands that are sent to a particular
+autopilot will simply be dropped.</p>
+<p>This article lists and describes the commands and command-parameters
+that are supported on each of the vehicle types. Any parameter that is
+“grey” is not supported by the autopilot and will be ignored. They are
+still documented to make it clear which properties that are supported by
+the <a class="reference external" href="https://github.com/ArduPilot/mavlink/blob/master/message_definitions/v1.0/common.xml#L1008">MAV_CMD protocol</a>
+are not implemented by the vehicle.</p>
+<p>Some commands and command-parameters are not implemented because they
+are not relevant for particular vehicle types (for example
+“MAV_CMD_NAV_TAKEOFF” command makes sense for Plane and Copter but
+not Rover, and the pitch parameter only makes sense for Plane). There
+are also some potentially useful command-parameters that are not handled
+because there is a limit to the message size, and a decision has been
+made to prioritize some parameters over others.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is additional information about the supported commands on
+Copter (from a Mission Planner perspective) in the <a class="reference external" href="https://ardupilot.org/copter/docs/mission-command-list.html#mission-command-list" title="(in Copter)"><span class="xref std std-ref">Copter Mission Command List</span></a>.</p>
+</div>
+<section id="types-of-commands">
+<h3>Types of commands<a class="headerlink" href="#types-of-commands" title="Permalink to this heading">¶</a></h3>
+<p>There are several different types of commands that can be used within
+missions:</p>
+<ul class="simple">
+<li><p>Navigation commands are used to control the movement of the vehicle,
+including takeoff, moving to and around waypoints, changing altitude,
+and landing.</p></li>
+<li><p>DO commands are for auxiliary functions and do not affect the
+vehicle’s position (for example, setting the camera trigger distance,
+or setting a servo value).</p></li>
+<li><p>Condition commands are used to delay DO commands until some condition
+is met, for example the UAV reaches a certain altitude or distance
+from the waypoint.</p></li>
+</ul>
+<p>During a mission at most one “Navigation” command and one “Do” or
+“Condition” command can be running at one time. A typical mission might
+set a waypoint (NAV command), add a CONDITION command that doesn’t
+complete until a certain distance from the destination
+(<a class="reference internal" href="#mav-cmd-condition-distance"><span class="std std-ref">MAV_CMD_CONDITION_DISTANCE</span></a>), and
+then add a number of DO commands that are executed sequentially (for
+example
+<a class="reference internal" href="#mav-cmd-do-set-cam-trigg-dist"><span class="std std-ref">MAV_CMD_DO_SET_CAM_TRIGG_DIST</span></a>
+to take pictures at regular intervals) when the condition completes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CONDITION and DO commands are associated with the preceding NAV
+command: if the UAV reaches the next waypoint before these commands are
+executed, the next NAV command is loaded and they will be
+skipped.</p>
+</div>
+</section>
+<section id="frames-of-reference">
+<span id="common-mavlink-mission-command-messages-mav-cmd-navigation-commands-frames"></span><h3>Frames of reference<a class="headerlink" href="#frames-of-reference" title="Permalink to this heading">¶</a></h3>
+<p>Many of the commands (in particular the <a class="reference internal" href="#common-mavlink-mission-command-messages-mav-cmd-navigation-commands"><span class="std std-ref">NAV_ commands</span></a>) include position/location
+information. The information is provided relative to a particular “frame
+of reference”, which is specified in the message’s <a class="reference internal" href="#common-mavlink-mission-command-messages-mav-cmd-navigation-commands-frames"><span class="std std-ref">Frames of reference</span></a> field. Copter and Rover Mission use <a class="reference internal" href="#mav-cmd-do-set-home"><span class="std std-ref">MAV_CMD_DO_SET_HOME</span></a> command to set the
+“home position” in the global coordinate frame (MAV_FRAME_GLOBAL),
+<a class="reference external" href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS84 coordinate system</a>, where
+altitude is relative to mean sea level. All other commands use the
+MAV_FRAME_GLOBAL_RELATIVE_ALT frame, which uses the same latitude
+and longitude, but sets altitude as relative to the <em>home position</em>
+(home altitude = 0).</p>
+<p>Plane commands can additionally use MAV_FRAME_GLOBAL_TERRAIN_ALT
+frame of reference. This again has the same WGS84 frame of reference for
+latitude/Longitude, but specifies altitude relative to ground height (as
+defined in a terrain database).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The other frame types defined in the MAVLink protocol (see
+<a class="reference external" href="https://github.com/ArduPilot/mavlink/blob/master/message_definitions/v1.0/common.xml#L795">MAV_FRAME</a>)
+are not supported for mission commands.</p>
+</div>
+</section>
+<section id="how-accurate-is-the-information">
+<h3>How accurate is the information?<a class="headerlink" href="#how-accurate-is-the-information" title="Permalink to this heading">¶</a></h3>
+<p>If a command or parameter is marked as supported then it is likely (but
+not guaranteed) that it will behave as indicated. If a command or
+parameter is not listed (or marked as not supported) then it is
+extremely likely that it is not supported on ArduPilot.</p>
+<p>The reason for this is that the information was predominantly inferred
+by inspecting the command handlers for messages:</p>
+<ul class="simple">
+<li><p>The switch statement in <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Mission/AP_Mission.cpp#L466">AP_Mission::mavlink_to_mission_cmd</a>
+was inspected to determine which commands are handled by <em>all</em>
+vehicle platforms, and which parameters from the message are stored.</p></li>
+<li><p>The command handler switch for each vehicle type
+(<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/ArduPlane/commands_logic.cpp#L33">Plane</a>,
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/ArduCopter/commands_logic.cpp#L49">Copter</a>,
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/Rover/commands_logic.cpp#L25">Rover</a>)
+tells us which commands are likely to be supported in each vehicle
+and which parameters are passed to the handler.</p></li>
+</ul>
+<p>The above checks give a very accurate picture of what commands and
+parameters are not supported. They gives a fairly accurate picture of
+what commands/parameters are <em>likely to be supported</em>. However this
+indication is not guaranteed to be accurate because a command handler
+could just throw away all the information (and we have not fully checked
+all of these).</p>
+<p>In addition to the above checks, we have also merged information from
+the <a class="reference external" href="https://ardupilot.org/copter/docs/mission-command-list.html#mission-command-list" title="(in Copter)"><span class="xref std std-ref">Copter Mission Command List</span></a>.</p>
+</section>
+<section id="how-to-interpret-the-commands-parameters">
+<h3>How to interpret the commands parameters<a class="headerlink" href="#how-to-interpret-the-commands-parameters" title="Permalink to this heading">¶</a></h3>
+<p>The parameters for each command are listed in a table. The parameters
+that are “greyed out” are not supported. The command field column (param
+name) uses “bold” text to indicate those parameters that are defined in
+the protocol (normal text is used for “empty” parameters).</p>
+<p>This allows users/developers to see both what is supported, and what
+protocol fields are not supported in ArduPilot.</p>
+</section>
+<section id="using-this-information-with-a-gcs">
+<h3>Using this information with a GCS<a class="headerlink" href="#using-this-information-with-a-gcs" title="Permalink to this heading">¶</a></h3>
+<p><em>Mission Planner</em> (MP) exposes the full subset of commands and
+parameters supported by ArduPilot, filtered to display just those
+relevant to the currently connected vehicle. Mapping the MP commands to
+this documentation is easy, because it simply names commands using a
+cut-down version of the full command name (e.g. <code class="docutils literal notranslate"><span class="pre">DO_SET_SERVO</span></code> rather
+than the full command name: <code class="docutils literal notranslate"><span class="pre">MAV_CMD_DO_SET_SERVO</span></code>). In addition, this
+document conveniently lists the column label used by Mission Planner
+alongside each of the parameters.</p>
+<p>Other GCSs (APM Planner 2, Tower etc.) may support some other subset of
+commands/parameters and use alternative names/labels for them. In most
+cases the mapping should be obvious.</p>
+<p>[site wiki=”copter”]
+Commands supported by Copter
+============================</p>
+<p>This list of commands was inferred from the command handler in
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/ArduCopter/mode_auto.cpp#L388">/ArduCopter/mode_auto.cpp</a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#mav-cmd-nav-waypoint"><span class="std std-ref">MAV_CMD_NAV_WAYPOINT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-return-to-launch"><span class="std std-ref">MAV_CMD_NAV_RETURN_TO_LAUNCH</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-takeoff"><span class="std std-ref">MAV_CMD_NAV_TAKEOFF</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-land"><span class="std std-ref">MAV_CMD_NAV_LAND</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-unlim"><span class="std std-ref">MAV_CMD_NAV_LOITER_UNLIM</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-turns"><span class="std std-ref">MAV_CMD_NAV_LOITER_TURNS</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-time"><span class="std std-ref">MAV_CMD_NAV_LOITER_TIME</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-spline-waypoint"><span class="std std-ref">MAV_CMD_NAV_SPLINE_WAYPOINT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-guided-enable"><span class="std std-ref">MAV_CMD_NAV_GUIDED_ENABLE</span></a> (NAV_GUIDED only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-delay"><span class="std std-ref">MAV_CMD_NAV_DELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-payload-place"><span class="std std-ref">MAV_CMD_NAV_PAYLOAD_PLACE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-jump"><span class="std std-ref">MAV_CMD_DO_JUMP</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-jump-tag"><span class="std std-ref">MAV_CMD_JUMP_TAG</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-jump-tag"><span class="std std-ref">MAV_CMD_DO_JUMP_TAG</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-mission-start"><span class="std std-ref">MAV_CMD_MISSION_START</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-component-arm-disarm"><span class="std std-ref">MAV_CMD_COMPONENT_ARM_DISARM</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-delay"><span class="std std-ref">MAV_CMD_CONDITION_DELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-distance"><span class="std std-ref">MAV_CMD_CONDITION_DISTANCE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-yaw"><span class="std std-ref">MAV_CMD_CONDITION_YAW</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-aux-function"><span class="std std-ref">MAV_CMD_DO_AUX_FUNCTION</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-change-speed"><span class="std std-ref">MAV_CMD_DO_CHANGE_SPEED</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-home"><span class="std std-ref">MAV_CMD_DO_SET_HOME</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-servo"><span class="std std-ref">MAV_CMD_DO_SET_SERVO</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-relay"><span class="std std-ref">MAV_CMD_DO_SET_RELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-repeat-servo"><span class="std std-ref">MAV_CMD_DO_REPEAT_SERVO</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-repeat-relay"><span class="std std-ref">MAV_CMD_DO_REPEAT_RELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-digicam-configure"><span class="std std-ref">MAV_CMD_DO_DIGICAM_CONFIGURE</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-digicam-control"><span class="std std-ref">MAV_CMD_DO_DIGICAM_CONTROL</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-cam-trigg-dist"><span class="std std-ref">MAV_CMD_DO_SET_CAM_TRIGG_DIST</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-roi"><span class="std std-ref">MAV_CMD_DO_SET_ROI</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-mount-control"><span class="std std-ref">MAV_CMD_DO_MOUNT_CONTROL</span></a> (Gimbal/mount enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-gimbal-manager-pitchyaw"><span class="std std-ref">MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW</span></a> (Gimbal/mount enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-parachute"><span class="std std-ref">MAV_CMD_DO_PARACHUTE</span></a> (Parachute enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-gripper"><span class="std std-ref">MAV_CMD_DO_GRIPPER</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-guided-limits"><span class="std std-ref">MAV_CMD_DO_GUIDED_LIMITS</span></a> (NAV_GUIDED only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-resume-repeat-dist"><span class="std std-ref">MAV_CMD_DO_SET_RESUME_REPEAT_DIST</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-fence-enable"><span class="std std-ref">MAV_CMD_DO_FENCE_ENABLE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-storage-format"><span class="std std-ref">MAV_CMD_STORAGE_FORMAT</span></a></p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”plane”]
+Commands supported by Plane
+===========================</p>
+<p>This list of commands was inferred from the command handler in
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/ArduPlane/commands_logic.cpp#L33">/ArduPlane/commands_logic.cpp</a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#mav-cmd-nav-waypoint"><span class="std std-ref">MAV_CMD_NAV_WAYPOINT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-return-to-launch"><span class="std std-ref">MAV_CMD_NAV_RETURN_TO_LAUNCH</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-takeoff"><span class="std std-ref">MAV_CMD_NAV_TAKEOFF</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-land"><span class="std std-ref">MAV_CMD_NAV_LAND</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-unlim"><span class="std std-ref">MAV_CMD_NAV_LOITER_UNLIM</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-turns"><span class="std std-ref">MAV_CMD_NAV_LOITER_TURNS</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-time"><span class="std std-ref">MAV_CMD_NAV_LOITER_TIME</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-altitude-wait"><span class="std std-ref">MAV_CMD_NAV_ALTITUDE_WAIT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-loiter-to-alt"><span class="std std-ref">MAV_CMD_NAV_LOITER_TO_ALT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-continue-and-change-alt"><span class="std std-ref">MAV_CMD_NAV_CONTINUE_AND_CHANGE_ALT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-vtol-takeoff"><span class="std std-ref">MAV_CMD_NAV_VTOL_TAKEOFF</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-vtol-land"><span class="std std-ref">MAV_CMD_NAV_VTOL_LAND</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-delay"><span class="std std-ref">MAV_CMD_NAV_DELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-payload-place"><span class="std std-ref">MAV_CMD_NAV_PAYLOAD_PLACE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-delay"><span class="std std-ref">MAV_CMD_CONDITION_DELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-distance"><span class="std std-ref">MAV_CMD_CONDITION_DISTANCE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-aux-function"><span class="std std-ref">MAV_CMD_DO_AUX_FUNCTION</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-change-speed"><span class="std std-ref">MAV_CMD_DO_CHANGE_SPEED</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-engine-control"><span class="std std-ref">MAV_CMD_DO_ENGINE_CONTROL</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-vtol-transition"><span class="std std-ref">MAV_CMD_DO_VTOL_TRANSITION</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-home"><span class="std std-ref">MAV_CMD_DO_SET_HOME</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-servo"><span class="std std-ref">MAV_CMD_DO_SET_SERVO</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-relay"><span class="std std-ref">MAV_CMD_DO_SET_RELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-repeat-servo"><span class="std std-ref">MAV_CMD_DO_REPEAT_SERVO</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-repeat-relay"><span class="std std-ref">MAV_CMD_DO_REPEAT_RELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-digicam-configure"><span class="std std-ref">MAV_CMD_DO_DIGICAM_CONFIGURE</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-digicam-control"><span class="std std-ref">MAV_CMD_DO_DIGICAM_CONTROL</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-cam-trigg-dist"><span class="std std-ref">MAV_CMD_DO_SET_CAM_TRIGG_DIST</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-roi"><span class="std std-ref">MAV_CMD_DO_SET_ROI</span></a> (Gimbal/mount enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-gimbal-manager-pitchyaw"><span class="std std-ref">MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW</span></a> (Gimbal/mount enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-jump"><span class="std std-ref">MAV_CMD_DO_JUMP</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-jump-tag"><span class="std std-ref">MAV_CMD_JUMP_TAG</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-jump-tag"><span class="std std-ref">MAV_CMD_DO_JUMP_TAG</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-mount-control"><span class="std std-ref">MAV_CMD_DO_MOUNT_CONTROL</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-inverted-flight"><span class="std std-ref">MAV_CMD_DO_INVERTED_FLIGHT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-land-start"><span class="std std-ref">MAV_CMD_DO_LAND_START</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-fence-enable"><span class="std std-ref">MAV_CMD_DO_FENCE_ENABLE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-autotune-enable"><span class="std std-ref">MAV_CMD_DO_AUTOTUNE_ENABLE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-resume-repeat-dist"><span class="std std-ref">MAV_CMD_DO_SET_RESUME_REPEAT_DIST</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-storage-format"><span class="std std-ref">MAV_CMD_STORAGE_FORMAT</span></a></p></li>
+</ul>
+<p>[/site]</p>
+<p>[site wiki=”rover” heading=”off”]
+.. _commands_supported_by_rover:</p>
+</section>
+</section>
+<section id="commands-supported-by-rover">
+<span id="common-mavlink-mission-command-messages-mav-cmd-commands-supported-by-rover"></span><h2>Commands supported by Rover<a class="headerlink" href="#commands-supported-by-rover" title="Permalink to this heading">¶</a></h2>
+<p>This list of commands was inferred from the command handler in
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/Rover/commands_logic.cpp#L25">/Rover/commands_logic.cpp</a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#mav-cmd-nav-waypoint"><span class="std std-ref">MAV_CMD_NAV_WAYPOINT</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-return-to-launch"><span class="std std-ref">MAV_CMD_NAV_RETURN_TO_LAUNCH</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-nav-delay"><span class="std std-ref">MAV_CMD_NAV_DELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-jump"><span class="std std-ref">MAV_CMD_DO_JUMP</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-jump-tag"><span class="std std-ref">MAV_CMD_JUMP_TAG</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-jump-tag"><span class="std std-ref">MAV_CMD_DO_JUMP_TAG</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-delay"><span class="std std-ref">MAV_CMD_CONDITION_DELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-condition-distance"><span class="std std-ref">MAV_CMD_CONDITION_DISTANCE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-aux-function"><span class="std std-ref">MAV_CMD_DO_AUX_FUNCTION</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-change-speed"><span class="std std-ref">MAV_CMD_DO_CHANGE_SPEED</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-home"><span class="std std-ref">MAV_CMD_DO_SET_HOME</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-servo"><span class="std std-ref">MAV_CMD_DO_SET_SERVO</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-relay"><span class="std std-ref">MAV_CMD_DO_SET_RELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-repeat-servo"><span class="std std-ref">MAV_CMD_DO_REPEAT_SERVO</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-repeat-relay"><span class="std std-ref">MAV_CMD_DO_REPEAT_RELAY</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-digicam-configure"><span class="std std-ref">MAV_CMD_DO_DIGICAM_CONFIGURE</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-digicam-control"><span class="std std-ref">MAV_CMD_DO_DIGICAM_CONTROL</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-mount-control"><span class="std std-ref">MAV_CMD_DO_MOUNT_CONTROL</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-cam-trigg-dist"><span class="std std-ref">MAV_CMD_DO_SET_CAM_TRIGG_DIST</span></a> (Camera enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-roi"><span class="std std-ref">MAV_CMD_DO_SET_ROI</span></a> (Gimbal/mount enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-gimbal-manager-pitchyaw"><span class="std std-ref">MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW</span></a> (Gimbal/mount enabled only)</p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-set-resume-repeat-dist"><span class="std std-ref">MAV_CMD_DO_SET_RESUME_REPEAT_DIST</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-do-fence-enable"><span class="std std-ref">MAV_CMD_DO_FENCE_ENABLE</span></a></p></li>
+<li><p><a class="reference internal" href="#mav-cmd-storage-format"><span class="std std-ref">MAV_CMD_STORAGE_FORMAT</span></a></p></li>
+</ul>
+<p>[/site]</p>
+</section>
+<section id="navigation-commands">
+<span id="common-mavlink-mission-command-messages-mav-cmd-navigation-commands"></span><h2>Navigation commands<a class="headerlink" href="#navigation-commands" title="Permalink to this heading">¶</a></h2>
+<p>Navigation commands are used to control the movement of the vehicle,
+including takeoff, moving to and around waypoints, and landing.</p>
+<p>NAV commands have the highest priority. Any DO_ and CONDITION_
+commands that have not executed when a NAV command is loaded are skipped
+(for example, if a waypoint completes and the NAV command for another
+waypoint is loaded, and unexecuted DO/CONDITION commands associated with
+the first waypoint are dropped.</p>
+<section id="mav-cmd-nav-waypoint">
+<span id="id1"></span><h3>MAV_CMD_NAV_WAYPOINT<a class="headerlink" href="#mav-cmd-nav-waypoint" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Navigate to the specified position.</p>
+<p>[site wiki=”copter” heading=”off”]</p>
+<p>The Copter will fly a straight line to the specified latitude, longitude
+and altitude. It will then wait at the point for a specified delay time
+and then proceed to the next waypoint.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Delay</td>
+<td>Hold time at mission waypoint in integer seconds - MAX 65535 seconds.
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the Copter will hold at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the Copter will hold at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the Copter will hold at the current altitude.</td>
+</tr>
+</tbody>
+</table><p><strong>Mission Planner screenshots</strong></p>
+<figure class="align-default" id="id46">
+<a class="reference external image-reference" href="../_images/WayPoint.jpg"><img alt="../_images/WayPoint.jpg" src="../_images/WayPoint.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for WAYPOINT command</span><a class="headerlink" href="#id46" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>The vehicle will fly to the specified latitude, longitude and altitude.
+The waypoint is considered “complete” when Plane is within the specified
+radius of the target location, at which point Plane processes the next
+command.</p>
+<p>The protocol additionally provides for the plane to circle the waypoint
+with a specified radius and direction for a specified time (Delay).
+These parameters are not support by Copter.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td>
+</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Acc radius</td>
+<td>Acceptance radius in meters (waypoint is complete when the plane is this close to the waypoint location</td>
+</tr>
+<td><strong>param3</strong></td>
+<td>Pass by</td>
+<td>0 to pass through the WP, if > 0 radius in meters to pass by WP.
+Positive value for clockwise orbit, negative value for counter-clockwise
+orbit. Allows trajectory control.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p>[site wiki=”rover” heading=”off”]</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Delay</td>
+<td>Hold time at mission waypoint in integer seconds - MAX 65535 seconds.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the Copter will hold at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the Copter will hold at the current longitude.</td>
+</tr>
+<tr>
+<strong>param7</strong>
+<td>Alt</td>
+<td>Target altitude. If zero, the Copter will hold at the current altitude.</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-nav-takeoff">[site  wiki=”copter,plane” heading=”off”]</p>
+</section>
+<section id="id2">
+<h3>MAV_CMD_NAV_TAKEOFF<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane (not Rover).</p>
+<p>Takeoff (either from ground or by hand-launch). It should be the first
+command of nearly all Plane and Copter missions.
+[/site]</p>
+<p>[site wiki=”copter” heading=”off”]</p>
+<p>The vehicle will climb straight up from it’s current location to the
+specified altitude. If the mission is begun while the copter is already
+flying, the vehicle will climb straight up to the specified altitude, if
+the vehicle is already above the altitude the command will be ignored
+and the mission will move onto the next command immediately.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td>Grade %</td>
+<td>Pitch/climb angle (Plane only).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td>   </td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td>
+</td>
+<td>Yaw angle (ignored if compass not present).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id47">
+<a class="reference external image-reference" href="../_images/TakeOff.jpg"><img alt="../_images/TakeOff.jpg" src="../_images/TakeOff.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for TAKEOFF command</span><a class="headerlink" href="#id47" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>The plane climbs to the specified altitude (at the specified pitch/climb
+angle) before proceeding to the next waypoint.</p>
+<p>The plane is <em>only</em> attempting to climb at this point and can be pushed
+off its heading by wind. The pitch value is the <em>minimum</em> climb angle
+the when using an airspeed sensor, and <em>maximum</em> angle when <strong>not</strong>
+using an airspeed sensor.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Pitch Angle</td>
+<td>Pitch/climb angle in degrees</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Yaw angle (ignored if compass not present).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-nav-vtol-takeoff">
+<span id="id3"></span><h3>MAV_CMD_NAV_VTOL_TAKEOFF<a class="headerlink" href="#mav-cmd-nav-vtol-takeoff" title="Permalink to this heading">¶</a></h3>
+<p>Supported by:  Plane  (not Copter or Rover). Specifically QuadPlanes.</p>
+<p>Takeoff while in VTOL mode.</p>
+<p>The vehicle will climb straight up at it’s current location to the
+specified altitude as a delta above its current altitude.</p>
+<p>However, if <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 3 is set (use altitude reference frames for VTOL takeoff), then the altitude value (in the specified reference frame) will be used for the target altitude, instead of a delta above current altitude. If the command is begun while the vehicle is already flying, the vehicle will climb straight up to the specified altitude, if
+the vehicle is already above the altitude the command will be ignored
+and the mission will move onto the next command immediately.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td>
+</td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-nav-loiter-unlim">
+<span id="id4"></span><h3>MAV_CMD_NAV_LOITER_UNLIM<a class="headerlink" href="#mav-cmd-nav-loiter-unlim" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Loiter at the specified location for an unlimited amount of time.</p>
+<p>[site wiki=”copter” heading=”off”]</p>
+<p>Fly to the specified location and then loiter there indefinitely — where
+loiter means “wait in place” (rather than “circle”). If zero is
+specified for a latitude/longitude/altitude parameter then the current
+location value for the parameter will be used.</p>
+<p>The mission will not proceed past this command while in AUTO mode. In
+order to break out of this command you need to change the mode (i.e. to
+MANUAL). If there are subsequent commands then you can continue the
+mission at the next command, if the Copter <code class="docutils literal notranslate"><span class="pre">MIS_RESTART</span></code> parameter is
+set to resume, by switching back to AUTO mode (otherwise the mission
+will restart).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param3</strong></td>
+<td></td>
+<td>Radius around MISSION, in meters. If positive loiter clockwise, else counter-clockwise</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the vehicle will loiter at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the vehicle will loiter at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the vehicle will loiter at the current altitude.</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id48">
+<a class="reference external image-reference" href="../_images/MissionList_LoiterUnlimited.png"><img alt="../_images/MissionList_LoiterUnlimited.png" src="../_images/MissionList_LoiterUnlimited.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for LOITER_UNLIM command</span><a class="headerlink" href="#id48" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>Fly to the specified location and then loiter there indefinitely — where
+loiter means “circle the waypoint”. If zero is specified for a
+latitude/longitude/altitude parameter then the current location value
+for the parameter will be used. You can also specify the radius and
+direction for the loiter.</p>
+<p>The mission will not proceed past this command while in AUTO mode. In
+order to break out of this command you need to change the mode (i.e. to
+MANUAL). If there are subsequent commands then you can continue the
+mission at the next command, if the Copter <code class="docutils literal notranslate"><span class="pre">MIS_RESTART</span></code> parameter is
+set to resume, by switching back to AUTO mode (otherwise the mission
+will restart).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Dir 1=CW</td>
+<td>Radius around waypoint, in meters. Specify as a positive value to loiter clockwise, negative to move counter-clockwise.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the vehicle will loiter at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the vehicle will loiter at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the vehicle will loiter at the current altitude.</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-nav-loiter-turns">[site wiki=”copter,plane”]
+MAV_CMD_NAV_LOITER_TURNS
+————————</p>
+<p>Supported by: Copter, Plane (not Rover).</p>
+<p>[/site]
+[site wiki=”copter” heading=”off”]</p>
+<p>Loiter (circle) the specified location for a specified number of turns,
+and then proceed to the next command. If zero is specified for a
+latitude/longitude/altitude parameter then the current location value
+for the parameter will be used.</p>
+<p>The radius of the circle is controlled by the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#circle-radius" title="(in Copter)"><span class="xref std std-ref">CIRCLE_RADIUS</span></a>
+parameter and can also be set by the command.</p>
+<p>This is the command equivalent of the <a class="reference external" href="https://ardupilot.org/copter/docs/circle-mode.html#circle-mode" title="(in Copter)"><span class="xref std std-ref">Circle flight mode</span></a>.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Turns</td>
+<td>Number of turns (N x 360°)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Radius</td>
+<td>Loiter radius around waypoint. Units are in meters. Values over 255 will be in units of 10 meters. and values greater than 2550 will be 2550.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the vehicle will loiter at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the vehicle will loiter at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the vehicle will loiter at the current altitude.</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id49">
+<a class="reference external image-reference" href="../_images/MissionList_LoiterTurns.png"><img alt="../_images/MissionList_LoiterTurns.png" src="../_images/MissionList_LoiterTurns.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for LOITER_TURNS command</span><a class="headerlink" href="#id49" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>Loiter (circle) the specified location for a specified number of turns
+at the given radius, and then proceed to the next command. If zero is
+specified for a latitude/longitude/altitude parameter then the current
+location value for the parameter will be used.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Turns</td>
+<td>Number of turns (N x 360°)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Radius</td>
+<td>Radius around waypoint, in meters. Specify as a positive value to loiter clockwise, negative to move counter-clockwise.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the vehicle will loiter at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the vehicle will loiter at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the vehicle will loiter at the current altitude.</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-nav-loiter-time">
+<span id="id5"></span><h3>MAV_CMD_NAV_LOITER_TIME<a class="headerlink" href="#mav-cmd-nav-loiter-time" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane, Rover.
+[site wiki=”copter,rover” heading=”off”]</p>
+<p>Fly/Drive to the specified location and then loiter there for the specified
+number of seconds — where loiter means “wait in place” (rather than
+“circle”). The timer starts when the waypoint is reached; when it
+expires the waypoint is complete. If zero is specified for a
+latitude/longitude/altitude parameter then the current location value
+for the parameter will be used.</p>
+<p>This is the mission equivalent of the <a class="reference external" href="https://ardupilot.org/copter/docs/loiter-mode.html#loiter-mode" title="(in Copter)"><span class="xref std std-ref">Loiter flight mode</span></a> or <a class="reference external" href="https://ardupilot.org/rover/docs/hold-mode.html#hold-mode" title="(in Rover)"><span class="xref std std-ref">Hold mode</span></a>.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Time s</td>
+<td>Time to loiter at waypoint (seconds - decimal)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param3</strong></td>
+<td>Dir 1=CW</td>
+<td>Radius around waypoint, in meters. Specify as a positive value to loiter clockwise, negative to move counter-clockwise.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the vehicle will loiter at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the vehicle will loiter at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the vehicle will loiter at the current altitude.</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id50">
+<a class="reference external image-reference" href="../_images/MissionList_LoiterTime.png"><img alt="../_images/MissionList_LoiterTime.png" src="../_images/MissionList_LoiterTime.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for LOITER_TIME command</span><a class="headerlink" href="#id50" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>Fly to the specified location and then loiter there for the specified
+number of seconds — where loiter means “circle the waypoint”. The timer
+starts when the waypoint is reached; when it expires the waypoint is
+complete. If zero is specified for a latitude/longitude/altitude
+parameter then the current location value for the parameter will be
+used. You can also specify the radius and direction for the loiter.</p>
+<p>The radius of loiter is set in the <code class="docutils literal notranslate"><span class="pre">WP_LOITER_RAD</span></code> parameter.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Time (s)</td>
+<td>Time to loiter at waypoint (seconds - decimal)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Dir 1=CW</td>
+<td>Radius around waypoint, in meters. Specify as a positive value to loiter clockwise, negative to move counter-clockwise.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td>
+</td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the vehicle will loiter at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target longitude. If zero, the vehicle will loiter at the current longitude.</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target altitude. If zero, the vehicle will loiter at the current altitude.</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-nav-return-to-launch">
+<span id="id6"></span><h3>MAV_CMD_NAV_RETURN_TO_LAUNCH<a class="headerlink" href="#mav-cmd-nav-return-to-launch" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Return to the <em>home location</em> or the nearest <a class="reference external" href="common-rally-points">Rally
+Point</a>, if closer. The home location is where
+the vehicle was last armed (or when it first gets GPS lock after arming
+if the vehicle configuration allows this).</p>
+<p>[site wiki=”copter” heading=”off”]</p>
+<section id="copter">
+<h4>Copter<a class="headerlink" href="#copter" title="Permalink to this heading">¶</a></h4>
+<p>Return to the <em>home location</em> (or the nearest <a class="reference internal" href="common-rally-points.html#common-rally-points"><span class="std std-ref">Rally Point</span></a> if closer) and then land. The home
+location is where the vehicle was last armed (or when it first gets GPS
+lock after arming if the vehicle configuration allows this).</p>
+<p>This is the mission equivalent of the <a class="reference external" href="https://ardupilot.org/copter/docs/rtl-mode.html#rtl-mode" title="(in Copter)"><span class="xref std std-ref">RTL flight mode</span></a>.  The vehicle will
+first climb to the
+<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#rtl-alt" title="(in Copter)"><span class="xref std std-ref">RTL_ALT</span></a>
+parameter’s specified altitude (default is 15m) before returning home.</p>
+<p>This command takes no parameters and generally should be the last
+command in the mission.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id51">
+<a class="reference external image-reference" href="../_images/MissionList_RTL.png"><img alt="../_images/MissionList_RTL.png" src="../_images/MissionList_RTL.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission PlannerSettings for RETURN_TO_LAUNCH command</span><a class="headerlink" href="#id51" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>Return to the <em>home location</em> (or the nearest <a class="reference internal" href="common-rally-points.html#common-rally-points"><span class="std std-ref">Rally Point</span></a> if closer) and then “Loiter” (circle the
+point). The home location is where the vehicle was last armed (or when
+it first gets GPS lock after arming if the vehicle configuration allows
+this).</p>
+<p>If the return is to a rally point, the plane will loiter at the position
+and altitude set in the rally point. If the return is to the home
+location, then the parameter
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#alt-hold-rtl" title="(in Plane)"><span class="xref std std-ref">ALT_HOLD_RTL</span></a>
+is used for the loiter height (default 100m). The radius of the loiter
+is defined in the parameter
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#wp-loiter-rad" title="(in Plane)"><span class="xref std std-ref">WP_LOITER_RAD</span></a>.</p>
+<p>This command takes no parameters and generally should be the last
+command in the mission.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p>[site wiki=”rover” heading=”off”]</p>
+<p>Return to the <em>home location</em> and HOLD (non-boat) or LOITER (boat).</p>
+<p>This command takes no parameters and generally should be the last
+command in the mission. Without using this command, end of mission behavior
+is set by the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mis-done-behave" title="(in Rover)"><span class="xref std std-ref">MIS_DONE_BEHAVE</span></a> parameter.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-nav-land">[site wiki=”copter,plane”]</p>
+</section>
+</section>
+<section id="id7">
+<h3>MAV_CMD_NAV_LAND<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane (not Rover).
+[/site]
+[site wiki=”copter”]</p>
+<p>The copter will land at its current location or proceed at current altitude to the lat/lon
+coordinates provided (if non-zero) and land.  This is the mission equivalent of
+the <a class="reference external" href="https://ardupilot.org/copter/docs/land-mode.html#land-mode" title="(in Copter)"><span class="xref std std-ref">LAND flight mode</span></a>.</p>
+<p>The motors will not stop on their own: you must exit AUTO mode to cut
+the engines.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the Copter will land at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Longitude</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id52">
+<a class="reference external image-reference" href="../_images/MissionList_Land.png"><img alt="../_images/MissionList_Land.png" src="../_images/MissionList_Land.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for LAND command</span><a class="headerlink" href="#id52" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>The plane will land at its current location or proceed to the (non-zero)
+lat/lon coordinates provided beginning with current altitude.  Information on the parameters used to
+control the landing are provided in <a class="reference external" href="https://ardupilot.org/plane/docs/land-mode.html#land-mode" title="(in Plane)"><span class="xref std std-ref">LAND flight mode</span></a>.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Abort Alt</td>
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude</td>
+</tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude to target for the landing. Unless you are landing at a location different than home, this should be zero</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-nav-vtol-land">
+<span id="id8"></span><h3>MAV_CMD_NAV_VTOL_LAND<a class="headerlink" href="#mav-cmd-nav-vtol-land" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter or Rover). Specifically QuadPlanes.</p>
+<p>Land the vehicle at the current or a specified location.</p>
+<p>If the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 4 is not set (default),the vehicle will land at its current location or proceed at current altitude to the lat/lon
+coordinates provided (if non-zero) and land. The ALT parameter is used to determine final landing phase initiation rather than <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-land-final-alt" title="(in Plane)"><span class="xref std std-ref">Q_LAND_FINAL_ALT</span></a>. This is the mission equivalent of the <a class="reference external" href="https://ardupilot.org/plane/docs/qland-mode.html#qland-mode" title="(in Plane)"><span class="xref std std-ref">QLAND flight mode</span></a>.</p>
+<p>If the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 4 is set (Use a fixed wind spiral approach), the it will fly in plane mode to the lat/lon coordinates provided (if non-zero), climbing or descending to the altitude set in the NAV_VTOL_LAND waypoint. When it reaches within <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-fw-lnd-apr-rad" title="(in Plane)"><span class="xref std std-ref">Q_FW_LND_APR_RAD</span></a> of the landing location, it will perform a LOITER_TO_ALT to finish the climb or descent to that ALT set in the waypoint, then, turning into the wind, transition to VTOL mode and proceed to the landing location and land.</p>
+<p>The motors will disarm on their own once landed</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>param1 of the command acts just like <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#q-options" title="(in Plane)"><span class="xref std std-ref">Q_OPTIONS</span></a> bit 4 above, if that option bit is not set. This allows using different approaches for different VTOL_LAND commands within the same mission.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td></td>
+<td>Option:if set to 1,forces FW spiral approach</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param4</strong></td>
+<td></td>
+<td>Desired yaw angle.</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target latitude. If zero, the QuadPlane will land at the current latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-nav-continue-and-change-alt">[site wiki=”plane” heading=”off”]
+MAV_CMD_NAV_CONTINUE_AND_CHANGE_ALT
+———————————–</p>
+<p>Supported by: Plane (not Copter, Rover).</p>
+<p>Continue on the current course and climb/descend to specified altitude.
+Move to the next command when the desired altitude is reached.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">param1</span></code> value sets how close the
+vehicle altitude must be to target altitude for command
+completion.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>TBD</td>
+<td>Climb or Descend (0 = Neutral, command completes when within 5m of this
+command's altitude, 1 = Climbing, command completes when at or above
+this command's altitude, 2 = Descending, command completes when at or
+below this command's altitude.
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td>param7</td>
+<td>Alt</td>
+<td>Target altitude</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-nav-spline-waypoint">[site wiki=”copter”]</p>
+</section>
+<section id="id9">
+<h3>MAV_CMD_NAV_SPLINE_WAYPOINT<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter (not Plane or Rover).</p>
+<p>Fly to the target location using a <a class="reference external" href="https://en.wikipedia.org/wiki/Spline_%28mathematics%29">Spline path</a>, then
+wait (hover) for specified time before proceeding to the next command.</p>
+<p>The Spline commands take all the same arguments are regular waypoints
+(lat, lon, alt, delay) but when executed the vehicle will fly smooth
+paths (both vertically and horizontally) instead of straight lines.
+Spline waypoints can be mixed with regular straight line waypoints as
+shown in the screenshot below.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Delay</td>
+<td>Hold time at target, in decimal seconds.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude/X of goal</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude/Y of goal</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude/Z of goal</td>
+</tr>
+</tbody>
+</table><figure class="align-default" id="id53">
+<a class="reference external image-reference" href="../_images/MissionList_SplineWaypoint.jpg"><img alt="../_images/MissionList_SplineWaypoint.jpg" src="../_images/MissionList_SplineWaypoint.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settingsfor SPLINE_WAYPOINT command</span><a class="headerlink" href="#id53" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The Mission Planner screenshot shows the path the vehicle will take.</p>
+<ul class="simple">
+<li><p>The 1 second delay at the end of Waypoint #1 causes the vehicle to
+stop so Spline command #2 begins by taking a sharp 90degree turn</p></li>
+<li><p>The direction of travel as the vehicle passes through Spline Waypoint
+#3 is parallel to an imaginary line drawn between waypoints #2 and #4</p></li>
+<li><p>Waypoint #5 is a straight line so the vehicle lines itself up to
+point towards waypoint #5 even before reaching waypoint #4.</p></li>
+</ul>
+</section>
+<section id="mav-cmd-nav-guided-enable">
+<span id="id10"></span><h3>MAV_CMD_NAV_GUIDED_ENABLE<a class="headerlink" href="#mav-cmd-nav-guided-enable" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter (not Plane or Rover).</p>
+<p>Enable <code class="docutils literal notranslate"><span class="pre">GUIDED</span></code> mode to hand over control to an external controller/<a class="reference internal" href="common-companion-computers.html#common-companion-computers"><span class="std std-ref">Companion Computers</span></a>. ee <a class="reference external" href="https://ardupilot.org/copter/docs/ac2_guidedmode.html#ac2-guidedmode" title="(in Copter)"><span class="xref std std-ref">Guided Mode</span></a> for more information. The <a class="reference internal" href="common-companion-computers.html#common-companion-computers"><span class="std std-ref">Companion Computers</span></a>  would then send MAVLink commands to control the vehicle.</p>
+<p>See also <a class="reference internal" href="#mav-cmd-do-guided-limits"><span class="std std-ref">MAV_CMD_DO_GUIDED_LIMITS</span></a>
+for information on how to apply time, altitude and distance limits on
+the external control.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>on=1/off=0</td>
+<td>A value of > 0.5 enables GUIDED mode. Any value <= 0.5f turns it off.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-nav-altitude-wait">[site wiki=”plane”]
+MAV_CMD_NAV_ALTITUDE_WAIT
+————————-</p>
+<p>Supported by: Plane (not Copter or Rover).</p>
+<p>Mission command to wait for an altitude or downwards vertical speed.
+This is meant for high altitude balloon launches, allowing the aircraft
+to be idle until either an altitude is reached or a negative vertical
+speed is reached (indicating early balloon burst). The wiggle time is
+how often to wiggle the control surfaces to prevent them seizing up.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>?</td>
+<td>Altitude (m)</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>?</td>
+<td>Descent speed (m/s)</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>?</td>
+<td>Wiggle Time (s)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-nav-loiter-to-alt">
+<span id="id11"></span><h3>MAV_CMD_NAV_LOITER_TO_ALT<a class="headerlink" href="#mav-cmd-nav-loiter-to-alt" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter or Rover).</p>
+<p>Loiter while climbing/descending to an altitude.</p>
+<p>Begin loiter at the specified Latitude and Longitude. If Lat=Lon=0, then
+loiter at the current position. Don’t consider the navigation command
+complete (don’t leave loiter) until the altitude has been reached.
+Additionally, if the Heading Required parameter is non-zero the aircraft
+will not leave the loiter until heading toward the next waypoint.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Heading</td>
+<td>Heading Required (0 = False)</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Radius</td>
+<td>Radius in meters. If positive loiter clockwise, negative counter-clockwise, 0 means no change to standard loiter.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-nav-delay">
+<span id="id12"></span><h3>MAV_CMD_NAV_DELAY<a class="headerlink" href="#mav-cmd-nav-delay" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Rover, Plane.</p>
+<p>[site wiki=”copter,rover”]</p>
+<p>After reaching this waypoint, delay the execution of the next mission command
+until either the time in seconds has elapsed or the time entered(in the future) is reached. Execution of the next mission item
+then occurs. For Copters, they will loiter until then, Rovers hold position.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Time (sec)</td>
+<td>Delay in seconds (integer)</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Time in hours(1-24)</td>
+<td>Delay until this hour</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Time in minutes(0-59)</td>
+<td>Delay until this minute</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td>Time in seconds (0-59)</td>
+<td>Delay until this second</td>
+</tr>
+<tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]
+[site wiki=”plane”]</p>
+<p>After reaching this waypoint, if disarmed, delay the execution of the next mission command
+until the time in seconds has elapsed. This is used in a mission to allow a vehicle to land, disarm for a period (for a payload change for example), and then re-arm, and takeoff to resume the mission. If not disarmed, this mission item is skipped.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Time (sec)</td>
+<td>Delay in seconds (decimal).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-nav-payload-place">
+<span id="id13"></span><h3>MAV_CMD_NAV_PAYLOAD_PLACE<a class="headerlink" href="#mav-cmd-nav-payload-place" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter and Plane.</p>
+<p>[site wiki=”copter”]</p>
+<p>After reaching this waypoint, the vehicle will descend up to the maximum descent value. If the payload has not touched the ground before this limit is reached, the vehicle will climb back up to the waypoint altitude and continue to the next mission item. If it reaches the ground, it will automatically release the gripper if enabled, and optionally wait a period, re-grip, and ascend back to the waypoint altitude and continue the mission. Numerous parameters that control the payload touch down detection, wait period, etc. are prefaced with <code class="docutils literal notranslate"><span class="pre">PLDP_</span></code>.
+[/site]
+[site wiki=”plane”]
+<strong>QUADPLANE ONLY, fixed wing planes will skip this command</strong>
+After reaching this waypoint, the vehicle will have transitioned to VTOL and will descend up to the maximum descent value. If the vehicle has not touched the ground before this limit is reached, the vehicle will climb back up to the waypoint altitude and continue to the next mission item. If it reaches the ground, it will stop its motors and wait for a LUA script command (see <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_Scripting/applets/plane_package_place.lua">Package Place LUA applet</a> ) to send an abort_landing command to ascend back to the waypoint altitude and continue to the next mission item, be sent a disarm command, or the pilot uses the <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 173 to send the abort_landing command, instead of via a LUA script.
+This allows the gripper to be commanded to be released, packages replaced, etc.
+[/site]
+[wiki site=”copter,plane”]
+<strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Maximum Descent</td>
+<td>meters</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude.</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-do-jump">
+<span id="id14"></span><h3>MAV_CMD_DO_JUMP<a class="headerlink" href="#mav-cmd-do-jump" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Jump to the specified command in the mission list. The jump command can
+be repeated either a specified number of times before continuing the
+mission, or it can be repeated indefinitely.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Despite the name, this command is really a “NAV_” command rather
+than a “DO_” command. Conditional commands like CONDITION_DELAY don’t
+affect DO_JUMP (it will always perform the jump as soon as it reaches
+the command).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>There can be a maximum of 15 jump commands in a mission after which new DO_JUMP commands are ignored.</p></li>
+</ul>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>WP#</td>
+<td>The command index/sequence number of the command to jump to.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Repeat#</td>
+<td>Number of times that the DO_JUMP command will execute before moving to
+the next sequential command. If the value is zero the next command will
+execute immediately. A value of -1 will cause the command to repeat
+indefinitely.
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id54">
+<a class="reference external image-reference" href="../_images/MissionList_DoJump.png"><img alt="../_images/MissionList_DoJump.png" src="../_images/MissionList_DoJump.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settings for DO_JUMP command</span><a class="headerlink" href="#id54" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above the vehicle would fly back-and-forth between
+waypoints #1 and #2 a total of 3 times before flying on to waypoint #4.</p>
+</section>
+<section id="mav-cmd-jump-tag">
+<span id="id15"></span><h3>MAV_CMD_JUMP_TAG<a class="headerlink" href="#mav-cmd-jump-tag" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane, Rover.</p>
+<p>This is a location marker in the mission command sequence that can be used a “jump to” location for the <a class="reference internal" href="#mav-cmd-do-jump-tag"><span class="std std-ref">MAV_CMD_DO_JUMP_TAG</span></a> command. The tag id in its parameter field can be any arbitrary number between 1 and 65535.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Tag#</td>
+<td>The tag number for the DO_JUMP_TAG command.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-do-jump-tag">
+<span id="id16"></span><h3>MAV_CMD_DO_JUMP_TAG<a class="headerlink" href="#mav-cmd-do-jump-tag" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane, Rover.</p>
+<p>Jump to the specified <a class="reference internal" href="#mav-cmd-jump-tag"><span class="std std-ref">MAV_CMD_JUMP_TAG</span></a> item in the mission list. The jump tag command can be repeated either a specified number of times before continuing the
+mission, or it can be repeated indefinitely.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Despite the name, this command is really a “NAV_” command rather
+than a “DO_” command. Conditional commands like CONDITION_DELAY don’t
+affect DO_JUMP (it will always perform the jump as soon as it reaches
+the command).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>There can be a maximum of 15 jump_tag commands in a mission after which new DO_JUMP_TAG commands are ignored.</p></li>
+</ul>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>WP#</td>
+<td>The tag number of the JUMP_TAG item to jump to.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Repeat#</td>
+<td>Number of times that the DO_JUMP_TAG command will execute before moving to
+the next sequential command. If the value is zero the next command will
+execute immediately. A value of -1 will cause the command to repeat
+indefinitely.
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<p>TODO</p>
+</section>
+</section>
+<section id="conditional-commands">
+<h2>Conditional commands<a class="headerlink" href="#conditional-commands" title="Permalink to this heading">¶</a></h2>
+<p>Conditional commands control the execution of _DO_ commands. For
+example, a conditional command can prevent DO commands executing based
+on a time delay, until the vehicle is at a certain altitude, or at a
+specified distance from the next target position.</p>
+<p>A conditional command may not complete before reaching the next
+waypoint. In this case, any unexecuted _DO_ commands associated with
+the last waypoint will be skipped.</p>
+<section id="mav-cmd-condition-delay">
+<span id="id17"></span><h3>MAV_CMD_CONDITION_DELAY<a class="headerlink" href="#mav-cmd-condition-delay" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>After reaching a waypoint, delay the execution of the next conditional
+“_DO_” command for the specified number of seconds (e.g.
+<a class="reference internal" href="#mav-cmd-do-set-roi"><span class="std std-ref">MAV_CMD_DO_SET_ROI</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command does not stop the vehicle. If the vehicle reaches the
+next waypoint before the delay timer completes, the delayed “_DO_”
+commands will never trigger.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Time (sec)</td>
+<td>Delay in seconds (decimal).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id55">
+<a class="reference external image-reference" href="../_images/MissionList_ConditionDelay.png"><img alt="../_images/MissionList_ConditionDelay.png" src="../_images/MissionList_ConditionDelay.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settingsfor CONDITION_DELAY command</span><a class="headerlink" href="#id55" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above, Command #4 (<code class="docutils literal notranslate"><span class="pre">DO_SET_ROI</span></code>) is delayed so that it
+starts 5 seconds after the vehicle has passed Waypoint #2.</p>
+</section>
+<section id="mav-cmd-condition-distance">
+<span id="id18"></span><h3>MAV_CMD_CONDITION_DISTANCE<a class="headerlink" href="#mav-cmd-condition-distance" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Delays the start of the next “<code class="docutils literal notranslate"><span class="pre">_DO_</span></code>” command until the vehicle is
+within the specified number of meters of the next waypoint.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command does not stop the vehicle: it only affects DO
+commands.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Dist (m)</td>
+<td>Distance from the next waypoint before DO commands are executed (meters).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id56">
+<a class="reference external image-reference" href="../_images/MissionList_ConditionDistance.png"><img alt="../_images/MissionList_ConditionDistance.png" src="../_images/MissionList_ConditionDistance.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission PlannerSettings for CONDITION_DISTANCE command</span><a class="headerlink" href="#id56" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above, Command #4 (<code class="docutils literal notranslate"><span class="pre">DO_SET_ROI</span></code>) is delayed so that it
+only starts once the vehicle is within 50m of waypoint #5.</p>
+<p id="mav-cmd-condition-yaw">[site wiki=”copter” heading=”off”]</p>
+</section>
+<section id="id19">
+<h3>MAV_CMD_CONDITION_YAW<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter (not Plane or Rover).</p>
+<p>Point (yaw) the nose of the vehicle towards a specified heading.</p>
+<p>The parameters allow you to specify whether the target direction is
+absolute or relative to the current yaw direction. If the direction is
+relative you can also (separately) specify whether the value is added or
+subtracted from the current heading (note that the vehicle will always
+turn in direction that most quickly gets it to the new target heading
+regardless of the <code class="docutils literal notranslate"><span class="pre">param3</span></code> value).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Deg</td>
+<td>
+If <code>param4=0</code> (absolute): Target heading in degrees [0-360] (0 is North).
+
+If <code>param4=1</code> (relative): The change in heading (in degrees).
+</td>
+</tr>
+<td><strong>param2</strong></td>
+<td>Speed deg/s</td>
+<td>Speed during yaw change:[deg per second].</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Dir 1=CW</td>
+<td>Used to denote the direction of rotation to achieve the target angle (-1=CCW, 1=CW, 0=the vehicle will always turn in direction that most quickly gets it to the new target heading, but only if <code>param4=0</code> (absolute), otherwise 0 = CW).
+</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td>0=Abs 1=Rel</td>
+<td>Specify if <code>param1</code> ("Deg" field) is an absolute direction (0) or a relative to the current yaw direction (1).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id57">
+<a class="reference external image-reference" href="../_images/MissionList_ConditionYaw.png"><img alt="../_images/MissionList_ConditionYaw.png" src="../_images/MissionList_ConditionYaw.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for CONDITION_YAW command</span><a class="headerlink" href="#id57" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]
+[site wiki=”copter” heading=”off”]</p>
+</section>
+</section>
+<section id="special-commands">
+<h2>Special Commands<a class="headerlink" href="#special-commands" title="Permalink to this heading">¶</a></h2>
+<p>This section is for commands that may be relevant to missions, but but
+which are not mission commands (part of the mission).</p>
+<section id="mav-cmd-mission-start">
+<span id="id20"></span><h3>MAV_CMD_MISSION_START<a class="headerlink" href="#mav-cmd-mission-start" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter</p>
+<p>This command can be used to start a mission when the Copter is on the
+ground in AUTO mode. If the vehicle is already in the air then the
+mission will start as soon as you switch into AUTO mode (so this command
+is not needed/ignored). This allows a GCS/companion computer
+to start a mission in AUTO without raising the throttle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previously a mission would only start after the pilot engaged the
+throttle. This command makes it possible to start missions without
+directly controlling the throttle (though that approach is still
+available).</p>
+</div>
+<p>This is not a “mission command” (it can’t be used as a type of mission
+waypoint). It is run from the <strong>Action</strong> menu (see the screenshot
+below).</p>
+<p><strong>Command parameters</strong></p>
+<p>The parameters are all ignored.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td></td>
+<td>The first mission item to run.</td>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td></td>
+<td>The last mission item to run (after this item is run, the mission ends).</td>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong>Mission Planner screenshots</strong></p>
+<figure class="align-default" id="id58">
+<a class="reference external image-reference" href="../_images/MissionPlanner_MissionStartCommand.jpg"><img alt="../_images/MissionPlanner_MissionStartCommand.jpg" src="../_images/MissionPlanner_MissionStartCommand.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner: MISSION_START command</span><a class="headerlink" href="#id58" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mav-cmd-component-arm-disarm">
+<span id="id21"></span><h3>MAV_CMD_COMPONENT_ARM_DISARM<a class="headerlink" href="#mav-cmd-component-arm-disarm" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter</p>
+<p>Disarm the motors.</p>
+<p>The command supports disarming on the ground and in flight.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The motors will disarm automatically after landing.</p>
+</div>
+<p>This is not a “mission command” (it can’t be used as a type of mission
+waypoint).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td></td>
+<td>1 to arm, 0 to disarm. This only works when the vehicle is on the ground.
+</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td></td>
+<td>A value of 21196 will disarm the vehicle in flight.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+</section>
+<section id="do-commands">
+<h2>DO commands<a class="headerlink" href="#do-commands" title="Permalink to this heading">¶</a></h2>
+<p>The “DO” or “Now” commands are executed once to perform some action. All
+the DO commands associated with a waypoint are executed immediately.</p>
+<section id="mav-cmd-do-change-speed">
+<span id="id22"></span><h3>MAV_CMD_DO_CHANGE_SPEED<a class="headerlink" href="#mav-cmd-do-change-speed" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane, Rover.</p>
+<p>[site wiki=”copter” heading=”off”]</p>
+<p>Sets the desired maximum speed in meters/second (only). Both the
+speed-type and throttle settings are ignored.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td>speed m/s</td>
+<td>Speed type (0,1=Ground Speed,  2=Climb Speed, 3=Descent Speed).</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>speed in m/s</td>
+<td>Target speed (m/s).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Trim throttle as a percentage (0-100%). A value of -1 indicates no change.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id59">
+<a class="reference external image-reference" href="../_images/MissionList_DoChangeSpeed.png"><img alt="../_images/MissionList_DoChangeSpeed.png" src="../_images/MissionList_DoChangeSpeed.png" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for DO_CHANGE_SPEED command</span><a class="headerlink" href="#id59" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>Change the target horizontal speed (airspeed or groundspeed) and/or the
+vehicle’s throttle. If airspeed option is selected, this changes the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#trim-arspd-cm" title="(in Plane)"><span class="xref std std-ref">TRIM_ARSPD</span></a> parameter during the flight until reboot or mode is changed to CRUISE or FBWB. If groundspeed option is used, then <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#min-gndspd-cm" title="(in Plane)"><span class="xref std std-ref">MIN_GNDSPD</span></a> parameter is changed to this value until rebooted or changed by this command again. If the throttle field is non-zero and equal to or below 100, then the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#trim-throttle" title="(in Plane)"><span class="xref std std-ref">TRIM_THROTTLE</span></a> parameter is changed  until reboot or changed by this command again.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Speed changes only have effect if an airspeed sensor is present, healthy, and in use. <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#trim-throttle" title="(in Plane)"><span class="xref std std-ref">TRIM_THROTTLE</span></a> changes impacts only flight with airspeed sensor not in use.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Type (0=as 1=gs)</td>
+<td>Speed type (0=Airspeed, 1=Ground Speed).</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Speed (m/s)</td>
+<td>Target speed (m/s). A value of -1 indicates no change. a value of -2 uses :ref:`TRIM_ARSPD_CM<TRIM_ARSPD_CM>`</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Throttle(%)</td>
+<td>Throttle as a percentage (0-100%). A value of -1 indicates no change.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p>[site wiki=”rover” heading=”off”]</p>
+<p>Change the target horizontal speed and/or the vehicle’s throttle.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Speed (m/s)</td>
+<td>Target speed (m/s). A value of -1 indicates no change.</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Throttle(%)</td>
+<td>Throttle as a percentage (0-100%). A value of -1 indicates no change.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-do-set-home">
+<span id="id23"></span><h3>MAV_CMD_DO_SET_HOME<a class="headerlink" href="#mav-cmd-do-set-home" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Sets the home location either as the current location or at the location
+specified in the command.For SITL work, altitude input here needs to be with reference to absolute altitude, taking into account SRTM elevation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>For Plane and Rover, if a good GPS fix cannot be obtained the
+location specified in the command is used.</p></li>
+<li><p>For Copter, the command will also try to use the current position if
+all the location parameters are set to 0. The location information in
+the command is only used if it is close to the EKF origin.</p></li>
+</ul>
+</div>
+<p>[site wiki=”copter” heading=”off”]</p>
+<p>[/site]</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Current</td>
+<td>Set home location:
+
+1=Set home as current location.
+
+0=Use location specified in message parameters.
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Target home latitude (if <code>param1=0</code>)</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Lon</td>
+<td>Target home longitude (if <code>param1=0</code>)</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Target home altitude (if <code>param1=0</code>)</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id60">
+<a class="reference external image-reference" href="../_images/MissionList_DoSetHome.png"><img alt="../_images/MissionList_DoSetHome.png" src="../_images/MissionList_DoSetHome.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settings for DO_SET_HOME command</span><a class="headerlink" href="#id60" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mav-cmd-do-set-relay">
+<span id="id24"></span><h3>MAV_CMD_DO_SET_RELAY<a class="headerlink" href="#mav-cmd-do-set-relay" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Set a <a class="reference external" href="common-relay">Relay</a> pin’s voltage high (on) or low (off).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Relay No</td>
+<td>Relay number.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>off(0)/on(1)</td>
+<td>Set relay state:
+
+1: Set relay high/on (3.3V on Pixhawk, 5V on APM).
+
+0: Set relay low/off (0v)
+any other value toggles the relay
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id61">
+<a class="reference external image-reference" href="../_images/MissionPlanner_DO_SET_RELAY.png"><img alt="../_images/MissionPlanner_DO_SET_RELAY.png" src="../_images/MissionPlanner_DO_SET_RELAY.png" /></a>
+<figcaption>
+<p><span class="caption-text">MissionPlanner Settings for DO_SET_RELAY command</span><a class="headerlink" href="#id61" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mav-cmd-do-repeat-relay">
+<span id="id25"></span><h3>MAV_CMD_DO_REPEAT_RELAY<a class="headerlink" href="#mav-cmd-do-repeat-relay" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Toggle the <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">Relay</span></a> pin’s voltage/state a specified
+number of times with a given period. Toggling the Relay will turn an off
+relay on and vice versa</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Relay No</td>
+<td>Relay number.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Repeat #</td>
+<td>Cycle count - the number of times the relay should be toggled</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Delay(s)</td>
+<td>Cycle time (seconds, decimal) - time between each toggle.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id62">
+<a class="reference external image-reference" href="../_images/MissionList_DoRepeatRelay.png"><img alt="../_images/MissionList_DoRepeatRelay.png" src="../_images/MissionList_DoRepeatRelay.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settingsfor DO_RELAY_REPEAT command</span><a class="headerlink" href="#id62" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above, assuming the relay was off to begin with, it would
+be set high and then after 3 seconds it would be toggled low again.</p>
+</section>
+<section id="mav-cmd-do-set-servo">
+<span id="id26"></span><h3>MAV_CMD_DO_SET_SERVO<a class="headerlink" href="#mav-cmd-do-set-servo" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Set a given <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servo pin</span></a> output to a specific PWM value.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Ser No</td>
+<td>Servo number - target servo output pin/channel number.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>PWM</td>
+<td>PWM value to output, in microseconds (typically 1000 to 2000).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id63">
+<a class="reference external image-reference" href="../_images/MissionList_DoSetServo.png"><img alt="../_images/MissionList_DoSetServo.png" src="../_images/MissionList_DoSetServo.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settingsfor DO_SET_SERVO command</span><a class="headerlink" href="#id63" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above, the servo attached to output channel 8 would be
+moved to PWM 1700 (servos generally accept PWM values between 1000 and
+2000).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>as of firmware versions 4.0 and later, this command can be used on any output configured by its <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> command as 0,1, or 51-66  (disabled or RC pass-throughs)</p>
+</div>
+</section>
+<section id="mav-cmd-do-repeat-servo">
+<span id="id27"></span><h3>MAV_CMD_DO_REPEAT_SERVO<a class="headerlink" href="#mav-cmd-do-repeat-servo" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Cycle a <a class="reference internal" href="common-servo.html#common-servo"><span class="std std-ref">servo</span></a> PWM output pin between its mid-position
+value and a specified PWM value, for a given number of cycles and with a
+set period.</p>
+<p>The mid-position value is specified in the <code class="docutils literal notranslate"><span class="pre">RCn_TRIM</span></code> parameter for
+the channel (<code class="docutils literal notranslate"><span class="pre">RC8_TRIM</span></code> in the screenshot below). The default value is
+1500..</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Ser No</td>
+<td>Servo number - target servo output pin/channel.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>PWM</td>
+<td>PWM value to output, in microseconds (typically 1000 to 2000).</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Repeat #</td>
+<td>Cycle count - number of times to move the servo to the specified PWM value</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td>Delay (s)</td>
+<td>Cycle time (seconds) - the delay in seconds between each servo movement.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id64">
+<a class="reference external image-reference" href="../_images/MissionList_DoRepeatServo.png"><img alt="../_images/MissionList_DoRepeatServo.png" src="../_images/MissionList_DoRepeatServo.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settingsfor DO_REPEAT_SERVO command</span><a class="headerlink" href="#id64" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above, the servo attached to output channel 8 would be
+moved to PWM 1700, then after 4 second, back to mid, after another 4
+seconds it would be moved to 1700 again, then finally after 4 more
+seconds it would be moved back to mid.</p>
+<p id="mav-cmd-do-land-start">[site wiki=”plane” heading=”off”]</p>
+</section>
+<section id="id28">
+<h3>MAV_CMD_DO_LAND_START<a class="headerlink" href="#id28" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter, Rover).</p>
+<p>Mission command to prepare for a landing.</p>
+<p>This is used as a marker in a mission to tell the autopilot where a
+sequence of mission items that represents a landing starts. It may also
+be sent via a <code class="docutils literal notranslate"><span class="pre">COMMAND_LONG</span></code> to trigger a landing, in which case the
+nearest (geographically) landing sequence in the mission will be used.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">RTL_AUTOLAND</span></code> is set to 2, the plane will jump to the nearest
+<code class="docutils literal notranslate"><span class="pre">DO_LAND_START</span></code> in the mission table when RTL is initialized.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>General information on landing a plane is provided in the topic
+<a class="reference external" href="https://ardupilot.org/plane/docs/automatic-landing.html#automatic-landing" title="(in Plane)"><span class="xref std std-ref">Automatic Landing</span></a>.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param1</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude used to help find the closest landing sequence, or zero if not needed.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude used to help find the closest landing sequence, or zero if not needed.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-do-vtol-transition">
+<span id="id29"></span><h3>MAV_CMD_DO_VTOL_TRANSITION<a class="headerlink" href="#mav-cmd-do-vtol-transition" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter or Rover).Specifically QuadPlanes.</p>
+<p>Mission command to change to/from VTOL and fixed wing mode of flight. The mode is changed based on the first parameter: 3 = change to VTOL flight, 4 = change to fixed wing flight.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Mode</td>
+<td>3=VTOL,4=Fixed-Wing</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td>
+</td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-do-set-roi">
+<span id="id30"></span><h3>MAV_CMD_DO_SET_ROI<a class="headerlink" href="#mav-cmd-do-set-roi" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter, Plane, Rover.
+[site wiki=”copter” heading=”off”]</p>
+<p>Points the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a> at the “region
+of interest”, and also rotates the nose of the vehicle if the
+mount type does not support a yaw feature.</p>
+<p>After setting the ROI, the camera/vehicle will continue to follow it
+until the end of the mission, unless it is changed or cleared by setting
+another ROI. Clearing the ROI is achieved by setting a later
+DO_SET_ROI command with all zero for <code class="docutils literal notranslate"><span class="pre">param5</span></code>-<code class="docutils literal notranslate"><span class="pre">param7</span></code> (Lat, Lon
+and Alt).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td></td>
+<td>Region of interest mode. (see MAV_ROI enum) // 0 = no roi, 1 = next
+waypoint, 2 = waypoint number, 3 = fixed location, 4 = given target (not supported)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td></td>
+<td>MISSION index/ target ID. (see MAV_ROI enum)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param3</strong></td>
+<td></td>
+<td>ROI index (allows a vehicle to manage multiple ROI's)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude (x) of the fixed ROI</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude (y) of the fixed ROI</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude of the fixed ROI</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots/video</strong></p>
+<figure class="align-default" id="id65">
+<a class="reference external image-reference" href="../_images/MissionList_DoSetRoi.jpg"><img alt="../_images/MissionList_DoSetRoi.jpg" src="../_images/MissionList_DoSetRoi.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Copter: Mission Planner Settings for DO_SET_ROI command</span><a class="headerlink" href="#id65" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the example above the nose and camera would be pointed at the red
+marker.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/W8NCFHrEjfU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>[/site]</p>
+<p>[site wiki=”plane” heading=”off”]</p>
+<p>Points the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a> at the “region
+of interest”.</p>
+<p>After setting the ROI, the camera will continue to follow it until the
+end of the mission, unless it is changed or cleared by setting another
+ROI. Clearing the ROI is achieved by setting a later DO_SET_ROI
+command with all zero for <code class="docutils literal notranslate"><span class="pre">param5</span></code>-<code class="docutils literal notranslate"><span class="pre">param7</span></code> (Lat, Lon and Alt).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td></td>
+<td>Region of interest mode. (see MAV_ROI enum) // 0 = no roi, 1 = next
+waypoint, 2 = waypoint number, 3 = fixed location, 4 = given target (not supported)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td>
+</td>
+<td>MISSION index/ target ID. (see MAV_ROI enum)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param3</strong></td>
+<td></td>
+<td>ROI index (allows a vehicle to manage multiple ROI's)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude (x) of the fixed ROI</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude (y) of the fixed ROI</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude of the fixed ROI</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p>[site wiki=”rover” heading=”off”]</p>
+<p>Points the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a> at the “region
+of interest”.</p>
+<p>After setting the ROI, the camera will continue to follow it until the
+end of the mission, unless it is changed or cleared by setting another
+ROI. Clearing the ROI is achieved by setting a later DO_SET_ROI
+command with all zero for <code class="docutils literal notranslate"><span class="pre">param5</span></code>-<code class="docutils literal notranslate"><span class="pre">param7</span></code> (Lat, Lon and Alt).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param1</strong></td>
+<td></td>
+<td>Region of interest mode. (see MAV_ROI enum) // 0 = no roi, 1 = next
+waypoint, 2 = waypoint number, 3 = fixed location, 4 = given target (not supported)
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td></td>
+<td>MISSION index/ target ID. (see MAV_ROI enum)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param3</strong></td>
+<td></td>
+<td>ROI index (allows a vehicle to manage multiple ROI's)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Lat</td>
+<td>Latitude (x) of the fixed ROI</td>
+</tr>
+<tr>
+<td><strong>param6</strong></td>
+<td>Long</td>
+<td>Longitude (y) of the fixed ROI</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Alt</td>
+<td>Altitude of the fixed ROI</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-do-digicam-configure">
+<span id="id31"></span><h3>MAV_CMD_DO_DIGICAM_CONFIGURE<a class="headerlink" href="#mav-cmd-do-digicam-configure" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Configure an on-board camera controller system.</p>
+<p>The parameters are forwarded to an on-board camera controller system
+(like the <a class="reference external" href="common-camera-control-board">3DR Camera Control Board</a>),
+if one is present.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Mode</td>
+<td>Set camera mode:
+1: ProgramAuto
+
+2: Aperture Priority
+
+3: Shutter Priority
+
+4: Manual
+
+5: IntelligentAuto
+
+6: SuperiorAuto
+</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Shutter Speed</td>
+<td>Shutter speed (seconds divisor). So if the speed is 1/60 seconds, the
+value entered would be 60. Slowest shutter trigger supported is 1 second.
+</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>Aperture</td>
+<td>Aperture: F stop number</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td>ISO</td>
+<td>ISO number e.g. 80, 100, 200, etc.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param5</strong></td>
+<td>ExposureMode</td>
+<td>Exposure type enumerator</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param6</strong></td>
+<td>CommandID</td>
+<td>Command Identity</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td>Engine Cut-Off</td>
+<td>Main engine cut-off time before camera trigger in seconds/10 (0 means no cut-off).</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-do-digicam-control">
+<span id="id32"></span><h3>MAV_CMD_DO_DIGICAM_CONTROL<a class="headerlink" href="#mav-cmd-do-digicam-control" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Trigger the <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">camera shutter</span></a> once. This command takes no additional arguments.</p>
+<p><strong>Command parameters</strong></p>
+<p>In general if a command field is set to 0 it is ignored.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>On/Off</td>
+<td>Session control (on/off or show/hide lens):
+
+0: Turn off the camera / hide the lens
+
+1: Turn on the camera /Show the lens
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param2</strong></td>
+<td>Zoom Position</td>
+<td>Zoom's absolute position. 2x, 3x, 10x, etc.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param3</strong></td>
+<td>Zoom Step</td>
+<td>Zooming step value to offset zoom from the current position</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td>Focus Lock</td>
+<td>Focus Locking, Unlocking or Re-locking:
+0: Ignore
+
+1: Unlock
+
+2: Lock
+</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td>Shutter Cmd</td>
+<td>Shooting Command. Any non-zero value triggers the camera.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td><strong>param6</strong></td>
+<td>CommandID</td>
+<td>Command Identity</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id66">
+<a class="reference external image-reference" href="../_images/MissionList_DoDigicamControl.png"><img alt="../_images/MissionList_DoDigicamControl.png" src="../_images/MissionList_DoDigicamControl.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission PlannerSettings for DO_DIGICAM_CONTROL command.</span><a class="headerlink" href="#id66" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mav-cmd-do-mount-control">
+<span id="id33"></span><h3>MAV_CMD_DO_MOUNT_CONTROL<a class="headerlink" href="#mav-cmd-do-mount-control" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Mission command to control a camera or antenna mount.</p>
+<p>This command allows you to specify a roll, pitch and yaw angle which
+will be sent to the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a>. This
+can be used to point the camera in specific directions at various times
+in the mission.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td></td>
+<td>Pitch, in degrees.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td></td>
+<td>Roll, in degrees.</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td></td>
+<td>Yaw, in degrees.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>reserved</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>reserved</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>reserved</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td></td>
+<td>`MAV_MOUNT_MODE <https://mavlink.io/en/messages/common.html#MAV_MOUNT_MODE>`__ enum value.</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id67">
+<a class="reference external image-reference" href="../_images/MissionList_DoMountControl.png"><img alt="../_images/MissionList_DoMountControl.png" src="../_images/MissionList_DoMountControl.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner Settings for DO_MOUNT_CONTROL command</span><a class="headerlink" href="#id67" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mav-cmd-do-gimbal-manager-pitchyaw">
+<span id="id34"></span><h3>MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW<a class="headerlink" href="#mav-cmd-do-gimbal-manager-pitchyaw" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Mission command to move the gimbal to the desired pitch and yaw angles (in degrees).</p>
+<p>This command allows you to specify a pitch and yaw angle which
+will be sent to the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera gimbal</span></a>. This
+can be used to point the camera in specific directions at various times
+in the mission. Positive pitch angles are up, Negative are down.  Positive yaw angles are clockwise, negative are counter clockwise.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td></td>
+<td>Pitch, in degrees.</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td></td>
+<td>Yaw, in degrees.</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td></td>
+<td>PitchRate, in deg/s.</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td></td>
+<td>YawRate, in deg/s</td>
+</tr>
+<tr>
+<td><strong>param5</strong></td>
+<td></td>
+<td>Flags: 0=boddyframe, 16=earthframe</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>reserved</td>
+</tr>
+<tr>
+<td><strong>param7</strong></td>
+<td></td>
+<td> Gimbal instance ID</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id68">
+<a class="reference external image-reference" href="../_images/mission-list-do-gimbal-manager-pitchyaw.png"><img alt="../_images/mission-list-do-gimbal-manager-pitchyaw.png" src="../_images/mission-list-do-gimbal-manager-pitchyaw.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission PlannerSettings for DO_GIMBAL_MANAGE_PITCHYAW command</span><a class="headerlink" href="#id68" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mav-cmd-do-set-cam-trigg-dist">
+<span id="id35"></span><h3>MAV_CMD_DO_SET_CAM_TRIGG_DIST<a class="headerlink" href="#mav-cmd-do-set-cam-trigg-dist" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Trigger the <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">camera shutter</span></a> at
+regular distance intervals. This command is useful in <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">camera survey missions</span></a>.
+To trigger the camera once, immediately after passing the DO command, set param3 to 1.  Trigger immediately parameter3 is available from ArduPilot 4.1 onwards.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Providing a distance of zero will stop the camera shutter from being triggered.</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Dist (m)</td>
+<td>Camera trigger distance interval (meters). Zero to turn off distance triggering.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<td><strong>param3</strong></td>
+<td>?</td>
+<td>Trigger once instantly. One is on, zero is off.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p><strong>Mission planner screenshots</strong></p>
+<figure class="align-default" id="id69">
+<a class="reference external image-reference" href="../_images/MissionList_DoSetCamTriggDist.png"><img alt="../_images/MissionList_DoSetCamTriggDist.png" src="../_images/MissionList_DoSetCamTriggDist.png" /></a>
+<figcaption>
+<p><span class="caption-text">Mission PlannerSettings for DO_SET_CAM_TRIGG_DIST command</span><a class="headerlink" href="#id69" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The above configuration above will cause the camera shutter to trigger
+after every 5m that the vehicle travels.</p>
+</section>
+<section id="mav-cmd-do-fence-enable">
+<span id="id36"></span><h3>MAV_CMD_DO_FENCE_ENABLE<a class="headerlink" href="#mav-cmd-do-fence-enable" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Mission commands to enable the Plane <a class="reference external" href="https://ardupilot.org/plane/docs/geofencing.html#geofencing" title="(in Plane)"><span class="xref std std-ref">GeoFence</span></a>, Copter/Rover <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">Cylindrical Fence</span></a> and/or <a class="reference internal" href="common-polygon_fence.html#common-polygon-fence"><span class="std std-ref">Inclusion and Exclusion Fences</span></a>.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td></td>
+<td>Set GeoFence enable state (0=disable, 1=enable, 2= disable only floor (Plane only)).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-do-aux-function">
+<span id="id37"></span><h3>MAV_CMD_DO_AUX_FUNCTION<a class="headerlink" href="#mav-cmd-do-aux-function" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Mission command to control an <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">Auxiliary Function</span></a> in the same manner as an RC channel switch.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Aux Function</td>
+<td>Auxiliary Function code,same as RCx_OPTIONS </td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>Switch Position</td>
+<td> 0:Low, 1:Mid, 2:High</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p id="mav-cmd-do-parachute">[site wiki=”copter” heading=”off”]</p>
+</section>
+<section id="id38">
+<h3>MAV_CMD_DO_PARACHUTE<a class="headerlink" href="#id38" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter (not Plane or Rover).</p>
+<p>Mission command to trigger a parachute (if enabled).</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Enable/Release</td>
+<td>Parachute action (0=disable, 1=enable, 2=release).</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-do-inverted-flight">[site wiki=”plane” heading=”off”]</p>
+</section>
+<section id="id39">
+<h3>MAV_CMD_DO_INVERTED_FLIGHT<a class="headerlink" href="#id39" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter or Rover).</p>
+<p>Change between normal and <a class="reference external" href="https://ardupilot.org/plane/docs/inverted-flight.html#inverted-flight" title="(in Plane)"><span class="xref std std-ref">inverted flight</span></a>.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>0=normal, 1=inverted</td>
+<td>Set flight type:
+
+0: normal
+1: inverted
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-do-gripper">[site wiki=”copter” heading=”off”]</p>
+</section>
+<section id="id40">
+<h3>MAV_CMD_DO_GRIPPER<a class="headerlink" href="#id40" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter (not Plane or Rover).</p>
+<p>Mission command to operate EPM gripper.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="common-electro-permanent-magnet-gripper.html#common-electro-permanent-magnet-gripper"><span class="std std-ref">instructions for integrating Copter with gripper</span></a> are out
+of date and use DO_SET_SERVO to activate the gripper (April 2015).</p>
+</div>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>Gripper No</td>
+<td>Gripper number (from 1 to maximum number of grippers on the vehicle). </td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>drop(0)/grab(1)</td>
+<td>Gripper action:
+0:Release
+1:Grab
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-do-guided-limits">
+<span id="id41"></span><h3>MAV_CMD_DO_GUIDED_LIMITS<a class="headerlink" href="#mav-cmd-do-guided-limits" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Copter (not Plane or Rover).</p>
+<p>This command sets time, altitude, and distance limits for external
+control (GUIDED mode). When these limits are exceeded, control will
+return from GUIDED mode to the mission. Setting any of these parameters
+to zero will remove the associated limit.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>timeout S</td>
+<td>Maximum time (in seconds) that the external controller is allowed to
+control vehicle. Use 0 to remove time limits (unlimited time allowed).
+</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>min alt</td>
+<td>Minimum allowed absolute altitude (in meters, AMSL), below which the
+command will be aborted and the mission will continue. Use 0 to indicate
+that there is no minimum altitude limit.
+</td>
+</tr>
+<tr>
+<td><strong>param3</strong></td>
+<td>max alt</td>
+<td>Maximum allowed absolute altitude (in meters, AMSL), above which the
+command will be aborted and the mission will continue. Use 0 to indicate
+that there is no maximum altitude limit.
+</td>
+</tr>
+<tr>
+<td><strong>param4</strong></td>
+<td>max dist</td>
+<td>Horizontal move limit (in meters, AMSL). If vehicle moves more than this
+distance from its location at the moment the command was executed, the
+command will be aborted and the mission will continue. Use 0 to indicate
+that there is no horizontal limit.
+</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+<p id="mav-cmd-do-autotune-enable">[site wiki=”plane” heading=”off”]</p>
+</section>
+<section id="id42">
+<h3>MAV_CMD_DO_AUTOTUNE_ENABLE<a class="headerlink" href="#id42" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter or Rover).</p>
+<p>Enable/disable <a class="reference external" href="https://ardupilot.org/plane/docs/autotune-mode.html#autotune-mode" title="(in Plane)"><span class="xref std std-ref">AUTOTUNE</span></a> mode.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>na</td>
+<td>Enable/disable autotune (1: enable, 0:disable)</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-do-engine-control">
+<span id="id43"></span><h3>MAV_CMD_DO_ENGINE_CONTROL<a class="headerlink" href="#mav-cmd-do-engine-control" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: Plane (not Copter or Rover).</p>
+<p>Stop or start internal combustion engine (ICE)</p>
+<p>This command can be used to start or stop the ICE before a NAV_VTOL_LAND or after a NAV_VTOL_TAKEOFF command for a QuadPlane to avoid potential prop strikes in the wind. It should be placed before either of those commands.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>?</td>
+<td>Start/Stop ICE (1: start, 0:stop)</td>
+</tr>
+<td><strong>param2</strong></td>
+<td></td>
+<td>Cold Start (1: enables choke, currently not implemented)</td>
+</tr>
+<td><strong>param3</strong></td>
+<td></td>
+<td>Altitude in cm. Altitude at which action is taken.</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[/site]</p>
+</section>
+<section id="mav-cmd-do-set-resume-repeat-dist">
+<span id="id44"></span><h3>MAV_CMD_DO_SET_RESUME_REPEAT_DIST<a class="headerlink" href="#mav-cmd-do-set-resume-repeat-dist" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Set the distance that the mission will be rewound when resuming after an interupt (switching modes).  A full explanation of this feature can be found on the <a class="reference internal" href="common-mission-rewind.html#common-mission-rewind"><span class="std std-ref">Mission Rewind on Resume Page</span></a>.  After setting a rewind distance in a mission, setting the distance to zero will switch off the rewind feature from that point on the mission.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>?</td>
+<td>Rewind distance in meters</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param2</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table></section>
+<section id="mav-cmd-storage-format">
+<span id="id45"></span><h3>MAV_CMD_STORAGE_FORMAT<a class="headerlink" href="#mav-cmd-storage-format" title="Permalink to this heading">¶</a></h3>
+<p>Supported by: All vehicles.</p>
+<p>Format SD Card. Useful for vehicles where SD card is inaccessible. Param1 and Param2 must be set to 1.</p>
+<p><strong>Command parameters</strong></p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Command Field</th>
+<th>Mission Planner Field</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>param1</strong></td>
+<td>?</td>
+<td>Must be 1</td>
+</tr>
+<tr>
+<td><strong>param2</strong></td>
+<td>?</td>
+<td>Must be 1</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param3</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param4</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param5</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param6</td>
+<td></td>
+<td>Empty</td>
+</tr>
+<tr style="color: #c0c0c0">
+<td>param7</td>
+<td></td>
+<td>Empty</td>
+</tr>
+</tbody>
+</table><p>[copywiki destination=”copter,plane,rover,planner,dev”]</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

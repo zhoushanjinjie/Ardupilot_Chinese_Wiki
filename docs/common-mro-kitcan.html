@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mRobotics KitCAN CAN/DroneCAN Adapter Node+Compass+Baro &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mRobotics KitCAN CAN/DroneCAN Adapter Node+Compass+Baro</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mrobotics-kitcan-can-dronecan-adapter-node-compass-baro">
+<span id="common-mro-kitcan"></span><h1>mRobotics KitCAN CAN/DroneCAN Adapter Node+Compass+Baro<a class="headerlink" href="#mrobotics-kitcan-can-dronecan-adapter-node-compass-baro" title="Permalink to this heading">¶</a></h1>
+<p>The next generation of integration from the mRo <a class="reference internal" href="common-mro-uavcan-adapter-node.html#common-mro-uavcan-adapter-node"><span class="std std-ref">CAN/DroneCAN Adapter Node</span></a>, the KitCAN integrates an ultra high precision magnetometer and barometer, in addition to providing an easy means of interfacing conventional GPS and Airspeed Sensors to DroneCAN, using a single CAN bus connection to the autopilot. It also includes an RGB LED and Arm Switch/Button.</p>
+<img alt="../_images/mro-kitcan.png" src="../_images/mro-kitcan.png" />
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>DroneCAN to GPS (UART interface)</p></li>
+<li><p>DroneCAN to I2C Airspeed Sensor (MS5525 default configuration) and/or MAGNETOMETER (autodetect)</p></li>
+<li><dl class="simple">
+<dt>DroneCAN integrated peripherals:</dt><dd><ul>
+<li><p>RM3100 High Precision Magnetometer</p></li>
+<li><p>DPS310 Barometer</p></li>
+<li><p>RGB LED</p></li>
+<li><p>Safety Switch</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>JST-GH Connectors</p></li>
+<li><p>Mounting Holes: 14mm x 31.5mm, 3.3mm diameter</p></li>
+</ul>
+</section>
+<section id="pinouts">
+<h2>Pinouts<a class="headerlink" href="#pinouts" title="Permalink to this heading">¶</a></h2>
+<p>GPS Port</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Voltage/Tolerance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 (red)</p></td>
+<td><p>VCC</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>TX (data out)</p></td>
+<td><p>3.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>RX (data in)</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>I2C SDA</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>I2C SCL</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+<p>CAN Port</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Voltage/Tolerance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 (red)</p></td>
+<td><p>VCC</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>CAN_H</p></td>
+<td><p>CAN bus</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>CAN_L</p></td>
+<td><p>CAN bus</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+<p>I2C Port</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Voltage/Tolerance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 (red)</p></td>
+<td><p>VCC</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>I2C SDA</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>I2C SCL</p></td>
+<td><p>3.3V/5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>GND</p></td>
+<td><p>–</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As delivered, the KitCAN will discover a MS5525 Airspeed sensor and/or any standard ArduPilot supported I2C Magnetometer that is connected to its I2C external bus</p>
+</div>
+</section>
+<section id="typical-system">
+<h2>Typical System<a class="headerlink" href="#typical-system" title="Permalink to this heading">¶</a></h2>
+<p>In this case, the Kitcan is connected to an <a class="reference internal" href="common-pixracer-overview.html#common-pixracer-overview"><span class="std std-ref">mRo Pixracer</span></a>
+autopilot via CAN and is providing the intefaces for a MS5525 airspeed sensor and a typical GPS/Compass combo, the <a class="reference external" href="https://store.mrobotics.io/product-p/mro10037.htm">mRo SAM GPS + IST8308 Mag</a></p>
+<a class="reference internal image-reference" href="../_images/mro-kitcan-system.jpg"><img alt="../_images/mro-kitcan-system.jpg" src="../_images/mro-kitcan-system.jpg" style="width: 450px;" /></a>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<p>Verify the following parameters are set on your autopilot via your ground station.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1 (assuming its on the first CAN bus of the autopilot)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a> = 9 (DroneCAN) or if it will be the secondary GPS, set instead</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type2" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE2</span></a> = 9 (DroneCAN)</p></li>
+<li><p>Reboot</p></li>
+</ul>
+<p>Make sure the DroneCAN compass driver is not disabled. (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-typemask" title="(in Rover)"><span class="xref std std-ref">COMPASS_TYPEMASK</span></a> bit 9 should not be set).</p>
+<p>If your controller has multiple compasses attached already, you may want to set the attached compass as a higher priority than others, if it has better precision or performance.</p>
+<p>To enable the integrated I2C RGB LED set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ntf-led-types" title="(in Rover)"><span class="xref std std-ref">NTF_LED_TYPES</span></a> bit 5 (DroneCAN) should be set in the autopilot.</p></li>
+</ul>
+<p>The integrated safety switch is automatically used, if the autopilot has enabled the use of safety switches via <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-safety-deflt" title="(in Rover)"><span class="xref std std-ref">BRD_SAFETY_DEFLT</span></a> is “1” (default).  (<code class="docutils literal notranslate"><span class="pre">BRD_SAFETYENABLE</span></code> in older firmware versions)</p>
+<p>If you want to enable an attached I2C airspeed sensor, set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> = 8 (DroneCAN)</p></li>
+</ul>
+<p>If the attached sensor is not an MS5525 type with I2C address 0x76, then you must access your KitCAN’s CAN parameters to select Airspeed type being attached to the adapter. Using Mission Planner (or <a class="reference internal" href="common-uavcan-gui.html#common-uavcan-gui"><span class="std std-ref">DroneCAN GUI</span></a>), go to the menu SETUP/Optional Hardware/DroneCAN/SLCan Mode CAN1/Parameters. Once the CAN Adapters parameters appear, change the following (this changes them inside the DroneCAN adapter, NOT the autopilot, allowing the adapter to use the correct driver and convert the information to DroneCAN airspeed format):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> = 4 (is default for an I2C-MS5525 with an 0x76 address which prevents conflict with the DSP310 integrated onboard with address 0x77). If another sensor is used, change the type to match that sensor.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-use" title="(in Rover)"><span class="xref std std-ref">ARSPD_USE</span></a> =  1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-bus" title="(in Rover)"><span class="xref std std-ref">ARSPD_BUS</span></a> =  0</p></li>
+</ul>
+<p>Then reboot.</p>
+</section>
+<section id="firmware">
+<h2>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h2>
+<p>This device uses the “f303-M100025” firmware located at <a class="reference external" href="https://firmware.ardupilot.org/AP_Periph">https://firmware.ardupilot.org/AP_Periph</a>. See the <a class="reference internal" href="common-uavcan-setup-advanced.html#common-uavcan-setup-advanced"><span class="std std-ref">SLCAN section of DroneCAN advanced setup</span></a> for downloading instructions, if changes are desired or updates become available.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://store.mrobotics.io/product-p/mro10025b.htm">mRobotics</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

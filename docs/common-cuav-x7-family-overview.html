@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUAV X7 Family Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="F4BY FMU" href="common-f4by.html" />
+    <link rel="prev" title="CUAV Pixhawk v6X" href="common-cuav-pixhawkv6X.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a><ul class="current">
+<li class="toctree-l4"><a class="reference external" href="https://arkelectron.com/product/arkv6x/">ARKV6X DS-10 Pixhawk6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5plus-overview.html">CUAV V5 Plus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-v5nano-overview.html">CUAV V5 Nano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-nora-overview.html">CUAV Nora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-cuav-pixhawkv6X.html">CUAV Pixhawk v6X</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CUAV X7/X7Pro/X7+/X7+ Pro</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://drotek.gitbook.io/pixhawk-3-pro/">Drotek Pixhawk3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-f4by.html">F4BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecube-overview.html">CubePilot Cube Black</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeorange-overview.html">CubePilot Cube Orange/+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubepurple-overview.html">CubePilot Cube Purple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-thecubeyellow-overview.html">CubePilot Cube Yellow</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">CubePilot Cube Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-durandal-overview.html">Holybro Durandal H7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v5.html">Holybro Pix32 v5</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/Pixhawk4/README.md">Holybro Pixhawk 4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6X.html">Holybro Pixhawk6X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pixhawk6C.html">Holybro Pixhawk6C/ 6C Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-pix32v6.html">Holybro Pix32v6(Pixhawk6C variant)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixhawk-overview.html">mRo Pixhawk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pixracer-overview.html">mRo Pixracer</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRo X2.1</a></li>
+<li class="toctree-l4"><a class="reference external" href="https://store.mrobotics.io/mRo-X2-1-777-p/m10022a.htm">mRo X2.1-777</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-openpilot-revo-mini.html">OpenPilot Revolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-taulabs-sparky2.html">TauLabs Sparky2*</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">CUAV X7 Family Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cuav-x7-family-overview">
+<span id="common-cuav-x7-family-overview"></span><h1>CUAV X7 Family Overview<a class="headerlink" href="#cuav-x7-family-overview" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7plus/x7_plus.png"><img alt="../_images/x7_plus.png" src="../_images/x7_plus.png" style="width: 360px;" /></a>
+<p><strong>X7/X7 Pro/X7+/X7+ Pro®</strong> is an advanced autopilot family designed in-house by CUAV®. It uses a higher-performance STM32H7 processor and integrates industrial-grade sensors. Compared with previous autopilots, it has better performance and higher reliability.</p>
+<p>The first generation autopilots (X7/X7 Pro) have been updated with new sensors, providing the same high performance, but with more reliable source of supply, and some improvements to allow Bi-dir DShot and servo rail voltage monitoring.</p>
+<p>The modular design allows users to customize the baseboard and is fully compatible with the CUAV V5+ carrier board. The X7+/X7+ Pro are ideal for academic research and commercial systems integration.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Order from <a class="reference external" href="https://store.cuav.net/index.php">here</a>.
+Official retailers are listed <a class="reference external" href="https://www.cuav.net/en/resellers/">here</a>.</p>
+</section>
+<section id="features-of-cuav-x7-series">
+<h2>Features of CUAV X7 Series<a class="headerlink" href="#features-of-cuav-x7-series" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>CUAV X7</p></th>
+<th class="head"><p>CUAV X7 Plus</p></th>
+<th class="head"><p>CUAV X7 Pro</p></th>
+<th class="head"><p>CUAV X7 Plus Pro</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Processor</p></td>
+<td colspan="4"><p>STM32H743</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>Sensors</p></td>
+<td><p>BMI088</p></td>
+<td><p>ICM42688-P</p></td>
+<td><p>ADIS16470</p></td>
+<td><p>ADIS16470</p></td>
+</tr>
+<tr class="row-even"><td><p>ICM20689</p></td>
+<td><p>ICM20689</p></td>
+<td><p>BMI088</p></td>
+<td><p>ICM42688-P</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICM20649</p></td>
+<td><p>ICM20689</p></td>
+<td><p>ICM20649</p></td>
+<td><p>ICM20689</p></td>
+</tr>
+<tr class="row-even"><td colspan="4"><p>MS5611*2 BAROs</p></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p>RM3100  Compass</p></td>
+</tr>
+<tr class="row-even"><td><p>PWM  outputs</p></td>
+<td><p>14</p></td>
+<td><p>14</p></td>
+<td><p>14</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bidi DShot outputs</p></td>
+<td><p>6(M9~M14)</p></td>
+<td><p>12(M1~M12 )</p></td>
+<td><p>6(M9~M14)</p></td>
+<td><p>12(M1~M12 )</p></td>
+</tr>
+<tr class="row-even"><td><p>Servo voltage monitor</p></td>
+<td><p>NO</p></td>
+<td><p>YES(9.9V max)</p></td>
+<td><p>NO</p></td>
+<td><p>YES(9.9V max)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating Voltage</p></td>
+<td colspan="4"><p>4.3~5.4V （USB:4.75~5.25V)</p></td>
+</tr>
+<tr class="row-even"><td><p>Power monitor</p></td>
+<td colspan="4"><p>2(1 analog power monitor, 1 DroneCan power monitor)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>14 PWM servo outputs（12 support DShot）</p></li>
+<li><p>Analog/ PWM RSSI input</p></li>
+<li><p>2 GPS ports(GPS and UART4 ports)</p></li>
+<li><p>4 I2C buses(Two external I2C ports)</p></li>
+<li><p>2 CAN bus ports</p></li>
+<li><p>2 Power ports(Power A is an analog PMU interface, Power C is a DroneCAN PMU interface)</p></li>
+<li><p>2 ADC inputs</p></li>
+<li><p>1 USB-C port</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Other</strong></p>
+<ul>
+<li><p>Weight: 101g（X7+ Pro：105g）</p></li>
+<li><p>Operating temperature: -20 ~ 80°c（Measured value）</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="size-and-pinouts">
+<h2>Size and Pinouts<a class="headerlink" href="#size-and-pinouts" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7plus/x7_plus_size.png"><img alt="../_images/x7_plus_size.png" src="../_images/x7_plus_size.png" /></a>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7plus/pinouts_01.png"><img alt="../_images/pinouts_01.png" src="../_images/pinouts_01.png" /></a>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7plus/pinouts_02.png"><img alt="../_images/pinouts_02.png" src="../_images/pinouts_02.png" /></a>
+</section>
+<section id="default-uart-order">
+<h2>Default UART Order<a class="headerlink" href="#default-uart-order" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>SERIAL0 = console = USB (MAVLink2)</p></li>
+<li><p>SERIAL1 = Telemetry1 (MAVlink2 default)= USART2 DMA-enabled</p></li>
+<li><p>SERIAL2 = Telemetry2 (MAVlink2 default)= USART6 DMA-enabled</p></li>
+<li><p>SERIAL3 = GPS1 = USART1</p></li>
+<li><p>SERIAL4 = GPS2 = UART4</p></li>
+<li><p>SERIAL5 = USER = UART8 (not available except on custom carrier boards) DMA-enabled</p></li>
+<li><p>SERIAL6 = USER = UART7</p></li>
+<li><p>SERIAL7 = USB2 (Default protocol is MAVLink2)</p></li>
+</ul>
+<p>Serial protocols can be adjusted to personal preferences.</p>
+</section>
+<section id="pwm-output">
+<h2>PWM Output<a class="headerlink" href="#pwm-output" title="Permalink to this heading">¶</a></h2>
+<p>The CUAV X7+/X7+ Pro supports up to 14 PWM outputs. All 14 outputs support all normal PWM output formats.All outputs, except 13 and 14, also support DShot.</p>
+<p>The 14 PWM outputs are in 4 groups:</p>
+<ul class="simple">
+<li><p>Outputs 1, 2, 3 and 4 in group1 (these also support Bi-dir DShot if the Bi-Dir firmware version is used)</p></li>
+<li><p>Outputs 5, 6, 7 and 8 in group2</p></li>
+<li><p>Outputs 9, 10, 11 and 12 in group3</p></li>
+<li><p>Outputs 13 and 14 in group4（NO DMA)</p></li>
+</ul>
+<p>ALL outputs within the same group need to use the same output rate and protocol. If any output in a group uses DShot then all channels in that group must use DShot.</p>
+</section>
+<section id="gpios">
+<h2>GPIOs<a class="headerlink" href="#gpios" title="Permalink to this heading">¶</a></h2>
+<p>The 14 outputs can be used as GPIOs (relays, buttons, RPM etc). To use them you need to set the output’s SERVOx_FUNCTION to -1. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a> page for more information.</p>
+<p>The numbering of the GPIOs for use in the PIN parametersin ArduPilot is:</p>
+<p>pins:</p>
+<ul class="simple">
+<li><p>PWM1(M1) 50</p></li>
+<li><p>PWM2(M2) 51</p></li>
+<li><p>PWM3(M3) 52</p></li>
+<li><p>PWM4(M4) 53</p></li>
+<li><p>PWM5(M5) 54</p></li>
+<li><p>PWM6(M6) 55</p></li>
+<li><p>PWM7(M7) 56</p></li>
+<li><p>PWM8(M8) 57</p></li>
+<li><p>PWM9(M9) 58</p></li>
+<li><p>PWM10(M10) 59</p></li>
+<li><p>PWM11(M11) 60</p></li>
+<li><p>PWM12(M12) 61</p></li>
+<li><p>PWM13(M13) 62</p></li>
+<li><p>PWM14(M14) 63</p></li>
+</ul>
+</section>
+<section id="analog-inputs">
+<h2>Analog inputs<a class="headerlink" href="#analog-inputs" title="Permalink to this heading">¶</a></h2>
+<p>The CUAV X7+/X7+ Pro has 2 analog inputs, one 6V tolerant and one 3.3V tolerant</p>
+<ul class="simple">
+<li><p>ADC Pin18 -&gt; ADC 6.6V Sense</p></li>
+<li><p>ADC Pin4 -&gt; ADC 3.3V Sense</p></li>
+<li><p>Analog 3.3V RSSI input pin = 6</p></li>
+</ul>
+</section>
+<section id="battery-monitor">
+<h2>Battery Monitor<a class="headerlink" href="#battery-monitor" title="Permalink to this heading">¶</a></h2>
+<p>The autopilot includes a DroneCAN power module and battery monitor, <a class="reference internal" href="common-can-pmu.html#common-can-pmu"><span class="std std-ref">CUAV CAN/DroneCAN Power Module</span></a>. Connect to the Power C port and its already pre-configured for use.
+If you are using an analog battery monitor instead, connect to the Power A connector and set the following parameters (if used as second monitor use the BATT2 parameters instead):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = 4</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> = 17</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> = 16</p></li>
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> as required for the analog PMU used.</p></li>
+</ul>
+</section>
+<section id="rc-input">
+<h2>RC Input<a class="headerlink" href="#rc-input" title="Permalink to this heading">¶</a></h2>
+<p>The RCIN pin, which by default is mapped to a timer input, can be used for all ArduPilot supported receiver protocols, except CRSF/ELRS and SRXL2 which require a true UART connection. However, FPort, when connected in this manner, will only provide RC without telemetry.</p>
+<p>To allow CRSF and embedded telemetry available in Fport, CRSF, and SRXL2 receivers, a full UART, such as SERIAL6 (UART7) would need to be used for receiver connections. Below are setups using Serial6.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial6-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL6_PROTOCOL</span></a> should be set to “23”.</p></li>
+<li><p>FPort would require <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial6-options" title="(in Rover)"><span class="xref std std-ref">SERIAL6_OPTIONS</span></a> be set to “15”.</p></li>
+<li><p>CRSF would require <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial6-options" title="(in Rover)"><span class="xref std std-ref">SERIAL6_OPTIONS</span></a> be set to “0”.</p></li>
+<li><p>SRXL2 would require <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial6-options" title="(in Rover)"><span class="xref std std-ref">SERIAL6_OPTIONS</span></a> be set to “4” and connects only the TX pin.</p></li>
+</ul>
+<p>Any UART can be used for RC system connections in ArduPilot also, and is compatible with all protocols except PPM. See <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a> for details.</p>
+<p>The power rail associated with this connector position is powered via USB or PMU.</p>
+</section>
+<section id="typical-wiring-diagram">
+<h2>Typical Wiring Diagram<a class="headerlink" href="#typical-wiring-diagram" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/cuav_autopilot/x7plus/quickstart_en_01.png"><img alt="../_images/quickstart_en_01.png" src="../_images/quickstart_en_01.png" /></a>
+</section>
+<section id="loading-firmware">
+<h2>Loading Firmware<a class="headerlink" href="#loading-firmware" title="Permalink to this heading">¶</a></h2>
+<p>The board comes pre-installed with an ArduPilot compatible bootloader, allowing the loading of xxxxxx.apj firmware files with any ArduPilot compatible ground station.</p>
+<p>Firmware for these boards can be found here in sub-folders labeled starting with “CUAV-X7”. For the Bi-directional DSHot capable firmware (Outputs 1-4), the sub-folder is labeled starting with “CUAV-X7-bdshot”</p>
+</section>
+<section id="flight-video">
+<h2>Flight video<a class="headerlink" href="#flight-video" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/jiAjyL_ruec" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://doc.cuav.net/flight-controller/x7/en/x7.html">CUAV docs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cuav/hardware/tree/master/X7_Autopilot">x7 schematic</a></p></li>
+</ul>
+<p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-cuav-pixhawkv6X.html" class="btn btn-neutral float-left" title="CUAV Pixhawk v6X" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-f4by.html" class="btn btn-neutral float-right" title="F4BY FMU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

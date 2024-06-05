@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-blicube-rlink"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="blicube-rlink">
+<h1>Blicube RLINK<a class="headerlink" href="#blicube-rlink" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/rlink.jpg" src="../_images/rlink.jpg" />
+<p>RLINK is a long-distance wireless data link communication module developed by blicube.LLC, supporting Point to Point and Point to Multipoint. Using two RLINK modules to form a pair of data links for mutual communication, when one connected to the device end and the other connected to the computer end. With three or more RLINK modules, it can be used for Point to Multipoint.</p>
+<p>Based on built-in P900 module, RLINK has the characteristics of high transmission power, high link rate, high receiving sensitivity, etc. The ground-to-air communication distance is up to 30+KM, the transmitting power can reach 1W , besides the module supports wide voltage input (5～55V) and high-speed frequency hopping. The module has the operating temperature range of -40 to 80 degrees, with shell of CNC aviation aluminum alloy materials.</p>
+</section>
+<section id="specifications">
+<h1>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Specification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Frequency</p></td>
+<td><p>902-928MHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spreading Method</p></td>
+<td><p>Frequency Hopping</p></td>
+</tr>
+<tr class="row-even"><td><p>Encryption</p></td>
+<td><p>Optional(see –AES option)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Range</p></td>
+<td><p>Up to 60 KM(in theory)</p></td>
+</tr>
+<tr class="row-even"><td><p>Forward Error Detection</p></td>
+<td><p>Hamming/
+BCH/
+Golay/
+Reed-Solomon</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error Detection</p></td>
+<td><p>32 bits of CRC, ARQ</p></td>
+</tr>
+<tr class="row-even"><td><p>Output Power</p></td>
+<td><p>100mW-1W（20-30dBm）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial Interface</p></td>
+<td><p>3.3V TTL</p></td>
+</tr>
+<tr class="row-even"><td><p>Baud Rate</p></td>
+<td><p>57600（default &amp; changeable）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Link Rate</p></td>
+<td><p>57.6 – 276 kbps</p></td>
+</tr>
+<tr class="row-even"><td><p>Sensitivity (&#64;10^-4)</p></td>
+<td><p>114 dBm &#64; 57.6 kbps</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>112 dBm &#64; 115.2 kbps</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>109 dBm &#64; 172.8 kbps</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>107 dBm &#64; 230.4 kbps</p></td>
+</tr>
+<tr class="row-even"><td><p>Blocking</p></td>
+<td><p>+/- 1 MHz &gt; 55 dBc</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>+/- 2.5 MHz &gt; 60 dBc</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>+/- 5 MHz &gt; 65 dBc</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>&gt; 930 MHz &gt; 70 dBc</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>&lt; 890 MHz &gt; 70 dBc</p></td>
+</tr>
+<tr class="row-odd"><td><p>Supply Voltage</p></td>
+<td><p>5～55v</p></td>
+</tr>
+<tr class="row-even"><td><p>Antenna Interface</p></td>
+<td><p>SMA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Size</p></td>
+<td><p>50mm * 38mm * 14mm</p></td>
+</tr>
+<tr class="row-even"><td><p>Weight</p></td>
+<td><p>39g</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="where-to-buy">
+<h1>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference external" href="https://pt.aliexpress.com/item/1005003061008680.html">AliExpress</a></p>
+</section>
+<section id="user-manual">
+<h1><a class="reference external" href="https://github.com/ThomasVon2021/RLINK_P900/blob/master/Docs/RLINK%20User%20Manual%20V2.0%20.pdf">User Manual</a><a class="headerlink" href="#user-manual" title="Permalink to this heading">¶</a></h1>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

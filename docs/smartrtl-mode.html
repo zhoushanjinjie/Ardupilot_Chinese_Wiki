@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart RTL Mode &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sport Mode" href="sport-mode.html" />
+    <link rel="prev" title="Simple and Super Simple Modes" href="simpleandsuper-simple-modes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="flight-modes.html">飞行模式</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#recommended-flight-modes">Recommended Flight Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flight-modes.html#gps-dependency">GPS Dependency</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="flight-modes.html#full-list-of-flight-modes">Full list of flight modes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="flight-modes.html">飞行模式</a></li>
+      <li class="breadcrumb-item active">Smart RTL Mode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="smart-rtl-mode">
+<span id="smartrtl-mode"></span><h1>Smart RTL Mode<a class="headerlink" href="#smart-rtl-mode" title="Permalink to this heading">¶</a></h1>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/gXfBmFn_JEU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>When switched into Smart RTL, like regular RTL, the vehicle will attempt to return home.  The “Smart” part of this mode is that it will retrace a safe path home instead of returning directly home.  This can be useful if there are obstacles between the vehicle and the home position.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The vehicle must have a good position estimate (LEDs should be green) when the vehicle is armed or SmartRTL will be disabled.  If the vehicle is armed without a good position estimate, “SmartRTL deactivated: bad position” will be sent to the ground station.</p>
+</div>
+<p>The path used to return home is captured in a buffer as the vehicle drives around in any other mode.  The path is “simplified” (meaning curved paths are turned into a series of straight lines) and “pruned” (meaning loops are removed).  The buffer is of a limited size (see below) and once it is full, “SmartRTL deactivated: buffer full” will appear on the ground stations’s HUD and the user will no longer be able to switch into this mode. The altitude at each point is also stored and used on the return.</p>
+<p>SmartRTL saves points at a maximum of 3 per second, but only if the vehicle has moved at least <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-accuracy" title="(in Rover)"><span class="xref std std-ref">SRTL_ACCURACY</span></a> meters from the previous point. So for example, if the vehicle was moving at 10m/s it would save the points at 3.3m intervals. After 50 points are saved it goes back and simplifies them into lines again using that <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-accuracy" title="(in Rover)"><span class="xref std std-ref">SRTL_ACCURACY</span></a>. It will replace a string of points with just two end points if all the intermediate points are no more than <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-accuracy" title="(in Rover)"><span class="xref std std-ref">SRTL_ACCURACY</span></a> from the line between the end points. This is how it manages to create a smart path home without flying unecessary maneuvers.</p>
+<p>There are multiple ways that the vehicle can mode switch into SmartRTL. Either through user selected, or through failsafe selections.</p>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-gcs-enable" title="(in Rover)"><span class="xref std std-ref">FS_GCS_ENABLE</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fs-thr-enable" title="(in Rover)"><span class="xref std std-ref">FS_THR_ENABLE</span></a> parameters set to 4 or 5 the vehicle will switch to SmartRTL-&gt;RTL or SmartRTL-&gt;Land based on whether the correct conditions allows the mode. The setting indicates that it will try SmartRTL first, then downgrade to RTL (4) or Land (5)</p>
+<p>Additional Failsafes that may be set to switch to SmartRTL are: <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fs-crt-act" title="(in Rover)"><span class="xref std std-ref">BATT_FS_CRT_ACT</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fs-low-act" title="(in Rover)"><span class="xref std std-ref">BATT_FS_LOW_ACT</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-fs-low-act" title="(in Rover)"><span class="xref std std-ref">BATT2_FS_LOW_ACT</span></a>, and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-fs-crt-act" title="(in Rover)"><span class="xref std std-ref">BATT2_FS_CRT_ACT</span></a>.</p>
+<section id="smartrtl-parameters">
+<h2>SmartRTL Parameters<a class="headerlink" href="#smartrtl-parameters" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rtl-speed" title="(in Rover)"><span class="xref std std-ref">RTL_SPEED</span></a> can be used to set the speed (in meters/second) at which the vehicle will return to home.  By default this parameter is zero meaning the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#wpnav-speed" title="(in Copter)"><span class="xref std std-ref">WPNAV_SPEED</span></a>  parameter value will be used.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#rtl-alt-final" title="(in Copter)"><span class="xref std std-ref">RTL_ALT_FINAL</span></a> if set to 0, will land at home, otherwise will stop and hover above home at this altitude upon completion of the return.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-accuracy" title="(in Rover)"><span class="xref std std-ref">SRTL_ACCURACY</span></a> controls the accuracy (in meters) of the simplification and pruning performed.  The simplify algorithm will turn curved paths into straight lines but the line should never be more than this distance from the original path.  The pruning algorithm will cut paths that come within this many meters of each other.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-points" title="(in Rover)"><span class="xref std std-ref">SRTL_POINTS</span></a> controls the maximum number of points that can be stored.  Each additional 100 points requires about 3k of RAM and the image below shows how to check the autopilot’s available memory (most autopilots have enough memory for 500 points). If the maximum number of points is exhausted, “SmartRTL deactivated: buffer full” will be sent to the ground station and the user will not be able to switch into SmartRTL.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-options" title="(in Rover)"><span class="xref std std-ref">SRTL_OPTIONS</span></a> has one bit, currently, bit 2, that if set (value of “4”) will ignore pilot yaw commands while in SmartRTL.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SmartRTL can be deactivated as a mode by simply setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#srtl-points" title="(in Rover)"><span class="xref std std-ref">SRTL_POINTS</span></a> to “0”.</p>
+</div>
+<a class="reference external image-reference" href="../_images/smartrtl-freemem.jpg"><img alt="../_images/smartrtl-freemem.jpg" src="../_images/smartrtl-freemem.jpg" style="width: 400px;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="simpleandsuper-simple-modes.html" class="btn btn-neutral float-left" title="Simple and Super Simple Modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sport-mode.html" class="btn btn-neutral float-right" title="Sport Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

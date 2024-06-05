@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electronic Speed Controller (ESC) Calibration &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setting Motor Range" href="set-motor-range.html" />
+    <link rel="prev" title="RC Transmitter Flight Mode Configuration" href="common-rc-transmitter-flight-mode-configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">电调校准</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#about-esc-calibration">About ESC Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#all-at-once-calibration">All at once calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual-esc-by-esc-calibration">Manual ESC-by-ESC Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#semi-automatic-esc-by-esc-calibration">Semi Automatic ESC-by-ESC Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes-troubleshooting">Notes / Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recommended-esc-settings-as-follows">Recommended ESC settings as follows:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+      <li class="breadcrumb-item active">Electronic Speed Controller (ESC) Calibration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="electronic-speed-controller-esc-calibration">
+<span id="esc-calibration"></span><h1>Electronic Speed Controller (ESC) Calibration<a class="headerlink" href="#electronic-speed-controller-esc-calibration" title="Permalink to this heading">¶</a></h1>
+<p>Electronic speed controllers are responsible for spinning the motors at
+the speed requested by the autopilot. Most ESCs need to be calibrated so
+that they know the minimum and maximum pwm values that the flight
+controller will send.  This page provides instructions for calibrating
+ESCs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please complete <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">radio calibration</span></a> before performing ESC
+calibration.</p>
+</div>
+<section id="about-esc-calibration">
+<h2>About ESC Calibration<a class="headerlink" href="#about-esc-calibration" title="Permalink to this heading">¶</a></h2>
+<p>ESC calibration will vary based on what brand of ESC you are using, so
+always refer to the documentation for the brand of ESC you are using for
+specific information (such as tones).  “All at once” calibration works
+well for most ESCs, so it is good idea to attempt it first and if that
+fails try the “Manual ESC-by-ESC” method.</p>
+<ul class="simple">
+<li><p>Refer to <a class="reference internal" href="common-brushless-escs.html#common-brushless-escs"><span class="std std-ref">PWM, OneShot and OneShot125 ESCs</span></a> for setup of the ESC protocol (<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mot-pwm-type" title="(in Rover)"><span class="xref std std-ref">MOT_PWM_TYPE</span></a>) according to your type of ESC.</p></li>
+<li><p>Some ESCs like the DJI Opto ESCs do not require and do not support calibration, so skip this page completely.</p></li>
+<li><p>If you are using a digital esc protocol like DShot or are using CAN ESCs then you also don’t need to calibrate them, so skip this page. The section at the end on ESC settings is still applicable, however.</p></li>
+<li><p>Some brands of ESC do not allow calibration and will not arm unless you adjust your radio’s throttle end-points so that the minimum throttle is around 1000 PWM and maximum is around 2000.  Note that if you change the end-points on your TX you must re-do the <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">Radio Calibration</span></a>.  Alternatively, you may manually set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-min" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MIN</span></a> to 1000 and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#mot-pwm-max" title="(in Copter)"><span class="xref std std-ref">MOT_PWM_MAX</span></a> to 2000.</p></li>
+<li><p>Begin this procedure only after you have completed the <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">radio control calibration</span></a> and <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors"><span class="std std-ref">Connect ESCs and motors</span></a> part of the <a class="reference internal" href="autopilot-assembly-instructions.html#autopilot-assembly-instructions"><span class="std std-ref">飞控系统安装 Instructions</span></a>.  Next follow these steps:</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Safety Check!</strong></p>
+<p>Before calibrating ESCs, please ensure that your copter has NO PROPS on
+it and that the autopilot is NOT CONNECTED to your computer via USB and the
+Lipo battery is disconnected.</p>
+<a class="reference external image-reference" href="../_images/copter_disconnect_props_banner.png"><img alt="../_images/copter_disconnect_props_banner.png" src="../_images/copter_disconnect_props_banner.png" style="width: 400px;" /></a>
+<a class="reference external image-reference" href="../_images/MicroUSB1__57056_zoom.jpg"><img alt="../_images/MicroUSB1__57056_zoom.jpg" src="../_images/MicroUSB1__57056_zoom.jpg" style="width: 400px;" /></a>
+</div>
+</section>
+<section id="all-at-once-calibration">
+<h2>All at once calibration<a class="headerlink" href="#all-at-once-calibration" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Turn on your transmitter and put the throttle stick at maximum.</p>
+<a class="reference external image-reference" href="../_images/transmitter-throttle-max.jpg"><img alt="../_images/transmitter-throttle-max.jpg" src="../_images/transmitter-throttle-max.jpg" style="width: 400px;" /></a>
+</li>
+<li><p>Connect the Lipo battery.  The autopilot’s red, blue and yellow LEDs
+will light up in a cyclical pattern. This means the it’s ready to go
+into ESC calibration mode the next time you plug it in.</p>
+<a class="reference external image-reference" href="../_images/Connect-Battery.jpg"><img alt="../_images/Connect-Battery.jpg" src="../_images/Connect-Battery.jpg" style="width: 400px;" /></a>
+</li>
+<li><p>With the transmitter throttle stick still high, disconnect and
+reconnect the battery.</p>
+<a class="reference external image-reference" href="../_images/Disconnect-Battery.jpg"><img alt="../_images/Disconnect-Battery.jpg" src="../_images/Disconnect-Battery.jpg" style="width: 400px;" /></a>
+<a class="reference external image-reference" href="../_images/Connect-Battery.jpg"><img alt="../_images/Connect-Battery.jpg" src="../_images/Connect-Battery.jpg" style="width: 400px;" /></a>
+</li>
+<li><p>For Autopilots with a safety switch, push it until the LED displays solid red</p></li>
+<li><p>The autopilot is now in ESC calibration mode.</p></li>
+<li><p>Wait for your ESCs to emit the musical tone, the regular number of
+beeps indicating your battery’s cell count (i.e. 3 for 3S, 4 for 4S)
+and then an additional two beeps to indicate that the maximum
+throttle has been captured.</p></li>
+<li><p>Pull the transmitter’s throttle stick down to its minimum position.</p>
+<a class="reference external image-reference" href="../_images/transmitter-throttle-min.jpg"><img alt="../_images/transmitter-throttle-min.jpg" src="../_images/transmitter-throttle-min.jpg" style="width: 400px;" /></a>
+</li>
+<li><p>The ESCs should then emit a long tone indicating that the minimum
+throttle has been captured and the calibration is complete.</p></li>
+<li><p>If the long tone indicating successful calibration was heard, the
+ESCs are “live” now and if you raise the throttle a bit they should
+spin. Test that the motors spin by raising the throttle a bit and
+then lowering it again.</p></li>
+<li><p>Set the throttle to minimum and disconnect the battery to exit
+ESC-calibration mode.</p></li>
+</ol>
+<p><strong>Here is a video demonstrating the process:</strong></p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/gYoknRObfOg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="manual-esc-by-esc-calibration">
+<h2>Manual ESC-by-ESC Calibration<a class="headerlink" href="#manual-esc-by-esc-calibration" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Plug one of your ESC three-wire cables into the throttle channel of
+the RC receiver. (This is usually channel 3.)</p></li>
+<li><p>Turn on the transmitter and set throttle stick to maximum (full up).</p></li>
+<li><p>Connect the LiPo battery</p></li>
+<li><p>You will hear a musical tone then two beeps.</p></li>
+<li><p>After the two beeps, lower the throttle stick to full down.</p></li>
+<li><p>You will then hear a number of beeps (one for each battery cell
+you’re using) and finally a single long beep indicating the end
+points have been set and the ESC is calibrated.</p></li>
+<li><p>Disconnect battery. Repeat these steps for all ESCs.</p></li>
+<li><p>If it appears that the ESC’s did not calibrate then the throttle
+channel on the transmitter might need to be reversed.</p></li>
+<li><p>If you are still having trouble after trying these methods (for
+example, ESCs still beep continuously) try lowering your throttle
+trim 50%.</p></li>
+<li><p>You can also try powering your ArduPilot board via the USB first to boot it
+up before plugging in the LiPo.</p></li>
+</ol>
+</section>
+<section id="semi-automatic-esc-by-esc-calibration">
+<h2>Semi Automatic ESC-by-ESC Calibration<a class="headerlink" href="#semi-automatic-esc-by-esc-calibration" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Connect to the autopilot from a ground station such as the Mission Planner and set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#esc-calibration" title="(in Copter)"><span class="xref std std-ref">ESC_CALIBRATION</span></a> parameter to 3</p></li>
+<li><p>Disconnect the battery and USB cable so the autopilot powers down</p></li>
+<li><p>Connect the battery</p></li>
+<li><p>The arming tone will be played (if the vehicle has a buzzer attached)</p></li>
+<li><p>If using an autopilot with a safety button (like the Pixhawk) press it until it displays solid red</p></li>
+<li><p>You will hear a musical tone then two beeps</p></li>
+<li><p>A few seconds later you should hear a number of beeps (one for each battery cell you’re using) and finally a single long beep indicating the end points have been set and the ESC is calibrated</p></li>
+<li><p>Disconnect the battery and power up again normally and test as described below</p></li>
+</ol>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>Once you have calibrated your ESCs, you can test them by plugging in
+your LiPo.  Remember: no propellers!</p>
+<ul class="simple">
+<li><p>Ensure your transmitter’s flight mode switch is set to “Stabilize
+Mode”.</p></li>
+<li><p><a class="reference internal" href="arming_the_motors.html#arming-the-motors"><span class="std std-ref">Arm your copter</span></a></p></li>
+<li><p>Give a small amount of throttle.  All motors should spin at about
+same speed and they should start at the same time. If the motors do
+not all start at the same time and spin at the same speed, the ESC’s
+are still not properly calibrated.</p></li>
+<li><p>Disarm your copter</p></li>
+</ul>
+</section>
+<section id="notes-troubleshooting">
+<h2>Notes / Troubleshooting<a class="headerlink" href="#notes-troubleshooting" title="Permalink to this heading">¶</a></h2>
+<p>The All-at-once ESC calibration mode simply causes the autopilot to pass
+through the pilot’s throttle directly through to the ESCs. If you power
+up the autopilot while in this mode you’ll send the same PWM signal to all the
+ESCs. That’s all it does.  Many ESCs use full throttle at startup to
+enter programming mode, full throttle postition is then saved as the
+upper end point and when you pull the throttle down to zero, that
+position is saved as the lower end point.</p>
+<p>If after calibration your motors do NOT spin same speed nor start at the
+same time, repeat the calibration process. If you tried the auto
+calibration above and it didn’t work or the ESCs do not drive the motors
+identically, try the manual calibration method described above. That
+should work almost every time. (Rarely after a full manual calibration
+you will also need to do an additional final automatic calibration).</p>
+<p>Finally, there are a huge number of brands and types of ESCs available
+and some of them do not adhere to the normal programming conventions
+(sometimes even though they claim to) and they may simply not work with
+ArduPilot the way it is now. This is an unfortunately necessary but true
+disclaimer.</p>
+</section>
+<section id="recommended-esc-settings-as-follows">
+<h2>Recommended ESC settings as follows:<a class="headerlink" href="#recommended-esc-settings-as-follows" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Brake on stop: OFF</p></li>
+<li><p>Active braking/”Damped light”: ON (Also known as “Non Damped mode” set to OFF)</p></li>
+<li><p>Low voltage protection: OFF (alternatively, you can set battery type
+to Ni-xx(NiMH or NiCd) (even if you’re using Li-po batteries because
+this setting reduces the likelihood that the ESC’s low voltage detection
+will turn off the motors)</p></li>
+<li><p>CutOff Mode: Soft-Cut (Default)</p></li>
+<li><p>CutOff Threshold: Low</p></li>
+<li><p>Start Mode: Normal (Default)</p></li>
+<li><p>Timing: MEDIUM</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-rc-transmitter-flight-mode-configuration.html" class="btn btn-neutral float-left" title="RC Transmitter Flight Mode Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="set-motor-range.html" class="btn btn-neutral float-right" title="Setting Motor Range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-telemetry-radio-regional-regulations"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="telemetry-radio-regional-regulations">
+<h1>Telemetry Radio Regional Regulations<a class="headerlink" href="#telemetry-radio-regional-regulations" title="Permalink to this heading">¶</a></h1>
+<p>This topic lists the main frequencies available in each country/region,
+with radios listed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Compliance is your responsibility. Check that your radios comply
+with your regional/country regulations for frequency, hopping channels
+and power levels.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We’d be delighted to add more countries, radios and regulations to
+this table! Please post the information on the forums, giving links to
+the applicable regulations and information on what it all means. Also,
+please point out any inaccuracies in the existing table.</p>
+</div>
+</section>
+<section id="support-for-different-countries-regions">
+<h1>Support for different countries/regions<a class="headerlink" href="#support-for-different-countries-regions" title="Permalink to this heading">¶</a></h1>
+<p>The table below provides links to the applicable standards for users
+without any special license. If you are have an application specific
+license or have a HAM license then you should know what rules are
+applicable to you.</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Region</th>
+<th>Relevant standards</th>
+<th>Model</th>
+<th>Model</th>
+<th>Model</th>
+<th>Model</th>
+</tr>
+<tr>
+<td>USA</td>
+<td>FCC 15.247</td>
+<td><strong>SikRadio 900MHz</strong>
+
+MIN_FREQ: 902000
+
+MAX_FREQ: 928000
+
+NUM_CHANNELS=50
+
+<strong>Standard:</strong> FCC 15.247
+</td>
+<td><strong>RFD900 868MHz</strong></td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>RSS-210 Annex 8.1</td>
+<td><strong>SikRadio 900MHz</strong>
+
+MIN_FREQ: 902000
+
+MAX_FREQ: 928000
+
+NUM_CHANNELS=50
+
+
+<strong>Standard</strong>: RSS-210 Annex 8.1   </td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>LIPD-2015 item 54</td>
+<td><strong>SikRadio 900MHz</strong>
+
+MIN_FREQ: 915001
+
+MAX_FREQ: 928000
+
+TXPOWER <= 1W EIRP
+
+NUM_CHANNELS >=20
+
+
+<strong>Standard</strong>: LIPD-2015 item 19
+</td>
+<td><strong>SikRadio 433MHz</strong>
+
+MIN_FREQ: 433051
+
+MAX_FREQ: 434790
+
+TXPOWER <=25mW EIRP
+
+<strong>Standard</strong>: LIPD-2000 item 17
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Europe (most countries)</td>
+<td>ETSI EN300 220 7.2.3</td>
+<td><strong>SikRadio 433MHz</strong>
+
+MIN_FREQ: 433050
+
+MAX_FREQ: 434790
+
+TXPOWER< 8
+
+DUTY_CYCLE 10
+
+
+<strong>Standard</strong>: ETSI EN300 220 7.2.3
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>United Kingdom</td>
+<td>IR2030/1/10</td>
+<td><strong>SikRadio 433MHz</strong>
+
+MIN_FREQ: 433050
+
+MAX_FREQ: 434790
+
+TXPOWER<8
+
+DUTY_CYCLE 10
+
+<strong>Standard:</strong> d
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>New Zealand</td>
+<td>Notice 2007, Schedule 1</td>
+<td><strong>SikRadio 900MHz</strong>
+
+MIN_FREQ: 921000
+
+MAX_FREQ: 928000
+
+<strong>Standard:</strong> Notice 2007, Schedule 1
+</td>
+<td><strong>SikRadio 433MHz</strong> MIN_FREQ: 433050
+
+MAX_FREQ: 434790 <strong>Standard:</strong> Notice 2007, Schedule 1
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Brazil</td>
+<td>ANATEL – <a href="http://legislacao.anatel.gov.br/resolucoes/23-2008/104-resolucao-506">Resolução nº 506/2008</a></td>
+<td><strong>SikRadio 433MHz</strong>
+
+MIN_FREQ: 433000
+
+MAX_FREQ: 435000
+
+TXPOWER<=8
+
+<strong>Standard:</strong> <a href="http://www.cnc.gov.ar/infotecnica/espectro/uso/destacados01.asp">Comisión Nacional de Comunicaciones</a>  </td>
+<td><strong>SikRadio 900MHz</strong>
+
+MIN_FREQ: 915000
+
+MAX_FREQ: 928000
+
+NUM_CHANNELS>=26
+
+<strong>Standard:</strong> <a href="http://www.cnc.gov.ar/infotecnica/espectro/uso/destacados01.asp">Comisión Nacional de Comunicaciones</a> </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Argentina</td>
+<td><a href="http://www.cnc.gov.ar/infotecnica/espectro/uso/destacados01.asp">Comisión Nacional de Comunicaciones</a> </td>
+<td><strong>SikRadio 900MHz</strong>
+
+MIN_FREQ: 902000
+
+MAX_FREQ: 928000
+
+<strong>Standard:</strong> <a href="http://www.cnc.gov.ar/infotecnica/espectro/uso/destacados01.asp">Comisión Nacional de Comunicaciones</a>   </td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>South Africa</td>
+<td>2008 RR 5.138, Government Gazette No 31127,Notice No 713 of 2008 and
+Government Gazette No 31290,Notice No 926 of 2008
+</td>
+<td><strong>SikRadio 433MHz</strong>
+
+MIN_FREQ: 433050
+
+MAX_FREQ: 434790
+
+TXPOWER<=10mW
+
+<strong>Standard:</strong> 2008 RR 5.138, Government Gazette No 31127,Notice No 713
+of 2008 and Government Gazette No 31290,Notice No 926 of 2008
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Monitor/Module Configuration in Mission Planner &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Power Monitor/Module Configuration in Mission Planner</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="power-monitor-module-configuration-in-mission-planner">
+<span id="common-power-module-configuration-in-mission-planner"></span><h1>Power Monitor/Module Configuration in Mission Planner<a class="headerlink" href="#power-monitor-module-configuration-in-mission-planner" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Up to 10 battery monitors may be used in ArduPilot, with parameter groups named BATT_ through BATT9_. For this article all parameter name references will be shown for the first monitor, BATT_</p>
+</div>
+<p>A power monitor can be used to measure the battery voltage and current for use in the battery failsafe and a power module can also provide a stable power supply to the autopilot.</p>
+<p>ArduPilot is <a class="reference internal" href="common-powermodule-landingpage.html#common-powermodule-landingpage"><span class="std std-ref">compatible with a number of power modules/monitors</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Boards with integrated power monitors have their parameters setup by default.</p>
+</div>
+<section id="mission-planner-setup">
+<h2>Mission Planner Setup<a class="headerlink" href="#mission-planner-setup" title="Permalink to this heading">¶</a></h2>
+<p>Battery measurement is primarily set up in the <em>Mission Planner</em>’s
+<strong>INITIAL SETUP | Optional Hardware | Battery Monitor</strong> screen. Note that currently Mission Planner only supports the first two Battery Monitors in the system (a total of 10 are available in firmware versions 4.0 and later). More would need to be configured directly by directly setting their parameters in the <strong>CONFIG/TUNING|Full Parameter List</strong> screen.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/MissionPlanner_BatteryMonitorConfiguration.png"><img alt="../_images/MissionPlanner_BatteryMonitorConfiguration.png" src="../_images/MissionPlanner_BatteryMonitorConfiguration.png" /></a>
+<figcaption>
+<p><span class="caption-text">MissionPlanner: Battery Monitor Configuration</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="enable-voltage-and-current-sensing">
+<h3>Enable voltage and current sensing<a class="headerlink" href="#enable-voltage-and-current-sensing" title="Permalink to this heading">¶</a></h3>
+<p>Enter the properties your monitor can measure, the type of monitor, the
+type of autopilot, and the battery capacity:</p>
+<ul class="simple">
+<li><p><strong>Monitor:</strong> <em>Voltage and Current</em> or <em>Battery Volts</em></p></li>
+<li><p><strong>Sensor:</strong> Supported power module, or “Other”</p></li>
+<li><p><strong>APM ver:</strong> Autopilot (e.g. Pixhawk )</p></li>
+<li><p><strong>Battery Capacity:</strong> Battery capacity in mAh</p></li>
+</ul>
+<p>The <strong>Sensor</strong> selection list offers a number of analog Power Modules
+(including popular models from 3DR and AttoPilot) which you can select
+to automatically configure your module. If your PM is not on the list
+then you can select <strong>Other</strong>, enter its recommended values, or
+<a class="reference internal" href="#common-power-module-configuration-in-mission-planner-calibration"><span class="std std-ref">perform a manual calibration</span></a> as described below.</p>
+</section>
+<section id="other-types-of-power-modules-smart-batteries">
+<h3>Other Types of Power Modules/Smart Batteries<a class="headerlink" href="#other-types-of-power-modules-smart-batteries" title="Permalink to this heading">¶</a></h3>
+<p>In addition to normal analog voltage and current sensing modules, ArduPilot supports a wide range of SMBus, DroneCAN/CAN power modules and Smart Batteries. (In the following, the first monitor’s parameters are shown. Each of the other monitors have their own parameters.)</p>
+<p>These are selected via the <code class="docutils literal notranslate"><span class="pre">BATTx_MONITOR</span></code> parameter for each battery monitor. These can be set directly via the CONFIG/Parameter Tree tab for each battery monitor. Here are the monitor types supported:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a></p></th>
+<th class="head"><p>TYPE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Disabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Analog Voltage Only</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Analog Voltage and Current</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Solo</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Bebop</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p><a class="reference internal" href="common-smart-battery-landingpage.html#common-smart-battery-landingpage"><span class="std std-ref">SMBus-Generic</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>DroneCAN-BatteryInfo</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p><a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">ESC</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Sum Of Selected Monitors, see BATTx_SUM_MASK parameter</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p><a class="reference internal" href="common-fuel-sensors.html#common-fuel-sensors"><span class="std std-ref">FuelFlow</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p><a class="reference internal" href="common-fuel-sensors.html#common-fuel-sensors"><span class="std std-ref">FuelLevelPWM</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p><a class="reference internal" href="common-smart-battery-landingpage.html#common-smart-battery-landingpage"><span class="std std-ref">SMBUS-SUI3</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p><a class="reference internal" href="common-smart-battery-landingpage.html#common-smart-battery-landingpage"><span class="std std-ref">SMBUS-SUI6</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>NeoDesign</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>SMBus-Maxell</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p><a class="reference internal" href="common-ie650-fuelcell.html#common-ie650-fuelcell"><span class="std std-ref">Generator-Elec</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p><a class="reference internal" href="common-ie650-fuelcell.html#common-ie650-fuelcell"><span class="std std-ref">Generator-Fuel</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p><a class="reference internal" href="common-smart-battery-rotoye.html#common-smart-battery-rotoye"><span class="std std-ref">Rotoye</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>MPPT</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>INA2XX</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>LTC2946</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>Torqeedo Motor Controller</p></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p><a class="reference internal" href="common-fuel-sensors.html#common-fuel-sensors"><span class="std std-ref">FuelLevelAnalog</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once a specific monitor type is selected, parameters associated with that type of monitor will be revealed once parameters are refreshed. Scales and offsets, bus addresses, etc. will be displayed, as appropriate, for that monitor.</p>
+</div>
+</section>
+<section id="other-parameters">
+<h3>Other Parameters<a class="headerlink" href="#other-parameters" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-options" title="(in Rover)"><span class="xref std std-ref">BATT_OPTIONS</span></a> bit 0, if set, will ignore the State Of Charge field in DroneCAN monitors, since some do not populate this field with meaningful data. Also various options for MPPT type monitors are provided. Bit 6 allows the resting voltage to be sent in place of battery voltage, which is sometime more useful.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-sum-mask" title="(in Rover)"><span class="xref std std-ref">BATT_SUM_MASK</span></a> is used if the monitor is type “10” (Sum Of Selected Monitors) to select which monitors’ reported voltages will be averaged, and current values will be summed, and reported for this monitor. Selecting this monitor’s own instance number has no effect. If no bits are set, it will average all lower numbered instance’s reports.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-arm-volt" title="(in Rover)"><span class="xref std std-ref">BATT_ARM_VOLT</span></a> is the minimum voltage reported from this monitor that will allow arming to occur.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-arm-mah" title="(in Rover)"><span class="xref std std-ref">BATT_ARM_MAH</span></a> is the minimum capacity remaining reported from this monitor that will allow arming to occur.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-mult" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_MULT</span></a> allows adjusting the current scale for DroneCAN(UAVCAN) monitors which do not have a CAN parameter exposed for adjustment.</p></li>
+</ul>
+</section>
+<section id="failsafe">
+<h3>Failsafe<a class="headerlink" href="#failsafe" title="Permalink to this heading">¶</a></h3>
+<p>Failsafes can be implemented for low battery/fuel conditions. For Plane see <a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span>Plane Failsafe Function</span></a>, for Copter see <a class="reference external" href="https://ardupilot.org/copter/docs/failsafe-battery.html#failsafe-battery" title="(in Copter)"><span>Battery Failsafe</span></a>, or for Rover see <a class="reference external" href="https://ardupilot.org/rover/docs/rover-failsafes.html#rover-failsafes" title="(in Rover)"><span>Failsafes</span></a></p>
+</section>
+<section id="analog-monitor-calibration">
+<span id="common-power-module-configuration-in-mission-planner-calibration"></span><h3>Analog Monitor Calibration<a class="headerlink" href="#analog-monitor-calibration" title="Permalink to this heading">¶</a></h3>
+<p>The bottom section of the <em>Battery Monitor</em> screen allows you to
+calibrate the voltage/current measurement in order to verify that the
+measured voltage of the battery is correct. You can also set the
+<strong>Sensor</strong> selection list to <strong>Other</strong> and use the calibration process
+to configure an “unknown” power monitor/module.</p>
+<p>To calibrate the voltage reading:</p>
+<ol class="arabic">
+<li><p>Check the voltage of your LiPo battery with a hand-held volt meter or
+a <a class="reference external" href="https://hobbyking.com/en_us/turnigy-130a-watt-meter-and-power-analyzer.html?___store=en_us">power analyzer</a></p></li>
+<li><p>Connect your Pixhawk-series to your computer and plug in the LiPo battery</p></li>
+<li><p>Check the voltage through the <em>Mission Planner</em>’s <strong>INITIAL SETUP |
+Optional Hardware | Battery Monitor</strong> screen or on the Flight Data
+screen’s HUD or <em>Status</em> tab.</p>
+<a class="reference external image-reference" href="../_images/MPCheckVoltage.jpg"><img alt="../_images/MPCheckVoltage.jpg" src="../_images/MPCheckVoltage.jpg" /></a>
+</li>
+</ol>
+<p>If you find the voltage is not correct (i.e. if off from the hand-held
+volt meter’s reading by more than perhaps 0.2V) you can calibrate it by doing the following:</p>
+<ol class="arabic">
+<li><p>On <em>Mission Planner</em>’s <strong>INITIAL SETUP | Optional Hardware |
+Battery Monitor</strong> screen set the “Sensor” to “Other”.</p></li>
+<li><p>Enter the voltage according to the hand-held volt meter in the
+“Measured Battery Voltage” field</p></li>
+<li><p>Press tab or click out of the field and the “Voltage Divider
+(Calced)” value will update and the “Battery voltage (Calced)” should
+now equal the measured voltage</p>
+<a class="reference external image-reference" href="../_images/CalibrateVoltage.png"><img alt="../_images/CalibrateVoltage.png" src="../_images/CalibrateVoltage.png" /></a>
+</li>
+</ol>
+<p>Using the power analyser you can also measure the current and compare to
+results displayed in the Mission Planner.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most current sensors are not very accurate at low currents (less
+than 3 Amps). Typically you should perform current calibration at around
+10A. The exception is PMs that use hall-effect sensors, like <a class="reference internal" href="common-mauch-power-modules.html#common-mauch-power-modules"><span class="std std-ref">those from Mauch</span></a>.</p>
+</div>
+<p>This video shows the voltage and current calibration process using a
+Turnigy Power Analyser.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/tEA0Or-1n18" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="enable-low-battery-alert">
+<h3>Enable Low Battery Alert<a class="headerlink" href="#enable-low-battery-alert" title="Permalink to this heading">¶</a></h3>
+<p>You can set <em>Mission Planner</em> to alert you verbally when your battery is
+low (using a computerized voice).</p>
+<p>Simply check the <strong>MP Alert on Low Battery</strong> checkbox and enter the
+warning you wish to hear, the voltage level and finally the percentage
+of remaining current.</p>
+<a class="reference external image-reference" href="../_images/MP_battery_alarm_001.png"><img alt="../_images/MP_battery_alarm_001.png" src="../_images/MP_battery_alarm_001.png" /></a>
+<a class="reference external image-reference" href="../_images/MP_battery_alarm_002.png"><img alt="../_images/MP_battery_alarm_002.png" src="../_images/MP_battery_alarm_002.png" /></a>
+<a class="reference external image-reference" href="../_images/MP_battery_alarm_003.png"><img alt="../_images/MP_battery_alarm_003.png" src="../_images/MP_battery_alarm_003.png" /></a>
+</section>
+</section>
+<section id="connecting-power-monitor-to-alternative-pins">
+<h2>Connecting power monitor to alternative pins<a class="headerlink" href="#connecting-power-monitor-to-alternative-pins" title="Permalink to this heading">¶</a></h2>
+<p>The power monitor is generally plugged into the default port on the
+autopilot (ie. Pixhawk). If you wish to change where the power
+monitor is plugged into the controller, the pins used can be modified
+using the <code class="docutils literal notranslate"><span class="pre">BATT_VOLT_PIN</span></code> and <code class="docutils literal notranslate"><span class="pre">BATT_CURR_PIN</span></code> parameters.</p>
+<p>The list of available analog input pins that can be used are listed on
+the Hardware Options page for the <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview-pixhawk-analog-input-pins"><span class="std std-ref">Pixhawk</span></a>  board or its board description linked from the <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">Choosing an Autopilot</span></a> page</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

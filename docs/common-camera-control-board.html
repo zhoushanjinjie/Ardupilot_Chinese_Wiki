@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:Open Camera Control Board &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:Open Camera Control Board</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-open-camera-control-board">
+<span id="common-camera-control-board"></span><h1>Archived:Open Camera Control Board<a class="headerlink" href="#archived-open-camera-control-board" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>The Open CCB is not yet commercially available - we are actively
+seeking manufacturers. (even though this topic is archived!)</em> If you
+want to start making and selling this board please contact
+<a class="reference external" href="mailto:CraigElder&#37;&#52;&#48;uniserve">CraigElder<span>&#64;</span>uniserve</a>.</p>
+</div>
+<p>The Open Camera Control Board (OpenCCB) is a camera remote control
+interface for aerial photography.
+It has <a class="reference internal" href="#common-camera-control-board-port-mapping"><span class="std std-ref">many features</span></a>,
+including: FTDI USB/UART adapter, USB HOST,
+Digital IO, Analog IO, Optocoupled IO, etc.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Persp_sml.jpg"><img alt="../_images/Persp_sml.jpg" src="../_images/Persp_sml.jpg" /></a>
+<p>The main camera control protocol used is known as PTP (Picture Transfer
+Protocol), which was originally standardized as PIMA 15740:2000, ISO
+15740:2005(V1.0), and ISO 15740:2008(V1.1).</p>
+<p>The PTP has been supported by almost all cameras since 2005, but often
+in a limited fashion. Only few cameras have the “PTP Remote Control”
+feature. Canon, for example, removed the remote control feature from
+their compact line (PowerShot models) in the last PS SDK in 2009
+(PS-ReCSDK 1.1.0e).</p>
+<p>Fortunately the PTP hacking extension in the <a class="reference external" href="http://chdk.wikia.com/wiki/PTP_Extension">CHDK project</a> allows us to
+extend the PTP control to newer, smaller and lighter Canon PowerShot
+models.</p>
+<p>The CHDK PTP interface is described below:</p>
+<a class="reference external image-reference" href="../_images/Diagram_MAVPTP.jpg"><img alt="../_images/Diagram_MAVPTP.jpg" src="../_images/Diagram_MAVPTP.jpg" /></a>
+</section>
+<section id="port-mapping">
+<span id="common-camera-control-board-port-mapping"></span><h2>Port Mapping<a class="headerlink" href="#port-mapping" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Ports.jpg"><img alt="../_images/Ports.jpg" src="../_images/Ports.jpg" /></a>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th colspan="6">Telemetry UART (Auto Pilot)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>5V</td>
+<td>TX</td>
+<td>RX</td>
+<td>CTS</td>
+<td>RTS</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th colspan="4">I2C (3V3)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>SCA</td>
+<td>SCL</td>
+<td>3V3</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th colspan="4">Digital IO</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>D2</td>
+<td>D8</td>
+<td>D7</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th colspan="4">Analog IO</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>A1</td>
+<td>A2</td>
+<td>A3</td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th colspan="3">Optocoupled IO (LANC-C Control)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>V+ LAN-C(5-9V)</td>
+<td>LAN-C Line</td>
+<td>GND LAN-C</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th colspan="3">Optocoupled IO (Contact Closure Triggering)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>NC</td>
+<td>Shutter</td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table></section>
+<section id="usb-connector-types">
+<h2>USB Connector Types<a class="headerlink" href="#usb-connector-types" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/USB_plugs.jpg"><img alt="../_images/USB_plugs.jpg" src="../_images/USB_plugs.jpg" /></a>
+</section>
+<section id="computer-wiring-table-tests-and-firmware-uploading">
+<h2>Computer Wiring - Table Tests and Firmware Uploading<a class="headerlink" href="#computer-wiring-table-tests-and-firmware-uploading" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/TableTestWiring.jpg"><img alt="../_images/TableTestWiring.jpg" src="../_images/TableTestWiring.jpg" /></a>
+</section>
+<section id="autopilot-wiring-aerial-photography">
+<h2>Autopilot Wiring - Aerial Photography<a class="headerlink" href="#autopilot-wiring-aerial-photography" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/BasicWiring.jpg"><img alt="../_images/BasicWiring.jpg" src="../_images/BasicWiring.jpg" /></a>
+<p>The firmware can be found <a class="reference external" href="https://github.com/sandrobenigno/3dr-camera-ctrl">here on GitHub</a>.</p>
+<p>There is also a <a class="reference external" href="https://github.com/sandrobenigno/3dr-camera-ctrl/archive/master.zip">zip file</a>
+of the repository.</p>
+<p>After getting the source code, just follow the steps below:</p>
+<p>Step 1: Set your Arduino SketchBook path to the main folder</p>
+<p>Step 2: Select the sketch “ArduCAMPTP_CHDK_APM26”</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want the camera showing lenses when connected, you need to
+change the file __defines.h by setting AUTOSTART to 1, like here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define AUTOSTART 1 //Expose lens on start (Start on Record Mode)</span>
+</pre></div>
+</div>
+</div>
+<p>Step 3: Compile and upload it to CCB board</p>
+<p>Step 4: Copy the file geoshot.lua to camera’s SD card (folder:
+/CHDK/SCRIPTS/)</p>
+<p>Step 5: While the autopilot is connected to MissionPlanner,
+do set the shutter just like here:</p>
+<a class="reference external image-reference" href="../_images/Shutter_Setup.jpg"><img alt="../_images/Shutter_Setup.jpg" src="../_images/Shutter_Setup.jpg" /></a>
+<p>Step 6: Test shooting</p>
+<a class="reference external image-reference" href="../_images/maps.jpg"><img alt="../_images/maps.jpg" src="../_images/maps.jpg" /></a>
+<p>After that… any other command should work… because it acts just like
+a servo.</p>
+</section>
+<section id="contact-closure-example-canon-xti">
+<h2>Contact Closure - Example: Canon XTi<a class="headerlink" href="#contact-closure-example-canon-xti" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/ContactClosureWiring.jpg"><img alt="../_images/ContactClosureWiring.jpg" src="../_images/ContactClosureWiring.jpg" /></a>
+</section>
+<section id="mavlink-detailed">
+<h2>MAVLink Detailed<a class="headerlink" href="#mavlink-detailed" title="Permalink to this heading">¶</a></h2>
+<p>Currently, the code is using RC Channels from MAVLink. It does work like
+a virtual servo, i.e. those messages do reflect the status of every
+single output channel from the autopilot.</p>
+<p>Take a look at the most important piece of code from the file
+“<a class="reference external" href="https://github.com/sandrobenigno/3dr-camera-ctrl/blob/master/ArduCAMPTP_CHDK_APM26/MAVcomm.h">MAVcomm.h</a>“:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="no">MAVLINK_MSG_ID_RC_CHANNELS_RAW</span><span class="p">:</span><span class="w"> </span><span class="c1">//RC INPUT BYPASSED BY APM:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="n">drone_chan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_rc_channels_raw_get_chan5_raw</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">drone_chan</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_rc_channels_raw_get_chan6_raw</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">drone_chan</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_rc_channels_raw_get_chan7_raw</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">drone_chan</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_rc_channels_raw_get_chan8_raw</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The triggering is flagged by this small piece of code from the same
+file:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef DRONE_OUT</span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">shot</span><span class="w">  </span><span class="mi">1500</span><span class="p">))</span><span class="w"> </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">shot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>The flag “cam_ctrl_state.shot” is set to “1” so the board can shot and
+set it back to “0”.</p>
+<p>By default, the code above is using the RC8 from the autopilot. It
+is defined on the file
+“<a class="reference external" href="https://github.com/sandrobenigno/3dr-camera-ctrl/blob/master/ArduCAMPTP_CHDK_APM26/__defines.h">__defines.h</a>”
+like shown here:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//Define what FC OUT channel is the trigger</span>
+
+<span class="cp">#define DRONE_OUT 1 </span><span class="c1">//Shutter RC8</span>
+</pre></div>
+</div>
+<p>The shooting function uses some Attitude data as well:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="no">MAVLINK_MSG_ID_ATTITUDE</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">drone_pitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ToDeg</span><span class="p">(</span><span class="n">mavlink_msg_attitude_get_pitch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">));</span>
+<span class="w">    </span><span class="n">drone_roll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ToDeg</span><span class="p">(</span><span class="n">mavlink_msg_attitude_get_roll</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">));</span>
+<span class="w">    </span><span class="n">drone_yaw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ToDeg</span><span class="p">(</span><span class="n">mavlink_msg_attitude_get_yaw</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="k">break</span><span class="p">;</span>
+
+<span class="k">case</span><span class="w"> </span><span class="no">MAVLINK_MSG_ID_GPS_RAW_INT</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">drone_lat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_gps_raw_int_get_lat</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">10000000.0f</span><span class="p">;</span>
+<span class="w">    </span><span class="n">drone_lon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_gps_raw_int_get_lon</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">10000000.0f</span><span class="p">;</span>
+<span class="w">    </span><span class="n">drone_fix_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_gps_raw_int_get_fix_type</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">drone_satellites_visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_gps_raw_int_get_satellites_visible</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">break</span><span class="p">;</span>
+
+<span class="k">case</span><span class="w"> </span><span class="no">MAVLINK_MSG_ID_VFR_HUD</span><span class="p">:</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">drone_heading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_vfr_hud_get_heading</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0..360 deg, 0=north</span>
+<span class="w">    </span><span class="n">drone_alt_asl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_vfr_hud_get_alt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>That function does send attitude and GPS data to a file on the camera’s
+SD card. It does call and communicate with the camera through a local
+<a class="reference external" href="https://github.com/sandrobenigno/3dr-camera-ctrl/tree/master/CHDK/SCRIPTS">CHDK script</a>.</p>
+<p>In order to make it work fully, the autopilot should implement
+specific messages for the whole set of functions that the board will
+translate into setup and triggering. You can see here the suggested
+entries, though it could be expressed in many other ways on a future
+implementation:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="no">MAVLINK_MSG_ID_DIGICAM_CONTROL</span><span class="p">:</span><span class="w"> </span><span class="c1">//MAV_CMD_DO_DIGICAM_CONTROL:</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">session</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_session</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">zoom_pos</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_zoom_pos</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">focus_lock</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_focus_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">shot</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_shot</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">command_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_command_id</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">extra_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_extra_param</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cam_ctrl_state</span><span class="p">.</span><span class="n">extra_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mavlink_msg_digicam_control_get_extra_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The main control points are these ones:</p>
+<ul class="simple">
+<li><p>cam_ctrl_state.session: show’s or retract the lenses</p></li>
+<li><p>cam_ctrl_state.zoom_pos: does control the focal length</p></li>
+<li><p>cam_ctrl_state.focus_lock: does lock or unlock the focus</p></li>
+<li><p>cam_ctrl_state.shot: does shot the camera</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

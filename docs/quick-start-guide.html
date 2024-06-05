@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived: Quick Start Guide for Ready-to-Fly Vehicles &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived: Quick Start Guide for Ready-to-Fly Vehicles</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-quick-start-guide-for-ready-to-fly-vehicles">
+<span id="quick-start-guide"></span><h1>Archived: Quick Start Guide for Ready-to-Fly Vehicles<a class="headerlink" href="#archived-quick-start-guide-for-ready-to-fly-vehicles" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED ARTICLE</strong></p>
+<p>The article is out of date (3DR replaced APM2.x with Pixhawk
+and the kits come with everything configured out of the box).
+In addition, 3DR no longer supplies hardware described in this article (including Iris+, Solo, X8, Aero-M).</p>
+</div>
+<p>This page is a quick start guide for users who have purchased a <em>3DRobotics Ready-to-Fly (RTF) multicopter</em>
+including a Pixhawk preloaded with the latest Copter firmware.
+All other users should skip to the <a class="reference internal" href="initial-setup.html#initial-setup"><span class="std std-ref">首次设置</span></a> section which
+includes the full autopilot set-up and calibration instructions.</p>
+<section id="install-mission-planner">
+<h2>Install Mission Planner<a class="headerlink" href="#install-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://firmware.ardupilot.org/Tools/MissionPlanner/MissionPlanner-latest.msi">Download the most recent Mission Planner MSI from here</a>.</p>
+<p>Open the Microsoft installer file (.msi) and select <strong>Run</strong> to run the
+installation utility.</p>
+<a class="reference external image-reference" href="../_images/installation.png"><img alt="../_images/installation.png" src="../_images/installation.png" /></a>
+<p>Follow the instructions to complete the setup process (accept the
+license terms, choose a location for the installation etc.)</p>
+<p>The installation utility will automatically install any necessary software drivers.
+If you receive a DirectX installation error, please update your DirectX plug-in from the <a class="reference external" href="https://www.microsoft.com/en-us/download/windows.aspx">Windows Download Center</a>.
+If you receive the warning pictured here, select <strong>Install this driver software anyway</strong> to continue.</p>
+<a class="reference external image-reference" href="../_images/directx_driver_install_warning.png"><img alt="../_images/directx_driver_install_warning.png" src="../_images/directx_driver_install_warning.png" /></a>
+<p>Once installation is complete, open Mission Planner. Mission Planner
+automatically notifies you about available updates. Please always run
+the most current version of Mission Planner.</p>
+</section>
+<section id="connect-rc-receiver">
+<h2>Connect RC receiver<a class="headerlink" href="#connect-rc-receiver" title="Permalink to this heading">¶</a></h2>
+<p>Is your RC receiver already connected and configured? If not, follow
+these instructions.</p>
+<p>For RC control with <strong>PWM</strong>, connect RC receiver to APM Input Signal
+pins using connectors to attach channel 1 to the APM signal pin labeled
+1, channel 2 to signal pin 2, etc. You will also need to provide power
+to the receiver by connecting a three-wire cable between the receiver
+and the APM for one of the channels.</p>
+<a class="reference external image-reference" href="../_images/PWM-wiring.jpg"><img alt="../_images/PWM-wiring.jpg" src="../_images/PWM-wiring.jpg" /></a>
+<p>For <strong>PPM</strong> (all channels over one wire), use PPM jumper connectors to
+connect Input signal pins 2 and 3 on APM and signal pins 3 and 4 on the
+receiver. Use a 3-wire cable to connect the signal, power, and ground
+pins for channel 1 on the receiver to the three pins labeled 1 on APM.
+The specific pins used for the receiver may vary by model, so consult
+the documentation on your receiver for PPM configuration.</p>
+<a class="reference external image-reference" href="../_images/PPM-wiring.jpg"><img alt="../_images/PPM-wiring.jpg" src="../_images/PPM-wiring.jpg" /></a>
+<p>Once you’ve downloaded Mission Planner onto your ground station
+computer, connect APM to your computer using the micro USB connector and
+APM’s micro USB port. Use a direct USB port on your computer, not a USB
+hub.</p>
+<a class="reference external image-reference" href="../_images/apm_micro_usb.jpg"><img alt="../_images/apm_micro_usb.jpg" src="../_images/apm_micro_usb.jpg" /></a>
+<p>Windows will automatically detect APM and install the correct driver
+software.</p>
+<p>Next we’ll let Mission Planner know which port we’re using to connect to
+APM. Open Mission Planner, and use the drop-down menus in the
+upper-right corner of the screen (near the Connect button) to connect to
+APM. Select <strong>Arduino Mega 2560</strong> and set the Baud rate to <strong>115200</strong>
+as shown.</p>
+<a class="reference external image-reference" href="../_images/connect-to-com-port.png"><img alt="../_images/connect-to-com-port.png" src="../_images/connect-to-com-port.png" /></a>
+<p>Select <strong>Connect</strong> (upper-right corner of the screen) to load MavLink
+parameters to APM. Mission Planner will display a window showing the
+progress of the MavLink download.</p>
+<a class="reference external image-reference" href="../_images/con-mavlink.png"><img alt="../_images/con-mavlink.png" src="../_images/con-mavlink.png" /></a>
+<p>When the window displays <strong>Done</strong> and Mission Planner shows the
+<strong>Disconnect</strong> option in place of Connect, your APM firmware has been
+downloaded successfully.</p>
+<a class="reference external image-reference" href="../_images/condiscon.png"><img alt="../_images/condiscon.png" src="../_images/condiscon.png" /></a>
+<p>Turn on transmitter. Verify that the transmitter is in Airplane mode
+(APM needs airplane mode regardless of the platform type being piloted)
+and all trims are centered.</p>
+<blockquote>
+<div><p>Transmitter(Mode 2): Recommended Channels</p>
+</div></blockquote>
+<p>The left stick will control throttle and yaw; the right stick will
+control roll and pitch. The three-position switch will control flight
+modes.</p>
+<p>In Mission Planner, select <strong>Mandatory Hardware</strong> and <strong>Radio
+Calibration</strong>. Click on the green <strong>Calibrate Radio</strong> button in the
+lower right of the window. Mission Planner will call a dialog window to
+ensure radio control equipment is on, battery is not connected, and
+propellers are not attached.</p>
+<a class="reference external image-reference" href="../_images/calibrate-radio.jpg"><img alt="../_images/calibrate-radio.jpg" src="../_images/calibrate-radio.jpg" /></a>
+<p>Select OK; move the control sticks and toggle switches on your
+transmitter to their limits of travel and observe the results on the
+radio calibration bars. Red lines will appear across the calibration
+bars to indicate maximum and minimum values. Move the Ch 5 and 6 toggle
+switches through their range of positions (Ch 7 and 8 are not used for
+basic operations).</p>
+<p>Your transmitter should cause the following control changes:</p>
+<p>Channel 1: low = roll left, high = roll right.</p>
+<p>Channel 2: low = pitch forward, high=pitch back.</p>
+<p>Channel 3: low = throttle down (off), high = throttle up.</p>
+<p>Channel 4: low = yaw left, high = yaw right.</p>
+<a class="reference external image-reference" href="../_images/radio-calib-click-when-done.png"><img alt="../_images/radio-calib-click-when-done.png" src="../_images/radio-calib-click-when-done.png" /></a>
+<p>When the red bars for roll, pitch, throttle, yaw, and radio 5 (and
+optionally radio 6) are set at the minimum and maximum positions, select
+<strong>Click when Done</strong>. Mission Planner will show a summary of the
+calibration data. Normal values are around 1100 for minimums and 1900
+for maximums.</p>
+<a class="reference external image-reference" href="../_images/radi-calib-results.png"><img alt="../_images/radi-calib-results.png" src="../_images/radi-calib-results.png" /></a>
+</section>
+<section id="attach-propellers">
+<h2>Attach propellers<a class="headerlink" href="#attach-propellers" title="Permalink to this heading">¶</a></h2>
+<p>Unscrew prop nuts and add propellers to motor collets with writing on
+props facing up in relation to the sky. If you have a co-axial motor
+configuration, make sure that the writing on the props faces up even if
+the motor faces down. Add metal spacers on top of prop nuts if prop hub
+measures less than 5 mm in height. Tighten prop nuts to secure
+propellers in place. Try inserting a 2 mm (5/64) hex wrench into the
+hole in the side of the prop nut to get better leverage when tightening
+prop nuts. Select propellers based on motor directions. Find your frame
+in the images below. Use pusher propellers for motors marked clockwise
+and normal propellers marked counterclockwise. Pusher propellers are
+usually marked “P” or “SFP” on the propeller.</p>
+<a class="reference external image-reference" href="../_images/FRAMES_X8.jpg"><img alt="../_images/FRAMES_X8.jpg" src="../_images/FRAMES_X8.jpg" /></a>
+<a class="reference external image-reference" href="../_images/FRAMES_X8.jpg"><img alt="../_images/FRAMES_X8.jpg" src="../_images/FRAMES_X8.jpg" /></a>
+<a class="reference external image-reference" href="../_images/FRAMES_X8.jpg"><img alt="../_images/FRAMES_X8.jpg" src="../_images/FRAMES_X8.jpg" /></a>
+</section>
+<section id="pre-flight-information">
+<h2>Pre-flight information<a class="headerlink" href="#pre-flight-information" title="Permalink to this heading">¶</a></h2>
+<p>Safety is the key to successful flight. Please read the <a class="reference internal" href="safety-multicopter.html#safety-multicopter"><span class="std std-ref">Safety Information Page</span></a> before
+flying. Select an unpopulated area to fly your copter, away from people
+and developed areas, and always run the <a class="reference internal" href="checklist.html#checklist"><span class="std std-ref">pre-flight checklist</span></a>before
+connecting the battery.
+Make sure to read the <a class="reference internal" href="flying-arducopter.html#flying-arducopter"><span class="std std-ref">Flying</span></a> page for information about arming, disarming, and controlling your copter during flight.</p>
+<p>When you’re ready to fly, place copter on the ground facing away from
+you. Connect fully charged LiPo battery to the power module connector
+when you’re ready to power on your copter. Follow the safe arming and
+disarming procedure described on the <a class="reference internal" href="flying-arducopter.html#flying-arducopter"><span class="std std-ref">Maiden Flight</span></a> page.</p>
+<a class="reference external image-reference" href="../_images/Connect-Battery.jpg"><img alt="../_images/Connect-Battery.jpg" src="../_images/Connect-Battery.jpg" /></a>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">¶</a></h2>
+<p>Try learning about different <a class="reference internal" href="flight-modes.html#flight-modes"><span class="std std-ref">autonomous flight modes</span></a> to get the
+most out of your Copter, including loitering and running missions.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-configuring-a-telemetry-radio-using-mission-planner"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="configuring-a-telemetry-radio-using-mission-planner">
+<h1>Configuring a Telemetry Radio using Mission Planner<a class="headerlink" href="#configuring-a-telemetry-radio-using-mission-planner" title="Permalink to this heading">¶</a></h1>
+<p>This article explains how to configure Telemetry Radios using <em>Mission
+Planner</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Many users will not need to configure their radios! One case where
+you might do so is when you use your vehicle with others — in which case
+you will need to specify different radio channels (Net ID).</p>
+</div>
+</section>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p><em>Mission Planner</em> supports configuring your radios using a simple GUI
+interface.</p>
+<p>To make changes:</p>
+<ul class="simple">
+<li><p>Connect one of the radios to your computer using the micro USB cable.</p></li>
+<li><p>Power the radio attached to the vehicle by plugging in the vehicle’s
+battery.</p></li>
+<li><p>Open the Mission Planner and go to the <strong>Initial Setup | Optional
+Hardware | SiK Radio</strong> page.</p></li>
+<li><p>Select the correct COM port and set the baud rate to 57600. Ensure
+the “Connect” button is in a disconnected state as shown in the image
+below..</p></li>
+<li><p>Press the <strong>Load Settings</strong> button and both the <em>Local</em> and <em>Remote</em>
+areas should fill in with values including the firmware Version</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Telemetry_MPSetup_NetID.png"><img alt="../_images/Telemetry_MPSetup_NetID.png" src="../_images/Telemetry_MPSetup_NetID.png" /></a>
+<ul class="simple">
+<li><p>The most common entry to change is the <code class="docutils literal notranslate"><span class="pre">Net</span> <span class="pre">ID</span></code>. The default is 25
+for most radios but if you plan to fly in an area with other pilots
+who may be using the same radio it is best to change this to another
+number.</p></li>
+<li><p>After making changes, click the <strong>Copy Required Items to Remote</strong> and
+press <strong>Save Settings</strong></p></li>
+</ul>
+<p>Other parameters you may choose to update:</p>
+<ul>
+<li><p><strong>Baud</strong> (default 57) : the rate at which the mission planner or
+vehicle communicates with the local radio. “57” = 57600 bits per
+second.</p></li>
+<li><p><strong>Air Speed</strong> (default 64) : the rate at which the two radios will
+communicate with each other. “64” = 64kbps (kilobits per second).
+Setting a lower rate will increase the range of the radio but reduce
+the rate of data (i.e. the amount of data that can be sent in a given
+time) across the link.</p></li>
+<li><p><strong>ECC</strong> (default is “on”): controls whether error correction is on or
+off. When on “12/24 Golay error correcting code” is used which
+involves sending a 16 bit CRC byte along with the data to ensure that
+bad data is thrown away. Unfortunately this also halves the data rate
+across the link but it is recommended to leave ECC on especially when
+when the vehicle is far from home base because transmission errors
+increase greatly with distance.</p></li>
+<li><p><strong>MAVlink</strong> (default is “MAVLink”) : this controls whether the
+transmission is optimised for MAVLink packets or not. Set to “Low
+Latency” if using a joystick or an android tablet’s virtual joystick
+to manually fly the vehicle. Note that information on the radio
+signal strength (rssi) and error rate is only sent if this parameter
+is set to its default, “MAVLink”.</p></li>
+<li><p><strong>Tx Power</strong> (default 20) : the transmission power where
+1=1.3milliWats, 2=1.5mW, 5=3.2mW, 8=6.3mW,11=12.5mW, 14=25mW,
+17=50mW, 20=100mW. This should be set to conform with your local
+regulations.
+Some per-country information
+<a class="reference internal" href="common-telemetry-radio-regional-regulations.html#common-telemetry-radio-regional-regulations"><span class="std std-ref">is linked here</span></a>.</p></li>
+<li><p><strong>Duty Cycle</strong> (default 100) : the maximum percentage of time that
+the radio will transmit packets. Some regions of the world allow for
+higher transmit power or more frequencies if you have a duty cycle
+below a given threshold. So for example in Europe you can transmit on
+a wider range of frequencies in the 433 band if your duty cycle is
+below 10%. Telemetry traffic is quite ‘bursty’, so the average
+transmit time is not generally high. When you set a duty cycle below
+100% then your available bandwidth will be reduced, so you will find
+it will only work well for telemetry at higher air speeds. A radio
+can be set to receive only by setting its Duty Cycle to zero.</p></li>
+<li><p><strong>Max Window</strong> (default 33) : ensure the GCS can send a packet to the
+vehicle ever 33msec. This should be kept as a low number (like 33)
+when the “MAVLink” setting is “Low Latency”</p></li>
+<li><p><strong>LBT Rssi</strong> (default 0) : holds the threshold used for “listen
+before talk” which allows it to comply with some country’s regulatory
+requirements. When non-zero the radio listens for quiet period of
+time where no signals from other radios are received before
+transmitting. This parameter holds the receiver signal strength below
+which the airwaves are considered “quiet”. If this param is set to
+zero then LBT is disabled. Setting this to 25 (the min) is -121 dBm.
+Each increment above 25 raises the threshold by about 0.5dB so for
+example 40 equals a signal strength of 7.5dB. The full formula is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signal_dBm</span> <span class="o">=</span> <span class="p">(</span><span class="n">RSSI</span> <span class="o">/</span> <span class="mf">1.9</span><span class="p">)</span> <span class="o">-</span> <span class="mi">127</span>
+</pre></div>
+</div>
+<p>The LBT implementation in the radio uses a minimum listen time of
+5ms, plus randomised listen time as per the European 9.2.2.2 rules.
+Note that in many regions you need to implement LBT in conjunction
+with AFA (Adaptive Frequency Agility). The radio implements AFA as
+long as you have <code class="docutils literal notranslate"><span class="pre">NUM_CHANNELS</span></code> set to more than 1.</p>
+</li>
+<li><p><strong>RTS CTS</strong> hardware flow control. If you are using a ArduPilot
+firmware version released after mid 2016 and you have connected your
+radio to Pixhawk Telem1 Telem2 or other RTS/CTS supporting telemetry
+port then you can activate this, or set it to auto to improve
+performance.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

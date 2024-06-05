@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tips For New Pilots &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tuning" href="common-tuning.html" />
+    <link rel="prev" title="Pre-Flight Checklist (Copter)" href="checklist.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-prearm-safety-checks.html">Pre-arm Safety Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arming_the_motors.html">Arming and Disarming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checklist.html">Pre-Flight Checklist</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting Off the Ground – Tips for New Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-flight">First flight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips-for-your-first-flights">Tips for your first flights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warning-about-low-batteries">Warning about low batteries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-tuning.html">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-measuring-vibration.html">Measuring Vibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac_throttlemid.html">Setting Hover Throttle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotrim.html">Save Trim &amp; Auto Trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thrust_loss_yaw_imbalance.html">Thrust Loss and Yaw Imbalance Warnings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indoor-flying.html">Indoor Flying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="flying-arducopter.html">First Flight with Copter</a></li>
+      <li class="breadcrumb-item active">Tips For New Pilots</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tips-for-new-pilots">
+<span id="ac-tipsfornewpilots"></span><h1>Tips For New Pilots<a class="headerlink" href="#tips-for-new-pilots" title="Permalink to this heading">¶</a></h1>
+<p>This page gives some advice on initial flying strategies for those with
+limited or no previous experience flying RC aircraft or multicopters.</p>
+<section id="first-flight">
+<h2>First flight<a class="headerlink" href="#first-flight" title="Permalink to this heading">¶</a></h2>
+<p>Place the copter on level ground and connect the battery — do not move
+the copter until gyroscope calibration is completed (LED’s flashing red
+and blue). Ensure that your RC mode toggle switch is in Stabilize mode.
+Slowly raise the throttle until the copter just lifts off the ground.</p>
+<p>If it seems like it’s going to flip or otherwise isn’t lifting straight up
+it is possible that you’ve set the wrong +/x orientation, hooked up your motors
+in the wrong order or have the prop direction or pusher/puller order wrong.
+You can test this by following the instructions in
+<a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors-testing-motor-spin-directions"><span class="std std-ref">Testing motor spin directions</span></a>.</p>
+<p>If any of the controls are reversed (pitch or roll are backwards,
+meaning the copter moves in the opposite direction as your stick),
+you’ll need to reverse the affected channel at your RC transmitter side.
+Please see your RC transmitter’s manual if you’re not familiar with the
+process. It’s a good idea to re-do your RC calibration in the Mission
+Planner after you’ve reversed a channel.</p>
+<p>If it lifts off smoothly, you may see a little yaw. That shouldn’t be
+more than about 30 degrees and will correct itself with more flying
+time. There should be no pronounced wobble (if there is, you may have an
+unbalanced prop or out-of-true motor).</p>
+<p>The copter should also tend to stay in place, and you shouldn’t have to
+fight strong tendencies to move left or right or forward or back. If you
+do see that behavior, do NOT use your RC trims to correct (this just
+throws off the calibration). Instead, it probably means that the copter
+may not have been completely flat during calibration or the airframe is
+out of true (one motor tilted). Land and correct that.</p>
+<p>If you’re having trouble and the copter is not hovering smoothly, run
+through the <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">troubleshooting guide</span></a>.</p>
+<p>Assuming that all is fine so far, you’re ready for more advanced modes,
+such as Alt Hold and Loiter.</p>
+</section>
+<section id="tips-for-your-first-flights">
+<h2>Tips for your first flights<a class="headerlink" href="#tips-for-your-first-flights" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Make sure you are in a wind free environment
+(wind will play against you on in air auto trim).</p></li>
+<li><p>Make sure you have no trim on your Radio
+(the autopilot is what we want to trim, the radio should never get trimmed).</p></li>
+<li><p>Hold the copter still and level after connecting the battery to allow
+the gyroscopes to initialize.</p></li>
+<li><p>Get above ground effect, around 3-4 feet is enough on most models.</p></li>
+<li><p>Make sure to practice a lot before you actually try the auto trim to
+find the sweet spot on the Radio right stick to have the copter super
+stable and not moving
+(This is where wind affect your inputs).</p></li>
+<li><p>We recommend not starting in Simple mode. Begin your flying in the
+basic Stabilize mode.</p></li>
+<li><p>Copter establishes its home position at the time of arming, so arm
+your copter in the location you wish to designate as the home
+position.</p></li>
+</ul>
+</section>
+<section id="warning-about-low-batteries">
+<h2>Warning about low batteries<a class="headerlink" href="#warning-about-low-batteries" title="Permalink to this heading">¶</a></h2>
+<p>When flying Copter, you need to keep in mind that it flies much
+differently than a winged airplane. In an airplane, lift is generated by
+the wing and you still have control surfaces for maneuvering if the
+motor were to stop. Multicopters generate lift solely from the thrust of
+the motors, so if your battery is excessively depleted, you have no lift
+and no control over your Copter, and it may flip over and crash without
+a gradual warning. During first flights, fly only short durations until
+you know your battery consumption and use one of the following batteries
+monitoring methods to ensure that you always have enough power remaining
+to safely land your copter (and not ruin the battery).</p>
+<ul>
+<li><p>ArduPilot supports Battery voltage monitoring. For more information, visit the <a class="reference internal" href="common-3dr-power-module.html#common-3dr-power-module"><span class="std std-ref">3DR Power Module for Measuring Voltage and Current</span></a> page.</p></li>
+<li><p>You may also program your ESCs to use a slow or no cutoff at low
+voltages.</p></li>
+<li><p>For autopilots without power module it is HIGHLY recommended you
+install a <a class="reference internal" href="common-powermodule-landingpage.html#common-powermodule-landingpage"><span class="std std-ref">Battery Voltage Monitor</span></a>.</p>
+<ul>
+<li><p>For 3S LiPo batteries, the two wires can be soldered to the P-PCB
+directly, or you can connect to the balancing plug of your
+battery.</p></li>
+<li><p>The battery voltage monitor linked above has a buzzer and LEDs
+that function as follows:</p>
+<table border="1" class="docutils">
+<tbody>
+<tr>
+<th>Voltage</th>
+<th>LED</th>
+<th>Buzzer</th>
+</tr>
+<tr>
+<td>11.0v</td>
+<td>Solid Blue</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>10.0v - 11.0v</td>
+<td>Flashing Blue</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>9.8v - 10.0v</td>
+<td>Solid Red</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>9.8v</td>
+<td>Flashing Red</td>
+<td>On</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using a battery monitor, always connect the main LiPo
+battery wire before connecting the balancing port wire to the
+APM.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="checklist.html" class="btn btn-neutral float-left" title="Pre-Flight Checklist (Copter)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-tuning.html" class="btn btn-neutral float-right" title="Tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

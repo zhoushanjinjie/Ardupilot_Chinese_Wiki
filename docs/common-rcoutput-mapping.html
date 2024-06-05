@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autopilot Output Functions &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Autopilot Output Functions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autopilot-output-functions">
+<span id="common-rcoutput-mapping"></span><h1>Autopilot Output Functions<a class="headerlink" href="#autopilot-output-functions" title="Permalink to this heading">¶</a></h1>
+<p>All autopilot servo/motor outputs may be mapped to any output function supported by
+ArduPilot. This page describes how to configure these output channels and what each
+of the available functions that can be assigned to an output are.</p>
+<p>ArduPilot supports up to 32 outputs. These may be via DroneCAN ESCs or directly from autopilot outputs, or a mixture of both.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>see the left sidebar menu for major output categories to navigate to desired functions on this page quickly.</p>
+</div>
+<section id="the-servon-function-parameters">
+<h2>The SERVOn_FUNCTION parameters<a class="headerlink" href="#the-servon-function-parameters" title="Permalink to this heading">¶</a></h2>
+<p>In the advanced parameter view of your GCS you will find that each
+SERVO output channel has a <code class="docutils literal notranslate"><span class="pre">SERVOn_FUNCTION</span></code> parameter. For example, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo5-function" title="(in Rover)"><span class="xref std std-ref">SERVO5_FUNCTION</span></a>  controls the output function of channel 5, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo6-function" title="(in Rover)"><span class="xref std std-ref">SERVO6_FUNCTION</span></a> controls the output function of channel 6 and so on.</p>
+<p>Not all the functions are available in each vehicle. Defaults are set to 0 when firmware for a vehicle type is first loaded. Choosing a frame
+configuration in Mission Planner during initial setup will set the outputs to the basic typical functions for that frame type. For example,
+fixed wing plane will set the first four outputs, SERVO1-SERVO4 to Aileron, Elevator, Throttle, and Rudder functions, respectively.</p>
+<p>All of these functions may be used on multiple channels. So if you
+want 3 elevator channels for some reason you can set <code class="docutils literal notranslate"><span class="pre">SERVOn_FUNCTION</span></code>
+to 19 on 3 of your output channels.</p>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>Configuration can be done using the SERVO tab of Mission Planner or by directly setting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter for an output.</p>
+<a class="reference external image-reference" href="../_images/rcoutput-mapping.png"><img alt="../_images/rcoutput-mapping.png" src="../_images/rcoutput-mapping.png" /></a>
+<p>For example, if you wished to re-order a Copter quad-x frame’s motors from the <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors"><span class="std std-ref">kitty-corner default</span></a> to a more logical clockwise method, make these changes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo1-function" title="(in Rover)"><span class="xref std std-ref">SERVO1_FUNCTION</span></a> leave as 33 (aka “motor1”, front-right)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo2-function" title="(in Rover)"><span class="xref std std-ref">SERVO2_FUNCTION</span></a> change from 34 (aka “motor2”, back-left) to 36 (motor #4, back-right)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-function" title="(in Rover)"><span class="xref std std-ref">SERVO3_FUNCTION</span></a> change from 35 (aka “motor3”, front-left) to 34 (motor #2, back-left)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo4-function" title="(in Rover)"><span class="xref std std-ref">SERVO4_FUNCTION</span></a> change from 36 (aka “motor4”, back-right) to 35 (motor #3, front-left)</p></li>
+</ul>
+</section>
+<section id="generic-functions">
+<h2>GENERIC FUNCTIONS<a class="headerlink" href="#generic-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Disabled</p></td>
+<td><p>0</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru</p></td>
+<td><p>1</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru1</p></td>
+<td><p>51</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru2</p></td>
+<td><p>52</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru3</p></td>
+<td><p>53</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru4</p></td>
+<td><p>54</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru5</p></td>
+<td><p>55</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru6</p></td>
+<td><p>56</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru7</p></td>
+<td><p>57</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru8</p></td>
+<td><p>58</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru9</p></td>
+<td><p>59</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru10</p></td>
+<td><p>60</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru11</p></td>
+<td><p>61</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru12</p></td>
+<td><p>62</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru13</p></td>
+<td><p>63</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru14</p></td>
+<td><p>64</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCPassThru15</p></td>
+<td><p>65</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCPassThru16</p></td>
+<td><p>66</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN1Scaled</p></td>
+<td><p>140</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN2Scaled</p></td>
+<td><p>141</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN3Scaled</p></td>
+<td><p>142</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN4Scaled</p></td>
+<td><p>143</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN5Scaled</p></td>
+<td><p>144</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN6Scaled</p></td>
+<td><p>145</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN7Scaled</p></td>
+<td><p>146</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN8Scaled</p></td>
+<td><p>147</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN9Scaled</p></td>
+<td><p>148</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN10Scaled</p></td>
+<td><p>149</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN11Scaled</p></td>
+<td><p>150</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN12Scaled</p></td>
+<td><p>151</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN13Scaled</p></td>
+<td><p>152</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN14Scaled</p></td>
+<td><p>153</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>RCIN15Scaled</p></td>
+<td><p>154</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>RCIN16Scaled</p></td>
+<td><p>155</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+</tbody>
+</table>
+<section id="disabled">
+<h3>Disabled<a class="headerlink" href="#disabled" title="Permalink to this heading">¶</a></h3>
+<p>For normal operation, the Disabled output function sets the output value
+of the channel to 0, ie no PWM pulses being sent. The exception to this is when a
+MAVLink override of the channel or a mission servo set is used. So in
+some ways “disabled” could be called “mission-controlled”.</p>
+<p>When you perform an auto mission you can ask for a servo to be set to a
+value as part of that mission. In that case you should set the
+SERVOn_FUNCTION for that channel to Disabled, so that the value doesn’t
+get changed by another output function immediately after the mission
+sets the value.</p>
+</section>
+<section id="rcpassthru">
+<h3>RCPassThru<a class="headerlink" href="#rcpassthru" title="Permalink to this heading">¶</a></h3>
+<p>Setting a channel to RCPassThru means it will output the value that is
+coming into the board from the corresponding input channel. For example,
+if <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo5-function" title="(in Rover)"><span class="xref std std-ref">SERVO5_FUNCTION</span></a> is 1 (meaning RCPassThru) then channel 5 output will
+always be equal to channel 5 input.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The servo output will exactly match the RC input source’s PWM value. RCx_TRIM/_MIN/_MAX and SERVOx_TRIM/_MIN/_MAX has no affect in this mode.</p>
+</div>
+</section>
+<section id="rcpassthru1-to-rcpassthru16">
+<h3>RCPassThru1 to RCPassThru16<a class="headerlink" href="#rcpassthru1-to-rcpassthru16" title="Permalink to this heading">¶</a></h3>
+<p>This operates the same as RCPassThru explained above. However, instead of the <code class="docutils literal notranslate"><span class="pre">SERVOx</span></code> output being controlled by the <code class="docutils literal notranslate"><span class="pre">RCx</span></code> input, any RC input can be assigned to control this output. For example RCPassThru 1 (51) would assign RC Channel 1 input to control the output. So, for output 1, assigning 51 to the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo1-function" title="(in Rover)"><span class="xref std std-ref">SERVO1_FUNCTION</span></a> is identical to assigning  the value of 1 passing RC Channel 1 to the output.</p>
+</section>
+<section id="rcin1scaled-to-rcin16scaled">
+<h3>RCIN1Scaled to RCIN16Scaled<a class="headerlink" href="#rcin1scaled-to-rcin16scaled" title="Permalink to this heading">¶</a></h3>
+<p>This operates similar to RCPassThru1 to RCPassThru16 above. However, instead of exactly passing the received PWM to the output, its is scaled.The RC input’s dead-zone(DZ) is also obeyed.</p>
+<p>The upper PWM range from the input trim value to its maximum input is translated to its corresponding output’s trim to maximum parameter values range, and similarly for the ranges below the input’s trim value as shown below:</p>
+<a class="reference external image-reference" href="../_images/rcscaled-io.jpg"><img alt="../_images/rcscaled-io.jpg" src="../_images/rcscaled-io.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the SERVOx_MIN/MAX values can be larger than what Mission Planner allows in some presentations. Use the CONFIG/Full Parameter Tree view to set parametes beyong their normal “safe” ranges.</p>
+</div>
+</section>
+</section>
+<section id="plane-functions-also-applies-to-quadplanes">
+<h2>PLANE FUNCTIONS (Also applies to QuadPlanes)<a class="headerlink" href="#plane-functions-also-applies-to-quadplanes" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Aileron</p></td>
+<td><p>4</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Elevator</p></td>
+<td><p>19</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Throttle</p></td>
+<td><p>70</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Throttle Left</p></td>
+<td><p>73</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Throttle Right</p></td>
+<td><p>74</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rudder</p></td>
+<td><p>21</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Flap</p></td>
+<td><p>2</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Automatic Flaps</p></td>
+<td><p>3</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Flaperon Left</p></td>
+<td><p>24</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Flaperon Right</p></td>
+<td><p>25</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Elevon Left</p></td>
+<td><p>77</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Elevon Right</p></td>
+<td><p>78</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>V-Tail Left</p></td>
+<td><p>79</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>V-Tail Right</p></td>
+<td><p>80</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Differential Spoiler Left1</p></td>
+<td><p>16</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Differential Spoiler Right1</p></td>
+<td><p>17</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Differential Spoiler Left2</p></td>
+<td><p>86</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Differential Spoiler Right2</p></td>
+<td><p>87</p></td>
+<td><p>Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Ground Steering</p></td>
+<td><p>26</p></td>
+<td><p>Plane, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boost Engine Throttle</p></td>
+<td><p>81</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor Enable Switch</p></td>
+<td><p>30</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Landing Gear</p></td>
+<td><p>29</p></td>
+<td><p>Copter, Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>AirBrakes</p></td>
+<td><p>110</p></td>
+<td><p>Plane</p></td>
+</tr>
+</tbody>
+</table>
+<section id="aileron">
+<h3>Aileron<a class="headerlink" href="#aileron" title="Permalink to this heading">¶</a></h3>
+<p>The Aileron output function provides an aileron output, with
+its own per-channel trim and range. This is useful when you want to
+trim each aileron separately, or if your main roll control is setup as
+<a class="reference external" href="https://ardupilot.org/plane/docs/guide-elevon-plane.html#guide-elevon-plane" title="(in Plane)"><span class="xref std std-ref">ELEVONS</span></a>, and you also want some
+normal ailerons.</p>
+</section>
+<section id="elevator">
+<h3>Elevator<a class="headerlink" href="#elevator" title="Permalink to this heading">¶</a></h3>
+<p>The elevator output function provides an elevator output. Multiple outputs are possible, each with
+separate per-channel trim and range. This is useful when you want to
+trim each elevator separately, or if your main pitch control is setup as
+<a class="reference external" href="https://ardupilot.org/plane/docs/guide-elevon-plane.html#guide-elevon-plane" title="(in Plane)"><span class="xref std std-ref">ELEVONS</span></a>, and you also want some
+normal elevator.</p>
+</section>
+<section id="throttle">
+<h3>Throttle<a class="headerlink" href="#throttle" title="Permalink to this heading">¶</a></h3>
+<p>Typical servo output for motor power control for vehicles. Multiple outputs can be used for multi-engine vehicles. Primary power control output for normal fixed-wing planes, single rotor helicopter, and rovers.</p>
+</section>
+<section id="throttle-left-right">
+<h3>Throttle Left/ Right<a class="headerlink" href="#throttle-left-right" title="Permalink to this heading">¶</a></h3>
+<p>In Plane, these outputs are for differential thrust in twin engine aircraft and the amount of yaw affecting the base throttle value is determined by <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rudd-dt-gain" title="(in Plane)"><span class="xref std std-ref">RUDD_DT_GAIN</span></a>. Also, in Plane’s vectored Tailsitters, these are the motor outputs. In Rover, these outputs are for control of the steering motors in <a class="reference external" href="https://ardupilot.org/rover/docs/rover-motor-and-servo-configuration.html#rover-motor-and-servo-configuration-skid" title="(in Rover)"><span class="xref std std-ref">Skid-Steering Rovers</span></a>. In Copter, theses outputs are used for the Bicopter motors.</p>
+</section>
+<section id="rudder">
+<h3>Rudder<a class="headerlink" href="#rudder" title="Permalink to this heading">¶</a></h3>
+<p>The rudder output function provides a rudder outputs with its own
+per-channel trim and range. Separate rudder channels are particularly
+useful for nose wheel steering where the nose wheel may need to be
+reversed as compared to the normal rudder channel or for multi-wheel
+planes.</p>
+</section>
+<section id="flap">
+<h3>Flap<a class="headerlink" href="#flap" title="Permalink to this heading">¶</a></h3>
+<p>When a channel is set as a flap its value comes from the flap rc input channel selected by assigning <code class="docutils literal notranslate"><span class="pre">RCx_FUNCTION</span></code> = 208 to it and/or from the <a class="reference external" href="https://ardupilot.org/plane/docs/automatic-flaps.html#automatic-flaps" title="(in Plane)"><span class="xref std std-ref">Automatic Flaps</span></a> feature. The reason you may want to use this instead of a RCPassThru is that you can setup
+multiple flap channels with different trims and ranges, and you may want
+to take advantage of the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#flap-slewrate" title="(in Plane)"><span class="xref std std-ref">FLAP_SLEWRATE</span></a> to limit the speed of flap
+movement.</p>
+</section>
+<section id="automatic-flaps">
+<h3>Automatic Flaps<a class="headerlink" href="#automatic-flaps" title="Permalink to this heading">¶</a></h3>
+<p>The Automatic Flaps output function behaves like the Flap output, except it
+can also accept automatic flap output control from the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#tkoff-flap-pcnt" title="(in Plane)"><span class="xref std std-ref">TKOFF_FLAP_PCNT</span></a> and
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#land-flap-percnt" title="(in Plane)"><span class="xref std std-ref">LAND_FLAP_PERCNT</span></a> parameters, as well as the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#flap-1-speed" title="(in Plane)"><span class="xref std std-ref">FLAP_1_SPEED</span></a>,
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#flap-1-percnt" title="(in Plane)"><span class="xref std std-ref">FLAP_1_PERCNT</span></a>, <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#flap-2-speed" title="(in Plane)"><span class="xref std std-ref">FLAP_2_SPEED</span></a> and <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#flap-2-percnt" title="(in Plane)"><span class="xref std std-ref">FLAP_2_PERCNT</span></a> parameters. in addition to manual control.</p>
+<p>If you have both an RC flap input channel set (<code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 208) and the Automatic Flaps
+function set, then the amount of flap applied is the higher of the two.</p>
+</section>
+<section id="flaperons">
+<h3>Flaperons<a class="headerlink" href="#flaperons" title="Permalink to this heading">¶</a></h3>
+<p>Using SERVOn_FUNCTION 24 and 25 (FlaperonLeft / FlaperonRight) you can setup
+flaperons, which are ailerons that double as flaps. They are very useful
+for aircraft which have ailerons but no flaps.</p>
+<p>See the <a class="reference external" href="https://ardupilot.org/plane/docs/flaperons-on-plane.html#flaperons-on-plane" title="(in Plane)"><span class="xref std std-ref">Flaperon guide</span></a> section for more details.</p>
+<p>Note that flaperons act like Automatic or normal flaps, described above for the flap
+component of the output.</p>
+</section>
+<section id="elevon-left-right">
+<h3>Elevon Left/ Right<a class="headerlink" href="#elevon-left-right" title="Permalink to this heading">¶</a></h3>
+<p>Provides outputs for <a class="reference external" href="https://ardupilot.org/plane/docs/guide-elevon-plane.html#guide-elevon-plane" title="(in Plane)"><span class="xref std std-ref">Elevons</span></a>.</p>
+</section>
+<section id="v-tail-left-right">
+<h3>V-tail Left/ Right<a class="headerlink" href="#v-tail-left-right" title="Permalink to this heading">¶</a></h3>
+<p>Provides outputs for <a class="reference external" href="https://ardupilot.org/plane/docs/guide-vtail-plane.html#guide-vtail-plane" title="(in Plane)"><span>V-Tail Planes</span></a>.</p>
+</section>
+<section id="differential-spoilers-left-right">
+<h3>Differential Spoilers Left/Right<a class="headerlink" href="#differential-spoilers-left-right" title="Permalink to this heading">¶</a></h3>
+<p>See <a class="reference external" href="https://ardupilot.org/plane/docs/differential-spoilers.html#differential-spoilers" title="(in Plane)"><span class="xref std std-ref">Differential Spoilers</span></a> section.</p>
+</section>
+<section id="ground-steering">
+<h3>Ground Steering<a class="headerlink" href="#ground-steering" title="Permalink to this heading">¶</a></h3>
+<p>The GroundSteering output function acts much like the rudder output
+function except that it only acts when the aircraft is below
+<a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#ground-steer-alt" title="(in Plane)"><span class="xref std std-ref">GROUND_STEER_ALT</span></a> altitude. At altitudes above <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#ground-steer-alt" title="(in Plane)"><span class="xref std std-ref">GROUND_STEER_ALT</span></a> the
+output will be the trim value for the channel.</p>
+<p>See the separate page on <a class="reference external" href="https://ardupilot.org/plane/docs/tuning-ground-steering-for-a-plane.html#tuning-ground-steering-for-a-plane" title="(in Plane)"><span class="xref std std-ref">setting up ground steering</span></a></p>
+</section>
+<section id="boost-engine-throttle">
+<h3>Boost Engine Throttle<a class="headerlink" href="#boost-engine-throttle" title="Permalink to this heading">¶</a></h3>
+<p>This output is for throttle control of an auxiliary <a class="reference internal" href="booster-motor.html#booster-motor"><span class="std std-ref">Booster Motor</span></a> to add an additional vertical thrust source in Multi-Copter and QuadPlane applications.</p>
+</section>
+<section id="motor-enable-switch">
+<h3>Motor Enable Switch<a class="headerlink" href="#motor-enable-switch" title="Permalink to this heading">¶</a></h3>
+<p>This provides an output that reflects the ARM/DISARM state of the vehicle to control a motor enable/kill switch. When ARMED, it is at SERVOx_MAX pwm, and at SERVOx_MIN pwm when disarmed.</p>
+</section>
+<section id="landing-gear">
+<h3>Landing Gear<a class="headerlink" href="#landing-gear" title="Permalink to this heading">¶</a></h3>
+<p>This output controls the landing gear servo(s) in Copter and Plane. See <a class="reference external" href="https://ardupilot.org/copter/docs/landing-gear.html#landing-gear" title="(in Copter)"><span class="xref std std-ref">landing-gear</span></a> for more information.</p>
+</section>
+<section id="airbrakes">
+<h3>Airbrakes<a class="headerlink" href="#airbrakes" title="Permalink to this heading">¶</a></h3>
+<p>This output is for air brake control. Manual input control is via <code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> = 210. For more information see <a class="reference external" href="https://ardupilot.org/plane/docs/airbrakes-on-plane.html#airbrakes-on-plane" title="(in Plane)"><span>Airbrakes</span></a>.</p>
+</section>
+</section>
+<section id="copter-quadplane-functions">
+<h2>COPTER / QUADPLANE FUNCTIONS<a class="headerlink" href="#copter-quadplane-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor 1</p></td>
+<td><p>33</p></td>
+<td><p>Copter, QuadPlane, HeliQuad, Traditional &amp; Dual helicopters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor 2</p></td>
+<td><p>34</p></td>
+<td><p>Copter, QuadPlane, HeliQuad, Traditional &amp; Dual helicopters</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor 3</p></td>
+<td><p>35</p></td>
+<td><p>Copter, QuadPlane, HeliQuad, Traditional &amp; Dual helicopters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor 4</p></td>
+<td><p>36</p></td>
+<td><p>Copter, QuadPlane, HeliQuad, Traditional &amp; Dual helicopters</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor 5</p></td>
+<td><p>37</p></td>
+<td><p>Copter, QuadPlane, Dual Helicopter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor 6</p></td>
+<td><p>38</p></td>
+<td><p>Copter, QuadPlane, Dual Helicopter</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor 7</p></td>
+<td><p>39</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor 8</p></td>
+<td><p>40</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor 9</p></td>
+<td><p>82</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor 10</p></td>
+<td><p>83</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor 11</p></td>
+<td><p>84</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor 12</p></td>
+<td><p>85</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-even"><td><p>Motor Tilt</p></td>
+<td><p>41</p></td>
+<td><p>QuadPlane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Throttle Left</p></td>
+<td><p>73</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Throttle Right</p></td>
+<td><p>74</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tilt Motor Left</p></td>
+<td><p>75</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-even"><td><p>Tilt Motor Right</p></td>
+<td><p>76</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tilt Motor Rear</p></td>
+<td><p>45</p></td>
+<td><p>QuadPlane</p></td>
+</tr>
+<tr class="row-even"><td><p>Tilt Motor Rear Left</p></td>
+<td><p>46</p></td>
+<td><p>QuadPlane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tilt Motor Rear Right</p></td>
+<td><p>47</p></td>
+<td><p>QuadPlane</p></td>
+</tr>
+<tr class="row-even"><td><p>Boost Engine Throttle</p></td>
+<td><p>81</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motor Enable Switch</p></td>
+<td><p>30</p></td>
+<td><p>Copter, QuadPlane</p></td>
+</tr>
+<tr class="row-even"><td><p>Parachute Release</p></td>
+<td><p>27</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Landing Gear</p></td>
+<td><p>29</p></td>
+<td><p>Copter, Plane</p></td>
+</tr>
+<tr class="row-even"><td><p>Winch</p></td>
+<td><p>88</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rotor Head Speed</p></td>
+<td><p>31</p></td>
+<td><p>Traditional &amp; Dual Helicopter, HeliQuad</p></td>
+</tr>
+<tr class="row-even"><td><p>Tail Rotor Speed</p></td>
+<td><p>32</p></td>
+<td><p>Traditional Helicopter</p></td>
+</tr>
+</tbody>
+</table>
+<section id="motors-1-12">
+<h3>Motors 1 - 12<a class="headerlink" href="#motors-1-12" title="Permalink to this heading">¶</a></h3>
+<p>These are the Copter and QuadPlane VTOL motor outputs. For Multi-Copters, see <a class="reference internal" href="connect-escs-and-motors.html#connect-escs-and-motors"><span class="std std-ref">Motor Order Diagrams</span></a>. Or see <a class="reference internal" href="traditional-helicopter-connecting-apm.html#traditional-helicopter-connecting-apm"><span class="std std-ref">Traditional Helicopter</span></a>, or <a class="reference internal" href="singlecopter-and-coaxcopter.html#singlecopter-and-coaxcopter"><span class="std std-ref">SingleCopter and CoaxCopter</span></a>, or <a class="reference internal" href="heliquads.html#heliquads"><span class="std std-ref">HeliQuads (Variable Pitch Multicopters)</span></a>.</p>
+<p>[site wiki=”copter”]
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">It</span> <span class="ow">is</span> <span class="n">only</span> <span class="n">possible</span> <span class="n">to</span> <span class="n">modify</span> <span class="n">the</span> <span class="n">output</span> <span class="n">channel</span> <span class="n">used</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">possible</span> <span class="n">to</span> <span class="n">redefine</span> <span class="n">the</span> <span class="n">direction</span> <span class="n">the</span> <span class="n">motor</span> <span class="n">spins</span> <span class="k">with</span> <span class="n">these</span> <span class="n">parameters</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>[/site]</p>
+<p>For QuadPlanes, see <a class="reference external" href="https://ardupilot.org/plane/docs/quadplane-frame-setup.html#quadplane-frame-setup" title="(in Plane)"><span>QuadPlane Frame setup</span></a> for motor output configuration.</p>
+</section>
+<section id="id1">
+<h3>Throttle Left/ Right<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>In Plane, these outputs are for differential thrust in twin engine aircraft and the amount of yaw affecting the base throttle value is determined by <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rudd-dt-gain" title="(in Plane)"><span class="xref std std-ref">RUDD_DT_GAIN</span></a>. Also, in Plane’s vectored Tailsitters, these are the motor outputs. In Rover, these outputs are for control of the steering motors in <a class="reference external" href="https://ardupilot.org/rover/docs/rover-motor-and-servo-configuration.html#rover-motor-and-servo-configuration-skid" title="(in Rover)"><span class="xref std std-ref">Skid-Steering Rovers</span></a>. In Copter, theses outputs are used for the Bicopter motors.</p>
+</section>
+<section id="tilt-motor-tilt-motor-left-tilt-motor-right-tilt-motor-rear-tilt-motor-rear-left-tilt-motor-rear-right">
+<h3>Tilt Motor/ Tilt Motor Left/ Tilt Motor Right/ Tilt Motor Rear/ Tilt Motor Rear Left/ Tilt Motor Rear Right<a class="headerlink" href="#tilt-motor-tilt-motor-left-tilt-motor-right-tilt-motor-rear-tilt-motor-rear-left-tilt-motor-rear-right" title="Permalink to this heading">¶</a></h3>
+<p>These outputs control the tilt servos for <a class="reference external" href="https://ardupilot.org/plane/docs/guide-tilt-rotor.html#guide-tilt-rotor" title="(in Plane)"><span>Tilt Rotor Planes</span></a> in Plane and Bicopters in Copter.</p>
+</section>
+<section id="id2">
+<h3>Boost Engine Throttle<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>This output is for throttle control of an auxiliary <a class="reference internal" href="booster-motor.html#booster-motor"><span class="std std-ref">Booster Motor</span></a> to add an additional vertical thrust source in Multi-Copter and QuadPlane applications.</p>
+</section>
+<section id="id3">
+<h3>Motor Enable Switch<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>This provides an output that reflects the ARM/DISARM state of the vehicle to control a motor enable/kill switch. When ARMED, it is at SERVOx_MAX pwm, and at SERVOx_MIN pwm when disarmed.</p>
+</section>
+<section id="parachute-release">
+<h3>Parachute Release<a class="headerlink" href="#parachute-release" title="Permalink to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="common-parachute.html#common-parachute"><span class="std std-ref">Parachute</span></a> section.</p>
+</section>
+<section id="id4">
+<h3>Landing Gear<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<p>This output controls the landing gear servo(s) in Copter and Plane. See <a class="reference external" href="https://ardupilot.org/copter/docs/landing-gear.html#landing-gear" title="(in Copter)"><span class="xref std std-ref">landing-gear</span></a> for more information.</p>
+</section>
+<section id="winch">
+<h3>Winch<a class="headerlink" href="#winch" title="Permalink to this heading">¶</a></h3>
+<p>This output controls a winch for object delivery in Copter.</p>
+</section>
+<section id="rotor-head-speed">
+<h3>Rotor Head Speed<a class="headerlink" href="#rotor-head-speed" title="Permalink to this heading">¶</a></h3>
+<p>Motor control output for <a class="reference internal" href="traditional-helicopters.html#traditional-helicopters"><span class="std std-ref">Traditional Helicopter</span></a>.</p>
+</section>
+<section id="tail-rotor-speed">
+<h3>Tail Rotor Speed<a class="headerlink" href="#tail-rotor-speed" title="Permalink to this heading">¶</a></h3>
+<p>Output to <a class="reference internal" href="traditional-helicopters.html#traditional-helicopters"><span class="std std-ref">Traditional Helicopter</span></a> tail rotor ESC/Governor (future enhancement).</p>
+</section>
+</section>
+<section id="rover-functions">
+<h2>ROVER FUNCTIONS<a class="headerlink" href="#rover-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Ground Steering</p></td>
+<td><p>26</p></td>
+<td><p>Plane, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Throttle</p></td>
+<td><p>70</p></td>
+<td><p>Plane, QuadPlane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Throttle Left</p></td>
+<td><p>73</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Throttle Right</p></td>
+<td><p>74</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Main Sail Sheet</p></td>
+<td><p>89</p></td>
+<td><p>Rover</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id5">
+<h3>Throttle<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<p>Typical servo output for motor power control for vehicles. Multiple outputs can be used for multi-engine vehicles. Primary power control output for normal fixed-wing planes, single rotor helicopter, and rovers.</p>
+</section>
+<section id="id6">
+<h3>Throttle Left/ Right<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<p>In Plane, these outputs are for differential thrust in twin engine aircraft and the amount of yaw affecting the base throttle value is determined by <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#rudd-dt-gain" title="(in Plane)"><span class="xref std std-ref">RUDD_DT_GAIN</span></a>. Also, in Plane’s vectored Tailsitters, these are the motor outputs. In Rover, these outputs are for control of the steering motors in <a class="reference external" href="https://ardupilot.org/rover/docs/rover-motor-and-servo-configuration.html#rover-motor-and-servo-configuration-skid" title="(in Rover)"><span class="xref std std-ref">Skid-Steering Rovers</span></a>. In Copter, theses outputs are used for the Bicopter motors.</p>
+</section>
+<section id="main-sail-sheet">
+<h3>Main Sail Sheet<a class="headerlink" href="#main-sail-sheet" title="Permalink to this heading">¶</a></h3>
+<p>This output is used to control the Main Sail in Rover based Sailboats. See <a class="reference external" href="https://ardupilot.org/rover/docs/sailboat-hardware.html#sailboat-hardware" title="(in Rover)"><span class="xref std std-ref">Sailing Vehicle Setup</span></a> setup for more information.</p>
+</section>
+</section>
+<section id="antenna-tracker-functions">
+<h2>ANTENNA TRACKER FUNCTIONS<a class="headerlink" href="#antenna-tracker-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Tracker Yaw</p></td>
+<td><p>71</p></td>
+<td><p>Antenna Tracker</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tracker Pitch</p></td>
+<td><p>72</p></td>
+<td><p>Antenna Tracker</p></td>
+</tr>
+</tbody>
+</table>
+<section id="tracker-yaw-pitch">
+<h3>Tracker Yaw/Pitch<a class="headerlink" href="#tracker-yaw-pitch" title="Permalink to this heading">¶</a></h3>
+<p>These outputs control the pitch and yaw servos for an <a class="reference external" href="https://ardupilot.org/antennatracker/index.html">Antenna Tracker</a>.</p>
+</section>
+</section>
+<section id="camera-gimbal-functions">
+<h2>CAMERA/GIMBAL FUNCTIONS<a class="headerlink" href="#camera-gimbal-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Mount Yaw</p></td>
+<td><p>6</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mount Pitch</p></td>
+<td><p>7</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Mount Roll</p></td>
+<td><p>8</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mount Deploy/Retract</p></td>
+<td><p>9</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Camera Trigger</p></td>
+<td><p>10</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mount2 Yaw</p></td>
+<td><p>12</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Mount2 Pitch</p></td>
+<td><p>13</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mount2 Roll</p></td>
+<td><p>14</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Mount2 Deploy/Retract</p></td>
+<td><p>15</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Camera ISO</p></td>
+<td><p>90</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Camera Aperture</p></td>
+<td><p>91</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Camera Focus</p></td>
+<td><p>92</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Camera Shutter Speed</p></td>
+<td><p>93</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+</tbody>
+</table>
+<section id="mount-yaw-pitch-roll-deploy">
+<h3>Mount Yaw/Pitch/Roll/Deploy<a class="headerlink" href="#mount-yaw-pitch-roll-deploy" title="Permalink to this heading">¶</a></h3>
+<p>These control the output channels for controlling a servo gimbal. Please
+see the <a class="reference internal" href="common-camera-gimbal.html#common-camera-gimbal"><span class="std std-ref">camera gimbal configuration documentation</span></a> for details.</p>
+<p>The Mount2 options are the same, but control a second camera gimbal.</p>
+</section>
+<section id="camera-trigger">
+<h3>Camera_trigger<a class="headerlink" href="#camera-trigger" title="Permalink to this heading">¶</a></h3>
+<p>The Camera_trigger output function is used to trigger a camera with a
+servo. See the <a class="reference internal" href="common-camera-gimbal.html#common-camera-gimbal"><span class="std std-ref">camera gimbal documentation</span></a> for details.</p>
+</section>
+<section id="camera-iso-aperture-focus-shutter-speed">
+<h3>Camera ISO/Aperture/Focus/Shutter Speed<a class="headerlink" href="#camera-iso-aperture-focus-shutter-speed" title="Permalink to this heading">¶</a></h3>
+<p>These outputs are used to remotely control the above values for BMMC (Blackmagic Micro Cinema Camera) compatible devices.</p>
+</section>
+</section>
+<section id="internal-combustion-engine-functions">
+<h2>INTERNAL COMBUSTION ENGINE FUNCTIONS<a class="headerlink" href="#internal-combustion-engine-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Ignition</p></td>
+<td><p>67</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Choke</p></td>
+<td><p>68</p></td>
+<td><p><em>reserved for future use</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Starter</p></td>
+<td><p>69</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+</tbody>
+</table>
+<section id="ignition-starter-choke">
+<h3>Ignition/Starter/Choke<a class="headerlink" href="#ignition-starter-choke" title="Permalink to this heading">¶</a></h3>
+<p>For control of an internal combustion engine’s spark plug/igniter, starter motor, and choke. See <a class="reference internal" href="common-ice.html#common-ice"><span class="std std-ref">[copywiki destination=”plane”]</span></a>.</p>
+</section>
+</section>
+<section id="neopixel-led-strings">
+<h2>NEOPIXEL LED STRINGS<a class="headerlink" href="#neopixel-led-strings" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="common-serial-led-neopixel.html#common-serial-led-neopixel"><span class="std std-ref">Neopixel LEDs/Strings</span></a> can be controlled using <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">IDs</span> <span class="pre">120-123</span></code>, thereby supporting up to four strings independently controlled. These may be used for ArduPilot notifications and warnings (See <a class="reference internal" href="common-ntf-devices.html#common-ntf-devices"><span class="std std-ref">Notification Device Configuration</span></a> ) or controlled via LUA scripting (See <a class="reference external" href="https://ardupilot.org/rover/docs/common-lua-scripts.html#common-lua-scripts" title="(in Rover)"><span>Lua Scripts</span></a>.
+This is available in all vehicles.</p>
+</section>
+<section id="profileds">
+<h2>ProfiLEDs<a class="headerlink" href="#profileds" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="common-serial-led-ProfiLED.html#common-serial-led-profiled"><span class="std std-ref">ProfiLEDs</span></a> can be controlled using <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">IDs</span> <span class="pre">129-132</span></code>, thereby supporting up to three strings independently controlled with a common clock. These may be used for ArduPilot notifications and warnings (See <a class="reference internal" href="common-ntf-devices.html#common-ntf-devices"><span class="std std-ref">Notification Device Configuration</span></a> ) or controlled via LUA scripting (See <a class="reference external" href="https://ardupilot.org/rover/docs/common-lua-scripts.html#common-lua-scripts" title="(in Rover)"><span>Lua Scripts</span></a>. This is available in all vehicles. See :ref:</p>
+</section>
+<section id="miscellaneous-functions">
+<h2>MISCELLANEOUS FUNCTIONS<a class="headerlink" href="#miscellaneous-functions" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>Gripper</p></td>
+<td><p>28</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>EggDrop</p></td>
+<td><p>11</p></td>
+<td><p>Deprecated</p></td>
+</tr>
+<tr class="row-even"><td><p>Sprayer Pump</p></td>
+<td><p>22</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sprayer Mixer</p></td>
+<td><p>23</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-even"><td><p>Output SERVOn_MIN PWM value</p></td>
+<td><p>134</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output SERVOn_TRIM PWM value</p></td>
+<td><p>135</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+<tr class="row-even"><td><p>Output SERVOn_MAX PWM value</p></td>
+<td><p>136</p></td>
+<td><p>Plane, Copter, Rover</p></td>
+</tr>
+</tbody>
+</table>
+<section id="gripper">
+<h3>Gripper<a class="headerlink" href="#gripper" title="Permalink to this heading">¶</a></h3>
+<p>This is an output for controlling a servo or electromagnetic gripper for holding items for delivery applications. See <a class="reference internal" href="common-gripper-landingpage.html#common-gripper-landingpage"><span class="std std-ref">Grippers (for delivery)</span></a> for more information.</p>
+</section>
+<section id="sprayer-pump-mixer">
+<h3>Sprayer Pump/Mixer<a class="headerlink" href="#sprayer-pump-mixer" title="Permalink to this heading">¶</a></h3>
+<p>These outputs are controlling a <a class="reference internal" href="sprayer.html#sprayer"><span class="std std-ref">Crop Sprayer</span></a>.</p>
+</section>
+<section id="output-servon-max-min-trim">
+<h3>Output SERVOn MAX/MIN/TRIM<a class="headerlink" href="#output-servon-max-min-trim" title="Permalink to this heading">¶</a></h3>
+<p>Continuously outputs the parameter value set for that output. Used in button detection. See  <a class="reference internal" href="common-buttons.html#common-buttons"><span class="std std-ref">Buttons</span></a></p>
+</section>
+</section>
+<section id="general-purpose-lua-scripting-outputs">
+<h2>GENERAL PURPOSE LUA SCRIPTING OUTPUTS<a class="headerlink" href="#general-purpose-lua-scripting-outputs" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="common-lua-scripts.html#common-lua-scripts"><span class="std std-ref">Lua Scripts</span></a> can also directly control autopilot outputs. Using <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">IDs</span> <span class="pre">94-109</span></code> provides the ability to configure up to 16 of these outputs, if the autopilot is capable. This is available in all vehicles.</p>
+</section>
+<section id="internal-controller-access">
+<h2>INTERNAL CONTROLLER ACCESS<a class="headerlink" href="#internal-controller-access" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Function</p></td>
+<td><p>ID</p></td>
+<td><p>Available in:</p></td>
+</tr>
+<tr class="row-even"><td><p>RateRoll</p></td>
+<td><p>124</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>RatePitch</p></td>
+<td><p>125</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-even"><td><p>RateThrust</p></td>
+<td><p>126</p></td>
+<td><p>Copter</p></td>
+</tr>
+<tr class="row-odd"><td><p>RateYaw</p></td>
+<td><p>127</p></td>
+<td><p>Copter</p></td>
+</tr>
+</tbody>
+</table>
+<p>These outputs provide the FeedForward terms from the attitude control loops, scaled by the ATC_RAT_x_FF PID parameter values for roll/pitch/yaw for use with external vehicle controllers.</p>
+</section>
+<section id="default-values">
+<h2>DEFAULT VALUES<a class="headerlink" href="#default-values" title="Permalink to this heading">¶</a></h2>
+<p>Either upon loading the firmware or selecting the frame type, certain default values will be set for the output functions. The user may move these to alternate servo/motor outputs if they desire. The default values are shown below:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>VEHICLE TYPE                 SERVO</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p>9</p></td>
+<td><p>10</p></td>
+<td><p>11</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>MultiCopter</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>39</p></td>
+<td><p>40</p></td>
+<td><p>82</p></td>
+<td><p>83</p></td>
+<td><p>84</p></td>
+<td><p>85</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tricopter</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>0</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>39</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleCopter / CoAxialCopter</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Traditional Helicopter</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>31</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Dual Helicopter</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>37</p></td>
+<td><p>38</p></td>
+<td><p>0</p></td>
+<td><p>31</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>HeliQuad</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>31</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Fixed Wing Plane / Tailsitter</p></td>
+<td><p>4</p></td>
+<td><p>19</p></td>
+<td><p>21</p></td>
+<td><p>70</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>QuadPlane</p></td>
+<td><p>4</p></td>
+<td><p>19</p></td>
+<td><p>21</p></td>
+<td><p>70</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>35</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>QuadPlane Tricopter</p></td>
+<td><p>4</p></td>
+<td><p>19</p></td>
+<td><p>21</p></td>
+<td><p>70</p></td>
+<td><p>33</p></td>
+<td><p>34</p></td>
+<td><p>0</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>39</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rover</p></td>
+<td><p>26</p></td>
+<td><p>0</p></td>
+<td><p>70</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rover Skid Steered vehicles will need to manually change SERVO1 and SERVO3 to Throttle Left and Throttle Right to enable skid steering.</p>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

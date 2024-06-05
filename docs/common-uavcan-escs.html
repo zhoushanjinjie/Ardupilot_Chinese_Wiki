@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneCAN ESCs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DroneCAN ESCs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dronecan-escs">
+<span id="common-uavcan-escs"></span><h1>DroneCAN ESCs<a class="headerlink" href="#dronecan-escs" title="Permalink to this heading">¶</a></h1>
+<p>Copter, Plane and Rover support <a class="reference external" href="https://dronecan.org">DroneCAN</a> Electronic Speed Controllers
+(ESCs) that allow two-way communication with the autopilot
+enabling potentially easier setup and in-flight monitoring of ESC and
+motor health.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/LnUmYgAINBc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="list-of-can-escs">
+<h2>List of CAN ESCs<a class="headerlink" href="#list-of-can-escs" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Name</p></th>
+<th class="head" rowspan="2"><p>Avail</p></th>
+<th class="head" rowspan="2"><p>Ever Worked</p></th>
+</tr>
+<tr class="row-even"></tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="https://files.zubax.com/products/io.px4.sapog/Zubax_Orel_20_Datasheet.pdf">Zubax Orel 20</a></p></td>
+<td rowspan="2"><p><a class="reference external" href="https://titaneliteinc.com/titanoc/index.php?route=product/product&amp;product_id=995">Yes</a></p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="https://zubax.com/products/myxa/">Zubax Myxa</a></p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="https://zubax.com/products/mitochondrik">Zubax Mitochondrik</a></p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="http://www.holybro.com/product/kotleta20/">Holybro Kotleta20</a></p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="http://autoquad.org/esc32/">AutoQuad ESC32</a></p></td>
+<td rowspan="2"><p>No</p></td>
+<td rowspan="2"><p>No</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="http://vedder.se/2015/01/vesc-open-source-esc/">VESC</a></p></td>
+<td rowspan="2"><p><a class="reference external" href="https://www.ollinboardcompany.com/product/vedder-s-speed-controller">Yes</a></p></td>
+<td rowspan="2"><p>No (<a class="reference external" href="https://discuss.ardupilot.org/t/next-gen-esc-validation-and-integration-vesc-declined/12534">proposal</a>)</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference external" href="https://www.aerolab.de/esc-regler/hiend-can-bus-esc/">HiEnd Can Bus ESC</a></p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="2"><p>?</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p><a class="reference internal" href="common-velocity-can-escs.html#common-velocity-can-escs"><span class="std std-ref">Velocity ESC</span></a></p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+</section>
+<section id="connecting-to-the-flight-controller">
+<h2>Connecting to the Flight Controller<a class="headerlink" href="#connecting-to-the-flight-controller" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/Pixhawk_UAVCAN_ESC.jpg"><img alt="../_images/Pixhawk_UAVCAN_ESC.jpg" src="../_images/Pixhawk_UAVCAN_ESC.jpg" /></a>
+<p>One ESC (it does not matter which) should be connected to the autopilot’s
+CAN port using a 4-pin DF13 to 4-pin DroneCAN adapter cable. Each
+subsequent ESC should be connected to the previous using a 4-pin
+DroneCAN cable.  The final ESC should have a CAN bus terminator plugged
+into one of its 4-pin DroneCAN ports.</p>
+<p>An FTDI Cable connection to the ESC’s debug port is only required for set-up if the ESC does not present its parameters via DroneCAN. In that case, contact the manufacturer for detailed instructions.</p>
+<p>Preferably, the ESC can be configured via CAN bus using the <cite>DroneCAN GUI Tool &lt;common-uavcan-gui&gt;</cite>.</p>
+</section>
+<section id="autopilot-setup">
+<h2>Autopilot Setup<a class="headerlink" href="#autopilot-setup" title="Permalink to this heading">¶</a></h2>
+<p>There are several parameters that determine which autopilot servo/motor channels are sent to the DroneCAN ESCs:
+For the examples below, the values are shown for DroneCAN driver #1 using CAN Port #1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> = 1, which assigns driver1 to port1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> = 1 (DroneCAN protocol), 4 (PiccoloCAN protocol), or 8 (KDECAN protocol) depending on which protocl the ESC is  using.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-node" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_NODE</span></a> - which is the node ID of the autopilot sending the commands to the ESCs so that there can be differentiation between multiple sources on the CAN bus. This is normally automatically set during discovery, but can be altered for advanced configurations (multiple sources on the bus).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-uc-esc-bm" title="(in Rover)"><span class="xref std std-ref">CAN_D1_UC_ESC_BM</span></a> - bitmask that determines which autopilot servo/motor output signals are sent to the DroneCAN ESCSs</p></li>
+</ul>
+<section id="logging-and-reporting">
+<h3>Logging and Reporting<a class="headerlink" href="#logging-and-reporting" title="Permalink to this heading">¶</a></h3>
+<p>DroneCAN ESCs provide information back to the autopilot which is recorded in the autopilot’s onboard log’s CESC messages and can be viewed in any <a class="reference internal" href="common-logs.html#common-logs"><span class="std std-ref">ArduPilot compatible log viewer</span></a>.  This information includes:</p>
+<ul class="simple">
+<li><p>Error Count</p></li>
+<li><p>Voltage</p></li>
+<li><p>Current</p></li>
+<li><p>Temperature</p></li>
+<li><p>RPM</p></li>
+<li><p>Power (as a percentage)</p></li>
+</ul>
+<p>The RCOU messages are also written to the onboard logs which hold the requested output level sent to the ESCs expressed as a number from 1000 (meaning stopped) to 2000 (meaning full output).</p>
+</section>
+</section>
+<section id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+ArduPilot">Zubax Sapog wiki page</a>,
+<a class="reference external" href="https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf">Sapog reference manual</a>,
+and <a class="reference external" href="https://github.com/PX4/sapog">ESC firmware</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

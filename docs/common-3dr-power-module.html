@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Power Module &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Common Power Module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-power-module">
+<span id="common-3dr-power-module"></span><h1>Common Power Module<a class="headerlink" href="#common-power-module" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/3DR-current-sensor-top.jpg"><img alt="../_images/3DR-current-sensor-top.jpg" src="../_images/3DR-current-sensor-top.jpg" style="width: 450px;" /></a>
+<p>Many autopilots can be purchased with an analog power module that provides a stable power supply to the autopilot and also supports measuring the battery voltage and current consumption.</p>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading">¶</a></h2>
+<p>Below are typical limits, but it is best to confirm directly with the vendor:</p>
+<ul class="simple">
+<li><p>Maximum input voltage of 18V (4S lipo)</p></li>
+<li><p>Maximum of 90 Amps (but only capable of measuring up to 60 Amps)</p></li>
+<li><p>Provides 5.37V and 2.25Amp power supply to the autopilot</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Power Module provides enough power for the autopilot, receiver, and a few low powered peripherals (lidar, telemetry) but does not have enough power for servos or high current devices like FPV transmitters or the RFD900 radios.  More information on <a class="reference internal" href="common-powering-the-pixhawk.html#common-powering-the-pixhawk"><span class="std std-ref">powering the Pixhawk can be found here</span></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Power Modules of this type (resistive shunt) cannot continuously support their maximum rated current. Excessive and destructive heat can be generated at continuous current levels exceeding 33% to 66% of the maximum rated current (instantaneous rating). Check with manufacturer for ratings.</p>
+</div>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>The 6 pin cable from the power module plugs into the POWER port of the autopilot</p>
+<a class="reference external image-reference" href="../_images/powermodule-analog-pixhawk.png"><img alt="../_images/powermodule-analog-pixhawk.png" src="../_images/powermodule-analog-pixhawk.png" style="width: 300px;" /></a>
+<p>The battery is connected to the power module’s male connector.  The ESC or Power Distribution Board should be connected to the power module’s female connector.</p>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>Most ground stations provide a battery monitor interface but the parameters can also be set manually:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = <strong>3</strong> to measure only voltage or <strong>4</strong> to measure both voltage and current (you will need to reboot the board after changing this)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_PIN</span></a> = <strong>2</strong>. The autopilot pin connected to the power module’s voltage pin</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT_VOLT_MULT</span></a> converts the analog voltage received from the power module’s voltage pin to the battery’s voltage</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> = <strong>3</strong>. The autopilot pin connected to the power module’s current pin</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> converts the analog voltage received from the power module’s current pin to the battery’s current</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-offset" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_OFFSET</span></a> voltage offset received from the power module’s current pin when ther is no current being pulled from the battery</p></li>
+</ul>
+<p>Instructions for setup and calibration using the <a class="reference internal" href="common-power-module-configuration-in-mission-planner.html#common-power-module-configuration-in-mission-planner"><span class="std std-ref">Mission Planner can be found here</span></a>
+A Blog post with instructions for <a class="reference external" href="https://discuss.ardupilot.org/t/power-monitor-setup-on-ardupilot-copter-3-6/35441">set-up using QGC can be found here</a></p>
+</section>
+<section id="dual-battery-monitoring">
+<h2>Dual Battery Monitoring<a class="headerlink" href="#dual-battery-monitoring" title="Permalink to this heading">¶</a></h2>
+<p>If the autopilot has additional analog-to-digital pins available, a second battery can be monitored by setting up the <code class="docutils literal notranslate"><span class="pre">BATT2_</span></code> parameters.  The values below allow reading a second battery’s voltage and current using <a class="reference internal" href="common-thecube-overview.html#common-thecube-overview"><span class="std std-ref">The Cube’s</span></a> POWER2 port.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT2_MONITOR</span></a> = <strong>4</strong> to measure both voltage and current (you will need to reboot the board after changing this)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-pin" title="(in Rover)"><span class="xref std std-ref">BATT2_VOLT_PIN</span></a> = <strong>13</strong></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> = <strong>14</strong></p></li>
+</ul>
+<p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-volt-mult" title="(in Rover)"><span class="xref std std-ref">BATT2_VOLT_MULT</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT2_AMP_PERVLT</span></a> should also be set by comparing the reported values vs values collected using a hand held voltage meter</p>
+<a class="reference external image-reference" href="../_images/powermodule-dual-monitoring.png"><img alt="../_images/powermodule-dual-monitoring.png" src="../_images/powermodule-dual-monitoring.png" style="width: 450px;" /></a>
+</section>
+<section id="failsafe">
+<h2>Failsafe<a class="headerlink" href="#failsafe" title="Permalink to this heading">¶</a></h2>
+<p>[site wiki=”copter”]
+Instructions for <a class="reference internal" href="failsafe-battery.html#failsafe-battery"><span class="std std-ref">battery failsafe can be found here</span></a>
+[/site]
+[site wiki=”plane”]
+Instructions for <a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span class="xref std std-ref">battery failsafe can be found here</span></a>
+[/site]
+[site wiki=”rover”]
+Instructions for <a class="reference external" href="https://ardupilot.org/rover/docs/rover-failsafes.html#rover-failsafes" title="(in Rover)"><span class="xref std std-ref">battery failsafe can be found here</span></a>
+[/site]</p>
+</section>
+<section id="extending-current-measurement-capacity">
+<h2>Extending Current Measurement Capacity<a class="headerlink" href="#extending-current-measurement-capacity" title="Permalink to this heading">¶</a></h2>
+<p>Shunt resistor power monitors of this variety can be used to measure higher currents if setup in a current sharing configuration, as shown below:</p>
+<a class="reference external image-reference" href="../_images/current-sharing.jpg"><img alt="../_images/current-sharing.jpg" src="../_images/current-sharing.jpg" /></a>
+<p>Design points:</p>
+<ul class="simple">
+<li><p>The shunt should be approximately the same resistance as the power module. For example, a 120A module usually uses a 0.5 milliohm sense resistor. Therefore the wire shunt should be ~ 0.5 milliohm for equal sharing of the total current. This can be determined from a reference such as <a class="reference external" href="https://www.engineeringtoolbox.com/wire-gauges-d_419.html">this</a> . For 12ga wire, that would be ~ 4 inches.</p></li>
+<li><p>The wire gauge (and, of course, the wire used to connect the power module) should be rated to handle the expected continuous current for the length of wiring utilized.</p></li>
+<li><p>Try to keep the leads from the shunt junctions to power module short. Longer leads to the module there will increase resistance in that branch. This will unbalance the current split. Not an large issue, but will effectively increase the max resistance capability and decrease the incremental sensitivity of the measurement more than needed.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/current-sharing-pic.png"><img alt="../_images/current-sharing-pic.png" src="../_images/current-sharing-pic.png" /></a>
+<p>In the photo above, by providing two bypasses, the current is shared such that the power monitor sees a little less than 1/3 the total current flowing, and reports a value ~1/3 normal, extending its range ~3X.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to variations in materials, length, etc. it is mandatory that the monitor be calibrated using a precision current meter of some kind. It is best to calibrate at a value greater than 50% of the maximum current expected.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

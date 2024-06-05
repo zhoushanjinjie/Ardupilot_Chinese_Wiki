@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echologger ECT400 echosounder &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Echologger ECT400 echosounder</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="echologger-ect400-echosounder">
+<span id="common-echologger-ect400"></span><h1>Echologger ECT400 echosounder<a class="headerlink" href="#echologger-ect400-echosounder" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="http://www.echologger.com/products/9">EchoLogger ECT400</a> is an echosounder (aka underwater sonar) with a 100m range, 5 degree beam width and 1hz ~ 10hz update rate.
+More details can be found in the <a class="reference external" href="http://www.echologger.com/media/main/product/6a5d0079-6a03-469d-b94a-fa0854e4f510.pdf">datasheet</a></p>
+<img alt="../_images/echologger-ect400.png" src="../_images/echologger-ect400.png" />
+<p><em>image courtesy of echologger.com</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for this sensor was added to Rover-3.4.</p>
+</div>
+<section id="recommended-hardware">
+<h2>Recommended Hardware<a class="headerlink" href="#recommended-hardware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ECT400 can be purchased after <a class="reference external" href="http://echologger.com/contact">emailing echologger.com</a></p></li>
+<li><p><a class="reference external" href="https://www.sparkfun.com/products/8780">Sparkfun RS232 To Serial converter</a></p></li>
+<li><p><a class="reference external" href="https://www.sparkfun.com/products/11304">USB to RS232 converter</a> to allow testing and configuring the sensor with a PC</p></li>
+</ul>
+</section>
+<section id="connecting-and-configuring">
+<h2>Connecting and Configuring<a class="headerlink" href="#connecting-and-configuring" title="Permalink to this heading">¶</a></h2>
+<p>The ECT400 provides distance measurements using the NMEA protocol over serial at 115200 baud.</p>
+<p>The sensor can be connected to any available serial/uart port on the autopilot.  In the diagram below the first sensor is connected to SERIAL2.</p>
+<a class="reference external image-reference" href="../_images/echologger-ect400-pixhawk.png"><img alt="../_images/echologger-ect400-pixhawk.png" src="../_images/echologger-ect400-pixhawk.png" /></a>
+<p>If the SERIAL2 is used then the following parameters should be set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 9 (Lidar)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 115 (115200 baud)</p></li>
+</ul>
+<p>Then the following range finder related parameters should be set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-type" title="(in Rover)"><span class="xref std std-ref">RNGFND1_TYPE</span></a> = 17 (NMEA)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-min-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MIN_CM</span></a> = 13</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-max-cm" title="(in Rover)"><span class="xref std std-ref">RNGFND1_MAX_CM</span></a> = 10000 (i.e. 100m).  <em>This is the distance in centimeters that the rangefinder can reliably read.</em></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rngfnd1-orient" title="(in Rover)"><span class="xref std std-ref">RNGFND1_ORIENT</span></a> = 25 (i.e. down) if mounted on a boat</p></li>
+</ul>
+</section>
+<section id="configuring-the-sensor">
+<h2>Configuring the sensor<a class="headerlink" href="#configuring-the-sensor" title="Permalink to this heading">¶</a></h2>
+<p>By default the sensor comes configured to sample the depth at only 1hz and to a maximum depth of 10m.</p>
+<p>Using a <a class="reference external" href="https://www.sparkfun.com/products/11304">USB to RS232 converter</a> connect to the sensor from your PC using a terminal program like <a class="reference external" href="https://www.putty.org/">Putty</a> (Connection type of “Serial”, Speed of “115200” and Serial line of the appropriate COM port).</p>
+<p>If connected properly NMEA data should appear on the console.  Type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#help           (to display the help menu)</span>
+<span class="c1">#range 100000   (to set the range to 100m)</span>
+<span class="c1">#interval 0.5   (to set update rate to 2hz)</span>
+<span class="c1">#nmeadpt 0      (to disable dpt message)</span>
+<span class="c1">#nmeamtw 0      (to disable mtw message)</span>
+<span class="c1">#nmeaxdr 0      (to disable xdr message)</span>
+<span class="c1">#nmeaema 0      (to disable ema message</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="../_images/echologger-ect400-sensor-config.png"><img alt="../_images/echologger-ect400-sensor-config.png" src="../_images/echologger-ect400-sensor-config.png" /></a>
+<p>More info on NMEA message contents can be found <a class="reference external" href="http://www.catb.org/gpsd/NMEA.html">here</a></p>
+<section id="testing-the-sensor">
+<h3>Testing the sensor<a class="headerlink" href="#testing-the-sensor" title="Permalink to this heading">¶</a></h3>
+<p>Distances read by the sensor can be seen in the Mission Planner’s Flight
+Data screen’s Status tab. Look closely for “sonarrange”.</p>
+<a class="reference external image-reference" href="../_images/mp_rangefinder_lidarlite_testing.jpg"><img alt="../_images/mp_rangefinder_lidarlite_testing.jpg" src="../_images/mp_rangefinder_lidarlite_testing.jpg" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

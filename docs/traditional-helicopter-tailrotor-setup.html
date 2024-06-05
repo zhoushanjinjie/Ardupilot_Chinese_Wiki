@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Helicopter – Tailrotor Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Rotor Speed Control Setup" href="traditional-helicopter-rsc-setup.html" />
+    <link rel="prev" title="Traditional Helicopter Aerobatic Setup" href="traditional-helicopter-aerobatic-setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traditional-heli-parts-list.html">Suggested Parts List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-the-code.html">Loading the Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-mounting.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-parameter-list.html">Helicopter Parameter List at a Glance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-connecting-apm.html">Connecting and Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-swashplate-setup.html">Swashplate Setup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tailrotor Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tailrotor-setups">Tailrotor setups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-tail-trim">Setting Tail Trim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collective-to-tailrotor-compensation">Collective to Tailrotor Compensation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-rsc-setup.html">Rotor Speed Control Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-internal-rsc-governor.html">Internal Rotor Speed Governor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-time-setup.html">Traditional Helicopter Setup</a></li>
+      <li class="breadcrumb-item active">Traditional Helicopter – Tailrotor Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traditional-helicopter-tailrotor-setup">
+<span id="id1"></span><h1>Traditional Helicopter – Tailrotor Setup<a class="headerlink" href="#traditional-helicopter-tailrotor-setup" title="Permalink to this heading">¶</a></h1>
+<p>There are several ways for controlling the speed and/or pitch of the tailrotor and each have a unique setup.  The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-tail-type" title="(in Copter)"><span class="xref std std-ref">H_TAIL_TYPE</span></a> parameter is used to specify method for controlling the tailrotor.  A list of available tail types is given below:</p>
+<ul class="simple">
+<li><p>Servo Only (ArduPilot will supply the tail rotor stabilization like a tail rotor gyro)</p></li>
+<li><p>Direct Drive Fixed Pitch Clockwise (DDFP CW) (tail rotor driven by a motor whose ESC is controlled by ArudPilot)</p></li>
+<li><p>Direct Drive Fixed Pitch Counter-Clockwise (DDFP CCW) (tail rotor driven by a motor whose ESC is controlled by ArudPilot)</p></li>
+<li><p>Direct Drive Variable Pitch (DDVP) (both a tail rotor motor ESC and a servo controlled pitch link are used)</p></li>
+</ul>
+<section id="tailrotor-setups">
+<h2>Tailrotor setups<a class="headerlink" href="#tailrotor-setups" title="Permalink to this heading">¶</a></h2>
+<section id="servo-only">
+<h3>Servo Only<a class="headerlink" href="#servo-only" title="Permalink to this heading">¶</a></h3>
+<p>The Servo Only tail type uses a servo to control the tailrotor pitch slider.  The tailrotor speed is controlled by a physical connection (tailrotor shaft or belt) to the engine and main shaft. In the Heli Page of the Mission Planner Setup Tab, motor 4 is assigned to the servo number that corresponds to the servo channel the tail rotor servo is physically connected.  Depending on your servo type, set the minimum, maximum and trim PWM.  Setting the trim PWM is discussed below.</p>
+</section>
+<section id="direct-drive-fixed-pitch">
+<h3>Direct Drive Fixed Pitch<a class="headerlink" href="#direct-drive-fixed-pitch" title="Permalink to this heading">¶</a></h3>
+<p>The Direct Drive Fixed Pitch (DDFP) tail type accommodates two options: one where the main rotor rotates clockwise when viewed from above and the other where the main rotor rotates counter-clockwise when viewed from above.  Be sure to select the DDFP tail type for the main rotor rotation.  In this case, the control of tailrotor thrust is accomplished through tailrotor speed since it is a fixed pitch propeller. In the Heli Page of the Mission Planner Setup Tab, motor 4 is assigned to the servo number that corresponds to the servo channel the tailrotor ESC is physically connected.</p>
+</section>
+<section id="direct-drive-variable-pitch">
+<h3>Direct Drive Variable Pitch<a class="headerlink" href="#direct-drive-variable-pitch" title="Permalink to this heading">¶</a></h3>
+<p>The Direct Drive Variable Pitch (DDVP) tail type uses a tail motor with a variable pitch propeller.  A separate servo is used to control the tailrotor pitch.  The setup of the servo is similar to the servo only tail type. In the Heli Page of the Mission Planner Setup Tab, motor 4 is assigned to the servo number that corresponds to the servo channel the tailrotor servo is physically connected.  For the tail motor, the HeliTailRSC is assigned to the servo number that corresponds to the servo channel the tail motor ESC is physically connected.</p>
+</section>
+</section>
+<section id="setting-tail-trim">
+<h2>Setting Tail Trim<a class="headerlink" href="#setting-tail-trim" title="Permalink to this heading">¶</a></h2>
+<p>Setting the trim value of the Servo output is important to ensuring that the integrator offset of the tail rotor control loop is minimized, to maximize control range.  Collective to tailrotor compensation can also help with this and is discussed in the next section.</p>
+<p>If no collective to tailrotor compensation is used, then it is recommended that the <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> for the tailrotor servo is set to the PWM that corresponds to the tailrotor pitch required for hover, or the motor speed for DDFP. To determine this, hover the aircraft.  After the flight, pull the log and determine the average PWM value for the servo for hovering flight.  Either set that as the <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> or mechanically adjust the tail pitch (non-DDFP tail types) for the tail pitch corresponding to the PWM.  Then set the <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> to the servo midpoint. The latter approach is usually preferable.</p>
+<p>If the collective to tail rotor compensation is used (see below) the set the <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> for the PWM that corresponds to zero tailrotor pitch.  Or, the tailrotor pitch can be mechanically adjusted to zero pitch for the servo midpoint.</p>
+</section>
+<section id="collective-to-tailrotor-compensation">
+<h2>Collective to Tailrotor Compensation<a class="headerlink" href="#collective-to-tailrotor-compensation" title="Permalink to this heading">¶</a></h2>
+<p>Collective to tailrotor compensation is used to remove the effects of the aircraft momentarily yawing when the collective pitch is changed rapidly and to minimize integrator offsets.</p>
+<p>In versions 4.3 and earlier, the parameter <code class="docutils literal notranslate"><span class="pre">H_COLYAW</span></code> was used.  This implementation assumed the tailrotor changed linearly with collective blade pitch.  In versions 4.4 and later, the parameter <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col2yaw" title="(in Copter)"><span class="xref std std-ref">H_COL2YAW</span></a> is used.  This implementation uses an accepted helicopter performance relationship between helicopter power required and weight.  Setting this parameter will only be valid for one rotor speed.  Set the tailrotor pitch so it is zero deg blade pitch at the <code class="docutils literal notranslate"><span class="pre">SERVOx_TRIM</span></code> value. If the rotor speed is changed then the parameter might require retuning.  The relationship uses collective to the 1.5 power to determine the tailrotor correction.  It is recommended to start at 0.5 and increase the parameter until there is little to no yawing when changing the collective pitch.  One other way would be to determine the yaw required for hovering as well as the collective and then calculate the value.</p>
+<p>See also: <a class="reference internal" href="traditional-helicopter-aerobatic-setup.html#traditional-helicopter-aerobatic-setup"><span class="std std-ref">Traditional Helicopter Aerobatic Setup</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-aerobatic-setup.html" class="btn btn-neutral float-left" title="Traditional Helicopter Aerobatic Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-rsc-setup.html" class="btn btn-neutral float-right" title="Rotor Speed Control Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

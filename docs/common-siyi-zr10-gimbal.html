@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIYI ZR10, ZR30 and A8 Gimbals &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SIYI ZR10, ZR30 and A8 Gimbals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-siyi-zr10-gimbal">[copywiki destination=”plane,copter,rover”]</p>
+<section id="siyi-zr10-zr30-and-a8-gimbals">
+<h1>SIYI ZR10, ZR30 and A8 Gimbals<a class="headerlink" href="#siyi-zr10-zr30-and-a8-gimbals" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://shop.siyi.biz/products/siyi-zr10">SIYI ZR10</a>, <a class="reference external" href="https://shop.siyi.biz/products/siyi-zr30">ZR30</a> and <a class="reference external" href="https://shop.siyi.biz/products/siyi-a8-mini">A8</a>  are 3-axis gimbals and camera which can communicate with ArduPilot using a custom serial protocol.</p>
+<a class="reference external image-reference" href="https://shop.siyi.biz/products/zr10"><img alt="../_images/siyi-zr10-gimbal.png" src="../_images/siyi-zr10-gimbal.png" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Support for these gimbals is available in ArduPilot 4.3.1 (and higher)</p>
+</div>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>These gimbals can be purchased directly from <a class="reference external" href="https://shop.siyi.biz/collections/gimbal-camera">SIYI</a></p>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/siyi-zr10-gimbal-autopilot.png"><img alt="../_images/siyi-zr10-gimbal-autopilot.png" src="../_images/siyi-zr10-gimbal-autopilot.png" style="width: 450px;" /></a>
+<a class="reference external image-reference" href="../_images/siyi-zr30-gimbal-autopilot.png"><img alt="../_images/siyi-zr30-gimbal-autopilot.png" src="../_images/siyi-zr30-gimbal-autopilot.png" style="width: 450px;" /></a>
+<a class="reference external image-reference" href="../_images/siyi-a8-gimbal-autopilot.png"><img alt="../_images/siyi-a8-gimbal-autopilot.png" src="../_images/siyi-a8-gimbal-autopilot.png" style="width: 450px;" /></a>
+<p>Connect the gimbal’s RX, TX and GND pins to one of the autopilot’s serial ports as shown above.</p>
+<p>Connect with a ground station and set the following parameters.  The params below assume the autopilot’s telem2 port is used and the Camera1 control instance,</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> to 8 (“SToRM32 Gimbal Serial”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> to “115” for 115200 bps</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> to “8” (“Siyi”) and reboot the autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-min" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MIN</span></a> to -90</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-max" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MAX</span></a> to 25</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-min" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MIN</span></a> to -135</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-max" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MAX</span></a> to 135</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-rc-rate" title="(in Rover)"><span class="xref std std-ref">MNT1_RC_RATE</span></a> to 90 (deg/s) to control speed of gimbal when using RC targetting</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc6-option" title="(in Rover)"><span class="xref std std-ref">RC6_OPTION</span></a> = 213 (“Mount Pitch”) to control the gimbal’s pitch angle with RC channel 6</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc7-option" title="(in Rover)"><span class="xref std std-ref">RC7_OPTION</span></a> = 214 (“Mount Yaw”) to control the gimbal’s yaw angle with RC channel 7</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc8-option" title="(in Rover)"><span class="xref std std-ref">RC8_OPTION</span></a> = 163 (“Mount Lock”) to switch between “lock” and “follow” mode with RC channel 8</p></li>
+<li><p>Enable camera controls with one of the following AP version specific parameters</p>
+<ul>
+<li><p>For AP4.3 (or earlier) set <code class="docutils literal notranslate"><span class="pre">CAM_TRIGG_TYPE</span></code> to 3 / “Mount (Siyi)” to allow control of the camera</p></li>
+<li><p>For AP4.4 (or later) set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#cam1-type" title="(in Rover)"><span class="xref std std-ref">CAM1_TYPE</span></a> to 4 / “Mount (Siyi)” to allow control of the camera</p></li>
+</ul>
+</li>
+<li><p>Optionally these auxiliary functions are also available</p>
+<ul>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 166 (“Camera Record Video”) to start/stop recording of video</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 167 (“Camera Zoom”) to zoom in and out</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 168 (“Camera Manual Focus”) to adjust focus in and out</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 169 (“Camera Auto Focus”) to trigger auto focus</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A8 does not support zoom at 4K recording resolution</p>
+</div>
+</section>
+<section id="configuring-the-gimbal">
+<h2>Configuring the Gimbal<a class="headerlink" href="#configuring-the-gimbal" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Download, install and run “SIYI PC Assistant” which can be found on the <a class="reference external" href="https://shop.siyi.biz/products/siyi-zr10">SIYI ZR10 web page’s Downloads tab</a></p></li>
+<li><p>Ensure the gimbal is running a recent firmware.  For ZR10 use 0.2.1 or higher.  For A8 use 0.1.7 or higher.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/siyi-gimbal-firmversion.png"><img alt="../_images/siyi-gimbal-firmversion.png" src="../_images/siyi-gimbal-firmversion.png" /></a>
+</section>
+<section id="control-and-testing">
+<h2>Control and Testing<a class="headerlink" href="#control-and-testing" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">Gimbal / Mount Controls</span></a> for details on how to control the gimbal using RC, GCS or Auto mode mission commands</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESC Signalling Issues &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ESC Signalling Issues</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-esc-issues">[copywiki destination=”plane,copter,rover”]</p>
+<section id="esc-signalling-issues">
+<h1>ESC Signalling Issues<a class="headerlink" href="#esc-signalling-issues" title="Permalink to this heading">¶</a></h1>
+<p>This page discusses several potential issues with ESC signaling that can result in unreliable operation or even crashes on takeoff. These primarily occur with larger QuadPlanes that have long runs to their ESCS from power and the autopilot.</p>
+<section id="inadequate-signaling-level">
+<h2>Inadequate Signaling Level<a class="headerlink" href="#inadequate-signaling-level" title="Permalink to this heading">¶</a></h2>
+<p>Most autopilots use TTL/CMOS compatible signaling on their outputs, but usually only at 3.3V levels. This can ultimately result in poor signaling waveforms or levels at the ESC, resulting in unreliable operation. Contributing factors to that are:</p>
+<ul class="simple">
+<li><p>High impedance (either resistive or reactive) wiring runs</p></li>
+<li><p>ESC input loading is too heavy</p></li>
+</ul>
+<p>For large, high-value vehicles, its always good to check the ESC signal levels for each ESC with a scope to assure clean signaling. This is best done with a ground runup to at least 70% throttle, either physically securing the vehicle or mounting its props reversed temporarily.</p>
+<p>Below is an example scope trace for two ESC signals for ESCs presenting too high an input load or too much wiring resistance. As shown, the second ESC’s analog level is about 3V, which is a little marginal, but the first ESC trace is only about 2V and is too low for reliable operation.</p>
+<a class="reference external image-reference" href="../_images/esc-signal.jpg"><img alt="../_images/esc-signal.jpg" src="../_images/esc-signal.jpg" /></a>
+<p>It is also possible to see poor rise and fall times, but with adequate voltage levels due to high reactance in the connection. This will also affect timing and performance and should be corrected.</p>
+<section id="possible-solutions">
+<h3>Possible Solutions:<a class="headerlink" href="#possible-solutions" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>lower wiring impedance with larger wiring or shorter runs</p></li>
+<li><p>use ESCs that do not present such high input loading</p></li>
+<li><p>add buffers to autopilot outputs to provide 5v signaling and higher drive currents</p></li>
+<li><p>some autopilots have the option of increasing their signal levels from 3.3V to 5V using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-pwm-volt-sel" title="(in Rover)"><span class="xref std std-ref">BRD_PWM_VOLT_SEL</span></a> = 1. See the following list of autopilots that support this (if you can see this parameter in your GCS parameter list, then your autopilot has this feature):</p></li>
+</ul>
+<section id="autopilots-with-brd-pwm-volt-sel">
+<h4>Autopilots with <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-pwm-volt-sel" title="(in Rover)"><span class="xref std std-ref">BRD_PWM_VOLT_SEL</span></a><a class="headerlink" href="#autopilots-with-brd-pwm-volt-sel" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-thecubeorange-overview.html#common-thecubeorange-overview"><span class="std std-ref">CubeOrange</span></a></p></li>
+<li><p><a class="reference internal" href="common-thecubeyellow-overview.html#common-thecubeyellow-overview"><span class="std std-ref">CubeYellow</span></a></p></li>
+<li><p><a class="reference external" href="https://store.mrobotics.io/product-p/m10048d.htm">mRo Control Zero Classic</a></p></li>
+<li><p><a class="reference internal" href="common-pixracer-pro.html#common-pixracer-pro"><span class="std std-ref">mRo Pixracer Pro</span></a></p></li>
+<li><p><a class="reference internal" href="common-makeflyeasy-PixPilot-V6.html#common-makeflyeasy-pixpilot-v6"><span class="std std-ref">MakeFlyEasy PixPilot V6</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="induced-noise">
+<h2>Induced Noise<a class="headerlink" href="#induced-noise" title="Permalink to this heading">¶</a></h2>
+<p>On large vehicles, the power or motor phase lines usually run in parallel with the signal lines which provides an opportunity for high frequency noise coupling. This can sometimes drastically impair the ESC operation as show below in this video:</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/oZ2iVPXEjEg" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>Here are scope traces of the above situation:</p>
+<a class="reference external image-reference" href="../_images/esc-cycling.jpg"><img alt="../_images/esc-cycling.jpg" src="../_images/esc-cycling.jpg" /></a>
+<p>As the current ramps, noise is being induced into the analog signal until it finally is corrupt enough to be interpreted by the ESC as shutdown pulse width, which it does, allowing the signaling to recover and repeat the cycle.</p>
+<p>Expanding the section where the shutdown occurs, you can see that the analog signal finally gets noisy enough for its digital logic level to be incorrectly interpreted.</p>
+<a class="reference external image-reference" href="../_images/esc-noise.jpg"><img alt="../_images/esc-noise.jpg" src="../_images/esc-noise.jpg" /></a>
+<section id="solutions">
+<h3>Solutions<a class="headerlink" href="#solutions" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Physically separate the signal wiring from the power wiring to the ESCs</p></li>
+<li><p>Place a small toroidal choke (designed for the 1-10MHz range) in each ESC signal line</p></li>
+<li><p>Add capacitor banks to power inputs of ESC. See next section.</p></li>
+</ul>
+</section>
+</section>
+<section id="esc-overvoltage-spikes">
+<h2>ESC Overvoltage Spikes<a class="headerlink" href="#esc-overvoltage-spikes" title="Permalink to this heading">¶</a></h2>
+<p>Long power cabling runs from the battery to the ESC on larger vehicles can produce large voltage spikes due to the lead inductance. These spikes not only increase noise, increasing the potential for noise coupling to the signal control lines of the ESC, but also can be potentially directly damaging to the ESC. This can be reduced or eliminated by adding low ESR capacitance at the ESC power inputs. An example of the typical capacitor bank for these applications is offered by <a class="reference external" href="https://powerdrives.net/cap-bank">Advanced Power Drives</a>.</p>
+</section>
+<section id="esc-firmware-bugs">
+<h2>ESC Firmware Bugs<a class="headerlink" href="#esc-firmware-bugs" title="Permalink to this heading">¶</a></h2>
+<p>Some ESC firmware versions contain bugs which can seriously impact
+correct operation with ArduPilot. The following lists some known bugs
+which users should be aware of. Where workarounds are available they
+will be listed.</p>
+<section id="apd-escs-with-anti-spark-connectors">
+<h3>APD ESCs with anti-spark connectors<a class="headerlink" href="#apd-escs-with-anti-spark-connectors" title="Permalink to this heading">¶</a></h3>
+<p>Vehicles running anti-spark connectors and APD ESCs with firmware versions
+dated before November 2022 may be susceptible to an incorrect setting of
+the over-voltage limit. If incorrectly set (when the pre-charge time constant is over 200 ms),
+the ESC will prevent motor braking until it receives a zero throttle command. The issue can cause the ESC
+to get into a state where throttle can only increase, which will almost always result in a crash and can
+be dangerous for people in the vicinity of the vehicle.</p>
+<p>The issue happens due to the following logic in the ESC firmware:</p>
+<ul class="simple">
+<li><p>200 ms after ESC startup the supply voltage is sampled, where the maximum voltage is taken as 120% of this point.</p></li>
+<li><p>At any time after that, if the supply voltage is above this level, then an over-voltage error is raised.</p></li>
+<li><p>While an over-voltage error is raised, the throttle will not be reduced unless the autopilot demands a zero throttle.</p></li>
+</ul>
+<p>This feature aimed to prevent motor braking from pushing too much power back into the batteries, which could lead to overcharging
+of the batteries or excessive spikes on the ESC inputs.</p>
+<p>The issue happens if the rise time of the supply voltage is slow enough that the voltage reaches less than 80% of the actual supply
+voltage within 200 ms. This can happen when using anti-spark connectors to connect the batteries, particularly with long wiring and
+significant levels of added capacitance.</p>
+<p>A firmware update, which resolves the above issue, is available and can be found within the links below.</p>
+<p><a class="reference external" href="https://docs.powerdrives.net/downloads/firmware-releases/uhv-and-hv-pro-firmware#2.1.0-20th-december-2022-latest">HV, HV Pro and UHV firmware</a>.</p>
+<p><a class="reference external" href="https://docs.powerdrives.net/downloads/firmware-releases/f-series-production-firmware">F-Series firmware</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How it works &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traditional Helicopter Notch Filter Setup" href="common-imu-notch-filtering-helicopter-setup.html" />
+    <link rel="prev" title="Advanced In-Flight FFT Setup" href="common-imu-fft-advanced-setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="copter-introduction.html">Copter简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introducing Copter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-a-multicopter-and-how-does-it-work.html">How Multicopters Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copter-use-case-overview.html">Use-Case Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="copter-flight-features.html">Flight Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html">[site wiki=”plane”]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#geofencing">GeoFencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-geofencing-landing-page.html#detailed-information">Detailed Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-object-avoidance-landing-page.html">Object Avoidance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following.html">Terrain Following (in Auto, Guided, etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain-following-manual-modes.html">Surface Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motor-thrust-scaling.html">Motor Thrust Scaling</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-imu-notch-filtering.html">Notch Filtering</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#determining-notch-filter-center-frequency">Determining Notch Filter Center Frequency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#notch-filter-control-types">Notch Filter Control Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#number-of-harmonics-filtered">Number of Harmonics Filtered</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#fft-dynamic-harmonic-notch-frequency-tracking">FFT Dynamic Harmonic Notch Frequency Tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-imu-notch-filtering.html#checking-notch-filter-effectiveness">Checking Notch Filter Effectiveness</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="common-imu-notch-filtering.html#double-triple-notch">Double/Triple-Notch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-moving-vehicle-initialization.html">Moving Vehicle Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-non-gps-navigation-landing-page.html">Non-GPS Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weathervaning.html">Weathervaning and Wind Hold</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="choosing-a-frame.html">Choosing a MultiCopter Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-need.html">Building Your Own Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safety-multicopter.html">MultiCopter Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-rtf.html">Ready to Fly vehicles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="copter-introduction.html">Copter Introduction</a></li>
+          <li class="breadcrumb-item"><a href="copter-flight-features.html">Flight Features</a></li>
+          <li class="breadcrumb-item"><a href="common-imu-notch-filtering.html">Managing Gyro Noise with the Dynamic Harmonic Notch Filters</a></li>
+          <li class="breadcrumb-item"><a href="common-imu-fft.html">In-Flight FFT Based Harmonic Notch Setup</a></li>
+      <li class="breadcrumb-item active">How it works</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-imu-fft-how-it-works">[copywiki destination=”copter,plane”]</p>
+<section id="how-it-works">
+<h1>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading">¶</a></h1>
+<p>The FFT takes a set of gyro samples, performs frequency analysis on that set and yields a set of frequency bins with associated energies representing how “much” of a noise signal is in that bin. For example if we take a set of samples of length 32 - referred to as the <em>FFT length</em> or <em>window size</em>, <em>N</em> - this would yield a set of frequency bins each of width <em>f</em><sub>s</sub> / <em>32</em> where <em>f</em><sub>s</sub> is the sampling frequency of the samples. Since these samples are from the gyros the sampling rate is most commonly 1KHz and therefore each bin is approximately 32Hz wide. FFT analysis will give an energy value for each bin representing the amount of noise energy of that frequency in the bin. So for instance if our motor noise is at 80Hz most of the energy will be in the third bin and we can thus tell from the energy values the approximate frequency of the noise. The highest frequency that can be detected by an FFT is the Nyquist frequency of <em>f</em><sub>s</sub> / <em>2</em></p>
+<p>Clearly increasing the FFT length yields much higher frequency resolution and one might think therefore that we should always use long FFTs. Two facts prevent this. Firstly the calculation of an FFT costs roughly <em>O(N log N)</em> in CPU time, thus longer FFTs quickly become prohibitively expensive. Secondly FFTs have a Heisenberg-like relationship between frequency and time - you can choose high time resolution or high frequency resolution, but you cannot have both at the same time. For multicopters time resolution is important because the calculated frequency might be used to drive time-sensitive controls such as the dynamic harmonic notch. Thus the choice of FFT length should be made carefully based on how accurate the frequency calculation needs to be versus the timeliness of the result. For larger multicopters or helicopters a high frequency resolution can be beneficial, whereas for smaller copters with sensitive attitude control high time resolution is important. The default of 32 generally works well and can be run on F4 processors. Higher values such as 128 require F7 processors and anything above this should typically only be run on an H7.</p>
+<p>An alternative to increasing the FFT length is to decrease the sample rate to yield higher frequency resolution. This has the drawback of reducing the highest frequency that can be detected, but for some lower frequency platforms (e.g. helicopters) this might be appropriate.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-imu-fft-advanced-setup.html" class="btn btn-neutral float-left" title="Advanced In-Flight FFT Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-imu-notch-filtering-helicopter-setup.html" class="btn btn-neutral float-right" title="Traditional Helicopter Notch Filter Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

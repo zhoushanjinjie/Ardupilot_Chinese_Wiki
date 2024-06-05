@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Types Supported by ArduPilot &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vehicle Types Supported by ArduPilot</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vehicle-types-supported-by-ardupilot">
+<span id="common-all-vehicle-types"></span><h1>Vehicle Types Supported by ArduPilot<a class="headerlink" href="#vehicle-types-supported-by-ardupilot" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot is capable of controlling many vehicles.</p>
+<p>This document attempts to enumerate these options.  It is a work in progress and is nowhere near complete.</p>
+</section>
+<section id="supported-vehicles">
+<h2>Supported Vehicles<a class="headerlink" href="#supported-vehicles" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>R/W is “Real World”</p>
+</div>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadCopter (X, Plus, H, V)</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Four fixed equidistant motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/y1tV6gdXEQE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>HexaCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Six fixed equidistant motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/0nhGdf5hjHg#56" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Dodeca-HexaCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Six fixed equidistant pairs of coaxial motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>OctaCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Eight fixed equidistant motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Gl90QOb9MOQ&amp;t=16" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadX8</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>4 fixed equidistant pairs of coaxial motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Y6</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>3 fixed pairs of coaxial motors arranged in a Y, tail of the Y rear-wards; yaw via diff. thrust</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/kj9haEZGA5I#t=14" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>TriCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>3 lift motors in a Y, rear-wards motor tilting to provide yaw</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/gX5h0rpqq9c" style="border: 0; height: 345px; width: 560px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Petrol-Boosted TriCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>3 lift motors in a Y, rear-wards motor tilting to provide yaw, petrol motor providing lift</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/RjjF_S69Ywk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Bicopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Dual, thrust vectored motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/PtJzx_vx7N0" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>SingleCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/77850133" style="border: 0; height: 430px; width: 400px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>CoaxCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/N12Yw3eWPWo" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>CoaxCopter - Thrust-Vectored</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Pitch and roll control by independent thrust vectoring of the coaxial props</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>No</p></td>
+<td rowspan="6"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/s1GRncR6_KE?t=146" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td colspan="2" rowspan="2"><p><a class="reference external" href="https://discuss.ardupilot.org/t/design-and-build-of-a-coaxial-drone/55521">https://discuss.ardupilot.org/t/design-and-build-of-a-coaxial-drone/55521</a></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>6-DOF Multicopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Full 6-Degrees of Freedom via 6 specially-angled motors</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes: Realflight</p></td>
+<td rowspan="6"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/0p9jmrf1eFM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter/Scripting</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td colspan="2" rowspan="2"><p><a class="reference external" href="https://hackaday.com/2021/01/09/six-degrees-of-freedom-omnicopter-with-ardupilot/">https://hackaday.com/2021/01/09/six-degrees-of-freedom-omnicopter-with-ardupilot/</a></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>HeliQuad</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Four variable pitch propellors with a single throttle value</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>No</p></td>
+<td rowspan="6"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/J6WJSXm7zWQ" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td colspan="2" rowspan="2"><p><a class="reference external" href="https://discuss.ardupilot.org/t/collective-pitch-quad-support/21678">https://discuss.ardupilot.org/t/collective-pitch-quad-support/21678</a></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Helicopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Traditional Helicopter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/54_YDwJmcfg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Tandem Helicopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Two counter-rotating rotors instead of one main rotor and one tail rotor</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/FRwll__O84k" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Synchropter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Dual-disk helicopter with inter-meshing blades</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Iq7c-47DRqY#t=19" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Copter</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>AETR Plane - Tractor</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Traditional Aeleron/Elevator/Throttle/Rudder Tractor</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/_J9Vnfzw9os?t=22" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Plank Flying Wing</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Flying Plank, differential thrust for yaw</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>No</p></td>
+<td rowspan="8"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/421266273" style="border: 0; height: 430px; width: 400px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>AETR Plane - Pusher</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Traditional Aeleron/Elevator/Throttle/Rudder Pusher</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/YTzpr8GAG54" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>ETR Plane - Tractor</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Elevator/Throttle/Rudder (“Rudder-only”)</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/9p4Q0fsw20M" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadPlane X4 Elevon Pusher</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Four fixed lifting motors; elevon+rudder control surfaces</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/hhuB2bf2J9w" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Tilt-tricopter-vectored-yaw-QuadPlane</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Pulling, tilting motors used for lift, thrust and yaw</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/hDG-KlYyYDU" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadPlane</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Four lifting motors, lifting an elevator/ailieron/rudder plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/8196rK-Aoeo#t=225" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Tri-Tilt-Wing QuadPlane</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Multiple motors fixed to wings which pivot;single rear motor for stability. Ail/Rud/Elev</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/S4eLppO31OA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadPlane X8</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Four pairs of coaxial lifting motors, lifting an elevator/ailieron/rudder plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/yqGWQrjZTBc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadPlane Delta Y6</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>3 pairs of coaxial motors in Y6 arrangement lifting an elevon plane, fronts tilting for fwd flight</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/ulHYegkfSEE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"><p>e.g. FireFly Y6</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>QuadPlane Delta Y3</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>3 motors in Y3 arrangement lifting an elevon plane, all motors tilting for fwd flight</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>No</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/5edGICKura4" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Elevon Tail-Sitter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Fixed fwd thrust with elevon surfaces providing attitude control in both copter and plane modes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/bMsfjwUAfkM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Thrust-Vectored Tail-Sitter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Two pulling, tilting motors on a wing, copter/plane mode transitions</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Dg6a80EmNFk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Thrust-Vectored belly-Sitter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Two pulling, tilting motors on a wing, copter/plane mode transitions</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/s2KLOAdS_HY" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Quad Motor Tailsitter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Four motors on a wing, copter/plane mode transitions</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="12"><ul class="simple">
+<li><p>X frame biwing</p></li>
+</ul>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/cfqP9-2IWtQ" style="border: 0; height: 345px; width: 560px">
+</iframe></div><ul class="simple">
+<li><p>X frame biwing QACRO demo</p></li>
+</ul>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3nS2AodrGPQ" style="border: 0; height: 345px; width: 560px">
+</iframe></div><ul class="simple">
+<li><p>Plus frame</p></li>
+</ul>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/TtF8WSfgQhI" style="border: 0; height: 345px; width: 560px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="6"><p>R/W</p></td>
+<td rowspan="6"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"><p>Tri/Hex/Octo also supported</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>GyroCopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Unpowered main rotor disc (tilts laterally), pusher prop, rudder and elevator</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"></td>
+<td rowspan="8"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3mSaTwZXlnk" style="border: 0; height: 345px; width: 560px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Ornithopter</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Ornithopter - flapping wings +rudder</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>No</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Gt6urSEG_T0" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Plane</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Ackerman Steering Rover</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Pivotting steering wheels</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/2mk8fhbTN3Y" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Skid-Steer Rover</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Tank-tread driven</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/LWc7Gkazwn4" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Air-Boat</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Vectored thrust fan</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/s4qaEjSPRcU" style="border: 0; height: 345px; width: 560px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Fan-Car</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Vectored thrust painting dolly</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes: Gazebo</p></td>
+<td rowspan="6"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/534607551" style="border: 0; height: 430px; width: 400px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td colspan="2" rowspan="2"><p><a class="reference external" href="https://discuss.ardupilot.org/t/fan-car-a-vectored-thrust-rover/70036">https://discuss.ardupilot.org/t/fan-car-a-vectored-thrust-rover/70036</a></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Boat</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Single-prop thrust, rudder for yaw</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/rqNamm1vdzc" style="border: 0; height: 345px; width: 560px">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Sailboat</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Boat with rudder and sail controlled via main sheet</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/EoN6dcEBFPc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Balance Bot</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Fundametally unstable wheeled platform actively kept balanced by the autopilot</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/EmhTBPNDpWw" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Rover</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>Vectored Sub</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Thrusters with 6-DOF</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/IQBVRbQAQto" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Sub</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td colspan="3" rowspan="2"><p><strong>AntennaTracker</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Desc</p></td>
+<td colspan="2" rowspan="2"><p>Pan/Tilt PWM-driven continuous actuators</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Sim</p></td>
+<td rowspan="2"><p>Yes</p></td>
+<td rowspan="8"><div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Y9i8B47TVeI" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>R/W</p></td>
+<td rowspan="2"><p>Yes</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Code</p></td>
+<td rowspan="2"><p>Tracker</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Info</p></td>
+<td rowspan="2"></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<p>[copywiki destination=”ardupilot”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

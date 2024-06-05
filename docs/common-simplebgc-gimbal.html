@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimpleBGC Gimbal (aka AlexMos gimbal) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SimpleBGC Gimbal (aka AlexMos gimbal)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="simplebgc-gimbal-aka-alexmos-gimbal">
+<span id="common-simplebgc-gimbal"></span><h1>SimpleBGC Gimbal (aka AlexMos gimbal)<a class="headerlink" href="#simplebgc-gimbal-aka-alexmos-gimbal" title="Permalink to this heading">¶</a></h1>
+<p>The SimpleBGC is a popular brushless gimbal controller that can communicate with ArduPilot (Copter, Plane, and Rover) using MAVLink or a custom serial protocol.
+More details on the capabilities of this gimbal can be found at <a class="reference external" href="https://www.basecamelectronics.com/">basecamelectronics.com</a></p>
+<p>More details can be found in the <a class="reference external" href="https://www.basecamelectronics.com/files/v3/SimpleBGC_32bit_manual_2_6x_eng.pdf">software user manual</a>.</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>The SimpleBGC controller and accompanying 2-axis and 3-axis gimbals can be purchased from <a class="reference external" href="https://www.basecamelectronics.com/">basecamelectronics.com</a> and many other retailers.</p>
+</section>
+<section id="connecting-the-gimbal-to-the-autopilot">
+<h2>Connecting the gimbal to the Autopilot<a class="headerlink" href="#connecting-the-gimbal-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/simplebgc-gimbal-pixhawk.png"><img alt="../_images/simplebgc-gimbal-pixhawk.png" src="../_images/simplebgc-gimbal-pixhawk.png" /></a>
+<p>Although the SimpleBGC can be connected using PWM we recommend using the serial interface connected to one of the autopilot’s Serial/Telemetry ports like Telem2 as shown above.</p>
+</section>
+<section id="configuration-when-using-custom-serial-protocol">
+<h2>Configuration when using Custom Serial Protocol<a class="headerlink" href="#configuration-when-using-custom-serial-protocol" title="Permalink to this heading">¶</a></h2>
+<p>In your Ground Control Station set the following parameters, if using the first mount connected to Serial2 as shown above:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> to 3 (“AlexMos-Serial”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> to 7 (“AlexMos Gimbal Serial”)</p></li>
+</ul>
+<p>If you are unable to connect you may wish to set the following parameters although normally this should not be required:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> to 115 (means use serial baudrate of 115200)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#brd-ser2-rtscts" title="(in Rover)"><span class="xref std std-ref">BRD_SER2_RTSCTS</span></a> to 0 to disable flow control on Telem2 (use BRD_SER1_RSCTS if connecting to Serial1, Serial4/5 never uses flow control)</p></li>
+</ul>
+<p>The gimbal’s maximum lean angles can be set using these parameters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-min" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-roll-max" title="(in Rover)"><span class="xref std std-ref">MNT1_ROLL_MAX</span></a> to -30 and 30 to limit the roll angle to 30 degrees in each direction</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-min" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-max" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MAX</span></a> to -90 and 0 to limit the gimbal to point between straight down (-90 degrees) and straight forward (0 degrees)</p></li>
+<li><p>For 3-axis gimbals with 360 degrees of yaw set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-min" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-max" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MAX</span></a> to -180 and 180 respectively</p></li>
+</ul>
+</section>
+<section id="control-and-testing">
+<h2>Control and Testing<a class="headerlink" href="#control-and-testing" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">Gimbal / Mount Controls</span></a> for details on how to control the gimbal using RC, GCS or Auto mode mission commands</p>
+</section>
+<section id="configuration-when-using-mavlink-protocol">
+<h2>Configuration when using MAVLink Protocol<a class="headerlink" href="#configuration-when-using-mavlink-protocol" title="Permalink to this heading">¶</a></h2>
+<p>The manufacturer instructions on the MAVLink setup can be found on page 97 of the <a class="reference external" href="https://www.basecamelectronics.com/files/v3/SimpleBGC_32bit_manual_2_6x_eng.pdf">software user manual</a>.</p>
+<p>To use the gimbal GUI and the MAVlink protocol, the gimbal must be running firmware version 2.60 or above.</p>
+<p>The following instructions present how to wire the components:</p>
+<ul class="simple">
+<li><p>Connect the autopilot as shown above but connect the RX wire (orange) to the RC-R and the TX wire (green) to the RC-Y pin on the gimbal</p></li>
+<li><p>Connect the ground wire (black) to any GND pin.</p></li>
+</ul>
+<p>In this setup you have to take care of the following options in the GUI:</p>
+<ul class="simple">
+<li><p>Activate RC_SERIAL by setting “RC_ROLL pin mode” = “Serial port (Serial API, etc.)” on the RC tab On the tab “External IMU” in the field “External IMU configuration”</p></li>
+<li><p>Select the Model: “MavLink FC channel 1”</p></li>
+<li><p>Connection: disabled On the same tab in the field “MavLink connection” for Channel 1 (leave Channel 2 disabled)</p></li>
+<li><p>Serial port: “RC_serial” - System Id/Component Id: 1, 154</p></li>
+<li><p>Port setting: 115200, none parity</p></li>
+<li><p>Check the options: Send heartbeat and Query RC data</p></li>
+<li><p>MavLink control mode: “Controls ROLL and PITCH axes only” If everything is set correctly you should see something like the following in the fields: AHRS: OK (40ms), GPS: OK (106ms), RC: OK, Control: OK CH1: Packets received: 257502, lost: 0, parse errors: 3 CH2: Packets received: 0, lost: 0, parse errors: 0.</p></li>
+</ul>
+<p>In your Ground Control Station set the following parameters, if using the first mount connected to Serial2:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> to 4 (“SToRM32 MAVLink”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> to 1 (“MAVlink1”)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr2-extra1" title="(in Rover)"><span class="xref std std-ref">SR2_EXTRA1</span></a> to 20</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr2-position" title="(in Rover)"><span class="xref std std-ref">SR2_POSITION</span></a> to 10</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#sr2-rc-chan" title="(in Rover)"><span class="xref std std-ref">SR2_RC_CHAN</span></a> to 20 and all other SR2_* variables to 0.</p></li>
+</ul>
+<p>If you wish to control the pitch angle manually you can set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RCx_OPTION</span></code> to 213.</p></li>
+<li><p>In the SimpleBCG GUI in the tab “RC Settings” in the field “Input Configuration” set PITCH to “API_VIRT_CH6”.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you connect the gimbal as shown in the above diagram, it is NOT possible to establish a connection to the GUI on a PC via USB and have it connected simultaneously to the autopilot. It happens because the UART1 (“serial” in the picture above) is “paralleled to the onboard USB-UART converter (excepting the “Tiny” boards that has a dedicated USB). If you accidentally connect both the GUI via USB and an autopilot via UART1, you might end up with corrupt data on the flash of the gimbal. It can result in unexpected motor movement! The reason details, please check the <a class="reference external" href="https://www.basecamelectronics.com/files/v3/SimpleBGC_32bit_manual_2_6x_eng.pdf">link</a>.</p>
+</div>
+</section>
+<section id="testing-the-gimbal-moves-correctly">
+<span id="common-simplebgc-gimbal-testing-the-gimbal-moves-correctly"></span><h2>Testing the gimbal moves correctly<a class="headerlink" href="#testing-the-gimbal-moves-correctly" title="Permalink to this heading">¶</a></h2>
+<p><strong>Testing the pilot’s control of pitch</strong></p>
+<p>Once powered the gimbal should point to its Pitch Angle Min (i.e. straight down) when your transmitter’s channel 6 tuning knob is at its minimum PWM value (perhaps around 1000) and the camera should point to its maximum pitch angle (i.e. straight forward) when the tuning knob is at its maximum (perhaps around 2000).
+The Mission Planner Radio calibration page can be used to check the Ch6’s current input PWM value.</p>
+<p><strong>Testing ROI</strong></p>
+<p><strong>You must have a GPS lock to test ROI.</strong>
+The ROI feature points the vehicle and/or camera to point at a target.
+The instructions above describe setting up the APM/Pixhawk so that it only controls the pitch of the Tarot gimbal so when a <a class="reference external" href="https://ardupilot.org/copter/docs/mission-command-list.html#mission-command-list-do-set-roi" title="(in Copter)"><span class="xref std std-ref">Do-Set-ROI</span></a> command is received Copter will attempt to turn the vehicle’s nose to point in the direction of the target and pitch camera depending upon the vehicle’s distance and altitude.
+You can test the gimbal pitch moves correctly by connecting with the mission planner, then on the Flight Data screen’s map, right-mouse-button-click on a point about 50m ahead of the vehicle (the orange and red lines show the vehicle’s current heading), select <strong>Point Camera Here</strong> and input an altitude of -50 (meters).
+This should cause the gimbal to point down at about 45 degrees.</p>
+<a class="reference external image-reference" href="../_images/Tarot_BenchTestROI.jpg"><img alt="../_images/Tarot_BenchTestROI.jpg" src="../_images/Tarot_BenchTestROI.jpg" /></a>
+<p>Pilot control of the gimbal can be restored by setting up an <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary function switch</span></a> to “Retract Mount” (i.e. RCx_OPTION = 27) and then move the switch to the lower position</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

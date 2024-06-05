@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inclusion and Exclusion Fences &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Inclusion and Exclusion Fences</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="inclusion-and-exclusion-fences">
+<span id="common-polygon-fence"></span><h1>Inclusion and Exclusion Fences<a class="headerlink" href="#inclusion-and-exclusion-fences" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot includes support for polygon fences with up to 70 points and for pure circular fences with specified radii. Unlike the home-based cylindrical fence <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a>, the circular inclusion/exclusion fence can be placed anywhere. Either the polygonal or circular fences may be selected to be inclusion or exclusion type, and may be mixed. The purpose of these fences are to attempt to stop your vehicle from flying into (exclusion), or out of (inclusion), the fences by initiating a failsafe action like RTL or, if flying in Loiter mode for Copter and <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">Object Avoidance</span></a> is setup, the vehicle will normally stop before breaching the fence and in some cases, plan paths around the boundaries.</p>
+<p>This feature is an extension of the simpler home-based <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a> and can be combined with it.</p>
+<p>You can have multiple circular or polygon inclusion or exclusion fences, all active at the same time. The example PLAN screen from Mission Planner, below, shows examples of each. Note that they can overlap, with one another. So in the example below the Plane could fly within the union of the large polygonal fence AND within the circular overlapping fence without breaching. The example below is not realistic, since with the large inclusion fence, the outside exclusion fences would never be reached and are superfluous, but it shows all the different kinds of fences that can be created.</p>
+<a class="reference external image-reference" href="../_images/fence_examples.png"><img alt="../_images/fence_examples.png" src="../_images/fence_examples.png" /></a>
+<p>[site wiki=”copter”]
+Like the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a>, Copter will stop increasing altitude at <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fence-alt-max" title="(in Plane)"><span class="xref std std-ref">FENCE_ALT_MAX</span></a> in Loiter, PosHold, and AltHold modes. In other modes, it will execute the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-action" title="(in Rover)"><span class="xref std std-ref">FENCE_ACTION</span></a> if the altitude limit is exceeded and active.
+[/site]
+[site wiki=”plane”]
+Like the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fence</span></a>, Plane will execute the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-action" title="(in Rover)"><span class="xref std std-ref">FENCE_ACTION</span></a> if the boundary or altitude limits are breached.
+[/site]</p>
+<p>These fences are created and treated in a similar way to mission command lists and rally point lists and loaded into the autopilot. Each item in the list specifies a point in the polygonal boundary or a circular item, whether its inclusion or exclusion type, and radius if circular.
+[site wiki=”plane”]
+For Plane a fence breach return point can also be specified in the list.
+[/site]</p>
+<p>Multiple fences can be specified of differing types and shapes in the list.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/U3Z8bO3KbyM" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="enabling-fences-in-mission-planner">
+<h2>Enabling Fences in Mission Planner<a class="headerlink" href="#enabling-fences-in-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>To enable Fences, go to the Mission Planner full parameter list (CONFIG-&gt;Full Parameter Tree), search for items with <code class="docutils literal notranslate"><span class="pre">FENCE_</span></code>:</p>
+<a class="reference external image-reference" href="../_images/fence_enable.png"><img alt="../_images/fence_enable.png" src="../_images/fence_enable.png" /></a>
+<p>Plane Parameter List (Copter/Rover have fewer)</p>
+<ul class="simple">
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-action" title="(in Rover)"><span class="xref std std-ref">FENCE_ACTION</span></a> = to whatever you wish for a breach action. These will vary depending on vehicle type.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fence-options" title="(in Plane)"><span class="xref std std-ref">FENCE_OPTIONS</span></a> to “1” to prevent mode changes after a fence breach until the vehicle returns within the fence boundary (Plane only, Copter/Rover do not allow mode changes while in breach)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fence-alt-max" title="(in Plane)"><span class="xref std std-ref">FENCE_ALT_MAX</span></a> = to the altitude limit you want (in meters). This is unavailable in Rover.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-enable" title="(in Rover)"><span class="xref std std-ref">FENCE_ENABLE</span></a> =1 to enable FENCEs.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-margin" title="(in Rover)"><span class="xref std std-ref">FENCE_MARGIN</span></a> = to the distance from the fence horizontal boundary the vehicle must maintain in order to prevent a breach.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-radius" title="(in Rover)"><span class="xref std std-ref">FENCE_RADIUS</span></a> to the maximum distance from HOME you want (in meters). This should normally be at least 50m. This value must be larger than <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-margin" title="(in Rover)"><span class="xref std std-ref">FENCE_MARGIN</span></a> and greater than 30m.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-total" title="(in Rover)"><span class="xref std std-ref">FENCE_TOTAL</span></a> should not be changed manually and indicates the number of inclusion/exclusion fence points stored. (See <a class="reference internal" href="#common-polygon-fence"><span class="std std-ref">Inclusion and Exclusion Fences</span></a>)</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-type" title="(in Rover)"><span class="xref std std-ref">FENCE_TYPE</span></a> = is a bitmap set to enable the various fence types: MIN or MAX altitude, simple CIRCLE tin can around HOME, or POLYGON fences. The POLYGON fences must also have been loaded via a fence list from a ground control station in order to be active.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Polygon fence type includes the circular fences specified in the Inclusion/Exclusion fence list. The simple home centered CIRCLE fence is a separate fence. Rover ignores altitudes, if set.</p>
+</div>
+<p>Defaults for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-type" title="(in Rover)"><span class="xref std std-ref">FENCE_TYPE</span></a> are:</p>
+<ul class="simple">
+<li><p>Rover: CIRCLE and POLYGON</p></li>
+<li><p>Copter: ALT MAX, CIRCLE, and POLYGON</p></li>
+<li><p>Plane: POLYGON</p></li>
+</ul>
+<p>If Plane, you can also:</p>
+<ul class="simple">
+<li><p>Set the <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fence-alt-min" title="(in Plane)"><span class="xref std std-ref">FENCE_ALT_MIN</span></a> as a breach boundary.</p></li>
+<li><p>Set <a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fence-autoenable" title="(in Plane)"><span class="xref std std-ref">FENCE_AUTOENABLE</span></a> = to allow automatic temporary (until reboot)forcing of <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-enable" title="(in Rover)"><span class="xref std std-ref">FENCE_ENABLE</span></a> =1 under certain vehicle conditions, such as upon arming or takeoff. A value of 0 disables this feature.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/parameters.html#fence-ret-rally" title="(in Plane)"><span class="xref std std-ref">FENCE_RET_RALLY</span></a> allows returning to the nearest RALLY point (See: <a class="reference internal" href="common-rally-points.html#common-rally-points"><span class="std std-ref">Rally Points</span></a>), if loaded, instead of HOME.</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/yhNrtTERnJk" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="copter-geofence-tab">
+<h3>Copter GeoFence Tab<a class="headerlink" href="#copter-geofence-tab" title="Permalink to this heading">¶</a></h3>
+<p>Copter and Traditional Heli, when connected to Mission Planner, present a CONFIG tab called GeoFence which provides another way to access these parameters in those vehicles.</p>
+<a class="reference external image-reference" href="../_images/Fence_MPSetup.png"><img alt="../_images/Fence_MPSetup.png" src="../_images/Fence_MPSetup.png" /></a>
+</section>
+</section>
+<section id="enabling-the-fence-with-an-rc-channel-auxiliary-switch">
+<h2>Enabling the fence with an RC Channel Auxiliary Switch<a class="headerlink" href="#enabling-the-fence-with-an-rc-channel-auxiliary-switch" title="Permalink to this heading">¶</a></h2>
+<p>It is not necessary to set-up a switch to enable or disable the fence
+but if you wish to control the fence with a switch follow these
+steps:</p>
+<p>for firmware versions before 4.0:</p>
+<ul class="simple">
+<li><p>Go to the Mission Planner’s Config/Tuning &gt; Extended Tuning screen (or other GCS’s parameter setup screen) and set  either “Ch7 Opt” OR “Ch8 Opt” to Fence. These parameters can also be directly set from the Config/Tuning &gt; Full Parameter List screen</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Fence_MPCh78.png"><img alt="../_images/Fence_MPCh78.png" src="../_images/Fence_MPCh78.png" /></a>
+<p>Alternatively, for firmware versions 4.0 or later, an RCx_OPTION can be set via the Config/Tuning &gt; Full Parameter List screen:</p>
+<ul class="simple">
+<li><p>Use an RCx_OPTION set to Fence</p></li>
+<li><p>setting the switch high (i.e. PWM &gt; 1800) will enable the fence, low
+(under 1800) will disable the fence.</p></li>
+</ul>
+</section>
+<section id="warnings">
+<h2>Warnings:<a class="headerlink" href="#warnings" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The minimum recommended fence radius is 30m</p></li>
+<li><p>The fence requires the GPS to be functioning well so do not disable
+the <a class="reference internal" href="common-prearm-safety-checks.html#common-prearm-safety-checks"><span class="std std-ref">GPS arming check</span></a> nor the <a class="reference internal" href="ekf-inav-failsafe.html#ekf-inav-failsafe"><span class="std std-ref">EKF failsafe</span></a> while the fence is enabled.
+Conversely, if you disable either of these checks, disable the Fence.</p></li>
+<li><p>For the best results, ensure RTL is working on your vehicle.</p></li>
+<li><p>With the Fence enabled in Copter and Rover, the pre-arm checks will require you have GPS
+lock before arming the vehicle.</p></li>
+<li><p>In Copter, if EKF failsafe occurs and the Fence is enabled and you lose
+GPS lock while flying the fence will be disabled.</p></li>
+<li><p>In Copter, if EKF failsafe occurs and the Fence is enabled and in an autonomous mode, the vehicle will switch to LAND (HOLD for Rover) because we no
+longer know the vehicle position and we want to ensure the vehicle
+never travels far outside the fence. If this is not desired,
+the pilot can retake control by moving the flight mode switch to a manual mode.</p></li>
+<li><p>The Copter and Rover backup fences are created 20m out from the previous breached
+fence not 20m out from the vehicle’s position.  This means if you
+choose to override the fence you may have less than 20m to regain
+vehicle control before the fence switches the vehicle to the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-action" title="(in Rover)"><span class="xref std std-ref">FENCE_ACTION</span></a>
+again.  If you really want to override the fence, you should be ready
+to switch the flight mode twice or alternatively set-up the
+enable/disable fence switch.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can define many inclusion and exclusion fences. However,multiple inclusions fences, including the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fences</span></a> must overlap, since the vehicle can operate only within the complete overlap area of all of the inclusion fences. Exclusion fences may be placed within or outside of inclusion fences.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to upload or download these fences from Mission Planner the connected link must be using MAVLink2 protocol. Normally, since the USB connection is used, this protocol is default. However, radio linked connections may use MAVLink1 by default and would need to be changed to MAVLink2 in order to upload and download across them.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can have both the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fences</span></a> and inclusion/exclusion fences and choose to use just the HOME centered “tin-can” for a flight by selecting only the “Circle” or “Altitude and Circle” for <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#fence-type" title="(in Rover)"><span class="xref std std-ref">FENCE_TYPE</span></a>. You can chose to enable the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fences</span></a>, these inclusion/exclusion fences, and/or altitude limit, in any combination, with this parameter.</p>
+</div>
+</section>
+<section id="combining-with-the-cylindrical-fence">
+<h2>Combining with the Cylindrical Fence<a class="headerlink" href="#combining-with-the-cylindrical-fence" title="Permalink to this heading">¶</a></h2>
+<p>A polygon fence can be used in combination with the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">cylindrical fences</span></a> and the failsafe behaviour (i.e. stop at the fence or RTL) will trigger at whichever barrier the vehicle reaches first (i.e. the green line shown below)</p>
+<a class="reference external image-reference" href="../_images/copter_polygon_circular_fence..png"><img alt="../_images/copter_polygon_circular_fence..png" src="../_images/copter_polygon_circular_fence..png" /></a>
+<p>Please see the <a class="reference internal" href="common-ac2_simple_geofence.html#common-ac2-simple-geofence"><span class="std std-ref">Cylindrical Fence</span></a> page for additional warnings and instructions including how to enable/disable the fence with the RC channel auxiliary switches.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PPM Encoder &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PPM Encoder</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ppm-encoder">
+<span id="common-ppm-encoder"></span><h1>PPM Encoder<a class="headerlink" href="#ppm-encoder" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Archived</strong></p>
+</div>
+<p>The PPM encoder allows to encode up to 8 PWM (pulse width modulated)
+signals into one PPM (pulse position modulation) signal.</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/jDrones_PPM_Encoder_V21_Above_with_numbers_500px.jpg"><img alt="../_images/jDrones_PPM_Encoder_V21_Above_with_numbers_500px.jpg" src="../_images/jDrones_PPM_Encoder_V21_Above_with_numbers_500px.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Newest jDrones PPM-Sum encoder, <a class="reference external" href="http://store.jdrones.com/pixhawk_px4_paparazzi_ppm_encoder_v2_p/eleppmenc20.htm">here</a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The jD-PPM Encoder (v2.1) uses the ArduPPM firmware, replacing the
+previously used Paparazzi PPM Encoder firmware. The new ArduPPM firmware
+has been designed from scratch to enhance performance and robustness,
+and to better accommodate our product needs now and in the future.</p>
+<section id="failsafe-output-values">
+<h2>Failsafe output values:<a class="headerlink" href="#failsafe-output-values" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>New interrupt system that handles certain Futaba receivers better
+(simultaneous changes on groups of R/C channels in fast intervals)
+(this was already present in v2.3.13)</p></li>
+<li><p>Adapted behaviour in case of channel loss: If one channel is lost, it
+will be set according to the following table. The other channels will
+continue working.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Channel 1</p></td>
+<td><p>Roll</p></td>
+<td><p>Set to center (1500 μs)</p></td>
+</tr>
+<tr class="row-even"><td><p>Channel 2</p></td>
+<td><p>Pitch</p></td>
+<td><p>Set to center (1500 μs)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Channel 3</p></td>
+<td><p>Throttle</p></td>
+<td><p>Set to low (900 μs)</p></td>
+</tr>
+<tr class="row-even"><td><p>Channel 4</p></td>
+<td><p>Yaw</p></td>
+<td><p>Set to center (1500 μs)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Channel 5</p></td>
+<td><p>…</p></td>
+<td><p>Remain at last value</p></td>
+</tr>
+<tr class="row-even"><td><p>Channel 6</p></td>
+<td><p>…</p></td>
+<td><p>Remain at last value</p></td>
+</tr>
+<tr class="row-odd"><td><p>Channel 7</p></td>
+<td><p>…</p></td>
+<td><p>Remain at last value</p></td>
+</tr>
+<tr class="row-even"><td><p>Channel 8</p></td>
+<td><p>…</p></td>
+<td><p>Remain at last value</p></td>
+</tr>
+</tbody>
+</table>
+<p>In Copter and Plane a fail-safe action can be triggered by the
+throttle low signal.</p>
+<p>This should be carefully configured as explained in the wiki for
+<a class="reference external" href="https://ardupilot.org/copter/docs/radio-failsafe.html#radio-failsafe" title="(in Copter)"><span class="xref std std-ref">APM Copter</span></a> and
+<a class="reference external" href="https://ardupilot.org/plane/docs/apms-failsafe-function.html#apms-failsafe-function" title="(in Plane)"><span class="xref std std-ref">APM Plane</span></a></p>
+<p>Also note that this has nothing to do with losing the radio
+connection between the transmitter and the receiver. The receiver’s
+behaviour when it gets out of range depends on the
+transmitter/receiver hardware and setup. So make sure to go through
+all the scenarios before flying</p>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/FailsafeDiagram.jpg"><img alt="../_images/FailsafeDiagram.jpg" src="../_images/FailsafeDiagram.jpg" /></a>
+</section>
+<section id="setup-manual">
+<h2>Setup Manual<a class="headerlink" href="#setup-manual" title="Permalink to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://download.ardupilot.org/downloads/wiki/pdf_guides/PPM-Encoder-V3-Manual.pdf">PPM Encoder Manual</a>
+shows how to solder and wire the PPM Encoder and explains the different
+failsafe modes.</p>
+</section>
+<section id="re-programming-the-atmega328p-ppm-encoder">
+<h2>Re-Programming the Atmega328p PPM encoder<a class="headerlink" href="#re-programming-the-atmega328p-ppm-encoder" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The PPM Encoder comes with the PPM encoder firmware
+pre-programmed, and most users will never need or want to modify
+it.</p>
+</div>
+<p>However, some users may want to get into the code to change the way the
+PPM Encoder interprets RC signals or may want to update to the latest
+version. Some rare users did report receiver compatility problems with
+the old version (before ArduPPM). For most cases, ArduPPM did solve
+them.</p>
+<p>ArduPPM is the official name for the newer generation firmwares. It has
+been designed from scratch with reliability as a top priority. The
+official release of the encoder firmware is in the Downloads section as
+ArduPPM_Vx.x.xx_ATMega328p.hex. The official source code is in the Git
+repository:
+<a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/Tools/ArduPPM">https://github.com/ArduPilot/ardupilot/tree/master/Tools/ArduPPM</a>. The
+standalone PPM Encoder needs the ATMega328p version.</p>
+<p>Compiled binaries can be downloaded from our download site:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/common-downloads_advanced_user_tools.html#arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-copter-and-standalone-ppm-encoder">ArduCopter PPM Encoder v2.3.16 Standalone</a></p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/plane/docs/common-downloads_advanced_user_tools.html#arduppm-v2-3-16-atmega328p-firmware-for-apm1-x-plane-and-standalone-ppm-encoder">ArduPlane PPM Encoder v2.3.16 Standalone</a></p></li>
+</ul>
+<p>To flash, connect the PPM Encoder to an AVR programmer such as the
+AVRISP mkII:</p>
+<a class="reference external image-reference" href="../_images/reprogramming_the_standalone_ppm_encoder1.jpg"><img alt="../_images/reprogramming_the_standalone_ppm_encoder1.jpg" src="../_images/reprogramming_the_standalone_ppm_encoder1.jpg" /></a>
+<p>When flashing, make sure the PPM Encoder is powered using any of the 5V
+and Ground pins.</p>
+</section>
+<section id="fuse-setting-for-internal-mcu">
+<h2>Fuse setting for internal MCU<a class="headerlink" href="#fuse-setting-for-internal-mcu" title="Permalink to this heading">¶</a></h2>
+<p>All ATMEGA 328P based PPM Encoders have strict fuse settings.</p>
+<p>Following fuse settings should be used when programming with AVR Studio:</p>
+<ul class="simple">
+<li><p>LOW: 0xFF</p></li>
+<li><p>High: 0xDA</p></li>
+<li><p>Ext: 0x07</p></li>
+</ul>
+</section>
+<section id="re-programming-instructions-for-windows">
+<h2>Re-Programming instructions for Windows<a class="headerlink" href="#re-programming-instructions-for-windows" title="Permalink to this heading">¶</a></h2>
+<p>Download and install the latest
+<a class="reference external" href="https://sourceforge.net/projects/winavr/">WinAVR</a>.</p>
+<p>Plug in the AVRISP mkII and Install the drivers for AVRISP mkII as
+follows:</p>
+<p>Open the device manager and select the AVRISP mkII, choose “Update
+Driver Software…”</p>
+<a class="reference external image-reference" href="../_images/windows_install_avrispmkii_driver_11.png"><img alt="../_images/windows_install_avrispmkii_driver_11.png" src="../_images/windows_install_avrispmkii_driver_11.png" /></a>
+<p>Choose “Browse my Computer for driver software”</p>
+<a class="reference external image-reference" href="../_images/windows_install_avrispmkii_driver_21.png"><img alt="../_images/windows_install_avrispmkii_driver_21.png" src="../_images/windows_install_avrispmkii_driver_21.png" /></a>
+<p>Browse to the folder where WinAVR is installed (e.g. C:WinAVR-20100110)</p>
+<p>Browse to the folder where WinAVR is installed (e.g.
+C:\WinAVR-20100110\)</p>
+<a class="reference external image-reference" href="../_images/windows_install_avrispmkii_driver_31.png"><img alt="../_images/windows_install_avrispmkii_driver_31.png" src="../_images/windows_install_avrispmkii_driver_31.png" /></a>
+<a class="reference external image-reference" href="../_images/windows_install_avrispmkii_driver_41.png"><img alt="../_images/windows_install_avrispmkii_driver_41.png" src="../_images/windows_install_avrispmkii_driver_41.png" /></a>
+<p>Choose “Install this driver software anyway”</p>
+<a class="reference external image-reference" href="../_images/windows_install_avrispmkii_driver_51.jpg"><img alt="../_images/windows_install_avrispmkii_driver_51.jpg" src="../_images/windows_install_avrispmkii_driver_51.jpg" /></a>
+<p>This should finish successful:</p>
+<a class="reference external image-reference" href="../_images/windows_install_avrispmkii_driver_61.jpg"><img alt="../_images/windows_install_avrispmkii_driver_61.jpg" src="../_images/windows_install_avrispmkii_driver_61.jpg" /></a>
+<p>Now start the command line: Press “Start” and type cmd and enter.</p>
+<a class="reference external image-reference" href="../_images/windows_start_cmd1.png"><img alt="../_images/windows_start_cmd1.png" src="../_images/windows_start_cmd1.png" /></a>
+<p>Change Directory using cd to the folder where your Hex file is located:
+e.g. cd Downloads if it is in Downloads</p>
+<p>Then type the command: avrdude -P usb -c avrispmkii -p atmega328p -U
+flash:w:ArduPPM_Vx.x.x_PPM_Encoder.hex (substitute x.x.x with the
+your version number)</p>
+<a class="reference external image-reference" href="../_images/windows_cmd_avrdude_11.png"><img alt="../_images/windows_cmd_avrdude_11.png" src="../_images/windows_cmd_avrdude_11.png" /></a>
+<p>If it all went well, the following output should appear:</p>
+<a class="reference external image-reference" href="../_images/windows_cmd_avrdude_21.png"><img alt="../_images/windows_cmd_avrdude_21.png" src="../_images/windows_cmd_avrdude_21.png" /></a>
+</section>
+<section id="re-programming-instructions-for-mac-os-x">
+<h2>Re-Programming instructions for Mac OS X<a class="headerlink" href="#re-programming-instructions-for-mac-os-x" title="Permalink to this heading">¶</a></h2>
+<p>Todo: add content on how to flash the hex file here.</p>
+</section>
+<section id="re-programming-instructions-for-linux">
+<h2>Re-Programming instructions for Linux<a class="headerlink" href="#re-programming-instructions-for-linux" title="Permalink to this heading">¶</a></h2>
+<p>Install avrdude:</p>
+<p>For Ubuntu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">avrdude</span>
+</pre></div>
+</div>
+<p>Program instructions for the AVRISP mkII:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avrdude</span> <span class="o">-</span><span class="n">p</span> <span class="n">atmega328p</span> <span class="o">-</span><span class="n">P</span> <span class="n">usb</span> <span class="o">-</span><span class="n">c</span> <span class="n">avrispmkii</span> <span class="o">-</span><span class="n">U</span> <span class="n">flash</span><span class="p">:</span><span class="n">w</span><span class="p">:</span><span class="n">ArduPPM_Vx</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x_ATMega328p</span><span class="o">.</span><span class="n">hex</span>
+</pre></div>
+</div>
+<p>This should output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avrdude</span><span class="p">:</span> <span class="n">AVR</span> <span class="n">device</span> <span class="n">initialized</span> <span class="ow">and</span> <span class="n">ready</span> <span class="n">to</span> <span class="n">accept</span> <span class="n">instructions</span>
+
+<span class="n">Reading</span> <span class="o">|</span> <span class="c1">################################################## | 100% 0.00s</span>
+
+<span class="n">avrdude</span><span class="p">:</span> <span class="n">Device</span> <span class="n">signature</span> <span class="o">=</span> <span class="mh">0x1e950f</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">FLASH</span> <span class="n">memory</span> <span class="n">has</span> <span class="n">been</span> <span class="n">specified</span><span class="p">,</span> <span class="n">an</span> <span class="n">erase</span> <span class="n">cycle</span> <span class="n">will</span> <span class="n">be</span> <span class="n">performed</span>          <span class="n">To</span> <span class="n">disable</span> <span class="n">this</span> <span class="n">feature</span><span class="p">,</span> <span class="n">specify</span> <span class="n">the</span> <span class="o">-</span><span class="n">D</span> <span class="n">option</span><span class="o">.</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">erasing</span> <span class="n">chip</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">reading</span> <span class="nb">input</span> <span class="n">file</span> <span class="s2">&quot;ArduPPM_V2.3.0_ATMega328p.hex&quot;</span> <span class="n">avrdude</span><span class="p">:</span> <span class="nb">input</span> <span class="n">file</span> <span class="n">ArduPPM_V2</span><span class="mf">.3.0</span><span class="n">_ATMega328p</span><span class="o">.</span><span class="n">hex</span> <span class="n">auto</span> <span class="n">detected</span> <span class="k">as</span> <span class="n">Intel</span> <span class="n">Hex</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">writing</span> <span class="n">flash</span> <span class="p">(</span><span class="mi">1952</span> <span class="nb">bytes</span><span class="p">):</span>
+
+<span class="n">Writing</span> <span class="o">|</span> <span class="c1">################################################## | 100% 0.61s</span>
+
+<span class="n">avrdude</span><span class="p">:</span> <span class="mi">1952</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">flash</span> <span class="n">written</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">verifying</span> <span class="n">flash</span> <span class="n">memory</span> <span class="n">against</span> <span class="n">ArduPPM_V2</span><span class="mf">.3.0</span><span class="n">_ATMega328p</span><span class="o">.</span><span class="n">hex</span><span class="p">:</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">load</span> <span class="n">data</span> <span class="n">flash</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">input</span> <span class="n">file</span> <span class="n">ArduPPM_V2</span><span class="mf">.3.0</span><span class="n">_ATMega328p</span><span class="o">.</span><span class="n">hex</span><span class="p">:</span> <span class="n">avrdude</span><span class="p">:</span> <span class="nb">input</span> <span class="n">file</span> <span class="n">ArduPPM_V2</span><span class="mf">.3.0</span><span class="n">_ATMega328p</span><span class="o">.</span><span class="n">hex</span> <span class="n">auto</span> <span class="n">detected</span> <span class="k">as</span> <span class="n">Intel</span> <span class="n">Hex</span> <span class="n">avrdude</span><span class="p">:</span> <span class="nb">input</span> <span class="n">file</span> <span class="n">ArduPPM_V2</span><span class="mf">.3.0</span><span class="n">_ATMega328p</span><span class="o">.</span><span class="n">hex</span> <span class="n">contains</span> <span class="mi">1952</span> <span class="nb">bytes</span> <span class="n">avrdude</span><span class="p">:</span> <span class="n">reading</span> <span class="n">on</span><span class="o">-</span><span class="n">chip</span> <span class="n">flash</span> <span class="n">data</span><span class="p">:</span>
+
+<span class="n">Reading</span> <span class="o">|</span> <span class="c1">################################################## | 100% 0.56s</span>
+
+<span class="n">avrdude</span><span class="p">:</span> <span class="n">verifying</span> <span class="o">...</span> <span class="n">avrdude</span><span class="p">:</span> <span class="mi">1952</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">flash</span> <span class="n">verified</span>
+
+<span class="n">avrdude</span><span class="p">:</span> <span class="n">safemode</span><span class="p">:</span> <span class="n">Fuses</span> <span class="n">OK</span>
+
+<span class="n">avrdude</span> <span class="n">done</span><span class="o">.</span>  <span class="n">Thank</span> <span class="n">you</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>If you get permission errors, try using sudo.</p>
+</section>
+<section id="re-compiling-options">
+<h2>Re-Compiling Options<a class="headerlink" href="#re-compiling-options" title="Permalink to this heading">¶</a></h2>
+<p>By default negative pulse PPM is encoded. In order to change to positive
+pulse PPM, the line 158 in Tools/ArduPPM/Libraries/PPM_Encoder.h needs
+to be uncommented from:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="c1">#define _POSITIVE_PPM_FRAME_ // Switch to positive pulse PPM</span>
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define _POSITIVE_PPM_FRAME_    // Switch to positive pulse PPM</span>
+</pre></div>
+</div>
+<section id="re-compiling-using-linux">
+<h3>Re-Compiling using Linux<a class="headerlink" href="#re-compiling-using-linux" title="Permalink to this heading">¶</a></h3>
+<p>These instructions are tested using Ubuntu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">git</span><span class="o">-</span><span class="n">core</span> <span class="n">gcc</span><span class="o">-</span><span class="n">avr</span> <span class="n">avrdude</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">code</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">ardupilot</span><span class="o">-</span><span class="n">mega</span>
+<span class="n">cd</span> <span class="n">ardupilot</span><span class="o">-</span><span class="n">mega</span><span class="o">/</span><span class="n">Tools</span><span class="o">/</span><span class="n">ArduPPM</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>edit ATMega328p/Encoder-PPM.c or Libraries/PPM_Encoder.h now</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">ATMega328p</span><span class="o">/</span>
+<span class="n">make</span> <span class="n">clean</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+<p>and you should have your custom hex-file to program using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avrdude</span> <span class="o">-</span><span class="n">p</span> <span class="n">atmega328p</span> <span class="o">-</span><span class="n">P</span> <span class="n">usb</span> <span class="o">-</span><span class="n">c</span> <span class="n">avrispmkii</span> <span class="o">-</span><span class="n">U</span> <span class="n">flash</span><span class="p">:</span><span class="n">w</span><span class="p">:</span><span class="n">Encoder</span><span class="o">-</span><span class="n">PPM</span><span class="o">.</span><span class="n">hex</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="related-information">
+<h2>Related information<a class="headerlink" href="#related-information" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-ppm-encoder-8-channel-standalone-encoder.html">PPM Encoder Programming Guide</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

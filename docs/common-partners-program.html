@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArduPilot Partners Program &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stores" href="common-stores.html" />
+    <link rel="prev" title="Corporate Partners" href="common-partners.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="common-appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-abbreviations.html">Abbreviations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_advanced_user_tools.html">Advanced user tools (downloads)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-commercial-support.html">Commercial Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-contact-us.html">Contact Us</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_developer_tools.html">Developer tools (downloads)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-donation.html">Donating to ArduPilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-downloads_firmware.html">Firmware (downloads)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-glossary.html">Glossary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-history-of-ardupilot.html">History of ArduPilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-partners.html">Partners</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Partners Program</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-a-partners-program">Why a Partners Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#partner-support">Partner Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monthly-partners-call">Monthly Partners Call</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-does-my-company-become-a-partner">How does my company become a partner?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#payment-methods">Payment Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-are-collected-funds-spent">How are collected funds spent?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i-m-not-a-company-but-i-love-your-work-how-can-i-help">I’m not a company, but I love your work, how can I help?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it">I want a new feature, do I have to be a partner to get it?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-rtf.html">Ready-To-Use vehicles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-stores.html">Stores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-team.html">Top Contributors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="common-appendix.html">Appendix</a></li>
+      <li class="breadcrumb-item active">ArduPilot Partners Program</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="../_images/ArduPilotPartners2.png" id="common-partners-program"><img alt="../_images/ArduPilotPartners2.png" id="common-partners-program" src="../_images/ArduPilotPartners2.png" style="width: 480px;" /></a>
+<section id="ardupilot-partners-program">
+<h1>ArduPilot Partners Program<a class="headerlink" href="#ardupilot-partners-program" title="Permalink to this heading">¶</a></h1>
+<p>The ArduPilot Project is the result of an immense amount of effort from software and hardware engineers, beta testers, web developers, documenters, researchers and many others.  A vast number of individuals, institutions and companies use and contribute to ArduPilot - in the spirit of Free and Open Source Software we freely and openly welcome their involvement in the project.  There is no cost to use, or contribute to, any software provided by ArduPilot.
+The Project does incur costs though, so this page explains our Partners Program for <a class="reference internal" href="common-partners.html#common-partners"><span class="std std-ref">corporate sponsors</span></a>.</p>
+<section id="why-a-partners-program">
+<h2>Why a Partners Program<a class="headerlink" href="#why-a-partners-program" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot is a free and open-source software project that includes:</p>
+<ul class="simple">
+<li><p>Embedded firmware that is designed to serve as the control system for autonomous vehicles, and supports many different hardware targets listed on the Supported Hardware page</p></li>
+<li><p>A number of Ground Control Station software applications that allow management of vehicles running ArduPilot firmware, e.g. more convenient settings editing on an often more comfortable interface, firmware download and transfer, upgrading and conversion of settings between different devices and versions, fleet management, operations monitoring and more</p></li>
+<li><p>The <a class="reference external" href="https://ardupilot.org">https://ardupilot.org</a> website, <a class="reference external" href="https://discuss.ardupilot.org">https://discuss.ardupilot.org</a> forum and this wiki</p></li>
+<li><p>Server infrastructure dedicated to distributing software and firmware, and testing/building/distributing of the different variants for all the different supported platforms and options</p></li>
+<li><p>A global community of users with an enormous variety of goals and expectations</p></li>
+<li><p>A global team of developers with deep technical knowledge of the project’s code and of its management</p></li>
+</ul>
+<p>In order to continue providing, maintaining and improving the rich
+ArduPilot ecosystem, the Project relies heavily on generous donations
+of time from many people - but we also incur financial costs that must
+be covered.  Simplistically, meeting these costs is what the Partners
+Program achieves.</p>
+<p>The partnerships we have with companies also help to guide the
+development of ArduPilot. We look to the partners to help us choose
+what features to prioritise, what documentation we need to work on and
+how we can best use the funds we have available to continue to make
+ArduPilot the best autopilot available.</p>
+</section>
+<section id="partner-support">
+<h2>Partner Support<a class="headerlink" href="#partner-support" title="Permalink to this heading">¶</a></h2>
+<p>One of the biggest benefits to a company of joining the partners
+program is the deep level of technical support that we can
+provide. For each partner we create a private discussion channel where
+the partner can ask questions, post logs for review or discuss
+features. We also have a shared channel that all partners can access
+to facilitate discussions between partners.</p>
+<p>The partners program funds 4 highly qualified support engineers to
+help support the needs of partners. These support engineers are not
+full time, but we do strive to provide very timely support for
+partners and we’re proud of our track record of providing top quality
+support and technical advice.</p>
+<p>For more complex development tasks we may refer the partner to a dev
+team member who can provide more extensive paid consulting in a
+specialist area.</p>
+</section>
+<section id="monthly-partners-call">
+<h2>Monthly Partners Call<a class="headerlink" href="#monthly-partners-call" title="Permalink to this heading">¶</a></h2>
+<p>In addition to the private partner support channel, we also hold a
+monthly meeting that all partners are invited to where the core
+development team presents an update on the development of ArduPilot
+and discusses priorities with partners. We use this meeting to hold
+in-depth technical discussions with partners on any topic of interest,
+plus it gives an opportunity for partners to announce new products.</p>
+</section>
+<section id="how-does-my-company-become-a-partner">
+<h2>How does my company become a partner?<a class="headerlink" href="#how-does-my-company-become-a-partner" title="Permalink to this heading">¶</a></h2>
+<p>The first step in becoming a partner is to email the partners program
+coordinator at <a class="reference external" href="mailto:partners&#37;&#52;&#48;ardupilot&#46;org">partners<span>&#64;</span>ardupilot<span>&#46;</span>org</a> to start the application process.</p>
+<p>You will receive a reply within a couple of days. After that the steps
+are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>you will receive a link to a form to fill in giving details of your application</p></li>
+<li><p>you will need to agree to abide by the <a class="reference external" href="https://ardupilot.org/dev/docs/developer-code-of-conduct.html">ArduPilot Code of Conduct</a></p></li>
+<li><p>you will need to make a payment of a minimum of US$1000. For larger companies we strongly encourage larger contributions, with typical amounts of $5000 to $10000 for companies that rely on ArduPilot for their business. Details of payment methods are given below</p></li>
+<li><p>you will need to send a logo to put on our website, unless you specifically ask not to be included in the public list of partners</p></li>
+<li><p>once payment is received we will create the private support channel for your company (on <a class="reference external" href="https://ardupilot.org/discord">discord</a> or skype) and add you to the partners list</p></li>
+<li><p>the partners coordinator will setup a time to have an onboarding call to get to know you and to learn how we can best support your use of ArduPilot</p></li>
+<li><p>you can then add the <a class="reference external" href="https://firmware.ardupilot.org/Tools/Logos/Partners/logos.html">ArduPilot Partner logo</a> on your website to show your support for the ArduPilot project</p></li>
+<li><p>you will be added to the partners mailing list and partners discord channel</p></li>
+<li><p>you will receive an invitation to the monthly partners development call</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="payment-methods">
+<h2>Payment Methods<a class="headerlink" href="#payment-methods" title="Permalink to this heading">¶</a></h2>
+<p>After you have filled in the partner application form the partners
+coordinator will ask you to make your payment. We can accept payments
+in a number of ways.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the simplest and preferred method is via <a class="reference external" href="https://ardupilot.org/donate">paypal to the ArduPilot Foundation</a></p></li>
+<li><p>you can do a bank transfer directly to the ArduPilot Foundation Australian bank account. The partners coordinator can give you the bank account details on request</p></li>
+<li><p>if neither of the first two options are suitable, you can donate via the SPI click and pledge system at <a class="reference external" href="https://co.clickandpledge.com/advanced/default.aspx?wid=34115">Click&amp;Pledge</a></p></li>
+<li><p>finally we can give you bank details for donating directly to our SPI US bank account</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="how-are-collected-funds-spent">
+<h2>How are collected funds spent?<a class="headerlink" href="#how-are-collected-funds-spent" title="Permalink to this heading">¶</a></h2>
+<p>Funds are first used to cover fixed costs including servers to host the wiki, forum, autotest and build servers and other running expenses. We also fund 3 part time highly qualified support engineers to help partners with support, a Wiki documentation maintainer, and the partners coordinator position to ensure the partners program runs smoothly.</p>
+<p>A Funding Committee of 3 members is voted on annually from within the Development Team to oversee and control financial matters.</p>
+</section>
+<section id="i-m-not-a-company-but-i-love-your-work-how-can-i-help">
+<h2>I’m not a company, but I love your work, how can I help?<a class="headerlink" href="#i-m-not-a-company-but-i-love-your-work-how-can-i-help" title="Permalink to this heading">¶</a></h2>
+<p>Please see our more general, <a class="reference internal" href="common-donation.html#common-donation"><span class="std std-ref">how-to-donate</span></a> page but in short, we accept donations of any amount from individuals as well.  Also please consider helping out with documentation, beta testing or code development.  Tell your friends and post videos of your successes with ArduPilot!</p>
+</section>
+<section id="i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it">
+<h2>I want a new feature, do I have to be a partner to get it?<a class="headerlink" href="#i-want-a-new-feature-do-i-have-to-be-a-partner-to-get-it" title="Permalink to this heading">¶</a></h2>
+<p>No.  ArduPilot is, and always will be, open source.  Contributions to the code base, wherever they come from, are accepted based on their technical merits.  If you’re not in a position to make the changes yourself, please add it to the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues">Issues list</a> or consider contracting one of the companies listed on the <a class="reference internal" href="common-commercial-support.html#common-commercial-support"><span class="std std-ref">Commercial Support page</span></a> to make the change.</p>
+<p>[copywiki destination=”copter,plane,rover,planner,planner2,antennatracker,dev,ardupilot,mavproxy”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-partners.html" class="btn btn-neutral float-left" title="Corporate Partners" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-stores.html" class="btn btn-neutral float-right" title="Stores" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

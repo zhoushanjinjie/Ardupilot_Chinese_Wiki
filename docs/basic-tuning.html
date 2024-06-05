@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Tuning &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Tuning</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-tuning">
+<span id="id1"></span><h1>Basic Tuning<a class="headerlink" href="#basic-tuning" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this page superseded and is now ARCHIVED</p>
+</div>
+<p>This topic covers basic Roll and pitch and throttle tuning.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>After your first flight, you may notice that you copter doesn’t respond
+to control inputs the way you want it to or you may have trouble
+maintaining control of your copter. If you are familiar with PID
+controllers, check out the <a class="reference internal" href="tuning.html#tuning"><span class="std std-ref">advanced tuning guide here</span></a>. If
+you are an experienced operator, try out <a class="reference internal" href="autotune.html#autotune"><span class="std std-ref">the autotune feature</span></a>. This page will cover the basic tuning section of
+Mission Planner and APM Planner that simplified the complex tuning
+process into a few simple sliders. This is the best tuning method for
+new operators.</p>
+</section>
+<section id="roll-and-pitch-tuning">
+<h2>Roll and pitch tuning<a class="headerlink" href="#roll-and-pitch-tuning" title="Permalink to this heading">¶</a></h2>
+<p>Tuning is easiest at the field using a <a class="reference internal" href="common-telemetry-landingpage.html#common-telemetry-landingpage"><span class="std std-ref">telemetry radio</span></a>. Perform an initial flight with
+the following questions in mind:</p>
+<ul class="simple">
+<li><p>How does the copter respond to roll and pitch? Is the response more
+sluggish or twitchy than you want?</p></li>
+<li><p>When the copter is hover, what level is the throttle set at? Does it
+hover at the middle position of the stick or is it above or below the
+center position?</p></li>
+<li><p>When raising the throttle, what rate does the copter accelerate at?
+Does it gain altitude more slowly or more quickly than you want?</p></li>
+</ul>
+<p>Connect the telemetry radio ground module to your ground station
+computer and open either Mission Planner or APM Planner. Select the
+correct COM port and select Connect. You should see live data on the
+Flight Data screen. To begin tuning, select Config/Tuning and Basic
+Tuning.</p>
+<p>Start with the Roll/Pitch slider at the top of the page. If you observed
+that your copter was too twitchy in response to roll and pitch controls,
+move the slider one tick mark to the left, or, if you observed that your
+copter was too sluggish, move the slider one tick mark to the right.
+Repeat your flight to determine if the change was beneficial. Repeat the
+process until you are satisfied with the way your copter responds to
+roll and pitch.</p>
+<a class="reference external image-reference" href="../_images/apm-planner-basic-tuning2.png"><img alt="../_images/apm-planner-basic-tuning2.png" src="../_images/apm-planner-basic-tuning2.png" /></a>
+<a class="reference external image-reference" href="../_images/mission-planner-basic-tuning.png"><img alt="../_images/mission-planner-basic-tuning.png" src="../_images/mission-planner-basic-tuning.png" /></a>
+</section>
+<section id="throttle-tuning">
+<h2>Throttle tuning<a class="headerlink" href="#throttle-tuning" title="Permalink to this heading">¶</a></h2>
+<p>The bottom two sliders allows you to tune the throttle control. Adjust
+the slider marked Throttle Hover until the copter hovers at the throttle
+stick’s middle position. If the copter hovers with the throttle stick
+above middle position, move the slider to the left by one tick-mark
+until it hovers at mid-stick, testing as you go. If the copter hovers
+with the throttle stick below middle position, move the slider to the
+right by single tick-mark increments until it does. Make sure to test
+each set of tuning settings as you go.</p>
+<p>Move the slider marked Throttle Accel or Climb Sensitivity to the right
+to have the copter gain altitude more aggressively or to the left to
+have the copter gain altitude more gently. Test each increment after
+setting to evaluate the tune.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

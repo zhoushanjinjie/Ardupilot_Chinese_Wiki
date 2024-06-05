@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Control in Auto Missions &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Camera Control in Auto Missions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-control-in-auto-missions">
+<span id="common-camera-control-and-auto-missions-in-mission-planner"></span><h1>Camera Control in Auto Missions<a class="headerlink" href="#camera-control-in-auto-missions" title="Permalink to this heading">¶</a></h1>
+<p>This article describes ArduPilot’s camera and gimbal commands, and
+explains how these can be used in Mission Planner to define camera
+survey missions.  These instructions assume a <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">camera trigger and gimbal have already been connected and configured</span></a>.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Planning a camera mission is almost exactly the same as <a class="reference internal" href="common-planning-a-mission-with-waypoints-and-events.html#common-planning-a-mission-with-waypoints-and-events"><span class="std std-ref">planning any other mission with waypoints and events</span></a>. The
+only difference is that in a camera mission you specify commands to
+trigger the camera shutter at waypoints or at regular intervals as the
+vehicle moves. If the camera is mounted on a gimbal, you can also set
+the gimbal orientation, or make it track a particular point of interest.</p>
+<p>For simple missions you can manually specify the required waypoints and
+camera commands. For more complex paths and grid surveys Mission Planner
+makes things easy by providing tools to automatically generating the
+required mission for arbitrary regions.</p>
+<section id="camera-commands">
+<h3>Camera commands<a class="headerlink" href="#camera-commands" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DO_SET_CAM_TRIGG_DIST</span></code> — Trigger the camera shutter at regular
+intervals. This is most commonly used for supporting area surveys.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DO_DIGICAM_CONTROL</span></code> — Trigger the camera shutter once every time
+this command is called.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DO_AUX_FUNCTION</span></code> — allows any <a class="reference internal" href="common-auxiliary-functions.html#common-auxiliary-functions"><span class="std std-ref">auxiliary function</span></a> to be executed from within a mission without setting up an auxiliary switch.  This includes camera start recording, camera zoom, camera manual focus and camera auto focus.</p></li>
+</ul>
+</section>
+<section id="camera-gimbal-commands">
+<h3>Camera gimbal commands<a class="headerlink" href="#camera-gimbal-commands" title="Permalink to this heading">¶</a></h3>
+<p>If a camera gimbal is used, you can set the camera position (yaw, tilt,
+roll) or aim it at a specific region of interest (ROI):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DO_SET_ROI</span></code> — Target the camera towards a specified region of
+interest (position, including altitude).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DO_GIMBAL_MANAGER_PITCHYAW</span></code> — Move the gimbal to the desired pitch and yaw angles (in degrees).  Positive pitch angles are up, Negative are down.  Positive yaw angles are clockwise, negative are counter clockwise.   If the “Flags” field is “0” the yaw angle is in “body frame” (e.g. 0 is forward).  If “Flags” is “16” the yaw angle is in “earth frame” (e.g. 0 is North).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DO_MOUNT_CONTROL</span></code> — Position the gimbal with the specified roll,
+pitch and yaw.</p></li>
+</ul>
+</section>
+<section id="servo-and-relay-commands">
+<h3>Servo and Relay commands<a class="headerlink" href="#servo-and-relay-commands" title="Permalink to this heading">¶</a></h3>
+<p>Servos and relay outputs can be connected to hardware and activated
+during missions using the <code class="docutils literal notranslate"><span class="pre">DO_SET_SERVO</span></code> or <code class="docutils literal notranslate"><span class="pre">DO_SET_RELAY</span></code> commands,
+respectively.</p>
+<p>One possible use for these outputs is to control camera features other
+than the shutter (for example, to set the zoom level or switch capture
+from still to video).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The method used to connect your servo or relay to the camera, and
+what features are accessible, will depend the camera and its supported
+remote-control mechanism(s) (see the <a class="reference internal" href="common-cameras-and-gimbals.html#common-cameras-and-gimbals"><span class="std std-ref">Camera Control and GeoTagging section of the Cameras and Gimbals wiki page</span></a>)</p>
+</div>
+</section>
+</section>
+<section id="auto-mission-types">
+<h2>Auto-mission types<a class="headerlink" href="#auto-mission-types" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner supports the following <em>Auto Waypoint</em> options. To
+access these open the <em>Flight Plan</em> screen, right-click on the map and
+select the option from under the <em>Auto WP</em> menu:</p>
+<ul class="simple">
+<li><p><strong>Create WP Circle</strong> — Create a circle of waypoints.</p></li>
+<li><p><strong>Area</strong> — Displays the area of the current polygon (if defined).</p></li>
+<li><p><strong>Create Spline Circle</strong> — A circle where the altitude of waypoints
+follows a rising spline (relevant to flying vehicles).</p></li>
+<li><p><strong>Survey (Grid)</strong> — Automatically create waypoints and camera control
+commands to survey a specified polygon.</p></li>
+<li><p><strong>Survey (Gridv2)</strong> — <em>Under construction!</em> This is a simpler grid
+control for creating a rectangular survey area.</p></li>
+<li><p><strong>SimpleGrid</strong> — A simple auto-created survey grid. No camera control
+is defined, so this must be added separately.</p></li>
+</ul>
+<p>The following sections include community-provided examples of automatic
+survey missions.</p>
+<section id="survey-grid-example">
+<span id="common-camera-control-and-auto-missions-in-mission-planner-survey-grid-example"></span><h3>Survey (Grid) Example<a class="headerlink" href="#survey-grid-example" title="Permalink to this heading">¶</a></h3>
+<p>Mission Planner’s <em>Survey (Grid)</em> option automatically defines the
+waypoints required to cover an arbitrary polygon, and sets
+<code class="docutils literal notranslate"><span class="pre">DO_SET_CAM_TRIGG_DIST</span></code> on relevant waypoints to ensure that pictures
+are captured at regular intervals in the vehicle’s path.</p>
+<ul>
+<li><p>Open the <em>Flight Plan</em> tab</p></li>
+<li><p><strong>Right click</strong> on the map, and select <strong>Draw Polygon | Add PolyGon
+Point</strong>. Create points surrounding the area to be photographed.</p></li>
+<li><p><strong>Right click</strong> on the map and select <strong>Auto WP | Survey(Grid)</strong>:</p>
+<p><a class="reference external" href="../_images/surveyexample.jpg"><img alt="surveyexample" src="../_images/surveyexample.jpg" /></a></p>
+</li>
+<li><p><em>Mission Planner</em> will then display a configuration screen where you
+can define the camera make/model and other parameters including the
+overlap you want between pictures, lens size, etc.
+<code class="docutils literal notranslate"><span class="pre">DO_SET_CAM_TRIGG_DIST</span></code> is automatically calculated based on this
+information!</p>
+<p><a class="reference external" href="../_images/surveyexample2.jpg"><img alt="surveyexample2" src="../_images/surveyexample2.jpg" /></a></p>
+</li>
+</ul>
+<p>After clicking on <strong>Accept</strong>, <em>Mission Planner</em> will generate a list of
+waypoints covering the specified area, and including take-off and
+landing waypoints. The <code class="docutils literal notranslate"><span class="pre">DO_SET_CAM_TRIGG_DIST</span></code> command is called to
+set the distance in meters between two camera triggers during your
+mission. At the end of the mission <code class="docutils literal notranslate"><span class="pre">DO_SET_CAM_TRIGG_DIST</span></code> is called
+again to set the parameter back to zero (stops capturing images).</p>
+<p>The final mission with waypoints and camera triggers looks like this:</p>
+<a class="reference external image-reference" href="../_images/mp_camera_control_mission.jpg"><img alt="../_images/mp_camera_control_mission.jpg" src="../_images/mp_camera_control_mission.jpg" style="width: 450px;" /></a>
+<p>The test mission shown above was run. It generated 15 images, which have
+been stitched together. A thumbnail of the composite image is shown
+below (because the full size image is too large at about 107 MBytes).</p>
+<a class="reference external image-reference" href="../_images/Mortierthumbnail2.jpg"><img alt="../_images/Mortierthumbnail2.jpg" src="../_images/Mortierthumbnail2.jpg" style="width: 450px;" /></a>
+</section>
+</section>
+<section id="creating-composite-images">
+<h2>Creating composite images<a class="headerlink" href="#creating-composite-images" title="Permalink to this heading">¶</a></h2>
+<p>There are a number of good free and paid tools for creating composite
+images:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.pix4d.com/">Pix4Dmapper</a> - The free “discovery”
+version supports image merging.</p></li>
+<li><p><a class="reference external" href="http://research.microsoft.com/en-us/um/redmond/projects/ice/">Microsoft Image Composite Editor (ICE)</a></p></li>
+</ul>
+<p>[copywiki destination=”copter,plane,rover,planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

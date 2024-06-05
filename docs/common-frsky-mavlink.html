@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-frsky-mavlink"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="mavlink-to-frsky-converters">
+<h1>MavLink to FrSky Converters<a class="headerlink" href="#mavlink-to-frsky-converters" title="Permalink to this heading">¶</a></h1>
+<p>This section contains hardware MAVLink to FrSky converter solutions.</p>
+<p>Please feel free to add your own solutions (<a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/new">or ask us to</a>).</p>
+<section id="apm-mavlink-to-frsky-smartport-converter-mavlink-frskysport">
+<span id="common-frsky-telemetry-apm-mavlink-to-frsky-smartport-converter-airborne-projects"></span><h2>APM MavLink to FrSky SmartPort Converter (MavLink_FrSkySPort)<a class="headerlink" href="#apm-mavlink-to-frsky-smartport-converter-mavlink-frskysport" title="Permalink to this heading">¶</a></h2>
+<p>There are several open source projects such that use small cpu boards, such as the Teensy USB Development board, to convert MAVLink
+messages to FrSkySmartPort format so that ArduPilot telemetry can be displayed on an <a class="reference external" href="https://www.open-tx.org/">OpenTX</a> transmitter.</p>
+</section>
+<section id="mav2pt-converter-project">
+<h2>Mav2PT Converter Project<a class="headerlink" href="#mav2pt-converter-project" title="Permalink to this heading">¶</a></h2>
+<p>This project provides airborne (autopilot-&gt; RX SPort), ground (TX module telem output -&gt; TX SPort input), and relay station applications using inexpensive Teensy, ESP, ESP8266, and HelTec WIFI cpu boards. It also provides Bluetooth and WIFI output options to allow parallel connections to Ground Control stations in the ground and relay modes. It is currently well supported.</p>
+<a class="reference external image-reference" href="../_images/Mav2PT.jpg"><img alt="../_images/Mav2PT.jpg" src="../_images/Mav2PT.jpg" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.rcgroups.com/forums/showthread.php?3089648-Mavlink-To-FrSky-Passthrough-Converter">Project discussion page</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zs6buj/MavlinkToPassthru">Github code</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zs6buj/MavlinkToPassthru/wiki">Wiki documents</a></p></li>
+</ul>
+</section>
+<section id="other-projects">
+<h2>Other Projects<a class="headerlink" href="#other-projects" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/Clooney82/MavLink_FrSkySPort/wiki">MavLink_FrSkySPort</a></p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/Clooney82/MavLink_FrSkySPort/s-c-l-v-rc-opentx2.1/images/Basic%20Wiring%20-%20Teensy3.jpg"><img alt="https://raw.githubusercontent.com/Clooney82/MavLink_FrSkySPort/s-c-l-v-rc-opentx2.1/images/Basic%20Wiring%20-%20Teensy3.jpg" src="https://raw.githubusercontent.com/Clooney82/MavLink_FrSkySPort/s-c-l-v-rc-opentx2.1/images/Basic%20Wiring%20-%20Teensy3.jpg" /></a>
+<p><a class="reference external" href="http://openbrainiacs.com/tiki-index.php?page=Teensy+Telemetry+Project">Scottflys</a></p>
+<p><a class="reference external" href="https://github.com/athertop/MavLink_FrSkySPort">Athertop</a></p>
+<p><a class="reference external" href="https://diydrones.com/forum/topics/amp-to-frsky-x8r-sport-converter">APM MavLink to FrSky X8R S.Port converter</a></p>
+<p>Information about the circuits and software can be found on the each project link above.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

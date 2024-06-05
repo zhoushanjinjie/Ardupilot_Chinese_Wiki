@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Helicopter – Swashplate Setup &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traditional Helicopter Aerobatic Setup" href="traditional-helicopter-aerobatic-setup.html" />
+    <link rel="prev" title="Traditional Helicopter — Connecting and Calibrating the System" href="traditional-helicopter-connecting-apm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="traditional-helicopter-first-time-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="traditional-heli-parts-list.html">Suggested Parts List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-the-code.html">Loading the Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trad-heli-mounting.html">Mounting the Autopilot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-parameter-list.html">Helicopter Parameter List at a Glance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-connecting-apm.html">Connecting and Calibration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Swashplate Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#before-you-begin">Before You Begin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-swashplate-type">Select Swashplate Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swashplate-types">Swashplate Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-proper-swashplate-movement">Check Proper Swashplate Movement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#leveling-your-swashplate">Leveling your Swashplate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#leveling-swashplate-without-using-linearize-servo-feature">Leveling swashplate without using Linearize Servo Feature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#leveling-swashplate-using-linearize-servo-feature">Leveling swashplate using Linearize Servo Feature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collective-pitch-settings">Collective Pitch Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stabilized-collective-curve">STABILIZED Collective Curve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-maximum-cyclic-pitch">Setting Maximum Cyclic Pitch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-tailrotor-setup.html">Tailrotor Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-rsc-setup.html">Rotor Speed Control Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traditional-helicopter-internal-rsc-governor.html">Internal Rotor Speed Governor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-first-flight.html">First Flights and Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-autorotation.html">Autorotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dual-helicopter.html">Dual Helicopters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heliquads.html">HeliQuads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-tips.html">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional-helicopter-configuration.html">ArduPilot Helicopter Ground School</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopters.html">Traditional Helicopters</a></li>
+          <li class="breadcrumb-item"><a href="traditional-helicopter-first-time-setup.html">Traditional Helicopter Setup</a></li>
+      <li class="breadcrumb-item active">Traditional Helicopter – Swashplate Setup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traditional-helicopter-swashplate-setup">
+<span id="id1"></span><h1>Traditional Helicopter – Swashplate Setup<a class="headerlink" href="#traditional-helicopter-swashplate-setup" title="Permalink to this heading">¶</a></h1>
+<p>The swashplate is designed to take the servo inputs that are based on the pilot’s
+pitch, roll, and collective commands and translate them to individual blade pitch
+inputs. There are many different servo arrangements for both three and four servo
+swashplates. The swashplate library covers all of the popular configurations for
+both three and four servo swashplates. If you have a unique swashplate, you can
+also use the generic three servo swashplate.</p>
+<p>Linearize Servo is a feature that you can use for both three and four servo swashplates. However, it is optional for the
+three servo swashplates as there is no chance for binding. It will most likely
+always be required for four servo swashplates because of the potential for binding
+in a four point attachment.</p>
+<p>The following video covers the swashplate setup and leveling the swashplate.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/oA-9FFYC6Ek" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>This video covers setting up the min collective, max collective, zero thrust collective, max cyclic and stabilize collective curve.</p>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/qfOuZc_7J4g" style="border: 0; height: 345px; width: 560px">
+</iframe></div><section id="before-you-begin">
+<h2>Before You Begin<a class="headerlink" href="#before-you-begin" title="Permalink to this heading">¶</a></h2>
+<p>Prior to beginning the swashplate set up, be sure that your helicopter control
+linkages are set up in accordance with the assembly instructions. In order to make
+accurate blade pitch measurements, make the rotor shaft perpendicular to the ground
+by using shims underneath the landing gear as shown in the picture below.</p>
+<a class="reference external image-reference" href="../_images/TradHeli_swashplate_setup.png"><img alt="../_images/TradHeli_swashplate_setup.png" src="../_images/TradHeli_swashplate_setup.png" /></a>
+<p>Lastly, it is possible if you haven’t adjusted your tail rotor linkage, or your throttle
+linkage in the case of a gas engine, you could have binding occur while doing the
+swashplate set up. This is due to the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> feature providing manual servo settings
+that drive the servos to the min and max values. This includes the tail rotor servo
+and the throttle servo due to throttle curve settings.</p>
+</section>
+<section id="select-swashplate-type">
+<h2>Select Swashplate Type<a class="headerlink" href="#select-swashplate-type" title="Permalink to this heading">¶</a></h2>
+<p>Below are the swashplate type selections using the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-type-ap-motorsheli-single" title="(in Copter)"><span class="xref std std-ref">H_SW_TYPE</span></a> parameter.  The diagrams
+shown label the servo attach positions as Servo 1, Servo 2 and Servo 3 for the three servo swashplate types.  These also correspond to the default output functions for servo outputs 1 thru 3 on the autopilot for the servos used with these swashplate types.</p>
+<p>For single heli, the servo function assigned to Servo 1
+is motor 33, Servo 2 is motor 34, and Servo 3 is motor 35.  These assignments are the same
+for swashplate 1 for a dual heli frame.  Swashplate 2 for a dual heli defaults to
+servo outputs 4, 5, and 6 with motors 36, 37 and 38 assigned respectively.</p>
+<p>For four servo swashplates,
+the fourth servo (Servo 5) on the single heli frame defaults to servo output 5 and is assigned motor 37.
+For the dual heli frame, the fourth servo (Servo 7) on swashplate 1 defaults to servo output 7 and is assigned motor 39. The fourth servo (Servo 8) on swashplate 2 defaults to servo output 8 and is assigned motor 40 function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the case of dual heli frame with four servo swashplates, the RSCHeli output function (Motor 31) will need to be assigned to another servo output than its normal default of servo output 8.</p>
+</div>
+</section>
+<section id="swashplate-types">
+<h2>Swashplate Types<a class="headerlink" href="#swashplate-types" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>H3 Generic - Allows servo positions and phase angle to be set by user.  Assumes all swashplate ball links are the same distance from the main shaft.</p></li>
+<li><p>H1 non-CCPM - Servo1 is aileron, Servo 2 is elevator and Servo 3 is collective</p></li>
+<li><p>H3-140</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TradHeli_Swashplate_H3-140.png"><img alt="../_images/TradHeli_Swashplate_H3-140.png" src="../_images/TradHeli_Swashplate_H3-140.png" /></a>
+<ul class="simple">
+<li><p>H3-120</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TradHeli_Swashplate_H3-120.png"><img alt="../_images/TradHeli_Swashplate_H3-120.png" src="../_images/TradHeli_Swashplate_H3-120.png" /></a>
+<ul class="simple">
+<li><p>H4-90</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TradHeli_Swashplate_H4-90.png"><img alt="../_images/TradHeli_Swashplate_H4-90.png" src="../_images/TradHeli_Swashplate_H4-90.png" /></a>
+<ul class="simple">
+<li><p>H4-45</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TradHeli_Swashplate_H4-45.png"><img alt="../_images/TradHeli_Swashplate_H4-45.png" src="../_images/TradHeli_Swashplate_H4-45.png" /></a>
+<p>Other swashplates types that can be supported</p>
+<ul class="simple">
+<li><p>H3R-140 - Use H3-140. May require <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-single" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> to be reversed.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TradHeli_Swashplate_H3R-140.png"><img alt="../_images/TradHeli_Swashplate_H3R-140.png" src="../_images/TradHeli_Swashplate_H3R-140.png" /></a>
+<ul class="simple">
+<li><p>H3R-120 - Use H3-120. May require <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-single" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> to be reversed.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/TradHeli_Swashplate_H3R-120.png"><img alt="../_images/TradHeli_Swashplate_H3R-120.png" src="../_images/TradHeli_Swashplate_H3R-120.png" /></a>
+<ul class="simple">
+<li><p>H3-90 - Use H4-90.  Don’t use one of the servo outputs.</p></li>
+</ul>
+</section>
+<section id="check-proper-swashplate-movement">
+<h2>Check Proper Swashplate Movement<a class="headerlink" href="#check-proper-swashplate-movement" title="Permalink to this heading">¶</a></h2>
+<p>Use your transmitter to check for proper swashplate response to cyclic and collective inputs:</p>
+<ul class="simple">
+<li><p>Push forward on the elevator stick and swashplate tilts forward; pull back on the elevator stick and swashplate tilts aft.</p></li>
+<li><p>Push right on the aileron stick and the swashplate tilts right; Push left on the aileron stick and the swashplate tilts left.</p></li>
+<li><p>Push up on the throttle stick (collective) and the swashplate will rise; pull down on the throttle stick (collective) and the swashplate will lower.</p></li>
+</ul>
+<p>Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo1-reversed" title="(in Rover)"><span class="xref std std-ref">SERVO1_REVERSED</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo2-reversed" title="(in Rover)"><span class="xref std std-ref">SERVO2_REVERSED</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-reversed" title="(in Rover)"><span class="xref std std-ref">SERVO3_REVERSED</span></a>, and <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sw-col-dir-ap-motorsheli-single" title="(in Copter)"><span class="xref std std-ref">H_SW_COL_DIR</span></a> parameters so that your swashplate responds correctly (as described above) to your collective and cyclic inputs.</p>
+</section>
+<section id="leveling-your-swashplate">
+<h2>Leveling your Swashplate<a class="headerlink" href="#leveling-your-swashplate" title="Permalink to this heading">¶</a></h2>
+<p>The swashplate can be leveled using either a tool specially designed to keep the swashplate
+perpendicular to the shaft or, a less expensive way, using a magnet and nail (shown below).
+Using the magnet and nail won’t require you to remove your rotor head to level your swashplate.
+Rotate the shaft so the nail passes over the swashplate arm.  Adjusts swashplate using one of
+methods below so the nail touches the top of each swashplate arm.</p>
+<a class="reference external image-reference" href="../_images/TradHeli_swash_leveling.png"><img alt="../_images/TradHeli_swash_leveling.png" src="../_images/TradHeli_swash_leveling.png" /></a>
+</section>
+<section id="leveling-swashplate-without-using-linearize-servo-feature">
+<h2>Leveling swashplate without using Linearize Servo Feature<a class="headerlink" href="#leveling-swashplate-without-using-linearize-servo-feature" title="Permalink to this heading">¶</a></h2>
+<p>If you aren’t using the Linearize Servo feature, then you will use the servo trim parameters
+to level your swashplate. Set the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> parameter to 1.  Adjust the transmitter throttle
+stick (collective) until the servos are nearly perpendicular to the shaft.  Adjust <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo1-trim" title="(in Rover)"><span class="xref std std-ref">SERVO1_TRIM</span></a>,
+<a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo2-trim" title="(in Rover)"><span class="xref std std-ref">SERVO2_TRIM</span></a>, and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo3-trim" title="(in Rover)"><span class="xref std std-ref">SERVO3_TRIM</span></a> until the swashplate is level.</p>
+</section>
+<section id="leveling-swashplate-using-linearize-servo-feature">
+<h2>Leveling swashplate using Linearize Servo Feature<a class="headerlink" href="#leveling-swashplate-using-linearize-servo-feature" title="Permalink to this heading">¶</a></h2>
+<p>If you intend to use Linearize Servo feature then you will have to level your swashplate using
+the pitch links that connects swashplate to the servo. First though, you will set your servo so that
+at the midpoint of the servo travel, the arm is perpendicular to the pitch link which in most cases
+will be perpendicular to the shaft as well. If the spline on the servo control horn is not allowing
+you to get the servo arm perpendicular to the shaft, then you can use the servo trim parameters
+to make them perpendicular to the shaft. You want the trim as close to 1500 as you can get. Now you
+can adjust your pitch links to make the swashplate level.</p>
+<a class="reference external image-reference" href="../_images/TradHeli_linear_servo_setup.png"><img alt="../_images/TradHeli_linear_servo_setup.png" src="../_images/TradHeli_linear_servo_setup.png" /></a>
+</section>
+<section id="collective-pitch-settings">
+<h2>Collective Pitch Settings<a class="headerlink" href="#collective-pitch-settings" title="Permalink to this heading">¶</a></h2>
+<p>Use the servo manual setting (<a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> ) to move the swashplate between min and max positions.
+At each position use the blade pitch gauge to set the desired blade pitch.  A typical collective
+blade pitch range is -2° to +12°. Fully aerobatic setups would use -12° to +12°. For initial tests and normal autonomous operation, the narrower range is recommended. See <a class="reference internal" href="traditional-helicopter-aerobatic-setup.html#traditional-helicopter-aerobatic-setup"><span class="std std-ref">Traditional Helicopter Aerobatic Setup</span></a> for more information about aerobatic setup.</p>
+<p>Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> to 2 to have swashplate move to maximum position.  Adjust <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-max" title="(in Copter)"><span class="xref std std-ref">H_COL_MAX</span></a> until blade pitch
+angle measures the desired maximum collective blade pitch.</p>
+<p>Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> to 4 to have swashplate move to minimum position.  Adjust <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-min" title="(in Copter)"><span class="xref std std-ref">H_COL_MIN</span></a> until blade pitch
+angle measures the desired minimum collective blade pitch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Overall collective measurements must be made using the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> parameter since these would be impacted and inaccurate if the autopilot stabilization was active.</p>
+</div>
+<section id="version-4-2-and-later">
+<h3>Version 4.2 and later<a class="headerlink" href="#version-4-2-and-later" title="Permalink to this heading">¶</a></h3>
+<section id="minimum-and-maximum-collective-blade-pitch-angle">
+<h4>Minimum and Maximum Collective Blade Pitch Angle<a class="headerlink" href="#minimum-and-maximum-collective-blade-pitch-angle" title="Permalink to this heading">¶</a></h4>
+<p>For <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-max" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MAX</span></a>, enter the maximum collective blade pitch angle in degrees that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-max" title="(in Copter)"><span class="xref std std-ref">H_COL_MAX</span></a>.  For <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-ang-min" title="(in Copter)"><span class="xref std std-ref">H_COL_ANG_MIN</span></a>, enter the minimum collective blade pitch angle in degrees that corresponds to <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-min" title="(in Copter)"><span class="xref std std-ref">H_COL_MIN</span></a>.</p>
+</section>
+<section id="zero-thrust-point">
+<h4>Zero Thrust Point<a class="headerlink" href="#zero-thrust-point" title="Permalink to this heading">¶</a></h4>
+<p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-zero-thrst" title="(in Copter)"><span class="xref std std-ref">H_COL_ZERO_THRST</span></a> is the collective blade pitch angle in degrees for zero thrust.  The collective blade pitch that corresponds to zero thrust is used to set the mixing of collective to yaw.  This will be zero degrees collective blade pitch angle for symmetric blades. Set the servo manual setting <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> to 3 to have swashplate move to zero thrust position and verify the collective blade pitch corresponds the pitch angle set for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-zero-thrst" title="(in Copter)"><span class="xref std std-ref">H_COL_ZERO_THRST</span></a>.</p>
+</section>
+<section id="minimum-landed-collective">
+<h4>Minimum Landed Collective<a class="headerlink" href="#minimum-landed-collective" title="Permalink to this heading">¶</a></h4>
+<p>The <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-land-min" title="(in Copter)"><span class="xref std std-ref">H_COL_LAND_MIN</span></a> parameter is used as the lower collective pitch limit in degrees for modes that use altitude hold in the vertical axis.  This keeps the autopilot from driving collective too low resulting in ground resonance and is also used to detect landing in these modes. The default angle for <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-land-min" title="(in Copter)"><span class="xref std std-ref">H_COL_LAND_MIN</span></a> parameter is set to -2 degrees collective blade pitch angle and would allow symmetrical blade equipped vehicles to descend at a reasonable rate, yet avoid being too negative on the ground.  If you have non-symmetrical blades, then set it to a blade pitch that is lower by the amount used as the zero thrust pitch angle.  For example, if the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-zero-thrst" title="(in Copter)"><span class="xref std std-ref">H_COL_ZERO_THRST</span></a> is determined to be -3 deg then <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-col-land-min" title="(in Copter)"><span class="xref std std-ref">H_COL_LAND_MIN</span></a> should be set to -5 degrees.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default value for this parameter should be low enough to protect most helicopters from in-flight disarm during autonomous flight due to false landing detections.  This most likely will occur in conditions where the aircraft experiences updrafts in hover or during landing phases of flight which causes the collective to decrease below this parameter value.  Acrobatic helicopter setups or heli’s using non-symmetric blades should consider lowering this value.</p>
+</div>
+</section>
+</section>
+<section id="version-4-1-and-earlier">
+<h3>Version 4.1 and earlier<a class="headerlink" href="#version-4-1-and-earlier" title="Permalink to this heading">¶</a></h3>
+<section id="id2">
+<h4>Zero Thrust Point<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">H_COL_MID</span></code> parameter is used used as the lower collective pitch limit for modes that use altitude hold in the vertical axis.  This keeps the autopilot from driving collective to low resulting in ground resonance. The <code class="docutils literal notranslate"><span class="pre">H_COL_MID</span></code> parameter is set to zero
+thrust point which is normally zero degrees for symmetrical blades. If you have non-symmetrical blades, then set it to the negative blade pitch that produces zero thrust.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This setting is also used in position/altitude holding modes, like LOITER, to determine if a landing has occurred in order to disable inputs which might tip over the vehicle on the ground. If not set at the zero thrust point, updrafts and/or wind could cause false landing decisions. If the pitch range between the hover point and zero thrust is very small, as is some aggressive 3D aerobatic designs with high head speeds, this is more likely to happen. Setting <code class="docutils literal notranslate"><span class="pre">H_COL_MID</span></code> to a -1 deg pitch might provide some safety margin if the vehicle can tolerate operating on the ground at that pitch and full head speed, in those cases.</p>
+</div>
+<p>Set <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-sv-man" title="(in Copter)"><span class="xref std std-ref">H_SV_MAN</span></a> to 3 to have the swashplate move to the mid position.  Adjust <code class="docutils literal notranslate"><span class="pre">H_COL_MID</span></code> until the blade
+pitch angle measures the desired collective blade pitch that corresponds to zero thrust.</p>
+</section>
+</section>
+</section>
+<section id="stabilized-collective-curve">
+<h2>STABILIZED Collective Curve<a class="headerlink" href="#stabilized-collective-curve" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot provides a programmable curve for STABILIZE mode to allow “softening” of the curve to provide smoother pilot control. This curve is set by the <code class="docutils literal notranslate"><span class="pre">IM_STB_COL_x</span></code> parameters as shown in the graph below. All other modes use the collective extremes and a straight line curve that were setup above.</p>
+<a class="reference external image-reference" href="../_images/collective_curves.png"><img alt="../_images/collective_curves.png" src="../_images/collective_curves.png" /></a>
+<p>By default, these settings mirror the full straight line curve, and are satisfactory if the -2° to +12° range is setup. This will give the following values:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Throttle Stick</p></th>
+<th class="head"><p>Pitch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Low</p></td>
+<td><p>-2°</p></td>
+</tr>
+<tr class="row-odd"><td><p>Center</p></td>
+<td><p>+3° (close to hover, which is usually 4°)</p></td>
+</tr>
+<tr class="row-even"><td><p>High</p></td>
+<td><p>+12°</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="setting-maximum-cyclic-pitch">
+<h2>Setting Maximum Cyclic Pitch<a class="headerlink" href="#setting-maximum-cyclic-pitch" title="Permalink to this heading">¶</a></h2>
+<p>The parameter <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-cyc-max" title="(in Copter)"><span class="xref std std-ref">H_CYC_MAX</span></a> sets the maximum cyclic blade pitch.
+Checking the maximum cyclic blade pitch requires positioning the blades 90 deg to the axis that is being measured.
+Therefore if the longitudinal maximum blade cyclic pitch is being measured then rotate the blades until they are perpendicular to the fuselage
+of the aircraft (sticking out the left and right side).  Measure the blade pitch with the elevator and aileron stick centered and then deflect
+the elevator stick full forward or aft and measure the blade pitch.  The difference between the two measurements would be the maximum cyclic
+blade pitch corresponding to the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#h-cyc-max" title="(in Copter)"><span class="xref std std-ref">H_CYC_MAX</span></a>.  The cyclic blade pitch is the same for the pitch (elevator) and roll (aileron) axes.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="traditional-helicopter-connecting-apm.html" class="btn btn-neutral float-left" title="Traditional Helicopter — Connecting and Calibrating the System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="traditional-helicopter-aerobatic-setup.html" class="btn btn-neutral float-right" title="Traditional Helicopter Aerobatic Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

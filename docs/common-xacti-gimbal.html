@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xacti Gimbals &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Future Wiki Changes (in Master branch now)" href="common-future-wiki-changes.html" />
+    <link rel="prev" title="Items in Master Branch Only" href="common-master-features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-master-features.html">Upcoming Features</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Xacti Camera Gimbals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-to-the-autopilot">Connecting to the Autopilot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#control-and-testing">Control and Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#videos">Videos</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-future-wiki-changes.html">Other wiki changes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Xacti Camera Gimbals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-to-the-autopilot">Connecting to the Autopilot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#control-and-testing">Control and Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#videos">Videos</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-future-wiki-changes.html">Other wiki changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="circle-mode.html">New Circle Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyrocket.html">SkyRocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="common-master-features.html">Items in Master Branch Only</a></li>
+      <li class="breadcrumb-item active">Xacti Gimbals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-xacti-gimbal">[copywiki destination=”plane,copter,rover,blimp”]</p>
+<section id="xacti-gimbals">
+<h1>Xacti Gimbals<a class="headerlink" href="#xacti-gimbals" title="Permalink to this heading">¶</a></h1>
+<p>The <a class="reference external" href="https://xacti-co.com/service/drone_camera/">Xacti Camera Gimbals</a> are 3-axis camera gimbals which communicate with ArduPilot using the DroneCAN protocol.</p>
+<img alt="../_images/xacti-gimbal.png" src="../_images/xacti-gimbal.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for these gimbals is available in ArduPilot 4.5.0 (and higher)</p>
+</div>
+<p>Some images courtesy of xacti-co.com</p>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>These gimbals can be purchased directly from <a class="reference external" href="https://xacti-co.com/service/drone_camera/">Xacti</a></p>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/xacti-gimbal-autopilot.png"><img alt="../_images/xacti-gimbal-autopilot.png" src="../_images/xacti-gimbal-autopilot.png" style="width: 450px;" /></a>
+<a class="reference external image-reference" href="../_images/xacti-gimbal-pinout.png"><img alt="../_images/xacti-gimbal-pinout.png" src="../_images/xacti-gimbal-pinout.png" style="width: 450px;" /></a>
+<p>The top image shows how to connect the gimbal’s CANL, CANH and GND pins to one of the autopilot’s CAN ports when using the gimbal mounting plate option.  The bottom image shows the camera’s pinout which may be used with a custom designed mount.</p>
+<p>Connect to the autopilot with a ground station and set the following parameters and then reboot the autopilot.  The params below assume the autopilot’s CAN1 port is used,</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a> to 1 (DroneCAN)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a> to 1 (First driver)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-type" title="(in Rover)"><span class="xref std std-ref">MNT1_TYPE</span></a> to 10 (Xacti) and reboot the autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-min" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MIN</span></a> to -90</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-pitch-max" title="(in Rover)"><span class="xref std std-ref">MNT1_PITCH_MAX</span></a> to 25</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-min" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MIN</span></a> to -90</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-yaw-max" title="(in Rover)"><span class="xref std std-ref">MNT1_YAW_MAX</span></a> to 90</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#cam1-type" title="(in Rover)"><span class="xref std std-ref">CAM1_TYPE</span></a> to 4 (Mount)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#mnt1-rc-rate" title="(in Rover)"><span class="xref std std-ref">MNT1_RC_RATE</span></a> to 30 (deg/s) to control speed of gimbal when using RC targetting</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc6-option" title="(in Rover)"><span class="xref std std-ref">RC6_OPTION</span></a> = 213 (“Mount Pitch”) to control the gimbal’s pitch angle with RC channel 6</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc7-option" title="(in Rover)"><span class="xref std std-ref">RC7_OPTION</span></a> = 214 (“Mount Yaw”) to control the gimbal’s yaw angle with RC channel 7</p></li>
+<li><p>Optionally these auxiliary functions are also available</p>
+<ul>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 166 (“Camera Record Video”) to start/stop recording of video</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 168 (“Camera Manual Focus”) to adjust focus in and out</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rc9-option" title="(in Rover)"><span class="xref std std-ref">RC9_OPTION</span></a> = 169 (“Camera Auto Focus”) to trigger auto focus</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="control-and-testing">
+<h2>Control and Testing<a class="headerlink" href="#control-and-testing" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">Gimbal / Mount Controls</span></a> for details on how to control the gimbal using RC, GCS or Auto mode mission commands</p>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/jZszQ4OmfVQ" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-master-features.html" class="btn btn-neutral float-left" title="Items in Master Branch Only" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-future-wiki-changes.html" class="btn btn-neutral float-right" title="Future Wiki Changes (in Master branch now)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

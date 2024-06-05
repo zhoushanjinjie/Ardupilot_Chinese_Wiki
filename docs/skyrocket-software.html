@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyRocket Software &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OEM Customization" href="common-oem-customizations.html" />
+    <link rel="prev" title="SkyRocket with other Ground Stations" href="skyrocket-gcs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="additional-information.html">附加信息</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-master-features.html">Upcoming Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-antenna-tracking.html">Antenna Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solo_arducopter_upgrade.html">Solo Software Upgrade</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="skyrocket.html">SkyRocket</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#discussion">Discussion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#toy-mode">Toy Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyrocket.html#hardware">Hardware</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="skyrocket.html#more-info">More Info</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-videos.html">Videos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-hardware.html">Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-throw.html">Throw Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyrocket-gcs.html">Using other Ground Stations</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Uploading Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-oem-customizations.html">OEM Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-use-cases-and-applications.html">Use Cases and Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-appendix.html">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="additional-information.html">Additional Information and Topics of Interest</a></li>
+          <li class="breadcrumb-item"><a href="skyrocket.html">SkyRocket</a></li>
+      <li class="breadcrumb-item active">SkyRocket Software</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="skyrocket-software">
+<span id="id1"></span><h1>SkyRocket Software<a class="headerlink" href="#skyrocket-software" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>the drone shipped with a custom version of ArduPilot (Copter) which is close to Copter-3.5 but now additional features (notch filter, etc).  <a class="reference external" href="https://github.com/SkyRocketToys/ardupilot">GitHub repo is here</a> in the skyviper-stable branch.</p></li>
+<li><p>firmware source for the video board is <a class="reference external" href="https://github.com/SkyRocketToys/Sonix">here</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ArduPilot/APWeb">APWeb</a> (a tiny open source web server) runs on the drone and allows easy calibration, modification of parameters, uploading firmware to both the drone and transmitter, downloading log files, pictures and videos.</p></li>
+<li><p>the transmitter has a relatively low powered STM8 processor running open source software written by Tridge (incorporates some code from Paparazzi).  <a class="reference external" href="https://github.com/SkyRocketToys/STM8TX">Github repo is here</a>.</p></li>
+<li><p>live video can be viewed through a SkyRocket app or Mission Planner.</p></li>
+</ul>
+<section id="uploading-alternative-firmware">
+<h2>Uploading alternative firmware<a class="headerlink" href="#uploading-alternative-firmware" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/fDuU8CjhxkE" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>The instructions below describe how to uploading alternative firmware to the drone.  Normally we recommend users stick with the official firmware from SkyRocket but for those interested in trying the very latest features from ArduPilot, participating in beta testing or for those who wish to create their own custom firmware, these instructions are useful.</p>
+<p>Note that alternative firmwares are use <strong>at your own risk</strong> and probably void your warranty.</p>
+<p><strong>Which firmware to use?</strong></p>
+<p>As of early 2018 there are two versions of the firmware available:</p>
+<ul class="simple">
+<li><p>the <a class="reference external" href="http://firmware.sky-viper.com/latest/">official firmware from skyrocket</a> (see file ending with “.abin”) is the safest firmware to use.</p></li>
+<li><p>the <a class="reference external" href="https://firmware.ardupilot.org/Copter/latest/skyviper-v2450/">latest firmware from ArduPilot</a> includes some new features (i.e. <a class="reference internal" href="smartrtl-mode.html#smartrtl-mode"><span class="std std-ref">SmartRTL</span></a>) but is also missing some features (i.e. ability to control vehicle during RTL).</p></li>
+</ul>
+<p><strong>Uploading using the SD card</strong></p>
+<ul class="simple">
+<li><p>powerdown the drone and remove the SD card from the back of the skyviper and insert into your PC (an SD card adapter may be required)</p></li>
+<li><p>copy the firmware into the top directory of the SD card and then rename it to “flight_fw.abin”</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/skyrocket-software-sdcard.png"><img alt="../_images/skyrocket-software-sdcard.png" src="../_images/skyrocket-software-sdcard.png" style="width: 70%;" /></a>
+<ul class="simple">
+<li><p>place the sd card back into the drone and power up the vehicle</p></li>
+<li><p>after about a minute the LEDs should flash and the vehicle should reconnect to the transmitter</p></li>
+</ul>
+<p><strong>Uploading using APWeb</strong></p>
+<ul class="simple">
+<li><p>from your PC, connect to the SkyViper wifi access point (normally called “SKYVIPERGPS-xxxxxx”, password is “vipergps”)</p></li>
+<li><p>open a web browser to <code class="docutils literal notranslate"><span class="pre">http://192.168.99.1</span></code> and click the <strong>Upgrade Firmware</strong> link</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/skyrocket-software-web1.png"><img alt="../_images/skyrocket-software-web1.png" src="../_images/skyrocket-software-web1.png" style="width: 70%;" /></a>
+<ul class="simple">
+<li><p>in the “Upgrade ArduPilot Firmware” section, push the “Browse” button and select the *.abin file downloaded above</p></li>
+<li><p>push the “Upload File” button and wait a minute or two.  The green bar at the top of the web page should crawl from left to right and then the autopilot should reboot and reconnect to the transmitter</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/skyrocket-software-web2.png"><img alt="../_images/skyrocket-software-web2.png" src="../_images/skyrocket-software-web2.png" style="width: 70%;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After a firmware upgrade it may be necessary to perform an accelerometer calibration.  This can be done from the web interface’s “Calibration” page.</p>
+</div>
+<p><strong>When things go wrong</strong></p>
+<p>If the drone becomes unresponsive or will not connect to the transmitter or the wifi access point does not appear, don’t worry, it is nearly impossible to “brick” the skyviper.  Try these steps:</p>
+<ul class="simple">
+<li><p>download the official skyrocket firmware from <a class="reference external" href="http://firmware.sky-viper.com/latest/">here</a> (look for the file ending with “.abin”).</p></li>
+<li><p>use the “Uploading using the SD card” method above to upload the firmware to the drone</p></li>
+<li><p>if this does not work, try asking for help in the <a class="reference external" href="https://discuss.ardupilot.org/c/arducopter/skyviper">SkyViper section of the ArduPilot forum</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="skyrocket-gcs.html" class="btn btn-neutral float-left" title="SkyRocket with other Ground Stations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-oem-customizations.html" class="btn btn-neutral float-right" title="OEM Customization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

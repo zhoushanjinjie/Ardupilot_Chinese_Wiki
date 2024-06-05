@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:PX4FMU Overview &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:PX4FMU Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-px4fmu-overview">
+<span id="common-px4fmu-overview"></span><h1>Archived:PX4FMU Overview<a class="headerlink" href="#archived-px4fmu-overview" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED</strong></p>
+<p>The PX4FMU (v1) is end of life and is not generally available for purchase.
+This article is made available for existing users.</p>
+</div>
+<p>This page provides an overview of the Pixhawk Flight Management Unit.</p>
+<section id="pixhawk-fmuv2-and-px4fmu-fmuv1">
+<h2>Pixhawk (FMUv2) and PX4FMU (FMUv1)<a class="headerlink" href="#pixhawk-fmuv2-and-px4fmu-fmuv1" title="Permalink to this heading">¶</a></h2>
+<p>The Pixhawk (FMUv2) single board autopilot evolved from the original “PX4 system”,
+which consists of the PX4FMU and various piggyback boards including the PX4IO and PX4IOAR.</p>
+<p>The Pixhawk incorporates several additional features to provide
+extended capabilities for our ArduPilot flight system.</p>
+<p>A connector diagram of the Pixhawk is shown below, but <a class="reference internal" href="common-pixhawk-overview.html#common-pixhawk-overview"><span class="std std-ref">Go to this link for full information on the Pixhawk</span></a></p>
+</section>
+<section id="the-px4fmu-px4io-fmuv1-flight-management-system-includes">
+<h2>The PX4FMU/PX4IO (FMUv1) Flight Management System Includes:<a class="headerlink" href="#the-px4fmu-px4io-fmuv1-flight-management-system-includes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>The PX4-FMU (Flight Management Unit).</strong></p>
+<ul>
+<li><p>A powerful Cortex M4F micro-controller and flash memory for
+controlling flight and communications.</p></li>
+<li><p>A socket for a plug in SD memory card.</p></li>
+<li><p>A 3 axis gyro for determining orientation.</p></li>
+<li><p>A 3 axis Accelerometer for determining outside influences.</p></li>
+<li><p>A compass (magnetometer).</p></li>
+<li><p>A barometric pressure sensor for determining altitude.</p></li>
+<li><p>A connection for an externally mountable UBLOX LEA GPS for
+determining absolute position.</p></li>
+<li><p>Stackable board interconnections for adding various peripheral
+boards.</p></li>
+<li><p>Communications interfaces for USB, JTAG and Serial connections.</p></li>
+<li><p>Connections for PPM-SUM RC radio input and servo outputs.</p></li>
+</ul>
+</li>
+<li><p><strong>The PX4-IO (Input Output) Board.</strong></p>
+<ul>
+<li><p>Contains its own on board micro-controller and stacks with the FMU.</p></li>
+<li><p>Direct battery input power supply.</p></li>
+<li><p>8 High speed servo PWM outputs.</p></li>
+<li><p>Futaba SBUS or PPM-SUM serial servo output.</p></li>
+<li><p>A variety of PPM-SUM / SBUS input connectors.</p></li>
+<li><p>Two user assignable relays, two 1/2 amp 5 volt outputs and an
+analog input port.</p></li>
+</ul>
+</li>
+<li><p><strong>The PX4FLOW Smart (Optical Flow) Camera.</strong></p>
+<ul>
+<li><p>Specialized downward pointing camera module that uses ground
+texture and features to determine aircraft motion over the ground.</p></li>
+<li><p>The PX4FLOW has the same powerful Cortex M4F micro-controller as
+is used in the PX4FMU.</p></li>
+<li><p>The built in micro-controller performs on board automated binned
+pixel image analysis to determine motion relative to ground.</p></li>
+<li><p>A built in 3 axis gyro enables automatic compensation for variance
+in aircraft tilt angle.</p></li>
+</ul>
+</li>
+<li><p><strong>The PX4-IOAR Quad Carrier is a specialized interface board for the
+Parrot AR.Drone.</strong></p></li>
+</ul>
+<p><strong>The PX4FMU circuit board comes preassembled and ready to load the
+firmware for your airframe using the Mission Planner.</strong></p>
+<a class="reference external image-reference" href="../_images/PX4OverviewDiagram.jpg"><img alt="../_images/PX4OverviewDiagram.jpg" src="../_images/PX4OverviewDiagram.jpg" /></a>
+</section>
+<section id="detailed-description">
+<h2>Detailed Description<a class="headerlink" href="#detailed-description" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4-2.jpg"><img alt="../_images/PX4-2.jpg" src="../_images/PX4-2.jpg" /></a>
+<p><strong>The Back of the PX4FMU board showing the SD card carrier and buzzer
+socket:</strong></p>
+<a class="reference external image-reference" href="../_images/PX4FMUbottom1.jpg"><img alt="../_images/PX4FMUbottom1.jpg" src="../_images/PX4FMUbottom1.jpg" /></a>
+</section>
+<section id="px4fmu-connector-diagram">
+<h2>PX4FMU Connector diagram<a class="headerlink" href="#px4fmu-connector-diagram" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/px4fmu-pinout.jpg"><img alt="../_images/px4fmu-pinout.jpg" src="../_images/px4fmu-pinout.jpg" /></a>
+</section>
+<section id="analog-and-digital-pins">
+<h2>Analog and digital pins<a class="headerlink" href="#analog-and-digital-pins" title="Permalink to this heading">¶</a></h2>
+<p>This section lists what pins (analog and digital) are available on the PX4FMU.</p>
+<section id="px4v1-analog-inputs">
+<h3>PX4v1 Analog inputs<a class="headerlink" href="#px4v1-analog-inputs" title="Permalink to this heading">¶</a></h3>
+<p>The PX4FMUv1 has the following “available” Analog input port pins which may
+be put to a variety of uses.</p>
+<p><strong>Pin 10</strong> (High voltage analog pin):</p>
+<ul class="simple">
+<li><p>FMU battery voltage measured on pin 5 of the 15 pin multi-connector
+on the end of the FMU board. It has 5.7:1 scaling, allowing it to
+measure up to 18.8V.</p></li>
+<li><p>Located on pin 5 of the DF13 15 pin “multi-connector” of the PX4FMU
+board.</p></li>
+<li><p>This pin can accept up to 18.6 volts. (You can add an additional
+resistor divider and set the scaling appropriately for higher
+voltages).</p></li>
+<li><p>With the Advanced Parameter VOLT_DIVIDER set to 1 voltage can be
+read directly.</p>
+<ul>
+<li><p>For old releases VOLT_DIVIDER needed to be set to 5.66 for direct
+voltage scaling.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Pin 11</strong> (Analog airspeed input pin)</p>
+<ul class="simple">
+<li><p>Located on pin 2 of the 3 pin “FMU-PRS” DF13 connector on the PX4IO
+board.</p></li>
+<li><p>Generally used in Plane for the Air Speed Sensor with VCC on pin 1,
+Sensor on pin 2 and Ground on pin 3.</p>
+<ul>
+<li><p>Plane Advanced Parameter: ASPD_PIN set to 11.</p></li>
+</ul>
+</li>
+<li><p>This pin is directly connected to the ADC on the PX4FMU.</p></li>
+<li><p>This pin can accept up to 6.6 volts (it has an internal voltage
+divider with 2:1 scaling).</p></li>
+</ul>
+<p><strong>Pin 12</strong> (Analog 2 input)</p>
+<ul class="simple">
+<li><p>Located on pin 3 of the “FMU-SPI” port on the PX4IO board.</p></li>
+<li><p>Commonly used for Sonar</p>
+<ul>
+<li><p>Copter and Rover Advanced Parameter: SONAR_PIN set to 12</p></li>
+</ul>
+</li>
+<li><p>This pin is directly connected to the ADC on the PX4FMU.</p></li>
+<li><p>This pin can accept up to 3.3 volts.</p></li>
+</ul>
+<p><strong>Pin 13</strong> (Analog 3 input)</p>
+<ul class="simple">
+<li><p>Located on pin 4 of the “FMU-SPI” port on the PX4IO board.</p></li>
+<li><p>Commonly used for Sonar 2 in dual Sonar installations.</p>
+<ul>
+<li><p>Rover Advanced Parameter: SONAR2_PIN set to 13</p></li>
+</ul>
+</li>
+<li><p>This pin is directly connected to the ADC on the PX4FMU.</p></li>
+<li><p>This pin can accept up to 3.3 volts.</p></li>
+</ul>
+<p><strong>Pin 100</strong> (Battery voltage measured on the power connector on the IO
+board. Limit is 18V).</p>
+<ul class="simple">
+<li><p>A virtual analog input pin for voltage of a battery connected to the
+6V to 18V input of the PX4IO voltage regulator.</p></li>
+<li><p>This is the normal pin to use for LiPo monitoring on the PX4IO.</p></li>
+<li><p>If using this pin then set VOLT_DIVIDER to 1 for correct battery
+voltage reading.</p></li>
+<li><p>Virtual “pin” 100’s input comes only from the battery power in jack
+on the PX4IO board.</p></li>
+<li><p>This “pin” is not brought out for separate user access.</p></li>
+<li><p>This pin is separate from the Pin 10 high voltage analog pin on the
+PX4FMU listed above which can also be used as a battery voltage
+monitor.</p></li>
+</ul>
+<p><strong>Pin 101</strong>: Battery current measured on the pin next to the power
+connector on the IO board.</p>
+<p>A virtual analog input pin for a battery current sensor connected to the
+“current” pin next to the power connector on the PX4IO.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<dl class="simple">
+<dt>You need to be careful</dt><dd><p>to use a current sensor that will not provide over 3.3V as too high a
+voltage on this pin can cause the PX4IO to reset.</p>
+</dd>
+</dl>
+</div>
+<ul class="simple">
+<li><p>For use with a current sensor, a 0.1uF capacitor between this pin and
+ground will help reduce “noise”.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/px4_pins2.jpg"><img alt="../_images/px4_pins2.jpg" src="../_images/px4_pins2.jpg" /></a>
+<a class="reference external image-reference" href="../_images/px4-pins.jpg"><img alt="../_images/px4-pins.jpg" src="../_images/px4-pins.jpg" /></a>
+</section>
+<section id="px4v1-digital-outputs">
+<h3>PX4v1 Digital outputs<a class="headerlink" href="#px4v1-digital-outputs" title="Permalink to this heading">¶</a></h3>
+<p>The PX4V1 digital output pins come in two types, one is pins that give
+5V when on and 0V when off, and the other are ‘relay’ pins which provide
+low resistance when on and high resistance when off.</p>
+<p><strong>Pin 111</strong>: FMU Relay pin 1</p>
+<p><strong>Pin 112</strong>: FMU Relay pin 2</p>
+<p><strong>Pin 113</strong>: IO Relay pin 1</p>
+<p><strong>Pin 114</strong>: IO Relay pin 2</p>
+<p><strong>Pin 115</strong>: IO digital accessory pin 1</p>
+<p><strong>Pin 116</strong>: IO digital accessory pin 2</p>
+<p>[site wiki=”copter”]</p>
+</section>
+</section>
+<section id="copter-wiring-diagram-and-instructions">
+<h2>Copter wiring (diagram and instructions)<a class="headerlink" href="#copter-wiring-diagram-and-instructions" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/PX4IOWiring2PPMSUMrec.jpg"><img alt="../_images/PX4IOWiring2PPMSUMrec.jpg" src="../_images/PX4IOWiring2PPMSUMrec.jpg" /></a>
+<ol class="arabic simple">
+<li><p><strong>Wire the PX4-IO board.</strong></p>
+<ol class="arabic simple">
+<li><p>The PX4IO board has a built in Power Supply which can connect to
+up to 18 volts.</p></li>
+<li><p>Insert the white PAP-02-VS 2 pin connector with the black and red
+wires coming out of it into the mating power connector you
+soldered in previously on the PX4IO board.</p></li>
+<li><p>Battery Plus is the(red wire) and should be soldered to your
+battery red power lead / connector.</p></li>
+<li><p>Battery Ground is the(black wire) and should be soldered to your
+battery black battery (Ground) lead / connector.</p></li>
+</ol>
+</li>
+<li><p><strong>The main power inputs of your ESC’s will also need to connect to
+these wires and to a battery connector.</strong></p>
+<ol class="arabic simple">
+<li><p>A Power Distribution board can also be used.</p></li>
+</ol>
+</li>
+<li><p><strong>Connect your PPM-Sum RC receiver’s 3 wire cable to the end of the 9
+x 3 angle connector that is nearest the edge of the PX4IO board with
+the signal wire furthest from the board and the ground closest to the
+board.</strong></p></li>
+<li><p><strong>Wire the PX4FMU boards servo out signals to your ESC control inputs.</strong></p>
+<ol class="arabic simple">
+<li><p>Run the Signal wires ONLY from the ESCs to the 3 x 9 Servo
+Connector on the PX4IO board.</p></li>
+<li><p>The PX4IO board connector for Motor 1 is at the edge of the
+connector next to the Battery power in wires.</p></li>
+<li><p>Insert the Motor ESC wires arranged progressively from that edge,
+(1,2,3,4,etc) for 2 to 8 motors depending on your copter type.</p></li>
+<li><p>You can put the ESC Signal wires into a single inline connector
+with the correct number of pins for your copter.</p></li>
+<li><p>The ESC Signal Wires / connector should be plugged into the top
+row (furthest from the board) of the PX4IO boards 3 x 9 Servo
+Connector.</p></li>
+</ol>
+</li>
+<li><p><strong>Note, the cable that is supplied in the plastic envelope with the
+UBLOX GPS which has white 6 pin connectors on both ends is not the
+correct cable for the PX4FMU board.</strong></p>
+<ol class="arabic simple">
+<li><p>The correct longer GPS cable is provided in a separate envelope
+and has a 5 pin “beige” connector on one end and a 6 pin white
+connector on the other end.</p></li>
+<li><p>Plug the correct GPS cable’s white 6 pin connector into the 6 pin
+socket on the GPS.</p></li>
+<li><p>Plug the beige 5 pin connector into the PX4FMU board’s 5 pin GPS
+socket which is next to the 15 pin DF13 Mini connector.</p></li>
+</ol>
+</li>
+<li><p><strong>Plug the 2 pin connector attached to the lead supplied with the
+buzzer into the buzzer socket on the side of the PX4FMU board that
+has the SD card holder on it.</strong></p></li>
+<li><p><strong>Connect the “Arming Switch” to the Arming switch connector on the
+PX4IO board on the opposite side of the board from the Battery
+pads.</strong></p></li>
+</ol>
+<p>[/site]</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-px4io-overview.html">PX4IO</a></li>
+</ul>
+</div>
+<dl class="simple">
+<dt>[site wiki=”rover”]</dt><dd><p>Archived:Rover PX4FMU/PX4IO Wiring Quick Start &lt;rover-px4-quickstart&gt;</p>
+</dd>
+</dl>
+<p>[/site]</p>
+<dl class="simple">
+<dt>[site wiki=”copter”]</dt><dd><p>Archived:PX4FMU Wiring QuickStart &lt;px4fmu-plus-px4io-wiring&gt;</p>
+</dd>
+</dl>
+<p>[/site]</p>
+<dl class="simple">
+<dt>[site wiki=”plane”]</dt><dd><p>Archived:PX4FMU Wiring QuickStart &lt;px4fmu-plus-px4io-wiring&gt;</p>
+</dd>
+</dl>
+<p>[/site]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Pixhawk Quadcopter Wiring Chart &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced Pixhawk Quadcopter Wiring Chart</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-pixhawk-quadcopter-wiring-chart">
+<span id="id1"></span><h1>Advanced Pixhawk Quadcopter Wiring Chart<a class="headerlink" href="#advanced-pixhawk-quadcopter-wiring-chart" title="Permalink to this heading">¶</a></h1>
+<p>Jethro Hazelhurst produced this magnificent Pixhawk wiring chart for a
+Quadcopter for us. (Other autopilots will be wired similarly)</p>
+<p>(Control Scroll wheel will let you zoom in on the image below!)</p>
+<a class="reference external image-reference" href="../_images/Pixhawk-Inforgraphic2.jpg"><img alt="../_images/Pixhawk-Inforgraphic2.jpg" src="../_images/Pixhawk-Inforgraphic2.jpg" /></a>
+<section id="this-chart-illustrates-a-quadcopter-with-a-variety-of-options">
+<h2>This chart Illustrates a quadcopter with a variety of options.<a class="headerlink" href="#this-chart-illustrates-a-quadcopter-with-a-variety-of-options" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>A 4 in 1 ESC is used instead of individual ESCs reducing EMF and
+allowing a neater installation and no power distribution board.</p></li>
+<li><p>Default actual Motor number to Quadcopter frame location is shown below and
+will require appropriate signal and motor wire routing. The assignment of outputs to motor numbers can be changed by adjusting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> values for each individual “x” output of the autopilot. Note that the AUX1-6 outputs shown below correspond to SERVO9 - SERVO14, respectively.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/APM_2_5_MOTORS_QUAD_enc1.jpg"><img alt="../_images/APM_2_5_MOTORS_QUAD_enc1.jpg" src="../_images/APM_2_5_MOTORS_QUAD_enc1.jpg" /></a>
+<ul class="simple">
+<li><p>A 3DR PPM-Sum encoder with conventional receiver is illustrated. Any ArduPilot compatible receiver can be used. See <a class="reference internal" href="common-rc-systems.html#common-rc-systems"><span class="std std-ref">Radio Control Systems</span></a> for more options.</p></li>
+<li><p>Generally a 3S or 4S LiPo battery is appropriate for a Quadcopter and
+the XT60 connectors shown are a reliable choice.</p></li>
+<li><p>An optional battery warning indicator can provide quick battery
+status and provide an audible warning when nearby.</p></li>
+<li><p>Optional 3DR telemetry radios may be connected to your autopilot and
+tablet or laptop to permit real time monitoring and operation.</p>
+<ul>
+<li><p>A (GCS (Ground Control Station) program like Mission Planner,
+AndroPilot or DroidPlanner provides in flight information and
+control.</p></li>
+</ul>
+</li>
+<li><p>An optional GoPro camera and brushless gimbal are illustrated and can
+provide very high quality photo and video results.</p>
+<ul>
+<li><p>It is quite reasonable to use a GoPro camera and brushless gimbal
+on 400 and larger Quadcopters.</p></li>
+<li><p>Brushless camera gimbals perform more smoothly and adequately than
+the older servo type gimbals.</p></li>
+<li><p>The brushless gimbal illustrated above has an anti-vibration mount
+which is important for good photo results.</p></li>
+<li><p>For cameras larger than GoPro or “Sport” types, a larger
+QuadCopter, HexaCopter or OctoCopter should be used.</p></li>
+</ul>
+</li>
+<li><p>You could also install an optional FPV (First Person View) video
+system but it is not shown in the illustration above.</p>
+<ul>
+<li><p>An FPV system consists of a tiny video camera and transmitter on
+the copter plus a receiver and video goggles or an LCD screen.</p></li>
+<li><p>Almost any size Quadcopter can support a First Person View system.</p></li>
+<li><p>An optional OSD (On Screen Display) can add a video heads up
+display of current in flight conditions to your FPV flight
+display.</p></li>
+</ul>
+</li>
+<li><p>The telemetry, camera, gimbal, FPV and OSD options mentioned above
+can be combined as you wish for your copter, but start simple.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

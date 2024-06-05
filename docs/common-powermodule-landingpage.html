@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Battery Monitors (aka Power Monitors/Modules) &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Battery Monitors (aka Power Monitors/Modules)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="battery-monitors-aka-power-monitors-modules">
+<span id="common-powermodule-landingpage"></span><h1>Battery Monitors (aka Power Monitors/Modules)<a class="headerlink" href="#battery-monitors-aka-power-monitors-modules" title="Permalink to this heading">¶</a></h1>
+<img alt="../_images/PowerModule_landingpage.jpg" src="../_images/PowerModule_landingpage.jpg" />
+<p>The links below have information about the most commonly used power monitors/modules</p>
+<p>Up to 10 batteries/power monitors can be monitored. Each monitor has its own group of configuration parameters, designated by <code class="docutils literal notranslate"><span class="pre">BATTx_</span></code> with x denoting each monitor in the system (first monitor “x” is null character, ie <code class="docutils literal notranslate"><span class="pre">BATT_</span></code> prefix). In addition, a <code class="docutils literal notranslate"><span class="pre">BATT_MONITOR</span></code> “type” = SUM is available, that consolidates  battery monitors into a single report using the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-sum-mask" title="(in Rover)"><span class="xref std std-ref">BATT_SUM_MASK</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>some kinds of monitors can provide bi-directional battery current information. These are useful when generators or MPPT chargers are being utilized in the system to monitor the net charge state of the battery.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-power-module-configuration-in-mission-planner.html">Power Monitor Configuration</a></li>
+</ul>
+</div>
+<section id="power-monitors-connecting-to-autopilot-power-monitor-port">
+<h2>Power Monitors Connecting to AutoPilot Power Monitor Port<a class="headerlink" href="#power-monitors-connecting-to-autopilot-power-monitor-port" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-power-module.html">Common Power Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airbotpower-power-module.html">AirbotPower Power Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-hv-pm.html">CUAV HV PM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mauch-power-modules.html">Mauch Power Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-smartap-pdb.html">SmartAP Power Distribution Board</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-synthetic-current-monitor.html">Synthetic Current Sensor/Analog Voltage Monitor</a></li>
+</ul>
+</div>
+</section>
+<section id="can-dronecan-power-monitor">
+<h2>CAN/DroneCAN Power Monitor<a class="headerlink" href="#can-dronecan-power-monitor" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-can-pmu.html">CUAV CAN/DroneCAN PMU</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://www.mateksys.com/?portfolio=can-l4-bm">Matek CAN-L4-BM DroneCan PMU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-packetdigital-mppt.html">Packet Digital MPPT Solar Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-pomegranate-systems-pm.html">Pomegranate Systems</a></li>
+</ul>
+</div>
+</section>
+<section id="i2c-power-monitor">
+<h2>I2C Power Monitor<a class="headerlink" href="#i2c-power-monitor" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-smart-battery-rotoye.html">Rotoye BatMon Smart Battery</a></li>
+</ul>
+</div>
+</section>
+<section id="power-monitoring-via-telemetry-equipped-blheli32-s-escs">
+<h2>Power Monitoring Via Telemetry Equipped BLHeli32/S ESCs<a class="headerlink" href="#power-monitoring-via-telemetry-equipped-blheli32-s-escs" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="common-esc-telemetry.html#esc-telemetry-based-battery-monitor"><span class="std std-ref">this section</span></a> of the <a class="reference external" href="https://ardupilot.org/rover/docs/common-esc-telemetry.html#blheli32-esc-telemetry" title="(in Rover)"><span class="xref std std-ref">blheli32-esc-telemetry</span></a> page</p></li>
+</ul>
+</section>
+<section id="efi-fuel-monitoring">
+<h2>EFI Fuel Monitoring<a class="headerlink" href="#efi-fuel-monitoring" title="Permalink to this heading">¶</a></h2>
+<p>EFI Fuel Monitoring, See <a class="reference internal" href="common-efi.html#common-efi"><span class="std std-ref">[copywiki destination=”plane”]</span></a> section on using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = 27 (EFI).</p>
+</section>
+<section id="liquid-fuel-monitors">
+<h2>Liquid Fuel Monitors<a class="headerlink" href="#liquid-fuel-monitors" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-fuel-sensors.html">Fuel Monitors</a></li>
+</ul>
+</div>
+<p>Power Monitors/Modules provide these benefits:</p>
+<ul class="simple">
+<li><p>Most provide a stable power supply to the autopilot, in addition to monitoring, and therefore reduces the chance of a brown-out</p></li>
+<li><p>Allows real-time monitoring of the battery’s voltage and current and triggering a low battery failsafe</p></li>
+<li><p>Allows compensating for the interference on the compass from the motors using the COMPASS_MOT_x and COMPASS_PMOT_x parameters, see <a class="reference internal" href="common-compass-setup-advanced.html#common-compass-setup-advanced"><span class="std std-ref">Advanced Compass Setup</span></a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

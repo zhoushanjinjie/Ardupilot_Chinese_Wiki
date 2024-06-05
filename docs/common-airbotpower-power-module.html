@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirbotPower Power Module &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AirbotPower Power Module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="airbotpower-power-module">
+<span id="common-airbotpower-power-module"></span><h1>AirbotPower Power Module<a class="headerlink" href="#airbotpower-power-module" title="Permalink to this heading">¶</a></h1>
+<p>This page explains how to set up the <a class="reference external" href="http://www.airbotservices.com/airbotpower.html">AirbotPower Power Module</a> and <em>AirbotPDB</em> stackable companion power distribution board.</p>
+<p>This power module is useful for higher power systems (battery voltage from 4S to 8S and currents from 90 amps to 150 amps). The board encapsulates all the wiring and complexity described in <a class="reference internal" href="common-powering-the-pixhawk.html#common-powering-the-pixhawk"><span class="std std-ref">Powering the Autopilot</span></a>) in a single, simple package.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The AirbotPower Power Module (and <em>AirbotPDB</em> stackable companion power distribution board) provides a reliable and simple way to power an autopilot and other UAV components.</p>
+<a class="reference external image-reference" href="../_images/AirbotPower_PowerModule_Front.jpg"><img alt="../_images/AirbotPower_PowerModule_Front.jpg" src="../_images/AirbotPower_PowerModule_Front.jpg" /></a>
+<a class="reference external image-reference" href="../_images/AirbotPower_PowerModule_Back.jpg"><img alt="../_images/AirbotPower_PowerModule_Back.jpg" src="../_images/AirbotPower_PowerModule_Back.jpg" /></a>
+<p>AirbotPower provides three power feeds: 2x 5.3V &amp; 1x 12V (up to 3.5 amps
+each) and can supply main power to autopilot’s power port, backup power to
+the servo rail and power for an FPV system. It provides current and
+voltage measurements through the main power port, up to 150 amps and 8S.</p>
+<p>The following sections provide an overview of the setup. For more
+detailed information about the benefits of this board and setup see:</p>
+<ul class="simple">
+<li><p>AirbotPower Power Module (airbotservices store)</p></li>
+<li><p><a class="reference external" href="https://diydrones.com/profiles/blogs/airbotpower-board">AirbotPower board</a> (DIY
+Drones blog post)</p></li>
+</ul>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>2 x 5.3 Volts power feeds up to 3.5 amps</p></li>
+<li><p>1 x 12 Volts power feed up to 3.5 amps (requires &gt;=4S batteries)</p></li>
+<li><p>Equivalent of three L/C filters on each power feed</p></li>
+<li><p>Equivalent of three ferrites on each power feed</p></li>
+<li><p>Voltage spikes suppression with 5.6V Zener diode (5Watts) + Capacitor
+on autopilot servo rail</p></li>
+<li><p>HALL EFFECT current measurement (ACS758) for currents to 150 amps</p></li>
+<li><p>A dip-switch configurable 3S to 8S Voltage measurement</p></li>
+<li><p>A primary DF13 6 position connector for direct plugging into autopilot
+power port</p></li>
+<li><p>A redundant 5.3V servo connector for standard servo cabling into
+autopilot servo rail</p></li>
+<li><p>A standard 12V servo connector output for powering FPV devices</p></li>
+<li><p>Oversized double redundant parallel battery inputs (solder through
+pads, for 10 or 12AWG wires)</p></li>
+<li><p>Modular design separating the Power functions and the distribution
+function in two boards : allows to retrofit any drone already
+assembled with an existing Power Distribution Board (PDB). Stackable
+optional AirbotPDB distributionBoard, via XT150 connectors (less than
+3cm height with stacked optional PDB)</p></li>
+<li><p>Large XT150 heavy duty connectors solder pads to either stack
+AirbotPDB or to link to an existing PDB. Flexibility to connect to
+PDB via connectors or soldered cables.</p></li>
+<li><p>Overcurrent, ESD and shorts protections on all three BECs</p></li>
+<li><p>No messy wiring &amp; no cable fiddling thanks to a 6-pin DF13 output
+connector to connect the board to the autopilot’s 6-pin power port.</p></li>
+<li><p>Board dimensions (W x D) : 50 x 50 mm. A very compact format using
+standard 45x45 mm screw holes spacing (M3)</p></li>
+<li><p>Lightweight and clean surface mount design: 21 grams</p></li>
+</ul>
+</section>
+<section id="connecting-to-the-autopilot">
+<h2>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h2>
+<p>Connecting the main power supply, backup power supply and servo rail
+“safety” connector, are shown below.</p>
+<a class="reference external image-reference" href="../_images/AirbotPower_PowerModule_PowerPixhawkConnectionDiagram.jpg"><img alt="../_images/AirbotPower_PowerModule_PowerPixhawkConnectionDiagram.jpg" src="../_images/AirbotPower_PowerModule_PowerPixhawkConnectionDiagram.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A few practical guidelines:</p>
+<ol class="arabic simple">
+<li><p>Don’t use servos on the backup AUX 5.3V supply as they can supply
+just a few amps and too many servos might exceed this amperage.</p></li>
+<li><p>At least one of the DIP switch switches MUST be switched ON towards
+the ON mark (or towards the battery number marks); In the first batch
+of boards, DIP switches labels have been printed in reverse order:
+3S, 4S,…,7S, 8S should instead be read reversely 8S, 7S? …4S, 3S.
+Later batches will have their labels printed in the correct order.</p></li>
+<li><p>On the bottom of the Power Board, there are some gold plated traces
+between the sensor and the 7mm holes and between BAT- and the PDB- .
+It is advised to add some solder on them for extreme currents. To do
+this you’ll need at least a 80W soldering iron and must use good
+solder with 2-2.5% non-corrosive flux. Higher power soldering iron
+leads to shorter heating time which is better for both the PCB itself
+and the components.</p></li>
+</ol>
+</div>
+<p>The board also comes with a Zener Diode 5.6V (5W) + capacitor and easy
+instructions to assemble them into an extra safety module that plugs on the
+autopilot’s servo rail. This is required on the autopilot’s servo rail to trim
+any short voltage spikes (above 5.6V) that would be fed back to
+the autopilot’’s servo rail from external devices &amp; servos (possibly causing
+the autopilot to shut itself down).</p>
+<figure class="align-default" id="id1">
+<a class="reference external image-reference" href="../_images/AirbotPower_Power_Module_ServoRail_Zener.jpg"><img alt="../_images/AirbotPower_Power_Module_ServoRail_Zener.jpg" src="../_images/AirbotPower_Power_Module_ServoRail_Zener.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">5.6V 5WZener+Cap module details: plastidip &amp; heat shrink tubing</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="airbotpdb-power-distribution-board">
+<h2>AirbotPDB Power Distribution Board<a class="headerlink" href="#airbotpdb-power-distribution-board" title="Permalink to this heading">¶</a></h2>
+<p>The AirbotPDB board (“10 solder pads” power distribution board) is
+stackable companion board (via XT150 connectors) that can optionally be
+used with AirbotPower.</p>
+<figure class="align-default" id="id2">
+<a class="reference external image-reference" href="../_images/AirbotPDB_PDBBoard.jpg"><img alt="../_images/AirbotPDB_PDBBoard.jpg" src="../_images/AirbotPDB_PDBBoard.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">AirbotPDB Board</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference external image-reference" href="../_images/AirbotPower_PowerModule_ConnectorsForAirbotPDB.jpg"><img alt="../_images/AirbotPower_PowerModule_ConnectorsForAirbotPDB.jpg" src="../_images/AirbotPower_PowerModule_ConnectorsForAirbotPDB.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">AirbotPower PowerModule: Connectors for AirbotPDB</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="setup-through-mission-planner">
+<h2>Setup through Mission Planner<a class="headerlink" href="#setup-through-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="common-power-module-configuration-in-mission-planner.html#common-power-module-configuration-in-mission-planner"><span class="std std-ref">Power Module Configuration in Mission Planner</span></a>
+explains how to configure a Power Module and get low battery alerts from
+Mission Planner.</p>
+<p>For this specific module, use the settings as shown in the diagram below
+(start with a “Voltage divider (calced)” value around 7.65):</p>
+<figure class="align-default" id="id4">
+<a class="reference external image-reference" href="../_images/AirbotPower_PowerModule_MissionPlanner_Calibration_Currentvoltage.jpg"><img alt="../_images/AirbotPower_PowerModule_MissionPlanner_Calibration_Currentvoltage.jpg" src="../_images/AirbotPower_PowerModule_MissionPlanner_Calibration_Currentvoltage.jpg" /></a>
+<figcaption>
+<p><span class="caption-text">Mission Planner:Configuraton for the AirbotPower Power Module</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The output of the ACS758 current sensor produces a voltage of +0,6V
+(offset) +20mV/A (i.e. set copter parameter “BATT_AMP_OFFSET” to a
+value of 0.6).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

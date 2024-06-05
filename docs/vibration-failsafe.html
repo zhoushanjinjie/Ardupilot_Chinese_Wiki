@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibration Failsafe &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dead Motor Takeoff Prevention" href="tkoff-rpm-min.html" />
+    <link rel="prev" title="Dead Reckoning Failsafe" href="deadreckoning-failsafe.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="initial-setup.html">首次设置</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common-install-gcs.html">安装地面站软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autopilot-assembly-instructions.html">飞控系统安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-pixhawk.html">将固件加载到有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-loading-firmware-onto-chibios-only-boards.html">将固件加载到没有ArduPilot固件的板子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-connect-mission-planner-autopilot.html">连接Mission Planner和飞控</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="configuring-hardware.html">配置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-basic-operation.html">基本系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-type-configuration.html">机型配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connect-escs-and-motors.html">电机编号和方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-radio-control-calibration.html">RC校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-accelerometer-calibration.html">加速度计校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-compass-calibration-in-mission-planner.html">指南针校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-rc-transmitter-flight-mode-configuration.html">遥控器飞行模式设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="esc-calibration.html">电调校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set-motor-range.html">配置电机范围（可选）</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="failsafe-landing-page.html">故障保护机制</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="radio-failsafe.html">Radio Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="failsafe-battery.html">Battery Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gcs-failsafe.html">GCS Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ekf-inav-failsafe.html">EKF Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="deadreckoning-failsafe.html">Dead Reckoning Failsafe</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Vibration Failsafe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tkoff-rpm-min.html">Dead Motor Takeoff Prevention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="terrain-following.html">Terrain Data Loss Failsafe (see section on loss of terrain data induced RTL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crash_check.html">Crash Check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-parachute.html">Parachute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-watchdog.html">Independent Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flight-modes.html">飞行模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="initial-setup.html">首次设置</a></li>
+          <li class="breadcrumb-item"><a href="configuring-hardware.html">必要硬件配置</a></li>
+          <li class="breadcrumb-item"><a href="failsafe-landing-page.html">Failsafe</a></li>
+      <li class="breadcrumb-item active">Vibration Failsafe</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vibration-failsafe">
+<span id="id1"></span><h1>Vibration Failsafe<a class="headerlink" href="#vibration-failsafe" title="Permalink to this heading">¶</a></h1>
+<p>This feature is available only in Copter 4.0 and later firmware.</p>
+<p>Vibration Failsafe is a little different than most other failsafes in ArduPilot, in that it does not initiate a flight mode change. Instead it changes the algorithm which controls altitude and climb rate in altitude control modes. It is enabled by default, but can be disabled by setting <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#fs-vibe-enable" title="(in Copter)"><span class="xref std std-ref">FS_VIBE_ENABLE</span></a> = 0.</p>
+<section id="impact-of-high-vibrations">
+<h2>Impact of High Vibrations<a class="headerlink" href="#impact-of-high-vibrations" title="Permalink to this heading">¶</a></h2>
+<p>Multicopters can suffer from very high vibration levels (more than 60m/s/s) which can lead to the accelerometers saturating (i.e. going beyond the range that the sensor can measure). This leads to “clipping” and means the EKF cannot accurately calculate its climb rate or vertical acceleration. This can lead to the vehicle becoming unable to control its climb rate and, in severe situations, can lead to the vehicle climbing rapidly at full throttle.</p>
+</section>
+<section id="when-the-failsafe-will-trigger">
+<h2>When the failsafe will trigger<a class="headerlink" href="#when-the-failsafe-will-trigger" title="Permalink to this heading">¶</a></h2>
+<p>The vibration failsafe will trigger if all of the following are true for at least one second:</p>
+<ul class="simple">
+<li><p>EKF’s vertical velocity innovations are positive (see onboard log’s NKF4.IVD value)</p></li>
+<li><p>EKF’s vertical position innovations are positive (see NKF4.IPD)</p></li>
+<li><p>EKF’s velocity variance is 1 or higher (see NKF4.SV)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">Innovation</span></code> is the difference between the predicted value and the latest (non-IMU) value. A <code class="docutils literal notranslate"><span class="pre">Variance</span></code> is the EKF’s reported confidence in its estimate. 0 is very good, &gt;1 is bad.</p>
+</div>
+</section>
+<section id="what-will-happen">
+<h2>What will happen<a class="headerlink" href="#what-will-happen" title="Permalink to this heading">¶</a></h2>
+<p>If the vibration failsafe triggers the following will happen:</p>
+<ul class="simple">
+<li><p>“Vibration compensation ON” will appear on the Ground Stations HUD. EKF’s climb rate will be calculated using a 3rd order complementary filter which is tuned to be more resistant to vibration (but less accurate) than the normal method.</p></li>
+<li><p>Altitude controller switches to a more vibration resistant two-stage controller (position-&gt;velocity) instead of the regular three-stage controller (i.e. position-&gt;velocity-&gt;acceleration)</p></li>
+<li><p>The vehicle will not change mode but its altitude hold will be less accurate than normal. The vehicle may overshoot it’s altitude targets and/or respond more slowly to pilot input.</p></li>
+</ul>
+</section>
+<section id="recovery-from-the-failsafe">
+<h2>Recovery from the failsafe<a class="headerlink" href="#recovery-from-the-failsafe" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Vibration failsafe will deactivate 15 seconds after the EKF returns to normal</p></li>
+<li><p>“Vibration compensation OFF” will be displayed on the HUD</p></li>
+<li><p>Altitude and climb rate controllers will return to their normal methods</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="deadreckoning-failsafe.html" class="btn btn-neutral float-left" title="Dead Reckoning Failsafe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tkoff-rpm-min.html" class="btn btn-neutral float-right" title="Dead Motor Takeoff Prevention" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

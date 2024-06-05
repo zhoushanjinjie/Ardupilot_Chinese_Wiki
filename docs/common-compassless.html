@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass-less Operation &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Compass-less Operation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compass-less-operation">
+<span id="common-compassless"></span><h1>Compass-less Operation<a class="headerlink" href="#compass-less-operation" title="Permalink to this heading">¶</a></h1>
+<p>Operation without a compass has been possible for Plane for a long time. However, recent additions of alternative yaw sources has opened the possibility of compass-less operation of multicopters, quadplanes and rovers.  The available mechanism are:</p>
+<ul class="simple">
+<li><p>Align yaw to GPS after takeoff (Plane only)</p></li>
+<li><p>GSF (Gaussian Sum Filter) estimates the heading by comparing a single GPS’s outputs to the IMU movements</p></li>
+<li><p><a class="reference internal" href="common-gps-for-yaw.html#common-gps-for-yaw"><span class="std std-ref">GPS-for-Yaw</span></a> uses the position of two UBlox F9 GPSs to calculate yaw</p></li>
+<li><p><a class="reference internal" href="common-vio-tracking-camera.html#common-vio-tracking-camera"><span class="std std-ref">Intel RealSense T265</span></a> can provide yaw relative to its startup yaw</p></li>
+</ul>
+<section id="align-yaw-to-gps-plane-only">
+<h2>Align Yaw to GPS (Plane only)<a class="headerlink" href="#align-yaw-to-gps-plane-only" title="Permalink to this heading">¶</a></h2>
+<p>On Plane, a steady GPS heading is used after takeoff to align the /attitude/velocity/position/heading estimation filters (EKFs) for yaw. This usually occurs a few seconds after takeoff on Planes without compass. However, this approach cannot be used for Quadplane’s VTOL navigation, since it needs to be accurate very shortly after takeoffs with no GPS velocity or heading inputs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in 4.3 firmware, GSF is used instead, see below.</p>
+</div>
+</section>
+<section id="gsf">
+<h2>GSF<a class="headerlink" href="#gsf" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot 4.1 (and higher) supports a Gaussian Sum Filter (GSF) which takes IMU and GPS inputs to compute a probable heading, if a yaw source (like a compass) is unavailable, or unhealthy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, it does not function well for QuadPlane VTOL tailsitters, since their nose is pointed vertically in VTOL flight. Compasses are still recommended for Tailsitters. Also, for this to work well at all, vibration should be low and the GPS velocity accurate, see below.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GSF depends on good velocity reports from the GPS. Do not attempt with older generation GPSes, and use at least UBlox M8 or equivalent performance GPSes. Also, be sure GPS view of the sky is unobstructed throughout the flight. Otherwise, poor heading estimation will result. On Plane, if the GPS accuracy is impaired by interference from other nearby vehicle devices (like cameras, etc.), GSF can result in poorer performance than relying solely on Align Yaw to GPS heading, above. In those cases, it may be better to disable GSF use by setting the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-gsf-use-mask" title="(in Rover)"><span class="xref std std-ref">EK3_GSF_USE_MASK</span></a> = 0.</p>
+</div>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h3>
+<p>Simply, set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-enable" title="(in Rover)"><span class="xref std std-ref">COMPASS_ENABLE</span></a> = 0. Fallback to the GSF will be automatic if normal default values are being used for EKF parameters.</p>
+<p>For configure EKF3 to always use GSF set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#ek3-src1-yaw" title="(in Rover)"><span class="xref std std-ref">EK3_SRC1_YAW</span></a> = 8 (GSF).</p>
+</section>
+<section id="operation">
+<h3>Operation<a class="headerlink" href="#operation" title="Permalink to this heading">¶</a></h3>
+<p>Currently, only Plane will arm if the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> for compass (or ALL) is enabled, when no compasses are enabled. Copter and QuadPlane will give an pre-arming failure. Three possible methods to arm are:</p>
+<ol class="arabic simple">
+<li><p>Disable <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arming-check" title="(in Rover)"><span class="xref std std-ref">ARMING_CHECK</span></a> for Compass (keep the others!).</p></li>
+<li><p>Force arming from ground station.</p></li>
+<li><p>Before arming, but after GPS lock has been obtained and EKF origin has been set and is “using GPS”, pick up the vehicle and walk around in a circle a few meters in diameter. This should allow the GSF to acquire yaw alignment and the message “EKF yaw alignment complete” would be sent to the ground station.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If either of the first two methods are used, then the first movements of the vehicle in VTOL position controlled modes may be initially in the wrong direction, but should quickly stop once yaw alignment of the GSF has been obtained. Either fly the vehicle a bit in a non-position controller mode (like STABILIZE or QHOVER), or give the vehicle sufficient clearance for the unknown initial movement direction.</p>
+</div>
+<p>Afterwards, flight and navigation should be acceptable.</p>
+<p>If any problems are experienced, please post logs on the <a class="reference external" href="https://discuss.ardupilot.org">https://discuss.ardupilot.org</a> forum.</p>
+</section>
+<section id="video">
+<h3>Video<a class="headerlink" href="#video" title="Permalink to this heading">¶</a></h3>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3xW9hj-lxNU" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

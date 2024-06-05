@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High Definition Live Video FPV Systems &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">High Definition Live Video FPV Systems</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="high-definition-live-video-fpv-systems">
+<span id="common-video-landingpage"></span><h1>High Definition Live Video FPV Systems<a class="headerlink" href="#high-definition-live-video-fpv-systems" title="Permalink to this heading">¶</a></h1>
+<p>This sections covers live video systems which can provide a high definition first-person video (FPV) from the vehicle back to either a ground station or FPV goggles. For other FPV systems, see <a class="reference internal" href="common-fpv-first-person-view.html#common-fpv-first-person-view"><span class="std std-ref">First Person View (FPV)</span></a> section.</p>
+<section id="herelink-hd-video-transmission-system">
+<h2>Herelink HD Video Transmission System<a class="headerlink" href="#herelink-hd-video-transmission-system" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/Herelink1-2.jpg"><img alt="../_images/Herelink1-2.jpg" src="../_images/Herelink1-2.jpg" /></a>
+</figure>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h3>
+<p>Herelink is an integrated remote controller, ground station and wireless digital transmission system designed to be used with the Cube and other autopilots, using ArduPilot or PX4 firmware.</p>
+<p>Herelink allows RC control, HD video and telemetry data to be transmitted upto 20km between the ground station and air unit, the Herelink remote controller features custom Solex TX and QGC applications and both air unit and ground station feature an integrated 8 core SOC for custom application development.</p>
+</section>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Android based smart device with 5.46 inch 1080P capacitive touch screen.</p></li>
+<li><p>Integrated digital transmission system simultaneously transmitting video, telemetry and control.</p></li>
+<li><p>Custom Solex TX and QGC ground station software with MAVLink support for ArduPilot and PX4.</p></li>
+<li><p>Dual hall effect self centering gimbals with removable sticks.</p></li>
+<li><p>1080P HD video with dual digital video inputs.</p></li>
+<li><p>Dual S.bus signal output for simultaneous control of autopilot and pan/tilt cameras.</p></li>
+<li><p>6 customizable MAVLink buttons and Mavlink/Sbus hardware wheel.</p></li>
+<li><p>RC gimbal control on dedicated service independent from Solex TX / QGC.</p></li>
+<li><p>Tether and share video and telemetry via wifi ground station such as Mission Planner.</p></li>
+<li><p>Onboard Arm Cortex A53 &amp; Cortex A53 SOC in both air and ground units for custom applications.</p></li>
+</ul>
+<p>More Info on Herelink can be found on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.cubepilot.org/user-guides/herelink/herelink-overview">Cubepilot</a></p></li>
+<li><p><a class="reference external" href="http://www.proficnc.com/all-products/211-gps-module.html">Hex HereLink Website</a></p></li>
+<li><p><a class="reference external" href="https://discuss.cubepilot.org">Cubepilot Support Forum</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="cuav-h16-series-hd-video-transmission-and-remote-control-system">
+<h2>CUAV H16 series HD Video Transmission and remote control system<a class="headerlink" href="#cuav-h16-series-hd-video-transmission-and-remote-control-system" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/cuav-video/h16.jpg"><img alt="../_images/h16.jpg" src="../_images/h16.jpg" /></a>
+</figure>
+<section id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>The H16 Smart Remote Control is a UAV communication link that integrates remote control, data transmission, and HD video transmission. It runs the Android operating system and supports mainstream ground stations such as QGC; Like an Android phone, you can install other Android applications as desired .</p>
+</section>
+<section id="id2">
+<h3>Features<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Runs Android OS</p></li>
+<li><p>7-inch color LCD screen.</p></li>
+<li><p>Integrated digital transmission system that can transmit high-definition video, drone data, and radio control signals at the same time.</p></li>
+<li><p>It can run the QGC (QGround Control)ground station, and any version of QGC can be installed, without waiting for release of a customized ground control station.</p></li>
+<li><p>Four, three-position switches and two knobs better suits the needs of industrial applications; you can control auxiliary equipment on the UAV easily.</p></li>
+<li><p>1080P HD video</p></li>
+<li><p>2000 nt (nit) brightness high-definition display, allowing data displayed to be clearly visible in the sun.</p></li>
+<li><p>Telemetry and video sharing to other devices via WIFI.</p></li>
+<li><p>Similar to a smart phone; you can install a large number of Android applications.</p></li>
+<li><p>You can connect an MIPI camera and an HDMI camera at the same time.</p></li>
+<li><p>30km, ultra long-distance transmission.</p></li>
+</ul>
+<p>For more information, please click the link below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="doc.cuav.com">CUAV docs</a></p></li>
+<li><p><a class="reference external" href="https://store.cuav.net/index.php?id_product=125&amp;rewrite=cuav-h16-pro-hd-video-transmission-system&amp;controller=product">CUAV store</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dji-digital-fpv-system">
+<h2>DJI Digital FPV System<a class="headerlink" href="#dji-digital-fpv-system" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/DJI_FPV.jpg"><img alt="../_images/DJI_FPV.jpg" src="../_images/DJI_FPV.jpg" /></a>
+</figure>
+<p>See <a class="reference internal" href="common-msp-osd-overview.html#common-msp-osd-overview"><span class="std std-ref">MSP OSD</span></a> for setup instructions for OSD display on DJI goggles.</p>
+<section id="id3">
+<h3>Overview<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>The DJI Digital FPV System was designed for the drone racing industry. It consists of the DJI FPV Air Unit Module, DJI FPV Camera, DJI FPV Goggles, and DJI FPV Remote Controller.</p>
+</section>
+<section id="id4">
+<h3>Features<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>MSP Telemetary Input</p></li>
+<li><p>5 GHz 8 Channels</p></li>
+<li><p>Low Latency Mode 720p/120fps: &lt;28 ms</p></li>
+<li><p>High-Quality Mode 720p/60fps: &lt;40 ms</p></li>
+<li><p>Max transmission range: Up to 4 km</p></li>
+</ul>
+<p>More Info on at <a class="reference external" href="www.DJI.com">DJI</a></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dji-ocusync-air-system">
+<h2>DJI Ocusync Air System<a class="headerlink" href="#dji-ocusync-air-system" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/DJI_Ocustnc.jpg"><img alt="../_images/DJI_Ocustnc.jpg" src="../_images/DJI_Ocustnc.jpg" /></a>
+</figure>
+<p>The DJI OcuSync Air System is an integrated high-resolution video transmission solution consisting of a camera, Air Unit module, three antennas, and other connectors. Working with DJI Goggles RE, the OcuSync Air System supports wireless transmission of video, images, and autopilot information.</p>
+<p>The Air Unit can be attached to racing drones, model airplanes, RC cars, or unmanned enterprise vehicles used for rescue operations and inspections and supports both MSP and MAVLink telemetry input from firmware V01.05.00 and later.</p>
+<section id="id5">
+<h3>Features<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>MAVLink &amp; MSP Telemetry Input</p></li>
+<li><p>2.4 GHz/5.8 GHz dual-frequency transmission</p></li>
+<li><p>FHSS and up to 19 fixed channels</p></li>
+<li><p>High-resolution video transmission up to 1280×960 at 50 fps</p></li>
+<li><p>Minimum latency: As low as 50 ms (at 480p at 50 fps)</p></li>
+<li><p>Max transmission range: Up to 7 km (2.4 GHz, FCC compliance, unobstructed)</p></li>
+</ul>
+<p>More Info at <a class="reference external" href="www.DJI.com">DJI</a></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sky-drones-smartlink">
+<h2>Sky-Drones Smartlink<a class="headerlink" href="#sky-drones-smartlink" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/Sky_Link.png"><img alt="../_images/Sky_Link.png" src="../_images/Sky_Link.png" /></a>
+</figure>
+<p>Smartlink is a broadband digital datalink with integrated onboard computer that supports up to Two HD video channels, MAVLink telemetry and control with ultra low latency and range up to 20 km.</p>
+<section id="id7">
+<h3>Features<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>MAVLink compatible</p></li>
+<li><p>2.4 GHz / up to 1000 mW configurable</p></li>
+<li><p>2 HDMI, full HD up to 1080p / 60fps</p></li>
+<li><p>Transmission range: 20 km FCC / 10 km</p></li>
+<li><p>LTE connectivity as an option</p></li>
+<li><p>Satellite connectivity as an option</p></li>
+</ul>
+<p>More info on Sky-Drones <a class="reference external" href="https://sky-drones.com/smartlink">website</a></p>
+<p>Unboxing video <a class="reference external" href="https://www.youtube.com/watch?v=2qtE4nuTXKU">here</a></p>
+<p>Purchase <a class="reference external" href="https://sky-drones.com/telemetry/smartlink-set.html">online</a></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="siyi-ak28">
+<h2>SIYI AK28<a class="headerlink" href="#siyi-ak28" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/SIYI_AK28.png" src="../_images/SIYI_AK28.png" />
+<p>A 2.4Ghz HD video/radio control/telemetry system based on Android OS, allowing many Android applications to be loaded and used in addition to the normal ground control station programs, such as QGC.</p>
+<p>In addition to normal RC control, the system can also control additional equipment on the vehicle with provide auxiliary control paths.</p>
+<p>For more information, including manuals, see <a class="reference external" href="http://en.siyi.biz/en/ak28/overview">SIYI site</a></p>
+<section id="where-to-buy">
+<h3>Where to buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://www.rchobby-jp.com/index.php?main_page=product_info&amp;cPath=67&amp;products_id=4455">RC Hobby Japan</a></p>
+<p><a class="reference external" href="http://www.holybro.com/product/siyi-ak28-android-smart-remote-controller/">Holybro</a></p>
+</section>
+<section id="unboxing-video">
+<h3>Unboxing video<a class="headerlink" href="#unboxing-video" title="Permalink to this heading">¶</a></h3>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/DPHKe86SiqI" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+</section>
+<hr class="docutils" />
+<section id="xblink-4g-lte-transmission-system">
+<h2>XBLink 4G LTE Transmission System<a class="headerlink" href="#xblink-4g-lte-transmission-system" title="Permalink to this heading">¶</a></h2>
+<figure class="align-default">
+<a class="reference external image-reference" href="https://xbstation.com/store/xblink"><img alt="https://xbstation.com/assets/images/xblink.png" src="https://xbstation.com/assets/images/xblink.png" /></a>
+</figure>
+<section id="id8">
+<h3>Overview<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<p>XBLink is a Plug and Play hardware for BVLOS Flight based on Real time 4G LTE connective. Perfect fit with Cube.</p>
+</section>
+<section id="id9">
+<h3>Features<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Control UAV via MissionPlanner and QGroundControl</p></li>
+<li><p>Platform supported: MacOS, WindowsOS, AndroidOS</p></li>
+<li><p>MAVLink compatible</p></li>
+<li><p>HD video streaming</p></li>
+<li><p>AES 256 encryption</p></li>
+<li><p>HTTPS, WebSockets over SSL/TLS</p></li>
+<li><p>Video and telemetry streaming sharing</p></li>
+</ul>
+<p>More info about XBLink can be found on <a class="reference external" href="https://xbstation.com/store/xblink">XBStation</a></p>
+</section>
+</section>
+<section id="other-systems">
+<h2>Other Systems<a class="headerlink" href="#other-systems" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://discuss.arduPilot.org/t/using-the-skyviper-sonix-board-with-any-pixhawk/23932">SkyViper video</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bortek/EZ-WifiBroadcast/wiki">Wifi Broadcast</a></p></li>
+<li><p><a class="reference external" href="https://www.heliengadin.com/products/skydroid-t12-remote-controller-with-digital-video">SkyDriod T12</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

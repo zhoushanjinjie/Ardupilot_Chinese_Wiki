@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived:Loading ChibiOS firmware onto Pixhawk &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived:Loading ChibiOS firmware onto Pixhawk</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-loading-chibios-firmware-onto-pixhawk">
+<span id="common-loading-chibios-firmware-onto-pixhawk"></span><h1>Archived:Loading ChibiOS firmware onto Pixhawk<a class="headerlink" href="#archived-loading-chibios-firmware-onto-pixhawk" title="Permalink to this heading">¶</a></h1>
+<figure class="align-default">
+<img alt="../_images/chibios-logo.png" src="../_images/chibios-logo.png" />
+</figure>
+<p>These instructions explain how to download and install the beta ArduPilot with ChibiOS firmware onto a pixhawk autopilot.</p>
+<p>In tests the development team has found using ChibiOS (in place of NuttX) results in a smaller firmware with faster loop rates and less timing jitter.
+ChibiOS builds have less testing and a few <a class="reference external" href="https://github.com/ArduPilot/ardupilot/issues/8109">missing features</a> however.</p>
+<p>Parameters are preserved when moving between ChibiOS and NuttX firmwares and no re-tuning of the vehicle should be required.</p>
+<section id="downloading-the-beta-firmware">
+<h2>Downloading the beta firmware<a class="headerlink" href="#downloading-the-beta-firmware" title="Permalink to this heading">¶</a></h2>
+<p>Download the appropriate beta firmware from <a class="reference external" href="https://firmware.ardupilot.org/">firmware.ardupilot.org</a> using the links below and save the resulting .apj file somewhere on your PC:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Copter/beta/fmuv3/arducopter.apj">Copter-3.6-beta for Pixhawks including Cube/Pixhawk2</a></p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Copter/beta/fmuv4/arducopter.apj">Copter-3.6-beta for Pixracers boards</a></p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Copter/beta/fmuv3-heli/arducopter.apj">TradHeli-3.6-beta for Pixhawks including Cube/Pixhawk2</a></p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Copter/beta/fmuv4-heli/arducopter.apj">TradHeli-3.6-beta for Pixracers boards</a></p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Rover/beta/fmuv3/ardurover.apj">Rover-3.3-beta for Pixhawks including Cube/Pixhawk2</a></p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Rover/beta/fmuv4/ardurover.apj">Rover-3.6-beta for Pixracers boards</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="uploading-as-custom-firmware">
+<h2>Uploading as Custom Firmware<a class="headerlink" href="#uploading-as-custom-firmware" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>connect the ground station PC to the autopilot using a USB cable</p></li>
+<li><p>select the COM port and baud rate (normally 115200) for the board.  If using the Mission Planner these are selected on the top right of the screen.  Do <strong>not</strong> press the Connect button</p></li>
+<li><p>go to the GCS’s firmware install screen.  If using the Mission Planner select “Initial Setup &gt;&gt; Install Firmware”</p></li>
+<li><p>click the “Load custom firmware” link and select the .apj file downloaded above.  If using the Mission Planner and the “Load custom firmware” link is not visible select “Config/Tuning &gt;&gt; Planner” and set the “Layout” drop-down to “Advanced”.</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/mission-planner-load-custom-firmware.png"><img alt="../_images/mission-planner-load-custom-firmware.png" src="../_images/mission-planner-load-custom-firmware.png" style="width: 450px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>following any instructions displayed regarding plugging/unplugging the board</p></li>
+<li><p>if all goes well some status should be displayed at the bottom of the screen.  i.e. “erase…”, “program…”, “verify..” and “Upload Done”.</p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>open the ground stations’s flight data screen</p></li>
+<li><p>select the COM port (which will have changed compared to the NuttX versions) and baud (normally 115200)</p></li>
+<li><p>press the <strong>Connect</strong> button</p></li>
+<li><p>after parameters are downloaded, the HUD should update as you tilt the board</p></li>
+</ul>
+<p>More details on connecting a GCS to the autopilot are described <a class="reference internal" href="common-connect-mission-planner-autopilot.html#common-connect-mission-planner-autopilot"><span class="std std-ref">here</span></a>.</p>
+<p>[copywiki destination=”copter,plane,rover,planner”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

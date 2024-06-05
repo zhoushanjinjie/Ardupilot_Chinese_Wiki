@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Rewind on Resume &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mission Rewind on Resume</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="common-mission-rewind">[copywiki destination=”copter,plane,rover,planner”]</p>
+<section id="mission-rewind-on-resume">
+<h1>Mission Rewind on Resume<a class="headerlink" href="#mission-rewind-on-resume" title="Permalink to this heading">¶</a></h1>
+<p>This page explains what the mission rewind-on-resume feature is and how to use the feature.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is available for Plane, Copter, and Rover from 4.1 onwards.</p>
+</div>
+<p>In certain applications or operating areas it can be common to interrupt a mission, for the purposes
+of deconfliction, by changing to another mode and manoeuvring the vehicle away from the planned mission
+path.  When ready to resume the mission, the normal behaviour of the vehicle is to fly/drive directly to
+the last ‘active’ waypoint that was loaded in the mission.  This behaviour is illustrated below:</p>
+<a class="reference external image-reference" href="../_images/mission-normal-resume-behaviour.png"><img alt="../_images/mission-normal-resume-behaviour.png" src="../_images/mission-normal-resume-behaviour.png" style="width: 600px;" /></a>
+<p>As it can be seen, this leaves a significant portion of the planned mission that is either covered with
+incorrect track and heading or is not covered at all.  This becomes an issue for data gathering missions
+such as surveys, resulting in legs of the mission needing to be repeated.</p>
+<p>The rewind-on-resume feature remedies this behaviour.  A rewind distance is defined by the operator.  When
+the mission is resumed the vehicle will return to the mission track at the desired distance behind the point
+that the mission was interrupted.  This gives the vehicle adequate time to achieve the desired track and
+heading before it achieves the position in which it was originally interrupted.  This behaviour can be seen
+below:</p>
+<a class="reference external image-reference" href="../_images/mission-rewind-behaviour.png"><img alt="../_images/mission-rewind-behaviour.png" src="../_images/mission-rewind-behaviour.png" style="width: 600px;" /></a>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>The rewind-on-resume feature is enabled by setting a DO_SET_RESUME_REPEAT_DIST mission item.  This can
+be done in one of two ways:</p>
+<p><strong>1) Ground control station recognises the DO_SET_RESUME_REPEAT_DIST mission item</strong></p>
+<ul class="simple">
+<li><p>Add a DO_SET_RESUME_REPEAT_DIST mission item from the point in the mission that you wish to enable the feature.</p></li>
+<li><p>Set the first data column to be the distance in meters that you want the mission to be rewound to, on resume.</p></li>
+</ul>
+<p><strong>2) Ground control station does not recognise the DO_SET_RESUME_REPEAT_DIST mission item</strong></p>
+<ul class="simple">
+<li><p>Add an UNKNOWN mission item from the point in the mission that you wish to enable the feature and set the MAVLink ID to 215.</p></li>
+<li><p>Set the first data column to be the distance in meters that you want the mission to be rewound to, on resume.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MIS_RESTART parameter must be set to zero, to prevent the mission restarting, for this feature to work.</p>
+</div>
+<p>To check that the rewind distance has been correctly set in the mission, monitor the message output in the ground
+control station.  When the vehicle registers the command the following message will be displayed: “Resume repeat
+dist set to &lt;DISTANCE&gt; m”.</p>
+<p>Multiple DO_SET_RESUME_REPEAT_DIST commands can be set throughout the mission.  This provides the operator the ability to
+vary the rewind distance or switch the feature on/off throughout the mission, where extreme care and accuracy is
+required to manoeuvre the vehicle on certain mission legs.</p>
+<p>This feature can be switched off by setting a DO_SET_RESUME_REPEAT_DIST mission item with a distance of zero.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When identifying the resume distance needed, a sensible value to try for most vehicles is twice the minimum turn
+radius.  The only exception is vehicles that can turn on the spot (multi-rotors and some rovers), in which a
+sensible distance would be twice the WP_RADIUS.</p>
+</div>
+</section>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading">¶</a></h2>
+<p>Once enabled ArduPilot starts recording the waypoints that are successfully loaded as ‘active’.  A history of up to
+seven waypoints are stored.  Upon a mission rewind-and-resume the mission history will be searched until either:</p>
+<ul class="simple">
+<li><p>A position in the mission track is found that satisfies the rewind distance requirement.</p></li>
+<li><p>The end of stored mission history is found, in which case the resume position will be the last waypoint stored in the history.</p></li>
+</ul>
+<p>The vehicle will then resume to that location on the mission track and continue the mission as planned.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Height is accounted for in the resuming position.  If the vehicle is resuming to a location along the mission track
+whereby the aircraft is changing altitude, the height of the resuming position will be linearly interpolated between
+the two neighbouring waypoints.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To prevent the vehicle from storing an obscure history and resuming to an unexpected location, if the mission is
+altered by using the set waypoint feature in a ground control station or a script, the history is reset.  This prevents
+the vehicle from rewinding the mission back past the point that the history was reset.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature works with DO_JUMP commands and the jump count is not incremented whilst the vehicle is resuming the mission.</p>
+</div>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h2>
+<p><strong>1) Short mission legs:</strong> If the mission has closely spaced waypoints and the requested rewind distance is greater than
+the distance covered by the last six waypoints that have been passed, then the vehicle will resume on the ‘oldest’ waypoint
+stored.</p>
+<p><strong>2) Spline waypoints:</strong>  This feature will work with spline waypoints.  However, the accuracy of the resume distance will
+be diminished as the distance calculation is based on a straight line between navigation command locations.</p>
+<p><strong>3) Non-waypoint navigation commands:</strong>  This feature works with non-waypoint navigations commands, for example LOITER_TURNS.
+However, the distance calculation does not account for the distance of the vehicle track in those commands.  Using the previous
+example, the distance calculation does not account for the distance flown in the loiter.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

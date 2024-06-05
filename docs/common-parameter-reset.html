@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parameter Reset &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Parameter Reset</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parameter-reset">
+<span id="common-parameter-reset"></span><h1>Parameter Reset<a class="headerlink" href="#parameter-reset" title="Permalink to this heading">¶</a></h1>
+<p>This article shows several ways to reset all parameters to their default
+values.If you would like to restore any of the existing setup parameters, save them to a file first!</p>
+<section id="option-1-using-the-mission-planner">
+<h2>Option #1: Using the Mission Planner<a class="headerlink" href="#option-1-using-the-mission-planner" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner has a dedicated <strong>Reset to Default</strong> button. This will reset all parameters to the vehicle’s defaults.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It will not reset the DroneCAN dynamic node address table. The other parameter reset methods listed below will also reset that table so that new devices can use previous addresses of devices that are being replaced.</p>
+</div>
+<ul class="simple">
+<li><p>Connect the autopilot to <em>Mission Planner</em>, and on the <strong>CONFIG | Full Parameter List</strong> or <strong>Full Parameter Tree</strong> page push the <strong>Reset to Default</strong> button.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/ParamReset_MPResetToDefault.png"><img alt="../_images/ParamReset_MPResetToDefault.png" src="../_images/ParamReset_MPResetToDefault.png" /></a>
+<ul class="simple">
+<li><p>The autopilot will automatically reboot, setting all parameters back to their default values.</p></li>
+</ul>
+</section>
+<section id="option-2-change-the-format-version-parameter">
+<h2>Option #2: Change the FORMAT_VERSION parameter<a class="headerlink" href="#option-2-change-the-format-version-parameter" title="Permalink to this heading">¶</a></h2>
+<p>On any Ground Control Station (that can write parameters) you can reset
+parameters by setting the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#format-version" title="(in Rover)"><span class="xref std std-ref">FORMAT_VERSION</span></a>  parameter to zero. After
+writing the parameter, reboot the board.</p>
+</section>
+<section id="option-3-load-another-vehicle-s-firmware">
+<h2>Option #3: Load another vehicle’s firmware<a class="headerlink" href="#option-3-load-another-vehicle-s-firmware" title="Permalink to this heading">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This method is not recommended because it’s unnecessarily time
+consuming.</p>
+</div>
+<p>Upload the firmware for a completely different vehicle type (I.e. if you
+were using Copter, now upload the Rover firmware).  Reboot the board and
+let it sit for 30 seconds to clear the EEPROM.  Then upload the original
+firmware (i.e. Copter) to the autopilot.</p>
+</section>
+<section id="restoring-calibrations-after-resets">
+<h2>Restoring Calibrations after Resets<a class="headerlink" href="#restoring-calibrations-after-resets" title="Permalink to this heading">¶</a></h2>
+<p>The above will also reset the flag used to indicate that Accelerometer and Compasses have been calibrated, so that even if you restore your old parameters from a file, the calibrations would still need to be repeated.</p>
+<p>There are two methods to allow these to be restored.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Only use this method if you are certain that the Accelerometer or Compass sensors have not changed in any manner since the parameters were stored in a file. Restoring inaccurate calibration data can lead to a crash!</strong></p>
+</div>
+<section id="using-mission-planner">
+<h3>Using Mission Planner<a class="headerlink" href="#using-mission-planner" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>In the  <strong>CONFIG/Full Parameter Tree</strong> page, find the <code class="docutils literal notranslate"><span class="pre">COMPASS_DEV_IDx</span></code> (s) corresponding to the system’s attached compasses. For each compass, copy  the current device id, then write the <code class="docutils literal notranslate"><span class="pre">COMPASS_DEV_IDx</span></code> to “0”, and then write the original id back again.Do this for every compass attached and calibrated.</p></li>
+<li><p>Next, find the <code class="docutils literal notranslate"><span class="pre">INS_ACC_IDx</span></code> (s) corresponding to the system’s attached accelerometers. For each one, copy  the current device id, then write the id to “0”, and then write the original id back again.Do this for every accelerometer attached and calibrated.</p></li>
+<li><p>Now restore your previously stored parameters (could have also been done as first step), which includes the calibration parameters, to the autopilot and reboot. Calibration should not be required to arm now.</p></li>
+</ol>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/HhYF-Z0xFCQ" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+<section id="using-mavproxy">
+<h3>Using MAVProxy<a class="headerlink" href="#using-mavproxy" title="Permalink to this heading">¶</a></h3>
+<p>Simply type “forcecal” will force the autopilot into a calibrated state. Be sure you have valid compass and IMU calibration values already loaded.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

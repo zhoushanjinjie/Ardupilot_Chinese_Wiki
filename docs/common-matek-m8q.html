@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matek M8Q DroneCAN/MSP GPS/MAG/BARO &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Matek M8Q DroneCAN/MSP GPS/MAG/BARO</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matek-m8q-dronecan-msp-gps-mag-baro">
+<span id="common-matek-m8q"></span><h1>Matek M8Q DroneCAN/MSP GPS/MAG/BARO<a class="headerlink" href="#matek-m8q-dronecan-msp-gps-mag-baro" title="Permalink to this heading">¶</a></h1>
+<p>Based on ArduPilots’ AP_Pheriph firmware, the Matek M8Q is a GPS+COMPASS+BAROMETER peripheral with CAN/DroneCAN and MSP interfaces to the autopilot, plus an I2C expansion bus for additional peripherals, such as airspeed sensors.</p>
+<img alt="../_images/M8Q-CAN_2.jpg" src="../_images/M8Q-CAN_2.jpg" />
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ArduPilot AP_Periph F303 CAN node integrating:</dt><dd><ul class="simple">
+<li><p>GPS SAM-M8Q (GPS, GLONASS, Galileo)</p></li>
+<li><p>Magnetic Compass QMC5883L</p></li>
+<li><p>Barometer DPS310</p></li>
+<li><dl class="simple">
+<dt>CAN bootloader LED, Blue</dt><dd><ul>
+<li><p>Fast blinking, No communication between CAN node and Flight Controllers</p></li>
+<li><p>Slow blinking, Communicating between CAN node and Flight Controllers</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>GPS PPS LED, Green</dt><dd><ul>
+<li><p>Blinking(1Hz) when GPS has 3D fixed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Boot button</p></li>
+</ul>
+</dd>
+<dt>Interfaces:</dt><dd><ul class="simple">
+<li><p>CAN,/DroneCAN Connection to autopilot</p></li>
+<li><p>I2C JST-GH connector, external AirSpeed sensor</p></li>
+<li><p>UART for alternate connection to autopilot via MSP</p></li>
+<li><p>JST-GH connectors</p></li>
+</ul>
+</dd>
+<dt>Specifications:</dt><dd><ul class="simple">
+<li><p>Input voltage range: 4~6V</p></li>
+<li><p>Power consumption: 100mA</p></li>
+<li><p>Operating Temperatures: -20~80 °C</p></li>
+<li><p>Size: 29mm*29mm*9.7mm</p></li>
+<li><p>Weight:11.3g</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="wiring">
+<h2>Wiring<a class="headerlink" href="#wiring" title="Permalink to this heading">¶</a></h2>
+<img alt="../_images/M8Q-CAN-wiring.jpg" src="../_images/M8Q-CAN-wiring.jpg" />
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<section id="dronecan">
+<h3>DroneCAN<a class="headerlink" href="#dronecan" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-d1-protocol" title="(in Rover)"><span class="xref std std-ref">CAN_D1_PROTOCOL</span></a>   = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-p1-driver" title="(in Rover)"><span class="xref std std-ref">CAN_P1_DRIVER</span></a>       = 1</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a>                 = 9 (DroneCAN)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-typemask" title="(in Rover)"><span class="xref std std-ref">COMPASS_TYPEMASK</span></a> = 0 (or make sure DroneCAN bit is not checked)</p></li>
+</ul>
+<p>if Airspeed sensor is connected to I2C port,</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a>   =     8 (DroneCAN)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-use" title="(in Rover)"><span class="xref std std-ref">ARSPD_USE</span></a>     =     1</p></li>
+</ul>
+<p>The default airspeed sensor is expected to be a “DLVR-L10D” type , if not then you must use the SL-CAN interface to set and type in the internal firmware. In Mission Planner go to Setup &gt; Optional Hardware &gt; UAVCAN(DroneCAN) &gt;  SLCan Mode CAN1  &gt; Parameters</p>
+<p>if using an:</p>
+<ul class="simple">
+<li><p>MS4525    set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> -&gt; 1,</p></li>
+<li><p>MS5525    set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> -&gt; 5 (note: only an MS5525 with address 0x77 can be used to avoid conflict with DPS310 barometer.)</p></li>
+<li><p>SDP3X     set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> -&gt; 6</p></li>
+<li><p>DLVR-L10D set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#arspd-type" title="(in Rover)"><span class="xref std std-ref">ARSPD_TYPE</span></a> -&gt; 9</p></li>
+<li><p>the Write, and reboot</p></li>
+</ul>
+</section>
+<section id="msp">
+<h3>MSP<a class="headerlink" href="#msp" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code>                      = 32  (MSP) where x is the SERIAL port used for connection on autopilot</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gps-type" title="(in Rover)"><span class="xref std std-ref">GPS_TYPE</span></a>                 = 19 (MSP)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro-probe-ext" title="(in Rover)"><span class="xref std std-ref">BARO_PROBE_EXT</span></a>     = 4096  (MSP Baro)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#baro-primary" title="(in Rover)"><span class="xref std std-ref">BARO_PRIMARY</span></a>         = 1  (If you want to use MSP baro as primary baro, otherwise leave as default)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#compass-typemask" title="(in Rover)"><span class="xref std std-ref">COMPASS_TYPEMASK</span></a> = 0 (or make sure MSP bit is not checked)</p></li>
+</ul>
+</section>
+</section>
+<section id="msp-firmware-update">
+<h2>MSP Firmware Update<a class="headerlink" href="#msp-firmware-update" title="Permalink to this heading">¶</a></h2>
+<p>Prior to September 2020, MSP connection was not supported. However, you may update to the new firmware by following the guide <a class="reference external" href="http://www.mateksys.com/?portfolio=m8q-can#tab-id-8">here</a>.</p>
+</section>
+<section id="where-to-buy">
+<h2>Where to Buy<a class="headerlink" href="#where-to-buy" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="http://www.mateksys.com/?portfolio=m8q-can">Matek M8Q-CAN</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

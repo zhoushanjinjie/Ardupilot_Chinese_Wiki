@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLCAN Access on F4 based Autopilots &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SLCAN Access on F4 based Autopilots</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="slcan-access-on-f4-based-autopilots">
+<span id="common-slcan-f4"></span><h1>SLCAN Access on F4 based Autopilots<a class="headerlink" href="#slcan-access-on-f4-based-autopilots" title="Permalink to this heading">¶</a></h1>
+<p>Enabling SLCAN allows the autopilot to connect to CANBUS through USB on PC.
+It allows viewing, configuration and software updates of devices connected to the CANBUS.
+There are two different applications for using SLCAN to modify DroneCAN device parameter: DroneCAN GUI or Mission Planner. But first, the SLCAN interface must be enabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SLCAN access via COM port is disabled when armed to lower cpu load. Use SLCAN via MAVLink instead. MAVLink access is generally preferred in any case.</p>
+</div>
+<section id="enabling-slcan">
+<h2>Enabling SLCAN<a class="headerlink" href="#enabling-slcan" title="Permalink to this heading">¶</a></h2>
+<p>Connect the autopilot to Mission Planner.</p>
+<p>Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-cport" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_CPORT</span></a> = 1, if not already set, or =2 if its desired to examine the second CAN bus, if the autopilot provides it, and reboot.</p>
+<img alt="../_images/can-slcan-cport.png" src="../_images/can-slcan-cport.png" />
+<p>Connect normally to Mission Planner and navigate to Initial Setup-&gt;Optional Hardware-&gt;UAVCAN(DroneCAN).
+Click on SLCan Mode CAN1, and any attached DroneCAN nodes using Driver 1 will appear and firmware updates or parameter changes of the node are now available. To return to normal Mission Planner operation, leave this tab for 2 seconds and reconnect to Mission Planner.</p>
+<img alt="../_images/can-slcan-mpc.png" src="../_images/can-slcan-mpc.png" />
+</section>
+<section id="making-changes-to-dronecan-devices">
+<h2>Making Changes to DroneCAN Devices<a class="headerlink" href="#making-changes-to-dronecan-devices" title="Permalink to this heading">¶</a></h2>
+<p>Once SLCAN has been enabled, you can use <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-initial-setup.html#dronecan-uavcan-slcan" title="(in Mission Planner)"><span class="xref std std-ref">Mission Planner</span></a>  to make changes immediately to device parameters or firmware update.</p>
+<p><a class="reference internal" href="common-uavcan-gui.html#common-uavcan-gui"><span class="std std-ref">DroneCAN GUI tool</span></a> can also be used, but requires a slightly different setup:</p>
+</section>
+<section id="enabling-use-of-dronecan-gui">
+<h2>Enabling Use of DroneCAN GUI<a class="headerlink" href="#enabling-use-of-dronecan-gui" title="Permalink to this heading">¶</a></h2>
+<p>Connect the flight autopilot to Mission Planner. Set the parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-cport" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_CPORT</span></a> = 1 , if not already set, and reboot.</p>
+<p>Reconnect Mission Planner and set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-sernum" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_SERNUM</span></a> = 0. This will direct the output to the autopilot’s SERIAL0 port which is normally the autopilot USB connection. Be sure that the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#can-slcan-timout" title="(in Rover)"><span class="xref std std-ref">CAN_SLCAN_TIMOUT</span></a> parameter is 0 to prevent timeouts.</p>
+<img alt="../_images/can-slcan-srnum.png" src="../_images/can-slcan-srnum.png" />
+<p>Do not reboot, and click SLCAN Mode CAN1 in the Initial Setup-&gt;Optional Hardware-&gt;UAVCAN(DroneCAN). Now open the <a class="reference internal" href="common-uavcan-gui.html#common-uavcan-gui"><span class="std std-ref">DroneCAN GUI tool</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this mode, you can also use Mission Planner’s DroneCAN page to make changes, but it will not connect normally as a MAVLink Ground Station. To re-connect Mission Planner, you will need to reboot the autopilot.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C-RTK 2 PPK Module &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">C-RTK 2 PPK Module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="c-rtk-2-ppk-module">
+<span id="common-cuav-c-rtk2"></span><h1>C-RTK 2 PPK Module<a class="headerlink" href="#c-rtk-2-ppk-module" title="Permalink to this heading">¶</a></h1>
+<p>C-RTK 2 is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial survey/mapping). Its small shape/light weight, industrial-grade IMU combination, and combination of high-precision positioning modules can easily satisfy the most demanding Copter/VTOL Plane/Traditional Helicopter applications.</p>
+<a class="reference external image-reference" href="../images/c-rtk-9p/c-rtk2.png"><img alt="../_images/c-rtk2.png" src="../_images/c-rtk2.png" /></a>
+<section id="other-characteristics">
+<h2>Other characteristics<a class="headerlink" href="#other-characteristics" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>High-performance H7 processor</p></li>
+<li><p>High precision industrial grade IMU, Magnetometer and Barometer</p></li>
+<li><p>Supports RTK and saves RAW raw data (PPK) at the same time</p></li>
+<li><p>Multi-satellite and multi-frequency receivers</p></li>
+<li><p>UAVCAN/Dronecan protocol</p></li>
+<li><p>Supports camera hotshoe and shutter trigger</p></li>
+<li><p>Compatible with ArduPilot/PX4 autopilot software, and using a CUAV X7 series autopilot, it is plug and play.</p></li>
+<li><p>HS_USB C and micro-SD disk interfaces</p></li>
+</ul>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ZED-F9P RTK Receiver</p></li>
+<li><p>184 Receiving channels</p></li>
+<li><p>STM32H743VIH6(2M flash、1M RAM）Processor</p></li>
+<li><dl class="simple">
+<dt>On-board sensors:</dt><dd><ul>
+<li><p>Accelerometer/Gyroscope: ICM20689</p></li>
+<li><p>Magnetometer: RM3100</p></li>
+<li><p>Barometer: ICP10111</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>TF card expansion (32G(MAX))</p></li>
+<li><p>PPK(post processed kinematic) support</p></li>
+<li><p>RTK(Real - time kinematic) support</p></li>
+<li><dl class="simple">
+<dt>GNSS Bands</dt><dd><ul>
+<li><p>GPS:L1C/A,L2C</p></li>
+<li><p>GLONASS:L1OF,L2OF</p></li>
+<li><p>GALILEO: E1B/C E5b</p></li>
+<li><p>Beidou:B1I B2I</p></li>
+<li><p>Enhanced system</p></li>
+<li><p>QZSS:L1C/A,L2C,L1S</p></li>
+<li><p>SBAS:L1C/A</p></li>
+<li><p>4(GPS、GLONASS、GALILEO、Beidou）concurrent GNSS</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Update rates</dt><dd><ul>
+<li><p>RTK Up to 20Hz</p></li>
+<li><p>RAW Up to 25Hz(（Default 5Hz))</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Position accuracy（RMS)</dt><dd><ul>
+<li><p>RTK:0.01m+1ppm(level);0.02m+1ppm(vertical)</p></li>
+<li><p>GPS:1.5m(level)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Acquisition</dt><dd><ul>
+<li><p>Cold starts 24 s</p></li>
+<li><p>Aided starts 2 s</p></li>
+<li><p>Re-acquisition 2 s</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Sensitivity</dt><dd><ul>
+<li><p>Tracking &amp; Nav –167 dBm</p></li>
+<li><p>Cold starts –148 dBm</p></li>
+<li><p>Hot starts –157 dBm</p></li>
+<li><p>Rea-cquisition –160 dBm</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Anti-spoofng</dt><dd><ul>
+<li><p>Advanced anti-spoofng algorithms</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Protocols</dt><dd><ul>
+<li><p>NMEA</p></li>
+<li><p>UBX binary</p></li>
+<li><p>RTCM version 3.x</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Time pulse</dt><dd><ul>
+<li><p>0.25Hz~10Hz(Configurable)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Anti-jamming</dt><dd><ul>
+<li><p>Active CW detection and removal Onboard band pass ﬂter</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support flight control type</dt><dd><ul>
+<li><p>Compatible with autopilots running ArduPilot/PX4 firmware</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Interfaces</dt><dd><ul>
+<li><p>1 Hotshoe</p></li>
+<li><p>1 Shutter in</p></li>
+<li><p>1 Sutter out</p></li>
+<li><p>1 Type C(HS_USB)</p></li>
+<li><p>1 F9P USB</p></li>
+<li><p>1 F9P UART</p></li>
+<li><p>1 Antenna(mmcx)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Supply voltage</dt><dd><ul>
+<li><p>4.5~6v</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Operating temperature</dt><dd><ul>
+<li><p>-20~85℃</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Size</dt><dd><ul>
+<li><p>56x33x16.5mm</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Weight</dt><dd><p>-39g</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="purchase">
+<h2>Purchase<a class="headerlink" href="#purchase" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://cuav.en.alibaba.com/product/1600431150057-820872629/Free_shipping_Pre_sale_price_CUAV_C_RTK_2_Muti_frequency_PPK_Drone_PPK_Kit_for_Pixhawk_Fixed_Wing_VTOL.html?spm=a2700.shop_index.11406.1.194479958nMdw6)">CUAV Alibaba</a></p>
+<p><a class="reference external" href="https://store.cuav.net">CUAV Store</a></p>
+<p><a class="reference external" href="https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_home.slider_6001949835246.0">CUAV Aliexpress</a></p>
+</section>
+<section id="led-indicators">
+<h2>LED Indicators<a class="headerlink" href="#led-indicators" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk2/led.jpg"><img alt="../_images/led.png" src="../_images/led.png" /></a>
+<ul class="simple">
+<li><dl class="simple">
+<dt>SYS Led</dt><dd><ul>
+<li><p>100ms flashing: In bootloader</p></li>
+<li><p>1000ms flashing: Normal working condition</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>TF LED(TF Card）</dt><dd><ul>
+<li><p>Flashing: Noraml SD card reading and writing</p></li>
+<li><p>Always bright: No TF card or file system error of TF card. Try cycling the power.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Shutter In led (on side)</dt><dd><ul>
+<li><p>Flashing： Camera shutter signal input</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Shutter Out led</dt><dd><ul>
+<li><p>Flashing： Output shutter trigger signal to camera</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>CAN LED</dt><dd><ul>
+<li><p>Dark： No data input and output</p></li>
+<li><p>Blink once every 2 seconds： Data is being sent, but no data is beingreceived</p></li>
+<li><p>Blink twice within 2 seconds: Data is being received, but no data is being sent</p></li>
+<li><p>Blink 3 times in 2 seconds: Sending and Receiving data.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>PPS LED</dt><dd><ul>
+<li><p>On: no FIX</p></li>
+<li><p>Flashing: FIX</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RTK LED</dt><dd><ul>
+<li><p>Blinking 3 times every 2 seconds: Sending and Receiving RTK data.</p></li>
+<li><p>Flash：RTK Float</p></li>
+<li><p>Solid On：RTK FIX</p></li>
+<li><p>Dark：NO RTK</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RUN LED</dt><dd><ul>
+<li><p>Red led always On： System Error</p></li>
+<li><p>Yellow led always On： Application Warning</p></li>
+<li><p>Yellow flashing (100ms)： GNSS(F9P) Firmware update</p></li>
+<li><p>Blue Flashing: Base station mode</p></li>
+<li><p>Green Flashing: Rover mode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Mode button</dt><dd><ul>
+<li><p>When not connected to the computer, press and hold for 3 seconds to switch the mode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="pinouts">
+<h2>Pinouts<a class="headerlink" href="#pinouts" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../images/c-rtk2/c-rtk2_pinouts1.jpg"><img alt="../_images/c-rtk2_pinouts1.jpg" src="../_images/c-rtk2_pinouts1.jpg" /></a>
+<a class="reference external image-reference" href="../images/c-rtk2/c-rtk2_pinouts0.jpg"><img alt="../_images/c-rtk2_pinouts0.jpg" src="../_images/c-rtk2_pinouts0.jpg" /></a>
+<a class="reference external image-reference" href="../images/c-rtk2/c-rtk2_pinouts2.jpg"><img alt="../_images/c-rtk2_pinouts2.jpg" src="../_images/c-rtk2_pinouts2.jpg" /></a>
+</section>
+<section id="preparation-before-use">
+<h2>Preparation before use<a class="headerlink" href="#preparation-before-use" title="Permalink to this heading">¶</a></h2>
+<section id="only-use-ppk">
+<h3>Only use PPK<a class="headerlink" href="#only-use-ppk" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../images/c-rtk2/ppk1.jpg"><img alt="../_images/ppk1.jpg" src="../_images/ppk1.jpg" /></a>
+<ul class="simple">
+<li><p>1 PPK base station/Ntrip account</p></li>
+<li><p>1 C-RTK 2 1</p></li>
+<li><p>1 Mapping camera</p></li>
+<li><p>1 Drone</p></li>
+</ul>
+</section>
+<section id="ppk-rtk">
+<h3>PPK+RTK<a class="headerlink" href="#ppk-rtk" title="Permalink to this heading">¶</a></h3>
+<a class="reference external image-reference" href="../images/c-rtk2/rtk1.jpg"><img alt="../_images/rtk1.jpg" src="../_images/rtk1.jpg" /></a>
+<ul class="simple">
+<li><p>1 PPK base station/Ntrip account</p></li>
+<li><p>1 C-RTK 2</p></li>
+<li><p>1 Mapping camera</p></li>
+<li><p>1 Drone</p></li>
+<li><p>1 Data link</p></li>
+<li><p>1 Computer</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>C-RTK 2 can be used as an RTK base station and rover RTK gps, as well as a PPK rover gps,It is not recommended to be used as a PPK base station.</p>
+</div>
+</section>
+</section>
+<section id="user-manual">
+<h2>User Manual<a class="headerlink" href="#user-manual" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html">C-RTK2 Quick start</a></p>
+</section>
+<section id="video">
+<h2>Video<a class="headerlink" href="#video" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Yt7UY0NCmU8" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="additional-cuav-documentation">
+<h2>Additional CUAV Documentation<a class="headerlink" href="#additional-cuav-documentation" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html">C-RTK2 Quick start</a></p></li>
+<li><p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/surveying-points.html">Setting up aerial survey control points</a></p></li>
+<li><p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/base-station.html">Setting up the base station</a></p></li>
+<li><p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/mapping-waypoints.html">Aerial survey mission planning</a></p></li>
+<li><p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/ppk-solution.html">PPK solutions and data processing</a></p></li>
+<li><p><a class="reference external" href="https://doc.cuav.net/gps/c-rtk2/en/ppk-solution.md.html">Modeling with Aerial Three Modeling Software</a></p></li>
+</ul>
+</section>
+<section id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://doc.cuav.net">CUAV Docs</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived: Improving the Capabilities of Your Multicopter &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived: Improving the Capabilities of Your Multicopter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-improving-the-capabilities-of-your-multicopter">
+<span id="improving-the-capabilities-of-your-multicopter"></span><h1>Archived: Improving the Capabilities of Your Multicopter<a class="headerlink" href="#archived-improving-the-capabilities-of-your-multicopter" title="Permalink to this heading">¶</a></h1>
+<p>This page describes one of our members (Euan Ramasy’s) highly advanced
+photographic quadcopter. It illustrates the incremental improvements he
+has been and is making to better optimize its performance and
+usefulness and serves as an excellent example for how to properly
+undertake development and improvement of your own copter for your own
+uses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are just starting and this is your first MulitiCopter you
+are in the wrong place, go here: <a class="reference internal" href="build-your-own-multicopter.html#build-your-own-multicopter"><span class="std std-ref">Build Your Own Multicopter</span></a>.</p>
+</div>
+<section id="copter-upgrading-goals">
+<h2>Copter Upgrading Goals<a class="headerlink" href="#copter-upgrading-goals" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Well it’s been a year since I built my first quad (selecting APM,
+naturally), and I’ve decided to do a bit of an upgrade in the off
+season.</p></li>
+<li><p>There were four objectives to the exercise:</p>
+<ul>
+<li><p>better reliability</p></li>
+<li><p>simplify</p></li>
+<li><p>reduce weight</p></li>
+<li><p>improve performance</p></li>
+</ul>
+</li>
+</ul>
+<section id="better-reliability">
+<h3>Better reliability<a class="headerlink" href="#better-reliability" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added 40A ESC’s, giving me 15A overhead (formally 30A on a 25A max
+draw)</p></li>
+<li><p>Replaced 5V BEC with a 5.5V, after getting occasion chirp from
+Spektrum telemetry about low volts.</p></li>
+<li><p>Re-wired the PDB and the ESC’s for better RF</p></li>
+<li><p>Replaced 1 motor that sounded less than optimal</p></li>
+<li><p>ESC’s now uprated (if you can “uprate “to HobbyKing…:-)) and
+outboard for cooling and better security.</p></li>
+</ul>
+</section>
+<section id="simplicity">
+<h3>Simplicity<a class="headerlink" href="#simplicity" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Number of battery circuits reduced from 3 to one.</p></li>
+<li><p>New 5.5V and 12V BEC’s used</p></li>
+<li><p>Unnecessary LED’s dumped.</p>
+<ul>
+<li><p>Only retained 4 for orientation on the odd occasion I don’t FPV.</p></li>
+<li><p>But they are Braincube’s and are <strong>very</strong> bright!</p></li>
+<li><p>Labeled everything.</p></li>
+<li><p>Here is the controller:</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/lights.jpg"><img alt="../_images/lights.jpg" src="../_images/lights.jpg" /></a>
+</section>
+<section id="reduce-weight">
+<h3>Reduce weight<a class="headerlink" href="#reduce-weight" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Reduced battery circuits from 3 to 1.</p></li>
+<li><p>EzOSD replaced with minimOSD.</p></li>
+<li><p>Also in picture: an FPV camera switcher and the Telemetry junction
+box.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/minimOSD.jpg"><img alt="../_images/minimOSD.jpg" src="../_images/minimOSD.jpg" /></a>
+<ul class="simple">
+<li><p>LED circuits dumped</p></li>
+<li><p>Spektrum telemetry TM1000 dumped</p></li>
+<li><p>GPS finder dumped</p></li>
+<li><p>Leg components replaced with Carbon Fibre</p></li>
+<li><p>And did it work?</p>
+<ul>
+<li><p>Starting weight: 3.65kg -&gt; Final weight: 3.62kg - so savings
+mostly consumed by improved brushless gimbal.</p></li>
+<li><p>If I’d stayed with the quadframe brushless (refused to tune with
+Martinez board!) and dumped the Braincube as well, I would have
+saved over 200g.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Moongel replaced with zeal. Unfortunately vibes actually went up! I
+now hit the +/-5 “safe” limits in high power flight and maneuvers.</p>
+<ul>
+<li><p>However, it does seem to respond to very small commands much
+better.</p></li>
+<li><p>The zeal is firmer than moongel so I might expect that.</p></li>
+</ul>
+</li>
+<li><p>PID’s retuned after 3.0.1, to increase YAW control, and to decrease
+pitch/roll (only by 7%) to improve video footage.</p>
+<ul>
+<li><p>It still handles well, but it’s now more “Transit” than “Cosworth”
+.</p></li>
+<li><p>For our american cousins, this translates to: “it’s more light
+truck than corvette”).</p></li>
+</ul>
+</li>
+<li><p>6S Current sensor added. Means</p>
+<ul>
+<li><p>Compassmot can now be run in CURRENT not THROTTLE.</p></li>
+<li><p>Flight is noticeably more accurate, especially in RTL, Loiter.</p></li>
+</ul>
+</li>
+<li><p>Higher GPS pole added.</p>
+<ul>
+<li><p>Compassmot reduced from 4% to 1%.</p></li>
+</ul>
+</li>
+<li><p>Quadframe gimbal replaced with RCTimer.</p>
+<ul>
+<li><p>Video quality immediately improved.</p></li>
+<li><p>The original Quadframe brushless gimbal just refused to take a
+tune, and never performed well.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="receiver-with-2-satellites">
+<h2>Receiver with 2 Satellites<a class="headerlink" href="#receiver-with-2-satellites" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Radio diversity added via Orangerx 800 (DSMX) + 2 satellites.</p></li>
+<li><p>Each satellite has a 30cm cable, one mounted far out under one arm,
+one as far down on the leg as possible.</p></li>
+<li><p>It’s not perfect, but better than before. Radio now much more
+reliable regardless of orientation. No more scary moments…</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/diversity.jpg"><img alt="../_images/diversity.jpg" src="../_images/diversity.jpg" /></a>
+</section>
+<section id="fpv-transmitter-improvements">
+<h2>FPV Transmitter Improvements:<a class="headerlink" href="#fpv-transmitter-improvements" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Video TX moved to as far down the legs as possible.</p></li>
+<li><p>Range has improved from 350m to well over 600 with 600mw tx + ibcrazy
+omni’s.</p>
+<ul>
+<li><p>Will be pushing out further, as I now have an ibcrazy 5 turn
+helical antenna to play with as well.</p></li>
+</ul>
+</li>
+<li><p>Also to come: 1/4 wavelength 433mhz antenna’s for long range
+telemetry.</p>
+<ul>
+<li><p>How bad is it? It cuts out before the video does…</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_images/videotx.jpg"><img alt="../_images/videotx.jpg" src="../_images/videotx.jpg" /></a>
+</section>
+<section id="camera-gimbal-mount">
+<h2>Camera Gimbal Mount<a class="headerlink" href="#camera-gimbal-mount" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The Camera Gimbal Mount has had 3 upgrades.</p></li>
+<li><p>Quadframe brushless gimbals motors replaced with RCTimer.</p></li>
+<li><p>I replaced the battery plate with my own design, and I’m happy with
+that.</p></li>
+<li><p>So happy I’m selling it to anyone who wants one.</p></li>
+<li><p>I Also replaced the ball bearings with stiffer ones.</p></li>
+<li><p>I still get a tiny bit of jitter in pitch, but I might need to look
+at my rx feed into the martinez; it might be noisy.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/balls.jpg"><img alt="../_images/balls.jpg" src="../_images/balls.jpg" /></a>
+</section>
+<section id="fpv-camera-improvements">
+<h2>FPV Camera Improvements<a class="headerlink" href="#fpv-camera-improvements" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Finally, I dumped the 420 line FPV camera, and went with the 650 line
+from Security Camera 2000 (the one everyone goes for!).</p></li>
+<li><p>I also got some  new low light lenses.</p></li>
+<li><p>This setup just works so much better.</p></li>
+<li><p>Just a pity I can’t get minimOSD to overlay on the feed for some
+reason; works ok on the Gopro feed!</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/camera.jpg"><img alt="../_images/camera.jpg" src="../_images/camera.jpg" /></a>
+</section>
+<section id="summary">
+<h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Euan’s highly developed QuadCopter had already delivered excellent
+service as a brushless gimbal stabilized photographic platform with
+highly developed FPV cpability.</p></li>
+<li><p>And now he has added several improvements.</p>
+<ul>
+<li><p>The camera mount has been replaced with better gimbals, bearings
+and mounting plate.</p></li>
+<li><p>FPV now has a better higher resolution camera with better lenses
+and the FPV range has been extended.</p></li>
+<li><p>RC range has been extended with satellite receivers.</p></li>
+<li><p>Reliability has been further enhanced by numerous upgrades.</p></li>
+<li><p>And the copter has been simplified by removing unnecessary
+devices.</p></li>
+</ul>
+</li>
+<li><p>This should give you some idea of the level of detail and effort
+required to build a top notch platform that can be used in a
+professional capacity.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

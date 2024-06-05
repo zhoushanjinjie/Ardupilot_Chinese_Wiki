@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cameras and Gimbals &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Cameras and Gimbals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cameras-and-gimbals">
+<span id="common-cameras-and-gimbals"></span><h1>Cameras and Gimbals<a class="headerlink" href="#cameras-and-gimbals" title="Permalink to this heading">¶</a></h1>
+<p>Copter, Plane and Rover support up to 3-axis gimbals, including advance
+features like automated aiming of the camera at a Region of Interest
+(ROI), and automatic triggering of a camera shutter.  Follow the links below
+to explanations of how to configure gimbals and shutter triggering.</p>
+<a class="reference external image-reference" href="../_images/Cameras_Gimbals.jpg"><img alt="../_images/Cameras_Gimbals.jpg" src="../_images/Cameras_Gimbals.jpg" /></a>
+<section id="gimbals">
+<h2>Gimbals<a class="headerlink" href="#gimbals" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot supports both brushless direct drive gimbals (Tarot, SimpleBGC, SToRM32)
+that have their own self-stabilization controllers and the simpler servo-driven
+gimbals in which ArduPilot controls the stabilisation.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-brushless-pwm-gimbal.html#common-brushless-pwm-gimbal"><span class="std std-ref">Brushless PWM</span></a> - brushless gimbals that accept PWM or SBUS input for angle control</p></li>
+<li><p><a class="reference internal" href="common-djirs2-gimbal.html#common-djirs2-gimbal"><span class="std std-ref">DJI RS2 and RS3-Pro gimbals</span></a></p></li>
+<li><p><a class="reference internal" href="common-gremsy-pixyu-gimbal.html#common-gremsy-pixyu-gimbal"><span class="std std-ref">Gremsy Mio, Pixy, S1, T3, T7 and ZIO</span></a> - high quality 3-axis gimbals</p></li>
+<li><p><a class="reference internal" href="common-camera-gimbal.html#common-camera-gimbal"><span class="std std-ref">Servo Gimbals</span></a> — older-style servo-driven gimbal where ArduPilot provides stabilisation</p></li>
+<li><p><a class="reference internal" href="common-simplebgc-gimbal.html#common-simplebgc-gimbal"><span class="std std-ref">SimpleBGC (aka AlexMos) Gimbal Controller</span></a> - a popular 2-axis or 3-axis brushess gimbal controller which uses a custom serial interface</p></li>
+<li><p><a class="reference internal" href="common-siyi-zr10-gimbal.html#common-siyi-zr10-gimbal"><span class="std std-ref">Siyi ZR10, ZR30 and A8</span></a> - 3-axis gimbal and camera</p></li>
+<li><p><a class="reference internal" href="common-storm32-gimbal.html#common-storm32-gimbal"><span class="std std-ref">SToRM32 Gimbal Controller</span></a> — an inexpensive 2-axis or 3-axis brushless gimbal controller which responds to MAVLink commands (a richer format than PWM) over a serial interface</p></li>
+<li><p><a class="reference internal" href="common-viewpro-gimbal.html#common-viewpro-gimbal"><span class="std std-ref">ViewPro gimbals</span></a></p></li>
+</ul>
+<p>Mount control is covered on the <a class="reference internal" href="common-mount-targeting.html#common-mount-targeting"><span class="std std-ref">Gimbal / Mount Controls</span></a> page.</p>
+</section>
+<section id="cameras-with-mavlink-interfaces">
+<h2>Cameras with MAVLink interfaces<a class="headerlink" href="#cameras-with-mavlink-interfaces" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-flir-vue-pro.html#common-flir-vue-pro"><span class="std std-ref">FLIR Vue Pro Thermal Camera</span></a></p></li>
+</ul>
+</section>
+<section id="camera-control-and-geotagging">
+<span id="common-cameras-and-gimbals-camera-shutter-triggering"></span><h2>Camera Control and GeoTagging<a class="headerlink" href="#camera-control-and-geotagging" title="Permalink to this heading">¶</a></h2>
+<p>ArduPilot allows you to <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">configure the camera shutter output port</span></a> (servo, relay).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>be sure to set the <code class="docutils literal notranslate"><span class="pre">CAMx_INTRVAL_MIN</span></code> to be greater than the fastest the camera can take photos when using the camera trigger functions.</p>
+</div>
+<p>In <a class="reference internal" href="common-camera-control-and-auto-missions-in-mission-planner.html#common-camera-control-and-auto-missions-in-mission-planner"><span class="std std-ref">camera mission planning</span></a>
+you can specify when the camera shutter should trigger, or a distance
+that the vehicle should travel between shots.</p>
+<p>Camera manufacturers use their own mechanisms for remote control of the
+camera (including its shutter). The topics explain how to configure the
+camera shutter, and list a number of different approaches for converting
+the output signal into the form expected by your particular camera:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-geotagging-airpixel-entire.html#common-geotagging-airpixel-entire"><span class="std std-ref">Airpixel Entire Geotagger</span></a></p></li>
+<li><p><a class="reference internal" href="common-geotagging-drotagx.html#common-geotagging-drotagx"><span class="std std-ref">DROTAG x Geotagger</span></a></p></li>
+<li><p><a class="reference internal" href="common-camera-trigger-seagull-ir.html#common-camera-trigger-seagull-ir"><span class="std std-ref">Seagull IR Camera Trigger</span></a></p></li>
+<li><p><a class="reference internal" href="common-camera-trigger-seagull-map2.html#common-camera-trigger-seagull-map2"><span class="std std-ref">Seagull MAP2 Camera Trigger</span></a></p></li>
+<li><p><a class="reference internal" href="common-camera-trigger-seagull-mapx2.html#common-camera-trigger-seagull-mapx2"><span class="std std-ref">Seagull MAP-X2 Camera Trigger and Logger</span></a></p></li>
+<li><p><a class="reference internal" href="common-camera-trigger-seagull-rec.html#common-camera-trigger-seagull-rec"><span class="std std-ref">Seagull REC Camera Trigger</span></a></p></li>
+<li><p><a class="reference internal" href="common-camera-trigger-stratosnapperv2.html#common-camera-trigger-stratosnapperv2"><span class="std std-ref">StratosnapperV2 Camera Trigger</span></a></p></li>
+<li><p><a class="reference internal" href="common-pixhawk-camera-trigger-setup.html#common-pixhawk-camera-trigger-setup"><span class="std std-ref">Camera Triggering Directly from AUX Ports</span></a></p></li>
+<li><p><a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">Camera Triggering Configuration</span></a></p></li>
+<li><p><a class="reference internal" href="common-apm-to-chdk-camera-link-tutorial.html#common-apm-to-chdk-camera-link-tutorial"><span class="std std-ref">Camera Triggering using CHDK</span></a></p></li>
+<li><p><a class="reference internal" href="common-chdk-camera-control-tutorial.html#common-chdk-camera-control-tutorial"><span class="std std-ref">Camera Triggering using CHDK Tutorial</span></a> (non-standard integration)</p></li>
+<li><p><a class="reference internal" href="common-camera-runcam.html#common-camera-runcam"><span class="std std-ref">RunCam Camera Control</span></a></p></li>
+</ul>
+</section>
+<section id="common-fixes-for-poor-video-quality">
+<h2>Common fixes for poor video quality<a class="headerlink" href="#common-fixes-for-poor-video-quality" title="Permalink to this heading">¶</a></h2>
+<p>Some of the more common causes and solutions for poor video are listed
+below:</p>
+<ul class="simple">
+<li><p>“Jello” effect (or rolling shutter) is a by-product of using a camera
+with a CMOS sensor (GoPro, et al) caused by vibration from unbalanced
+props/motors and can be mitigated by mounting the camera on soft
+rubber, silicone, foam ear plugs or sometimes just on velcro.</p></li>
+<li><p>digital and optical stabilization systems found in many cameras often
+do not perform well because of the vibrations found on many
+multicopters.</p>
+<ul>
+<li><p>Exceptions: the Sony video camera balanced steady shot system is
+very effective even at maximum 30 power zoom.</p></li>
+</ul>
+</li>
+<li><p>For better and smoother Yaw, use Expo control on your RC and lower
+the <a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#acro-y-rate" title="(in Copter)"><span class="xref std std-ref">ACRO_Y_RATE</span></a> gain in the autopilot.</p></li>
+</ul>
+<p>It is important to remember that even with a perfect setup, photography
+is an art as well as a science. Using the camera pointing straight to
+the ground is a good place to start, but more dramatic viewpoints can be
+achieved with angles other than vertical. Mount about 40 degrees
+deviation from vertical to obtain mainly ground photos but with an oblique
+view. About 70 degrees off vertical will give you a lot more sky thus giving
+more scenic photos. ArduPilot will stabilize the gimbal to whatever position you set.</p>
+</section>
+<section id="detail-topics">
+<h2>Detail topics<a class="headerlink" href="#detail-topics" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-brushless-pwm-gimbal.html">Brushless PWM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-gremsy-pixyu-gimbal.html">Gremsy Pixy U Gimbal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-gimbal.html">Servo Gimbal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-simplebgc-gimbal.html">SimpleBGC Gimbal Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-siyi-zr10-gimbal.html">Siyi ZR10, ZR30 and A8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-storm32-gimbal.html">SToRM32 Gimbal Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-flir-vue-pro.html">FLIR Vue Pro Thermal Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-geotagging-airpixel-entire.html">Airpixel Entire Geotagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-geotagging-drotagx.html">DROTAG x Geotagger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-trigger-seagull-ir.html">Seagull IR Camera Trigger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-trigger-seagull-map2.html">Seagull MAP2 Camera Trigger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-trigger-seagull-mapx2.html">Seagull MAP-X2 Camera Trigger and Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-trigger-seagull-rec.html">Seagull REC Camera Trigger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-trigger-stratosnapperv2.html">StratosnapperV2 Camera Trigger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-pixhawk-camera-trigger-setup.html">Camera Trigger Directly from AUX Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-shutter-with-servo.html">Camera Triggering Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-apm-to-chdk-camera-link-tutorial.html">Camera Triggering using CHDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-chdk-camera-control-tutorial.html">Camera Triggering using CHDK Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-camera-runcam.html">RunCam Camera Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mount-targeting.html">Gimbal / Mount Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-viewpro-gimbal.html">ViewPro gimbals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-djirs2-gimbal.html">DJI RS2 and RS3-Pro gimbals</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

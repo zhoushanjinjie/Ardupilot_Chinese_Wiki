@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel RealSense Depth Camera &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intel RealSense Depth Camera</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intel-realsense-depth-camera">
+<span id="common-realsense-depth-camera"></span><h1>Intel RealSense Depth Camera<a class="headerlink" href="#intel-realsense-depth-camera" title="Permalink to this heading">¶</a></h1>
+<p>[copywiki destination=”copter,rover”]</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/fLzxyPWQHuA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>This article explains how to setup an <a class="reference external" href="https://www.intelrealsense.com/stereo-depth/">Intel Realsense Depth Camera</a> to be used with ArduPilot for <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">obstacle avoidance</span></a>. This method uses a Python script (non <a class="reference external" href="https://www.ros.org/">ROS</a>) running on a companion computer to send distance information to ArduPilot.</p>
+<section id="what-to-buy">
+<h2>What to Buy<a class="headerlink" href="#what-to-buy" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.intelrealsense.com/depth-camera-d435/">Intel RealSense 435</a> or <a class="reference external" href="https://www.intelrealsense.com/depth-camera-d435i/">D435i</a> depth camera.  Other <a class="reference external" href="https://www.intelrealsense.com/stereo-depth/">Intel depth cameras</a> may also work</p></li>
+<li><p><a class="reference external" href="https://up-shop.org/up-squared-series.html">UP Squared companion computer</a> (Celeron 2GB and ATOM are known to work). Other companion computers including the <a class="reference external" href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">RPi4</a> are not supported although it may be possible to manually set them up (see Configure Companion Computer section below)</p></li>
+<li><p>Two USB flash drives (8GB or more)</p></li>
+</ul>
+</section>
+<section id="hardware-connections">
+<h2>Hardware Connections<a class="headerlink" href="#hardware-connections" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Mount the camera on the vehicle facing <strong>forward</strong> (other orientation are not yet supported) and provide isolation from vibrations if possible. Connect the camera USB cable to one of the UP2 board’s blue USB3 ports</p></li>
+<li><p>Connect the UP Squared’s serial port to one of the autopilot’s telemetry ports (i.e. Telem1, Telem2) as shown below</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/intel-realsense-435-pixhawk.jpg"><img alt="../_images/intel-realsense-435-pixhawk.jpg" src="../_images/intel-realsense-435-pixhawk.jpg" style="width: 450px;" /></a>
+</section>
+<section id="setup-the-up-squared">
+<h2>Setup the UP Squared<a class="headerlink" href="#setup-the-up-squared" title="Permalink to this heading">¶</a></h2>
+<p>Install APSync to the UP Squared:</p>
+<ul class="simple">
+<li><p>Download the latest APSync image (<a class="reference external" href="https://firmware.ardupilot.org/Companion/apsync/beta/">look for apsync-up2-d435i-yyyymmdd.tar.xz here</a>) and copy to one of the USB flash drives</p></li>
+<li><p><a class="reference external" href="https://tuxboot.org/download/">Download Tuxboot</a></p></li>
+<li><p>Format a second USB flash drive and use Tuxboot to install <a class="reference external" href="https://clonezilla.org/">Clonezilla</a> onto it</p></li>
+<li><p>Insert this second USB flash drive into the UP Squared’s USB port and then power up the UP Squared board</p></li>
+<li><p>The CloneZilla boot menu should appear, Press enter to select the first option</p></li>
+<li><p>In CloneZilla:</p>
+<ul>
+<li><p>Press enter to accept default keyboard layout</p></li>
+<li><p>Press enter to start clonezilla</p></li>
+<li><p>Press enter to select device-image</p></li>
+<li><p>Press enter for local_dev</p></li>
+<li><p>Insert the second USB stick which has the APSync image copied onto it</p></li>
+<li><p>Press enter to continue and detect USB devices</p></li>
+<li><p>When device is detected, use ctrl-c to exit detection screen</p></li>
+<li><p>Use the cursor keys to select the device that contains the APSync image</p></li>
+<li><p>Select the apsync directory which contains the image</p></li>
+<li><p>Use tab to move the “cursor” over “Done” and press enter</p></li>
+<li><p>Press enter to acknowledge disk space usage</p></li>
+<li><p>Press enter to select Beginner mode</p></li>
+<li><p>Use the cursor keys to select “restoredisk” and press enter</p></li>
+<li><p>Select the image file to restore and again press enter</p></li>
+<li><p>Choose the target disk to be overwritten. Any data on that disk will be overwritten with the APSync image. Press enter</p></li>
+<li><p>Select “Yes check the image before restoring” and press enter. This will ensure the image you copied onto USB is healthy.</p></li>
+<li><p>Select “-p choose” . Press enter to any prompt till restoration begins</p></li>
+<li><p>Installation progress should be visible now, wait a few minutes</p></li>
+<li><p>Enter “Y” when prompted for overwriting all data to selected disk</p></li>
+<li><p>After the cloning process is finished, there will be a prompt declaring success, press enter to continue.</p></li>
+<li><p>Press enter on “power off”</p></li>
+<li><p>Remove all USB sticks from the board. You can also remove your monitor input.</p></li>
+<li><p>Reboot</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="upgrade-the-camera-s-firmware">
+<h2>Upgrade the Camera’s Firmware<a class="headerlink" href="#upgrade-the-camera-s-firmware" title="Permalink to this heading">¶</a></h2>
+<p>Check the camera’s firmware is version 5.12.8.200 or later.  This can be done using the <a class="reference external" href="https://dev.intelrealsense.com/docs/firmware-update-tool">Firmware Update Tool (Windows only)</a> or the <a class="reference external" href="https://www.intelrealsense.com/sdk-2/">Intel Realsense Viewer</a></p>
+<ul class="simple">
+<li><p>If using the <a class="reference external" href="https://dev.intelrealsense.com/docs/firmware-update-tool">Firmware Update Tool</a> the <a class="reference external" href="https://downloadcenter.intel.com/product/128255/Intel-RealSense-Depth-Camera-D435">latest camera firmware can be found here</a></p></li>
+<li><p>If using the <a class="reference external" href="https://www.intelrealsense.com/sdk-2/">Intel RealSense Viewer</a> after downloading and installing, connect the camera to your PC with a USB3 cable.  The firmware upgrade can be triggered via a pop-up on the top right of the application or from the “More” menu as shown below</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/intel-realsense-435-firmware-upgrade.png"><img alt="../_images/intel-realsense-435-firmware-upgrade.png" src="../_images/intel-realsense-435-firmware-upgrade.png" style="width: 450px;" /></a>
+</section>
+<section id="configure-ardupilot">
+<h2>Configure ArduPilot<a class="headerlink" href="#configure-ardupilot" title="Permalink to this heading">¶</a></h2>
+<p>Connect to the autopilot with a ground station (i.e. Mission Planner) and check that the following parameters are set:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 2 (MAVLink2).  Note this assumes the companion computer is connected to AutoPilot “Telem2” port.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-baud" title="(in Rover)"><span class="xref std std-ref">SERIAL2_BAUD</span></a> = 921 (921600 baud)</p></li>
+</ul>
+<p>Enable any of the <a class="reference internal" href="common-object-avoidance-landing-page.html#common-object-avoidance-landing-page"><span class="std std-ref">obstacle avoidance</span></a> of your own choosing. <a class="reference internal" href="common-simple-object-avoidance.html#common-simple-object-avoidance"><span class="std std-ref">Simple avoidance behavior</span></a> (Stop/Slide) will be used as the example for this wiki:</p>
+<p>Example setup below shown for first proximity sensor:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#prx1-type" title="(in Rover)"><span class="xref std std-ref">PRX1_TYPE</span></a> = 2: for MAVLink</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#avoid-enable" title="(in Rover)"><span class="xref std std-ref">AVOID_ENABLE</span></a> = 7: “All” to use all sources of barrier information including “Proximity” sensors</p></li>
+</ul>
+<p>Example of specifics for <code class="docutils literal notranslate"><span class="pre">Loiter</span></code> and <code class="docutils literal notranslate"><span class="pre">AltHold</span></code> mode:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#avoid-margin" title="(in Rover)"><span class="xref std std-ref">AVOID_MARGIN</span></a> = 1.5: How many meters from the barrier the vehicle will attempt to stop or try to slide along it</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#avoid-behave" title="(in Rover)"><span class="xref std std-ref">AVOID_BEHAVE</span></a> = 1: Whether the vehicle should simply Stop (1) in front of the barrier or Slide (0) around it</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#avoid-dist-max" title="(in Copter)"><span class="xref std std-ref">AVOID_DIST_MAX</span></a> = 1.5: How far from a barrier the vehicle starts leaning away from the barrier in AltHold</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/copter/docs/parameters.html#avoid-dist-max" title="(in Copter)"><span class="xref std std-ref">AVOID_ANGLE_MAX</span></a> = 3000: How far the vehicle will try to lean away from the barrier</p></li>
+</ul>
+<p><strong>Optional</strong>: You can assign an RC switch to enable Avoidance instead of always on by default. Example of setting RC7 to switch Avoidance on in Mission Planner:</p>
+<a class="reference external image-reference" href="../_images/mp_rc_proximity.png"><img alt="../_images/mp_rc_proximity.png" src="../_images/mp_rc_proximity.png" style="width: 500px;" /></a>
+<p>After the parameters are modified, reboot the autopilot.</p>
+</section>
+<section id="ground-test-pre-flight-verification">
+<h2>Ground Test: Pre-Flight Verification<a class="headerlink" href="#ground-test-pre-flight-verification" title="Permalink to this heading">¶</a></h2>
+<p>To verify that the APSync image is working and everything has been correctly configured ensure ArduPilot is receiving <code class="docutils literal notranslate"><span class="pre">OBSTACLE_DISTANCE</span></code> messages, on Mission Planner: press <code class="docutils literal notranslate"><span class="pre">Ctrl+F</span></code> and click on “Mavlink Inspector”, you should be able to see data coming in:</p>
+<a class="reference external image-reference" href="../_images/copter-object-avoidance-show-radar-view.png"><img alt="../_images/copter-object-avoidance-show-radar-view.png" src="../_images/copter-object-avoidance-show-radar-view.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>If you have a stable telemetry connection, the data frequency for <code class="docutils literal notranslate"><span class="pre">OBSTACLE_DISTANCE</span></code> message should be close to <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">hz</span></code>. If not, use a USB cable to connect AP and GCS to make sure that the obstacle avoidance data is being received as intended by AP before moving on.</p></li>
+</ul>
+<p>Within Mission Planner, open the <code class="docutils literal notranslate"><span class="pre">Proximity</span> <span class="pre">view</span></code> (<code class="docutils literal notranslate"><span class="pre">Ctrl-F</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Proximity</span></code>):</p>
+<ul class="simple">
+<li><p>Put the vehicle/depth camera in front of some obstacles, check that the distance to the nearest obstacle is accurate is shown in the Proximity view.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/mp_new_proximity_view.png"><img alt="../_images/mp_new_proximity_view.png" src="../_images/mp_new_proximity_view.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>The proximity view will group every distances within 45-degrees arc together (in total 8 quadrants around the vehicle), so at most only 3 <strong>nearest</strong> obstacles will be shown at any one time on the Proximity window (since the camera’s FOV is less then 90 degrees).</p></li>
+</ul>
+</section>
+<section id="flight-test">
+<h2>Flight Test<a class="headerlink" href="#flight-test" title="Permalink to this heading">¶</a></h2>
+<p>For your first flight:</p>
+<ul class="simple">
+<li><p>Test process: Take-off -&gt; AltHold / Loiter -&gt; Move toward the obstacle.</p></li>
+<li><p>Only push the vehicle gently and observe the reactions.</p></li>
+<li><p>Expected behavior: The vehicle should stop/slide (set by <code class="docutils literal notranslate"><span class="pre">AVOID_BEHAVE</span></code>) at a certain distance away from the obstacle (set by <code class="docutils literal notranslate"><span class="pre">AVOID_MARGIN/AVOID_DIST_MAX</span></code> depending on the flight mode).</p></li>
+</ul>
+<p>If everything works as expected, the next step is to test out the safety margins for your specific sensor/vehicle/environment:</p>
+<ul class="simple">
+<li><p>Since the camera has limited FOV and min/max depth range, it is important to test the limits to ensure safety for your vehicle in the actual environment.</p></li>
+<li><p>The pilot should have a rough guess of these margins and put some overheads into the planning of mission.</p></li>
+</ul>
+</section>
+<section id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>First manual tests: confirm the expected behavior when obstacle is present, as well as the FOV and safety margins for my vehicle + camera. The flights were conducted in Loiter:</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/WGOKat8tkVg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><ul class="simple">
+<li><p>Autonomous flight tests: Here is a short video summarizes the main steps during actual experiments and how a working system should behave. In this example, the vehicle will attempt to follow a square pattern but will stop before any obstacle.</p></li>
+</ul>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/fLzxyPWQHuA" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div></section>
+<section id="dataflash-logging">
+<h2>DataFlash logging<a class="headerlink" href="#dataflash-logging" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The relevant messages for the depth camera are <code class="docutils literal notranslate"><span class="pre">PRX.CAn</span></code> and <code class="docutils literal notranslate"><span class="pre">PRX.CDist</span></code>, which stand for angle and distance of the closest object, respectively.</p></li>
+<li><p>You can also view the distance data in each quadrant (D0, D45, and D315 - or 0 degree, 45 degree and 315 degree). Note that the range of value for CAn is 360 degrees while for CDist and the other Dangle only a few meters, so you might need to view them separately.</p></li>
+</ul>
+</section>
+<section id="system-overview">
+<h2>System Overview<a class="headerlink" href="#system-overview" title="Permalink to this heading">¶</a></h2>
+<p>In a nutshell, the script will convert the depth image provided by the Realsense depth camera into distances to obstacles in front. AP supports <a class="reference external" href="https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR">DISTANCE_SENSOR</a> and <a class="reference external" href="https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE">OBSTACLE_DISTANCE</a> MAVLink messages, with the former carries a single distance and the latter carries an array of distances. <code class="docutils literal notranslate"><span class="pre">OBSTACLE_DISTANCE</span></code> allows us to send up to 72 distances at once, so it will be used.</p>
+<ul class="simple">
+<li><p>Firstly, it is important to apply some form of filters on the <strong>raw</strong> depth image to avoid black holes, noises and generally improve the data to obtain more stable results. Here is full <a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/post-processing-filters.md">list of filters</a> that are included in the script, which you can enable individually. To test the settings for different filters, you can use the <a class="reference external" href="https://github.com/IntelRealSense/librealsense/tree/master/tools/depth-quality">rs-depth-quality</a> example provided by <code class="docutils literal notranslate"><span class="pre">librealsense</span></code> or run the example <code class="docutils literal notranslate"><span class="pre">opencv_depth_filtering.py</span></code> script. The following picture demonstrates the raw (left) and filtered (right) depth image, with the horizontal line as the position where we compute the distances to the obstacles.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/example-depth-camera-filtered-image.png"><img alt="../_images/example-depth-camera-filtered-image.png" src="../_images/example-depth-camera-filtered-image.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>Next, from the input/processed depth image, the distances need to be on the same <strong>horizontal</strong> line (depicted in the right image) since the message contains no field to distinguish different pitch angles. We devide the horizontal field of view of the camera into 72 evenly spaced rays. Along each ray, we select the pixel corresponding to the end of the ray and pick out the depth value.</p></li>
+<li><p>Subsequently, the obstacle line will be kept “fixed” when the vehicle pitches up and down by compensating for the current pitch of the vehicle which is provided by the <a class="reference external" href="https://mavlink.io/en/messages/common.html#ATTITUDE">ATTITUDE</a>  MAVLink message.</p></li>
+<li><p>Finally, the message should be sent at 10Hz or higher, depends on how fast the vehicle is moving.</p></li>
+</ul>
+</section>
+<section id="manually-setup-the-companion-computer">
+<h2>Manually Setup the Companion Computer<a class="headerlink" href="#manually-setup-the-companion-computer" title="Permalink to this heading">¶</a></h2>
+<p>These steps are only required if you have not already installed APSync to the companion computer.</p>
+<p>For the companion computer:</p>
+<ul class="simple">
+<li><p><strong>OS</strong>: <strong>Ubuntu 18.04</strong> (highly recommended as this release is the most up-to-date with the required libraries).</p></li>
+<li><p><strong>Python 3.6</strong> and above, which is also the standard for Ubuntu 18.04. Check the version with <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">python3</span> <span class="pre">-V</span></code>, you should see <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.6.9</span></code> or higher.</p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense">librealsense</a>: download or install from the <a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md">official source</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyrealsense2</span></code> is also required</p></li>
+</ul>
+<p>The installation process varies widely for different systems, hence refer to <a class="reference external" href="https://github.com/IntelRealSense/librealsense">the official github page</a> for instructions for your specific system:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">Ubuntu</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md">Jetson</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_odroid.md">Odroid</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md">Windows</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_raspbian.md">Raspbian</a></p></li>
+</ul>
+<section id="install-supporting-packages">
+<h3>Install supporting packages<a class="headerlink" href="#install-supporting-packages" title="Permalink to this heading">¶</a></h3>
+<p>First install <a class="reference external" href="https://realpython.com/installing-python/#ubuntu">Python3 for Ubuntu</a> (not necessary for Ubuntu 18.04 and above). You should be able to then run the examples provided by Intel can be found in the folder <code class="docutils literal notranslate"><span class="pre">~/librealsense/wrappers/python/examples</span></code> with Python3 command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update the PYTHONPATH environment variable to add the path to the pyrealsense2 library</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:/usr/local/lib
+
+<span class="nb">cd</span><span class="w"> </span>~/librealsense/wrappers/python/examples
+
+<span class="c1"># You should see a stream of depth data coming from the D4xx camera.</span>
+python3<span class="w"> </span>python-tutorial-1-depth.py
+</pre></div>
+</div>
+<p>Install pip for Python3 <a class="reference external" href="https://linuxize.com/post/how-to-install-pip-on-ubuntu-18.04/#installing-pip-for-python-3">(pip3)</a> and other supporting packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pip
+pip3<span class="w"> </span>install<span class="w"> </span>pyrealsense2
+pip3<span class="w"> </span>install<span class="w"> </span>transformations
+pip3<span class="w"> </span>install<span class="w"> </span>dronekit
+pip3<span class="w"> </span>install<span class="w"> </span>apscheduler
+pip3<span class="w"> </span>install<span class="w"> </span>pyserial<span class="w"> </span><span class="c1"># For serial connection</span>
+pip3<span class="w"> </span>install<span class="w"> </span>opencv-python
+sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>python3-gst-1.0<span class="w"> </span>gir1.2-gst-rtsp-server-1.0<span class="w"> </span>gstreamer1.0-plugins-base<span class="w"> </span>gstreamer1.0-plugins-ugly<span class="w"> </span>libx264-dev
+
+<span class="c1"># Only necessary if you installed the minimal version of Ubuntu</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-opencv
+</pre></div>
+</div>
+<p>Download the main script <a class="reference external" href="https://github.com/thien94/vision_to_mavros/blob/master/scripts/d4xx_to_mavlink.py">d4xx_to_mavlink.py</a> or clone the <a class="reference external" href="https://github.com/thien94/vision_to_mavros">vision_to_mavros</a> repository and find the script folder.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/download<span class="w"> </span><span class="c1"># Or ROS workspace ~/catkin_ws/src</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/thien94/vision_to_mavros.git
+<span class="nb">cd</span><span class="w"> </span>vision_to_mavros/script
+chmod<span class="w"> </span>+x<span class="w"> </span>d4xx_to_mavlink.py
+chmod<span class="w"> </span>+x<span class="w"> </span>opencv_depth_filtering.py<span class="w">  </span><span class="c1"># Useful to test the filtering options</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The main script to be used with AP is <code class="docutils literal notranslate"><span class="pre">d4xx_to_mavlink.py</span></code>. The second script <code class="docutils literal notranslate"><span class="pre">opencv_depth_filtering.py</span></code> can be used to test out different filtering options at your own leisure.</p></li>
+</ul>
+</section>
+<section id="making-changes-to-the-script">
+<h3>Making Changes to the Script<a class="headerlink" href="#making-changes-to-the-script" title="Permalink to this heading">¶</a></h3>
+<p>If you don’t have a monitor plugged in, disable the debug option in the script <code class="docutils literal notranslate"><span class="pre">d4xx_to_mavlink.py</span></code> by setting <code class="docutils literal notranslate"><span class="pre">debug_enable_default</span> <span class="pre">=</span> <span class="pre">False</span></code> or add the argument <code class="docutils literal notranslate"><span class="pre">--debug_enable</span> <span class="pre">0</span></code> when running the script:</p>
+<ul class="simple">
+<li><p>Run the script with:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/script
+python3<span class="w"> </span>d4xx_to_mavlink.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If the debugging option is enabled, wait until the input and processed depth images are shown. The processing speed (fps) can be seen in the top right corner. The horizontal line on the output image (right) indicates the line on which we find the distances to the obstacles in front of the camera.</p></li>
+</ul>
+<p>Setup video feed of the RGB image from the camera:</p>
+<ul class="simple">
+<li><p>The script <code class="docutils literal notranslate"><span class="pre">d4xx_to_mavlink.py</span></code> has an option <code class="docutils literal notranslate"><span class="pre">RTSP_STREAMING_ENABLE</span></code>. If enabled (<code class="docutils literal notranslate"><span class="pre">True</span></code>), a video stream of the RGB image from the Realsense camera will be available at <code class="docutils literal notranslate"><span class="pre">rtsp://&lt;ip-address&gt;:8554/d4xx</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;ip-address&gt;</span></code> of the UP2 / companion computer.</p></li>
+<li><p>In Mission Planner: right-click the HUD &gt; Video &gt; Set GStreamer Source, which will open the Gstreamer url window. Pass the following example pipeline into the Gstreamer url window. Change the <code class="docutils literal notranslate"><span class="pre">&lt;ip-address&gt;</span></code> accordingly:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rtspsrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>rtsp://&lt;ip-address&gt;:8554/d4xx<span class="w"> </span><span class="nv">caps</span><span class="o">=</span>“application/x-rtp,<span class="w"> </span><span class="nv">media</span><span class="o">=(</span>string<span class="o">)</span>video,<span class="w"> </span>clock-rate<span class="o">=(</span>int<span class="o">)</span><span class="m">90000</span>,<span class="w"> </span>encoding-name<span class="o">=(</span>string<span class="o">)</span>H264”<span class="w"> </span><span class="nv">latency</span><span class="o">=</span><span class="m">100</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>rtph264depay<span class="w"> </span>!<span class="w"> </span>avdec_h264<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>video/x-raw,format<span class="o">=</span>BGRA<span class="w"> </span>!<span class="w"> </span>appsink<span class="w"> </span><span class="nv">name</span><span class="o">=</span>outsink
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The latency of the video feed depends on the network as well as pipeline configuration, so feel free to tune/modify the parameters.</p></li>
+</ul>
+<p>As the performance of the depth camera varies in different setting/environment, it is recommended to further tune the settings of the script before actual flight. Below are some improvements based on real experiments with the system:</p>
+<ul class="simple">
+<li><p>When the vehicle is on the ground, it is possible that a large portion of the depth image will see the ground. In such cases, within the <code class="docutils literal notranslate"><span class="pre">d4xx_to_mavlink.py</span></code> script, reduce the <code class="docutils literal notranslate"><span class="pre">obstacle_line_height_ratio</span></code> parameter (closer to zero) to move the obstacle detection line up.</p></li>
+<li><p>If the depth data is noisy, increase the thickness of the obstacle line by modify the <code class="docutils literal notranslate"><span class="pre">obstacle_line_thickness_pixel</span></code> param in the script. At the time of this writing, the idea is to process a group of pixels within a certain boundary (defined by this parameter) and find the lowest value to use as indicator to the object. This can change in the future if a better scheme is developed.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The depth camera can be used together with the <a class="reference internal" href="common-vio-tracking-camera.html#common-vio-tracking-camera"><span class="std std-ref">Realsense T265 Tracking camera for non-GPS navigation</span></a>. There are supporting <a class="reference external" href="https://github.com/thien94/vision_to_mavros/tree/master/scripts">scripts</a> available to simplify the usage of multiple cameras simultaneously.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

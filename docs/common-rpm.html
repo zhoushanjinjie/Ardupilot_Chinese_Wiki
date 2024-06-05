@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RPM Measurement &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RPM Measurement</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rpm-measurement">
+<span id="common-rpm"></span><h1>RPM Measurement<a class="headerlink" href="#rpm-measurement" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot supports the use of numerous types of RPM sensors.  They are commonly used in traditional helicopters to measure main rotor speed and motor/engine RPM.
+RPM sensors are mandatory for those who wish to use the closed-loop throttle governor functionality available to helicopters.  Additionally, vehicles that employ
+2-stroke and 4-stroke Internal Combustion Engines (ICE) use RPM sensors are for ignition timing.  The same rpm sensor can be used to log engine RPM in ArduPilot.</p>
+<p>Common types of RPM sensor that can be used in ArduPilot:</p>
+<ul class="simple">
+<li><p>Hall effect</p></li>
+<li><p>ESC Telemetry</p></li>
+<li><p>Electrical commutation</p></li>
+<li><p>Optical</p></li>
+</ul>
+<p>in addition, a pseudo RPM sensor which reports the center frequency of the dynamic harmonic notch filter is also an option.</p>
+<p>Any RPM sensor that outputs a step-change in voltage as a function of RPM can be used with ArduPilot.  A brief explanation of how the RPM library works is given.  This is followed by
+instructions for how to setup the different types of RPM sensor.  Up to two RPM sensors can be used.</p>
+<section id="how-the-rpm-library-works-type-auxpin">
+<h2>How the RPM Library Works (TYPE = AUXPIN)<a class="headerlink" href="#how-the-rpm-library-works-type-auxpin" title="Permalink to this heading">¶</a></h2>
+<p>The RPM library in ArduPilot monitors the voltage of the designated signal pin. The image below shows a typical output voltage of an RPM sensor:</p>
+<a class="reference external image-reference" href="../_images/Autorotation_Wheel_Magnet.png"><img alt="../_images/Commutation_RPM_Sensor.png" src="../_images/Commutation_RPM_Sensor.png" style="width: 450px;" /></a>
+<p>As it can be seen the voltage oscillates between 0V and 5V.  The voltage drops are either caused by a magnet passing a hall effect sensor, or are the output of a
+different type of sensor(eg. optical).  When a ‘falling edge’ is detected the time is stored.  When the voltage drops again the time difference between the falling edges can be
+calculated.  The time between the voltage drops is proportional to the RPM.  The scaling value that correlates the time between the falling edges and the RPM is
+dependent upon the setup and device being used.  Device-specific advice on scaling parameters is given later in this guide.</p>
+<p>In this example, the output is from an electrical commutation sensor, connected to a motor with 4 poles.  The RPM can be calculated as follows:</p>
+<a class="reference external image-reference" href="../_images/RPM_Equation.png"><img alt="../_images/RPM_Equation.png" src="../_images/RPM_Equation.png" style="width: 130px;" /></a>
+<p>Where dt is the time between falling edges (in seconds) and S is the scaling factor.  In this example, 4 poles means that there will be 4 wave periods per revolution.
+Hence, the scaling factor would be 0.25 and the resulting RPM would be 5282.  This is a somewhat simplistic view of how ArduPilot calculates the RPM, but it illustrates
+the key underlying concepts.</p>
+</section>
+<section id="hall-effect-sensors">
+<h2>Hall Effect Sensors<a class="headerlink" href="#hall-effect-sensors" title="Permalink to this heading">¶</a></h2>
+<p><strong>Hardware Setup</strong></p>
+<p>Perhaps the most often used, hall effect sensors change their output voltage in the presence of a sufficiently strong magnetic field.  A magnet needs to be fixed to
+the rotating component that is to be measured.  For helicopters, this requires that a hole or recess is made in the autorotation tail drive wheel and the magnet
+glued in place (as in the image below).  For ICE the magnet will be mounted in the output shaft.</p>
+<a class="reference external image-reference" href="../_images/Autorotation_Wheel_Magnet.jpg"><img alt="../_images/Autorotation_Wheel_Magnet.jpg" src="../_images/Autorotation_Wheel_Magnet.jpg" style="width: 240px;" /></a>
+<p>The polarity of the magnet matters.  Only one pole will create the change in voltage required.  To ensure that the magnet is affixed in the correct orientation
+either an oscilloscope or the <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_RPM/examples/ArduinoHallEffectDebug.ino">Arduino sketch found here</a>
+can be used.  If using an oscilloscope, this guide assumes that you have sufficient knowledge to be able to set up this test.  If using the Arduino sketch method
+in the link provided, a comprehensive set of instructions are commented at the beginning of the sketch.  An Arduino Uno was used when writing and testing the sketch
+and is recommended.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most hall effect sensors that are intended for use with radio control vehicles will require some additional modification.  Often, they will need an additional
+pull-up resistor to be added between the Vcc and signal lines.  In some cases, their Vcc, gnd, and signal lines won’t match the colour coding of the wire.  Hence,
+it is advisable to experiment with the provided Arduino sketch and a bread board to be sure of the sensor pin orientation.</p>
+</div>
+<p>For a reliable RPM signal the hall effect pick-up should be mounted very close to the magnet.  The image below shows an example mounting on a helicopter.</p>
+<a class="reference external image-reference" href="../_images/Installed_Hall_Effect_Sensor.jpg"><img alt="../_images/Installed_Hall_Effect_Sensor.jpg" src="../_images/Installed_Hall_Effect_Sensor.jpg" style="width: 240px;" /></a>
+<p>The three wires should then be plugged into the autopilot.  This is commonly done using a standard servo plug.  Ground to Gnd, Vcc to 5V, and the signal line
+needs to be attached to a GPIO pin.  On most smaller boards this will be any one of the PWM pins on the servo rail.  On a Pixhawk this must be one of the AUX ports.
+For reasons explained later it is recommended to use the highest number pin first.  E.g. AUX 6 on a Pixhawk/Cube or PWM 9 on a MatekF405-Wing.</p>
+<p><strong>Parameter Setup</strong></p>
+<p>First the board needs to be configured to allow PWM pins to be set for GPIO.  This is done using the parameter <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> .  Reduce the PWM count to free up a pin to be used for GPIO.  On non-Pixhawk boards the PWM count will include all PWM outputs.  On Pixhawk boards this parameter only affects AUX pins.  Write the parameter and reboot the autopilot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in firmware versions 4.2 and later, the method for setting a PWM/SERVO/MOTOR output to be a GPIO function is changed. Instead of <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> being used, the individual <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter is merely set to “-1”. If set to “0”, it remains a PWM output, unassigned to a function, and outputs that output’s trim value when board safety is not active. If the servo function is being “mirrored” to a remote device, as in the case of a DroneCAN or KDECAN ESC, then in order to change the autopilot board’s corresponding output pin to be a GPIO, but allow the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to still be assigned to the remote device, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter can be used to assign the board pin to be a GPIO without affecting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> assignment for the remote device.</p>
+</div>
+<p>Now the RPM library must be enabled. In the following sections, we will use the second instance of RPM sensor for parameter examples.</p>
+<p>Set the parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-type" title="(in Rover)"><span class="xref std std-ref">RPM2_TYPE</span></a> to 1 for a GPIO pin based sensor.  Write the parameter to ArduPilot then refresh/fetch the
+parameters.  You will now find that the instance of RPM (e.g. RPM2) has a number of other parameters available for editing, allowing you to complete your setup.</p>
+<p>Now the autopilot needs to be told which pin to find the RPM signal on.  To do this you will need to find the pin number in the hwdef.dat file for your
+board.  These can be found <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">here</a>.  Within the file for your board you will
+need to find where the GPIO(*) definition is.  The pin must have a timer assigned. Normally, these will be PWM servo/motor outputs that have been designated as a GPIO instead of PWM output. See <a class="reference internal" href="common-gpios.html#common-gpios"><span class="std std-ref">GPIOs</span></a>, for more information.</p>
+<p>for example, if we have set AUX port 5 to a GPIO and its GPIO numbering corresponds to pin 54, 54 must be entered into the parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-pin" title="(in Rover)"><span class="xref std std-ref">RPM2_PIN</span></a> for the RPM sensor.</p>
+<p>The parameter <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-scaling" title="(in Rover)"><span class="xref std std-ref">RPM2SCALING</span></a> will correspond to the number magnets used.  Most commonly only one magnet is used and this parameter is set to 1.  Some installations use
+2 magnets, 180 degrees out of phase.  In this case this parameter should be set to 0.5.</p>
+<p>Initially, it is recommended to leave the parameters <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-min" title="(in Rover)"><span class="xref std std-ref">RPM2_MIN</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-max" title="(in Rover)"><span class="xref std std-ref">RPM2_MAX</span></a>, and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-min-qual" title="(in Rover)"><span class="xref std std-ref">RPM2_MIN_QUAL</span></a> as their defaults.  If an RPM signal exceeds any of these limits then the value reported in the ground station and the logs is zero.  Therefore, only adjust these values once you have confirmed that your RPM sensor is working as expected, otherwise it can make it more difficult to debug if nothing is getting reported.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using two RPM sensors the min, max, and quality parameters are valid for both of the RPM sensors.  In this case be sure to set these values to encompass the
+RPM ranges of both sensors.</p>
+</div>
+<p>Finally, to test that everything is working, you can use the rpm1/rpm2 live feeds in the quick tab in mission planner or the live tuning window.  Alternatively the
+RPM history can be reviewed in the logs.</p>
+</section>
+<section id="esc-telemetry-average-motor-rpm">
+<h2>ESC Telemetry - Average Motor RPM<a class="headerlink" href="#esc-telemetry-average-motor-rpm" title="Permalink to this heading">¶</a></h2>
+<p>The RPM library can also be used to setup an ‘RPM sensor’ that computes and logs the average RPM for selected motors on the vehicle that are controlled by BLHeli_32 or BLHeli_S capable ESCs.  First the ESC telemetry will need to be setup.  See <a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">BLHeli Telemetry</span></a> for details on how to do this.  Once complete set <code class="docutils literal notranslate"><span class="pre">RPMx_TYPE</span></code> to 5 and write the parameters to ArduPilot.  Then refresh/fetch the parameters.  You will find a number of additional parameters are now available for that instance.  Find and set <code class="docutils literal notranslate"><span class="pre">RPMx_ESC_MASK</span></code> to add which ESC channels you want to be included in the average. For example for the second RPM instance:</p>
+<p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-esc-mask" title="(in Rover)"><span class="xref std std-ref">RPM2_ESC_MASK</span></a> is a bitmask, with each bit corresponding to a channel. If you wanted the average RPM for motors 1 to 4 you would set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-esc-mask" title="(in Rover)"><span class="xref std std-ref">RPM2_ESC_MASK</span></a> = 1 + 2 + 4 + 8 = 15.</p>
+</section>
+<section id="electrical-commutation-sensors">
+<h2>Electrical Commutation Sensors<a class="headerlink" href="#electrical-commutation-sensors" title="Permalink to this heading">¶</a></h2>
+<p>Electrical commutation RPM sensors can be added retrospectively using something like the Hobbywing brushless RPM sensor.  Some ESCs, such as the Castle Creations Edge
+series, that have an auxiliary output, can be configured to output a pulse per commutation.</p>
+<p>For clarification, this is not the same as the RPM that can be passed
+via serial telemetry with ESCs.  For information on how to set up RPM reporting with capable ESCs, see the <a class="reference internal" href="common-esc-telemetry.html#blheli32-esc-telemetry"><span class="std std-ref">ESC Telemetry</span></a>.</p>
+<p>The setup for electrical commutation RPM sensors is much the same as hall effect sensors, so the steps above are applicable.  The only difference is the scaling value
+to be entered in the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-scaling" title="(in Rover)"><span class="xref std std-ref">RP2_SCALING</span></a> parameter.  Now, the scaling value is a function of the number of poles in the motor and should be the reciprocal of the number of
+poles.  E.g. A 4 pole motor will need a scaling value of 0.25.</p>
+</section>
+<section id="optical-sensors">
+<h2>Optical Sensors<a class="headerlink" href="#optical-sensors" title="Permalink to this heading">¶</a></h2>
+<p>Again, the setup of optical sensors is much the same as the hall effect sensor.  The only difference is the scaling value.  <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rpm2-scaling" title="(in Rover)"><span class="xref std std-ref">RPM2_SCALING</span></a> should be set to be the reciprocal
+of the number of reflective obstacles that pass the sensor in a single rotation.</p>
+</section>
+<section id="harmonic-notch-center-frequency">
+<h2>Harmonic Notch Center Frequency<a class="headerlink" href="#harmonic-notch-center-frequency" title="Permalink to this heading">¶</a></h2>
+<p>If <code class="docutils literal notranslate"><span class="pre">RPMx_TYPE</span></code> = 4, then the center frequency of the harmonic notch is reported.  See <a class="reference external" href="https://ardupilot.org/plane/docs/common-imu-notch-filtering.html#common-imu-notch-filtering" title="(in Plane)"><span>Managing Gyro Noise with the Dynamic Harmonic Notch Filters</span></a> for how this value is obtained.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

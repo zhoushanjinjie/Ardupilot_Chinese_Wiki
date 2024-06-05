@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archived: HIL Quad Simulator &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Archived: HIL Quad Simulator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archived-hil-quad-simulator">
+<span id="hil-quad"></span><h1>Archived: HIL Quad Simulator<a class="headerlink" href="#archived-hil-quad-simulator" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ARCHIVED ARTICLE</strong></p>
+<p>HIL does not work since inertial navigation was introduced
+with Copter 2.9.  The closest alternative we have is
+<a class="reference external" href="https://ardupilot.org/dev/docs/setting-up-sitl-on-windows.html#setting-up-sitl-on-windows" title="(in Dev)"><span class="xref std std-ref">SITL</span></a>.</p>
+</div>
+<p>This article explains how to setup Quad HIL in the mission planner.</p>
+<section id="what-you-need">
+<h2>What you need<a class="headerlink" href="#what-you-need" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://www.flightgear.org/download/">Download Flightgear 2.x.x here</a></p></li>
+<li><p><a class="reference external" href="https://firmware.ardupilot.org/Tools/MissionPlanner/MissionPlanner-latest.msi">Download the latest APM Mission Planner here</a>.</p></li>
+<li><p>In the Mission Planner &gt; ‘Configuration tab | Adv Parameter List’
+save your current parameters so you can reload them after the
+simulation.</p></li>
+</ol>
+</section>
+<section id="how-to-make-it-work">
+<h2>How to make it work<a class="headerlink" href="#how-to-make-it-work" title="Permalink to this heading">¶</a></h2>
+<section id="safety-first-remove-your-quad-s-props-the-motors-will-be-live-during-the-simulation">
+<h3>Safety First: Remove your quad’s props, the motors will be live during the simulation!<a class="headerlink" href="#safety-first-remove-your-quad-s-props-the-motors-will-be-live-during-the-simulation" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Upload the quad hil firmware</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/ac2hilfirmware.jpg"><img alt="../_images/ac2hilfirmware.jpg" src="../_images/ac2hilfirmware.jpg" /></a>
+<p>2. Copy quadhil.xml (included with planner) to your FlightGear directory
+eg</p>
+<p><code class="docutils literal notranslate"><span class="pre">C:Program</span> <span class="pre">Files</span> <span class="pre">(x86)FlightGeardataProtocol</span></code></p>
+<a class="reference external image-reference" href="../_images/ac2fgprotocol.jpg"><img alt="https://ardupilot-mega.googlecode.com/svn/ArduPilotMegaImages/ac2fgprotocol.jpg" src="https://ardupilot-mega.googlecode.com/svn/ArduPilotMegaImages/ac2fgprotocol.jpg" /></a>
+<ol class="arabic simple" start="3">
+<li><p>Copy the whole ‘arducopter’ folder from</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">C:Program</span> <span class="pre">Files</span> <span class="pre">(x86)Mission</span> <span class="pre">Planneraircraft</span></code></p>
+<blockquote>
+<div><p>to your FlightGear Aircraft directory eg</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">C:Program</span> <span class="pre">Files</span> <span class="pre">(x86)FlightGearAircraft</span></code></p>
+<a class="reference external image-reference" href="../_images/ac2fgmodel.jpg"><img alt="../_images/ac2fgmodel.jpg" src="../_images/ac2fgmodel.jpg" /></a>
+<ol class="arabic simple" start="4">
+<li><p>Start the Mission Planner</p></li>
+<li><p>Connect as usual</p></li>
+<li><p>Setup the radio/modes as required. Setup frame to +.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/ac2setup.jpg"><img alt="../_images/ac2setup.jpg" src="../_images/ac2setup.jpg" /></a>
+<ol class="arabic simple" start="7">
+<li><p>Goto simulation.</p></li>
+<li><p>Check Quad, and FlightGear.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_images/ac2simulator.jpg"><img alt="../_images/ac2simulator.jpg" src="../_images/ac2simulator.jpg" /></a>
+<ol class="arabic simple" start="9">
+<li><p>Click start fg quad and wait for FlightGear to start.</p></li>
+<li><p>Click start sim link.</p></li>
+</ol>
+</section>
+</section>
+<section id="for-those-that-want-to-start-flightgear-themselves">
+<h2>For those that want to start FlightGear themselves<a class="headerlink" href="#for-those-that-want-to-start-flightgear-themselves" title="Permalink to this heading">¶</a></h2>
+<p>This is the bat file used to start FlightGear</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:Program Files (x86)FlightGear v20110705binWin32fgfs&quot;</span> <span class="o">^</span>
+  <span class="s2">&quot;--fg-root=C:Program Files (x86)FlightGear v20110705data&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--geometry=400x300&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--aircraft=arducopter&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--native-fdm=socket,out,50,127.0.0.1,49005,udp&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--generic=socket,in,50,127.0.0.1,49000,udp,quadhil&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--fdm=external&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--prop:/logging/log/filename=fg_record.csv&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--log-level=info&quot;</span> <span class="o">^</span>
+     <span class="s2">&quot;--roll=0&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--pitch=0&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--wind=0@0&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--turbulence=0.0&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--prop:/sim/frame-rate-throttle-hz=30&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--timeofday=noon&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--shading-flat&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--fog-disable&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-specular-highlight&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-skyblend&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-random-objects&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-panel&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-horizon-effect&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-clouds&quot;</span>  <span class="o">^</span>
+     <span class="s2">&quot;--disable-anti-alias-hud&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

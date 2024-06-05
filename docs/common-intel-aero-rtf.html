@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel Aero RTF &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mateksys F405-SE/WSE" href="common-matekf405-se.html" />
+    <link rel="prev" title="Intel Aero Overview" href="common-intel-aero-overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="common-autopilots.html">选择飞控</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="common-autopilots.html#id1">飞控硬件选项</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id2">开放式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id3">封闭式硬件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#linux">基于Linux的飞控</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#id4">固件限制</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="common-autopilots.html#id5">停产的板子</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="common-pixhackV5-overview.html">CUAV V5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-emlid-edge.html">Emlid Edge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-pxfmini.html">Erle PXFmini RPi Zero Shield</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-erle-brain-linux-autopilot.html">Erle ErleBrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-holybro-kakuteh7mini.html">Holybro Kakute H7 Mini</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-intel-aero-overview.html">Intel Aero</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Intel Aero RTF vehicle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-se.html">Mateksys F405-SE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405.html">Mateksys F405-STD and variants*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf405-wing.html">Mateksys F405-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wing.html">Mateksys F765-Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common-matekf765-wse.html">Mateksys F765-WSE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common-autopilots.html#schematics">Schematics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="common-autopilots.html">Choosing an Autopilot</a></li>
+      <li class="breadcrumb-item active">Intel Aero RTF</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intel-aero-rtf">
+<span id="common-intel-aero-rtf"></span><h1>Intel Aero RTF<a class="headerlink" href="#intel-aero-rtf" title="Permalink to this heading">¶</a></h1>
+<a class="reference external image-reference" href="../_images/intel-aero-rtf.jpg"><img alt="../_images/intel-aero-rtf.jpg" src="../_images/intel-aero-rtf.jpg" /></a>
+<p>The <a class="reference external" href="https://software.intel.com/en-us/aero/drone-kit">Intel Aero RTF vehicle</a> includes the <a class="reference internal" href="common-intel-aero-overview.html#common-intel-aero-overview"><span class="std std-ref">Intel Aero compute board</span></a>,
+<a class="reference external" href="https://software.intel.com/en-us/aero/vision-kit">Vision Accessory Kit</a> and a <a class="reference external" href="http://spektrumrc.com/Products/Default.aspx?ProdId=SPM1000">Spektrum DXe transmitter</a>.</p>
+<p>Within the vehicle is an STM32F427V autopilot board which can run ArduPilot (replacing the pre-loaded non-ArduPilot software).
+In this way, the higher powered <a class="reference internal" href="common-intel-aero-overview.html#common-intel-aero-overview"><span class="std std-ref">Intel Aero compute board</span></a> is used as a <a class="reference external" href="https://ardupilot.org/dev/docs/companion-computers.html">companion computer</a>.</p>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/DZm9S0lxiEg" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><section id="additional-parts-to-buy">
+<h2>Additional parts to buy<a class="headerlink" href="#additional-parts-to-buy" title="Permalink to this heading">¶</a></h2>
+<p>Although “Ready-to-fly” some additional parts are required to complete the upgrade and fly with ArduPilot.</p>
+<ul class="simple">
+<li><p>LiPo battery <a class="reference external" href="https://hobbyking.com/en_us/multistar-high-capacity-3s-5200mah-multi-rotor-lipo-pack.html?___store=en_us">3S</a> or <a class="reference external" href="https://hobbyking.com/en_us/multistar-high-capacity-5200mah-4s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us">4S</a></p></li>
+<li><p>2GB (or larger) USB thumb drive (<a class="reference external" href="https://www.amazon.com/SanDisk-Cruzer-Glide-Drive-SDCZ60-008G-B35/dp/B007YX9O94/ref=sr_1_4?ie=UTF8&amp;qid=1492397331&amp;sr=8-4">like this one</a>) is needed for updating to the last release of the Linux distro.</p></li>
+<li><p>Micro USB OTG to USB cable (<a class="reference external" href="https://www.amazon.com/Micro-USB-OTG-Go-Adapter/dp/B005GI2VMG">like this one</a>)</p></li>
+<li><p><a class="reference external" href="https://www.spektrumrc.com/Products/Default.aspx?ProdID=SPMA3065">Spektrum USB programming cable</a> (optional)</p></li>
+</ul>
+</section>
+<section id="upgrading-the-vehicle-s-software">
+<h2>Upgrading the vehicle’s software<a class="headerlink" href="#upgrading-the-vehicle-s-software" title="Permalink to this heading">¶</a></h2>
+<p>The Aero RTF may not have the last BIOS and Linux operating system. The Linux distro on Aero needs to be updated to version 1.2
+in order for the autopilot to be flashed with ArduPilot.</p>
+<p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup">Official Setup Instuctions from Intel</a> should be followed which will ask you to:</p>
+<ul class="simple">
+<li><p>Download the latest OS image (aka “intel-aero-image-intel-aero.iso”) and Capsule/BIOS (aka “capsule-01.00.12-r0.core2_64.rpm”) from the <a class="reference external" href="https://downloadcenter.intel.com/download/26500/UAV-installation-files-for-Intel-Aero-Platform">Intel Download Center</a></p></li>
+<li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#flashing-the-bios">Flash the BIOS to Aero compute board</a></p></li>
+<li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#flash-intel-aero-linux-distribution">Flash the OS image to the Aero compute board</a> using a USB thumb drive</p></li>
+<li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#flashing-the-fpga">Upgrade the FPGA</a> using a .jam file included on the OS image</p></li>
+</ul>
+<p>The final step is to copy the <strong>arducopter.px4</strong> firmware to the Aero compute board and then flash it to the flight board:</p>
+<ul class="simple">
+<li><p>Download the latest aero-fc ArduPilot firmware from <a class="reference external" href="https://firmware.ardupilot.org/Copter/latest/">firmware.ardupilot.org</a></p></li>
+<li><p>Copy the above firmware to the Aero compute board in much the same way the BIOS’s .rpm file was copied</p></li>
+<li><p><a class="reference external" href="https://github.com/intel-aero/meta-intel-aero/wiki/02-Initial-setup#flashing-the-flight-controller-rtf-only">Flash the autopilot board</a> with the <strong>ardupilot.px4</strong> firmware</p></li>
+</ul>
+<p>If you are developing ArduPilot, you can flash directly from the command line after compiling. Refer to <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md">Build instructions</a> for more detailed instructions, but it’s basically the following commands:</p>
+<blockquote>
+<div><p>./waf configure –board aerofc-v1
+./waf copter –upload</p>
+</div></blockquote>
+</section>
+<section id="connecting-and-configuring-with-a-ground-station">
+<h2>Connecting and configuring with a ground station<a class="headerlink" href="#connecting-and-configuring-with-a-ground-station" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Connect a LiPo battery to the vehicle</p></li>
+<li><p>Turn on the vehicle by pushing the “Power” button found between the two rear arms</p></li>
+<li><p>From your PC, connect to the vehicle’s wifi access point (normally starts with “Aero-“), the default password is “1234567890”</p></li>
+<li><p>Start the ground station (i.e. mission planner), select “UDP” from the connection type and press “Connect”</p></li>
+<li><p>The default parameter file can be uploaded from the Mission Planner’s Full Parameter Tree screen (raw parameter file is <a class="reference external" href="https://github.com/ArduPilot/ardupilot/blob/master/Tools/Frame_params/intel-aero-rtf.param">here</a>)</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/intel-aero-param-load.jpg"><img alt="../_images/intel-aero-param-load.jpg" src="../_images/intel-aero-param-load.jpg" /></a>
+<ul class="simple">
+<li><p>regular <a class="reference internal" href="common-compass-calibration-in-mission-planner.html#common-compass-calibration-in-mission-planner"><span class="std std-ref">compass</span></a>, <a class="reference internal" href="common-radio-control-calibration.html#common-radio-control-calibration"><span class="std std-ref">Radio</span></a>, <a class="reference internal" href="common-accelerometer-calibration.html#common-accelerometer-calibration"><span class="std std-ref">accelerometer calibration</span></a> is required (<a class="reference internal" href="esc-calibration.html#esc-calibration"><span class="std std-ref">ESC calibration</span></a> is not required)</p></li>
+</ul>
+</section>
+<section id="connecting-the-transmitter">
+<h2>Connecting the Transmitter<a class="headerlink" href="#connecting-the-transmitter" title="Permalink to this heading">¶</a></h2>
+<p>The transmitter that comes with the RTF is an off the shelf DSM-X DXe and a SPM4648 receiver, which is of autobind mode. The transmitter should always be powered on before the receiver (which is normally powered together with the vehicle).  If powered on after the vehicle it won’t connect.  To overcome this you can simply disconnect the cable from the receiver, or go through the binding process, which involves powering on the transmitter while holding the “BIND/PANIC/TRAINER” button pressed. More information about the binding and connectiong can be found on the <a class="reference external" href="https://www.horizonhobby.com/pdf/SPM4648-Manual-EN.pdf">receiver documentation</a>.</p>
+</section>
+<section id="known-issues-with-the-transmitter">
+<h2>Known Issues with the Transmitter<a class="headerlink" href="#known-issues-with-the-transmitter" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>the “MOTOR/THROW” switch on the back-right of the transmitter should always be left in the “ARM” position or the throttle value sent to the vehicle will be too low</p></li>
+<li><p>the “FLAP” switch is connected to Ch7 so it can be used as an auxiliary switch but position “0” is actually On, “2” is off.</p></li>
+<li><p>“AUX” and “RATE” switches are not configured to have any effect</p></li>
+</ul>
+<p>The last three issues mentioned above could be resolved by reprogramming the transmitter using a <a class="reference external" href="https://www.spektrumrc.com/Products/Default.aspx?ProdID=SPMA3065">Spektrum TX/RX USB Programming Cable</a></p>
+</section>
+<section id="improving-the-vehicle-s-center-of-gravity">
+<h2>Improving the vehicle’s center of gravity<a class="headerlink" href="#improving-the-vehicle-s-center-of-gravity" title="Permalink to this heading">¶</a></h2>
+<a class="reference external image-reference" href="../_images/intel-aero-battery-placement.jpg"><img alt="../_images/intel-aero-battery-placement.jpg" src="../_images/intel-aero-battery-placement.jpg" /></a>
+<p>In the default configuration the vehicle is tail heavy but its center of gravity can be improved by shifting the battery forward.
+Either attach the battery to the underside of the vehicle (instead of between the upper and lower platforms) or remove one of the blue pillars as shown above.</p>
+</section>
+<section id="more-flight-videos">
+<h2>More flight videos<a class="headerlink" href="#more-flight-videos" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/3lu9xq8Cm1E" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
+</iframe></div><p>[copywiki destination=”plane,copter,rover,blimp”]</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="common-intel-aero-overview.html" class="btn btn-neutral float-left" title="Intel Aero Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common-matekf405-se.html" class="btn btn-neutral float-right" title="Mateksys F405-SE/WSE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

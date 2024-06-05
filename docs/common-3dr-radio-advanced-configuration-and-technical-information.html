@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-3dr-radio-advanced-configuration-and-technical-information"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="sik-radio-advanced-configuration">
+<h1>SiK Radio — Advanced Configuration<a class="headerlink" href="#sik-radio-advanced-configuration" title="Permalink to this heading">¶</a></h1>
+<p>This article provides advanced configuration information for the
+<a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Telemetry Radio</span></a>. It is intended for
+“power users”, and those who wish to gain a better understanding of how
+the radios operate.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most users will only need the basic guide and feature overview
+provided in <a class="reference internal" href="common-sik-telemetry-radio.html#common-sik-telemetry-radio"><span class="std std-ref">SiK Radio v2</span></a>.</p>
+</div>
+<a class="reference external image-reference" href="../_images/Telemetry_Ver1Ver2.jpg"><img alt="../_images/Telemetry_Ver1Ver2.jpg" src="../_images/Telemetry_Ver1Ver2.jpg" /></a>
+</section>
+<section id="monitoring-the-link-quality">
+<h1>Monitoring the link quality<a class="headerlink" href="#monitoring-the-link-quality" title="Permalink to this heading">¶</a></h1>
+<p>You can use the MAVLink support in the SiK Radios to monitor the link
+quality while flying, if your ground station supports it.</p>
+<p>The two key message parameters are <code class="docutils literal notranslate"><span class="pre">RADIO.rssi</span></code> and <code class="docutils literal notranslate"><span class="pre">RADIO.remrssi</span></code>.
+The first is the RSSI (signal strength) level that the local radio is
+receiving at. The remrssi parameter is the RSSI that the remote radio is
+receiving at.</p>
+<p>Here is a typical graph of the RSSI levels for a flight at my local
+flying field.</p>
+<a class="reference external image-reference" href="../_images/rssi-distance.jpg"><img alt="../_images/rssi-distance.jpg" src="../_images/rssi-distance.jpg" /></a>
+<p>The RSSI value scales approximately as 1.9x the dBm signal strength,
+plus an offset. See the Si1000 data sheet for the exact mapping between
+RSSI and dBm received signal strength, or use this approximate formula</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signal_dBm</span> <span class="o">=</span> <span class="p">(</span><span class="n">RSSI</span> <span class="o">/</span> <span class="mf">1.9</span><span class="p">)</span> <span class="o">-</span> <span class="mi">127</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reason the RSSI varies so much during this flight is that the
+signal is attenuated when the plane is rolled over in a turn as I was
+using a simple wire antenna in the plane. The RSSI values for this
+flight were plenty high enough for the link quality to be excellent
+throughout the flight using the default radio parameters.</p>
+</div>
+</section>
+<section id="diagnosing-range-problems">
+<span id="common-3dr-radio-advanced-configuration-and-technical-information-diagnosing-range-problems"></span><h1>Diagnosing range problems<a class="headerlink" href="#diagnosing-range-problems" title="Permalink to this heading">¶</a></h1>
+<p>If you get less range than you would expect from the above information
+then what you need to do is graph the noise and signal levels from a
+flight to work out what the problem is.</p>
+<p>The most common source of range problems is noise. Noise is unwanted
+radio emissions in the same frequency range that your radio is using
+that interferes with the operation of your radio. The radios have
+telemetry logging built in to help you diagnose the source of the noise.</p>
+<p>There are three key types of noise that are likely to affect your
+radios:</p>
+<ul class="simple">
+<li><p>Noise from the electronics in your aircraft (such as your motor, ESC,
+autopilot etc)</p></li>
+<li><p>Noise from your ground station computer, especially its USB bus</p></li>
+<li><p>Noise from other people operating radios nearby that are on the same
+frequency as your radios</p></li>
+</ul>
+<p>To work out what sort of noise you have, open up mission planner and
+choose the “telemetry logs” tab. Then choose <strong>Tlog&gt; Kml or Graph</strong>.
+When the window pops up choose <strong>Graph Log</strong> and select a log from a
+test flight with your radios. Wait for the log to load, then choose the
+following items to log:</p>
+<ul class="simple">
+<li><p>rssi</p></li>
+<li><p>remrssi</p></li>
+<li><p>noise</p></li>
+<li><p>remnoise</p></li>
+</ul>
+<p>Put all 4 values on the one graph. You will end up with a plot like
+this:</p>
+<a class="reference external image-reference" href="../_images/diag-range-graph1.png"><img alt="../_images/diag-range-graph1.png" src="../_images/diag-range-graph1.png" /></a>
+<p>That graph shows you 4 things:</p>
+<ul class="simple">
+<li><p>the amount of signal being received on the ground</p></li>
+<li><p>the amount of signal being received in the aircraft</p></li>
+<li><p>the amount of noise being received on the ground</p></li>
+<li><p>the amount of noise being received in the aircraft</p></li>
+</ul>
+<p>For the best possible range you want the two noise lines to be low, and
+the two signal lines to be high. In the above graph (taken from my
+SkyFun with a pair of 3DR 433 radios) you can see that the noise levels
+in the plane are higher than the noise levels on the ground. Also note
+that at the start of the flight (before I started the motor) the noise
+levels on the plane were lower, then they went up after I started the
+motor. That shows I’m getting some noise from my motor. If I wanted more
+range I would need to move the radio further from the motor and ESC.</p>
+<p>Perhaps the most common source of noise with the 3DR-433 is noise from
+the USB bus on your ground station. That shows up as high values for the
+RADIO.noise value. If you get this, then you could try using a different
+USB cable, or a different laptop. You can also try using a USB hub
+between your laptop and your radio.</p>
+<p>If the ‘rssi’ and ‘noise’ levels meet on the graph then you will lose
+the link. To determine what your range would be, a rough rule of thumb
+is to subtract the ‘rssi’ and ‘noise’ numbers, then divide by 2. That
+tells you your “fade margin” in decibels. For each 6dB of fade margin
+your range doubles. So if you have 18dB of fade margin, then you will be
+able to do roughly 8x whatever range you were at when you measured the
+margin.</p>
+<p>Another key source of range problems is the antenna placement. Your
+ground station antenna should be well clear of obstructions and a couple
+of meters off the ground. You may need to build a stand to hold it to
+get the best range.</p>
+</section>
+<section id="serial-and-air-rates-one-byte-form">
+<h1>Serial and air rates ‘one byte form’<a class="headerlink" href="#serial-and-air-rates-one-byte-form" title="Permalink to this heading">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">SERIAL_SPEED</span></code> and <code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code> parameters are in the same form
+that ArduPilot uses for the <code class="docutils literal notranslate"><span class="pre">SERIAL3_SPEED</span></code> parameter. If the number is
+greater than 2000, it is the baud rate.  Otherwise, it is the rate in
+kbps, truncated to an integer. So ‘9’ means 9600 baud, ‘38’ means
+38400, ‘115’ means 115200 etc.</p>
+</section>
+<section id="choosing-the-air-data-rate">
+<h1>Choosing the air data rate<a class="headerlink" href="#choosing-the-air-data-rate" title="Permalink to this heading">¶</a></h1>
+<p>The key parameter that controls the range of your radios is the
+<code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code>. The default is 64 (which is 64kbps) will give you a range
+of over a kilometre with small omni antennas. The lower you set the
+<code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code> the longer your range, although lowering the <code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code>
+also lowers how much data you can send over the link.</p>
+<p>The radio firmware can only support 13 possible air data rates, which
+are 2, 4, 8, 16, 19, 24, 32, 48, 64, 96, 128, 192 and 250. If your
+application needs a different air rate for some reason then we can
+potentially add it to the register tables. If you choose an unsupported
+air rate then the next highest rate from the supported list will be
+chosen.</p>
+<p>What air data rate you choose will depend on the following factors:</p>
+<ul class="simple">
+<li><p>What range you need</p></li>
+<li><p>What data rate you will be sending</p></li>
+<li><p>Whether you primarily send in one direction, or both</p></li>
+<li><p>Whether you have ECC enabled</p></li>
+</ul>
+<p>For most telemetry applications you will primarily be sending data
+mostly in one direction, from the aircraft to the ground station. For
+most people, the amount of data sent from the ground station to the
+aircraft is small, just an occasional control packet plus heartbeat
+packets.</p>
+<p>If you are using a joystick to control your aircraft then you will be
+sending a lot more data from the ground station to the aircraft, and in
+that case you may find a higher <code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code> is needed, although your
+range will be reduced.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ECC</span></code> parameter makes a big difference to the data rate you can
+support at a given <code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code>. If you have ECC set to zero, then no
+error correcting information is sent, and the radio uses a simple 16 bit
+CRC to detect transmission errors. In that case your radio will be able
+to support data transfers in one direction of around 90% of the
+<code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code>.</p>
+<p>If you enable ECC, then the data rate you
+can support is halved. The ECC system doubles the size of the data sent
+by the radios. It is worth it however, as the bit error rate will drop
+dramatically, and you are likely to get a much more reliable link at
+longer ranges.</p>
+<p>ArduPilot will automatically adapt its telemetry rates to
+what the radio can handle, by using MAVLink RADIO packets injected into
+the MAVLink streams by the radio’s firmware. That allows you to
+‘oversubscribe’ your link, by setting up a <code class="docutils literal notranslate"><span class="pre">SERIAL_SPEED</span></code> larger than
+what the radios can actually handle.</p>
+<p>The other factor in choosing the air data rate is the TDM ‘sync time’.
+The two radios need to work out each others frequency hopping pattern.
+They do this by slowly changing the receive channel while rapidly
+changing the transmit channel. This process of getting in sync with the
+other radio takes just a few seconds at high air data rates, but gets
+slower for low air data rates.</p>
+<p>For most amateur UAV applications the default <code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code> of 64 with
+no ECC enabled will be good.</p>
+</section>
+<section id="error-correction">
+<h1>Error correction<a class="headerlink" href="#error-correction" title="Permalink to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using error correction is no longer recommended due to the range reduction and the fact that some newer radio chips are not capable of doing ECC and will fail to function if this option is selected.</p>
+</div>
+<p>As mentioned above, the radios support a 12/24 Golay error correcting
+code if you set the ECC parameter to 1. This means that for every 12
+bits of data the radio will send 24 bits, calculating the bits using
+Golay code lookup tables. The process is reversed on the receiving end,
+and allows the radio to correct bit errors of up to 3 bits in every 12
+bits send (i.e. 25% bit error rate).</p>
+<p>The downside of the ECC option is that it halves your available data
+bandwidth.  In some cases this is worth it, as you are able to
+sustain a reliable link over longer ranges. You will also get a lot less
+‘noise’ in the serial stream.</p>
+</section>
+<section id="mavlink-framing">
+<h1>MAVLink framing<a class="headerlink" href="#mavlink-framing" title="Permalink to this heading">¶</a></h1>
+<p>If you set the MAVLINK option to 1 or 2 then the radio will do ‘MAVLink
+framing’. The MAVLink protocol is used by ArduPilot for transmitting telemetry
+date to a ground station. When MAVLink framing is used, the radio will
+try to align radio packets with MAVLink packet boundaries. This means
+that if a packet is lost you don’t end up with half a MAVLink packet
+being seen by the receiver. That partial packet would appear as line
+noise on your ground stations console.</p>
+<p>If you set MAVLINK to 2, then in addition to doing MAVLink framing the
+radio will look for <code class="docutils literal notranslate"><span class="pre">RC_OVERRIDE</span></code> packets (used for joysticks) and
+ensure that those packets get sent as quickly as possible. This option
+is useful if you are using a tablet based joystick for control.</p>
+<p>The radio firmware will try to fit multiple MAVLink packets into one
+radio packet where possible for maximum efficiency. The highest radio
+packet size is 252 bytes.</p>
+<p>The radio firmware supports both the MAVLink 1.0 and the MAVLink 2.0
+transmission formats.</p>
+</section>
+<section id="mavlink-reporting">
+<h1>MAVLink reporting<a class="headerlink" href="#mavlink-reporting" title="Permalink to this heading">¶</a></h1>
+<p>If you have MAVLINK set to 1, then the radio firmware will also look for
+MAVLink HEARTBEAT messages coming from the serial connection. If it sees
+a HEARTBEAT message then it knows that the MAVLink protocol is in use,
+and it will start injecting MAVLink ‘RADIO’ status packets into the the
+serial stream.</p>
+<p>The RADIO packets contain information about the RSSI (Received Signal
+Strength Indicator) level at both ends of the link, allowing the ground
+station or aircraft to take action in case the link quality falls too
+low.</p>
+<p>The RADIO packets also contain information about error rates, and how
+full the serial transmit buffer is (as a percentage). ArduPilot can
+use this information to automatically adapt the telemetry stream rates
+to the data rate that the radios can sustain.</p>
+</section>
+<section id="power-levels">
+<h1>Power levels<a class="headerlink" href="#power-levels" title="Permalink to this heading">¶</a></h1>
+<p>You need to be very careful to configure your radios to stay within the
+legal power limits of the country you are operating in. The default
+power level of 20dBm is fine for the US and Australia, as up to 30dBm is
+allowed by the LIPD class licenses there in the 915-928MHz frequency
+band for a frequency hopping radio. So as long as your antennas have a
+gain of less than 10dBi you should be within the ISM rules.</p>
+<p>The radio cannot support arbitrary power levels. It can only support the
+power levels given in the following table</p>
+<table>
+<tbody>
+<tr>
+<th>Power (dBm)</th>
+<th>Power (milliWatts)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>1.3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3.2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>6.3</td>
+</tr>
+<tr>
+<td>11</td>
+<td>12.5</td>
+</tr>
+<tr>
+<td>14</td>
+<td>25</td>
+</tr>
+<tr>
+<td>17</td>
+<td>50</td>
+</tr>
+<tr>
+<td>20</td>
+<td>100</td>
+</tr>
+</tbody>
+</table><p>If you choose an unsupported power level the radio will choose the next
+highest power level from the above table.</p>
+<p>Please carefully check the EIRP (Equivalent isotropically radiated
+power) power limits for your country, making sure you take into account
+the antenna gain. The radio is a ‘DIY’ radio part and it is entirely
+your responsibility to ensure any use of it is compliant with local
+rules.</p>
+<p>For example, if your local rules allow for a maximum of 30dBm (1W) EIRP,
+then if you use an amplifier with a 12dB transmit gain, and an antenna
+with 3dBi gain, then you will need to set TXPOWER to at most 14.</p>
+<p>If you don’t know how to calculate it, we’ve made a tutorial for you
+here: <a class="reference internal" href="common-antenna-design.html#common-antenna-design-understanding-db-watts-and-dbm"><span class="std std-ref">Understanding dB, Watts and dBm</span></a>.</p>
+</section>
+<section id="using-the-at-command-set">
+<h1>Using the AT command set<a class="headerlink" href="#using-the-at-command-set" title="Permalink to this heading">¶</a></h1>
+<p>The radios support a variant of the Hayes ‘AT’ modem command set for
+configuration.</p>
+<p>If you connect with a serial console to a radio at the current serial
+baud rate, you can tell the radio to enter AT command mode by entering
+the sequence ‘+++’. To prevent data being seen as the command sequence
+there is a guard time required, so make sure you type nothing on the
+serial link for 1 second before and after you enter the sequence.</p>
+<p>When you enter AT command mode you will receive a ‘OK’ prompt from the
+radio and it will stop displaying data sent from the other radio.</p>
+<p>Once in AT command mode, you can give the radio either ‘AT’ commands to
+control the local radio, or (if successfully connected) you can use ‘RT’
+commands to control the remote radio.</p>
+<p>The AT commands available are:</p>
+<ul class="simple">
+<li><p>ATI - show radio version</p></li>
+<li><p>ATI2 - show board type</p></li>
+<li><p>ATI3 - show board frequency</p></li>
+<li><p>ATI4 - show board version</p></li>
+<li><p>ATI5 - show all user settable EEPROM parameters</p></li>
+<li><p>ATI6 - display TDM timing report</p></li>
+<li><p>ATI7 - display RSSI signal report</p></li>
+<li><p>ATO - exit AT command mode</p></li>
+<li><p>ATSn? - display radio parameter number ‘n’</p></li>
+<li><p>ATSn=X - set radio parameter number ‘n’ to ‘X’</p></li>
+<li><p>ATZ - reboot the radio</p></li>
+<li><p>AT&amp;W - write current parameters to EEPROM</p></li>
+<li><p>AT&amp;F - reset all parameters to factory default</p></li>
+<li><p>AT&amp;T=RSSI - enable RSSI debug reporting</p></li>
+<li><p>AT&amp;T=TDM - enable TDM debug reporting</p></li>
+<li><p>AT&amp;T - disable debug reporting</p></li>
+</ul>
+<p>all of these commands, except for ATO, may be used on a connected remote
+radio by replacing ‘AT’ with ‘RT’.</p>
+<p>Perhaps the most useful command is ‘ATI5’ which displays all user
+settable EEPROM parameters. That will produce a report like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S0</span><span class="p">:</span> <span class="n">FORMAT</span><span class="o">=</span><span class="mi">22</span>
+ <span class="n">S1</span><span class="p">:</span> <span class="n">SERIAL_SPEED</span><span class="o">=</span><span class="mi">57</span>
+ <span class="n">S2</span><span class="p">:</span> <span class="n">AIR_SPEED</span><span class="o">=</span><span class="mi">64</span>
+ <span class="n">S3</span><span class="p">:</span> <span class="n">NETID</span><span class="o">=</span><span class="mi">25</span>
+ <span class="n">S4</span><span class="p">:</span> <span class="n">TXPOWER</span><span class="o">=</span><span class="mi">20</span>
+ <span class="n">S5</span><span class="p">:</span> <span class="n">ECC</span><span class="o">=</span><span class="mi">1</span>
+ <span class="n">S6</span><span class="p">:</span> <span class="n">MAVLINK</span><span class="o">=</span><span class="mi">1</span>
+ <span class="n">S7</span><span class="p">:</span> <span class="n">OPPRESEND</span><span class="o">=</span><span class="mi">1</span>
+ <span class="n">S8</span><span class="p">:</span> <span class="n">MIN_FREQ</span><span class="o">=</span><span class="mi">915000</span>
+ <span class="n">S9</span><span class="p">:</span> <span class="n">MAX_FREQ</span><span class="o">=</span><span class="mi">928000</span>
+ <span class="n">S10</span><span class="p">:</span> <span class="n">NUM_CHANNELS</span><span class="o">=</span><span class="mi">50</span>
+ <span class="n">S11</span><span class="p">:</span> <span class="n">DUTY_CYCLE</span><span class="o">=</span><span class="mi">100</span>
+ <span class="n">S12</span><span class="p">:</span> <span class="n">LBT_RSSI</span><span class="o">=</span><span class="mi">0</span>
+ <span class="n">S13</span><span class="p">:</span> <span class="n">MANCHESTER</span><span class="o">=</span><span class="mi">0</span>
+ <span class="n">S14</span><span class="p">:</span> <span class="n">RTSCTS</span><span class="o">=</span><span class="mi">0</span>
+ <span class="n">S15</span><span class="p">:</span> <span class="n">MAX_WINDOW</span><span class="o">=</span><span class="mi">131</span>
+</pre></div>
+</div>
+<p>The first column is the S register to set if you want to change that
+parameter. So for example, to set the transmit power to 10dBm, use
+‘ATS4=10’.</p>
+<p>Most parameters only take effect on the next reboot. So the usual
+pattern is to set the parameters you want, then use ‘AT&amp;W’ to write the
+parameters to EEPROM, then reboot using ‘ATZ’. The exception is the
+transmit power, which changes immediately (although it will revert to
+the old setting on reboot unless you use AT&amp;W).</p>
+<p>The meaning of the parameter is as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FORMAT</span></code> - this is for EEPROM format version. Don’t change it</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SERIAL_SPEED</span></code> - this is the serial speed in ‘one byte form’ (see
+below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code> - this is the air data rate in ‘one byte form’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NETID</span></code> - this is the network ID. It must be the same for both your
+radios</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TXPOWER</span></code> - this is the transmit power in dBm. The maximum is 20dBm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ECC</span></code> - this enables/disables the golay error correcting code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAVLINK</span></code> - this controls MAVLink framing and reporting. 0=no
+MAVLink framing, 1=frame mavlink, 2=low latency mavlink</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MIN_FREQ</span></code> - minimum frequency in kHz</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX_FREQ</span></code> - maximum frequency in kHz</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NUM_CHANNELS</span></code> - number of frequency hopping channels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DUTY_CYCLE</span></code> - the percentage of time to allow transmit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LBT_RSSI</span></code> - Listen Before Talk threshold (see docs below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX_WINDOW</span></code> - max transmit window in msecs, 131 is the default, 33
+recommended for low latency (but lower bandwidth)</p></li>
+</ul>
+<p>For two radios to communicate the following must be the same at both
+ends of the link:</p>
+<ul class="simple">
+<li><p>the radio firmware version</p></li>
+<li><p>the AIR_SPEED</p></li>
+<li><p>the MIN_FREQ</p></li>
+<li><p>the MAX_FREQ</p></li>
+<li><p>the NUM_CHANNELS</p></li>
+<li><p>the NETID</p></li>
+<li><p>the ECC setting</p></li>
+<li><p>the LBT_RSSI setting</p></li>
+<li><p>the MAX_WINDOW setting</p></li>
+</ul>
+<p>the other settings may be different at either end of the link, although
+you will usually set them up the same at both ends.</p>
+</section>
+<section id="available-frequency-ranges">
+<h1>Available frequency ranges<a class="headerlink" href="#available-frequency-ranges" title="Permalink to this heading">¶</a></h1>
+<p>The following table may be helpful matching your local radio regulations
+to the two radio models available</p>
+<table>
+<tbody>
+<tr>
+<th>Radio</th>
+<th>Minimum Frequency (MHz)</th>
+<th>Maximum Frequency (MHz)</th>
+</tr>
+<tr>
+<td>433</td>
+<td>414.0</td>
+<td>454.0</td>
+</tr>
+<tr>
+<td>900</td>
+<td>895.0</td>
+<td>935.0</td>
+</tr>
+</tbody>
+</table></section>
+<section id="duty-cycle-setting">
+<h1>DUTY_CYCLE setting<a class="headerlink" href="#duty-cycle-setting" title="Permalink to this heading">¶</a></h1>
+<p>Most users will want to set the <code class="docutils literal notranslate"><span class="pre">DUTY_CYCLE</span></code> to 100. The
+<code class="docutils literal notranslate"><span class="pre">DUTY_CYCLE</span></code> is the maximum percentage of time that the radio will
+transmit packets.</p>
+<p>The reason the duty cycle is included is that some regions of the world
+allow for higher transmit power or more frequencies if you have a duty
+cycle below a given threshold. So for example in Europe you can transmit
+on a wider range of frequencies in the 433 band if your duty cycle is
+below 10%.</p>
+<p>When you set a duty cycle below 100% then your available bandwidth will
+be reduced, so you will find it will only work well for telemetry at
+higher baud rates. It is still quite practical to get good telemetry
+from ArduPilot with a 10% duty cycle, as telemetry traffic is quite
+‘bursty’, so the average transmit time is not generally high anyway.</p>
+<p>For example, you can easily receive all telemetry streams at 2Hz with
+<code class="docutils literal notranslate"><span class="pre">AIR_SPEED</span></code> set to 128, ECC enabled and <code class="docutils literal notranslate"><span class="pre">DUTY_CYCLE</span></code> set to 10.</p>
+<p>You can also set a radio to receive only by setting the <code class="docutils literal notranslate"><span class="pre">DUTY_CYCLE</span></code>
+to 0. That will work best if you set <code class="docutils literal notranslate"><span class="pre">NUM_CHANNELS</span></code> to a low number,
+as otherwise the clock synchronisation will be poor.</p>
+</section>
+<section id="low-latency-mode">
+<span id="common-3dr-radio-advanced-configuration-and-technical-information-low-latency-mode"></span><h1>Low latency mode<a class="headerlink" href="#low-latency-mode" title="Permalink to this heading">¶</a></h1>
+<p>The radio can be configured to use ‘low latency mode’ to improve
+performance for things like tablet based joysticks etc… The two
+parameters you should set to enable this mode are as follows:</p>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">MAVLINK</span></code> to 2. This turns on special checking for the
+<code class="docutils literal notranslate"><span class="pre">RC_OVERRIDE</span></code> packets used in joystick control, to allow those
+packets to always be sent first. If you are using MAVLink (you
+probably are) there are no downsides for choosing this setting.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">MAX_WINDOW</span></code> from the default of 131 to 33. This will ensure
+that the GCS can send a packet to the vehicle at least once every 33
+msecs. It is worth noting that this will lower the available
+bandwidth, so if you need absolute maximum bandwidth you are best off
+with the default of 131. <strong>Both radios on a channel must have the
+same value for this parameter, or they will not be able to talk to
+each other.</strong></p></li>
+</ul>
+</section>
+<section id="listen-before-talk-lbt">
+<h1>Listen Before Talk (LBT)<a class="headerlink" href="#listen-before-talk-lbt" title="Permalink to this heading">¶</a></h1>
+<p>The radio can implement ‘listen before talk’ (LBT) functionality to
+allow it to comply with a wider range of regional regulatory
+requirements. LBT is a system where the radio is required to listen for
+a period of time and see no signal from other radios before it is
+allowed to transmit. By using a non-zero <code class="docutils literal notranslate"><span class="pre">LBT_RSSI</span></code> value your radio
+will become more ‘polite’, by waiting until everyone else has stopped
+transmitting before starting to transmit itself.</p>
+<p>To enable LBT in your radio you need to set the <code class="docutils literal notranslate"><span class="pre">LBT_RSSI</span></code> threshold.
+This is the signal strength that the radio considers to be an indication
+that the channel is busy. If you set <code class="docutils literal notranslate"><span class="pre">LBT_RSSI</span></code> to zero then LBT is
+disabled.</p>
+<p>The minimum non-zero setting is 25 which is a few dB above the receive
+sensitivity of the radio (-121 dBm). To setup <code class="docutils literal notranslate"><span class="pre">LBT_RSSI</span></code> you need to
+know what signal level your local radio regulations require for LBT
+functionality. Each increment in LBT_RSSI above 25 is roughly equal to
+0.5dB above the radios receive sensitivity. So if you set LBT_RSSI to
+40 then the radio will consider the channel to be free if the signal
+strength is less than 7.5dB above the receiver sensitivity.</p>
+<p>Alternatively, you can use this formula to get the received signal
+strength in dBm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">signal_dBm</span> <span class="o">=</span> <span class="p">(</span><span class="n">RSSI</span> <span class="o">/</span> <span class="mf">1.9</span><span class="p">)</span> <span class="o">-</span> <span class="mi">127</span>
+</pre></div>
+</div>
+<p>This formula is approximate, but quite close. See the Si1000 data sheet
+for a more precise graph.</p>
+<p>You will need to lookup your local regulatory requirements to see what
+<code class="docutils literal notranslate"><span class="pre">LBT_RSSI</span></code> setting you should use.</p>
+<p>The LBT implementation in the radio uses a minimum listen time of 5ms,
+plus randomised listen time as per the European 9.2.2.2 rules.</p>
+<p>Note that in many regions you need to implement LBT in conjunction with
+AFA (Adaptive Frequency Agility). The radio implements AFA as long as
+you have <code class="docutils literal notranslate"><span class="pre">NUM_CHANNELS</span></code> set to more than 1.</p>
+</section>
+<section id="upgrading-radio-firmware">
+<h1>Upgrading radio firmware<a class="headerlink" href="#upgrading-radio-firmware" title="Permalink to this heading">¶</a></h1>
+<p>The firmware for the radios is <a class="reference external" href="https://github.com/ArduPilot/SiK">open source</a>, and new features are
+sometimes added.</p>
+<p>The easiest way to upgrade is to:</p>
+<ul class="simple">
+<li><p>Connect the radio to be upgraded to your computer using the micro USB
+cable</p></li>
+<li><p>Open the Mission Planner and go to the <strong>Initial Setup | Optional
+Hardware | SiK Radio</strong> page.</p></li>
+<li><p>Select the correct COM port and set the baud rate to 57600. Ensure
+the “Connect” button is in a disconnected state as shown in the image
+below..</p></li>
+<li><p>Press the <strong>Upload Firmware (Local)</strong> button and after a short delay,
+the “programming” message should appear and the green bar should
+slowly increase from the left to right.</p></li>
+</ul>
+<a class="reference external image-reference" href="../_images/Telemetry_3DR_Radio_UploadFirmware.png"><img alt="../_images/Telemetry_3DR_Radio_UploadFirmware.png" src="../_images/Telemetry_3DR_Radio_UploadFirmware.png" /></a>
+<p>The above process should be performed for both radios.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Occasionally a new firmware update will modify some settings so it
+might be a good idea to compare the settings before and after and look
+for changes.</p>
+</div>
+</section>
+<section id="using-a-ftdi-to-usb-cable-to-configure-sik-radios">
+<h1>Using a FTDI-to-USB cable to configure SiK radios<a class="headerlink" href="#using-a-ftdi-to-usb-cable-to-configure-sik-radios" title="Permalink to this heading">¶</a></h1>
+<p>The recommended approach for configuring 3D Radios is to use Mission Planner,
+<a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#common-configuring-a-telemetry-radio-using-mission-planner"><span class="std std-ref">as discussed here</span></a>.</p>
+<p>If that approach doesn’t work do the following:</p>
+<ol class="arabic simple">
+<li><p>Connect everything and configure the ground radio:</p>
+<ul class="simple">
+<li><p>Connect your air radio with FTDI-to-USB cable to your computer USB
+port &amp; note Com port #</p>
+<ul>
+<li><p>Use <strong>Windows | Device Manager| Ports</strong> to identify com port #</p></li>
+<li><p>You’ll know the FTDI cable is correctly oriented on the air
+radio when a green LED blinks.</p></li>
+</ul>
+</li>
+<li><p>Connect the ground radio to a USB port on your PC &amp; note COM port #
+In MP Flight Data tab, at top right, set baud to 57600 &amp;
+select ground radio COM port #</p></li>
+<li><p>In MP Flight, press <strong>Ctrl + A</strong> to open the radio configuration
+window. Click on <strong>Load Settings</strong> (from the ground radio)</p></li>
+<li><p>In Mission Planner radio configuration window, (MP) check the
+<strong>Advanced Options</strong> box</p></li>
+<li><p>If loaded values aren’t the same as above recommended settings,
+make it so, then click on <strong>Save</strong></p></li>
+</ul>
+</li>
+<li><p>Configure air radio:</p>
+<ul class="simple">
+<li><p>In MP at top right, select the <strong>air</strong> radio’s COM port</p></li>
+<li><p>In MP radio configuration window, click on <strong>Load Settings</strong> (from
+<strong>air</strong> radio)</p></li>
+<li><p>Edit the air radio’s settings (including Advanced Options) so they
+are <strong>exactly</strong> the same as the ground radio’s, then click on
+<strong>Save Settings</strong> (to air radio)</p></li>
+<li><p>You may not be able to add a value in the Format field, that’s OK</p></li>
+<li><p>In MP, press <strong>Configure | SiK Radio</strong> and enter exact same
+settings including advanced &gt; click <strong>Save Settings</strong>.</p></li>
+</ul>
+</li>
+<li><p>Wait for both radios to connect (solid green LED)</p></li>
+<li><p>Update firmware if above doesn’t work:</p>
+<ul class="simple">
+<li><p>Click on <strong>Update Firmware</strong> while connected to each radio in
+turn. Then repeat the above.</p></li>
+</ul>
+</li>
+<li><p>To verify wireless telemetry:</p>
+<ul class="simple">
+<li><p>Remove the FTDI to USB cable from the autopilot</p></li>
+<li><p>Connect the air radio to the autopilot &amp; LIPO</p></li>
+<li><p>In <strong>MP | Flight Data</strong> tab select the ground radio COM port then
+click on <strong>Connect</strong></p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Keep in mind that while you are physically connected to a radio
+via a specific COM port, you can’t use the ‘Copy Required items to
+Remote’ button (there is no remote until you go wireless)</p>
+</div>
+<p><em>This section of the wiki was contributed by the Documentation User
+Group (DUG)</em>.</p>
+</section>
+<section id="forcing-bootloader-mode">
+<h1>Forcing bootloader mode<a class="headerlink" href="#forcing-bootloader-mode" title="Permalink to this heading">¶</a></h1>
+<p>If you somehow manage to get your radio in a state where you can’t
+upload a new firmware via the Mission Planner then you may need to force
+the radio into bootloader mode.</p>
+<p>The way firmware upload normally works is the planner connects to the
+radio and sends a AT&amp;UPDATE command to put the radio into bootloader
+mode ready to receive a new firmware. That only works if the planner can
+send AT commands to the radio.</p>
+<p>If you can’t send AT commands, then you can force bootloader mode by
+shorting the CTS and GROUND pins on the radio while powering on. The red
+LED will light up when in bootloader mode.</p>
+<p>On the air radios the CTS and GROUND pins are easy to find, as they are
+marked on the back of the radio (they are two of the FTDI connector
+pins). On the USB radios it isn’t as obvious, so this diagram may help:</p>
+<a class="reference external image-reference" href="../_images/force-bootloader.jpg"><img alt="../_images/force-bootloader.jpg" src="../_images/force-bootloader.jpg" /></a>
+<p>After you have the radio in bootloader mode you should be able to upload
+a firmware.</p>
+</section>
+<section id="technical-details">
+<h1>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this heading">¶</a></h1>
+<p>When evaluating if this radio meets your local regulations it may be
+helpful to know what technology it uses.</p>
+<p>The firmware implements frequency hopping spread spectrum (FHSS) with
+synchronous adaptive time division multiplexing (TDM).</p>
+<p>Specifically, the radio divides up the frequency range between
+MIN_FREQ+delta and MAX_FREQ-delta into <code class="docutils literal notranslate"><span class="pre">NUM_CHANNELS</span></code> channels. The
+‘delta’ value is a guard range to ensure that we stay well away from the
+edges of the allowed band. The guard range is set to half a channel
+width. The channel width is defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channel_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">MAX_FREQ</span> <span class="o">-</span> <span class="n">MIN_FREQ</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">NUM_CHANNELS</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Additionally, the radio skews the base frequency by up to one channel
+using a random seed based on <code class="docutils literal notranslate"><span class="pre">NETID</span></code>. This means that two radios using
+different <code class="docutils literal notranslate"><span class="pre">NETID</span></code> numbers use slightly different frequencies.</p>
+<p>The radios use GFSK (Gaussian Frequency Shift Keying) for transmission
+on a particular frequency.</p>
+<p>The TDM works by dividing up time into slices, based on multiples of 16
+microsecond ticks. The time slicing is designed to give a maximum dwell
+time on any frequency of 0.4s (this is to meet US regulations). The TDM
+algorithm then works as follows:</p>
+<ul class="simple">
+<li><p>the EEPROM parameters determine a set of TDM parameters, particularly
+the transmit window and silence period, both are in 16 microsecond
+units. You can view the results using ATI6.</p></li>
+<li><p>the transmit window is scaled to allow for 3 full sized packets to be
+transmitted</p></li>
+<li><p>the silence period is equal to twice the packet latency, for the
+given data rate</p></li>
+<li><p>The two radios synchronise their clocks automatically by adding 13
+bits of timestamp information to all packets. The timestamp is in 16
+microsecond units.</p></li>
+<li><p>Each radio only transmits when it is ‘their turn’. So a radio gets
+one transmit window worth of time, then there is a silence period
+when neither radio transmits, then the other radio gets its turn. We
+never have the situation where both radios transmit at the same time</p></li>
+<li><p>the transmit channels are organised into a random sequence based on
+the <code class="docutils literal notranslate"><span class="pre">NETID</span></code></p></li>
+<li><p>the frequency is changed to the next channel twice for each full TDM
+round, during the silence periods</p></li>
+<li><p>when not transmitting, data that comes in over the serial port is
+buffered in a 2048 byte buffer</p></li>
+<li><p>to prevent the buffer from getting too much data (which increases
+latency and risks overflow) the radios send information on how full
+the buffer is to the connected device. ArduPilot adapts its
+telemetry rates by small amounts to keep the amount of buffered data
+reasonable.</p></li>
+<li><p>The TDM algorithm is also adaptive, in the sense that when it is the
+turn of radio A to transmit, it can send a small token to radio B
+saying “I don’t need to send anything right now, you can take the
+rest of my timeslice”. That is how the link auto-balances for
+asymmetric loads</p></li>
+<li><p>during the initial search for another radio, and any time the link is
+lost, the radios go into a mode where they move the receiving
+frequency very slowly but move the transmit frequency at the normal
+rate. This allows the two radios to find each other for initial clock
+sync. How long this takes depends on the number of channels, the air
+data rate and the packet loss rate.</p></li>
+</ul>
+<p>In some regions you may need to know the distribution of radiated energy
+within each channel. That depends on a number of factors, but mostly the
+frequency deviation used for the GFSK modulation. The following formula
+will give you an estimate of the frequency deviation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frequency_deviation</span> <span class="o">=</span> <span class="n">air_data_rate</span> <span class="o">*</span> <span class="mf">1.2</span>    <span class="nb">min</span> <span class="n">freq</span> <span class="n">deviation</span> <span class="o">=</span> <span class="mi">40</span>    <span class="nb">max</span> <span class="n">freq</span> <span class="n">deviation</span> <span class="o">=</span> <span class="mi">159</span>
+</pre></div>
+</div>
+<p>where frequency_deviation is in kHz and the air_data_rate is in kilo
+bits per second.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

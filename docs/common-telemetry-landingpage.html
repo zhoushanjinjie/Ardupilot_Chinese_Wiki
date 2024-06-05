@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[copywiki destination=”plane,copter,rover,blimp”] &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">[copywiki destination=”plane,copter,rover,blimp”]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copywiki-destination-plane-copter-rover-blimp">
+<span id="common-telemetry-landingpage"></span><h1>[copywiki destination=”plane,copter,rover,blimp”]<a class="headerlink" href="#copywiki-destination-plane-copter-rover-blimp" title="Permalink to this heading">¶</a></h1>
+</section>
+<section id="telemetry-landing-page">
+<h1>Telemetry (landing page)<a class="headerlink" href="#telemetry-landing-page" title="Permalink to this heading">¶</a></h1>
+<p>Copter/Plane/Rover/Blimp support sharing information with a ground station (or
+transmitter) using telemetry. Follow the links below for configuration
+information based upon your set-up.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some RC systems incorporate telemetry in addition to RC control</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot will automatically fall back to back to MAVLink1 if MAVLink 2 serial port protocol is selected and no MAVLink 2 data is received from the groundstation in response in fimware versions before 4.2, but not after</p>
+</div>
+<a class="reference external image-reference" href="../_images/Telemetry_LandingImage.jpg"><img alt="../_images/Telemetry_LandingImage.jpg" src="../_images/Telemetry_LandingImage.jpg" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>High value systems using RC control over a telemetry link should consider <a class="reference internal" href="common-redundant-telemetry.html#common-redundant-telemetry"><span class="std std-ref">Redundant Telemetry Links</span></a></p>
+</div>
+</section>
+<section id="short-range-10km">
+<h1>Short Range (&lt;10KM)<a class="headerlink" href="#short-range-10km" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#bluetooth-telemetry-radio">Bluetooth Telemetry radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#connecting-to-the-autopilot">Connecting to the Autopilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#quick-start-connecting-with-mission-planner">Quick Start connecting with Mission Planner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#detailed-connecting-with-mission-planner">Detailed connecting with Mission Planner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#connecting-from-your-android-ground-station">Connecting From your Android ground station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#how-to-change-baud-rate-device-name-and-device-pin">How to Change Baud Rate, Device Name and Device PIN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planner-bluetooth-connectivity.html#specs">Specs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-pwlink.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-pwlink.html#cuav-pw-link">CUAV PW-Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-pwlink.html#connecting-to-the-ground-station">Connecting to the Ground Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp8266-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp8266-telemetry.html#esp8266-wifi-telemetry">ESP8266 wifi telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html#esp32-wifi-telemetry">ESP32 WiFi telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html#wiring">Wiring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html#ardupilot-configuration">ArduPilot configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html#connecting-to-the-gcs">Connecting to the GCS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html#toubleshooting">Toubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-esp32-telemetry.html#api">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-telemetry.html#frsky-telemetry">FrSky Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-telemetry.html#setup">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-telemetry.html#turnigy-9xr-pro">Turnigy 9XR Pro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-yaapu-gcs.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-yaapu-gcs.html#yaapu-frsky-gcs-using-frsky-bi-directional-telemetry">Yaapu FrSky GCS using FrSky Bi-Directional Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-yaapu-gcs.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-yaapu-gcs.html#setup">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-hott-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-hott-telemetry.html#hott-telemetry">HOTT Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-hott-telemetry.html#wiring-and-setup">Wiring and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-msp-overview.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-msp-overview.html#multiwii-serial-protocol-msp">Multiwii Serial Protocol (MSP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-msp-overview-4.2.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-msp-overview-4.2.html#multiwii-serial-protocol-msp">Multiwii Serial Protocol (MSP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-v1.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-v1.html#dr-radio-v1">3DR Radio v1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-v1.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-v1.html#connecting-the-radio">Connecting the radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#sik-telemetry-radio">SiK Telemetry Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#status-leds">Status LEDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#connecting-the-radios">Connecting the radios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#configuring-using-the-mission-planner">Configuring using the Mission Planner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#updating-the-firmware">Updating the Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#expected-range">Expected range</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#improving-the-range">Improving the range</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#support-for-different-countries-regions">Support for different countries/regions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-sik-telemetry-radio.html#dr-radio-discussion-forum">3DR Radio Discussion Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#configuring-a-telemetry-radio-using-mission-planner">Configuring a Telemetry Radio using Mission Planner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-configuring-a-telemetry-radio-using-mission-planner.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#sik-radio-advanced-configuration">SiK Radio — Advanced Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#monitoring-the-link-quality">Monitoring the link quality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#diagnosing-range-problems">Diagnosing range problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#serial-and-air-rates-one-byte-form">Serial and air rates ‘one byte form’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#choosing-the-air-data-rate">Choosing the air data rate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#error-correction">Error correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#mavlink-framing">MAVLink framing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#mavlink-reporting">MAVLink reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#power-levels">Power levels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#using-the-at-command-set">Using the AT command set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#available-frequency-ranges">Available frequency ranges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#duty-cycle-setting">DUTY_CYCLE setting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#low-latency-mode">Low latency mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#listen-before-talk-lbt">Listen Before Talk (LBT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#upgrading-radio-firmware">Upgrading radio firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#using-a-ftdi-to-usb-cable-to-configure-sik-radios">Using a FTDI-to-USB cable to configure SiK radios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#forcing-bootloader-mode">Forcing bootloader mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-3dr-radio-advanced-configuration-and-technical-information.html#technical-details">Technical Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-xbee.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-xbee.html#telemetry-xbee">Telemetry-XBee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-xbee.html#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-xbee.html#configuration">配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-xbee.html#connecting-to-the-ground-station">Connecting to the Ground Station</a></li>
+</ul>
+</div>
+</section>
+<section id="long-range">
+<h1>Long Range<a class="headerlink" href="#long-range" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cloud.ardupilot.org/andruav-index.html">Andruav Android Cellular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-blicube-rlink.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-blicube-rlink.html#blicube-rlink">Blicube RLINK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-blicube-rlink.html#specifications">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-blicube-rlink.html#where-to-buy">Where to Buy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-blicube-rlink.html#user-manual">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#clearsky-airlink-4g-lte-telemetry">ClearSky Airlink 4G LTE Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#technical-specifications">Technical Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#pinouts">Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#videos">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-airlink-telemetry.html#where-to-buy">Where to buy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-crsf-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-crsf-telemetry.html#tbs-crossfire-telemetry">TBS Crossfire Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-crsf-telemetry.html#ardupilot-parameter-editor">ArduPilot Parameter Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#cuav-p8-radio">CUAV P8 Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#key-features">Key Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#purchase">Purchase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#pinouts">Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#connection-with-flight-control">Connection with Flight Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#video">Video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p8.html#more-information">More information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html">[copywiki destination=”copter,plane,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#cuav-p9-radio">CUAV P9 Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#key-features">Key Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#purchase">Purchase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#technical-specifications">Technical Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#pinouts">Pinouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#connection-with-flight-control">Connection with Flight Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-cuav-p9.html#more-information">More information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-dragonlink-rc.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-dragonlink-rc.html#dragonlink-rc-systems">DragonLink RC Systems</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://shop.holybro.com/xbp9x-radio_p1268.html">Holybro 900Mhz XBP9X Telemetry Radio</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://www.holybro.com/product/microhard-p900-radio/">Holybro Microhard P900 Radio Telemetry Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-ltm-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-ltm-telemetry.html#ltm-telemetry">LTM Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#rfd900-radio-modem">RFD900 Radio Modem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#key-features">Key Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#status-leds">Status LEDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#interfaces">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#configuring-using-the-mission-planner">Configuring using the Mission Planner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#support-for-different-countries-regions">Support for different countries/regions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-rfd900.html#discussion-forum">Discussion Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-robsense-swarmlink.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-robsense-swarmlink.html#robsense-swarmlink">Robsense SwarmLink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html#rockblock-satellite-modem">RockBLOCK Satellite Modem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html#supported-mavlink-command-messages">Supported MAVLink command messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html#setup">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html#data-costs">Data Costs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-rockblock.html#parameters">Parameters</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.ardupilot.org/t/stretching-comm-links-from-indoors-to-the-globe/45896">SPL Satellite Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-uavcast-telemetry.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-uavcast-telemetry.html#uavcast-3g-4g-cellular-telemetry">UAVcast 3G/4G Cellular Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-xbstation-telemetry.html">XBStation 4G LTE Link</a></li>
+</ul>
+</div>
+</section>
+<section id="applications-and-info">
+<h1>Applications and Info<a class="headerlink" href="#applications-and-info" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html#flightdeck-frsky-taranis-app">FlightDeck FrSky Taranis App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-frsky-flightdeck.html#turnkey-packages">Turnkey Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink2-signing.html">[copywiki destination=”plane,copter,rover,blimp,planner”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink2-signing.html#mavlink2-signing">MAVLink2 Signing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink2-signing.html#configuration">配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink2-signing.html#use">Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink-high-latency.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink-high-latency.html#mavlink-high-latency-mode">MAVLink High Latency Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink-high-latency.html#configuration">配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-MAVLink-high-latency.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-wireless-gcs-repeater.html">Repeater for Wireless Ground Station Connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-radio-regional-regulations.html">[copywiki destination=”plane,copter,rover,blimp”]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-radio-regional-regulations.html#telemetry-radio-regional-regulations">Telemetry Radio Regional Regulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-telemetry-radio-regional-regulations.html#support-for-different-countries-regions">Support for different countries/regions</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

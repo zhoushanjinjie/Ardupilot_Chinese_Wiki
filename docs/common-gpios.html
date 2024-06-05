@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPIOs &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GPIOs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gpios">
+<span id="common-gpios"></span><h1>GPIOs<a class="headerlink" href="#gpios" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in firmware versions 4.2 and later, the method for setting a PWM/SERVO/MOTOR output to be a GPIO function is changed. Instead of <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> being used, the individual <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter is merely set to “-1”. If set to “0”, it remains a PWM output, unassigned to a function, but will not output any PWM signal unless commanded by scripting or a GCS. If the servo function is being “mirrored” to a remote device, as in the case of a DroneCAN or KDECAN ESC, then in order to change the autopilot board’s corresponding output pin to be a GPIO, but allow the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to still be assigned to the remote device, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter can be used to assign the board pin to be a GPIO without affecting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> assignment for the remote device.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When upgrading to 4.2 or later from pre 4.2 firmware, be aware that previously defined GPIOs MAY have to be re-designated using the SERVOx_FUNCTION or, alternatively, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter and that after upgrade any GPIO dependent release mechanisms (parachute, sprayers, etc.) may actuate until this re-definition is done.</p>
+</div>
+<p>General Purpose Input/Outputs (GPIOs) are used in ArduPilot for control of <a class="reference internal" href="common-relay.html#common-relay"><span class="std std-ref">relays</span></a>, actuators, LEDs, <a class="reference internal" href="common-camera-shutter-with-servo.html#common-camera-shutter-with-servo"><span class="std std-ref">camera triggers</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/startstop-switch.html#startstop-switch" title="(in Rover)"><span class="xref std std-ref">Start Button</span></a> etc. Some functions also use a GPIO pin as an input, like <a class="reference internal" href="common-rpm.html#common-rpm"><span class="std std-ref">RPM Measurement</span></a>. Some autopilots provide dedicated GPIO pins (sometimes labeled “CAPTURE” pins). In addition, GPIOs can be obtained by re-configuring the PWM outputs.</p>
+<section id="configuring-gpios">
+<h2>Configuring GPIOS<a class="headerlink" href="#configuring-gpios" title="Permalink to this heading">¶</a></h2>
+<section id="versions-prior-to-4-2">
+<h3>Versions Prior to 4.2<a class="headerlink" href="#versions-prior-to-4-2" title="Permalink to this heading">¶</a></h3>
+<p>In firmware versions before 4.2,  the parameter <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> determines how many of the PWM outputs are used for controlling motors/servos, and how many can be re-purposed and used as GPIO-style outputs.</p>
+<p>If an autopilot has <strong>X</strong> outputs, then the number of available outputs that can be assigned via the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter to be a relay, LED, etc. output is ( <strong>X</strong> - <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> ). These GPIO outputs begin at the highest output number and proceed downward. So, for example, if the total outputs is 6 and <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> = 4, then output 5/6 can be used for GPIO type functions.</p>
+<p>The exception is autopilots using an IOMCU co-processor. These autopilots normally have 8 MAIN outputs, and several AUX outputs. Only the AUX outputs can be re-purposed as GPIOs, and the <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> parameter only applies to this group of outputs.</p>
+<p>For example, the Pixhawk has 8 MAIN outputs for motors/servos, and 6 AUX outputs. The default value for <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> for this controller is 4, so AUX OUTPUT 5 &amp; 6 can be used. More can be enabled for use as GPIO type output functions by decreasing <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code>.</p>
+<img alt="../_images/Relay_Pixhawk.jpg" src="../_images/Relay_Pixhawk.jpg" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> requires a reboot of the autopilot for it to take effect.</p>
+</div>
+</section>
+<section id="version-4-2-and-later">
+<h3>Version 4.2 and later<a class="headerlink" href="#version-4-2-and-later" title="Permalink to this heading">¶</a></h3>
+<p>in firmware versions 4.2 and later, the method for setting a PWM/SERVO/MOTOR output to be a GPIO function changed. In order to do this, the individual <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter is merely set to “-1”. If the servo function is being “mirrored” to a remote device, as in the case of a DroneCAN or KDECAN ESC, then in order to change the autopilot board’s corresponding output pin to be a GPIO, but allow the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to still be assigned to the remote device, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter can be used to assign the board pin to be a GPIO without affecting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> assignment for the remote device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for autopilots using IOMCUs, if a “MAIN” output is configured as a GPIO, it can only function as an output (ie RELAY,etc.) not an input. “AUX” outputs can function either as inputs or outputs when configures as a GPIO.</p>
+</div>
+<p>Everytime the autopilot initializes, it sends a log message to the ground control station, showing which outputs are PWM/Oneshot/or DShot. The remaining higher numbered outputs are assigned as GPIOs.</p>
+<img alt="../_images/RCOutbanner.jpg" src="../_images/RCOutbanner.jpg" />
+</section>
+</section>
+<section id="gpio-pin-number">
+<h2>GPIO “PIN” NUMBER<a class="headerlink" href="#gpio-pin-number" title="Permalink to this heading">¶</a></h2>
+<p>Some GPIO-based functions require that the GPIO “pin number” to be entered into an associated parameter.This pin number is assigned in the autopilot’s hardware definition file. Usually, the first GPIO capable output is assigned pin 50, the second 51, etc. So in the above case of the Pixhawk, AUX OUT 6 is pin 55.</p>
+<p>You can verify an output’s GPIO pin number assignment easily. First, find its hwdef.dat file <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">here</a> and determine the GPIO pin number listed beside its output number, as shown below:</p>
+<img alt="../_images/GPIO_numbers.png" src="../_images/GPIO_numbers.png" />
+<p>IOMCU “MAIN” output 1 thru 8 are mapped to GPIO pin numbers 101 to 108, respectively.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usually, changing any feature or function’s GPIO pin assignment will require a reboot for it to take effect.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

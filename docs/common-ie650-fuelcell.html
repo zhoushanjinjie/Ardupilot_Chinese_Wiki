@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligent Energy Fuel Cell 650W/800W &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intelligent Energy Fuel Cell 650W/800W</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intelligent-energy-fuel-cell-650w-800w">
+<span id="common-ie650-fuelcell"></span><h1>Intelligent Energy Fuel Cell 650W/800W<a class="headerlink" href="#intelligent-energy-fuel-cell-650w-800w" title="Permalink to this heading">¶</a></h1>
+<figure class="align-default">
+<a class="reference external image-reference" href="../_images/ie650-fuel-cell-tarrot.jpg"><img alt="../_images/ie650-fuel-cell-tarrot.jpg" src="../_images/ie650-fuel-cell-tarrot.jpg" /></a>
+</figure>
+<p>This page explains how to connect Intelligent Energy’s 650W and 800W fuel cells to ArduPilot.  Telemetry from the fuel cell is transmitted via serial to ArduPilot.  This gives the following feedback:</p>
+<ul class="simple">
+<li><p>Hydrogen tank level as a percentage.</p></li>
+<li><p>Battery remaining as a percentage.</p></li>
+<li><p>Fuel cell state.</p></li>
+<li><p>Error codes.</p></li>
+</ul>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
+<section id="connecting-the-device">
+<h3>Connecting the Device<a class="headerlink" href="#connecting-the-device" title="Permalink to this heading">¶</a></h3>
+<p>Connect the UART from the ‘Customer Interface’ port on the fuel cell to any serial port on your autopilot.  <a class="reference external" href="https://www.intelligent-energy.com/our-products/support/">See device user manual</a> for details on where to find the ‘Customer Interface’.  Only the GND, UART TX, and UART RX connections are required.  See the diagram below:</p>
+<figure class="align-center">
+<a class="reference external image-reference" href="../_images/ie650_800_Connection.png"><img alt="../_images/ie650_800_Connection.png" src="../_images/ie650_800_Connection.png" style="width: 400px;" /></a>
+</figure>
+</section>
+<section id="parameter-configuration">
+<h3>Parameter Configuration<a class="headerlink" href="#parameter-configuration" title="Permalink to this heading">¶</a></h3>
+<p>Enable the fuel cell driver by setting <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#gen-type" title="(in Rover)"><span class="xref std std-ref">GEN_TYPE</span></a> to 1.</p>
+<p>Fuel cell telemetry is transmitted over serial.  The appropriate serial port needs to be configured to receive fuel cell data.  Set the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIALX_PROTOCOL</span></a> parameter to 30 for generator.</p>
+<p>The generator library utilises the battery monitor mavlink message to display fuel cell telemetry on the ground station.  Two battery monitor instances are required for one fuel cell.  One for the fuel tank and another for the battery.  Set <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATTX_MONITOR</span></a> parameter to 17 for the fuel cells electrical data.  Set another <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATTX_MONITOR</span></a> parameter to 18 for the hydrogen tank telemetry.</p>
+<p>This fuel cell unit only reports battery percentage remaining and tank percentage remaining.  As such, the following parameters must be set for both tank and battery:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-capacity" title="(in Rover)"><span class="xref std std-ref">BATTX_CAPACITY</span></a> = 100 must be set to give a sensible readout of a percentage on the GCS.</p></li>
+<li><p>Capacity related failsafes can be set using <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-low-mah" title="(in Rover)"><span class="xref std std-ref">BATTX_LOW_MAH</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-crt-mah" title="(in Rover)"><span class="xref std std-ref">BATTX_CRT_MAH</span></a>, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-arm-mah" title="(in Rover)"><span class="xref std std-ref">BATTX_ARM_MAH</span></a>.</p></li>
+</ul>
+<p>Reboot the autopilot after setting the parameters for the settings to take effect.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In this instance, ignore the units of these parameters.  The capacities are only reported as a percentage.  As such values should be entered in the range from 1 to 100.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No voltage data is available for these units and a fixed voltage of 1 V is always reported.  To avoid low voltage pre-arm warnings and failsafes <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-arm-volt" title="(in Rover)"><span class="xref std std-ref">BATTX_ARM_VOLT</span></a> = 0, <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-low-volt" title="(in Rover)"><span class="xref std std-ref">BATTX_LOW_VOLT</span></a> = 0, and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-crt-volt" title="(in Rover)"><span class="xref std std-ref">BATTX_CRT_VOLT</span></a> = 0 must be set to disable voltage related failsafes on this model.</p>
+</div>
+</section>
+</section>
+<section id="fuel-cell-status">
+<h2>Fuel Cell Status<a class="headerlink" href="#fuel-cell-status" title="Permalink to this heading">¶</a></h2>
+<p>The fuel cell reports status over the telemetry.  The status levels are:</p>
+<ul class="simple">
+<li><p>Starting</p></li>
+<li><p>Ready</p></li>
+<li><p>Running</p></li>
+<li><p>Fault</p></li>
+<li><p>Battery Only</p></li>
+</ul>
+<p>A message will be displayed on the GCS and in the flight log whenever the fuel cell status changes.  The vehicle can only be armed when the fuel cell is reporting a status of ‘Running’.</p>
+</section>
+<section id="failsafes-and-pre-arm-checks">
+<h2>Failsafes and Pre-Arm Checks<a class="headerlink" href="#failsafes-and-pre-arm-checks" title="Permalink to this heading">¶</a></h2>
+<p>Failsafes and pre-arm checks are hard-coded and based on the error codes sent by the fuel cell.  Failsafes have been separated into two groups: Low and Critical.  The error code groups are listed below.  If an error code is received from the fuel cell, the resulting failsafe action will be set by the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fs-low-act" title="(in Rover)"><span class="xref std std-ref">BATTX_FS_LOW_ACT</span></a> and <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fs-crt-act" title="(in Rover)"><span class="xref std std-ref">BATTX_FS_CRT_ACT</span></a> respectively.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Monitoring of the fuel cell’s internal error codes for pre-arm checks and failsafes are only done on the battery monitor instance allocated for the electrical telemetry.  The electrical battery monitor instance must therefore be set to trigger failsafes based on error codes.</p>
+</div>
+<section id="failsafe-low-action-error-code-group">
+<h3>Failsafe Low Action Error Code Group<a class="headerlink" href="#failsafe-low-action-error-code-group" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+
+<tr>
+<th>Error Code</th>
+<th>Definition</th>
+</tr>
+
+<tr>
+<td>0x4000000</td>
+<td>Fan over current (> 0.25 A)</th>
+</tr>
+
+<tr>
+<td>0x100000</td>
+<td>Fuel cell's internal State is set 'stop' for > 15 s</th>
+</tr>
+
+<tr>
+<td>0x20000</td>
+<td>Tank pressure < 15 barg</th>
+</tr>
+
+<tr>
+<td>0x2000</td>
+<td>Stack 1 under temperature (< 5 degC)</th>
+</tr>
+
+<tr>
+<td>0x1000</td>
+<td>Stack 2 under temperature (< 5 degC)</th>
+</tr>
+
+<tr>
+<td>0x800</td>
+<td>Battery under voltage warning (21.6 V)</th>
+</tr>
+
+<tr>
+<td>0x200</td>
+<td>Fan pulse aborted</th>
+</tr>
+
+<tr>
+<td>0x100</td>
+<td>Stack under voltage (650 W < 17.4V, 800 W < 21.13 V)</th>
+</tr>
+
+<tr>
+<td>0x80</td>
+<td>Stack under voltage and battery power below threshold (< -200 W)</th>
+</tr>
+
+<tr>
+<td>0x10</td>
+<td>Battery charger fault</th>
+</tr>
+
+<tr>
+<td>0x8</td>
+<td>Battery undertemperature (< -15 degC)</th>
+</tr>
+
+</tbody>
+</table></section>
+<section id="failsafe-critical-action-error-code-group">
+<h3>Failsafe Critical Action Error Code Group<a class="headerlink" href="#failsafe-critical-action-error-code-group" title="Permalink to this heading">¶</a></h3>
+<table border="1" class="docutils">
+<tbody>
+
+<tr>
+<th>Error Code</th>
+<th>Definition</th>
+</tr>
+
+<tr>
+<td>0x80000000</td>
+<td>Stack 1 over temperature alert (>58 degC)</td>
+</tr>
+
+<tr>
+<td>0x40000000</td>
+<td>Stack 2 over temperature alert (>58 degC)</td>
+</tr>
+
+<tr>
+<td>0x20000000</td>
+<td>Battery under volt alert (<19 V)</td>
+</tr>
+
+<tr>
+<td>0x10000000</td>
+<td>Battery over temperature alert (>65 degC)</td>
+</tr>
+
+<tr>
+<td>0x8000000</td>
+<td>No fan current detected (<0.01 A)</td>
+</tr>
+
+<tr>
+<td>0x2000000</td>
+<td>Stack 1 over temperature critical (>57 degC)</td>
+</tr>
+
+<tr>
+<td>0x1000000</td>
+<td>Stack 2 over temperature critical (>57 degC)</td>
+</tr>
+
+<tr>
+<td>0x800000</td>
+<td>Battery under volt warning (<19.6 V)</td>
+</tr>
+
+<tr>
+<td>0x400000</td>
+<td>Battery over temperature warning (>60 degC)</td>
+</tr>
+
+<tr>
+<td>0x200000</td>
+<td>Fuel cell's internal State == start for > 30 s</td>
+</tr>
+
+<tr>
+<td>0x80000</td>
+<td>Tank pressure < 6 barg</td>
+</tr>
+
+<tr>
+<td>0x40000</td>
+<td>Tank pressure < 5 barg</td>
+</tr>
+
+<tr>
+<td>0x10000</td>
+<td>Fuel cell's internal safety flags not set true</td>
+</tr>
+
+<tr>
+<td>0x8000</td>
+<td>Stack 1 denied start</td>
+</tr>
+
+<tr>
+<td>0x4000</td>
+<td>Stack 2 denied start</td>
+</tr>
+
+<tr>
+<td>0x400</td>
+<td>Battery under voltage (21.6 V) and master denied</td>
+</tr>
+
+<tr>
+<td>0x40</td>
+<td>Over voltage and over current protection</td>
+</tr>
+
+<tr>
+<td>0x20</td>
+<td>Invalid serial number</td>
+</tr>
+
+</tbody>
+</table></section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h3>
+<p>This example has been provided to make it clear how the failsafe actions are set.</p>
+<p>The battery monitors have been configured so that electrical telemetry data is on battery monitor 1 and hydrogen tank telemetry is on battery monitor 2:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> = 17 (electrical data)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-monitor" title="(in Rover)"><span class="xref std std-ref">BATT2_MONITOR</span></a> = 18 (tank data)</p></li>
+</ul>
+<p>The failsafe actions that correspond to the error code groups listed above are then set on battery monitor 1 as that is the one associated with the electrical telemetry data.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fs-low-act" title="(in Rover)"><span class="xref std std-ref">BATT_FS_LOW_ACT</span></a> = 2 (RTL)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fs-crt-act" title="(in Rover)"><span class="xref std std-ref">BATT_FS_CRT_ACT</span></a> = 1 (land)</p></li>
+</ul>
+<p>A tank level failsafe has been set on battery monitor 2 so that the vehicle will return to land when the fuel level gets below 25%.  This is done by setting:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-fs-low-act" title="(in Rover)"><span class="xref std std-ref">BATT2_FS_LOW_ACT</span></a> = 2 (RTL)</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt2-capacity" title="(in Rover)"><span class="xref std std-ref">BATT2_CAPACITY</span></a> = 100</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-low-mah" title="(in Rover)"><span class="xref std std-ref">BATTX_LOW_MAH</span></a> = 25</p></li>
+</ul>
+<p>As previously mentioned, battery capacity failsafes can be used on this model.  Hence, as a final belt-and-braces approach a critical voltage failsafe has been set on the electrical generator monitor instance to initiate an immediate landing if battery remaining gets to 40%:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-crt-mah" title="(in Rover)"><span class="xref std std-ref">BATT_CRT_MAH</span></a> = 40</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-capacity" title="(in Rover)"><span class="xref std std-ref">BATT_CAPACITY</span></a> = 100</p></li>
+</ul>
+</section>
+</section>
+<section id="driver-not-healthy">
+<h2>Driver Not Healthy<a class="headerlink" href="#driver-not-healthy" title="Permalink to this heading">¶</a></h2>
+<p>If you see the <cite>Generator: Not Healthy</cite> message in the GCS then ArduPilot has not received any data packets from the fuel cell for at least 5 seconds.  Check the following for common causes to this issue:</p>
+<ul class="simple">
+<li><p>Fuel cell is powered on</p></li>
+<li><p>Telemetry is connected to an autopilot serial port.</p></li>
+<li><p>The serial connection is wired correctly (TX-&gt;RX, RX-&gt;TX).</p></li>
+<li><p>The <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial1-protocol" title="(in Rover)"><span class="xref std std-ref">SERIALX_PROTOCOL</span></a> parameter is set to generator for the correct telemetry port.</p></li>
+</ul>
+</section>
+<section id="flight-log-data">
+<h2>Flight Log Data<a class="headerlink" href="#flight-log-data" title="Permalink to this heading">¶</a></h2>
+<p>The fuel and battery levels are logged as percentage used.  They are logged under the ‘BAT’ data group.  Battery used will be displayed under ‘CurrTot’ for the electrical instance.  Fuel used will be displayed under ‘CurrTot’ for the fuel instance.</p>
+<p>Fuel cell state and error messages are stored under the ‘MSG’ data group.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

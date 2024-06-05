@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuel Flow and Level Sensors &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Fuel Flow and Level Sensors</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fuel-flow-and-level-sensors">
+<span id="common-fuel-sensors"></span><h1>Fuel Flow and Level Sensors<a class="headerlink" href="#fuel-flow-and-level-sensors" title="Permalink to this heading">¶</a></h1>
+<p>In firmware versions 4.0 and later, ArduPilot provides the ability to use fuel flow and level sensors, in addition to battery monitors. Pulse output fuel flow sensors, PWM output fuel level sensors, and analog output fuel level sensors are supported. Just as an analog battery monitor provides current flow measurements with the capacity status being computed by the autopilot, these sensors provide fuel use or level status measurements to enable the same reporting and monitoring for liquid fuel systems.</p>
+<section id="fuel-flow-sensors">
+<h2>Fuel Flow Sensors<a class="headerlink" href="#fuel-flow-sensors" title="Permalink to this heading">¶</a></h2>
+<p>Fuel flow sensors that provide a pulse for each unit of consumed fuel, such as <a class="reference external" href="https://www.btflowmeter.com/en/flow-meter-products/flow-meters-lowflow-flowmeters-low-flow-turbine-flow-meter-fuel-flow-meters-diesel-fuel-flow-meter-watermeters-paddlewheel-flow-meter-oil-flow-meter-oilflowmeter-waterflowmeter-water-meters-turbineflowmeter-oilflowmeter/mini-flowmeter-fch-mini-pp-series-chemical/fch-m-pp-30-lpm-97478169-lc.html">this</a>, shown below, can be used just like a battery would be in ArduPilot, with monitoring, display, failsafes, etc.</p>
+<a class="reference external image-reference" href="../_images/fuelflow-sensor.jpg"><img alt="../_images/fuelflow-sensor.jpg" src="../_images/fuelflow-sensor.jpg" /></a>
+<p>image courtesy <a class="reference external" href="https://www.btflowmeter.com/home.html">BIO-TECH</a></p>
+<p>The displays/logs/limits for amps and mAh consumed are now actually the liters/hour and milliliters consumed. The voltage will always report as 1.0V.</p>
+<section id="connecting-to-the-autopilot">
+<h3>Connecting to the Autopilot<a class="headerlink" href="#connecting-to-the-autopilot" title="Permalink to this heading">¶</a></h3>
+<p>Any GPIO capable pin on the <a class="reference internal" href="common-autopilots.html#common-autopilots"><span class="std std-ref">autopilot</span></a> can be used to connect to the sensor’s output. If it is an open-collector output, a 10kOhm external resistor pull-up to 3.3V will be required. For Pixhawk-style autopilots, any AUX pin can be used. For most other autopilots, an upper PWM output can be used.
+In either case, it must be freed up from use as a PWM output by setting the <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> lower than the total number of outputs available for PWM use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in firmware versions 4.2 and later, the method for setting a PWM/SERVO/MOTOR output to be a GPIO function is changed. Instead of <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> being used, the individual <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> parameter is merely set to “-1”. If set to “0”, it remains a PWM output, unassigned to a function, and outputs that output’s trim value when board safety is not active. If the servo function is being “mirrored” to a remote device, as in the case of a DroneCAN or KDECAN ESC, then in order to change the autopilot board’s corresponding output pin to be a GPIO, but allow the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> to still be assigned to the remote device, the <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#servo-gpio-mask" title="(in Rover)"><span class="xref std std-ref">SERVO_GPIO_MASK</span></a> parameter can be used to assign the board pin to be a GPIO without affecting the <code class="docutils literal notranslate"><span class="pre">SERVOx_FUNCTION</span></code> assignment for the remote device.</p>
+</div>
+<p>For example, if the board provides 6 outputs normally, setting <code class="docutils literal notranslate"><span class="pre">BRD_PWM_COUNT</span></code> to 5 would make PWM output 6 available for use as a GPIO.
+The pin number assigned to that output when used as a GPIO needs to be determined from its hwdef.dat file, located <a class="reference external" href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">here</a> as shown below, where PWM6 is assigned as GPIO pin 55 when used as such:</p>
+<a class="reference external image-reference" href="../_images/gpio.png"><img alt="../_images/gpio.png" src="../_images/gpio.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These sensors can sometimes provide erroneous data due to vibrations. This will cause the autopilot to assume that a higher amount of fuel has passed through the sensor than has been consumed from the tank.</p>
+</div>
+</section>
+</section>
+<section id="fuel-level-sensors">
+<h2>Fuel Level Sensors<a class="headerlink" href="#fuel-level-sensors" title="Permalink to this heading">¶</a></h2>
+<section id="pwm-fuel-level-sensors">
+<h3>PWM Fuel Level Sensors<a class="headerlink" href="#pwm-fuel-level-sensors" title="Permalink to this heading">¶</a></h3>
+<p>Fuel level sensors that output a PWM signal proportional to the level of fuel remaining in the tank such as the one supplied by <a class="reference external" href="https://www.foxtechfpv.com/pwm-output-liquid-level-senser.html">Foxtech</a> shown below are supported.</p>
+<a class="reference external image-reference" href="../_images/fuel-level-sensor.jpg"><img alt="../_images/fuel-level-sensor.jpg" src="../_images/fuel-level-sensor.jpg" /></a>
+<p>The displays/logs/limits for mAh consumed are now actually the milliliters consumed with 1100 us PWM input indicating empty, and 1900 us PWM indicating full. The voltage will always report as 1.0V. The current is undefined.</p>
+<p>Any GPIO-capable pin can be used as the PWM input from the sensor.</p>
+<section id="parameter-setup">
+<h4>Parameter Setup<a class="headerlink" href="#parameter-setup" title="Permalink to this heading">¶</a></h4>
+<p>Like analog battery current and capacity monitoring, the key parameters are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> This sets the type of sensor. In this case, type 11 for pulse fuel flow sensors, and 12 for PWM fuel level sensors.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-curr-pin" title="(in Rover)"><span class="xref std std-ref">BATT_CURR_PIN</span></a> This is the GPIO pin where the sensor is attached.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-amp-pervlt" title="(in Rover)"><span class="xref std std-ref">BATT_AMP_PERVLT</span></a> This is set in milliliters per pulse for fuel flow sensors.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-capacity" title="(in Rover)"><span class="xref std std-ref">BATT_CAPACITY</span></a> This is the capacity in milliliters.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-low-mah" title="(in Rover)"><span class="xref std std-ref">BATT_LOW_MAH</span></a> This is set in milliliters instead of mAh.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-crt-mah" title="(in Rover)"><span class="xref std std-ref">BATT_CRT_MAH</span></a> This is set in milliliters instead of mAh.</p></li>
+</ul>
+</section>
+</section>
+<section id="analog-fuel-level-sensors">
+<h3>Analog Fuel Level Sensors<a class="headerlink" href="#analog-fuel-level-sensors" title="Permalink to this heading">¶</a></h3>
+<p>Fuel level sensors that output voltage are supported in ArduPilot version 4.3 and later. These types of sensors are also sometimes called fuel senders and are widely available from many manufacturers. Just as with the PWM type sensors, the estimated volume of fluid in the tank is shown as mAh when it is now actually milliliters.</p>
+<p>Any analog-capable pin can be used as the input from the sensor. Carefully consider the maximum voltage that the chosen ADC pin can measure and tolerate. Adding an external voltage divider might be necessary. To assist with calibrating these types of sensors, the voltage ArduPilot sees on the analog pin is shown in the battery voltage field.</p>
+<p>A low-pass filter feature is available to reduce the impact of tank slosh on the measured fuel level. The battery current field shows the voltage through the low-pass filter. The suggested range for the low-pass filter is between 0.2 Hz and 0.5 Hz. Setting the filter to a value of -1 will disable it and unfiltered voltage from the analog pin will be used. The filtered voltage value will be logged with a cutoff frequency of 0.3 Hz even when the filter is disabled.</p>
+<a class="reference external image-reference" href="../_images/FuelLevelAnalogFilteredAndUnfiltered.png"><img alt="../_images/FuelLevelAnalogFilteredAndUnfiltered.png" src="../_images/FuelLevelAnalogFilteredAndUnfiltered.png" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature assumes linear fuel tank shapes and even distribution of fuel in the tank. It will not take into account non-uniform-shaped tanks or sloped fuel levels. This should be taken into consideration when setting failsafe values.</p>
+</div>
+<section id="id1">
+<h4>Parameter Setup<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-monitor" title="(in Rover)"><span class="xref std std-ref">BATT_MONITOR</span></a> The sets the type of sensor. In this case, use type 24 for analog fuel level sensors.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-capacity" title="(in Rover)"><span class="xref std std-ref">BATT_CAPACITY</span></a> This is the capacity in milliliters.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fl-vlt-min" title="(in Rover)"><span class="xref std std-ref">BATT_FL_VLT_MIN</span></a> This is the minimum voltage seen on the analog pin when the fuel tank is empty.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fl-v-mult" title="(in Rover)"><span class="xref std std-ref">BATT_FL_V_MULT</span></a> The is a multiplier calculated using the minimum and maximum voltage measured on the analog pin. This is calculated as 1 / (Voltage_Full - Voltage_Empty).</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fl-fltr" title="(in Rover)"><span class="xref std std-ref">BATT_FL_FLTR</span></a> This is the frequency of the low pass filter in Hertz. A value of -1 disables the filter and unfiltered voltage is used to determine the fuel level.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#batt-fl-pin" title="(in Rover)"><span class="xref std std-ref">BATT_FL_PIN</span></a> This is the analog pin where the sensor is attached.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

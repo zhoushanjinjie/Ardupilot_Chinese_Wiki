@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MSP OSD &mdash; Copter  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/common_theme_override.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon_copter.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/./useralerts.js"></script>
+        <script data-domain="ardupilot.org" defer="defer" src="https://plausible.ardupilot.org/js/script.outbound-links.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Copter
+              <img src="../_static/ardupilot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="copter-introduction.html">Copter简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-autopilots.html">选择飞控</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-GCS.html">地面站软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initial-setup.html">首次设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flying-arducopter.html">首次飞行和调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traditional-helicopters.html">传统直升机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-mission-planning.html">任务规划</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-when-problems-arise.html">如果出现问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-advanced-configuration.html">高级配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-optional-hardware.html">可选硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional-information.html">附加信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-user-alerts.html">用户警报</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Copter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MSP OSD</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="msp-osd">
+<span id="common-msp-osd-overview"></span><h1>MSP OSD<a class="headerlink" href="#msp-osd" title="Permalink to this heading">¶</a></h1>
+<p>ArduPilot supports the MSP OSD protocol which allows displaying flight data on the DJI goggles, much like with external MAVLink OSDs or the internal integrated analog OSD in many autopilots. It can also be used with external OSDs , such as the MWOSD, if its configured for MSP telemetry, as is used with iNav or Betaflight.</p>
+<p>DJI V1 FPV Goggles</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/msp_dji_fpv_goggles.jpeg"><img alt="../_images/msp_dji_fpv_goggles.jpeg" src="../_images/msp_dji_fpv_goggles.jpeg" /></a>
+</div></blockquote>
+<p>DJI Goggles RE</p>
+<blockquote>
+<div><a class="reference external image-reference" href="../_images/msp_dji_goggles_re.jpeg"><img alt="../_images/msp_dji_goggles_re.jpeg" src="../_images/msp_dji_goggles_re.jpeg" /></a>
+</div></blockquote>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>ArduPilot currently supports many, but not all, of the OSD panel items as noted in the section below.</p></li>
+<li><p>Changing display units other than metric and imperial are not currently supported.</p></li>
+<li><p>Multiple screens and remote switching of those screens is not supported.</p></li>
+<li><p>Warning levels for RSSI, Voltage, etc. currently not supported</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="configuration">
+<h2>配置<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>To enable MSP OSD, set the following parameters (example below is using SERIAL port 2 as the port to attach to the DJI Air unit using both TX and RX lines):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#osd-type" title="(in Rover)"><span class="xref std std-ref">OSD_TYPE</span></a> = 3  (only required to obtain statistics information panels). Can be set to 1 if autopilot has integrated analog OSD to use that feature in addition to the MSP OSD feature for DJI goggles.</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#serial2-protocol" title="(in Rover)"><span class="xref std std-ref">SERIAL2_PROTOCOL</span></a> = 33</p></li>
+<li><p><a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#msp-options" title="(in Rover)"><span class="xref std std-ref">MSP_OPTIONS</span></a> = 0 (polling mode)</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DJI OSD must be enabled: in SETTINGS-&gt;DISPLAY-&gt;CUSTOM OSD menu of goggles</p>
+</div>
+</section>
+<section id="osd-panel-items">
+<h2>OSD Panel Items<a class="headerlink" href="#osd-panel-items" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>OSD Parameter</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OSDn_ALTITUDE</p></td>
+<td><p>Home relative altitude</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_ARMING</p></td>
+<td><p>Arming status, hidden when armed otherwise showing DISARMED</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_ASPEED</p></td>
+<td><p>Please refer to OSDn_GSPEED for more info on enabling airspeed display</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_BAT_VOLT</p></td>
+<td><p>First battery voltage</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_BATTBAR</p></td>
+<td><p>First battery remaining percentage rendered as a bar based on declared capacity and consumed mAh</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_BATUSED</p></td>
+<td><p>First battery consumed mAh</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_CELLVOLT</p></td>
+<td><p>First battery average cell voltage, if automatic cell detection fails please override with MSP_OSD_NCELLS</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_CLK</p></td>
+<td><p>Realtime clock (requires GPX fix)</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_CRSSHAIR</p></td>
+<td><p>Artificial horizon is not supported so crosshair is often kept hidden</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_CURRENT</p></td>
+<td><p>First battery current</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_ESCTEMP</p></td>
+<td><p>On DJI V1/V2 Goggles this will report the highest ESC temperature</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_FLTMODE</p></td>
+<td><p>DJI hardware does not support ArduPilot’s flight modes! This item will generally be blank and only show !FS! while in failsafe!</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_GPSLAT</p></td>
+<td><p>GPS Latitude in decimal format</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_GPSLONG</p></td>
+<td><p>GPS Longitude in decimal format</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_GSPEED</p></td>
+<td><p>This item shows ground speed unless <code class="docutils literal notranslate"><span class="pre">OSDn_ASPEED_EN</span></code> = 1 in which case it will show true airspeed if an airspeed sensor is present or estimated airspeed otherwise. The position on screen is set by <code class="docutils literal notranslate"><span class="pre">OSDn_GSPEED_X</span></code> and <code class="docutils literal notranslate"><span class="pre">OSDn_GSPEED_Y</span></code> regardless of the value of <code class="docutils literal notranslate"><span class="pre">OSDn_ASPEED_EN</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_HEADING</p></td>
+<td><p>Not supported by DJI V1/V2 Goggles</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_HOMEDIR</p></td>
+<td><p>Rotating arrow pointing to home</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_HOMEDIST</p></td>
+<td><p>Distance from home</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_HORIZON</p></td>
+<td><p>Not supported by DJI V1/V2 Goggles</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_MESSAGE</p></td>
+<td><p>This will display status text messages as rolling text. Status text messages will be hidden after a couple seconds and the panel will show the current flightmode. If <code class="docutils literal notranslate"><span class="pre">OSDn_WIND_EN</span></code> is set to 1, this item also displays wind info next to the current flight mode as a rotating arrow and speed.</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_PITCH</p></td>
+<td><p>Pitch angle</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_POWER</p></td>
+<td><p>Instant power calculated as voltage * current</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_ROLL</p></td>
+<td><p>Roll angle</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_RSSI</p></td>
+<td><p>Rssi as configured in <a class="reference external" href="https://ardupilot.org/rover/docs/parameters.html#rssi-type" title="(in Rover)"><span>RSSI_TYPE: RSSI Type</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_SATS</p></td>
+<td><p>On DJI V1/V2 Goggles when there’s no fix it will report 14 sats, this is a known DJI bug</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_SIDEBARS</p></td>
+<td><p>Not supported by DJI V1/V2 Goggles</p></td>
+</tr>
+<tr class="row-even"><td><p>OSDn_VSPEED</p></td>
+<td><p>Vertical speed</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSDn_WIND</p></td>
+<td><p>Please refer to OSDn_MESSAGE for wind speed and direction rendering</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="osd-panel-item-configuration">
+<h2>OSD Panel Item Configuration<a class="headerlink" href="#osd-panel-item-configuration" title="Permalink to this heading">¶</a></h2>
+<p>Each OSD panel item uses a set of three variables to be set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;_EN</span></code> - activates the respective panel item on screen “n” when set to 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;_X</span></code> and <code class="docutils literal notranslate"><span class="pre">OSDn_&lt;ITEM&gt;_Y</span></code> set the horizontal and vertical position of the item, starting with <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">0</span></code> in the upper left corner of your screen.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArduPilot calculates a sensor-less airspeed estimate that is used if no sensor is present or fails. ARSPD_TYPE must be set to zero in order to display this value as the airspeed item, if no sensor is present.</p>
+</div>
+</section>
+<section id="testing-osd-with-sitl">
+<h2>Testing OSD with SITL<a class="headerlink" href="#testing-osd-with-sitl" title="Permalink to this heading">¶</a></h2>
+<p>OSD functionality can be tested and panel items adjusted without autopilot or video hardware using the <a class="reference external" href="https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html#sitl-simulator-software-in-the-loop" title="(in Dev)"><span class="xref std std-ref">Software In The Loop (SITL) simulator</span></a> setup. Follow those SITL-Instructions to setup a simulation environment. Run the simulator on current source code using <code class="docutils literal notranslate"><span class="pre">--osdmsp</span></code> option to build the OSD code into the simulator. For example, for a plane simulation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sim_vehicle</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">v</span> <span class="n">ArduPlane</span> <span class="o">--</span><span class="n">console</span> <span class="o">--</span><span class="n">osdmsp</span>
+</pre></div>
+</div>
+<p>A graphical DJI style MSP OSD simulation in a separate window will be opened with the other simulation windows using a typical set of OSD panel parameters, located at libraries/AP_MSP/Tools/osdtest.parm . Then the OSD elements can be customized by their parameters using the  MSP OSD emulation program to visualize the OSD.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You could also use these parameters to initially setup the MSP OSD configuration for use with goggles, but you may have to change the <code class="docutils literal notranslate"><span class="pre">SERIALx_PROTOCOL</span></code> parameter to match the actual serial port that you will be using.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The emulation does not support multiple screens or units other than metric</p>
+</div>
+<a class="reference external image-reference" href="../_images/msp_osd_python.png"><img alt="../_images/msp_osd_python.png" src="../_images/msp_osd_python.png" /></a>
+<p>By changing the OSD panel items’ parameters, a live update on their placement can be seen in this emulator.</p>
+</section>
+<section id="using-mission-planner-to-configure-the-layout">
+<h2>Using Mission Planner to Configure the Layout<a class="headerlink" href="#using-mission-planner-to-configure-the-layout" title="Permalink to this heading">¶</a></h2>
+<p>Mission Planner(MP) has a tab in its CONFIG menu to configure the on-board OSD many autopilots integrate. This same configuration tab can be used to configure the OSD panels. In fact, you can do that while the SITL program and MSP OSD emulation window are active by connecting Mission Planner running on the same computer, or networked computer, to MAVProxy, using this command in MAVProxy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="n">add</span> <span class="o">&lt;</span><span class="n">ip</span> <span class="n">address</span> <span class="n">of</span> <span class="n">box</span> <span class="n">running</span> <span class="n">Mission</span> <span class="n">Planner</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">14550</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if MP is running on the same PC, the ip address would be 127.0.0.1 (local host address)</p>
+</div>
+</section>
+<section id="video">
+<h2>Video<a class="headerlink" href="#video" title="Permalink to this heading">¶</a></h2>
+<div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/gT4R3E_7Z_0" style="border: 0; height: 345px; width: 560px">
+</iframe></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ArduPilot Dev Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
