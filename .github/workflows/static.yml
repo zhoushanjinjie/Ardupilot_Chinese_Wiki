@@ -25,9 +25,9 @@ jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
-      name: github-pages   名称:github-pages
-      url: $Url: ${{steps.deployment.outputs.page_url}}{{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest   上运行:ubuntu-latest
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
